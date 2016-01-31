@@ -11,7 +11,7 @@ First, select the data files of interest. Click the *Cart* button in the row cor
 
 Once all files of interest have been selected, click on the *Cart* button in the upper right-hand corner. This will bring up the cart page, which provides an overview of all currently selected files. This list of files can be downloaded as a manifest file by clicking on the blue *Download Manifest* button.
 
-[[images/04-02-Data-Portal-Cart-Page.png]]
+![Image 4.1-2 - GDC Data Portal: Cart Page](images/04-02-Data-Portal-Cart-Page.png)
 **Image 4.1-2 - GDC Data Portal: Cart Page**
 
 ## 4.2 Obtaining UUIDs for Data Download
