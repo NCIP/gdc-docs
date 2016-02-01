@@ -1,6 +1,6 @@
 # Overview
 
-More details about [Authentication and Authorization](../Commons/Authentication.md) can be found in a [dedicated section of the documentation](../Commons/Authentication.md).
+More details about [Authentication and Authorization](../../Commons/Authentication.md) can be found in a [dedicated section of the documentation](../../Commons/Authentication.md).
 
 Based on the number of projects granted to the user, the GDC Data Submission Portal will adjust its layout and provides different functionalities.
 
@@ -22,4 +22,4 @@ If the user fails to authenticate through eRA Commons and close the authenticati
 
 ## Obtaining a Token
 
-After successful authentication, users can [download a GDC Token](../Commons/Authentication.md#gdc-authentication-token) from GDC Data Submission Portal.
+After successful authentication, users can [download a GDC Token](../../Commons/Authentication.md#gdc-authentication-token) from GDC Data Submission Portal.
