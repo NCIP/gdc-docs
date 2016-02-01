@@ -6,8 +6,8 @@ The GDC API and allows queries on available data and download of open access dat
 
 Tokens are strings of characters provided with every API query for authentication. A token can be obtained through the GDC Data Portal (or GDC Data Submission Portal) once the user's NIH eRA Commons account has been established. Your GDC account will be automatically established upon first login and the user will see a drop down menu next to her/his username.
 
-![Image 3.1-1 - GDC Login and Download Token Dropdown Menu](images/03-01__GDC_Login_and_Download_Token_Dropdown_Menu.png)
-Image 3.1-1 - GDC Login and Download Token Dropdown Menu
+![Image 3.1-1 - GDC Login and Download Token Dropdown Menu](images/03-01__GDC_Login_and_Download_Token_Dropdown_Menu.png)  
+**Image 3.1-1 - GDC Login and Download Token Dropdown Menu**
 
 Users can download and save your token from here.
 
