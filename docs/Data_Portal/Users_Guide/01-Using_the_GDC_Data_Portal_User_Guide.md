@@ -3,7 +3,7 @@ The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Portal User
 The following topics introduce the GDC Data Portal and describe concepts to assist in using the GDC Data Portal.
 
 *   [Getting Started with the GDC Data Portal](02-Getting_Started_with_the_GDC_Data_Portal.md) – Introduces the GDC Data Portal and describes key features
-*   [About the Data](03-About_the_Data.md) – Provides an overview of the data available in the GDC Data Portal including supported programs and available data types, as well as information about authentication and authorization
+*   [About the Data](../../Commons/About_the_Data.md) – Provides an overview of the data available in the GDC Data Portal including supported programs and available data types, as well as information about authentication and authorization
 *   [Overview and Features](04-Overview_and_Features.md) – Illustrates how the GDC Data Portal is organized
 *   [Projects](05-Projects.md) – Details the projects page of the GDC Data Portal
 *   [Cases and Files](06-Cases_and_files.md) – Details the Data tab of the GDC Data Portal
