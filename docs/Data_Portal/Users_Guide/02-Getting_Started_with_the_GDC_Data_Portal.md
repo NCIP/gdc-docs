@@ -56,6 +56,6 @@ After successful authentication, users can [download a GDC Token](../../Commons/
 
 Users obtaining the token file should store it in a safe location where it can also be easily retrieved. The token should be treated with the same care as the eRA Commons password.
 
-# Release notes
+# Release Notes
 
-The GDC Data Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/index.md) sections of the documentation contains details about new features, bug fixes and known issues. 
+The GDC Data Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/index.md) sections of the documentation contains details about new features, bug fixes and known issues.
