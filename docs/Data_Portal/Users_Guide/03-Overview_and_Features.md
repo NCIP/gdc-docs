@@ -1,4 +1,4 @@
-# Overview
+# Overview and Features
 
 [![GDC Data Portal Sitemap](images/gdc-data-portal-sitemap.png)](images/gdc-data-portal-sitemap.png "Click to see the full image.")
 

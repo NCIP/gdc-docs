@@ -1,4 +1,4 @@
-# Overview
+# About Authentication
 
 Accessing the GDC Data Submission Portal requires eRA Commons credentials with appropriate dbGap authorization. See [Obtaining Access to Submit Data]( https://gdc.nci.nih.gov/submit-data/obtaining-access-submit-data) for more details.
 
@@ -34,8 +34,6 @@ After successful authentication, users can obtain their Token be clicking on the
 
 # Logout from GDC
 
-By clicking on logout, GDC will be redirected to an eRA Commons page, displaying the logout status. 
+By clicking on logout, GDC will be redirected to an eRA Commons page, displaying the logout status.
 
 [![GDC Logout](images/GDC_Submission_Logout.png)](images/GDC_Submission_Logout.png "Click to see the full image.")
-
-

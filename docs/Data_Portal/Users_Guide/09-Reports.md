@@ -1,7 +1,3 @@
-# Overview
-
-ADD OVERVIEW SECTION
-
 # Data Download Statistics Report
 
 The "Reports” section hosts various reports summarizing GDC Data Portal use and download statistics for various fields and Facets. 

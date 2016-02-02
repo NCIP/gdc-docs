@@ -1,4 +1,4 @@
-# Overview
+# About the Data
 
 The GDC provides access to data from several cancer research programs including The Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective Treatments (TARGET), and the Cancer Genome Characterization Initiative (CGCI).
 
@@ -30,7 +30,7 @@ Users can browse information in the GDC Portal without having to login.  Anythi
 
 While not required for public data access, a user may login using the ‘login’ button at the upper right side of GDC Data Portal opening screen. 
 
-More details about [Authentication and Authorization](../../Commons/Authentication.md) can be found in a [dedicated section of the documentation](../../Commons/Authentication.md).
+More details about [Authentication and Authorization](Authentication.md) can be found in a [dedicated section of the documentation](Authentication.md).
 
 ### GDC Data Portal Display of Controlled and Open Access Data
 
