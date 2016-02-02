@@ -124,3 +124,7 @@ The GDC Data Submission Portal provides a broad range of submission oriented rep
 
 The GDC Data Submission Portal is accessible using a web browser such as Chrome, Internet Explorer or Firefox at the following URL: [https://gdc-portal.nci.nih.gov/submission/](https://gdc-portal.nci.nih.gov/submission/).
 Upon loading the site, the GDC Data Submission Portal login page or Dashboard is displayed.
+
+# Release Notes
+
+The GDC Data Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/index.md) sections of the documentation contains details about new features, bug fixes and known issues.
