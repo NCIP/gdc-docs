@@ -1,4 +1,4 @@
-# Overview
+# About the Data
 
 The GDC provides access to data from several cancer research programs including The Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective Treatments (TARGET), and the Cancer Genome Characterization Initiative (CGCI).
 
