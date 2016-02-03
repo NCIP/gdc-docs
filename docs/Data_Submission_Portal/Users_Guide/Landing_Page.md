@@ -1,6 +1,6 @@
 # Overview
 
-After [authentication](04-Authentication_And_User_Access.md), users are redirected to a landing page (or homepage). This landing page acts as the entry point to GDC Submission, it provides easy access to all key elements useful to the authenticated user.
+After [authentication](Login.md), users are redirected to a landing page (or homepage). This landing page acts as the entry point to GDC Submission, it provides easy access to all key elements useful to the authenticated user.
 
 Different landing pages, based on the user profile, are displayed after authentication.
 
