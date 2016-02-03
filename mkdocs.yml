@@ -31,14 +31,31 @@ pages:
      - 0.1.10: 'Data_Portal/Release_Notes/0.1.10.md'
      - 0.1.8: 'Data_Portal/Release_Notes/0.1.8.md'
 - Submission Portal:
-  - About: 'index.md'
-  - Guide: 'index.md'
+  - About: 'Data_Submission_Portal/Users_Guide/01-Using_the_GDC_Data_Submission_Portal_User_Guide.md'
+  - Getting Started: 'Data_Submission_Portal/Users_Guide/02-Getting_Started_with_the_GDC_Data_Submission_Portal.md'
+  - Authentication: 'Commons/Authentication.md'
+  - Overview and Features: 'Data_Submission_Portal/Users_Guide/03-Overview_and_Features.md'
+  - User Access: 'Data_Submission_Portal/Users_Guide/04-Authentication_And_User_Access.md'
+  - Landing Page: 'Data_Submission_Portal/Users_Guide/05-Landing-Page.md'
+  - Dashboard: 'Data_Submission_Portal/Users_Guide/06-Dashboard.md'
+  - Dictionary Viewer: 'Data_Submission_Portal/Users_Guide/07-Dictionary-Viewer.md'
+  - Submit Data: 'Data_Submission_Portal/Users_Guide/08-Submit_data.md'
+  - Cases: 'Data_Submission_Portal/Users_Guide/09-Cases.md'
+  - Biospecimen: 'Data_Submission_Portal/Users_Guide/10-Biospecimen.md'
+  - Data: 'Data_Submission_Portal/Users_Guide/11-Data.md'
+  - Reports: 'Data_Submission_Portal/Users_Guide/12-Reports.md'
+  - Transactions: 'Data_Submission_Portal/Users_Guide/13-Transactions.md'
+  - Release Notes:
+     - 0.3.21: 'Data_Submission_Portal/Release_Notes/0.3.21.md'
+     - 0.2.18.3: 'Data_Submission_Portal/Release_Notes/0.2.18.3.md'
 - API:
   - About: 'index.md'
   - Guide: 'index.md'
 - Transfer Tool:
   - About: 'index.md'
   - Guide: 'index.md'
+- Dictionary:
+  - About: 'index.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'

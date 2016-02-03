@@ -1,8 +1,8 @@
-## Overview
+# Overview
 
 GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools).
 
-## Submission Wizard
+# Submission Wizard
 
 The GDC Data Submission Portal is equipped with a submission wizard window to guide you through the submission of the users files. When entering the submission process, this wizard window will provide an intuitive environment throughout the three stages of the submission:
 
@@ -10,7 +10,7 @@ The GDC Data Submission Portal is equipped with a submission wizard window to gu
 * Validate Files.
 * Submit Files.
 
-### Upload Files
+## Upload Files
 
 When in a project, clicking on _'SUBMIT'_ will open the submission wizard.
 
@@ -18,7 +18,7 @@ When in a project, clicking on _'SUBMIT'_ will open the submission wizard.
 
 Files can be added either by clicking on _'CHOOSE FILE(S)'_ or by using drag and drop.
 
-### Validate Files
+## Validate Files
 
 As soon as the first file is added, the wizard will move to the _'VALIDATE'_ section and the user can continue to add files.
 
@@ -36,7 +36,7 @@ An error report is also available to provide details about why files failed vali
 
 The dictionary viewer can be used to generate a template file to be used for submission. The template can be populated with data by the user and should result in a valid file (if validation rules detailed in the dictionary are met).
 
-### Submit Files
+## Submit Files
 
 Once all files are valid for submission, clicking on _'SUBMIT FILES'_ will submit the files to GDC.
 
@@ -46,6 +46,6 @@ Once all files are valid for submission, clicking on _'SUBMIT FILES'_ will submi
 
 You can then click on _'CLICK HERE TO VIEW THE TRANSACTION'_ to be redirected to the transaction list page.
 
-## 8.3 Download previously submitted files
+# Download previously submitted files
 
 The transaction page, accessible through the left panel menu, list all previous transactions for a specified project. The user can download submitted files in the details section of the screen by selected a particular transaction.
