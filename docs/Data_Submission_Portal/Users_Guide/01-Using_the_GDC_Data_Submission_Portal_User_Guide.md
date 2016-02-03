@@ -5,7 +5,7 @@ The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission 
 The following sections introduce the GDC Data Submission Portal and describe concepts to assist in using it.
 
 * [Getting Started](02-Getting_Started_with_the_GDC_Data_Submission_Portal.md) – Introduces the GDC Data Submission Portal and describes key features.
-* [Overview and Features](03-Overview_and_Features.md) – Provides more details about authentication and accessing the GDC Data Submission Portal.
+* [Overview and Features](Features.md) – Provides more details about authentication and accessing the GDC Data Submission Portal.
 * [Authentication and User Access](04-Authentication_And_User_Access.md) – Provides details about authentication and accessing the GDC Data Submission Portal.
 * [Landing Page](05-Landing-Page.md) – Details the first page users are redirected to following a successful authentication.
 * [Dashboard](06-Dashboard.md) – Provides high-level details, metrics and guide the user through submission of data to a project.

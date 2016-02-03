@@ -2,9 +2,11 @@
 
 While browsing through the GDC Data Portal, files can be downloaded either individually or bundled through a cart mechanism similar to online stores.
 
-[![Cart Page](images/gdc-data-portal-advanced-search.png)](images/gdc-data-portal-advanced-search.png "Click to see the full image.")
-
 The cart pages shows a summary of all files currently in the cart, display a file count by project and identified the authorization level of those files (controlled or open access).
+
+# GDC Cart
+
+ADD MORE DETAILS
 
 # Download Options
 

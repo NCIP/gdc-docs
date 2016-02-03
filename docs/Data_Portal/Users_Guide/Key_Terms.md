@@ -26,5 +26,3 @@ The following table provides definitions and explanations for terms and acronyms
 | URL | Universal Resource Locator |
 | VM | Virtual Machine |
 | XML | eXtensible Markup Language |
-
-__Table Key Terms__

@@ -1,4 +1,4 @@
-# About Advanced Search
+# Overview
 
 An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases. 
 
@@ -24,7 +24,7 @@ A query created using 'Faceted Search' will be automatically translated to 'Adva
 
 However, a query created using 'Advanced Search' is not translated to 'Faceted Search'. From the advanced search, click on Basic and you will be redirected to a reset faceted search.
 
-# Run an Advanced Search
+# Use the Advanced Search
 
 When opening the advanced search page (via the Data view), the search field will be automatically populated with facets fileters already applied (if any).
 
@@ -120,16 +120,18 @@ An operator in GQL is one or more symbols or words comparing the value of a fie
 
 **List of Operators:**
 
-*   =
-*   !=
-*   <
-*   <=
-*   >
-*   >=
-*   IN
-*   NOT IN
-*   IS MISSING
-*   IS NOT MISSING
+| Operator | Name |
+| --- | --- |
+| = | EQUAL |
+| != | NOT EQUAL |
+| < | LOWER THAN |
+| <= | LOWER THAN OR EQUAL |
+| \> | GREATER THAN |
+| \>= | GREATER THAN OR EQUAL |
+| IN | IN |
+| NOT IN | NOT IN |
+| IS MISSING | IS MISSING |
+| IS NOT MISSING | IS NOT MISSING |
 
 **Limitation**: `<`, `<=`, `>`, `>=`, Cannot be used with __text__ or __date__ fields.
 

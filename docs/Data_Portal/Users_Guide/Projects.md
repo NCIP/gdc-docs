@@ -1,4 +1,4 @@
-# Projects View
+# Projects Search
 
 ## Overview
 

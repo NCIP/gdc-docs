@@ -1,4 +1,4 @@
-# Cases and files through Data View
+# Cases and Files Search
 The data view is the entry point to data searching on the GDC Data Portal, it provides access to all main features of the portal
 
 ## Overview
@@ -82,7 +82,7 @@ Alternatively, for each row user can:
 
 # Advanced
 
-The _'Advanced'_ button redirects to the advanced query page; this feature is detailed in the [Advanced Search](08-Advanced_Search.md) section of the documentation.
+The _'Advanced'_ button redirects to the advanced query page; this feature is detailed in the [Advanced Search](Advanced_Search.md) section of the documentation.
 
 # Case Entity Page
 

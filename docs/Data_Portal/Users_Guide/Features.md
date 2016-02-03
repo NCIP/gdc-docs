@@ -1,8 +1,12 @@
-# Overview and Features
+# Sitemap
 
 [![GDC Data Portal Sitemap](images/gdc-data-portal-sitemap.png)](images/gdc-data-portal-sitemap.png "Click to see the full image.")
 
-The above image shows GDC Data Portal sitemap. The portal is composed by 8 major sections available to the user through a toolbar on the upper level of the GDC Data Portal.
+The portal is composed by 8 major sections available to the user through a toolbar on the upper level of the GDC Data Portal.
+
+# Main Menu
+
+## Left Section
 
 [![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-left.png)](images/gdc-data-portal-top-menu-bar-left.png "Click to see the full image.")
 
@@ -15,6 +19,8 @@ The left portion of this toolbar provides access to the following elements:
 * __Help__: A link to this user guide
 
 Each _'Projects'_, _'Data'_, and _'Annotations'_ view enables the user to set filters from within the view to either browse the data or select it for export or download. It provides different and independent ways of organizing GDC data and metadata.   
+
+## Right Section
 
 [![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-right.png)](images/gdc-data-portal-top-menu-bar-right.png "Click to see the full image.")
 
@@ -70,7 +76,7 @@ Only available in the _'Data'_ view, the Advanced Search page offers complex que
 
 [![Access to Advanced Search from Data View](images/gdc-data-portal-access-advanced-search-data-view.png)](images/gdc-data-portal-access-advanced-search-data-view.png "Click to see the full image.")
 
-A specific section of this document is dedicated to the Advanced Search feature.
+The [Advanced Search](Advanced_Search.md) section of the documentation provides more details about this feature.
 
 ## Quick Search
 
