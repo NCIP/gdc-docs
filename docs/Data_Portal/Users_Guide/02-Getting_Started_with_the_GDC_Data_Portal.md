@@ -2,6 +2,8 @@
 
 ## Introduction
 
+The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Portal User's Guide is the companion documentation to the [GDC Data Portal](https://gdc.nci.nih.gov/node/7966/). The GDC User's Guide provides detailed information and instructions for using the [GDC Data Portal](https://gdc.nci.nih.gov/node/7966/).
+
 The GDC Data Portal is a robust data-driven platform that allows users to search and download cancer data sets for analysis using modern web technologies. Key GDC Data Portal features include:
 
 *   Data browsing by project, file, case, or annotation

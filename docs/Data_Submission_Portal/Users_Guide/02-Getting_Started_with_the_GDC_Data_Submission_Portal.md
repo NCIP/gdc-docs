@@ -1,4 +1,6 @@
-# Introduction to the GDC Data Submission Portal
+# Getting started with the GDC Data Submission Portal
+
+The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission Portal User's Guide is the companion documentation for the [GDC Data Submission Portal](https://gdc.nci.nih.gov/submit-data/gdc-data-submission-portal) and provides detailed information and instructions for its use.
 
 The GDC Data Submission Portal is a platform allowing researchers to submit and release their data into GDC. The key features of the GDC Data Submission Portal are:
 

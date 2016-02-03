@@ -8,11 +8,12 @@ repo_url: https://github.com/NCI-GDC/gdc-docs
 copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
-- Home: 'index.md'
+- API:
+  - About: 'index.md'
+  - Guide: 'index.md'
 - Data Portal:
-  - About: 'Data_Portal/Users_Guide/01-Using_the_GDC_Data_Portal_User_Guide.md'
-  - About the Data: 'Commons/About_the_Data.md'
   - Getting Started: 'Data_Portal/Users_Guide/02-Getting_Started_with_the_GDC_Data_Portal.md'
+  - About the Data: 'Commons/About_the_Data.md'
   - Authentication: 'Commons/Authentication.md'
   - Overview and Features: 'Data_Portal/Users_Guide/03-Overview_and_Features.md'
   - Projects: 'Data_Portal/Users_Guide/04-Projects.md'
@@ -48,9 +49,6 @@ pages:
   - Release Notes:
      - 0.3.21: 'Data_Submission_Portal/Release_Notes/0.3.21.md'
      - 0.2.18.3: 'Data_Submission_Portal/Release_Notes/0.2.18.3.md'
-- API:
-  - About: 'index.md'
-  - Guide: 'index.md'
 - Transfer Tool:
   - About: 'index.md'
   - Guide: 'index.md'
