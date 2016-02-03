@@ -1,4 +1,4 @@
-# Annotations View
+# Annotations Search
 
 ## Overview
 

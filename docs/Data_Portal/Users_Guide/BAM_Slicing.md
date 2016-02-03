@@ -1,6 +1,4 @@
-# BAM Slicing
-
-## Overview
+# Overview
 
 ! __Section to be further completed__ !
 

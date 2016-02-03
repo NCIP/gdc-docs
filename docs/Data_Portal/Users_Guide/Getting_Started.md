@@ -1,6 +1,8 @@
-# Getting Started with the GDC Data Portal
+# Getting Started
 
 ## Introduction
+
+The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Portal User's Guide is the companion documentation to the [GDC Data Portal](https://gdc.nci.nih.gov/node/7966/). The GDC User's Guide provides detailed information and instructions for using the [GDC Data Portal](https://gdc.nci.nih.gov/node/7966/).
 
 The GDC Data Portal is a robust data-driven platform that allows users to search and download cancer data sets for analysis using modern web technologies. Key GDC Data Portal features include:
 
@@ -11,6 +13,15 @@ The GDC Data Portal is a robust data-driven platform that allows users to search
 *   Data download from cart or a from GDC Data Transfer Tool
 
 Additional descriptions of key GDC Data Portal features are provided in the section that follows.
+
+## Accessing the GDC Data Portal
+
+The GDC Data Portal is accessible using a web browser such as Chrome, Internet Explorer, and Firefox at the following URL: [https://gdc-portal.nci.nih.gov](https://gdc-portal.nci.nih.gov).
+When navigating to the site, the GDC Data Portal main page is displayed.
+
+[![GDC Data Portal Main Page](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
+
+The GDC Data Portal allows download of open access data without requiring a user login. To retrieve controlled access data, users must have access to the controlled access data set through dbGaP and use the [Login](../../Commons/Authentication.md) functionality on the top-right corner of the screen.
 
 ## Key Features
 
@@ -33,30 +44,6 @@ While navigating and searching through the GDC Data Portal, researchers can add 
 ### Data Download
 
 The GDC Data Portal provides two primary channels to allow users to download data from a cart: 1) download directly from the browser or 2) download using a dedicated Data Transfer Tool. The GDC Data Portal generates a list of desired files (or manifest) that can be easily imported into the GDC Data Transfer Tool to execute the download. Note that users can download all files that are under the GDC open access policy as well as any controlled access files that they have authorization for through dbGaP. Please visit [Obtaining Access to GDC Controlled Data](https://gdc.nci.nih.gov/node/8035/) for information how to obtain authorization to access controlled data sets through dbGaP.
-
-## Accessing the GDC Data Portal
-
-The GDC Data Portal is accessible using a web browser such as Chrome, Internet Explorer, and Firefox at the following URL: [https://gdc-portal.nci.nih.gov](https://gdc-portal.nci.nih.gov). When navigating to the site, the GDC Data Portal main page is displayed (Image 2.3-1).
-
-[![GDC Data Portal Main Page](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
-
-The GDC Data Portal allows download of open access data without requiring a user login. To retrieve controlled access data, users must have access to the controlled access data set through dbGaP.
-
-## Authentication
-
-While not required for public data access, a user may login using the ‘login’ button at the upper right side of the opening screen.
-
-More details about [Authentication and Authorization](../../Commons/Authentication.md) can be found in a [dedicated section of the documentation](../../Commons/Authentication.md).
-
-If the eRA commons login was unsuccessful, the username will not be displayed.  The ‘Only My Projects’ option is chosen by default, but can be unchecked.  When this option is chosen, the user will only see projects and data for which he/she has authorization.  When it is unchecked, all projects and available data filenames will be shown, but controlled access data for which the user is not authorized will not be able to be viewed or downloaded.
-
-The GDC also supports GDC Data Transfer Tool for downloading high volumes of data, and an Application Programming Interface (API) for programmatic access to data.  The Data Transfer Tool supports download of both open and controlled access data. For download of controlled access data through the Data Transfer Tool and API a valid token (a file containing a unique key) is required. However, a token is not required for controlled data download through the portal.
-
-### Obtaining a Token
-
-After successful authentication, users can [download a GDC Token](../../Commons/Authentication.md#gdc-authentication-token) from GDC Data Portal.
-
-Users obtaining the token file should store it in a safe location where it can also be easily retrieved. The token should be treated with the same care as the eRA Commons password.
 
 ## Release Notes
 

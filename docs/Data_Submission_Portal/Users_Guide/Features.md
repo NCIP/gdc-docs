@@ -1,8 +1,12 @@
-# Overview
+# Sitemap
 
 [![GDC Data Submission Portal Sitemap](images/GDC_Submission_Portal_Sitemap.png)](images/GDC_Submission_Portal_Sitemap.png "Click to see the full image.")
 
-The above image shows the GDC Data Submission Portal sitemap. The Portal comprises different sections available through a toolbar on the upper level of the page and a navigation panel on the left-hand side of the page.
+The above image shows the GDC Data Submission Portal sitemap.
+
+# Main Menu
+
+The Portal comprises different sections available through a toolbar on the upper level of the page and a navigation panel on the left-hand side of the page.
 
 [![GDC Data Submission Toolbar](images/GDC_Submission_Toolbar.png)](images/GDC_Submission_Toolbar.png "Click to see the full image.")
 
@@ -12,7 +16,7 @@ The top toolbar provides access to the following elements:
 * __Search__: A context sensitive search provides a mechanism to search through different pages.
 * __Profile__: The user profile icon provides access to the token and to a logout feature.
 
-# Submission Portal Layout
+# Layout
 
 [![GDC Data Submission Portal Layout](images/GDC_Submission_Portal_Layout.png)](images/GDC_Submission_Portal_Layout.png "Click to see the full image.")
 
