@@ -1,0 +1,416 @@
+body {
+  padding-top: 70px;
+}
+
+h1[id]:before,
+h2[id]:before,
+h3[id]:before,
+h4[id]:before,
+h5[id]:before,
+h6[id]:before {
+  content: "";
+  display: block;
+  margin-top: -80px;
+  height: 80px;
+}
+
+ul.nav li.main {
+  font-weight: bold;
+}
+
+div.col-md-3 {
+  padding-left: 0;
+}
+
+div.col-md-9 {
+  padding-bottom: 100px;
+}
+
+div.source-links {
+  float: right;
+}
+
+div.col-md-9 img {
+  max-width: 100%;
+}
+
+/* Search */
+
+.searchbox-container {
+   width: 300px;
+}
+
+.searchbox {
+   position: relative;
+   min-width: 50px;
+   width: 0%;
+   float: right;
+   overflow: hidden;
+   margin: 0;
+   margin-top: 4px;
+   -webkit-transition: width 0.3s;
+   -moz-transition: width 0.3s;
+   -ms-transition: width 0.3s;
+   -o-transition: width 0.3s;
+   transition: width 0.3s;
+}
+
+.searchbox-input {
+   top: 0;
+   right: 0;
+   border: 0;
+   outline: 0;
+   background: transparent;
+   width: 100%;
+   height: 50px;
+   margin: 0;
+   padding: 0px 55px 0px 0px;
+   font-size: 1.4em;
+   color: white;
+}
+
+.searchbox-input::-webkit-input-placeholder {
+   color: #989898;
+}
+
+.searchbox-input:-moz-placeholder {
+   color: #989898;
+}
+
+.searchbox-input::-moz-placeholder {
+   color: #989898;
+}
+
+.searchbox-input:-ms-input-placeholder {
+   color: #989898;
+}
+
+.searchbox-icon,
+.searchbox-submit {
+   width: 50px;
+   height: 50px;
+   display: block;
+   position: absolute;
+   top: 0;
+   font-family: verdana;
+   font-size: 25px;
+   right: 0;
+   padding: 0;
+   margin: 0;
+   border: 0;
+   outline: 0;
+   line-height: 50px;
+   text-align: center;
+   cursor: pointer;
+   color: white;
+   background: transparent;
+}
+
+.searchbox-open {
+   width: 300px;
+}
+
+.searchbox-open .searchbox-input {
+}
+
+/* Customization */
+
+a,
+a:hover,
+a:focus {
+  color: #166aa2;
+}
+
+.navbar-form {
+   border-top: none !important;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+  color: #90A1B7;
+}
+
+.navbar > .container .navbar-brand {
+  font-size: 2em;
+  line-height: 21px !important;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  width: 295px;
+  height: 64px;
+  padding-top: 1.6rem;
+}
+
+.navbar-brand > img {
+  width:100%;
+  display: inline-block;
+}
+
+.navbar-brand > span {
+  margin-left: 5rem;
+}
+
+.highlight {
+  color: white;
+  background-color: #A32028;
+  padding: 2px 5px;
+  margin: 5px;
+  border-radius: 0.2em;
+}
+
+.header-link {
+  position: absolute;
+  left: -0.55em;
+  opacity: 0;
+  /*
+  -webkit-transition: opacity 0.1s ease-in-out 0.1s;
+  -moz-transition: opacity 0.1s ease-in-out 0.1s;
+  -ms-transition: opacity 0.1s ease-in-out 0.1s;
+*/
+}
+
+h1:hover .header-link,
+h2:hover .header-link,
+h3:hover .header-link,
+h4:hover .header-link,
+h5:hover .header-link,
+h6:hover .header-link {
+  opacity: 1;
+}
+
+.header-text-link {
+  color: #6b6262;
+}
+
+.header-text-link:hover {
+  text-decoration: none;
+}
+
+
+/*
+ * Side navigation
+ *
+ * Scrollspy and affixed enhanced navigation to highlight sections and secondary
+ * sections of docs content.
+ */
+
+
+/* By default it's not affixed in mobile views, so undo that */
+
+.bs-sidebar.affix {
+  position: static;
+}
+
+.bs-sidebar.well {
+  padding: 0;
+  background-color: #fafafa;
+  border: 1px solid #e6e6e6;
+}
+
+
+/* First level of nav */
+
+.bs-sidenav {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+
+/* All levels of nav */
+
+.bs-sidebar .nav > li > a {
+  display: block;
+  padding: 5px 20px;
+  z-index: 1;
+}
+
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus {
+  text-decoration: none;
+  border-right: 1px solid;
+}
+
+.bs-sidebar .nav > .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+  font-weight: bold;
+  background-color: transparent;
+  border-right: 1px solid;
+}
+
+
+/* Nav: second level (shown on .active) */
+
+.bs-sidebar .nav .nav {
+  display: none;
+  /* Hide by default, but at >768px, show it */
+  margin-bottom: 8px;
+}
+
+.bs-sidebar .nav .nav > li > a {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 30px;
+  font-size: 90%;
+}
+
+
+/* Show and affix the side nav when space allows it */
+
+@media (min-width: 992px) {
+  .bs-sidebar .nav > .active > ul {
+    display: block;
+  }
+  /* Widen the fixed sidebar */
+  .bs-sidebar.affix,
+  .bs-sidebar.affix-bottom {
+    width: 213px;
+  }
+  .bs-sidebar.affix {
+    position: fixed;
+    /* Undo the static from mobile first approach */
+    top: 80px;
+  }
+  .bs-sidebar.affix-bottom {
+    position: absolute;
+    /* Undo the static from mobile first approach */
+  }
+  .bs-sidebar.affix-bottom .bs-sidenav,
+  .bs-sidebar.affix .bs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Widen the fixed sidebar again */
+  .bs-sidebar.affix-bottom,
+  .bs-sidebar.affix {
+    width: 263px;
+  }
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px;
+  border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #ccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+  border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+  float: none;
+}
+
+#content-group .table {
+  border: 1px solid grey;
+}
+
+#content-group .table tbody tr > td {
+    background-color: #fff;
+}
+
+#content-group .table tbody tr.success > td {
+  background-color: #DFF0D8;
+}
+
+#content-group .table tbody tr > td {
+  border: 1px solid grey;
+  color: black;
+}
+
+#content-group .table-hover > tbody > tr.success > td:hover,
+#content-group .table-hover > tbody > tr.success:hover > td {
+  background-color: #DFF0D8;
+}
+
+#content-group .table-hover > tbody > tr.info > td:hover,
+#content-group .table-hover > tbody > tr.info:hover > td {
+  background-color: #D9EDF7;
+}
+
+#content-group .table-hover > tbody > tr.warning > td:hover,
+#content-group .table-hover > tbody > tr.warning:hover > td {
+  background-color: #f39c12;
+}
+
+#content-group .table-hover > tbody > tr.warning > td:hover,
+#content-group .table-hover > tbody > tr.warning:hover > td {
+  background-color: #f39c12;
+}
+
+#content-group .table-hover > tbody > tr > td:hover,
+#content-group .table-hover > tbody > tr:hover > td {
+  background-color: #fff;
+}
+
+#content-group .table tbody tr.info > td {
+  background-color: #D9EDF7;
+}
+
+.label,
+.badge {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 11.844px;
+  font-weight: 700;
+  line-height: 14px;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #999;
+}
+
+.label-success,
+.badge-success {
+  background-color: #468847;
+}
+
+.label-important,
+.badge-important {
+  background-color: #b94a48;
+}
+
+#content-group.row,
+#content-group .row {
+  margin: 0px;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
+}
