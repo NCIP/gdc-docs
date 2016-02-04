@@ -302,7 +302,7 @@ $(function() {
         }
 
         var id = $header.attr('id');
-        var icon = '&nbsp;<i class="icon-share-1"></i>';
+        var icon = '&nbsp;<i class="fa fa-share-alt"></i>';
 
         if (id) {
           var title = $header.text();
@@ -336,6 +336,7 @@ $(function() {
         var anchor = $(this);
 
         anchor.attr('target', '_blank');
+        anchor.addClass('external-link');
 
         // If the link already has an font awesome icon associated skip it
         if (! anchor.find('*[class*="fa-"]').length) {
@@ -494,7 +495,13 @@ $(function() {
     hljs.initHighlightingOnLoad();
 
     var _handleFontTransition = function () {
-      $(BODY_ID).removeClass('fadeInBlurIntro loading-content').addClass('fadeInBlur');
+      var bodyEl = $('.main-container');
+
+      if (bodyEl.hasClass('loading-content')) {
+        bodyEl.removeClass('fadeInBlurIntro loading-content').addClass('fadeInBlur');
+      }
+
+      $('.spinParticle').fadeOut('fast');
     };
 
     setTimeout(function() {

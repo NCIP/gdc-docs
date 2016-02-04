@@ -53,15 +53,20 @@
 
     <body>
         <div class="parent-container">
+            <div class="spinParticle">
+                <div class="particle red"></div>
+                <div class="particle grey other-particle"></div>
+                <div class="particle blue other-other-particle"></div>
+            </div>
             {% include "nav.html" %}
 
             <div id="docs-container" class="container">
                 {% include "search.html" %}
-                <div id="body" class="fadeInBlurIntro loading-content">
+                <div id="body">
                 {% if toc and ((toc | first) is defined) %}
                 <div class="col-md-3 toc-container">{% include "toc.html" %}</div>
                 {% endif %}
-                <div class="col-md-9 main-container" role="main">
+                <div class="col-md-9 main-container fadeInBlurIntro loading-content" role="main">
                    {% include "content.html" %}
                </div>
                </div>
