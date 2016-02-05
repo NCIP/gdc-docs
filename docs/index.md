@@ -6,10 +6,10 @@ This is the official project documentation site of the [GDC](https://gdc.nci.nih
 
 The GDC documentation is divided into the following top-level sections:
 
-* [PDF](Data_Portal/PDF/Data_portal_UG.pdf) - [GDC Data Portal](Data_Portal/Users_Guide/Getting_Started.md)
-* [PDF] - [GDC Data Submission Portal](Data_Submission_Portal/Users_Guide/Getting_Started.md)
-* [PDF] - [GDC API](submission/about.md)
-* [PDF] - [GDC Data Transfer Tool](dictionary/about.md)
+* GDC API: [PDF] - [HTML](submission/about.md)
+* GDC Data Portal: [PDF](Data_Portal/PDF/Data_portal_UG.pdf) - [HTML](Data_Portal/Users_Guide/Getting_Started.md)
+* GDC Data Submission Portal: [PDF] - [HTML](Data_Submission_Portal/Users_Guide/Getting_Started.md)
+* GDC Data Transfer Tool: [PDF] - [HTML](dictionary/about.md)
 
 ## Learn More
 
