@@ -1,66 +1,14 @@
 $(function() {
 
+  function ModalSearchManager(id) {
+    var _self = this,
+      _modalID = id,
+      _modalEl,
+      _modelTitleEl,
+      _modelBodyTextEl;
 
 
-
-  function init() {
-
-    // Initialize a JS global to be used with dynamic JS Apps
-    if (typeof window.$icgcApp === 'undefined') {
-      window.$icgcApp = {config: {}};
-    }
-
-    function _initScrollSpy() {
-
-      var scrollSpyTarget = '.bs-sidebar',
-        scrollBody = $('html, body');
-
-
-
-      // Stripe tables
-      $('table').addClass('table table-striped table-hover');
-
-      // Enable side ToC
-      $('body').scrollspy({
-        target: scrollSpyTarget,
-        offset: 0
-      });
-
-      $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
-
-        // prevent default anchor click behavior
-        e.preventDefault();
-
-        // store hash
-        var hash = this.hash,
-          scrollTargetEl = $(hash);
-
-        // animate
-        scrollBody.animate({
-          scrollTop: scrollTargetEl.offset().top
-        }, 300, function(){
-
-          var targetEl = scrollTargetEl.find('a'),
-            classes = 'animated-long focusText';
-
-          targetEl.addClass(classes);
-
-          setTimeout(function() { targetEl.removeClass(classes); }, 1100);
-          // when done, add hash to url
-          // (default click behaviour)
-          window.location.hash = hash;
-        });
-
-      });
-
-      // Prevent disabled links from causing a page reload
-      $("li.disabled a").click(function (e) {
-        e.preventDefault();
-      });
-    }
-
-
-    function _initSearch(confineToContainerID) {
+    function _initSearch() {
 
       //
       function _debounce(func, wait, immediate) {
@@ -91,10 +39,10 @@ $(function() {
       //
       function _addSearchListeners() {
 
-        var $search = $('.searchbox'),
-            submitIcon = $('.searchbox-icon'),
-            searchIconEl = submitIcon.find('.search-bttn'),
-            searchCancelIconEl = submitIcon.find('.search-cancel-bttn');
+        var $search = $('.searchbox', _modalEl),
+          submitIcon = $('.searchbox-icon', _modalEl),
+          searchIconEl = submitIcon.find('.search-bttn'),
+          searchCancelIconEl = submitIcon.find('.search-cancel-bttn');
 
         function __switchToCancelIcon() {
           searchIconEl.hide();
@@ -102,15 +50,15 @@ $(function() {
         }
 
         function __abortQuery(e) {
-            if (e) {
-              e.stopPropagation();
-            }
+          if (e) {
+            e.stopPropagation();
+          }
 
-            searchCancelIconEl.hide();
-            searchIconEl.show();
-            $resultsContainer.hide();
-            $body.show();
-            submitIcon.click();
+          searchCancelIconEl.hide();
+          searchIconEl.show();
+          $resultsContainer.hide();
+          $body.show();
+          submitIcon.click();
         }
 
         $search.submit(function (e) {
@@ -171,8 +119,8 @@ $(function() {
       ////////////////////////////////////////////
 
       function _initSearchIndex() {
-        var $results = $('#mkdocs-search-results'),
-            $searchContentBody = $('#search-body');
+        var $results = $('.search-results', _modalEl),
+          $searchContentBody = $('.search-body', _modalEl);
 
         $.get(base_url + '/mkdocs/search_index.json', function (data) {
           var index = lunr(function () {
@@ -184,7 +132,7 @@ $(function() {
           });
 
           var documents = {},
-              doc;
+            doc;
 
           for (var i = 0; i < data.docs.length; i++) {
             doc = data.docs[i];
@@ -200,28 +148,25 @@ $(function() {
             $results.empty();
 
             if (query.length < _VALID_QUERY_LENGTH || query === '') {
-              $body.show();
               $resultsContainer.hide();
 
               return;
             }
 
             $results.delegate("a", "click", function () {
-              $body.show();
               $resultsContainer.hide();
             });
 
             var results = index.search(query),
-                resultsHTML = '';
+              resultsHTML = '';
 
             if (results.length > 0) {
-              $body.hide();
               $resultsContainer.show();
-              $searchContentBody.html('<strong>' + results.length  + '</strong> results found for <strong>' + query  + '</strong>' );
+              $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + results.length  + '</strong> results found for <strong>' + query  + '</strong>' );
 
               var baseHostURL = location.protocol + '//' + location.hostname + (location.port &&
-                                                                            (location.port != 80 && location.port != 443) ? (':' + location.port) : '') +
-                            '/';
+                                                                                (location.port != 80 && location.port != 443) ? (':' + location.port) : '') +
+                                '/';
 
               for (var i = 0; i < results.length; i++) {
                 var result = results[i];
@@ -232,7 +177,7 @@ $(function() {
 
 
                 resultsHTML += '<div class="search-item animated fadeInLeft">' +
-                               '<div class="doc-type-icon-container"><span class="header-badge"><i class="icon-book-open"></i></span></div>' +
+                               '<div class="doc-type-icon-container"><i class="fa fa-files-o fa-2x"></i></div>' +
                                '<div class="search-body">' +
                                '<a href="' + doc.location + '">' + doc.title + '</a>' +
                                '<p class="location-field"><a href="' + doc.location + '">'  + hostURL + '&nbsp;<span class="icon-share-1"></span></a></p>' +
@@ -257,7 +202,7 @@ $(function() {
             }
           }
 
-          var searchInput = document.getElementById('mkdocs-search-query');
+          var searchInput = document.getElementById('gdc-search-query');
 
           var term = _getSearchTerm();
 
@@ -278,16 +223,125 @@ $(function() {
         _initSearchIndex();
       }
 
-      var $body = $(confineToContainerID),
-          $resultsContainer = $('#mkdocs-search-results-container'),
-          $inputBox = $('.searchbox-input'),
-          _isSearchActive = false,
-          _VALID_QUERY_LENGTH = 3;
+      var $body = $('#body'),
+        $resultsContainer = $('.search-results-container', _modalEl),
+        $inputBox = $('.searchbox-input', _modalEl),
+        _isSearchActive = false,
+        _VALID_QUERY_LENGTH = 3;
 
 
       _init();
 
     }
+
+
+    function _init() {
+      if (! _modalID) {
+        console.error('Could not instantiate modal with and ID!');
+        return;
+      }
+
+      _modalEl = jQuery('#' + _modalID);
+
+      if ( _modalEl.length === 0 ) {
+        console.error('Could not find modal with ID ' + _modalID +  ' !');
+        return;
+      }
+
+      _modelBodyTextEl = _modalEl.find('.modal-body');
+
+      _initSearch();
+
+    }
+
+    _self.title = function(title) {
+
+      if (arguments.length === 1) {
+        _modelTitleEl.html(title);
+      }
+
+      return _modelTitleEl.text();
+    };
+
+    _self.bodyText = function(title) {
+
+      if (arguments.length === 1) {
+        _modelBodyTextEl.html(title);
+      }
+
+      return _modelBodyTextEl.text();
+    };
+
+    _self.show = function(shouldShow) {
+      var toggleArg = shouldShow === false ? 'hide' : 'show';
+
+      _modalEl.modal(toggleArg);
+    };
+
+
+    _init();
+
+  }
+
+  function init() {
+
+    // Initialize a JS global to be used with dynamic JS Apps
+    if (typeof window.$gdcApp === 'undefined') {
+      window.$gdcApp = {config: {}};
+    }
+
+    window.$gdcApp.seachModal = new ModalSearchManager('search-modal');
+
+    function _initScrollSpy() {
+
+      var scrollSpyTarget = '.bs-sidebar',
+        scrollBody = $('html, body');
+
+
+
+      // Stripe tables
+      $('table').addClass('table table-striped table-hover');
+
+      // Enable side ToC
+      $('body').scrollspy({
+        target: scrollSpyTarget,
+        offset: 0
+      });
+
+      $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
+
+        // prevent default anchor click behavior
+        e.preventDefault();
+
+        // store hash
+        var hash = this.hash,
+          scrollTargetEl = $(hash);
+
+        // animate
+        scrollBody.animate({
+          scrollTop: scrollTargetEl.offset().top
+        }, 300, function(){
+
+          var targetEl = scrollTargetEl.find('a'),
+            classes = 'animated-long focusText';
+
+          targetEl.addClass(classes);
+
+          setTimeout(function() { targetEl.removeClass(classes); }, 1100);
+          // when done, add hash to url
+          // (default click behaviour)
+          window.location.hash = hash;
+        });
+
+      });
+
+      // Prevent disabled links from causing a page reload
+      $('li.disabled a').click(function (e) {
+        e.preventDefault();
+      });
+    }
+
+
 
     function _initHeaders(confineToContainerID) {
 
@@ -486,7 +540,6 @@ $(function() {
     _initMenuNavBar('.navbar-nav', '> li');
     _initHeaders(BODY_ID);
     _initLinks(BODY_ID);
-    _initSearch(BODY_ID);
     _calcMainContentWidth();
     _initAlerts();
 
@@ -514,6 +567,22 @@ $(function() {
     }, 0);
 
 
+    $.scrollUp({
+      scrollName: 'scroll-up-indicator',
+      scrollDistance: 300,
+      scrollFrom: 'top',
+      scrollSpeed: 300,
+      easingType: 'swing',
+      animation: 'fade',
+      animationSpeed: 200,
+      scrollText: 'Scroll to top',
+      scrollTitle: 'Scroll to the top of this page.',
+      scrollImg: {
+        active: true
+      },
+      activeOverlay: false,
+      zIndex: 100000
+    });
 
   }
 
