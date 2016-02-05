@@ -250,6 +250,8 @@ $(function() {
 
       _modelBodyTextEl = _modalEl.find('.modal-body');
 
+      _modalEl.on("shown.bs.modal", function() { $('#gdc-search-query').focus(); });
+
       _initSearch();
 
     }
@@ -290,7 +292,7 @@ $(function() {
       window.$gdcApp = {config: {}};
     }
 
-    window.$gdcApp.seachModal = new ModalSearchManager('search-modal');
+    window.$gdcApp.searchModal = new ModalSearchManager('search-modal');
 
     function _initScrollSpy() {
 
