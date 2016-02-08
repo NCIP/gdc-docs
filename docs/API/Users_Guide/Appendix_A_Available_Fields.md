@@ -1,3 +1,5 @@
+# Appendix A - Available Fields
+
 There are about 2,000 fields currently available in the GDC data model that are accessible via the GDC API. A list of allowed fields for each endpoint is below.
 
 ## A.1 Project Fields

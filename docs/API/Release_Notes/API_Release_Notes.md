@@ -1,6 +1,4 @@
-## Current Release
-
-[collapse title="GDC Application Programming Interface (API) Release 0.3.20.1 (January 28, 2016)"]
+## Current Release - GDC Application Programming Interface (API) Release 0.3.20.1 (January 28, 2016)
 
 ### New Features and Changes
 
@@ -34,13 +32,9 @@
 
 *   No issues to report.
 
-[/collapse]
-
 Release details are maintained in the [GDC Data Application Programming Interface (API) Change Log](https://github.com/NCI-GDC/gdcapi/blob/develop/CHANGELOG.md).
 
-## Past Releases
-
-[collapse collapsed title="GDC Application Programming Interface (API) Release 0.2.18 (November 18, 2015)"]
+## GDC Application Programming Interface (API) Release 0.2.18 (November 18, 2015)
 
 
 ### New Features and Changes
@@ -63,10 +57,7 @@ Release details are maintained in the [GDC Data Application Programming Interfa
 
 *   No issues to report.
 
-[/collapse]
-
-
-[collapse collapsed title="GDC Application Programming Interface (API) Release 0.2.18-spr1 (November 2, 2015)"]
+## GDC Application Programming Interface (API) Release 0.2.18-spr1 (November 2, 2015)
 
 ### New Features and Changes
 
@@ -86,9 +77,7 @@ Release details are maintained in the [GDC Data Application Programming Interfa
 
 *   No issues to report.
 
-[/collapse]
-
-[collapse collapsed title="GDC Application Programming Interface (API) Release 0.2.15-oicr1 (August 7, 2015)"]
+## GDC Application Programming Interface (API) Release 0.2.15-oicr1 (August 7, 2015)
 
 ### New Features and Changes
 
@@ -106,9 +95,9 @@ Release details are maintained in the [GDC Data Application Programming Interfa
 *   Authentication and Authorization Service
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
-[/collapse]
 
-[collapse collapsed title="GDC Application Programming Interface (API) Release 0.2.15-oicr1 (August 7, 2015)"]
+
+## GDC Application Programming Interface (API) Release 0.2.15-oicr1 (August 7, 2015)
 
 ### New Features and Changes
 
@@ -126,9 +115,10 @@ Release details are maintained in the [GDC Data Application Programming Interfa
 *   Authentication and Authorization Service
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
-[/collapse]
 
-[collapse collapsed title="GDC Application Programming Interface (API) Release 0.2.13 (July 23, 2015)"]
+
+
+## GDC Application Programming Interface (API) Release 0.2.13 (July 23, 2015)
 
 ### New Features and Changes
 
@@ -170,9 +160,10 @@ Release details are maintained in the [GDC Data Application Programming Interfa
 
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
-[/collapse]
 
-[collapse collapsed title="GDC Application Programming Interface (API) Release 0.1.10 (March 18, 2015)"]
+
+
+## GDC Application Programming Interface (API) Release 0.1.10 (March 18, 2015)
 
 ### New Features and Changes
 
@@ -216,9 +207,9 @@ Release details are maintained in the [GDC Data Application Programming Interfa
 
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
-[/collapse]
 
-[collapse collapsed title="GDC Application Programming Interface (API) 0.1.8 (January 22, 2015)"]
+
+## GDC Application Programming Interface (API) 0.1.8 (January 22, 2015)
 
 ### New Features and Changes
 
@@ -246,6 +237,5 @@ Release details are maintained in the [GDC Data Application Programming Interfa
 
 *   Obtaining a token requires browser access. This is a limitation of eRA Commons, not the GDC authorization service. The SAML based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
-[/collapse]
 
 &nbsp;
