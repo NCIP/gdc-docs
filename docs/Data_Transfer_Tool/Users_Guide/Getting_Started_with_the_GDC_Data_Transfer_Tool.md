@@ -1,14 +1,14 @@
-# 2 - Getting Started with the GDC Data Transfer Tool
+# Getting Started with the GDC Data Transfer Tool
 
-## 2.1 About the GDC Data Transfer Tool
+## About the GDC Data Transfer Tool
 
 Raw sequence data, typically stored as BAM or FASTQ files, make up the bulk of data stored at NCI Genomic Data Commons (GDC) . The size of a single file can vary greatly. Most BAM files stored in GDC are in the 50 MB - 40 GB size range, with some of the whole genome BAM files reaching sizes of 200-300 GB.
 
 The GDC Data Transfer Tool provides an optimized method of transferring data to and from GDC, and enables resumption of interrupted transfers. The tool's download and upload functionality is built upon a high-performance, UDP-based data transfer protocol known as [UDT](http://udt.sourceforge.net/), or User Datagram Protocol (UDP)-based Data Transfer. The UDT protocol is implemented in C++ for speed, but exposed via Python to provide a clean, user-friendly command line interface. The GDC Data Transfer Tool is also capable of performing TCP downloads for cases where UDP traffic may be blocked.
 
-## 2.2 Downloading the GDC Data Transfer Tool
+## Downloading the GDC Data Transfer Tool
 
-###System Recommendations
+### System Recommendations
 
 The system recommendations for using the GDC Data Transfer Tool&nbsp;are as follows:
 

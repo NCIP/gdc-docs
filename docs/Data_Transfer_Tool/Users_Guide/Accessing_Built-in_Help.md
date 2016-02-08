@@ -1,4 +1,4 @@
-# 3 - Accessing Built-in Help
+# Accessing Built-in Help
 
 ## Help Menus
 
