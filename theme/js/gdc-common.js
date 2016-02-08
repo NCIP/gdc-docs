@@ -282,7 +282,8 @@ $(function() {
 
       _modelBodyTextEl = _modalEl.find('.modal-body');
 
-      _modalEl.on("shown.bs.modal", function() { $('#gdc-search-query').focus(); });
+      _modalEl.on('shown.bs.modal', function() { $('#gdc-search-query').focus(); });
+      _modalEl.on('hidden.bs.modal', function () { $('#gdc-search-button').focus(); });
 
       _initSearch();
 

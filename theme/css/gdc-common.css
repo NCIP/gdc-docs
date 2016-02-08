@@ -1184,11 +1184,11 @@ footer a {
 }
 
 .spinParticle {
-  width: 40px;
-  height: 40px;
-  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
   left: 50%;
-  top: 200px;
+  top: 40%;
   display: block;
   -webkit-animation: Rotate 2.0s infinite linear;
   animation: Rotate 2.0s infinite linear;

@@ -1,5 +1,6 @@
 body {
   padding-top: 70px;
+  padding-right: 0px !important;
 }
 
 h1[id]:before,
@@ -55,9 +56,10 @@ div.col-md-9 img {
   padding: 2rem 2rem;
 }
 
+.container .searchbox-container a:focus,
 .container .searchbox-container a:hover {
   color: #333;
-  background-color: transparent;
+  background-color: #dedddd;
   text-decoration: none;
 
 }
