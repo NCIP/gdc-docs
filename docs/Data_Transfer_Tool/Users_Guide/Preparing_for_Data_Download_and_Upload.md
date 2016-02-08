@@ -1,3 +1,5 @@
+# 4 - Preparing for Data Download and Upload
+
 The GDC Data Transfer Tool is intended to be used in conjunction with the [GDC Data Portal](https://gdc-portal.nci.nih.gov) to transfer data to or from GDC. First, the GDC Data Portal&#39;s interface is used to generate a manifest file or obtain UUID(s) and (for controlled data) an authentication token. The GDC Data Transfer Tool is then used to transfer the data files listed in the manifest file or identified by UUID(s).
 
 ## 4.1 Obtaining a Manifest File for Data Download
