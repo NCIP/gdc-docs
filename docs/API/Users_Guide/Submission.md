@@ -1,14 +1,16 @@
-## 7.1 Overview
+# Submission
+
+## Overview
 
 Using the following methods, users submitting to GDC can create, delete and update entities and relationships in the GDC data model.
 
-## 7.2 GDC Dictionary
+## GDC Dictionary
 
 Requests to the submission API must adhere to the schemas defined in the GDC Data Dictionary. The GDC Data Dictionary may be found [here](https://www.github.com/NCI-GDC/gdcdictionary).
 
-## 7.3 Working with Entities
+## Working with Entities
 
-### 7.3.1 Query Format
+### Query Format
 
 When updating, creating, or deleting entities in the GDC, users need to specify the entity type, the entity id, any relationships the entity has to parent entities from which it was derived, and any properties (required and optional as defined by the entity schema). The structure for each entity should look
 as follows:
@@ -39,7 +41,7 @@ One of **`id`** or `submitter_id` are required.
 
 **`<relationship_name>`** : The name of a relationship. The value for this is a JSON object specifying either the submitter_id or the id of the neighboring entity.
 
-### 7.3.2 Response Format
+### Response Format
 
 The following fields should be included in all responses, regardless of success.
 
@@ -104,7 +106,7 @@ For a listing of the types of errors, see Creating Entities.
 
 **`updated_entity_count`** The number of existing entities updated by the transaction.
 
-### 7.3.3 Creating Entities
+### Creating Entities
 
 Entities can be created via both the POST and PUT HTTP methods.
 
@@ -312,7 +314,7 @@ In the second example response, the API returned error code 400 and each entity 
 
 The GDC API will also return a list of all errors by entity.
 
-### 7.3.4 Retrieving Entities
+### Retrieving Entities
 
 `GET /v0/submission/<program>/<project>/entities/entity_id_string.` This endpoint is for retrieving existing GDC entities by ID. For more advanced querying on entities or retrieving set of entities, the GraphQL endpoint described in Section 6.4 is recommended.
 
@@ -334,7 +336,7 @@ BRCA.
 * **ids** (str) – A comma separated list of ids specifying the entities to retrieve. These
 ids may be official GDC ids or project unique submitter_id.
 
-### 7.3.5 Updating Entities
+### Updating Entities
 
 `PUT /v0/submission/<program>/<project>/` This endpoint is used to update/create GDC entities. Using the PUT method on a project’s endpoint
 will, for any valid entities specified in the request body, create those that do not exist and update those
@@ -352,7 +354,7 @@ BRCA).
 
 The request body syntax is the same as the POST method for the same endpoint.
 
-### 7.3.6 Deleting Entities
+### Deleting Entities
 
 
 `DELETE /v0/submission/<program>/<project>/entities/ids`.
@@ -374,7 +376,7 @@ which the API request is valid. The project is the human-readable code (e.g. BRC
 
 * **ids** (str) – A comma separated list of ids specifying the entities to delete. These ids must be official GDC ids.
 
-### 7.3.7 Error Types
+### Error Types
 
 **EntityNotFoundError** A referenced entity was not found. This includes both the transaction and the datamodel.
 
@@ -382,7 +384,7 @@ which the API request is valid. The project is the human-readable code (e.g. BRC
 
 **ValidationError** A provided property did not pass a validation test.
 
-### 7.3.8 Status Messages
+### Status Messages
 
 API responses will contain a status for each entity specified in the request:
 
@@ -398,13 +400,13 @@ entity. This entity did not pass validation or an internal error occured when at
 the transaction. The error state will be accompanied by a list of errors recorded about the entity
 (see label-error-messages).
 
-## 7.4 GraphQL
+## GraphQL
 
 **NOTE:** The GDC Submission API GraphQL service is an authenticated
   resource for which a GDC Authorization Token must be
   provided. Access is limited to authorized submitters.
 
-### 7.4.1 GraphQL Overview
+### GraphQL Overview
 
 From the [GraphQL specification](https://facebook.github.io/graphql/):
 
@@ -453,7 +455,7 @@ the case and of its samples.
 }
 ```
 
-### 7.4.2 GDC Data Dictionary Usage
+### GDC Data Dictionary Usage
 
 All fields defined in the GDC Data Dictionary can be queried using GraphQL.  The
 GraphQL schema is generated off of the Data Dictionary.  For example,
@@ -461,7 +463,7 @@ if the term `submitter_id` was changed to `alias` for all Sample
 Entities, the above query would be updated to contain `samples { alias
 }` rather than `samples { submitter_id }`.
 
-### 7.4.3 GraphiQL IDE
+### GraphiQL IDE
 
 GDC includes the usage of an "in-browser IDE for exploring
 GraphQL", [GraphiQL](https://github.com/graphql/graphiql) at location
@@ -476,7 +478,7 @@ schema generated from the GDC Data Dictionary.  GraphiQL allows for
 easy discoverability of both fields and query filters.
 
 
-###  7.4.4 API Usage
+### API Usage
 
 All authorized submitters (those who have READ permissions on a
 project) can access project Entities via the GraphQL endpoint, located
@@ -514,7 +516,7 @@ $ curl -XPOST -H"X-Auth-Token: $TOKEN" "https://gdc-api.nci.nih.gov/v0/submissio
   as well)
 
 
-### 7.4.5 Examples
+### Examples
 
 #### Example
 

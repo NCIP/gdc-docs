@@ -1,4 +1,6 @@
-## 5.1 Overview
+# Downloading Files
+
+## Overview
 
 This section explains how to use a GDC API endpoint to download single or multiple files. Each file in GDC is assigned a Universally Unique Identifier (UUID). The UUIDs of single or multiple files are needed to download them. UUIDs can be obtained by downloading a manifest from the Data Portal, or directly from the file entity page on the Data Portal. If a single UUID is provided, the API will return just the associated file. If a list of UUIDs are provided, the API will package all of the associated files together and return a single compressed (gzip) TAR file.
 
@@ -8,9 +10,9 @@ The GDC Data Portal uses the GDC API endpoint allows users download files via a 
 
 **Note:** Downloading controlled access data requires the use of a token. See section 3 - Authentication and Authorization.
 
-## 5.2 Downloading Files
+## Downloading Files
 
-### 5.2.1 Downloading a Single File
+### Downloading a Single File
 
 To download a single file from GDC, simply send its UUID to the data endpoint.
 
@@ -20,7 +22,7 @@ To download a single file from GDC, simply send its UUID to the data endpoint.
     100 7905k  100 7905k    0     0  7549k      0  0:00:01  0:00:01 --:--:-- 7550k
     curl: Saved to filename '3999492009_R01C01_Grn.idat'
 
-#### 5.2.1.1 Avoid Duplicate Names
+#### Avoid Duplicate Names
 
 Although all files stored within the GDC are assigned a GDC UUID, the actual name of the file may not always be unique. For example, there are many files named 'README.txt' associated with different file archives imported from the The Cancer Genome Atlas (TCGA) program.
 
@@ -59,7 +61,7 @@ The following example using various curl ensures the downloaded file is stored l
     $
 ```
 
-### 5.2.2 Downloading Multiple Files
+### Downloading Multiple Files
 
 If a comma-separated list of UUIDs is provided to the data endpoint, the GDC REST API returns a uniquely named tar.gz compressed archive file containing the downloaded files.
 

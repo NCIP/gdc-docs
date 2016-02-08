@@ -1,3 +1,5 @@
+# Appendix B - Key Terms
+
 The following table provides definitions and explanations for terms and acronyms relevant to the content presented within this document.
 
 

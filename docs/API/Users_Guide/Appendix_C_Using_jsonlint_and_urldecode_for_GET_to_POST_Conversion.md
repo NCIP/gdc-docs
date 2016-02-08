@@ -1,3 +1,5 @@
+# Appendix C - Using jsonlint and urldecode for GET to POST Conversion
+
 ## Example: GET to POST conversion using jsonlint and urldecode
 
 The tools described in section 2.2 of this user's guide convert an API query from GET to POST and ensure the query is correct before submitting it to the API.
