@@ -64,7 +64,7 @@
             <div id="docs-container" class="container">
                 <div id="body">
                 {% if toc and ((toc | first) is defined) %}
-                <div class="col-md-3 toc-container">{% include "toc.html" %}</div>
+                <div class="col-md-3 toc-container" role="navigation" aria-label="In-Page Navigation">{% include "toc.html" %}</div>
                 {% endif %}
                 <div class="col-md-9 main-container fadeInBlurIntro loading-content" role="main">
                    {% include "content.html" %}
@@ -74,7 +74,7 @@
 
             <footer id="docs-footer">
                 <div class="row">
-                    <div class="col-md-12 footer-caption">
+                    <div class="col-md-12 footer-caption" role="contentinfo">
                         <div>
                             <a href="https://gdc-portal.nci.nih.gov/projects/t" target="_blank">Site Home</a>
                             | <a href="http://www.cancer.gov/global/web/policies" target="_blank">Policies</a>

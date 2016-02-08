@@ -1,9 +1,9 @@
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" aria-label="Site Navigation">
     <div class="background-container"></div>
     <div class="container">
 
         <!-- Collapsed navigation -->
-        <div class="navbar-header">
+        <div class="navbar-header" role="navigation">
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -28,7 +28,7 @@
             {% for nav_item in nav %}
             {% if nav_item.children %}
                 <li class="dropdown{% if nav_item.active %} active{% endif %}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.title }} <b class="caret"></b></a>
+                    <a href="#" title="{{nav_item.title}}" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.title }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     {% for nav_item in nav_item.children %}
                         {% include "nav-sub.html" %}
@@ -46,7 +46,7 @@
 
             <!-- Search -->
             <div class="searchbox-container col-sm-3 col-md-3 pull-right">
-               <a href="javascript:$gdcApp.searchModal.show()"><i class="fa fa-search"></i> Quick Search</a>
+               <a title="Click Quick Search to Open the Search Modal" href="javascript:$gdcApp.searchModal.show()"><i class="fa fa-search"></i> Quick Search</a>
             </div>
 
             {% if false %}

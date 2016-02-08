@@ -5,7 +5,8 @@ $(function() {
       _modalID = id,
       _modalEl,
       _modelTitleEl,
-      _modelBodyTextEl;
+      _modelBodyTextEl,
+      _searchItemClass = 'search-item';
 
 
     function _initSearch() {
@@ -122,6 +123,25 @@ $(function() {
         var $results = $('.search-results', _modalEl),
           $searchContentBody = $('.search-body', _modalEl);
 
+
+        $resultsContainer.delegate('.' + _searchItemClass, 'click keyup', function(e) {
+
+          if (e.type !== 'click' && e.which !== 13 && e.which !== 32) {
+            return;
+          }
+
+          e.stopPropagation();
+          e.preventDefault();
+
+          var href = $(this).data('link') || null;
+
+          if (href) {
+            window.location.href = href;
+          }
+
+          _resetSearch();
+        });
+
         $.get(base_url + '/mkdocs/search_index.json', function (data) {
           var index = lunr(function () {
             this.field('title', {
@@ -141,10 +161,8 @@ $(function() {
             documents[doc.location] = doc;
           }
 
-          function __search() {
+          function _search() {
             var query = $inputBox.val();
-
-
             $results.empty();
 
             if (query.length < _VALID_QUERY_LENGTH || query === '') {
@@ -153,16 +171,20 @@ $(function() {
               return;
             }
 
-            $results.delegate("a", "click", function () {
-              $resultsContainer.hide();
-            });
-
             var results = index.search(query),
-              resultsHTML = '';
+                resultsHTML = '',
+                resultLength = results.length || null;
+
+            if (query.length >= _VALID_QUERY_LENGTH && results.length === 0) {
+              resultLength = 0;
+            }
+
+            if (resultLength !== null) {
+              $resultsContainer.show();
+              $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + resultLength  + '</strong> results found for <strong>' + query  + '</strong>' );
+            }
 
             if (results.length > 0) {
-              $resultsContainer.show();
-              $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + results.length  + '</strong> results found for <strong>' + query  + '</strong>' );
 
               var baseHostURL = location.protocol + '//' + location.hostname + (location.port &&
                                                                                 (location.port != 80 && location.port != 443) ? (':' + location.port) : '') +
@@ -176,11 +198,11 @@ $(function() {
                 var hostURL = baseHostURL + doc.location.replace(/[\.]+\//g, '');
 
 
-                resultsHTML += '<div class="search-item animated fadeInLeft">' +
+                resultsHTML += '<div class="' + _searchItemClass + ' animated fadeInLeft" tabindex="0" role="button" data-link="' + doc.location + '">' +
                                '<div class="doc-type-icon-container"><i class="fa fa-files-o fa-2x"></i></div>' +
                                '<div class="search-body">' +
-                               '<a href="' + doc.location + '">' + doc.title + '</a>' +
-                               '<p class="location-field"><a href="' + doc.location + '">'  + hostURL + '&nbsp;<span class="icon-share-1"></span></a></p>' +
+                               '' + doc.title + '' +
+                               '<p class="location-field">'  + hostURL + '&nbsp;<span class="icon-share-1"></span></p>' +
                                '<p>' + doc.summary + '</p>' +
                                '</div>' +
 
@@ -191,6 +213,8 @@ $(function() {
 
               $results.append(resultsHTML);
               $results.highlight(query);
+
+              setTimeout(function() {$('.' + _searchItemClass).removeClass('animated fadeInLeft'); }, 500);
             }
             else {
               if (! _isSearchActive) {
@@ -202,6 +226,8 @@ $(function() {
             }
           }
 
+
+
           var searchInput = document.getElementById('gdc-search-query');
 
           var term = _getSearchTerm();
@@ -211,9 +237,15 @@ $(function() {
             search();
           }
 
-          searchInput.addEventListener('keyup', _debounce(__search, 300));
+          searchInput.addEventListener('keyup', _debounce(_search, 300));
         });
 
+      }
+
+      function _resetSearch() {
+        $inputBox.val('');
+        _self.show(false);
+        $resultsContainer.hide();
       }
 
 
@@ -224,10 +256,10 @@ $(function() {
       }
 
       var $body = $('#body'),
-        $resultsContainer = $('.search-results-container', _modalEl),
-        $inputBox = $('.searchbox-input', _modalEl),
-        _isSearchActive = false,
-        _VALID_QUERY_LENGTH = 3;
+          $resultsContainer = $('.search-results-container', _modalEl),
+          $inputBox = $('.searchbox-input', _modalEl),
+          _isSearchActive = false,
+          _VALID_QUERY_LENGTH = 3;
 
 
       _init();
@@ -529,6 +561,27 @@ $(function() {
       });
     }
 
+    function _initScrollUpIndicator() {
+      $.scrollUp({
+        scrollName: 'scroll-up-indicator',
+        scrollDistance: 300,
+        scrollFrom: 'top',
+        scrollSpeed: 300,
+        easingType: 'swing',
+        animation: 'fade',
+        animationSpeed: 200,
+        scrollText: 'Scroll to top',
+        scrollTitle: 'Scroll to the top of this page.',
+        scrollImg: {
+          active: true
+        },
+        activeOverlay: false,
+        zIndex: 100000
+      });
+
+      $('#scroll-up-indicator').html('<span style="display: none">Scroll to the top of this page.</span>');
+    }
+
     var _bsSidebar = $('.bs-sidebar');
 
     if (_bsSidebar.length) {
@@ -544,6 +597,7 @@ $(function() {
     _initLinks(BODY_ID);
     _calcMainContentWidth();
     _initAlerts();
+    _initScrollUpIndicator();
 
 
     // Hightlight code
@@ -569,22 +623,7 @@ $(function() {
     }, 0);
 
 
-    $.scrollUp({
-      scrollName: 'scroll-up-indicator',
-      scrollDistance: 300,
-      scrollFrom: 'top',
-      scrollSpeed: 300,
-      easingType: 'swing',
-      animation: 'fade',
-      animationSpeed: 200,
-      scrollText: 'Scroll to top',
-      scrollTitle: 'Scroll to the top of this page.',
-      scrollImg: {
-        active: true
-      },
-      activeOverlay: false,
-      zIndex: 100000
-    });
+
 
   }
 

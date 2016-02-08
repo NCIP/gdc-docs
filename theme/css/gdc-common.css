@@ -516,7 +516,7 @@ a.header-text-link {
 .search-results-container {
   display: none;
   padding: 0rem 0rem;
-  margin: 0rem 0rem 0.5rem 0rem;
+  margin: 0rem 0rem 0.3rem 0rem;
 }
 
 .search-results-container .results {
@@ -568,13 +568,32 @@ a.header-text-link {
   -webkit-box-shadow: 0px 8px 11px -10px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: 0px 8px 11px -10px rgba(0, 0, 0, 0.36);
   box-shadow: 0px 8px 11px -10px rgba(0, 0, 0, 0.9);
+
+  -webkit-transition: -webkit-transform .15s linear;
+  -moz-transition: -moz-transform .15s linear;
+  -o-transition: -o-transform .15s linear;
+  transition: transform .15s linear;
+  position: relative;
+  z-index: 1;
 }
+
+.search-item:focus {
+  -webkit-transform: scale(1.02) !important;
+  -moz-transform: scale(1.02) !important;
+  -o-transform: scale(1.02) !important;
+  transform: scale(1.02) !important;
+  background-color: #1f486c;
+  cursor: pointer;
+  color: #fff;
+}
+
 .search-item:hover .location-field,
 .search-item:hover a,
-.search-item:hover {
+.search-item:hover
+{
   background-color: #1f486c;
+  cursor: pointer;
   color: #fff;
-  cursor: pointer
 }
 
 .search-item .doc-type-icon-container .header-badge {
@@ -1169,7 +1188,7 @@ footer a {
   height: 40px;
   position: absolute;
   left: 50%;
-  top: 100px;
+  top: 200px;
   display: block;
   -webkit-animation: Rotate 2.0s infinite linear;
   animation: Rotate 2.0s infinite linear;
@@ -1184,8 +1203,8 @@ footer a {
   background-color: #000;
   border-radius: 100%;
 
-  -webkit-animation: Bounce 2.0s infinite ease-in-out;
-  animation: Bounce 2.0s infinite ease-in-out;
+  -webkit-animation: Scale 2.0s infinite ease-in-out;
+  animation: Scale 2.0s infinite ease-in-out;
 }
 
 .other-particle {
@@ -1214,16 +1233,16 @@ footer a {
 
 @keyframes Rotate {
   0% {
-    transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }
 
-@-webkit-keyframes Bounce {
+@-webkit-keyframes Scale {
   0%, 100% {
     -webkit-transform: scale(0.0);
   }
@@ -1232,13 +1251,13 @@ footer a {
   }
 }
 
-@keyframes Bounce {
+@keyframes Scale {
   0%, 100% {
-    transform: scale(0.0);
     -webkit-transform: scale(0.0);
+    transform: scale(0.0);
   }
   50% {
-      transform: scale(1.0);
       -webkit-transform: scale(1.0);
+      transform: scale(1.0);
     }
 }
