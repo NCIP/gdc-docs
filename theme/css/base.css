@@ -1,5 +1,6 @@
 body {
   padding-top: 70px;
+  padding-right: 0px !important;
 }
 
 h1[id]:before,
@@ -37,7 +38,30 @@ div.col-md-9 img {
 /* Search */
 
 .searchbox-container {
-   width: 300px;
+  width: auto;
+  text-align: right;
+  vertical-align: middle;
+  height: 100%;
+  padding: 2.4rem 0 1.6rem 0;
+  font-size: 1.5rem;
+}
+
+.searchbox-container:hover {
+  background-color: #dedddd;
+}
+
+.container .searchbox-container a {
+  color: #777;
+  background-color: transparent;
+  padding: 2rem 2rem;
+}
+
+.container .searchbox-container a:focus,
+.container .searchbox-container a:hover {
+  color: #333;
+  background-color: #dedddd;
+  text-decoration: none;
+
 }
 
 .searchbox {
@@ -62,11 +86,11 @@ div.col-md-9 img {
    outline: 0;
    background: transparent;
    width: 100%;
-   height: 50px;
+   height: 6rem;
    margin: 0;
-   padding: 0px 55px 0px 0px;
-   font-size: 1.4em;
-   color: white;
+   padding: 0rem 4.5rem 0rem 4.5rem;
+   font-size: 2.1rem;
+   color: #000;
 }
 
 .searchbox-input::-webkit-input-placeholder {
@@ -85,25 +109,38 @@ div.col-md-9 img {
    color: #989898;
 }
 
-.searchbox-icon,
+.inline {
+  display: inline;
+}
+
+.searchbox-icon {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: absolute;
+  top: 0.3rem;
+  font-size: 25px;
+  outline: 0;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.searchbox-icon > i > span {
+  display: none;
+}
+
 .searchbox-submit {
-   width: 50px;
-   height: 50px;
-   display: block;
-   position: absolute;
-   top: 0;
-   font-family: verdana;
-   font-size: 25px;
-   right: 0;
-   padding: 0;
-   margin: 0;
-   border: 0;
-   outline: 0;
-   line-height: 50px;
-   text-align: center;
-   cursor: pointer;
-   color: white;
-   background: transparent;
+  left: 0px;
+}
+
+.searchbox-cancel {
+  right: 0px;
 }
 
 .searchbox-open {
