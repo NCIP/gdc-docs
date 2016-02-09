@@ -28,7 +28,7 @@ echo "$(date +'%d %B %Y - %k:%M'): Data_Submission_Portal UG: Building PDF from 
 pandoc --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions -o docs/Data_Submission_Portal/PDF/Data_Submission_Portal_UG.pdf docs/Data_Submission_Portal/PDF/Data_Submission_Portal_UG.pd
 
 if [ ! -d "docs/API/PDF/" ]; then
-   mkdir docs/API_UG/PDF/
+   mkdir docs/API/PDF/
 fi
 echo "$(date +'%d %B %Y - %k:%M'): API UG: Building pandoc document"
 mkdocs2pandoc -f API_UG.yml -o docs/API/PDF/API_UG.pd
@@ -40,7 +40,7 @@ echo "$(date +'%d %B %Y - %k:%M'): API UG: Building PDF from pandoc document "
 pandoc --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions -o docs/API/PDF/API_UG.pdf docs/API/PDF/API_UG.pd
 
 if [ ! -d "docs/Data_Transfer_Tool/PDF/" ]; then
-   mkdir docs/Data_Transfer_Tool_UG/PDF/
+   mkdir docs/Data_Transfer_Tool/PDF/
 fi
 echo "$(date +'%d %B %Y - %k:%M'): Data_Transfer_Tool UG: Building pandoc document"
 mkdocs2pandoc -f Data_Transfer_Tool_UG.yml -o docs/Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pd
