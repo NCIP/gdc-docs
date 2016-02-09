@@ -1,10 +1,12 @@
-## 2.1 Overview
+# Getting Started with the GDC API
+
+## Overview
 
 The GDC API is the external-facing REST API for GDC and drives the graphical interface of the GDC Data and Submission Portals. It is made available to external users for programmatic access to the same functionality provided by the portals. This includes searching for and downloading subsets of data files, metadata and annotations based on specific parameters and submitting files to GDC.
 
 The GDC API uses JSON as its communication format, and standard HTTP methods like GET, PUT, POST and DELETE.
 
-## 2.2 Tools
+## Tools
 
 A large variety of tools are available to visualize and prepare calls to the GDC API.
 
@@ -31,7 +33,7 @@ The following online tools can be used to help build GDC API calls:
 **Note:** See Appendix C for an example of using jsonlint and urldecode for GET to POST conversion.
 
 
-## 2.3 Accessing GDC API
+## Accessing GDC API
 
 The GDC API contains two types of end-points:  
 
@@ -54,9 +56,9 @@ Before beginning work on the GDC API, test that it is responding by calling the 
 ```
 **Note:** See also Appendix D - Displaying API calls using GDC Data Portal or Submission UI.
 
-## 2.4 Available GDC API Endpoints
+## Available GDC API Endpoints
 
-### 2.4.1 Data Search and Retrieval Endpoints
+### Data Search and Retrieval Endpoints
 
 The following search and retrieval endpoints are available on the GDC API.
 
@@ -68,7 +70,7 @@ The following search and retrieval endpoints are available on the GDC API.
 | [annotations](/developers/gdc-application-programming-interface-api-users-guide/7-examples#annotations-endpoint-ex) | Search & Retrieval | Search annotations added to data after curation |
 
 
-### 2.4.2 Submission Endpoints
+### Submission Endpoints
 
 The following data submission endpoints are available on the GDC API.
 
@@ -76,14 +78,14 @@ The following data submission endpoints are available on the GDC API.
 | --- | --- | --- |
 | submission(/developers/gdc-application-programming-interface-api-users-guide/7-examples#submission-endpoint-ex) | Submission | Returns the available resources at the top level above programs i.e., registered programs |
 
-### 2.4.3 Single-purpose Endpoints
+### Single-purpose Endpoints
 
 | Endpoints | Type | Description |
 | --- | --- | --- |
 | status(/developers/gdc-application-programming-interface-api-users-guide/7-examples#status-endpoint-ex) | Single-purpose | Get the API status and version information |
 | **data** | Single-purpose | Used to download GDC data |
 
-## 2.5 Versioning
+## Versioning
 
 The API has built-in versioning support to allow users to select which major API version to use.
 
@@ -101,9 +103,9 @@ The API version can be specified between the endpoint name and the API URL.
 	https://gdc-api.nci.nih.gov/v0/files
 ```
 
-## 2.6 Request Headers, Response Headers and Status Codes
+## Request Headers, Response Headers and Status Codes
 
-### 2.6.1 Request Headers
+### Request Headers
 
 The GDC API supports the following request headers:
 
@@ -115,7 +117,7 @@ The GDC API supports the following request headers:
 
 
 
-### 2.6.2 Response Headers
+### Response Headers
 
 The API provides the following response headers
 
@@ -124,7 +126,7 @@ The API provides the following response headers
 | Content-Type | Will be application/json or application/xml depending on the Accept header. |
 
 
-### 2.6.3 Status Codes
+### Status Codes
 
 The GDC API can respond with the following codes:
 
@@ -135,9 +137,9 @@ The GDC API can respond with the following codes:
 | 403 Forbidden | Unauthorized request |
 | 404 Not Found | Requested element not found |
 
-## 2.7 Example of GDC API Call
+## Example of GDC API Call
 
-### 2.7.1 Open Access Call (Data Search)
+### Open Access Call (Data Search)
 
 Returns the two smallest files stored on the GDC.
 
@@ -145,7 +147,7 @@ Returns the two smallest files stored on the GDC.
 curl  'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=true'
 ```
 
-### 2.7.2 Controlled Access Call (Submission or Access to Controlled Data)
+### Controlled Access Call (Submission or Access to Controlled Data)
 
 Download files 64cfcd9d-8a23-4f88-95b6-49c05c7cbde4 and 3a2eca3c-5aef-47ae-9d4f-344e1268aac0. _'REPLACE_WITH_A_TOKEN'_ should be replaced with an actual token downloaded from the GDC Data Portal or GDC Data Submission Portal.
 
@@ -153,14 +155,14 @@ Download files 64cfcd9d-8a23-4f88-95b6-49c05c7cbde4 and 3a2eca3c-5aef-47ae-9d4f-
 curl -H 'X-Auth-Token:REPLACE_WITH_A_TOKEN' -O https://gdc-api.nci.nih.gov:5000/data/64cfcd9d-8a23-4f88-95b6-49c05c7cbde4,3a2eca3c-5aef-47ae-9d4f-344e1268aac0
 ```
 
-## 2.8 Helper Features
+## Helper Features
 
 The GDC API has a series of additional parameters to assist users in building queries.
 Each Data Search and Retrieval endpoint is equipped with a "\_mapping" parameter, returning a list of fields available.
 
 __Note__: The /projects/ endpoint will be used for examples in this section of the documentation.
 
-## 2.8.1 Calling any Endpoint with '\_mapping' URL Parameter
+## Calling any Endpoint with '\_mapping' URL Parameter
 <a name="mapping_parameters"></a>
 
 Any endpoint called with the \_mapping parameter will return a JSON response containing elements that can be used to query the endpoint.
@@ -179,7 +181,7 @@ curl 'https://gdc-api.nci.nih.gov/projects/_mapping'
 
 __Note__: The above example has been simplified. Sections below will provide more details on this output.
 
-## 2.8.2 Output: \_mapping: {}
+## Output: \_mapping: {}
 
 The "\_mapping" output is a list of objects, containing fields available through the API.
 

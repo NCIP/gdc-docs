@@ -1,4 +1,4 @@
-## 6.1 BAM Slicing
+# BAM Slicing
 
 GDC exposes a BAM slicing API that allows for remote slicing of BAM format
 objects, utilizing a similar syntax to widely used bioinformatics tools, such

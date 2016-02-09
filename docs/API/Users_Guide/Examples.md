@@ -1,6 +1,8 @@
-## 8.1 Data Search and Retrieval
+# Examples
 
-### 8.1.1 Endpoint Examples
+## Data Search and Retrieval
+
+### Endpoint Examples
 
 This section contains additional examples for using endpoints.
 
@@ -301,11 +303,11 @@ Response
 #### Submission Endpoint Examples
 <a name="submission-endpoint-ex"></a>
 
-### 8.1.2 Filters Examples
+### Filters Examples
 
 This section contains additional examples for using endpoints.
 
-####Basic Syntax
+#### Basic Syntax
 
 The basic syntax for the query filter is as below:
 
@@ -476,7 +478,7 @@ Query returning case_id with age at diagnosis between 40 and 70 years
 $ curl 'https://gdc-api.nci.nih.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22primary_site%22%2C%22value%22%3A%5B%22Kidney%22%2C%22Brain%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22program.name%22%2C%22value%22%3A%5B%22TCGA%22%5D%7D%7D%5D%7D&pretty=true'
 ```
 
-## 8.2 File Download
+## File Download
 
 The example below will download two files (2442bd46-fca4-4a03-9d58-e30929da6ed8 and bb8182f8-8cc1-4504-b900-de0ab3ace714).
 

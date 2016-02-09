@@ -1,6 +1,4 @@
-## Current Release
-
-[collapse title="GDC Data Transfer Tool Release v0.3.20 (January 28, 2016)"]
+## Current Release: GDC Data Transfer Tool Release v0.3.20 (January 28, 2016)
 
 ### New Features and Changes
 
@@ -16,12 +14,9 @@
 
   * *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 
-[/collapse]  
 Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md).
 
-## Past Releases
-
-[collapse collapsed title="GDC Data Transfer Tool Release 0.2.18 (December 18, 2015)"]
+## GDC Data Transfer Tool Release 0.2.18 (December 18, 2015)
 
 ### New Features and Changes
 
@@ -37,9 +32,7 @@ Release details are maintained in the [GDC Data Transfer Tool Change Log](https:
 
   * *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 
-[/collapse]  
-
-[collapse collapsed title="GDC Data Transfer Tool Release 0.2.18-spr3 (November 18, 2015)"]
+## GDC Data Transfer Tool Release 0.2.18-spr3 (November 18, 2015)
 
 ### New Features and Changes
 
@@ -59,9 +52,7 @@ Release details are maintained in the [GDC Data Transfer Tool Change Log](https:
 
   * *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 
-[/collapse]
-
-[collapse collapsed title="GDC Data Transfer Tool Release 0.2.15.2 (August 31, 2015)"]
+## GDC Data Transfer Tool Release 0.2.15.2 (August 31, 2015)
 
 ### New Features and Changes
 
@@ -81,9 +72,7 @@ Release details are maintained in the [GDC Data Transfer Tool Change Log](https:
 
   * *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 
-[/collapse]
-
-[collapse collapsed title="GDC Data Transfer Tool Release 0.2.15.1 (August 7, 2015)"]
+## GDC Data Transfer Tool Release 0.2.15.1 (August 7, 2015)
 
 ### New Features and Changes
 
@@ -101,9 +90,7 @@ Release details are maintained in the [GDC Data Transfer Tool Change Log](https:
 
   * *Workaround:* Switch the current working directory and attempt to download again.
 
-[/collapse]
-
-[collapse collapsed title="GDC Data Transfer Tool Release 0.2.13 (July 23, 2015)"]
+## GDC Data Transfer Tool Release 0.2.13 (July 23, 2015)
 
 ### New Features and Changes
 
@@ -113,13 +100,11 @@ Release details are maintained in the [GDC Data Transfer Tool Change Log](https:
 
 * Fixed a receive buffer space bug
 
-Known Issues and Workarounds
+### Known Issues and Workarounds
 
 * None reported
 
-[/collapse]
-
-[collapse collapsed title="GDC Data Transfer Tool Release 0.1.13 (June 2, 2015)"]
+## GDC Data Transfer Tool Release 0.1.13 (June 2, 2015)
 
 ### New Features and Changes
 
@@ -141,9 +126,7 @@ Known Issues and Workarounds
 
 * None reported
 
-[/collapse]
-
-[collapse collapsed title="GDC Data Transfer Tool Release 0.1.10 (March 18, 2015)"]
+## GDC Data Transfer Tool Release 0.1.10 (March 18, 2015)
 
 ### New Features and Changes
 
@@ -158,7 +141,5 @@ Known Issues and Workarounds
 ### Known Issues and Workarounds
 
 * Does not support the Windows platform
-
-[/collapse]
 
 &nbsp;
