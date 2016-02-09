@@ -12,7 +12,7 @@ By Clicking on "Login", users will be invited to authentication through eRA Comm
 
 # GDC Authentication Token
 
-A Token is required to upload data to GDC, as well as to download controlled-access files, using the GDC Data Transfer Tool or the GDC Application Programming Interface.
+A Token is required to upload data to GDC, as well as to download controlled-access files, using the GDC Data Transfer Tool or the GDC Application Programming Interface (API).
 
 The GDC Data Transfer Tool is optimized for large transfers with multi-part upload and integrity checking, making it the most efficient tool for molecular data submission.
 
@@ -29,6 +29,27 @@ After successful authentication, users can obtain their Token be clicking on the
 After successful authentication, users can obtain their Token be clicking on their username on the top right corner of the screen.
 
 [![GDC Token Download from GDC Submission Portal](images/GDC_Submission_Token_Download.png)](images/GDC_Submission_Token_Download.png "Click to see the full image.")
+
+## Using the Token
+
+Each GDC API request must include a "X-Auth-Token" custom header.
+
+**Example**:
+
+    export token=YOUR_TOKEN
+    curl -H 'X-Auth-Token:$token'  "https://gdcapi.nci.nih.gov/data/49ac8944-1468-456a-bb65-b08c7e24a97a"
+
+In the example above, replace YOUR_TOKEN with the token downloaded from the portal.
+
+## Token Expiration
+
+Tokens are valid for ninety days from the time of download. Using an expired token will result in a 401 HTTP error code:
+
+    HTTP/1.1 403 FORBIDDEN{
+      "error": "You don't have access to the data"
+    }
+
+**NOTE**: Invalid credentials will result in a server error even if the resource is open access.
 
 # Logout from GDC
 
