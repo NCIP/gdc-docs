@@ -909,6 +909,50 @@ footer a {
   display: none;
 }
 
+/* BS Code Tabs */
+.tab-set-container {
+  line-height: 1rem;
+  padding: 1rem 0.5rem;
+}
+
+.tab-set-container .nav-tabs {
+  border-color: #ddd;
+}
+
+
+
+.tab-set-container  .nav-tabs > li > a,
+.tab-set-container  .nav-tabs > li > a:hover,
+.tab-set-container  .nav-tabs > li > a:focus {
+  border-color: #ddd;
+  background-color: #eee;
+  border-bottom-color: transparent;
+}
+
+.tab-set-container  .nav-tabs > li > a {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+
+.tab-set-container .nav-tabs > li.active > a,
+.tab-set-container  .nav-tabs > li.active > a:hover,
+.tab-set-container  .nav-tabs > li.active > a:focus {
+  background-color: #fff;
+  border-color: #ddd;
+  border-bottom-color: transparent;
+}
+
+.tab-set-container .tab-pane {
+  padding: 1rem 1rem;
+  background-color: #fff;
+  border: solid 1px #ddd;
+  border-top-color: transparent;
+}
+
+
+/* ************ */
+
 /* Animations */
 .animated {
   -webkit-animation-duration: 0.25s;
