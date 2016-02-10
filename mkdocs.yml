@@ -67,9 +67,14 @@ pages:
   - Key Terms: 'Data_Transfer_Tool/Users_Guide/Appendix_A_-_Key_Terms.md'
   - Release Notes: 'Data_Transfer_Tool/Release_Notes/GDC_Data_Transfer_Tool_Release_Notes.md'
 - Dictionary:
-  - About: 'index.md'
+  - About: 'Dictionary/index.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
   project_description: 'GDC Docs'
   version: 1.0
+markdown_extensions:
+  - BSCodeTabExtension:
+      default_lang: 'javascript'
+      show_all_code_as_folders: False
+      animate_tab_transitions: False
