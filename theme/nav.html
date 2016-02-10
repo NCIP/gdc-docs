@@ -13,11 +13,7 @@
             </button>
 
             <!-- Main title -->
-            {% if disableRootNavPrefixing %}
-            <a class="navbar-brand" href="{{ homepage_url }}">
-            {% else %}
             <a class="navbar-brand" href="{{ config.extra.project_root_dir }}{{ homepage_url }}">
-            {% endif %}
                 <img src="/img/nih-header-logo-color.png" alt="NCI GDC Documentation Logo" />
                 <span class="hidden">NCI GDC Documentation</span>
             </a>
