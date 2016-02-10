@@ -461,7 +461,7 @@ $(function() {
           footer = $('#docs-footer'),
           footerHeight = footer.outerHeight(),
           footerOffsetTop = footer.offset().top,
-          OFFSET = -(100 + footerHeight),
+          OFFSET = -(130 + footerHeight),
           resizeElHeight = 0;
 
 

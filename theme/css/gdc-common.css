@@ -909,6 +909,45 @@ footer a {
   display: none;
 }
 
+/* Previous/Next Nav */
+
+.history-nav-control-container .btn {
+  position: relative;
+  border: none;
+}
+
+.history-nav-control-container .btn:focus,
+.history-nav-control-container .btn:hover {
+  color: inherit;
+}
+
+.history-nav-control-container .indicate-left {
+  right: -8px;
+  padding-left: 0px;
+  transform: translateZ(0);
+}
+
+.history-nav-control-container .indicate-right {
+  left: -8px;
+  padding-right: 0px;
+  transform: translateZ(0);
+}
+
+.indicate-right:hover {
+  -webkit-animation: indicateRight 0.5s 1 linear;
+  animation: indicateRight 0.5s 1 linear;
+}
+
+.indicate-left:hover {
+  -webkit-animation: indicateLeft 0.5s 1 linear;
+  animation: indicateLeft 0.5s 1 linear;
+}
+
+.btn-nav-text {
+  color: #4a4141;
+}
+/* ***************** */
+
 /* BS Code Tabs */
 .tab-set-container {
   line-height: 1rem;
@@ -1213,6 +1252,60 @@ footer a {
 .focusText {
   -webkit-animation-name: focusText;
   animation-name: focusText;
+}
+
+
+@-webkit-keyframes indicateRight {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    -webkit-transform: translate3d(8px, 0, 0);
+  }
+}
+
+@keyframes indicateRight {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(8px, 0, 0);
+  }
+}
+
+
+@-webkit-keyframes indicateLeft {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    -webkit-transform: translate3d(-8px, 0, 0);
+  }
+}
+
+@keyframes indicateLeft {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(-8px, 0, 0);
+  }
+}
+
+
+.indicateRight {
+  -webkit-animation: indicateRight 2.0s infinite linear;
+  animation: indicateRight 2.0s infinite linear;
+}
+
+
+.indicateLeft {
+  -webkit-animation: indicateLeft 2.0s infinite linear;
+  animation: indicateLeft 2.0s infinite linear;
 }
 
 .particle.grey {
