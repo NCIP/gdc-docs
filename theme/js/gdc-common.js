@@ -512,7 +512,7 @@ $(function() {
 
 
     function _calcMainContentWidth() {
-      if ($('.full-width-content').length) {
+      if ($('.full-width-content').length || $('.toc-container').length === 0) {
         $('.main-container').addClass('col-md-12').removeClass('col-md-9').css({borderLeft: 'none'});
       }
     }
