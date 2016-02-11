@@ -1,5 +1,5 @@
 #!/bin/bash
-cd gdc-docs
+cd ~/gdc-docs
 echo "$(date +'%d %B %Y - %k:%M'): Pulling latest version from git"
 git pull
 
@@ -50,3 +50,5 @@ sed -i -e 's/### /## /g' docs/Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pd
 sed -i -e 's/\/site\//\/docs\//g' docs/Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pd
 echo "$(date +'%d %B %Y - %k:%M'): Data_Transfer_Tool UG: Building PDF from pandoc document "
 pandoc --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions -o docs/Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf docs/Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pd
+
+mkdocs build -v --site-dir /var/www/gdc-docs-dev.nci.nih.gov/
