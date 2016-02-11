@@ -461,7 +461,7 @@ $(function() {
           footer = $('#docs-footer'),
           footerHeight = footer.outerHeight(),
           footerOffsetTop = footer.offset().top,
-          OFFSET = -(100 + footerHeight),
+          OFFSET = -(130 + footerHeight),
           resizeElHeight = 0;
 
 
@@ -512,7 +512,7 @@ $(function() {
 
 
     function _calcMainContentWidth() {
-      if ($('.full-width-content').length) {
+      if ($('.full-width-content').length || $('.toc-container').length === 0) {
         $('.main-container').addClass('col-md-12').removeClass('col-md-9').css({borderLeft: 'none'});
       }
     }
