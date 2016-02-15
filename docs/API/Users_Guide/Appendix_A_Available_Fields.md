@@ -32,7 +32,6 @@ _Table A.1-1: Project Fields_
 
 | Field Name |
 | --- |
-| **Field Name** |
 | file_id |
 | file_size |
 | state |
@@ -267,12 +266,11 @@ _Table A.1-1: Project Fields_
 _Table A.2-1: File Fields_
 
 
-## A.3 case Fields
+## A.3 Case Fields
 
 
 | Field Name |
 | --- |
-| **Field Name** |
 | case_id |
 | days_to_index |
 | submitter_id |
@@ -684,7 +682,6 @@ _Table A.3-1: case Fields_
 
 | Field Name |
 | --- |
-| **Field Name** |
 | annotation_id |
 | case_id |
 | submitter_id |
