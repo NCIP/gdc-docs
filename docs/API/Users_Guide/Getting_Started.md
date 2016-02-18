@@ -2,7 +2,7 @@
 
 ## The Genomic Data Commons (GDC) API: An Overview
 
-The GDC API is the external-facing REST API for the GDC and drives the graphical interface of the GDC Data and Submission Portals. It is made available to external users for programmatic access to the same functionality provided by the portals. This includes searching for and downloading subsets of data files, metadata and annotations based on specific parameters and submitting files to GDC.
+The GDC API is an external-facing REST API used by the GDC Data Portal and the GDC Data Submission Portal. It is made available to external users for programmatic access to the same functionality provided by the portals. This includes searching for and downloading subsets of data files, metadata and annotations based on specific parameters and submitting files to GDC.
 
 The GDC API uses JSON as its communication format, and standard HTTP methods like GET, PUT, POST and DELETE.
 
@@ -10,7 +10,7 @@ The GDC API uses JSON as its communication format, and standard HTTP methods lik
 
 A large variety of tools are available to visualize and prepare calls to the GDC API.
 
-The following tools can be used to communicate with GDC API (non-exhaustive list):
+The following is a non-exhaustive list of tools that can be used to communicate with the GDC API:
 
 | Tool        | Type     |
 | ------------- |-------------|
@@ -30,7 +30,7 @@ The following online tools can be used to help build GDC API calls:
 | [UrlDecode.org](http://urldecode.org/)| Decode/Encode url strings (for example, from { to %7B) |
 
 
-**Note:** See Appendix C for an example of using jsonlint and urldecode for GET to POST conversion.
+**Note:** See [Appendix C](Appendix_C_Using_jsonlint_and_urldecode_for_GET_to_POST_Conversion.md) for an example of using jsonlint and urldecode for GET to POST conversion.
 
 
 ## Accessing GDC API
