@@ -15,7 +15,7 @@ The system recommendations for using the GDC Data Transfer Tool&nbsp;are as foll
 * OS: Linux (Ubuntu 14.x or later), OS X (10.9 Mavericks or later), or Windows (7 or later)
 * CPU: At least eight 64-bit cores, Intel or AMD
 * RAM: At least 8 GiB
-* Storage: Enterprise-class storage system capable of &ge;1 Gb/s (Gigabit per second) write throughput and sufficient free space for BAM files.
+* Storage: Enterprise-class storage system capable of at least 1 Gb/s (gigabit per second) write throughput and sufficient free space for BAM files.
 
 ### Binary Distributions
 
