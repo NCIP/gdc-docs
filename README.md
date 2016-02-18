@@ -1,5 +1,6 @@
 # Docs Site installation
-
+ - Install mkdocs
+ - Install ...
 
 # Repository Conventions
 
