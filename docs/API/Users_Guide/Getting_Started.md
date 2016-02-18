@@ -1,8 +1,8 @@
-# Getting Started with the GDC API
+# Getting Started
 
-## Overview
+## The Genomic Data Commons (GDC) API: An Overview
 
-The GDC API is the external-facing REST API for GDC and drives the graphical interface of the GDC Data and Submission Portals. It is made available to external users for programmatic access to the same functionality provided by the portals. This includes searching for and downloading subsets of data files, metadata and annotations based on specific parameters and submitting files to GDC.
+The GDC API is the external-facing REST API for the GDC and drives the graphical interface of the GDC Data and Submission Portals. It is made available to external users for programmatic access to the same functionality provided by the portals. This includes searching for and downloading subsets of data files, metadata and annotations based on specific parameters and submitting files to GDC.
 
 The GDC API uses JSON as its communication format, and standard HTTP methods like GET, PUT, POST and DELETE.
 
