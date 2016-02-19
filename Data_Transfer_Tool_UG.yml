@@ -9,7 +9,7 @@ copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
 - Data Transfer Tool:
-  - Getting Started with the GDC Data Transfer Tool: 'Data_Transfer_Tool/Users_Guide/Getting_Started_with_the_GDC_Data_Transfer_Tool.md'
+  - Getting Started with the GDC Data Transfer Tool: 'Data_Transfer_Tool/Users_Guide/Getting_Started.md'
   - Accessing Built-in Help: 'Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md'
   - Preparing for Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md'
   - Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md'

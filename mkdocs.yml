@@ -10,7 +10,7 @@ theme_dir: theme
 pages:
 - Home: index.md
 - API:
-  - Getting Started: 'API/Users_Guide/Getting_Started_with_the_GDC_API.md'
+  - Getting Started: 'API/Users_Guide/Getting_Started.md'
   - Authentication: 'Commons/Authentication.md'
   - Searching for and Retrieving Data and Metadata: 'API/Users_Guide/Searching_for_and_Retrieving_Data_and_Metadata.md'
   - Downloading Files: 'API/Users_Guide/Downloading_Files.md'
@@ -60,7 +60,7 @@ pages:
      - 0.3.21: 'Data_Submission_Portal/Release_Notes/0.3.21.md'
      - 0.2.18.3: 'Data_Submission_Portal/Release_Notes/0.2.18.3.md'
 - Data Transfer Tool:
-  - Getting Started: 'Data_Transfer_Tool/Users_Guide/Getting_Started_with_the_GDC_Data_Transfer_Tool.md'
+  - Getting Started: 'Data_Transfer_Tool/Users_Guide/Getting_Started.md'
   - Accessing Built-in Help: 'Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md'
   - Preparing for Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md'
   - Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md'
