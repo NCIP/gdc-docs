@@ -2,7 +2,7 @@
 
 Accessing the GDC Data Submission Portal requires eRA Commons credentials with appropriate dbGap authorization. See [Obtaining Access to Submit Data]( https://gdc.nci.nih.gov/submit-data/obtaining-access-submit-data) for more details.
 
-Permissions are attached to each user account. Access can be granted to one or more projects. Those permissions will apply throughout the GDC Data Portal and GDC Data Submission Portal and will define how data is being displayed.
+Permissions are attached to each user account. Access can be granted to one or more projects. Those permissions will apply throughout the GDC Data Portal and GDC Data Submission Portal and will define how data is being fgedisplayed.
 
 # Authentication via eRA Commons
 
