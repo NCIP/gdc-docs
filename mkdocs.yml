@@ -68,11 +68,14 @@ pages:
   - Release Notes: 'Data_Transfer_Tool/Release_Notes/GDC_Data_Transfer_Tool_Release_Notes.md'
 - Dictionary:
   - About: 'Dictionary/index.md'
+  - Viewer: 'Dictionary/viewer.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
   project_description: 'GDC Docs'
   version: 1.0
+  dictionary_viewer_page_id: 'Viewer'
+  dictionary_app_root: '/apps/dictionary'
 markdown_extensions:
   - BSCodeTabExtension:
       default_lang: 'javascript'

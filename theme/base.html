@@ -17,7 +17,8 @@
    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
 
         {% if current_page.title == config.extra.dictionary_viewer_page_id %}
-        {% include "dictionary-viewer.html" %}
+            {% include "apps/dictionary/html-shards/dictionary-deps.html" %}
+            <script src="/js/dictionary-init.js"></script>
         {% endif %}
 
         <link href="/css/bootstrap-custom.css" rel="stylesheet">
@@ -53,6 +54,8 @@
 
     <body>
         {% include "search.html" %}
+        <!-- div id="sliding-drawer-container" class="sliding-drawer-container">
+        </div -->
         <div class="parent-container">
             <div class="spinParticle">
                 <div class="particle red"></div>

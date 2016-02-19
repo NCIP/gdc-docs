@@ -188,8 +188,35 @@ code {
   width: 100%;
   position: relative;
   margin: 0 auto;
+  /* top: 0px;
+  left: 0rem; */
   background-color: #f5f5f5;
+  /* -webkit-box-shadow: 10px 0px 37px 4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 0px 37px 4px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 17px 4px rgba(0,0,0,0.75);
+  z-index: 100;
+  transition: left 1s ease-in-out; */
 }
+/*
+.parent-container:hover {
+  left: 25rem;
+}
+*/
+
+/*              */
+
+.sliding-drawer-container {
+  position: fixed;
+  width: 25rem;
+  color: #fff;
+  padding: 7rem 2rem 0rem 2rem;
+  z-index: 1;
+  background-color: transparent;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+}
+/* ************ */
 
 /* Nav Styling */
 .navbar-default {
