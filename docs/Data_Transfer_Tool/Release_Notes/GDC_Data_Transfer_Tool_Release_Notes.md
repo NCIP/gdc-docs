@@ -2,18 +2,17 @@
 
 **Note:** Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md).
 
-
 ## v0.3.20: January 28, 2016
 
-### New Features and Changes
+#### New Features and Changes
 
 * None
 
-### Bugs Fixed Since Last Release
+##### Bugs Fixed Since Last Release
 
 * GDC API compatibility fixes
 
-### Known Issues and Workarounds
+###### Known Issues and Workarounds
 
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
 
