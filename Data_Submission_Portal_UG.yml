@@ -22,9 +22,7 @@ pages:
   - Data: 'Data_Submission_Portal/Users_Guide/Data.md'
   - Reports: 'Data_Submission_Portal/Users_Guide/Reports.md'
   - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
-  - Release Notes:
-     - 0.3.21: 'Data_Submission_Portal/Release_Notes/0.3.21.md'
-     - 0.2.18.3: 'Data_Submission_Portal/Release_Notes/0.2.18.3.md'
+  - Release Notes: 'Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'

@@ -34,15 +34,8 @@ pages:
   - Reports: 'Data_Portal/Users_Guide/Reports.md'
   - Cart and Files Download: 'Data_Portal/Users_Guide/Cart.md'
   - Key Terms: 'Data_Portal/Users_Guide/Key_Terms.md'
-  - Release Notes:
-     - 0.2.18.3: 'Data_Portal/Release_Notes/0.2.18.3.md'
-     - 0.2.15.4: 'Data_Portal/Release_Notes/0.2.15.4.md'
-     - 0.2.15.2: 'Data_Portal/Release_Notes/0.2.15.2.md'
-     - 0.2.15.1: 'Data_Portal/Release_Notes/0.2.15.1.md'
-     - 0.2.13: 'Data_Portal/Release_Notes/0.2.13.md'
-     - 0.1.10: 'Data_Portal/Release_Notes/0.1.10.md'
-     - 0.1.8: 'Data_Portal/Release_Notes/0.1.8.md'
-- Submission Portal:
+  - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
+- Data Submission Portal:
   - Getting Started: 'Data_Submission_Portal/Users_Guide/Getting_Started.md'
   - Authentication: 'Commons/Authentication.md'
   - Overview and Features: 'Data_Submission_Portal/Users_Guide/Features.md'
@@ -56,9 +49,7 @@ pages:
   - Data: 'Data_Submission_Portal/Users_Guide/Data.md'
   - Reports: 'Data_Submission_Portal/Users_Guide/Reports.md'
   - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
-  - Release Notes:
-     - 0.3.21: 'Data_Submission_Portal/Release_Notes/0.3.21.md'
-     - 0.2.18.3: 'Data_Submission_Portal/Release_Notes/0.2.18.3.md'
+  - Release Notes: 'Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md'
 - Data Transfer Tool:
   - Getting Started: 'Data_Transfer_Tool/Users_Guide/Getting_Started.md'
   - Accessing Built-in Help: 'Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md'
