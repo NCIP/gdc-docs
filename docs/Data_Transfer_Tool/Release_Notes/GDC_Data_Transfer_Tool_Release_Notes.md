@@ -8,7 +8,7 @@
 
 #### New Features and Changes
 
-* None
+* None to report
 
 #### Bugs Fixed Since Last Release
 
@@ -24,7 +24,7 @@
 
 #### New Features and Changes
 
-* No new features since previous release.
+* None to report
 
 #### Bugs Fixed Since Last Release
 
@@ -48,7 +48,7 @@
 
 #### Bugs Fixed Since Last Release
 
-* No new bug fixes to report in this release.
+* None to report
 
 #### Known Issues and Workarounds
 
@@ -60,7 +60,7 @@
 
 #### New Features and Changes
 
-* Bug fixes (see below).
+* None to report
 
 #### Bugs Fixed Since Last Release
 
@@ -106,7 +106,7 @@
 
 #### Known Issues and Workarounds
 
-* None reported
+* None to report
 
 ### v0.1.13: June 2, 2015
 
@@ -124,11 +124,11 @@
 
 #### Bugs Fixed Since Last Release
 
-* Initial Release
+* None to report
 
 #### Known Issues and Workarounds
 
-* None reported
+* None to report
 
 ### v0.1.10: March 18, 2015
 
@@ -140,7 +140,7 @@
 
 #### Bugs Fixed Since Last Release
 
-* Initial Release - Not Applicable
+* None to report
 
 #### Known Issues and Workarounds
 
