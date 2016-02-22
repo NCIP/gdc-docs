@@ -16,11 +16,6 @@
 
    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
 
-        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
-            {% include "apps/dictionary/html-shards/dictionary-deps.html" %}
-            <script src="/js/dictionary-init.js"></script>
-        {% endif %}
-
         <link href="/css/bootstrap-custom.css" rel="stylesheet">
         <link href="/css/font-awesome-4.5.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/highlight.css">
@@ -49,7 +44,11 @@
             ga('send', 'pageview');
         </script>
         {% endif %}
-        <script src="/js/jquery-1.12.0.min.js"></script>
+
+        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
+        {% include "apps/dictionary/html-shards/dictionary-deps.html" %}
+        <script src="/js/dictionary-init.js"></script>
+        {% endif %}
     </head>
 
     <body>
@@ -74,12 +73,12 @@
                 </div>
                     {% if next_page or previous_page %}
                     <div class="history-nav-control-container clearfix" role="navigation" aria-label="footer navigation">
-                        {% if next_page.ancestors and next_page.ancestors[0].active  %}
+                        {% if next_page.ancestors and next_page.ancestors[0].active and current_page.title != config.extra.dictionary_viewer_page_id  %}
                         <a href="{{ next_page.url }}" class="btn pull-right indicate-right" title="Click to go to the Next Page: {{ next_page.title }}">
                             <span class="btn-nav-text">Next:</span> {{next_page.title}} <span class="fa fa-chevron-right"></span>
                         </a>
                         {% endif %}
-                        {% if previous_page.ancestors and previous_page.ancestors[0].active %}
+                        {% if previous_page.ancestors and previous_page.ancestors[0].active and current_page.title != config.extra.dictionary_viewer_page_id %}
                         <a href="{{ previous_page.url }}" class="btn pull-left indicate-left" title="Click to go to the Previous Page: {{ previous_page.title }}">
                             <span class="fa fa-chevron-left"></span> <span class="btn-nav-text">Previous:</span> {{previous_page.title}}</a>
                         {% endif %}
@@ -115,6 +114,7 @@
                 </div>
             </footer>
 
+            <script src="/js/jquery-1.12.0.min.js"></script>
             <script src="/js/jQuery-FontSpy.js"></script>
             <script src="/js/bootstrap-3.3.6.min.js"></script>
             <script src="/js/highlight.pack.js"></script>
