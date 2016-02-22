@@ -35,7 +35,7 @@ pages:
   - Cart and Files Download: 'Data_Portal/Users_Guide/Cart.md'
   - Key Terms: 'Data_Portal/Users_Guide/Key_Terms.md'
   - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
-- Submission Portal:
+- Data Submission Portal:
   - Getting Started: 'Data_Submission_Portal/Users_Guide/Getting_Started.md'
   - Authentication: 'Commons/Authentication.md'
   - Overview and Features: 'Data_Submission_Portal/Users_Guide/Features.md'
