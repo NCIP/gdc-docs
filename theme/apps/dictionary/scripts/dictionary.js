@@ -1,15 +1,306 @@
 (function(_, d3, fetch, Promise) {
   'use strict';
 
+  /////////////////////////////////////////////////////////
+  // Dictionary Main App
+  /////////////////////////////////////////////////////////
+  function Dictionary(targetEl, options) {
+    var _dictionary = this;
+
+    _dictionary._containerEl = null;
+    _dictionary._d3Containers = {};
+    _dictionary._options = _defaultOptions;
+    _dictionary._data = null;
+
+
+
+    if (_.isObject(options)) {
+      _.assign(_dictionary._options, options);
+    }
+
+    _dictionary._currentViewMode = _dictionary._options.defaultView;
+    _dictionary._currentView = null;
+
+    _dictionary.containerElement(targetEl || document.body);
+    _dictionary.CONSTANTS = _DICTIONARY_CONSTANTS;
+
+    _dictionary.init();
+  }
+
+  /////////////////////////////////////////////////////////
+  // Get/Set the dictionary's parent container
+  /////////////////////////////////////////////////////////
+  Dictionary.prototype.containerElement  = function(el) {
+    // Check if the element is a DOM node
+    if ( Object.prototype.toString.call(el).toUpperCase().indexOf('HTML') >= 0 ) {
+      this._containerEl = el;
+    }
+
+    return this._containerEl;
+  };
+
+  /////////////////////////////////////////////////////////
+  // Dictionary Initializer
+  /////////////////////////////////////////////////////////
+  Dictionary.prototype.init = function(shouldRefresh) {
+
+    var _dictionary = this;
+
+    if (_dictionary._data === null || shouldRefresh === true) {
+
+      _fetchTemplate(_DICTIONARY_CONSTANTS.TEMPLATES.MAIN_DICTIONARY)
+        .then(function (html) {
+          _dictionary._containerEl.innerHTML = html;
+
+          // Place D3 entry point
+          _dictionary._d3Containers.rootEl = d3.select('#dictionary-inner-container');
+        })
+        .then(function () {
+          _dictionary.getDataFromSource().then(function (rawDictionaryData) {
+            _dictionary._data = _initDictionaryData(rawDictionaryData);
+            _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _dictionary.viewListener);
+            _dictionary.setView(_dictionary._options.defaultView);
+            _dictionary.render();
+          });
+        });
+    }
+  };
+
+  Dictionary.prototype.viewListener = function(view) {
+    console.log('view Listener invoked: ', view.getState());
+  };
+
+  Dictionary.prototype.getDataFromSource = function(responseType) {
+    var webServiceURL = this._options.dataSourceBaseHost + _parseContextPattern(this._options.dataSourceContextPattern);
+
+    return _fetch(webServiceURL, responseType);
+  };
+
+  Dictionary.prototype.getSourceData = function() {
+    return this._data;
+  };
+
+  Dictionary.prototype.setView = function(view) {
+    var _dictionary = this;
+
+    _dictionary._currentView = _dictionary._d3Containers.views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][view].view;
+
+    return _dictionary;
+  }
+
+  // Manual call to render self
+  Dictionary.prototype.render = function() {
+    var _dictionary = this;
+
+    _dictionary._currentView.render();
+
+    setTimeout(function() {  _dictionary._currentView.show(); }, 2000);
+
+    return _dictionary;
+  };
+
+  // Clean up
+  Dictionary.prototype.destroy = function() {
+
+  };
+
+  /////////////////////////////////////////////////////////
+  // Dictionary Views
+  /////////////////////////////////////////////////////////
+
+  function View(d3ContainerSelection, dictionaryData, actionCallbackFn) {
+    var _view = this;
+
+    _view._d3ContainerSelection = d3ContainerSelection;
+    _view._dictionaryData = dictionaryData;
+    _view._name = 'Unknown View';
+    _view._callbackFn = actionCallbackFn || _.noop;
+    _view._isHidden = true;
+
+  }
+
+  View.prototype.render = function() {
+    var _view = this;
+
+    console.log('Rendering!');
+
+    _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
+    _view._callbackFn.call(null, _view);
+
+    return _view;
+  };
+
+  View.prototype.show = function() {
+    var _view = this;
+
+    console.log('Showing!');
+
+    _view._isHidden = false;
+    _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
+    _view._d3ContainerSelection.transition().style('opacity', 1);
+
+    _view._callbackFn.call(null, this);
+
+    return _view;
+  };
+
+  View.prototype.hide = function() {
+    var _view = this;
+    console.log('Hiding!');
+
+    _view._isHidden = true;
+    _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
+    _view._d3ContainerSelection.transition().style('opacity', 0);
+    _view._callbackFn.call(null, this);
+
+    return _view;
+  };
+
+  View.prototype.getState = function() {
+    return this._state;
+  };
+
+  /////////////////////////////////////////////////////////
+  // TableEntityListView
+  /////////////////////////////////////////////////////////
+  var TableEntityListView = (function() {
+
+
+    function TableEntityListView() {
+
+      var _tableEntityListView = this;
+      // Inherit from View
+      View.apply(_tableEntityListView, arguments);
+
+
+      _tableEntityListView._name = _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST;
+
+
+    }
+
+    TableEntityListView.prototype = View.prototype;
+
+    TableEntityListView.prototype.renderEntity = function(category, categoryData) {
+      var _tableEntityListView = this;
+
+      var entityTable = _tableEntityListView._d3ContainerSelection
+        .append('table')
+        .attr('id', 'dictionary-entity-' + category)
+        .classed('entity-table', true);
+
+      var tHead = entityTable.append('thead'),
+          tBody = entityTable.append('tbody');
+
+      tHead.append('tr').append('th').classed('dictionary-entity-header', true).text(function() {
+        return _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category);
+      });
+
+      var tRows = tBody.selectAll('tr')
+            .data(categoryData)
+            .enter()
+            .append('tr');
+
+
+      tRows.selectAll('td')
+        .data(function(row) {
+          return [{id: row.id,  title: row.title}];
+        })
+        .enter()
+        .append('td')
+        .classed('dictionary-entity-list-item', true)
+        .append('a')
+        .attr('href', function(data) {
+          return '?view=' + _tableEntityListView._name + '&id=' + data.id;
+        })
+        .text(function(data) { return data.title; });
+
+      return entityTable;
+    };
+
+    TableEntityListView.prototype.render = function () {
+      var _tableEntityListView = this;
+
+     console.log(_tableEntityListView._dictionaryData);
+
+      var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
+
+      for (var category in categoryMap) {
+        if (categoryMap.hasOwnProperty(category)) {
+          _tableEntityListView.renderEntity(category, categoryMap[category]);
+        }
+      }
+
+      console.log('TableEntityListView Rendering!');
+
+
+
+
+
+      _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
+      _tableEntityListView._callbackFn.call(null, _tableEntityListView);
+    };
+    return TableEntityListView;
+  })();
+
+  /////////////////////////////////////////////////////////
+  function TableDefinitionsView() {
+
+    var _tableDefView = this;
+
+    // Inherit from View
+    View.apply(_tableDefView, arguments);
+
+
+    _tableDefView._name = _DICTIONARY_CONSTANTS.VIEWS.TABLE.DEFINITION;
+
+  }
+
+  TableDefinitionsView.prototype = View.prototype;
+
+
+
+
+
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+
+
+
+
+  /////////////////////////////////////////////////////////
+  // Create a global access point to this Dictionary
+  /////////////////////////////////////////////////////////
   if (typeof window.Dictionary !== 'undefined') {
     throw new Error('Dictionary app looks to be already defined or is in use by someone else - Aborting....');
   }
 
   window.Dictionary = Dictionary;
 
+  ///////////////////////////////////////////////
+  // Dictionary Constants
+  ///////////////////////////////////////////////
   var _DICTIONARY_CONSTANTS = {
+    APP_ABSOLUTE_DIR: '/apps/dictionary',
     VIEWS: {
-      TABLE: 1
+      TABLE: {
+        _ID: 'table',
+        ENTITY_LIST: 'table-entity-list',
+        DEFINITION: 'table-definition'
+      }
+    },
+    VIEW_STATE: {
+      ENTER: 'enter', EXIT: 'exit', RENDERED: 'rendered'
+    },
+    DICTIONARY_ENTITY_MAP: {
+      case: 'Case',
+      clinical: 'Clinical',
+      biospecimen: 'Biospecimen',
+      data_bundle: 'Data Bundles',
+      annotation: 'Annotation',
+      data_file: 'Data Files',
+      references: 'References',
+      administrative: 'Administrative',
+      tbd: 'To Be Determined...'
     },
     DICTIONARY_KEY_ORDER: [
       // clinical
@@ -35,10 +326,17 @@
       DEFAULT_PROGRAM: 'CGCI',
       DEFAULT_PROJECT: 'BLGSP',
       DEFAULT_DICTIONARY: '_all'
+    },
+    TEMPLATES: {
+      RELATIVE_DIR: '/html-shards',
+      MAIN_DICTIONARY: 'dictionary.html'
     }
 
   };
 
+  ///////////////////////////////////////////////
+  // Dictionary Default Options
+  ///////////////////////////////////////////////
   var _defaultOptions = {
     onInitFn: _.noop,
     beforeRenderFn: _.noop,
@@ -46,11 +344,38 @@
     dictionaryData: null, // if not null will use this as the data source
     dataSourceBaseHost: _DICTIONARY_CONSTANTS.WEB_SERVICE.DEFAULT_URL, // override internal host defaults
     dataSourceContextPattern: _DICTIONARY_CONSTANTS.WEB_SERVICE.CONTEXT_PATTERN,
-    defaultView: _DICTIONARY_CONSTANTS.VIEWS.TABLE
+    defaultView: _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST
   };
 
+  ///////////////////////////////////////////////
+  // Initialize D3 Views
+  ///////////////////////////////////////////////
+  function _getD3ViewsForDictionary(dictionaryData, actionCallbackFn) {
+    var views =  {},
+        tableViews = {
+          summary: d3.select('#dictionary-view-table-summary'),
+          detailed: d3.select('#dictionary-view-table-detail')
+        };
 
-  ///////// Helpers
+    views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID] = {};
+
+    views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST] = {
+      el: tableViews.summary,
+      view: new TableEntityListView(tableViews.summary, dictionaryData, actionCallbackFn)
+    };
+
+    views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.DEFINITION] = {
+      el: tableViews.detailed,
+      view: new TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn)
+    };
+
+
+    return views;
+  }
+
+  ///////////////////////////////////////////////
+  // Request/Response Helper Methods
+  ///////////////////////////////////////////////
   function _checkResponseStatus(response) {
     if (response.status >= 200 && response.status < 300) {
       return response;
@@ -70,11 +395,11 @@
     return response.json();
   }
 
-  function parseContextPattern(contextPattern, patternMapping) {
+  function _parseContextPattern(contextPattern, patternMapping) {
 
     var patternMapping = patternMapping || {},
-        newContextPattern = contextPattern,
-        patterns = ['program' , 'project', 'dictionary_name'];
+      newContextPattern = contextPattern,
+      patterns = ['program' , 'project', 'dictionary_name'];
 
     // Set pattern defaults if none is supplied...
     patternMapping.program = patternMapping.program || _DICTIONARY_CONSTANTS.WEB_SERVICE.DEFAULT_PROGRAM;
@@ -98,92 +423,15 @@
     return newContextPattern;
 
   }
-  ////////
 
-
-  function _initDictionaryData(data) {
-
-    if (! data || _.isEmpty(data) || ! _.has(data, '_definitions')) {
-      console.warn('Dictionary endpoint has returned invalid dictionary data! Dictionary data population aborting...', 'Data: ', data);
-      return null;
-    }
-
-    var defData = data._definitions;
-
-    delete data._definitions;
-
-    var dictDataList = data,
-        dictionaryData = {definitions:  defData, dictionaries: [], dictionaryMap: dictDataList, mapByCategory: {}};
-
-    for (var dictionaryTitle in dictDataList) {
-      var dictionary = dictDataList[dictionaryTitle],
-          dictionaryCategory = dictionary.category || 'Unknown';
-
-      if (dictDataList.hasOwnProperty(dictionaryTitle)) {
-        dictionaryData.dictionaries.push(dictionary);
-      }
-
-      if (! _.isArray(dictionaryData.mapByCategory[dictionaryCategory]) ) {
-        dictionaryData.mapByCategory[dictionaryCategory] = [];
-      }
-
-      dictionaryData.mapByCategory[dictionaryCategory].push(dictionary);
-    }
-
-    return dictionaryData;
-  }
-
-  /////////////////////////////////////////////////////////
-
-  function Dictionary(targetEl, options) {
-    var _dictionary = this;
-
-    _dictionary._containerEl = null;
-    _dictionary._options = _defaultOptions;
-    _dictionary._data = null;
-
-
-    if (_.isObject(options)) {
-      _.assign(_dictionary._options, options);
-    }
-
-    _dictionary.containerElement = function(el) {
-      // Check if the element is a dom node
-      if ( Object.prototype.toString.call(el).toUpperCase().indexOf('HTML') >= 0 ) {
-        _dictionary._containerEl = el;
-      }
-
-      return _dictionary._containerEl;
-    };
-
-    _dictionary.containerElement(targetEl || document.body);
-    _dictionary.CONSTANTS = _DICTIONARY_CONSTANTS;
-
-    _dictionary.init();
-  }
-
-
-  Dictionary.prototype.init = function(shouldRefresh) {
-
-    var _dictionary = this;
-
-    if (_dictionary._data === null || shouldRefresh === true) {
-      _dictionary.getDataFromSource().then(function(rawDictionaryData) {
-        _dictionary._data = _initDictionaryData(rawDictionaryData);
-      });
-    }
-
-  };
-
-
-  Dictionary.prototype.getDataFromSource = function(responseType) {
-    var webServiceURL = this._options.dataSourceBaseHost + parseContextPattern(this._options.dataSourceContextPattern),
-        fetchOptions = {
-          //credentials: 'include',
-          method: 'get'
-        },
-        responseParseFn = _responseParseJSON,
-        responseMimeType = _.isString(responseType) ? responseType : '';
+  function _fetch(url, responseType) {
+    var webServiceURL = url,
+      fetchOptions = {
+        //credentials: 'include',
+        method: 'get'
+      },
+      responseParseFn = _responseParseJSON,
+      responseMimeType = _.isString(responseType) ? responseType : '';
 
     switch(responseMimeType) {
       case _DICTIONARY_CONSTANTS.RESPONSE_TYPE.TEXT:
@@ -207,22 +455,53 @@
           reject(error);
         });
     });
-  };
+  }
 
-  Dictionary.prototype.getData = function() {
-    return this._data;
-  };
+  function _fetchTemplate(templateFile) {
+    return _fetch(  _DICTIONARY_CONSTANTS.APP_ABSOLUTE_DIR +
+                    _DICTIONARY_CONSTANTS.TEMPLATES.RELATIVE_DIR + '/' +
+                    templateFile, _DICTIONARY_CONSTANTS.RESPONSE_TYPE.TEXT  );
+  }
 
-  // Manual call to render self
-  Dictionary.prototype.render = function() {
-
-  };
-
-  // Clean up
-  Dictionary.prototype.destroy = function() {
-
-  };
+  ///////////////////////////////////////////////
 
 
+  ////////////////////////////////////////////////////////////////////////
+  // Put the dictionary data returned into a useful format for later...
+  ////////////////////////////////////////////////////////////////////////
+  function _initDictionaryData(data) {
+
+    if (! data || _.isEmpty(data) || ! _.has(data, '_definitions')) {
+      console.warn('Dictionary endpoint has returned invalid dictionary data! Dictionary data population aborting...',
+        'Received Data: ', data);
+      return null;
+    }
+
+    var defData = data._definitions;
+
+    delete data._definitions;
+
+    var dictDataList = data,
+      dictionaryData = {definitions:  defData, dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {}};
+
+    // Build our data structures and corresponding caches
+    for (var dictionaryTitle in dictDataList) {
+      var dictionary = dictDataList[dictionaryTitle],
+        dictionaryCategory = dictionary.category || 'Unknown';
+
+      if (dictDataList.hasOwnProperty(dictionaryTitle)) {
+        dictionaryData.dictionaries.push(dictionary);
+      }
+
+      if (! _.isArray(dictionaryData.dictionaryMapByCategory[dictionaryCategory]) ) {
+        dictionaryData.dictionaryMapByCategory[dictionaryCategory] = [];
+      }
+
+      dictionaryData.dictionaryMapByCategory[dictionaryCategory].push(dictionary);
+    }
+
+    return dictionaryData;
+  }
+  /////////////////////////////////////////////////////////
 
 })(_.noConflict(), d3, window.fetch, window.Promise);
