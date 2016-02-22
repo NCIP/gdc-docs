@@ -30,7 +30,7 @@ The following online tools can be used to help build GDC API calls:
 | [UrlDecode.org](http://urldecode.org/)| Decode/Encode url strings (for example, from { to %7B) |
 
 
-**Note:** See [Appendix C](Appendix_C_Using_jsonlint_and_urldecode_for_GET_to_POST_Conversion.md) for an example of using jsonlint and urldecode for GET to POST conversion.
+**Note:** See [Appendix C](Appendix_C_Using_jsonlint_and_urldecode_for_GET_to_POST_Conversion.md) for an example of using `jsonlint` and `urldecode` for GET to POST conversion.
 
 
 ## Accessing GDC API
@@ -43,18 +43,16 @@ The GDC API contains two types of end-points:
 
 Before beginning work on the GDC API, test that it is responding by calling the status endpoint:
 
-``` bash
-    curl 'https://gdc-api.nci.nih.gov/status'
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                     Dload  Upload   Total   Spent    Left  Speed
-    100    60  100    60    0     0   3264      0 --:--:-- --:--:-- --:--:--  3333
-    {
-      "status": "OK",
-      "tag": "0.2.13-spr4",
-      "version": 1
-    }
-```
-**Note:** See also Appendix D - Displaying API calls using GDC Data Portal or Submission UI.
+	bash
+	curl 'https://gdc-api.nci.nih.gov/status'
+	  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+	                                 Dload  Upload   Total   Spent    Left  Speed
+	100    60  100    60    0     0   3264      0 --:--:-- --:--:-- --:--:--  3333
+	{
+	  "status": "OK",
+	  "tag": "0.2.13-spr4",
+	  "version": 1
+	}
 
 ## Available GDC API Endpoints
 
