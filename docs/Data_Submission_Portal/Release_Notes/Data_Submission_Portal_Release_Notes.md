@@ -1,4 +1,4 @@
-# GDC Data Submission Portal Release 0.3.21
+# Release 0.3.21
 
 * __GDC Product__: GDC Data Submission Portal
 * __Release Date__: January 27, 2016
@@ -27,7 +27,7 @@
 
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
-# GDC Data Submission Portal Release 0.2.18.3
+# Release 0.2.18.3
 
 * __GDC Product__: GDC Data Submission Portal
 * __Release Date__: November 30, 2015
