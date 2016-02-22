@@ -4,6 +4,7 @@
 
 **Note:** Release details are maintained in the [GDC Data Application Programming Interface (API) Change Log](https://github.com/NCI-GDC/gdcapi/blob/develop/CHANGELOG.md).
 
+---------------------------------------
 
 ### v0.3.20.1: January 28, 2016
 
@@ -39,6 +40,8 @@
 
 *   None to report
 
+---------------------------------------
+
 ### v0.2.18: November 18, 2015
 
 
@@ -62,6 +65,8 @@
 
 *   None to report
 
+---------------------------------------
+
 ### v0.2.18-spr1: November 2, 2015
 
 #### New Features and Changes
@@ -82,25 +87,7 @@
 
 *   None to report
 
-### v0.2.15-oicr1: August 7, 2015
-
-#### New Features and Changes
-
-*   None to report
-
-#### Bugs Fixed Since Last Release
-
-*   Addressed an issue in the range aggregation feature (used by facets)
-
-#### Known Issues and Workarounds
-
-*   Query and Download Service
-    *   Universal Resource Locator (URL) length is limited.  As such, download requests with many files have to be divided into multiple requests. A feature that allows a payload to specify the file identifiers to download to overcome this limitation is planned for a future release.
-    *   All TARGET, CGCI, and CCLE data is currently not available via the GDC API but will be made available as data is continously imported into the GDC
-*   Authentication and Authorization Service
-    *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
-
-
+---------------------------------------
 
 ### v0.2.15-oicr1: August 7, 2015
 
@@ -120,8 +107,28 @@
 *   Authentication and Authorization Service
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
+---------------------------------------
+
+### v0.2.15-oicr1: August 7, 2015
+
+#### New Features and Changes
+
+*   None to report
+
+#### Bugs Fixed Since Last Release
+
+*   Addressed an issue in the range aggregation feature (used by facets)
+
+#### Known Issues and Workarounds
+
+*   Query and Download Service
+    *   Universal Resource Locator (URL) length is limited.  As such, download requests with many files have to be divided into multiple requests. A feature that allows a payload to specify the file identifiers to download to overcome this limitation is planned for a future release.
+    *   All TARGET, CGCI, and CCLE data is currently not available via the GDC API but will be made available as data is continously imported into the GDC
+*   Authentication and Authorization Service
+    *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
 
+---------------------------------------
 
 ### v0.2.13: July 23, 2015
 
@@ -166,7 +173,7 @@
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
 
-
+---------------------------------------
 
 ### v0.1.10: March 18, 2015
 
@@ -212,7 +219,7 @@
 
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
-
+---------------------------------------
 
 ### v0.1.8: January 22, 2015
 
