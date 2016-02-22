@@ -21,14 +21,7 @@ pages:
   - Reports: 'Data_Portal/Users_Guide/Reports.md'
   - Cart and Files Download: 'Data_Portal/Users_Guide/Cart.md'
   - Key Terms: 'Data_Portal/Users_Guide/Key_Terms.md'
-  - Release Notes:
-     - 0.2.18.3: 'Data_Portal/Release_Notes/0.2.18.3.md'
-     - 0.2.15.4: 'Data_Portal/Release_Notes/0.2.15.4.md'
-     - 0.2.15.2: 'Data_Portal/Release_Notes/0.2.15.2.md'
-     - 0.2.15.1: 'Data_Portal/Release_Notes/0.2.15.1.md'
-     - 0.2.13: 'Data_Portal/Release_Notes/0.2.13.md'
-     - 0.1.10: 'Data_Portal/Release_Notes/0.1.10.md'
-     - 0.1.8: 'Data_Portal/Release_Notes/0.1.8.md'
+  - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
