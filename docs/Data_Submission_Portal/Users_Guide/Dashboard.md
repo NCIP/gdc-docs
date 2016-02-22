@@ -17,6 +17,10 @@ The top section of the dashboard is broken down in four widgets:
 
 Those widget are constantly updated to reflect the current state of the selected project.
 
+Clicking on "Details" opens a table view with more details.
+
+[![GDC Submission Dashboard Details Widget](images/GDC_Submission_Dashboard_Details.png)](images/GDC_Submission_Dashboard_Details.png "Click to see the full image.")
+
 # Reports
 
 This section provides access to system-wide reports (based on user permission). More details about those reports can be found in the [Reports section of the documentation](Reports.md)
