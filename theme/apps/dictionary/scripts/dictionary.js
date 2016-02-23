@@ -217,10 +217,29 @@
       var tHead = entityTable.append('thead'),
           tBody = entityTable.append('tbody');
 
+      var getTooltipText = function() {
+
+        var tooltipText = null;
+
+        switch(_.first(categoryData).category) {
+          case 'clinical':
+            tooltipText = 'Cases must be registered in GDC before clinical, biospecimen, experiment and annotation data can be submitted.';
+            break;
+          default:
+            break;
+        }
+
+        return tooltipText;
+      };
+
       tHead.append('tr')
         .append('th')
+        .attr('colspan', 2)
         .classed('dictionary-entity-header', true)
         .append('a')
+        .classed('dictionary-tooltip', function() {
+            return _.isString(getTooltipText());
+        })
         .attr('id', category)
         .attr('href',  '#?view=' + _tableEntityListView._name + '&anchor=' + category)
         .on('click', function() {
@@ -229,22 +248,35 @@
           );
         })
         .html(function() {
-          return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category);
+          var tooltipText = getTooltipText();
+          return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
+                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span>' : '');
         });
 
       var tRows = tBody.selectAll('tr')
             .data(categoryData)
             .enter()
-            .append('tr');
+            .append('tr')
+            .classed('dictionary-entity-list-item', true);
 
 
       tRows.selectAll('td')
         .data(function(row) {
-          return [{id: row.id,  title: row.title}];
+          return [
+            {id: row.id,  title: row.title, description: row.description},
+            {id: row.id,  title: row.title, description: row.description}
+          ];
         })
         .enter()
         .append('td')
-        .classed('dictionary-entity-list-item', true)
+        .classed('link', function(data, i) {
+          var isLink = false;
+
+          if (i === 0) {
+            isLink = true;
+          }
+          return isLink;
+        })
         .append('a')
         .attr('title', function(data) {
           return 'View the definition of ' + data.title;
@@ -258,7 +290,15 @@
             null, new ViewUpdateObject(_tableEntityListView,  _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV, {id: data.id})
           );
         })
-        .text(function(data) { return data.title; });
+        .text(function(data, i) {
+          var item = data.title;
+
+          if (i === 1) {
+            item = data.description;
+          }
+
+          return item;
+        });
 
       return entityTable;
     };
