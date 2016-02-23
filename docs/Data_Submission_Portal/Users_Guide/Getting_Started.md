@@ -19,16 +19,23 @@ The GDC Data Submission Portal is a platform allowing researchers to submit and 
 The workflow diagram available below details the main features available within GDC Submission Portal and how those could be used in the context of a submission.
 
 [![GDC Data Submission Portal Workflow](images/GDC_Submission_Portal_Workflow.png)](images/GDC_Submission_Portal_Workflow.png "Click to see the full image.")
+
 ## Focus on "Upload and Validate Data"
+
 The Submitter will upload data to the project workspace and validate data against the GDC dictionary. At this point, data is not submitted to GDC yet.
+
 [![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
 
 ## Focus on "Submit to GDC"
+
 When data in the project workspace is ready for processing, the Submitter or Project Owner will submit data to GDC. It will trigger the GDC Data Harmonization Pipeline.
+
 [![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
 
 ## Focus on "Release"
+
 When GDC harmonized data is ready and project data is complete, the Project Owner will release the project. It will release harmonized data to the GDC Data Portal.
+
 [![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
 
 # Data Submission
