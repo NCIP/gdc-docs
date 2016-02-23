@@ -16,9 +16,7 @@ An [upload](Upload_Data.md) button is available at the top-left section of the l
 
 ## Filters
 
-A wide set of filters are available for the user to select the type of entity to be displayed.
-
-A set of filters have been hard-coded into the application, others are driven by the dictionary.
+A wide set of filters are available for the user to select the type of entity to be displayed. Most filters are dynamically created based on [GDC Dictionary](../../Dictionary/index.md), but some have been added to provide additional insight about the data.
 
 Hard-coded filters are:
 
@@ -30,9 +28,6 @@ Hard-coded filters are:
 | Submitted Files | List files uploaded to GDC |
 | Transactions | List all transactions associated to the project |
 | Annotations | List all annotations associated to the project |
-
-Other filters are dynamically loaded from [GDC Dictionary](../../Dictionary/index.md) and are not detailed here.
-
 
 ### Case Filters
 
@@ -52,7 +47,7 @@ ADD CONTENT
 
 ### Transactions
 
-ADD CONTENT
+More details about transactions can be found in the [Transactions](Transactions.md) section of the documentation.
 
 ### Annotations
 
@@ -63,11 +58,11 @@ ADD CONTENT
 
 The list view is a paginated list of all entities corresponding to the selected filter.
 
-On the top left section of the screen, the user can download data about all entities associated to the selected filter.
+On the top left section of the screen, the user can download data about all entities associated with the selected filter.
 
 ## Details Panel
 
-Clicking on a case will open the details panel. Data in this panel is broken down in multiple sections, entirely driven by [GDC Dictionary](../../Dictionary/index.md)
+Clicking on a case will open the details panel. Data in this panel is broken down in multiple sections and driven by [GDC Dictionary](../../Dictionary/index.md)
 
 [![GDC Submission Case Details](images/GDC_Submission_Cases_Details.png)](images/GDC_Submission_Cases_Details.png "Click to see the full image.")
 
