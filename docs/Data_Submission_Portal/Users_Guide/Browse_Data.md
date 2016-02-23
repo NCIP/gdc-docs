@@ -1,8 +1,10 @@
 # Overview
 
-The _"Browse"_ tab provides access to all of the project's content. All content is driven by [GDC Dictionary](../../Dictionary/index.md) and the interface is dynamically generated to accomodate the content.
+The _"Browse"_ tab provides access to all of the project's content. Most content is driven by [GDC Dictionary](../../Dictionary/index.md) and the interface is dynamically generated to accomodate the content.
 
-Please refer to [GDC Dictionary](../../Dictionary/index.md) for more details about a specific field.
+Please refer to [GDC Dictionary](../../Dictionary/index.md) for more details about a dictionary-generated fields, columns and filters.
+
+All static components are detailed in this User Guide.
 
 [![GDC Submission Cases Default View](images/GDC_Submission_Cases_Default.png)](images/GDC_Submission_Cases_Default.png "Click to see the full image.")
 
@@ -10,7 +12,7 @@ Please refer to [GDC Dictionary](../../Dictionary/index.md) for more details abo
 
 ## Upload
 
-An upload button is available at the top-left section of the left panel. Depending of the project status, this will allow data to be uploaded to GDC. 
+An [upload](Upload_Data.md) button is available at the top-left section of the left panel. Depending of the project status, this will allow data to be [uploaded](Upload_Data.md) to GDC. 
 
 ## Filters
 
