@@ -36,7 +36,7 @@ When data in the project workspace is ready for processing, the Submitter or Pro
 
 When GDC harmonized data is ready and project data is complete, the Project Owner will release the project. It will release harmonized data to the GDC Data Portal.
 
-[![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
+[![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_Release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
 
 # Data Submission
 
