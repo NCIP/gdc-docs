@@ -6,86 +6,29 @@ The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission 
 
 The GDC Data Submission Portal is a platform allowing researchers to submit and release their data into GDC. The key features of the GDC Data Submission Portal are:
 
-* __Data Submission__: Submission of project data, metadata and associated files to GDC.
-* __Release__: Process to release files to the research community.
-* __Data Access and Download__: Downloading submitted files to update them for resubmission before their release to the GDC Data Portal.
+* __Upload and Validate Data__: Upload project data, metadata and associated files to the GDC project workspace. GDC will validate the data with the GDC data dictionary.
+* __Review and Submit__: Review your project data will lock the project and ensure no user can upload more data. Once project data is reviewed, Submit it to GDC for data processing (Harmonization Pipeline).
+* __Release__: Release your harmonized data to the research community (on the GDC Data Portal).
+* __Download Data__: Download submitted data from your project workspace to review them or update them for re-upload before their release to the GDC Data Portal.
+* __Browse Data__: Browse submitted data in the GDC Data Submission Portal to make sure your project is ready for processing.
 * __Status and Alerts__: Visual mechanisms to easily identify incomplete submissions.
-* __Dictionary Viewer__: Mechanism to view the dictionary attached to a project, allowing a submitter to create valid data for submission.  
-* __Annotations__: Addition and retrieval of annotations.
 * __Reports__: Access and download submission-related reports to get better insight into the status of submitted data.
 
 # Submission Workflow
 
-The workflow diagram available below details the main features available within GDC Submission Portal and how those could be used in the context of a submission.
+The Submission Workflow is described in this section: [Data Submission Workflow](Submission_Workflow.md). 
 
-[![GDC Data Submission Portal Workflow](images/GDC_Submission_Portal_Workflow.png)](images/GDC_Submission_Portal_Workflow.png "Click to see the full image.")
-## Focus on "Upload and Validate Data"
-The Submitter will upload data to the project workspace and validate data against the GDC dictionary. At this point, data is not submitted to GDC yet.
-[![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
 
-## Focus on "Submit to GDC"
-When data in the project workspace is ready for processing, the Submitter or Project Owner will submit data to GDC. It will trigger the GDC Data Harmonization Pipeline.
-[![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
-
-## Focus on "Release"
-When GDC harmonized data is ready and project data is complete, the Project Owner will release the project. It will release harmonized data to the GDC Data Portal.
-[![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
-
-# Data Submission
-
-The GDC Data Submission Portal supports four types of files for submission:
-
-* __Biospecimen__: Metadata describing a tissue specimen collected from a case and other material derived from samples for analysis.
-* __Clinical__: A case’s clinical data.
-* __Data Bundle__: GDC's unit of submission (see below).
-* __Annotations__: Observations associated with any entity, which can be useful for interpreting the data.
-
-More details about the submission process, data files and file formats can be found on the GDC website at [Data Submission Processes and Tools] (https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools) and [Data Types and File Formats] (https://gdc.nci.nih.gov/submit-data/gdc-data-types-and-file-formats).
-
-## Data Bundle
-
-GDC has developed a submission unit called a “data bundle” (a set of files with associated metadata).
-
-Data bundle types are defined by what files are expected and what introspection is done for validation or linking to other GDC entities. Each data bundle will be validated via a bundle type and project specific schema, including a JavaScript Object Notation (JSON) data dictionary, relationship check and molecular data quality check. A biospecimen data bundle, or data bundle that contains biospecimen data, is often the first data that is submitted to GDC. One of the most important data bundle validations is that a biospecimen entity (case, sample, aliquot) referred to by the data bundle must be defined in the data bundle or must have been already been registered in the GDC data model by a previous biospecimen data bundle submission.
-
-The following types of data bundle exists:
-
-| Category | Type | Description |
-| --- | --- | --- |
-| Clinical|Clinical|XML file containing clinical information|
-| Clinical|Pathology diagnosis|Data files containing pathology diagnosis information|
-| Biospecimen|Biospecimen|XML file containing biospecimen information|
-| Biospecimen|Image Slide|Image file for pathology slide|
-| Molecular|Unaligned Reads|Sequencing reads from NGS platforms|
-| Molecular|Submitter Aligned Reads|Sequencing reads aligned by submitters|
-| Molecular|GDC Aligned Reads|Sequencing reads aligned by GDC workflows|
-| Molecular|Variant Calling Results|Genomics variants called by GDC workflows|
-
-Following submission of a data bundle, a manifest can be obtained from the application and used to submit molecular data via the GDC Data Transfer Tool.
-
-## Submission Process
-
-Data submission is the main feature of the GDC Data Submission Portal. Using a submission wizard, submitters are guided through a three-stage submission process:
-
-* __File Upload__: Upload a file into the user's browser, at this point nothing is submitted to GDC.
-* __File Validation__: Send the file to GDC backend to validate its content (see below).
-* __File Submission__: Submit validated file to GDC and produce a submission report.
-
-The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate content of submitted files against the project's dictionary to detect potential errors. Invalid files will be flagged and submission to GDC will be denied until corrections are made by the user. A validation error report provided by the system can be used to isolate and correct errors for resubmission.
-
-The GDC Data Submission Portal supports the following file formats for submission:
-
-* JSON
-* TSV
-* XML
-
-During the submission process, files are converted by the GDC API into entities and inserted into the database, maintaining a file-agnostic backend.
-
-The GDC Data Submission Portal offers the ability to download files in different formats. To do so the system converts database entities back to the requested file format.
 
 # Key Features
 
-## Data Release
+## Upload and Validate
+TO BE COMPLETED
+
+## Review and Submit
+TO BE COMPLETED
+
+## Release
 
 To ensure GDC always releases high-quality data, submitted files are not automatically released.
 
@@ -121,9 +64,6 @@ Although all projects are attached to the same data model, custom and project-sp
 
 To provide users with a better understanding of dictionaries attached to projects, an online dictionary viewer is available within each project. This allows users to adapt their submission files to the project they are submitting to.
 
-## Annotations
-
-The GDC Data Submission Portal supports annotations that can be viewed or submitted through the system.
 
 ## Transactions
 
@@ -142,4 +82,4 @@ Upon loading the site, the GDC Data Submission Portal login page or Dashboard is
 
 # Release Notes
 
-The GDC Data Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/index.md) sections of the documentation contains details about new features, bug fixes and known issues.
+The GDC Data Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/Data_Submission_Portal_Release_Notes.md) sections of the documentation contains details about new features, bug fixes and known issues.
