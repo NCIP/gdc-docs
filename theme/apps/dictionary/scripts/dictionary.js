@@ -18,7 +18,7 @@
       _.assign(_dictionary._options, options);
     }
 
-    _dictionary._currentViewMode = _dictionary._options.defaultView;
+    _dictionary._currentViewMode = _getViewFromURL() || _dictionary._options.defaultView;
     _dictionary._currentView = null;
 
     _dictionary.containerElement(targetEl || document.body);
@@ -86,15 +86,14 @@
     _dictionary._currentView = _dictionary._d3Containers.views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][view].view;
 
     return _dictionary;
-  }
+  };
 
   // Manual call to render self
   Dictionary.prototype.render = function() {
     var _dictionary = this;
 
-    _dictionary._currentView.render();
+    _dictionary._currentView.show().render();
 
-    setTimeout(function() {  _dictionary._currentView.show(); }, 2000);
 
     return _dictionary;
   };
@@ -137,7 +136,7 @@
 
     _view._isHidden = false;
     _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
-    _view._d3ContainerSelection.transition().style('opacity', 1);
+    _view._d3ContainerSelection.transition().duration(10).style('opacity', 1);
 
     _view._callbackFn.call(null, this);
 
@@ -150,7 +149,7 @@
 
     _view._isHidden = true;
     _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
-    _view._d3ContainerSelection.transition().style('opacity', 0);
+    _view._d3ContainerSelection.transition().duration(10).style('opacity', 0);
     _view._callbackFn.call(null, this);
 
     return _view;
@@ -185,15 +184,18 @@
 
       var entityTable = _tableEntityListView._d3ContainerSelection
         .append('table')
-        .attr('id', 'dictionary-entity-' + category)
-        .classed('entity-table', true);
+        .classed('dictionary-entity-table card', true)
+        .attr('id', 'dictionary-entity-' + category);
 
       var tHead = entityTable.append('thead'),
           tBody = entityTable.append('tbody');
 
-      tHead.append('tr').append('th').classed('dictionary-entity-header', true).text(function() {
-        return _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category);
-      });
+      tHead.append('tr')
+        .append('th')
+        .classed('dictionary-entity-header', true)
+        .html(function() {
+          return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category);
+        });
 
       var tRows = tBody.selectAll('tr')
             .data(categoryData)
@@ -209,8 +211,11 @@
         .append('td')
         .classed('dictionary-entity-list-item', true)
         .append('a')
+        .attr('title', function(data) {
+          return 'View the definition of ' + data.title;
+        })
         .attr('href', function(data) {
-          return '?view=' + _tableEntityListView._name + '&id=' + data.id;
+          return '#?view=' + _tableEntityListView._name + '&id=' + data.id;
         })
         .text(function(data) { return data.title; });
 
@@ -371,6 +376,65 @@
 
 
     return views;
+  }
+
+  function _getViewFromURL() {
+    var view = null,
+        hash = window.location.hash;
+
+    if (! hash) {
+      return view;
+    }
+
+    var argStr = hash.substr(2); // eat the hash and ? char
+
+    var argTokens = argStr.split('&'),
+        argParams = {};
+
+    for (var i = 0; i < argTokens.length; i++) {
+      var keyVals = argTokens[i].split('=');
+
+      if (keyVals.length !== 2) {
+        console.log('Unexpected hash arguments. Got: ', keyVals);
+        continue;
+      }
+
+      argParams[keyVals[0]] = keyVals[1];
+    }
+
+    console.log(argParams);
+
+
+    // Parse Logic
+    //#view=BLAH&id=ANCHOR_NAME
+    if (argParams.view) {
+
+      for (var parentView in _DICTIONARY_CONSTANTS.VIEWS) {
+
+        if (!_DICTIONARY_CONSTANTS.VIEWS.hasOwnProperty(parentView)) {
+          continue;
+        }
+
+        var subViews = _DICTIONARY_CONSTANTS.VIEWS[parentView];
+
+        for (var v in subViews) {
+          if (v[0] === '_') {
+            continue;
+          }
+
+          if (subViews[v] === argParams['view']) {
+            view = subViews[v];
+          }
+
+        }
+      }
+    }
+
+    if (view) {
+      console.log('View found in ULR = ', view);
+    }
+
+      return view;
   }
 
   ///////////////////////////////////////////////

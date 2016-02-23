@@ -1,3 +1,57 @@
 .dictionary-view {
   opacity: 0;
 }
+
+.dictionary-entity-table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  position: relative;
+}
+
+.dictionary-entity-header {
+  color: #565656;
+  background-color: #fafafa;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding:  0.5rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  text-decoration: none;
+  border-bottom: solid 1px #ccc;
+}
+
+.dictionary-entity-list-item {
+  padding: 0rem 0rem;
+  color: #222;
+  border-bottom: 1px solid rgba(0,0,0,0.065);
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}
+
+.dictionary-entity-list-item a {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.05s ease-in-out;
+  font-size: 1.3rem;
+}
+
+.dictionary-entity-list-item a:hover {
+  background-color: #E7F0FF;
+  color: #2d6693;
+}
+
+.card {
+  background: #FFFFFF;
+  background: -moz-linear-gradient(0deg, #F5F5F5 0%, #FFF 25%, #FFF 75%, #F5F5F5 100%);
+  background: -ms-linear-gradient(0deg, #F5F5F5 0%, #FFF 25%, #FFF 75%, #F5F5F5 100%);
+  background: -webkit-linear-gradient(0deg, #F5F5F5 0%, #FFF 25%, #FFF 75%, #F5F5F5 100%);
+  background: linear-gradient(0deg, #F5F5F5 0%, #FFF 25%, #FFF 75%, #F5F5F5 100%);
+  border: none;
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
