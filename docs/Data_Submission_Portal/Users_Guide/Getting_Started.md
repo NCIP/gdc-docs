@@ -18,9 +18,79 @@ The GDC Data Submission Portal is a platform allowing researchers to submit and 
 
 The Submission Workflow is described in this section: [Data Submission Workflow](Submission_Workflow.md). 
 
+<<<<<<< HEAD
 
 
 # Key Features
+=======
+[![GDC Data Submission Portal Workflow](images/GDC_Submission_Portal_Workflow.png)](images/GDC_Submission_Portal_Workflow.png "Click to see the full image.")
+
+## Focus on "Upload and Validate Data"
+
+The Submitter will upload data to the project workspace and validate data against the GDC dictionary. At this point, data is not submitted to GDC yet.
+
+[![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
+
+## Focus on "Submit to GDC"
+
+When data in the project workspace is ready for processing, the Submitter or Project Owner will submit data to GDC. It will trigger the GDC Data Harmonization Pipeline.
+
+[![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
+
+## Focus on "Release"
+
+When GDC harmonized data is ready and project data is complete, the Project Owner will release the project. It will release harmonized data to the GDC Data Portal.
+
+[![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_Release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
+
+# Data Submission
+
+The GDC Data Submission Portal supports four types of files for submission:
+
+* __Biospecimen__: Metadata describing a tissue specimen collected from a case and other material derived from samples for analysis.
+* __Clinical__: A case’s clinical data.
+* __Data Bundle__: GDC's unit of submission (see below).
+* __Annotations__: Observations associated with any entity, which can be useful for interpreting the data.
+
+More details about the submission process, data files and file formats can be found on the GDC website at [Data Submission Processes and Tools] (https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools) and [Data Types and File Formats] (https://gdc.nci.nih.gov/submit-data/gdc-data-types-and-file-formats).
+
+## Data Bundle
+
+GDC has developed a submission unit called a “data bundle” (a set of files with associated metadata).
+
+Data bundle types are defined by what files are expected and what introspection is done for validation or linking to other GDC entities. Each data bundle will be validated via a bundle type and project specific schema, including a JavaScript Object Notation (JSON) data dictionary, relationship check and molecular data quality check. A biospecimen data bundle, or data bundle that contains biospecimen data, is often the first data that is submitted to GDC. One of the most important data bundle validations is that a biospecimen entity (case, sample, aliquot) referred to by the data bundle must be defined in the data bundle or must have been already been registered in the GDC data model by a previous biospecimen data bundle submission.
+
+The following types of data bundle exists:
+
+| Category | Type | Description |
+| --- | --- | --- |
+| Clinical|Clinical|XML file containing clinical information|
+| Clinical|Pathology diagnosis|Data files containing pathology diagnosis information|
+| Biospecimen|Biospecimen|XML file containing biospecimen information|
+| Biospecimen|Image Slide|Image file for pathology slide|
+| Molecular|Unaligned Reads|Sequencing reads from NGS platforms|
+| Molecular|Submitter Aligned Reads|Sequencing reads aligned by submitters|
+| Molecular|GDC Aligned Reads|Sequencing reads aligned by GDC workflows|
+| Molecular|Variant Calling Results|Genomics variants called by GDC workflows|
+
+Following submission of a data bundle, a manifest can be obtained from the application and used to submit molecular data via the GDC Data Transfer Tool.
+
+## Submission Process
+
+Data submission is the main feature of the GDC Data Submission Portal. Using a submission wizard, submitters are guided through a three-stage submission process:
+
+* __File Upload__: Upload a file into the user's browser, at this point nothing is submitted to GDC.
+* __File Validation__: Send the file to GDC backend to validate its content (see below).
+* __File Submission__: Submit validated file to GDC and produce a submission report.
+
+The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate content of submitted files against the project's dictionary to detect potential errors. Invalid files will be flagged and submission to GDC will be denied until corrections are made by the user. A validation error report provided by the system can be used to isolate and correct errors for resubmission.
+
+The GDC Data Submission Portal supports the following file formats for submission:
+
+* JSON
+* TSV
+* XML
+>>>>>>> 0805ed5a3229ef494a03523498b163042ce821aa
 
 ## Upload and Validate
 TO BE COMPLETED

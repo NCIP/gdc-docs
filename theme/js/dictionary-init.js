@@ -20,4 +20,9 @@ window.onload = function() {
   }
 
   _init();
-};*/
+};
+
+window.onunload = function() {
+  window.$gdcApp.dictionaryViewer.destroy();
+};
+*/

@@ -11,14 +11,30 @@
 
 .dictionary-entity-header {
   color: #565656;
-  background-color: #fafafa;
   font-size: 1.5rem;
   font-weight: bold;
-  padding:  0.5rem 1rem;
+  padding: 0 0;
   text-align: left;
   vertical-align: middle;
   text-decoration: none;
   border-bottom: solid 1px #ccc;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 8px 11px -10px rgba(0,0,0,0.56);
+  -moz-box-shadow: 0px 8px 11px -10px rgba(0,0,0,0.56);
+  box-shadow: 0px 8px 11px -10px rgba(0,0,0,0.56);
+  z-index: 1000;
+}
+
+
+.dictionary-entity-header a:hover {
+  color: #c31547;
+}
+
+.dictionary-entity-header a {
+  padding: 0.5rem 1rem;
+  display: block;
+  width: 100%;
+  color: inherit;
 }
 
 .dictionary-entity-list-item {
@@ -28,21 +44,63 @@
   vertical-align: middle;
   text-overflow: ellipsis;
   overflow: hidden;
+}
 
+.dictionary-entity-list-item a,
+.dictionary-entity-list-item a:hover,
+.dictionary-entity-list-item a:focus {
+  color: #222;
+  background-color: transparent;
+}
+
+.dictionary-entity-list-item:hover,
+.dictionary-entity-list-item:hover {
+  background-color: #fff;
+}
+
+.dictionary-entity-list-item .link a {
+  color: #347cb0;
+}
+
+.dictionary-entity-list-item:hover .link a {
+  color: #166aa2;
+}
+
+.dictionary-entity-list-item:hover td {
+  border-top: solid 1px #166aa2;
+  border-bottom: solid 1px #166aa2;
+}
+
+.dictionary-entity-list-item td {
+  padding: 0px;
+  margin: 0px;
 }
 
 .dictionary-entity-list-item a {
   display: block;
   width: 100%;
   padding: 0.5rem 1rem;
-  transition: background-color 0.05s ease-in-out;
   font-size: 1.3rem;
 }
 
-.dictionary-entity-list-item a:hover {
-  background-color: #E7F0FF;
-  color: #2d6693;
+.dictionary-entity-list-item {
+  transition: background-color 0.2s ease-in-out;
 }
+
+
+.dictionary-entity-list-item:hover td:first-child  {
+  background-color: #E7F0FF;
+}
+
+.dictionary-entity-list-item:hover td:last-child {
+  background-color: #E7F0FF;
+  background: -moz-linear-gradient(90deg, #E7F0FF 0%, #E7F0FF 25%, #FFFFFF 75%, #FFFFFF 100%);
+  background: -ms-linear-gradient(90deg, #E7F0FF 0%, #E7F0FF 25%, #FFFFFF 75%, #FFFFFF 100%);
+  background: -webkit-linear-gradient(90deg, #E7F0FF 0%, #E7F0FF 25%, #FFFFFF 75%, #FFFFFF 100%);
+  background: linear-gradient(90deg, #E7F0FF 0%, #E7F0FF 25%, #FFFFFF 75%, #FFFFFF 100%);
+}
+
+
 
 .card {
   background: #FFFFFF;
@@ -55,3 +113,81 @@
   -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
+
+/* Nav Breadcrumb */
+.dictionary-breadcrumb-container {
+  font-size: 1.4rem;
+  padding: 1rem 0rem;
+  display: none;
+}
+
+/* Tooltips */
+a.dictionary-tooltip {
+  outline: none;
+  text-decoration: none;
+  border-bottom: dotted 1px #ccc;
+  position: relative;
+}
+
+a.dictionary-tooltip > span {
+  width: 300px;
+  padding: 10px 20px;
+  margin-top: 40px;
+  margin-left: 0px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  position: absolute;
+  font-size: 1.3rem;
+  font-style: normal;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px #999;
+  -webkit-transition-property: opacity, margin-top, visibility, margin-left;
+  -webkit-transition-duration: 0.4s, 0.3s, 0.4s, 0.3s;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  transition-property: opacity, margin-top, visibility, margin-left;
+  transition-duration: 0.3s, 0.2s, 0.3s, 0.2s;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+}
+
+a.dictionary-tooltip:hover > span {
+  opacity: 1;
+  text-decoration: none;
+  visibility: visible;
+  overflow: visible;
+  margin-top: 30px;
+  display: inline;
+  margin-left: -60px;
+  opacity: 0.9;
+}
+
+a.dictionary-tooltip span i {
+  width: 15px;
+  height: 15px;
+  margin-left: 0px;
+  margin-top: -17px;
+  display: block;
+  position: absolute;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  display: none\0/;
+  *display: none;
+}
+
+a.dictionary-tooltip > span {
+  color: #fff;
+  background: #000;
+  background: -webkit-linear-gradient(top, #000000, #111);
+  background: linear-gradient(top, #000000, #111);
+
+}
+
+a.dictionary-tooltip span > i {
+  background: #000;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  opacity: 1;
+}
+/* ******** */
