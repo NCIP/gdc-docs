@@ -18,8 +18,9 @@
       _.assign(_dictionary._options, options);
     }
 
-    _dictionary._currentViewMode = _getViewFromURL() || _dictionary._options.defaultView;
+    _dictionary._currentViewMode = _dictionary._options.defaultView;
     _dictionary._currentView = null;
+    _dictionary._currentURLParams = _getParamsFromURL();
 
     _dictionary.containerElement(targetEl || document.body);
     _dictionary.CONSTANTS = _DICTIONARY_CONSTANTS;
@@ -44,7 +45,16 @@
   /////////////////////////////////////////////////////////
   Dictionary.prototype.init = function(shouldRefresh) {
 
-    var _dictionary = this;
+    var _dictionary = this,
+        _urlParams = _dictionary._currentURLParams;
+
+    if (! _.isEmpty(_urlParams) ) {
+
+      if (_.isString(_urlParams.view)) {
+        _dictionary._currentView = _urlParams.view;
+      }
+
+    }
 
     if (_dictionary._data === null || shouldRefresh === true) {
 
@@ -56,18 +66,35 @@
           _dictionary._d3Containers.rootEl = d3.select('#dictionary-inner-container');
         })
         .then(function () {
-          _dictionary.getDataFromSource().then(function (rawDictionaryData) {
-            _dictionary._data = _initDictionaryData(rawDictionaryData);
-            _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _dictionary.viewListener);
-            _dictionary.setView(_dictionary._options.defaultView);
-            _dictionary.render();
+          _dictionary.getDataFromSource()
+            .then(function (rawDictionaryData) {
+              _dictionary._data = _initDictionaryData(rawDictionaryData);
+              _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _dictionary.viewListener);
+              _dictionary.setView(_dictionary._options.defaultView);
+              _dictionary.render();
+
+              _updatePageScroll(_dictionary._currentURLParams.anchor);
           });
         });
     }
   };
 
-  Dictionary.prototype.viewListener = function(view) {
-    console.log('view Listener invoked: ', view.getState());
+  Dictionary.prototype.viewListener = function(viewUpdateObj) {
+    console.log(viewUpdateObj);
+    console.log('view Listener invoked: ', viewUpdateObj.view.getState());
+
+    switch( viewUpdateObj.eventType ) {
+
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INNER_NAV:
+
+        if (_.isString(viewUpdateObj.params.id)) {
+          _updatePageScroll(viewUpdateObj.params.id);
+        }
+        break;
+
+      default:
+        break;
+    }
   };
 
   Dictionary.prototype.getDataFromSource = function(responseType) {
@@ -100,7 +127,7 @@
 
   // Clean up
   Dictionary.prototype.destroy = function() {
-
+    console.log('Cleaning up the dictionary...');
   };
 
   /////////////////////////////////////////////////////////
@@ -124,7 +151,7 @@
     console.log('Rendering!');
 
     _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
-    _view._callbackFn.call(null, _view);
+    _view._callbackFn.call(null, new ViewUpdateObject(this));
 
     return _view;
   };
@@ -138,7 +165,7 @@
     _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
     _view._d3ContainerSelection.transition().duration(10).style('opacity', 1);
 
-    _view._callbackFn.call(null, this);
+    _view._callbackFn.call(null, new ViewUpdateObject(this));
 
     return _view;
   };
@@ -150,7 +177,7 @@
     _view._isHidden = true;
     _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
     _view._d3ContainerSelection.transition().duration(10).style('opacity', 0);
-    _view._callbackFn.call(null, this);
+    _view._callbackFn.call(null, new ViewUpdateObject(this));
 
     return _view;
   };
@@ -193,6 +220,14 @@
       tHead.append('tr')
         .append('th')
         .classed('dictionary-entity-header', true)
+        .append('a')
+        .attr('id', category)
+        .attr('href',  '#?view=' + _tableEntityListView._name + '&anchor=' + category)
+        .on('click', function() {
+          _tableEntityListView._callbackFn.call(
+            null, new ViewUpdateObject(_tableEntityListView,  _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INNER_NAV, {id: category})
+          );
+        })
         .html(function() {
           return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category);
         });
@@ -214,8 +249,14 @@
         .attr('title', function(data) {
           return 'View the definition of ' + data.title;
         })
+        .attr('id', function(data) { return data.id; })
         .attr('href', function(data) {
           return '#?view=' + _tableEntityListView._name + '&id=' + data.id;
+        })
+        .on('click', function(data) {
+          _tableEntityListView._callbackFn.call(
+            null, new ViewUpdateObject(_tableEntityListView,  _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV, {id: data.id})
+          );
         })
         .text(function(data) { return data.title; });
 
@@ -242,7 +283,7 @@
 
 
       _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
-      _tableEntityListView._callbackFn.call(null, _tableEntityListView);
+      _tableEntityListView._callbackFn.call(null, new ViewUpdateObject(_tableEntityListView));
     };
     return TableEntityListView;
   })();
@@ -296,6 +337,11 @@
     VIEW_STATE: {
       ENTER: 'enter', EXIT: 'exit', RENDERED: 'rendered'
     },
+    VIEW_UPDATE_EVENT_TYPES: {
+      DEFAULT:'update',
+      NAV: 'nav',
+      INNER_NAV: 'inner-nav'
+    },
     DICTIONARY_ENTITY_MAP: {
       case: 'Case',
       clinical: 'Clinical',
@@ -326,7 +372,7 @@
       JSON: 'application/json'
     },
     WEB_SERVICE: {
-      DEFAULT_URL: '',
+      DEFAULT_URL: 'https://gdc-api.nci.nih.gov',
       CONTEXT_PATTERN: '/auth/api/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
       DEFAULT_PROGRAM: 'CGCI',
       DEFAULT_PROJECT: 'BLGSP',
@@ -335,6 +381,9 @@
     TEMPLATES: {
       RELATIVE_DIR: '/html-shards',
       MAIN_DICTIONARY: 'dictionary.html'
+    },
+    BROWSER_CAPABILITIES: {
+      SMOOTH_SCROLL: 'scrollBehavior' in document.documentElement.style
     }
 
   };
@@ -351,6 +400,14 @@
     dataSourceContextPattern: _DICTIONARY_CONSTANTS.WEB_SERVICE.CONTEXT_PATTERN,
     defaultView: _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST
   };
+
+  function ViewUpdateObject(viewObject, viewEventType, viewParams) {
+    var _viewObject = this;
+
+    _viewObject.view = viewObject;
+    _viewObject.eventType = viewEventType || _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.DEFAULT;
+    _viewObject.params = viewParams;
+  }
 
   ///////////////////////////////////////////////
   // Initialize D3 Views
@@ -378,7 +435,39 @@
     return views;
   }
 
-  function _getViewFromURL() {
+  function _updatePageScroll(anchor) {
+    if (_.isString(anchor)) {
+      _scrollTo(anchor);
+    }
+  }
+
+  function _scrollTo(id) {
+    var isSmoothScrollSupported = _DICTIONARY_CONSTANTS.BROWSER_CAPABILITIES.SMOOTH_SCROLL,
+        node = document.getElementById(id);
+
+    if (node) {
+      var offset = node.getBoundingClientRect();
+
+      var options = {
+        behavior: 'smooth',
+        left: 0,
+        // Calculate the absolute offset and compensate for the menu bar
+        top: Math.max(0, offset.top - 80) + window.scrollY
+      };
+
+      if (isSmoothScrollSupported) {
+        // Native smooth scrolling
+        window.scrollTo(options);
+      }
+      else {
+        // Old way scrolling without effects
+        window.scrollTo(options.left, options.top);
+      }
+    }
+
+  }
+
+  function _getParamsFromURL() {
     var view = null,
         hash = window.location.hash;
 
@@ -432,9 +521,13 @@
 
     if (view) {
       console.log('View found in ULR = ', view);
+      argParams.view = view;
+    }
+    else {
+      delete argParams.view;
     }
 
-      return view;
+      return argParams;
   }
 
   ///////////////////////////////////////////////

@@ -14,11 +14,23 @@
   background-color: #fafafa;
   font-size: 1.5rem;
   font-weight: bold;
-  padding:  0.5rem 1rem;
+  padding: 0 0;
   text-align: left;
   vertical-align: middle;
   text-decoration: none;
   border-bottom: solid 1px #ccc;
+}
+
+
+.dictionary-entity-header a:hover {
+  color: #c31547;
+}
+
+.dictionary-entity-header a {
+  padding: 0.5rem 1rem;
+  display: block;
+  width: 100%;
+  color: inherit;
 }
 
 .dictionary-entity-list-item {
