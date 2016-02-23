@@ -20,12 +20,19 @@
 
     _dictionary._currentViewMode = _dictionary._options.defaultView;
     _dictionary._currentView = null;
-    _dictionary._currentURLParams = _getParamsFromURL();
 
     _dictionary.containerElement(targetEl || document.body);
     _dictionary.CONSTANTS = _DICTIONARY_CONSTANTS;
 
     _dictionary.init();
+
+    window.onpopstate = function(event) {
+      if (window.location.href.toLowerCase().indexOf('dictionary/viewer') >= 0) {
+        event.preventDefault();
+        _dictionary.createViewEventFromURL();
+      }
+
+    };
   }
 
   /////////////////////////////////////////////////////////
@@ -45,51 +52,123 @@
   /////////////////////////////////////////////////////////
   Dictionary.prototype.init = function(shouldRefresh) {
 
-    var _dictionary = this,
-        _urlParams = _dictionary._currentURLParams;
+    var _dictionary = this;
 
-    if (! _.isEmpty(_urlParams) ) {
-
-      if (_.isString(_urlParams.view)) {
-        _dictionary._currentView = _urlParams.view;
-      }
-
+    if (shouldRefresh === true) {
+      _dictionary.destroy();
     }
 
-    if (_dictionary._data === null || shouldRefresh === true) {
+    var urlParams = _getParamsFromURL();
+
+    if (_.has(urlParams, 'view')) {
+      _dictionary._currentViewMode = urlParams.view;
+    }
+    else {
+      _dictionary._currentViewMode = _dictionary._options.defaultView;
+    }
+
+    console.log( _dictionary._currentViewMode);
+
+    if (_dictionary._data === null) {
 
       _fetchTemplate(_DICTIONARY_CONSTANTS.TEMPLATES.MAIN_DICTIONARY)
         .then(function (html) {
           _dictionary._containerEl.innerHTML = html;
 
           // Place D3 entry point
-          _dictionary._d3Containers.rootEl = d3.select('#dictionary-inner-container');
+          _dictionary._d3Containers.rootSelection = d3.select('#dictionary-inner-container');
+
+          _dictionary._d3Containers.breadcrumbs = {};
+          _dictionary._d3Containers.breadcrumbs.breadcrumbSelection = d3.select('#dictionary-nav-breadcrumb');
+          _dictionary._d3Containers.breadcrumbs.breadcrumbStackSelection = d3.select('#dictionary-nav-view-stack');
+
         })
         .then(function () {
           _dictionary.getDataFromSource()
             .then(function (rawDictionaryData) {
-              _dictionary._data = _initDictionaryData(rawDictionaryData);
-              _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _dictionary.viewListener);
-              _dictionary.setView(_dictionary._options.defaultView);
-              _dictionary.render();
 
-              _updatePageScroll(_dictionary._currentURLParams.anchor);
+              _dictionary._data = _initDictionaryData(rawDictionaryData);
+
+              _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _.bind(_dictionary.viewListener, _dictionary));
+
+              /*_dictionary
+                .setCurrentView(_dictionary._currentViewMode)
+                .render();
+
+              _updatePageScroll(urlParams.anchor);
+              _dictionary.updateBreadcrumb();*/
+              _dictionary.createViewEventFromURL();
           });
         });
     }
   };
 
   Dictionary.prototype.viewListener = function(viewUpdateObj) {
+    var _dictionary = this,
+        view =  viewUpdateObj.view,
+        params = viewUpdateObj.params;
+
+
+    if (! view) {
+      return;
+    }
+
     console.log(viewUpdateObj);
-    console.log('view Listener invoked: ', viewUpdateObj.view.getState());
+    console.log('view Listener invoked: ', view.getState());
 
     switch( viewUpdateObj.eventType ) {
 
       case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INNER_NAV:
 
-        if (_.isString(viewUpdateObj.params.id)) {
-          _updatePageScroll(viewUpdateObj.params.id);
+        if (_.isString(params.id)) {
+          _updatePageScroll(params.id);
         }
+        break;
+
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV:
+
+        var subViews = _.get(_DICTIONARY_CONSTANTS.VIEWS, view.getParentViewName(), false);
+
+        if (view.getParentViewName() && subViews) {
+          view.hide();
+
+          if (view.getViewName() === subViews.ENTITY_LIST && _.has(params, 'id')) {
+
+            _dictionary
+              .setCurrentView(subViews.TERM_DEFINITION)
+              .getCurrentView()
+              .setDictionaryData(_dictionary._data.dictionaryMap[params.id])
+              .show()
+              .render();
+          }
+
+          _dictionary.updateBreadcrumb();
+        }
+
+        break;
+
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INIT:
+
+        var data = _dictionary._data,
+            urlParams = _getParamsFromURL();
+
+        if (_.has(params, 'id')) {
+          data = _dictionary._data.dictionaryMap[params.id];
+        }
+
+        _dictionary
+          .setCurrentView(view.getViewName())
+          .getCurrentView(data)
+          .setDictionaryData(_dictionary._data)
+          .show()
+          .render();
+
+        if (_.has(urlParams, 'anchor')) {
+          _updatePageScroll(urlParams.anchor);
+        }
+
+        _dictionary.updateBreadcrumb();
+
         break;
 
       default:
@@ -107,19 +186,80 @@
     return this._data;
   };
 
-  Dictionary.prototype.setView = function(view) {
+  Dictionary.prototype._getView = function(viewName) {
     var _dictionary = this;
 
-    _dictionary._currentView = _dictionary._d3Containers.views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][view].view;
+    return _dictionary._d3Containers.views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][viewName].view;
+  };
+
+  Dictionary.prototype.setCurrentView = function(viewName) {
+    var _dictionary = this;
+
+    _dictionary._currentView = _dictionary._getView(viewName);
 
     return _dictionary;
   };
 
-  // Manual call to render self
-  Dictionary.prototype.render = function() {
+  Dictionary.prototype.getCurrentView = function() {
     var _dictionary = this;
 
-    _dictionary._currentView.show().render();
+    return  _dictionary._currentView;
+  };
+
+  Dictionary.prototype.updateBreadcrumb = function() {
+    var _dictionary = this,
+        currentView = _dictionary.getCurrentView(),
+        currentViewName = currentView.getViewName(),
+        breadcrumbSelection = _dictionary._d3Containers.breadcrumbs.breadcrumbSelection,
+        breadcrumbStack = _dictionary._d3Containers.breadcrumbs.breadcrumbStackSelection,
+        breadcrumbName = currentView.getBreadcrumbName() || 'Unknown',
+        styleOpts = {display: 'none'};
+
+
+    if (currentViewName !== _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST && breadcrumbName) {
+      styleOpts.display = 'block';
+    }
+
+    if (breadcrumbSelection) {
+      breadcrumbSelection.style(styleOpts);
+    }
+
+
+    breadcrumbStack.html('');
+
+    breadcrumbStack.append('i').classed('fa fa-chevron-right', true);
+
+    breadcrumbStack.append('span').text(' ' + breadcrumbName);
+
+  };
+
+  Dictionary.prototype.createViewEventFromURL = function() {
+    var _dictionary = this,
+        urlParams = _getParamsFromURL(),
+        viewMode = _dictionary._options.defaultView,
+        view = null,
+        params = null;
+
+    if (_.has(urlParams, 'view')) {
+      viewMode = urlParams.view;
+    }
+
+    view = _dictionary._getView(viewMode);
+
+    if (_.has(urlParams, 'id')) {
+      params = {id: urlParams.id};
+    }
+
+    _dictionary.viewListener(new ViewUpdateObject(view, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INIT, params));
+
+  };
+
+
+  // Manual call to render self
+  Dictionary.prototype.render = function(renderParams) {
+    var _dictionary = this;
+
+    _dictionary._currentView.show().render(renderParams);
 
 
     return _dictionary;
@@ -128,6 +268,11 @@
   // Clean up
   Dictionary.prototype.destroy = function() {
     console.log('Cleaning up the dictionary...');
+
+    var _dictionary = this;
+
+    _urlParamsCache = null;
+    _dictionary._data = null;
   };
 
   /////////////////////////////////////////////////////////
@@ -142,49 +287,76 @@
     _view._name = 'Unknown View';
     _view._callbackFn = actionCallbackFn || _.noop;
     _view._isHidden = true;
+    _view._parentViewName = '';
+    _view._prettyName = _view._name;
+    _view._breadcrumbName = null;
+
+    /////////////////////////////////////////////////////////
+    // Public View API
+    /////////////////////////////////////////////////////////
+    _view.render = function() {
+      console.log('Rendering!');
+
+      _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
+      _view._callbackFn.call(null, new ViewUpdateObject(this));
+
+      return _view;
+    };
+
+    _view.show = function() {
+      console.log('Showing!');
+
+      _view._isHidden = false;
+      _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
+      _view._d3ContainerSelection.style('display', 'block').transition().duration(250).style('opacity', 1);
+
+      _view._callbackFn.call(null, new ViewUpdateObject(this));
+
+      return _view;
+    };
+
+    _view.hide = function() {
+      console.log('Hiding!');
+
+      _view._isHidden = true;
+      _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
+      _view._d3ContainerSelection.transition().duration(250).style('opacity', 0);
+      setTimeout(function() { _view._d3ContainerSelection.style('display', 'none'); }, 250);
+
+
+      _view._callbackFn.call(null, new ViewUpdateObject(this));
+
+      return _view;
+    };
+
+    _view.getState = function() {
+      return _view._state;
+    };
+
+    _view.getViewName = function() {
+      return _view._name;
+    };
+
+    _view.getParentViewName = function() {
+      return _view._parentViewName;
+    };
+
+    _view.getPrettyName = function() {
+      return _view._prettyName;
+    };
+
+    _view.setDictionaryData = function(data) {
+      _view._dictionaryData = data;
+      return _view;
+    }
+
+    _view.getBreadcrumbName = function() {
+      return _view._breadcrumbName;
+    };
+
 
   }
 
-  View.prototype.render = function() {
-    var _view = this;
-
-    console.log('Rendering!');
-
-    _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
-    _view._callbackFn.call(null, new ViewUpdateObject(this));
-
-    return _view;
-  };
-
-  View.prototype.show = function() {
-    var _view = this;
-
-    console.log('Showing!');
-
-    _view._isHidden = false;
-    _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
-    _view._d3ContainerSelection.transition().duration(10).style('opacity', 1);
-
-    _view._callbackFn.call(null, new ViewUpdateObject(this));
-
-    return _view;
-  };
-
-  View.prototype.hide = function() {
-    var _view = this;
-    console.log('Hiding!');
-
-    _view._isHidden = true;
-    _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
-    _view._d3ContainerSelection.transition().duration(10).style('opacity', 0);
-    _view._callbackFn.call(null, new ViewUpdateObject(this));
-
-    return _view;
-  };
-
-  View.prototype.getState = function() {
-    return this._state;
-  };
 
   /////////////////////////////////////////////////////////
   // TableEntityListView
@@ -198,13 +370,33 @@
       // Inherit from View
       View.apply(_tableEntityListView, arguments);
 
+      _tableEntityListView._parentViewName = _DICTIONARY_CONSTANTS.VIEWS.TABLE._ID;
+      _tableEntityListView._name = _DICTIONARY_CONSTANTS.VIEWS[_tableEntityListView._parentViewName].ENTITY_LIST;
+      _tableEntityListView._prettyName = 'Entity List';
 
-      _tableEntityListView._name = _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST;
+      /////////////////////////////////////////
+      // Custom Render
+      _tableEntityListView.render = function () {
 
+        var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
+
+        for (var category in categoryMap) {
+          if (categoryMap.hasOwnProperty(category)) {
+            _tableEntityListView.renderEntity(category, categoryMap[category]);
+          }
+        }
+
+        console.log('TableEntityListView Rendering!');
+
+
+        _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
+        _tableEntityListView._callbackFn.call(null, new ViewUpdateObject(_tableEntityListView));
+      };
 
     }
 
-    TableEntityListView.prototype = View.prototype;
+    // Inherit our defaults for View
+    TableEntityListView.prototype = new View();
 
     TableEntityListView.prototype.renderEntity = function(category, categoryData) {
       var _tableEntityListView = this;
@@ -279,11 +471,11 @@
         })
         .append('a')
         .attr('title', function(data) {
-          return 'View the definition of ' + data.title;
+          return 'View details about ' + data.title;
         })
         .attr('id', function(data) { return data.id; })
         .attr('href', function(data) {
-          return '#?view=' + _tableEntityListView._name + '&id=' + data.id;
+          return '#?view=' + _DICTIONARY_CONSTANTS.VIEWS[_tableEntityListView.getParentViewName()].TERM_DEFINITION + '&id=' + data.id;
         })
         .on('click', function(data) {
           _tableEntityListView._callbackFn.call(
@@ -303,47 +495,71 @@
       return entityTable;
     };
 
-    TableEntityListView.prototype.render = function () {
-      var _tableEntityListView = this;
 
-     console.log(_tableEntityListView._dictionaryData);
-
-      var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
-
-      for (var category in categoryMap) {
-        if (categoryMap.hasOwnProperty(category)) {
-          _tableEntityListView.renderEntity(category, categoryMap[category]);
-        }
-      }
-
-      console.log('TableEntityListView Rendering!');
-
-
-
-
-
-      _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
-      _tableEntityListView._callbackFn.call(null, new ViewUpdateObject(_tableEntityListView));
-    };
     return TableEntityListView;
   })();
 
   /////////////////////////////////////////////////////////
-  function TableDefinitionsView() {
+  // TableDefinitionsView
+  /////////////////////////////////////////////////////////
+  var TableDefinitionsView = (function() {
+    function TableDefinitionsView() {
 
-    var _tableDefView = this;
+      var _tableDefinitionView = this;
 
-    // Inherit from View
-    View.apply(_tableDefView, arguments);
+      // Inherit from View
+      View.apply(_tableDefinitionView, arguments);
+
+      _tableDefinitionView._parentViewName = _DICTIONARY_CONSTANTS.VIEWS.TABLE._ID;
+      _tableDefinitionView._name = _DICTIONARY_CONSTANTS.VIEWS[_tableDefinitionView._parentViewName].TERM_DEFINITION;
+      _tableDefinitionView._prettyName = 'Definition View';
+
+      ////////////////////////////////////////////////////////////
+      // Custom Render
+      ////////////////////////////////////////////////////////////
+      _tableDefinitionView.render = function() {
+
+       if (_tableDefinitionView._dictionaryData) {
+         _tableDefinitionView.renderDefinitionView(_tableDefinitionView._dictionaryData);
+       }
+
+        console.log('TableDefinitionsView Rendering!');
+
+        _tableDefinitionView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
+        _tableDefinitionView._callbackFn.call(null, new ViewUpdateObject(_tableDefinitionView));
+      };
+
+      _tableDefinitionView.setDictionaryData = function(data) {
+
+        _tableDefinitionView._dictionaryDaya =  data;
+
+        if (_.has(data, 'title')) {
+          _tableDefinitionView._breadcrumbName = data.title;
+
+          _tableDefinitionView._prettyName = (_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP[data.category] || 'Unknown') +
+                                             ': ' + data.title + ' Definition';
 
 
-    _tableDefView._name = _DICTIONARY_CONSTANTS.VIEWS.TABLE.DEFINITION;
+        }
+        console.log(_tableDefinitionView._prettyName);
 
-  }
+        return _tableDefinitionView;
+      };
 
-  TableDefinitionsView.prototype = View.prototype;
+      _tableDefinitionView.setDictionaryData(_tableDefinitionView._dictionaryData);
+    }
 
+    // Inherit our defaults for View
+    TableDefinitionsView.prototype = new View();
 
+    TableDefinitionsView.prototype.renderDefinitionView = function(currentDictionary) {
+      var _tableDefinitionView = this;
+      console.log(currentDictionary);
+    };
+
+    return TableDefinitionsView;
+
+  })();
 
 
 
@@ -369,15 +585,16 @@
     APP_ABSOLUTE_DIR: '/apps/dictionary',
     VIEWS: {
       TABLE: {
-        _ID: 'table',
+        _ID: 'TABLE',
         ENTITY_LIST: 'table-entity-list',
-        DEFINITION: 'table-definition'
+        TERM_DEFINITION: 'table-definition-view'
       }
     },
     VIEW_STATE: {
       ENTER: 'enter', EXIT: 'exit', RENDERED: 'rendered'
     },
     VIEW_UPDATE_EVENT_TYPES: {
+      INIT: 'initialize-view',
       DEFAULT:'update',
       NAV: 'nav',
       INNER_NAV: 'inner-nav'
@@ -431,6 +648,8 @@
   ///////////////////////////////////////////////
   // Dictionary Default Options
   ///////////////////////////////////////////////
+  var _urlParamsCache = null;
+
   var _defaultOptions = {
     onInitFn: _.noop,
     beforeRenderFn: _.noop,
@@ -444,9 +663,14 @@
   function ViewUpdateObject(viewObject, viewEventType, viewParams) {
     var _viewObject = this;
 
+    if (! viewObject instanceof View) {
+      console.warn('View object is not an instance of View - something bad might happen moving forward!');
+    }
+
     _viewObject.view = viewObject;
+
     _viewObject.eventType = viewEventType || _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.DEFAULT;
-    _viewObject.params = viewParams;
+    _viewObject.params = viewParams || null;
   }
 
   ///////////////////////////////////////////////
@@ -457,7 +681,8 @@
         tableViews = {
           summary: d3.select('#dictionary-view-table-summary'),
           detailed: d3.select('#dictionary-view-table-detail')
-        };
+        },
+        urlParams = _getParamsFromURL();
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID] = {};
 
@@ -466,7 +691,11 @@
       view: new TableEntityListView(tableViews.summary, dictionaryData, actionCallbackFn)
     };
 
-    views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.DEFINITION] = {
+    if (_.has(urlParams, 'id')) {
+      dictionaryData = dictionaryData.dictionaryMap[urlParams.id] || null;
+    }
+
+    views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.TERM_DEFINITION] = {
       el: tableViews.detailed,
       view: new TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn)
     };
@@ -508,17 +737,27 @@
   }
 
   function _getParamsFromURL() {
+
+    if (_urlParamsCache) {
+      return _urlParamsCache;
+    }
+
     var view = null,
-        hash = window.location.hash;
+        hash = window.location.hash,
+        argParams = {};
 
     if (! hash) {
       return view;
     }
 
+    if (hash.length <= 2) {
+      return argParams;
+    }
+
     var argStr = hash.substr(2); // eat the hash and ? char
 
-    var argTokens = argStr.split('&'),
-        argParams = {};
+    var argTokens = argStr.split('&');
+
 
     for (var i = 0; i < argTokens.length; i++) {
       var keyVals = argTokens[i].split('=');
@@ -567,7 +806,9 @@
       delete argParams.view;
     }
 
-      return argParams;
+    _urlParamsCache = argParams;
+
+    return argParams;
   }
 
   ///////////////////////////////////////////////
