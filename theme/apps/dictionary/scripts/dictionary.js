@@ -29,7 +29,8 @@
     window.onpopstate = function(event) {
       if (window.location.href.toLowerCase().indexOf('dictionary/viewer') >= 0) {
         event.preventDefault();
-        _dictionary.createViewEventFromURL();
+        _dictionary.triggerViewEventFromURL();
+        console.log(event);
       }
 
     };
@@ -97,7 +98,7 @@
 
               _updatePageScroll(urlParams.anchor);
               _dictionary.updateBreadcrumb();*/
-              _dictionary.createViewEventFromURL();
+              _dictionary.triggerViewEventFromURL();
           });
         });
     }
@@ -150,11 +151,17 @@
       case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INIT:
 
         var data = _dictionary._data,
-            urlParams = _getParamsFromURL();
+            urlParams = _getParamsFromURL(),
+            currentView = _dictionary.getCurrentView();
+
+        if (currentView) {
+          currentView.hide();
+        }
 
         if (_.has(params, 'id')) {
           data = _dictionary._data.dictionaryMap[params.id];
         }
+
 
         _dictionary
           .setCurrentView(view.getViewName())
@@ -233,9 +240,9 @@
 
   };
 
-  Dictionary.prototype.createViewEventFromURL = function() {
+  Dictionary.prototype.triggerViewEventFromURL = function() {
     var _dictionary = this,
-        urlParams = _getParamsFromURL(),
+        urlParams = _getParamsFromURL(true),
         viewMode = _dictionary._options.defaultView,
         view = null,
         params = null;
@@ -250,7 +257,9 @@
       params = {id: urlParams.id};
     }
 
-    _dictionary.viewListener(new ViewUpdateObject(view, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INIT, params));
+    var viewEvent = new ViewUpdateObject(view, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INIT, params);
+    console.log(window.location.hash,  viewEvent);
+    _dictionary.viewListener(viewEvent);
 
   };
 
@@ -268,7 +277,7 @@
   // Clean up
   Dictionary.prototype.destroy = function() {
     console.log('Cleaning up the dictionary...');
-
+    window.onpopstate = _.noop;
     var _dictionary = this;
 
     _urlParamsCache = null;
@@ -736,9 +745,9 @@
 
   }
 
-  function _getParamsFromURL() {
+  function _getParamsFromURL(shouldNotCacheParams) {
 
-    if (_urlParamsCache) {
+    if (_urlParamsCache && shouldNotCacheParams !== true) {
       return _urlParamsCache;
     }
 
