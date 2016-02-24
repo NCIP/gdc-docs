@@ -1,7 +1,7 @@
 # Submission Workflow
 
 ## General Submisison Workflow
-The workflow diagram available below presents the main features available within GDC Submission Portal in order to submit data and release it to the research community on the GDC Data Portal .
+The workflow diagram available below presents the main features available within GDC Submission Portal in order to submit data and release it to the research community on the GDC Data Portal.
 
 [![GDC Data Submission Portal Workflow](images/GDC_Submission_Portal_Workflow.png)](images/GDC_Submission_Portal_Workflow.png "Click to see the full image.")
 
