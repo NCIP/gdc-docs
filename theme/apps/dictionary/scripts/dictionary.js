@@ -32,7 +32,6 @@
 
         if (window.location.href.toLowerCase().indexOf('dictionary/viewer') >= 0) {
           _dictionary.triggerViewEventFromURL(event);
-          console.log(event);
         }
 
       };
@@ -76,7 +75,6 @@
       _dictionary._currentViewMode = _dictionary._options.defaultView;
     }
 
-    console.log( _dictionary._currentViewMode);
 
     if (_dictionary._data === null) {
 
@@ -117,7 +115,6 @@
     }
 
     console.log(viewUpdateObj);
-    console.log('view Listener invoked: ', view.getState());
 
     switch( viewUpdateObj.eventType ) {
 
@@ -231,7 +228,6 @@
         viewMode = _dictionary._options.defaultView,
         view = null,
         params = null;
-    console.log(urlParams);
 
     if (event) {
       console.log(event);
@@ -250,7 +246,7 @@
     }
 
     var viewEvent = new Dictionary._ViewUpdateObject(view, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV, params);
-    console.log(window.location.hash,  viewEvent);
+
     _dictionary.viewListener(viewEvent);
 
   };
@@ -428,7 +424,7 @@
         // Calculate the absolute offset and compensate for the menu bar
         top: Math.max(0, offset.top - 80) + window.scrollY
       };
-console.log(options)
+
       if (isSmoothScrollSupported) {
         // Native smooth scrolling
         window.scrollTo(options);
@@ -475,9 +471,6 @@ console.log(options)
       argParams[keyVals[0]] = keyVals[1];
     }
 
-    console.log(argParams);
-
-
     // Parse Logic
     //#view=BLAH&id=ANCHOR_NAME
     if (argParams.view) {
@@ -504,7 +497,7 @@ console.log(options)
     }
 
     if (view) {
-      console.log('View found in ULR = ', view);
+      console.log('View found in URL = ', view);
       argParams.view = view;
     }
     else {
@@ -590,11 +583,11 @@ console.log(options)
         .then(responseParseFn)
         .then(function (responseData) {
           //resolve original promise
-          console.log('Request Succeeded - Data: ', responseData);
+          console.warn('Request Succeeded - Data: ', responseData);
           resolve(responseData);
         })
         .catch(function (error) {
-          console.log('Request Failed - Error: ', error);
+          console.warn('Request Failed - Error: ', error);
           reject(error);
         });
     });

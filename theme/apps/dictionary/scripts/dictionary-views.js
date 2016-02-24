@@ -63,7 +63,8 @@
 
       _tableDefinitionView.renderHeader();
       _tableDefinitionView.renderSummaryTable();
-      _tableDefinitionView.definitionTable();
+      _tableDefinitionView.renderLinksTable();
+      //_tableDefinitionView.definitionTable();
     };
 
 
@@ -76,17 +77,19 @@
       var _tableDefinitionView = this;
 
       var summaryTableContainerSel = _tableDefinitionView._d3ContainerSelection.append('div')
-          .classed('dictionary-summary-table-container', true);
+          .classed('dictionary-summary-table-container dictionary-definition-container', true);
 
       _renderSummaryTable(_tableDefinitionView, summaryTableContainerSel);
 
-
-
     };
 
-    TableDefinitionsView.prototype.definitionTable = function() {
-      //var _tableDefinitionView = this;
-      //_tableDefinitionView._d3ContainerSelection.append('h1').text(_tableDefinitionView.getPrettyName());
+    TableDefinitionsView.prototype.renderLinksTable = function() {
+      var _tableDefinitionView = this;
+
+      var linksTableContainerSel = _tableDefinitionView._d3ContainerSelection.append('div')
+        .classed('dictionary-links-table-container dictionary-definition-container', true);
+
+      _renderLinksTable(_tableDefinitionView, linksTableContainerSel);
     };
 
     ///////////////////////////////////////////////////////////
@@ -94,7 +97,8 @@
     ///////////////////////////////////////////////////////////
     function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData,
-          category =  _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category);
+          category =  _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
+          uniqueKeys = _.get(dictionaryData, 'uniqueKeys', ['--']);
 
       tableContainerSelection.append('h2').text('Summary');
 
@@ -116,7 +120,7 @@
       var dataRows = [
         {id: 'category', title:'Category', value: category},
         {id: 'description', title: 'Description', value: dictionaryData.description},
-        {id: 'keys', title: 'Unique Keys', value: []}
+        {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
       ];
 
       var tRows = tBody.selectAll('tr')
@@ -126,18 +130,158 @@
 
       tRows.selectAll('td')
         .data(function(row) {
-           return [row.title, row.value];
+           return [{id: row.id, value: row.title}, {id: row.id, value: row.value}];
         })
         .enter()
         .append('td')
-        .text(function(d) {
-          return d;
-        });
+        .html(function(d, i) {
 
+          var data = d.value;
+
+          if (i !== 1 || d.id !== 'keys') {
+            return data;
+          }
+
+          if (_.isArray(data)) {
+
+              var newData = '<ul class="bullets">' +
+                     _.map(data,  function(val) {
+                        var arrayVal = '';
+
+                        if (_.isArray(val) && val.length === 1) {
+                          arrayVal = val[0];
+                        }
+                        else if (_.isArray(val)  && val.length > 1) {
+                          arrayVal = val.join(', ');
+                        }
+                        else {
+                          arrayVal = val;
+                        }
+
+                        return '<li>' + arrayVal + '</li>';
+                      }).join('\n') +
+                   '</ul>';
+
+            data = newData;
+
+          }
+
+          return data;
+        });
 
     }
 
-    function _renderLinksTable(tableSelection) {
+    ///////////////////////////////////////////////////////////////////////////////////////
+    // Links Table
+    ///////////////////////////////////////////////////////////////////////////////////////
+    function createLinkData(link) {
+      var linkData = [];
+
+      if (! _.has(link, 'name')) {
+        return ['--', '--', '--'];
+      }
+
+      linkData.push(link.name);
+      linkData.push(link.backref + ' ' +  link.label + ' '  + link.target_type);
+      linkData.push(link.required);
+
+      return linkData;
+    }
+
+
+    function _prepLinksTableData(dictionaryData) {
+      var transformedData = [];
+
+      // Create Table Row Data
+      var links = _.get(dictionaryData, 'links', false);
+
+      if (! links || ! _.isArray(links) || links.length === 0) {
+        return [createLinkData()];
+      }
+
+      for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+
+        var linkSubgroups = _.get(link, 'subgroup', []);
+
+        if (linkSubgroups.length > 0) {
+          var subLinkData = [[],[],[]];
+
+          for (var j = 0; j < linkSubgroups.length; j++) {
+            var subLinkDataNode = createLinkData(linkSubgroups[j]);
+
+            if (_.isArray(subLinkDataNode)) {
+              subLinkData[0].push(subLinkDataNode[0]);
+              subLinkData[1].push(subLinkDataNode[1]);
+              subLinkData[2].push(subLinkDataNode[2]);
+            }
+          }
+
+          if (subLinkData.length > 0) {
+            transformedData.push(subLinkData);
+          }
+
+          continue;
+        }
+
+
+        var linkDataNode = createLinkData(link);
+
+        if (linkDataNode.length > 0) {
+          transformedData.push(linkDataNode);
+        }
+
+      }
+
+      console.log(transformedData);
+      return transformedData;
+    }
+
+    function _renderLinksTable(_tableDefinitionView, tableContainerSelection) {
+      var dictionaryData = _tableDefinitionView._dictionaryData;
+
+      tableContainerSelection.append('h2').text('Links');
+
+      var definitionTable = tableContainerSelection.append('table')
+        .classed('dictionary-links-table', true);
+
+      var tHead = definitionTable.append('thead'),
+        tBody = definitionTable.append('tbody');
+
+      tHead.append('tr')
+        .classed('dictionary-links-header', true)
+        .selectAll('th')
+        .data(['Links to', 'Relationship', 'Required'])
+        .enter()
+        .append('th')
+        .text(function(d) { return d; });
+
+
+      var dataRows = _prepLinksTableData(dictionaryData);
+
+      var tRows = tBody.selectAll('tr')
+        .data(dataRows)
+        .enter()
+        .append('tr');
+
+      tRows.selectAll('td')
+        .data(function(row) {
+          return row;
+        })
+        .enter()
+        .append('td')
+        .html(function(data) {
+          console.log(data);
+          if (!_.isArray(data)) {
+            return data;
+          }
+
+          var newData = data.join('<br />');
+
+          console.log(newData);
+
+          return newData;
+        });
 
     }
 
@@ -231,7 +375,7 @@
           if ( _DICTIONARY_CONSTANTS.BROWSER_CAPABILITIES.HASH_CHANGE_EVENT ) {
             return;
           }
-alert('b')
+
           _tableEntityListView._callbackFn.call(
             null, new Dictionary._ViewUpdateObject(_tableEntityListView,  _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INNER_NAV, {id: category})
           );
