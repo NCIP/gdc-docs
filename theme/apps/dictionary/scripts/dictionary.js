@@ -18,13 +18,22 @@
       _.assign(_dictionary._options, options);
     }
 
-    _dictionary._currentViewMode = _getViewFromURL() || _dictionary._options.defaultView;
+    _dictionary._currentViewMode = _dictionary._options.defaultView;
     _dictionary._currentView = null;
 
     _dictionary.containerElement(targetEl || document.body);
     _dictionary.CONSTANTS = _DICTIONARY_CONSTANTS;
 
     _dictionary.init();
+
+    window.onpopstate = function(event) {
+      if (window.location.href.toLowerCase().indexOf('dictionary/viewer') >= 0) {
+        event.preventDefault();
+        _dictionary.triggerViewEventFromURL();
+        console.log(event);
+      }
+
+    };
   }
 
   /////////////////////////////////////////////////////////
@@ -44,30 +53,139 @@
   /////////////////////////////////////////////////////////
   Dictionary.prototype.init = function(shouldRefresh) {
 
+    if (typeof Dictionary._Views === 'undefined') {
+      console.warn('Could not find the Dictionary Views - are you sure you included the views dictionary JS File.\nAborting Dictionary Init.');
+      return;
+    }
+
     var _dictionary = this;
 
-    if (_dictionary._data === null || shouldRefresh === true) {
+    if (shouldRefresh === true) {
+      _dictionary.destroy();
+    }
+
+    var urlParams = _getParamsFromURL();
+
+    if (_.has(urlParams, 'view')) {
+      _dictionary._currentViewMode = urlParams.view;
+    }
+    else {
+      _dictionary._currentViewMode = _dictionary._options.defaultView;
+    }
+
+    console.log( _dictionary._currentViewMode);
+
+    if (_dictionary._data === null) {
 
       _fetchTemplate(_DICTIONARY_CONSTANTS.TEMPLATES.MAIN_DICTIONARY)
         .then(function (html) {
           _dictionary._containerEl.innerHTML = html;
 
           // Place D3 entry point
-          _dictionary._d3Containers.rootEl = d3.select('#dictionary-inner-container');
+          _dictionary._d3Containers.rootSelection = d3.select('#dictionary-inner-container');
+
+          _dictionary._d3Containers.breadcrumbs = {};
+          _dictionary._d3Containers.breadcrumbs.breadcrumbSelection = d3.select('#dictionary-nav-breadcrumb');
+          _dictionary._d3Containers.breadcrumbs.breadcrumbStackSelection = d3.select('#dictionary-nav-view-stack');
+
         })
         .then(function () {
-          _dictionary.getDataFromSource().then(function (rawDictionaryData) {
-            _dictionary._data = _initDictionaryData(rawDictionaryData);
-            _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _dictionary.viewListener);
-            _dictionary.setView(_dictionary._options.defaultView);
-            _dictionary.render();
+          _dictionary.getDataFromSource()
+            .then(function (rawDictionaryData) {
+
+              _dictionary._data = _initDictionaryData(rawDictionaryData);
+
+              _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _.bind(_dictionary.viewListener, _dictionary));
+
+              /*_dictionary
+                .setCurrentView(_dictionary._currentViewMode)
+                .render();
+
+              _updatePageScroll(urlParams.anchor);
+              _dictionary.updateBreadcrumb();*/
+              _dictionary.triggerViewEventFromURL();
           });
         });
     }
   };
 
-  Dictionary.prototype.viewListener = function(view) {
+  Dictionary.prototype.viewListener = function(viewUpdateObj) {
+    var _dictionary = this,
+        view =  viewUpdateObj.view,
+        params = viewUpdateObj.params;
+
+
+    if (! view) {
+      return;
+    }
+
+    console.log(viewUpdateObj);
     console.log('view Listener invoked: ', view.getState());
+
+    switch( viewUpdateObj.eventType ) {
+
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INNER_NAV:
+
+        if (_.isString(params.id)) {
+          _updatePageScroll(params.id);
+        }
+        break;
+
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV:
+
+        var subViews = _.get(_DICTIONARY_CONSTANTS.VIEWS, view.getParentViewName(), false);
+
+        if (view.getParentViewName() && subViews) {
+          view.hide();
+
+          if (view.getViewName() === subViews.ENTITY_LIST && _.has(params, 'id')) {
+
+            _dictionary
+              .setCurrentView(subViews.TERM_DEFINITION)
+              .getCurrentView()
+              .setDictionaryData(_dictionary._data.dictionaryMap[params.id])
+              .show()
+              .render();
+          }
+
+          _dictionary.updateBreadcrumb();
+        }
+
+        break;
+
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INIT:
+
+        var data = _dictionary._data,
+            urlParams = _getParamsFromURL(),
+            currentView = _dictionary.getCurrentView();
+
+        if (currentView) {
+          currentView.hide();
+        }
+
+        if (_.has(params, 'id')) {
+          data = _dictionary._data.dictionaryMap[params.id];
+        }
+
+
+        _dictionary
+          .setCurrentView(view.getViewName())
+          .getCurrentView(data)
+          .setDictionaryData(_dictionary._data)
+          .show()
+          .render();
+
+        if (_.has(urlParams, 'anchor')) {
+          _updatePageScroll(urlParams.anchor);
+        }
+
+        _dictionary.updateBreadcrumb();
+
+        break;
+
+      default:
+        break;
+    }
   };
 
   Dictionary.prototype.getDataFromSource = function(responseType) {
@@ -80,19 +198,88 @@
     return this._data;
   };
 
-  Dictionary.prototype.setView = function(view) {
+  Dictionary.prototype._getView = function(viewName) {
     var _dictionary = this;
 
-    _dictionary._currentView = _dictionary._d3Containers.views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][view].view;
+    if (! _dictionary._d3Containers.views ||
+        ! _.has(_dictionary._d3Containers.views, _DICTIONARY_CONSTANTS.VIEWS.TABLE._ID) ||
+        ! _.has(_dictionary._d3Containers.views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID], viewName)) {
+      return null;
+    }
+
+    return _dictionary._d3Containers.views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][viewName].view;
+  };
+
+  Dictionary.prototype.setCurrentView = function(viewName) {
+    var _dictionary = this;
+
+    _dictionary._currentView = _dictionary._getView(viewName);
 
     return _dictionary;
   };
 
-  // Manual call to render self
-  Dictionary.prototype.render = function() {
+  Dictionary.prototype.getCurrentView = function() {
     var _dictionary = this;
 
-    _dictionary._currentView.show().render();
+    return  _dictionary._currentView;
+  };
+
+  Dictionary.prototype.updateBreadcrumb = function() {
+    var _dictionary = this,
+        currentView = _dictionary.getCurrentView(),
+        currentViewName = currentView.getViewName(),
+        breadcrumbSelection = _dictionary._d3Containers.breadcrumbs.breadcrumbSelection,
+        breadcrumbStack = _dictionary._d3Containers.breadcrumbs.breadcrumbStackSelection,
+        breadcrumbName = currentView.getBreadcrumbName() || 'Unknown',
+        styleOpts = {display: 'none'};
+
+
+    if (currentViewName !== _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST && breadcrumbName) {
+      styleOpts.display = 'block';
+    }
+
+    if (breadcrumbSelection) {
+      breadcrumbSelection.style(styleOpts);
+    }
+
+
+    breadcrumbStack.html('');
+
+    breadcrumbStack.append('i').classed('fa fa-chevron-right', true);
+
+    breadcrumbStack.append('span').text(' ' + breadcrumbName);
+
+  };
+
+  Dictionary.prototype.triggerViewEventFromURL = function() {
+    var _dictionary = this,
+        urlParams = _getParamsFromURL(true),
+        viewMode = _dictionary._options.defaultView,
+        view = null,
+        params = null;
+
+    if (_.has(urlParams, 'view')) {
+      viewMode = urlParams.view;
+    }
+
+    view = _dictionary._getView(viewMode);
+
+    if (_.has(urlParams, 'id')) {
+      params = {id: urlParams.id};
+    }
+
+    var viewEvent = new Dictionary._ViewUpdateObject(view, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INIT, params);
+    console.log(window.location.hash,  viewEvent);
+    _dictionary.viewListener(viewEvent);
+
+  };
+
+
+  // Manual call to render self
+  Dictionary.prototype.render = function(renderParams) {
+    var _dictionary = this;
+
+    _dictionary._currentView.show().render(renderParams);
 
 
     return _dictionary;
@@ -100,176 +287,13 @@
 
   // Clean up
   Dictionary.prototype.destroy = function() {
+    console.log('Cleaning up the dictionary...');
+    window.onpopstate = _.noop;
+    var _dictionary = this;
 
+    _urlParamsCache = null;
+    _dictionary._data = null;
   };
-
-  /////////////////////////////////////////////////////////
-  // Dictionary Views
-  /////////////////////////////////////////////////////////
-
-  function View(d3ContainerSelection, dictionaryData, actionCallbackFn) {
-    var _view = this;
-
-    _view._d3ContainerSelection = d3ContainerSelection;
-    _view._dictionaryData = dictionaryData;
-    _view._name = 'Unknown View';
-    _view._callbackFn = actionCallbackFn || _.noop;
-    _view._isHidden = true;
-
-  }
-
-  View.prototype.render = function() {
-    var _view = this;
-
-    console.log('Rendering!');
-
-    _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
-    _view._callbackFn.call(null, _view);
-
-    return _view;
-  };
-
-  View.prototype.show = function() {
-    var _view = this;
-
-    console.log('Showing!');
-
-    _view._isHidden = false;
-    _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
-    _view._d3ContainerSelection.transition().duration(10).style('opacity', 1);
-
-    _view._callbackFn.call(null, this);
-
-    return _view;
-  };
-
-  View.prototype.hide = function() {
-    var _view = this;
-    console.log('Hiding!');
-
-    _view._isHidden = true;
-    _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
-    _view._d3ContainerSelection.transition().duration(10).style('opacity', 0);
-    _view._callbackFn.call(null, this);
-
-    return _view;
-  };
-
-  View.prototype.getState = function() {
-    return this._state;
-  };
-
-  /////////////////////////////////////////////////////////
-  // TableEntityListView
-  /////////////////////////////////////////////////////////
-  var TableEntityListView = (function() {
-
-
-    function TableEntityListView() {
-
-      var _tableEntityListView = this;
-      // Inherit from View
-      View.apply(_tableEntityListView, arguments);
-
-
-      _tableEntityListView._name = _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST;
-
-
-    }
-
-    TableEntityListView.prototype = View.prototype;
-
-    TableEntityListView.prototype.renderEntity = function(category, categoryData) {
-      var _tableEntityListView = this;
-
-      var entityTable = _tableEntityListView._d3ContainerSelection
-        .append('table')
-        .classed('dictionary-entity-table card', true)
-        .attr('id', 'dictionary-entity-' + category);
-
-      var tHead = entityTable.append('thead'),
-          tBody = entityTable.append('tbody');
-
-      tHead.append('tr')
-        .append('th')
-        .classed('dictionary-entity-header', true)
-        .html(function() {
-          return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category);
-        });
-
-      var tRows = tBody.selectAll('tr')
-            .data(categoryData)
-            .enter()
-            .append('tr');
-
-
-      tRows.selectAll('td')
-        .data(function(row) {
-          return [{id: row.id,  title: row.title}];
-        })
-        .enter()
-        .append('td')
-        .classed('dictionary-entity-list-item', true)
-        .append('a')
-        .attr('title', function(data) {
-          return 'View the definition of ' + data.title;
-        })
-        .attr('href', function(data) {
-          return '#?view=' + _tableEntityListView._name + '&id=' + data.id;
-        })
-        .text(function(data) { return data.title; });
-
-      return entityTable;
-    };
-
-    TableEntityListView.prototype.render = function () {
-      var _tableEntityListView = this;
-
-     console.log(_tableEntityListView._dictionaryData);
-
-      var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
-
-      for (var category in categoryMap) {
-        if (categoryMap.hasOwnProperty(category)) {
-          _tableEntityListView.renderEntity(category, categoryMap[category]);
-        }
-      }
-
-      console.log('TableEntityListView Rendering!');
-
-
-
-
-
-      _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
-      _tableEntityListView._callbackFn.call(null, _tableEntityListView);
-    };
-    return TableEntityListView;
-  })();
-
-  /////////////////////////////////////////////////////////
-  function TableDefinitionsView() {
-
-    var _tableDefView = this;
-
-    // Inherit from View
-    View.apply(_tableDefView, arguments);
-
-
-    _tableDefView._name = _DICTIONARY_CONSTANTS.VIEWS.TABLE.DEFINITION;
-
-  }
-
-  TableDefinitionsView.prototype = View.prototype;
-
-
-
-
-
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
-
-
 
 
   /////////////////////////////////////////////////////////
@@ -288,13 +312,19 @@
     APP_ABSOLUTE_DIR: '/apps/dictionary',
     VIEWS: {
       TABLE: {
-        _ID: 'table',
+        _ID: 'TABLE',
         ENTITY_LIST: 'table-entity-list',
-        DEFINITION: 'table-definition'
+        TERM_DEFINITION: 'table-definition-view'
       }
     },
     VIEW_STATE: {
       ENTER: 'enter', EXIT: 'exit', RENDERED: 'rendered'
+    },
+    VIEW_UPDATE_EVENT_TYPES: {
+      INIT: 'initialize-view',
+      DEFAULT:'update',
+      NAV: 'nav',
+      INNER_NAV: 'inner-nav'
     },
     DICTIONARY_ENTITY_MAP: {
       case: 'Case',
@@ -326,7 +356,7 @@
       JSON: 'application/json'
     },
     WEB_SERVICE: {
-      DEFAULT_URL: '',
+      DEFAULT_URL: 'https://gdc-api.nci.nih.gov',
       CONTEXT_PATTERN: '/auth/api/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
       DEFAULT_PROGRAM: 'CGCI',
       DEFAULT_PROJECT: 'BLGSP',
@@ -335,13 +365,22 @@
     TEMPLATES: {
       RELATIVE_DIR: '/html-shards',
       MAIN_DICTIONARY: 'dictionary.html'
+    },
+    BROWSER_CAPABILITIES: {
+      SMOOTH_SCROLL: 'scrollBehavior' in document.documentElement.style
     }
 
   };
 
+  // Memoize constants so the views can see them
+  Dictionary._DICTIONARY_CONSTANTS = _DICTIONARY_CONSTANTS;
+  Dictionary._ = _;
+
   ///////////////////////////////////////////////
   // Dictionary Default Options
   ///////////////////////////////////////////////
+  var _urlParamsCache = null;
+
   var _defaultOptions = {
     onInitFn: _.noop,
     beforeRenderFn: _.noop,
@@ -352,6 +391,7 @@
     defaultView: _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST
   };
 
+
   ///////////////////////////////////////////////
   // Initialize D3 Views
   ///////////////////////////////////////////////
@@ -360,36 +400,83 @@
         tableViews = {
           summary: d3.select('#dictionary-view-table-summary'),
           detailed: d3.select('#dictionary-view-table-detail')
-        };
+        },
+        urlParams = _getParamsFromURL();
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID] = {};
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST] = {
       el: tableViews.summary,
-      view: new TableEntityListView(tableViews.summary, dictionaryData, actionCallbackFn)
+      view: new  Dictionary._Views.TableEntityListView(tableViews.summary, dictionaryData, actionCallbackFn)
     };
 
-    views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.DEFINITION] = {
+    if (_.has(urlParams, 'id')) {
+      dictionaryData = dictionaryData.dictionaryMap[urlParams.id] || null;
+    }
+
+    views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.TERM_DEFINITION] = {
       el: tableViews.detailed,
-      view: new TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn)
+      view: new  Dictionary._Views.TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn)
     };
 
 
     return views;
   }
 
-  function _getViewFromURL() {
+  function _updatePageScroll(anchor) {
+    if (_.isString(anchor)) {
+      _scrollTo(anchor);
+    }
+  }
+
+  function _scrollTo(id) {
+    var isSmoothScrollSupported = _DICTIONARY_CONSTANTS.BROWSER_CAPABILITIES.SMOOTH_SCROLL,
+        node = document.getElementById(id);
+
+    if (node) {
+      var offset = node.getBoundingClientRect();
+
+      var options = {
+        behavior: 'smooth',
+        left: 0,
+        // Calculate the absolute offset and compensate for the menu bar
+        top: Math.max(0, offset.top - 80) + window.scrollY
+      };
+
+      if (isSmoothScrollSupported) {
+        // Native smooth scrolling
+        window.scrollTo(options);
+      }
+      else {
+        // Old way scrolling without effects
+        window.scrollTo(options.left, options.top);
+      }
+    }
+
+  }
+
+  function _getParamsFromURL(shouldNotCacheParams) {
+
+    if (_urlParamsCache && shouldNotCacheParams !== true) {
+      return _urlParamsCache;
+    }
+
     var view = null,
-        hash = window.location.hash;
+        hash = window.location.hash,
+        argParams = {};
 
     if (! hash) {
       return view;
     }
 
+    if (hash.length <= 2) {
+      return argParams;
+    }
+
     var argStr = hash.substr(2); // eat the hash and ? char
 
-    var argTokens = argStr.split('&'),
-        argParams = {};
+    var argTokens = argStr.split('&');
+
 
     for (var i = 0; i < argTokens.length; i++) {
       var keyVals = argTokens[i].split('=');
@@ -432,9 +519,15 @@
 
     if (view) {
       console.log('View found in ULR = ', view);
+      argParams.view = view;
+    }
+    else {
+      delete argParams.view;
     }
 
-      return view;
+    _urlParamsCache = argParams;
+
+    return argParams;
   }
 
   ///////////////////////////////////////////////
@@ -478,7 +571,7 @@
 
       if (contextPattern.indexOf(tokenPattern) >=0 && _.isString(patternMapping[pattern])) {
         // Replace all occurrences - commented out for now
-        //newContextPattern = newContextPattern.split(tokenPattern).join(patternMapping[pattern]);
+        // ContextPattern = newContextPattern.split(tokenPattern).join(patternMapping[pattern]);
         newContextPattern = newContextPattern.replace(tokenPattern, patternMapping[pattern])
       }
 
