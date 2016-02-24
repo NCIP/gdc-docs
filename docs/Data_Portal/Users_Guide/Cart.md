@@ -1,24 +1,26 @@
-# Overview
+# Cart and File Download
+
+## Overview
 
 While browsing through the GDC Data Portal, files can be downloaded either individually or bundled through a cart mechanism similar to online stores.
 
 The cart pages shows a summary of all files currently in the cart, display a file count by project and identified the authorization level of those files (controlled or open access).
 
-# GDC Cart
+## GDC Cart
 
 ADD MORE DETAILS
 
-# Download Options
+## Download Options
 
 From the cart, three different download options are available to the end user.
 
 __Note__: when downloading multiple files from the GDC Data Portal, those files are automatically bundled-up into one single Gzipped (.tar.gz) file.
 
-## GDC Data Transfer Tool
+### GDC Data Transfer Tool
 
 The "Manifest for Fast Download Tool" button will download a manifest that can be imported into the GDC Data Transfer Tool.
 
-```
+```manifest
 id	filename	md5	size	state
 4ea9c657-8f85-44d0-9a77-ad59cced8973	mdanderson.org_ESCA.MDA_RPPA_Core.mage-tab.1.1.0.tar.gz	\N	2516051	live
 b8342cd5-330e-440b-b53a-1112341d87db	mdanderson.org_SARC.MDA_RPPA_Core.mage-tab.1.1.0.tar.gz	\N	4523632	live
@@ -33,15 +35,15 @@ The Manifest contains a list of the file UUIDs in the cart and can be used toget
 
 Information on the GDC Data Transfer Tool is available in the [GDC Data Transfer Tool User’s Guide](/node/8196/).
 
-## Cart Download
+### Cart Download
 
 The "Download Cart (web browser)" button will initial a data download directly from the browser. Users have to be cautious of the amount of data in the cart since this option will not optimize bandwidth neither provide resume capabilities.
 
-## Individual Files Download
+### Individual Files Download
 
 Similar to the files page, each row contains a download button to download a particular file individually.
 
-# Access
+## Access
 
 If a user tries to download a cart containing controlled data and without being authenticated, a pop-up will be displayed to offer the user either to download only open access files or to login into the GDC Data Portal through eRA Commons.
 

@@ -1,12 +1,14 @@
-# Sitemap
+# Features
+
+## Sitemap
 
 [![GDC Data Portal Sitemap](images/gdc-data-portal-sitemap.png)](images/gdc-data-portal-sitemap.png "Click to see the full image.")
 
 The portal is composed by 8 major sections available to the user through a toolbar on the upper level of the GDC Data Portal.
 
-# Main Menu
+## Main Menu
 
-## Left Section
+### Left Section
 
 [![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-left.png)](images/gdc-data-portal-top-menu-bar-left.png "Click to see the full image.")
 
@@ -20,7 +22,7 @@ The left portion of this toolbar provides access to the following elements:
 
 Each _'Projects'_, _'Data'_, and _'Annotations'_ view enables the user to set filters from within the view to either browse the data or select it for export or download. It provides different and independent ways of organizing GDC data and metadata.   
 
-## Right Section
+### Right Section
 
 [![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-right.png)](images/gdc-data-portal-top-menu-bar-right.png "Click to see the full image.")
 
@@ -30,7 +32,7 @@ The right portion of this toolbar provides access to the following elements:
 * __Login__: Log into the GDC Data Portal through eRA Commons
 * __Cart__: Access to user populated cart mechanism
 
-# Filtering and Searching
+## Filtering and Searching
 
 The GDC Data Portal provide three different means to search and navigate throughout available data:
 
@@ -38,7 +40,7 @@ The GDC Data Portal provide three different means to search and navigate through
 * __Advanced Search__: Provides access to advanced and complex queries using a purpose-built query language.
 * __Quick Search__: Provide, from any place on the GDC Data Portal, a quick access to specific entities
 
-## Faceted Navigation
+### Faceted Navigation
 
 Available on the left side of _'Projects'_ & _'Data'_ views, _'Faceted Navigation'_ enable filtering by selecting relevant data. Facets are attributes of the data that are being searched. Faceted Navigation filters the overall data set based on the set of Facets chosen.
 
@@ -70,7 +72,7 @@ The resulting set is displayed below the query.
 
 [![Faceted Navigation resulting Set](images/gdc-data-portal-faceted-navigation-resulting-set.png)](images/gdc-data-portal-faceted-navigation-resulting-set.png "Click to see the full image.")
 
-## Advanced Search
+### Advanced Search
 
 Only available in the _'Data'_ view, the Advanced Search page offers complex query building capabilities to  identify specific set of cases and files.
 
@@ -78,7 +80,7 @@ Only available in the _'Data'_ view, the Advanced Search page offers complex que
 
 The [Advanced Search](Advanced_Search.md) section of the documentation provides more details about this feature.
 
-## Quick Search
+### Quick Search
 
 The GDC Data Portal is equipped with a Quick search feature available either by clicking on the magnifier in the right section of the toolbar or by pressing CTRL SPACE on a keyboard.
 
@@ -90,13 +92,13 @@ Search results are automatically displayed while the user is typing.
 
 Pressing enter or clicking on the result will open the corresponding entity page.
 
-# Tables
+## Tables
 
 Most tables available throughout the GDC Data portal are equipped with export, sorting and filtering capabilities.
 
 [![Table Header](images/gdc-data-portal-table.png)](images/gdc-data-portal-table.png "Click to see the full image.")
 
-## Sorting
+### Sorting
 
 Users can sort content by selecting the corresponding column to apply sorting to.
 
@@ -105,7 +107,7 @@ Users can sort content by selecting the corresponding column to apply sorting to
 In situations where multiple columns are selected for sorting, the system will take columns in order and progressively apply sorting.
 If a column with unique values (such as ID) is selected as the first column for sorting, sorting will not be available for other columns selected (since sorting is first applied on unique values subsorting is not possible).
 
-## Columns Filtering
+### Columns Filtering
 
 Users can select which column they want to display and in which order, preferences will be maintained throughout user visits.
 
@@ -113,7 +115,7 @@ By default not all columns might be displayed in the table, this options provide
 
 [![Table Columns Filtering](images/gdc-data-portal-table-column-filtering.png)](images/gdc-data-portal-table-column-filtering.png "Click to see the full image.")
 
-## Exporting
+### Exporting
 
 Tables can be exported in four different formats:
 
@@ -124,7 +126,7 @@ Tables can be exported in four different formats:
 
 [![Table Columns Filtering](images/gdc-data-portal-table-export.png)](images/gdc-data-portal-table-export.png "Click to see the full image.")
 
-# Pie Charts
+## Pie Charts
 
 Most Pie charts in the GDC Data Portal are interactive. Mousing over a slice of the pie chart display detailed about the slice. Users are also offered the option to switch to a table view for more details.
 

@@ -1,10 +1,12 @@
-# Overview
+# Case
+
+## Overview
 
 The _"Case"_ section list all cases available in the project. Clicking on a particular case will open the details panel providing more details about the selected case.
 
 [![GDC Submission Cases Default View](images/GDC_Submission_Cases_Default.png)](images/GDC_Submission_Cases_Default.png "Click to see the full image.")
 
-# Case Filters
+## Case Filters
 
 Cases can be accessed from the menu through multiple filters.
 
@@ -16,7 +18,7 @@ Cases can be accessed from the menu through multiple filters.
 
 The number of cases corresponding to each filter is displayed on the right side of the filter name.
 
-# Cases List View
+## Cases List View
 
 The cases list view display the following informations:
 
@@ -29,7 +31,7 @@ The cases list view display the following informations:
 
 On the top left section of the screen, the user can download data about all cases associated to the selected filter.
 
-# Case Details
+## Case Details
 
 Clicking on a case will open the details panel. Data in this panel is broken down in multiple sections.
 
@@ -39,7 +41,7 @@ Navigation between those sections can be done either by scrolling down or by cli
 
 [![GDC Submission Cases Details Navigation](images/GDC_Submission_Cases_Details_Navigation.png)](images/GDC_Submission_Cases_Details_Navigation.png "Click to see the full image.")
 
-## Details
+### Details
 
 Provides details about the case itself, such as its UUID, status, project, creation date.
 
@@ -52,7 +54,7 @@ Provides details about the case itself, such as its UUID, status, project, creat
 | Created Datetime | Date and time the entity was created |
 | Updated Datetime | Date and time the entity was last updated |
 
-## Related Entities
+### Related Entities
 
 Table listing all entities, grouped by type, related to the selected case.
 
@@ -67,6 +69,6 @@ This table contains the following columns.
 Clicking on the count will open a list page listing those entities.
 
 
-## Transactions
+### Transactions
 
 List the 10 most recent transactions associated with this entity ordered by date. Clicking on a transaction will open it in the list page.

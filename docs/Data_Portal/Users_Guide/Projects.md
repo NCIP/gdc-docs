@@ -1,8 +1,12 @@
-# Projects Search
+# Projects
 
 ## Overview
 
 The Projects view provides an overview of all the data contained in the GDC Data Portal, organized by Project.  Administratively, a _'Project'_ is a specific effort undertaken as part of an overarching Program. Many projects were set up to study one tumor type, so project names and disease names can often be the same, as is the case for TCGA data, but this is not always the case.
+
+## Projects Search
+
+### Overview
 
 When accessing the Projects view, the initial screen will display a table summarizing the information about the cases (i.e. sample donors) and data types for which data is available for each project.  This table displays for each project, the number of cases, number of files of each data type contained in the GDC for that project, and total file size of all the files in the project. With no Facets selected, this view includes all GDC Data Portal data.
 
@@ -16,7 +20,7 @@ This view focuses on the number of cases available at GDC within each program an
 
 Clicking on any cell in the Project View Table will display filtered results in the ‘Data’ view described in this documentation.
 
-## Available Facets
+### Available Facets
 
 As mentioned previously in this documentation, the projects view offer the ability to filter results using facets. The following facets are available in the projects page:
 
@@ -37,7 +41,7 @@ As mentioned previously in this documentation, the projects view offer the abili
     *   _Other_ – a catch-all for any other data associated with a particular sample
 *   __Experimental Strategy__: This describes NGS sequencing strategies or microarray technological platforms/array types and other experimental assays.
 
-## Graph View
+### Graph View
 
 Clicking the _'Graph'_ tab will display an interactive view of the data currently being displayed according to selected filters. The top number in each column representing the highest count of that type.
 
@@ -51,7 +55,7 @@ This graph has been configured to be clickable, on the above example, clicking o
 
 [![Applied Filter](images/gdc-data-portal-applied-filter.png)](images/gdc-data-portal-applied-filter.png "Click to see the full image.")
 
-# Project Entity Page
+## Project Entity Page
 
 Each project has its own entity page aimed at providing an overview of all cases, files and annotations available for the selected project.
 

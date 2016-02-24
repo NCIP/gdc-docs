@@ -5,7 +5,7 @@ The workflow diagram available below presents the main features available within
 
 [![GDC Data Submission Portal Workflow](images/GDC_Submission_Portal_Workflow.png)](images/GDC_Submission_Portal_Workflow.png "Click to see the full image.")
 
-## Upload and Validate Data
+### Upload and Validate Data
 The Submitter will upload data to the project workspace and validate data with the GDC dictionary. At this point, data is not submitted to GDC yet.
 [![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
 
