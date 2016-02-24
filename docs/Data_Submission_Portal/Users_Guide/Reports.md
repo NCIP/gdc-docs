@@ -1,3 +1,5 @@
+# Reports
+
 ## Overview
 
 GDC Data Submission Portal provides access to different reports listed below. Access to those reports is granted to users based on their project permissions.

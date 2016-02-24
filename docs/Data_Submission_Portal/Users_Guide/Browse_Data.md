@@ -1,3 +1,5 @@
+# Browse Data
+
 ## Overview
 
 The _"Browse"_ tab provides access to all of the project's content. Most content is driven by [GDC Dictionary](../../Dictionary/index.md) and the interface is dynamically generated to accomodate the content.

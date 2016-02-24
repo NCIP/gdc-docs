@@ -1,3 +1,5 @@
+# Homepage
+
 ## Overview
 
 After [authentication](Login.md), users are redirected to a homepage if the user has access to multiple projects. This homepage acts as the entry point to GDC Submission, it provides easy access to all key elements useful to the authenticated user.

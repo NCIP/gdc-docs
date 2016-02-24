@@ -1,3 +1,5 @@
+# Features
+
 ## Sitemap
 
 [![GDC Data Submission Portal Sitemap](images/GDC_Submission_Portal_Sitemap.png)](images/GDC_Submission_Portal_Sitemap.png "Click to see the full image.")

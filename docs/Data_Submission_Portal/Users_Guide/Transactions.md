@@ -1,3 +1,5 @@
+# Transactions
+
 ## Overview
 
 The transactions view list all transactions which happen on the project since its creation.

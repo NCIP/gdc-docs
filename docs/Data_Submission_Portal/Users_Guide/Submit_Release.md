@@ -1,3 +1,5 @@
+# Submit and Release
+
 ## Overview
 
 GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools).

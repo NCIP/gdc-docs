@@ -1,4 +1,4 @@
-## User Access
+# User Access
 
 More details about [Authentication and Authorization](../../Commons/Authentication.md) can be found in a [dedicated section of the documentation](../../Commons/Authentication.md).
 

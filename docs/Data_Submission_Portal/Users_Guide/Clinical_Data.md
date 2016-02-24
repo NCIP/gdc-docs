@@ -1,3 +1,5 @@
+# Clinical Data
+
 ## Overview
 
 The _"Clinical"_ section list all clinical data entities available in the project. Clicking on a particular clinical entity will open the details panel providing more details about the selected entity.

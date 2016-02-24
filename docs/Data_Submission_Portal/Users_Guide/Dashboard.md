@@ -1,3 +1,5 @@
+# Dashboard
+
 ## Overview
 
 GDC Data Submission Portal Dashboard aims at providing details about a specific project.

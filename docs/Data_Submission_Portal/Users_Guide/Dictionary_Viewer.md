@@ -1,3 +1,5 @@
+# Dictionary Viewer
+
 ## Overview
 
 The Dictionary viewer provides access to GDC-wide dictionaries as well as specific dictionaries that could be applied to a specific project.

@@ -1,3 +1,5 @@
+# Case
+
 ## Overview
 
 The _"Case"_ section list all cases available in the project. Clicking on a particular case will open the details panel providing more details about the selected case.
