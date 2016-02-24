@@ -1,4 +1,4 @@
-# Annotations Search
+# Annotations
 
 ## Overview
 
@@ -8,7 +8,9 @@ Annotations are important as they indicate that issues or caveats have been foun
 
 [![Annotations View](images/gdc-data-portal-annotations.png)](images/gdc-data-portal-annotations.png "Click to see the full image.")
 
-## Facets
+## Search
+
+### Facets
 
 The following facets are available to search for annotations:
 
@@ -20,15 +22,15 @@ The following facets are available to search for annotations:
 * __Annotation Created Since__: Search for annotations by date of creation
 * __Annotation Classification__: See link below
 
-## Annotation List
+### Annotation List
 
 The list of annotations is displayed on the right side of the page, clicking on an Annotation ID will redirect the the annotation entity page
 
-## Annotation Categories and Classification
+### Annotation Categories and Classification
 
 For more details about categories and classifications please refer to the [TCGA Annotations page on NCI Wiki](https://wiki.nci.nih.gov/display/TCGA/Introduction+to+Annotations)
 
-# Annotation Entity Page
+## Entity Page
 
 The annotation entity page provides more details about a specific annotation. It is available by clicking on an Annotation ID somewhere on the portal.
 

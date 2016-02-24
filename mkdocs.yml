@@ -10,7 +10,7 @@ theme_dir: theme
 pages:
 - Home: index.md
 - API:
-  - Getting Started: 'API/Users_Guide/Getting_Started_with_the_GDC_API.md'
+  - Getting Started: 'API/Users_Guide/Getting_Started.md'
   - Authentication: 'Commons/Authentication.md'
   - Searching for and Retrieving Data and Metadata: 'API/Users_Guide/Searching_for_and_Retrieving_Data_and_Metadata.md'
   - Downloading Files: 'API/Users_Guide/Downloading_Files.md'
@@ -25,42 +25,34 @@ pages:
   - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
   - About the Data: 'Commons/About_the_Data.md'
   - Authentication: 'Commons/Authentication.md'
-  - Portal Features: 'Data_Portal/Users_Guide/Features.md'
+  - Features: 'Data_Portal/Users_Guide/Features.md'
   - Projects: 'Data_Portal/Users_Guide/Projects.md'
-  - Cases and Files: 'Data_Portal/Users_Guide/Data.md'
+  - Data: 'Data_Portal/Users_Guide/Data.md'
   - BAM Slicing: 'Data_Portal/Users_Guide/BAM_Slicing.md'
   - Annotations: 'Data_Portal/Users_Guide/Annotations.md'
   - Advanced Search: 'Data_Portal/Users_Guide/Advanced_Search.md'
   - Reports: 'Data_Portal/Users_Guide/Reports.md'
   - Cart and Files Download: 'Data_Portal/Users_Guide/Cart.md'
   - Key Terms: 'Data_Portal/Users_Guide/Key_Terms.md'
-  - Release Notes:
-     - 0.2.18.3: 'Data_Portal/Release_Notes/0.2.18.3.md'
-     - 0.2.15.4: 'Data_Portal/Release_Notes/0.2.15.4.md'
-     - 0.2.15.2: 'Data_Portal/Release_Notes/0.2.15.2.md'
-     - 0.2.15.1: 'Data_Portal/Release_Notes/0.2.15.1.md'
-     - 0.2.13: 'Data_Portal/Release_Notes/0.2.13.md'
-     - 0.1.10: 'Data_Portal/Release_Notes/0.1.10.md'
-     - 0.1.8: 'Data_Portal/Release_Notes/0.1.8.md'
-- Submission Portal:
+  - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
+- Data Submission Portal:
   - Getting Started: 'Data_Submission_Portal/Users_Guide/Getting_Started.md'
+  - Submission Workflow: 'Data_Submission_Portal/Users_Guide/Submission_Workflow.md'
   - Authentication: 'Commons/Authentication.md'
   - Overview and Features: 'Data_Submission_Portal/Users_Guide/Features.md'
   - User Access: 'Data_Submission_Portal/Users_Guide/Login.md'
-  - Landing Page: 'Data_Submission_Portal/Users_Guide/Landing_Page.md'
+  - Homepage: 'Data_Submission_Portal/Users_Guide/Homepage.md'
   - Dashboard: 'Data_Submission_Portal/Users_Guide/Dashboard.md'
-  - Dictionary Viewer: 'Data_Submission_Portal/Users_Guide/Dictionary_Viewer.md'
-  - Submit Data: 'Data_Submission_Portal/Users_Guide/Submit_Data.md'
-  - Cases: 'Data_Submission_Portal/Users_Guide/Cases.md'
-  - Biospecimen: 'Data_Submission_Portal/Users_Guide/Biospecimen.md'
-  - Data: 'Data_Submission_Portal/Users_Guide/Data.md'
+  - Upload and Validate Data: 'Data_Submission_Portal/Users_Guide/Upload_Data.md'
+  - Submit and Release Data: 'Data_Submission_Portal/Users_Guide/Submit_Release.md'
+  - Browse Data: 'Data_Submission_Portal/Users_Guide/Browse_Data.md'
+#  - Biospecimen: 'Data_Submission_Portal/Users_Guide/Biospecimen.md'
+#  - Data: 'Data_Submission_Portal/Users_Guide/Data.md'
   - Reports: 'Data_Submission_Portal/Users_Guide/Reports.md'
   - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
-  - Release Notes:
-     - 0.3.21: 'Data_Submission_Portal/Release_Notes/0.3.21.md'
-     - 0.2.18.3: 'Data_Submission_Portal/Release_Notes/0.2.18.3.md'
+  - Release Notes: 'Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md'
 - Data Transfer Tool:
-  - Getting Started: 'Data_Transfer_Tool/Users_Guide/Getting_Started_with_the_GDC_Data_Transfer_Tool.md'
+  - Getting Started: 'Data_Transfer_Tool/Users_Guide/Getting_Started.md'
   - Accessing Built-in Help: 'Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md'
   - Preparing for Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md'
   - Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md'
@@ -68,13 +60,16 @@ pages:
   - Release Notes: 'Data_Transfer_Tool/Release_Notes/GDC_Data_Transfer_Tool_Release_Notes.md'
 - Dictionary:
   - About: 'Dictionary/index.md'
+  - Viewer: 'Dictionary/viewer.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
   project_description: 'GDC Docs'
   version: 1.0
+  dictionary_viewer_page_id: 'Viewer'
+  dictionary_app_root: '/apps/dictionary'
 markdown_extensions:
   - BSCodeTabExtension:
-      default_lang: 'javascript'
-      show_all_code_as_folders: False
+      default_lang: 'Source'
+      show_all_code_as_folders: True
       animate_tab_transitions: False

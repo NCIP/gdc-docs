@@ -8,23 +8,21 @@ repo_url: https://github.com/NCI-GDC/gdc-docs
 copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
-- Data Portal:
+- Data Submission Portal:
   - Getting Started: 'Data_Submission_Portal/Users_Guide/Getting_Started.md'
   - Authentication: 'Commons/Authentication.md'
   - Overview and Features: 'Data_Submission_Portal/Users_Guide/Features.md'
   - User Access: 'Data_Submission_Portal/Users_Guide/Login.md'
   - Landing Page: 'Data_Submission_Portal/Users_Guide/Landing_Page.md'
   - Dashboard: 'Data_Submission_Portal/Users_Guide/Dashboard.md'
-  - Dictionary Viewer: 'Data_Submission_Portal/Users_Guide/Dictionary_Viewer.md'
-  - Submit Data: 'Data_Submission_Portal/Users_Guide/Submit_Data.md'
-  - Cases: 'Data_Submission_Portal/Users_Guide/Cases.md'
-  - Biospecimen: 'Data_Submission_Portal/Users_Guide/Biospecimen.md'
-  - Data: 'Data_Submission_Portal/Users_Guide/Data.md'
+  - Upload Data: 'Data_Submission_Portal/Users_Guide/Upload_Data.md'
+  - Browse Data: 'Data_Submission_Portal/Users_Guide/Browse_Data.md'
+  - Submit and Release Data: 'Data_Submission_Portal/Users_Guide/Submit_Release.md'
+#  - Biospecimen: 'Data_Submission_Portal/Users_Guide/Biospecimen.md'
+#  - Data: 'Data_Submission_Portal/Users_Guide/Data.md'
   - Reports: 'Data_Submission_Portal/Users_Guide/Reports.md'
   - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
-  - Release Notes:
-     - 0.3.21: 'Data_Submission_Portal/Release_Notes/0.3.21.md'
-     - 0.2.18.3: 'Data_Submission_Portal/Release_Notes/0.2.18.3.md'
+  - Release Notes: 'Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'

@@ -321,9 +321,10 @@ $(function() {
   function init() {
 
     // Initialize a JS global to be used with dynamic JS Apps
-    if (typeof window.$gdcApp === 'undefined') {
-      window.$gdcApp = {config: {}};
-    }
+
+    window.$gdcApp = window.$gdcApp || {};
+
+    window.$gdcApp.config = {};
 
     window.$gdcApp.searchModal = new ModalSearchManager('search-modal');
 

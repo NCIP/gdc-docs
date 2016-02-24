@@ -1,4 +1,6 @@
-# Overview
+# Advanced Search
+
+## Overview
 
 An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases. 
 
@@ -18,13 +20,13 @@ Be aware that it is not possible to compare two fields (e.g. disease_type = pro
 
 __Note__: GQL is not a database query language. For example, GQL does not have a `SELECT` statement.
 
-## Switch between 'Advanced' and 'Faceted' Search
+### Switch between 'Advanced' and 'Faceted' Search
 
 A query created using 'Faceted Search' will be automatically translated to 'Advanced Search' (i.e. GQL) when clicking on the "Advanced" button.
 
 However, a query created using 'Advanced Search' is not translated to 'Faceted Search'. From the advanced search, click on Basic and you will be redirected to a reset faceted search.
 
-# Use the Advanced Search
+## Use the Advanced Search
 
 When opening the advanced search page (via the Data view), the search field will be automatically populated with facets fileters already applied (if any).
 
@@ -32,17 +34,17 @@ This default query can be removed by pressing "Reset".
 
 Once the query has been entered and is identified as a "Valid Query", click on "Search" to run your query.
 
-# Auto-complete
+## Auto-complete
 
 As a query is being written, the GDC Data Portal will analyse the context and offer a list of "auto-complete".
 
-## Field Auto-complete
+### Field Auto-complete
 
 The list of auto-complete suggestions includes __all__ the fields authorized in the advanced search matching the user text input. The user has to scroll down to see more fields in the dropdown.
 
 [![Field Auto-complete](images/gdc-data-portal-advanced-search-project.png)](images/gdc-data-portal-advanced-search-project.png "Click to see the full image.")
 
-## Value Auto-complete
+### Value Auto-complete
 
 The list of auto-complete suggestions includes top 100 values that match the user text input. The user has to scroll down to see more values in the dropdown.
 
@@ -53,7 +55,7 @@ It means the query could return 0 result depending of other filters.
 
 __Note__: Quotes are automatically added to the value if it contains spaces.
 
-# Setting Precedence of Operators
+## Setting Precedence of Operators
 
 You can use parentheses in complex GQL statements to enforce the precedence of operators.
 
@@ -65,7 +67,7 @@ For example, if you want to find all the open files in TCGA program as well as t
 
 __Note__: Without parentheses, the statement will be evaluated left-to-right.
 
-# Keywords
+## Keywords
 
 A GQL keyword is a word that joins two or more clauses together to form a complex GQL query.
 
@@ -76,7 +78,7 @@ A GQL keyword is a word that joins two or more clauses together to form a compl
 
 __Note__: parentheses can be used to control the order in which clauses are executed.
 
-## AND Keyword
+### AND Keyword
 
 Used to combine multiple clauses, allowing you to refine your search.
 
@@ -94,7 +96,7 @@ cases.project.primary_site = Breast and files.access = open
 cases.project.primary_site = Breast and files.access = open and files.data_type = "Copy number variation"
 ```
 
-## OR Keyword
+### OR Keyword
 
 Used to combine multiple clauses, allowing you to expand your search.
 
@@ -114,7 +116,7 @@ files.data_type = "Raw microarray data" or files.data_type = "Raw sequencing dat
 cases.clinical.gender = male or cases.clinical.vital_status = alive
 ```
 
-# Operators
+## Operators
 
 An operator in GQL is one or more symbols or words comparing the value of a field on its left with one or more values on its right, such that only true results are retrieved by the clause. 
 
@@ -136,7 +138,7 @@ An operator in GQL is one or more symbols or words comparing the value of a fie
 **Limitation**: `<`, `<=`, `>`, `>=`, Cannot be used with __text__ or __date__ fields.
 
 
-## "=" operator - EQUAL
+### "=" operator - EQUAL
 
 The "`=`" operator is used to search for files where the value of the specified field exactly matches the specified value.
 
@@ -154,7 +156,7 @@ files.data_type = "Gene expression"
 cases.clinical.gender = female
 ```
 
-## "!=" operator - NOT EQUAL
+### "!=" operator - NOT EQUAL
 
 The "`!=`" operator is used to search for files where the value of the specified field does not match the specified value.
 
@@ -168,7 +170,7 @@ Examples:
 files.experimental_strategy != "Genotyping array"
 ```
 
-## ">" operator - GREATER THAN
+### ">" operator - GREATER THAN
 
 The "`>`" operator is used to search for files where the value of the specified field is greater than the specified value.
 
@@ -186,7 +188,7 @@ cases.clinical.days_to_death > 60
 cases.clinical.year_of_diagnosis > 2000
 ```
 
-## ">=" operator - GREATER THAN OR EQUALS
+### ">=" operator - GREATER THAN OR EQUALS
 
 The "`>=`" operator is used to search for files where the value of the specified field is greater than or equal to the specified value.
 
@@ -204,7 +206,7 @@ cases.clinical.days_to_death >= 60
 cases.clinical.year_of_diagnosis >= 2005
 ```
 
-## "<" operator - LESS THAN
+### "<" operator - LESS THAN
 
 The "`<`" operator is used to search for files where the value of the specified field is less than the specified value.
 
@@ -222,7 +224,7 @@ cases.clinical.age_at_diagnosis < 400
 cases.clinical.year_of_diagnosis < 1990
 ```
 
-## "<=" operator - LESS THAN OR EQUALS
+### "<=" operator - LESS THAN OR EQUALS
 
 The "`<=`" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
 
@@ -241,7 +243,7 @@ cases.clinical.days_to_death <= 20
 ```
 
 
-## "in" Operator 
+### "in" Operator 
 
 The "`IN`" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
 
@@ -261,7 +263,7 @@ cases.project.primary_site in [Brain, Breast,Lung]
 files.tags in [exon, junction, hg19]
 ```
 
-## "not in" Operator 
+### "not in" Operator 
 
 The " `NOT IN` " operator is used to search for files where the value of the specified field is not one of multiple specified values.
 
@@ -278,7 +280,7 @@ files.experimental_strategy not in ["WXS","WGS", "Genotyping array"]
 ```
 
 
-## "is missing" Operator 
+### "is missing" Operator 
 
 The "`IS`" operator can only be used with missing. That is, it is used to search for files where the specified field has no value.
 
@@ -290,7 +292,7 @@ Examples:
 cases.clinical.gender is missing
 ```
 
-## "is not missing" Operator 
+### "is not missing" Operator 
 
 The " `IS NOT` " operator can only be used with missing. That is, it is used to search for files where the specified field has a value.
 
@@ -302,9 +304,9 @@ Examples:
 cases.clinical.race is not missing
 ```
 
-# Special Cases
+## Special Cases
 
-## Using Quotes
+### Using Quotes
 
 A value must be quoted if it contains a space. Otherwise the advanced search will not be able to interpret the value.
 
@@ -316,7 +318,7 @@ Quotes are not necessary if the value consists of one single word.
 cases.project.primary_site = Brain and files.data_type = "Copy number variation"
 ```
 
-## Age at Diagnosis - Unit in Days
+### Age at Diagnosis - Unit in Days
 
 The unit for age at diagnosis is in **days**. The user has to convert the number of years to number of days.
 
@@ -326,14 +328,14 @@ The unit for age at diagnosis is in **days**. The user has to convert the number
 cases.clinical.age_at_diagnosis > 14600
 ```
 
-## Fields not Supported in the Advanced Search
+### Fields not Supported in the Advanced Search
 
 The dates fields are currently not supported in the advanced search. 
 
 For example, a user cannot look for all the files which were created after January 1, 2015 (creation_datetime).
 
 
-# Fields Reference
+## Fields Reference
 
 The full list of fields available on the GDC Data Portal can be found through the GDC API using the following endpoint:
 
@@ -341,7 +343,7 @@ The full list of fields available on the GDC Data Portal can be found through th
 
 Alternatively, a static list of those fields is available below.
 
-## Files
+### Files
 
 + files.access
 + files.acl
@@ -373,7 +375,7 @@ Alternatively, a static list of those fields is available below.
 + files.submitter_id
 + files.tags
 
-## Cases
+### Cases
 
 + cases.clinical.age_at_diagnosis
 + cases.clinical.clinical_id

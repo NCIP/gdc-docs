@@ -1,8 +1,28 @@
-# Appendix C - Using jsonlint and urldecode for GET to POST Conversion
+# Appendix C - Tools
+A large variety of tools are available to visualize and prepare calls to the GDC API.
 
-## Example: GET to POST conversion using jsonlint and urldecode
+The following tools can be used to communicate with GDC API (non-exhaustive list):
 
-The tools described in section 2.2 of this user's guide convert an API query from GET to POST and ensure the query is correct before submitting it to the API.
+| Tool        | Type     |
+| ------------- |-------------|
+| [Curl](http://curl.haxx.se/docs/manpage.html) 		| Command line tool |
+| [HTTPie](https://github.com/jakubroztocil/httpie) 	| Command line tool |
+| [Postman REST Client](https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) 														| Google Chrome standalone app |
+| [Google Chrome](http://www.google.com/chrome/) 	  | Google Chrome web browser can be used to make API calls |
+| [DHC](http://restlet.com/products/dhc/)           | Google Chrome plugin to test REST APIs |
+_Table : API Communication Tools_
+
+The following online tools can be used to help build GDC API calls:
+
+| Tool        | Description     |
+| ------------- |-------------|
+| [JSONLint](http://jsonlint.com/)| Validate JSON strings |
+| [UrlDecode.org](http://urldecode.org/)| Decode/Encode url strings (for example, from { to %7B) |
+_Table : API Build Tools_
+
+**Note:** See Appendix C for an example of using `jsonlint` and `urldecode` for GET to POST conversion.
+
+## Using jsonlint and urldecode for GET to POST Conversion
 
 The first operation consists in breaking up the query below by identifying its parameters
 
