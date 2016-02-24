@@ -2,12 +2,15 @@
   opacity: 0;
 }
 
+/* Dictionary Entity View */
+
 .dictionary-entity-table {
   width: 100%;
   margin-bottom: 1rem;
   background-color: #fff;
   position: relative;
 }
+
 
 .dictionary-entity-header {
   color: #565656;
@@ -100,7 +103,42 @@
   background: linear-gradient(90deg, #E7F0FF 0%, #E7F0FF 25%, #FFFFFF 75%, #FFFFFF 100%);
 }
 
+/* Dictionary Definition View */
+.dictionary-summary-table {
+  width: 100%;
+  font-size: 1.2rem;
+  border: solid 1px #ccc;
+  background-color: #f0f0f0;
+}
 
+.dictionary-summary-header th {
+  color: #565656;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.25rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  text-decoration: none;
+  border-bottom: solid 1px #ccc;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 8px 15px -10px rgba(0,0,0,0.56);
+  -moz-box-shadow: 0px 8px 15px -10px rgba(0,0,0,0.56);
+  box-shadow: 0px 8px 15px -10px rgba(0,0,0,0.56);
+  z-index: 1000;
+}
+
+.dictionary-summary-table td:first-child {
+  white-space: nowrap;
+  border-right: solid 1px #ccc;
+  font-weight: bold;
+}
+
+.dictionary-summary-table td {
+  padding: 1rem 1rem;
+  border-bottom: solid 1px #ccc;
+}
+
+/* ********************* */
 
 .card {
   background: #FFFFFF;
@@ -117,7 +155,7 @@
 /* Nav Breadcrumb */
 .dictionary-breadcrumb-container {
   font-size: 1.4rem;
-  padding: 1rem 0rem;
+  padding: 1rem 0rem 2.5rem 0rem;
   display: none;
 }
 
