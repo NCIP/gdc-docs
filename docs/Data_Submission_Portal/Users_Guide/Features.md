@@ -1,10 +1,10 @@
-# Sitemap
+## Sitemap
 
 [![GDC Data Submission Portal Sitemap](images/GDC_Submission_Portal_Sitemap.png)](images/GDC_Submission_Portal_Sitemap.png "Click to see the full image.")
 
 The above image shows the GDC Data Submission Portal sitemap.
 
-# Main Menu
+## Main Menu
 
 The Portal comprises different sections available through a toolbar on the upper level of the page and a navigation panel on the left-hand side of the page.
 
@@ -16,7 +16,7 @@ The top toolbar provides access to the following elements:
 * __Search__: A context sensitive search provides a mechanism to search through different pages.
 * __Profile__: The user profile icon provides access to the token and to a logout feature.
 
-# Layout
+## Layout
 
 [![GDC Data Submission Portal Layout](images/GDC_Submission_Portal_Layout.png)](images/GDC_Submission_Portal_Layout.png "Click to see the full image.")
 
@@ -28,7 +28,7 @@ The GDC Data Submission Portal main window, visible when navigating through GDC 
 
 [![GDC Data Submission Portal Results Panel](images/GDC_Submission_Results_Panel.png)](images/GDC_Submission_Results_Panel.png "Click to see the full image.")
 
-# Navigation Panel
+## Navigation Panel
 
 [![GDC Data Submission Portal Navigation Panel](images/GDC_Submission_Navigation.png)](images/GDC_Submission_Navigation.png "Click to see the full image.")
 
@@ -45,7 +45,7 @@ The navigation panel provides access to the following elements (detailed in subs
 * __Reports / Case Overview__: Reports related to submission
 * __Transactions__: List all actions happening on a project (submit data and release).
 
-# Results Panel
+## Results Panel
 
 The results panel lists items in a table based on the element selected in the navigation panel or in the results of a search.
 
@@ -57,7 +57,7 @@ The table view supports pagination and columns sorting and, if applicable, alert
 
 [![Cases with no clinical data](images/GDC_Submission_Cases_with_no_Clinical_Data.png)](images/GDC_Submission_Cases_with_no_Clinical_Data.png "Click to see the full image.")
 
-# Details and Activity Panel
+## Details and Activity Panel
 
 The third panel, on the right-hand side of the page, provides more details about a selected entity in two sub-sections, _'Details'_ and _'Activity'_.
 
@@ -67,7 +67,7 @@ The exact content of those sub-sections depends on the type of entity (e.g. case
 
 The Activity section lists all past transactions associated with an entity, clicking on a transaction will redirect the user to this particular transaction.
 
-# Filtering and Searching
+## Filtering and Searching
 
 The search menu available at the top of the screen is context-sensitive.
 

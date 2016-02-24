@@ -1,4 +1,4 @@
-# Overview
+## Overview
 
 The biospecimen section of the navigation panel provides access to Samples, Portions, Analytes and Aliquots.
 
@@ -6,7 +6,7 @@ The biospecimen section of the navigation panel provides access to Samples, Port
 
 Samples, Portions, Analytes and Aliquots on the navigation panel (left side of the screen) are actually filters applied to the list of biospecimens in the project. Screen layout will be identical in-between those four filters.
 
-# Biospecimen List View
+## Biospecimen List View
 
 The biospecimen list view display the following informations:
 
@@ -20,25 +20,25 @@ On the top left section of the screen, the user can download data about the sele
 
 Clicking on a biospecimen will open the details panel. Data in this panel is broken down in multiple sections.
 
-# Details
+## Details
 
 Provides details about the biospeciment itself, such as its UUID, status, project, creation date.
 
 [![GDC Submission Biospecimen Details Navigation](images/GDC_Submission_Cases_Details_Details.png)](images/GDC_Submission_Cases_Details_Details.png "Click to see the full image.")
 
-## Hierarchy
+### Hierarchy
 
 List entities (clinical, biospecimen, annotations) attached to a case in a tree-like view. Clicking on an entity redirect to its corresponding details page, easing navigation between entities.
 
 [![GDC Submission Cases Details Hierarchy](images/GDC_Submission_Cases_Details_Hierarchy.png)](images/GDC_Submission_Cases_Details_Hierarchy.png "Click to see the full image.")
 
-## Annotations
+### Annotations
 
 List annotations attached to the entity.
 
 [![GDC Submission Cases Details Annotations](images/GDC_Submission_Cases_Details_Annotations.png)](images/GDC_Submission_Cases_Details_Annotations.png "Click to see the full image.")
 
-## Transactions
+### Transactions
 
 List all transactions associated to this case. Clicking on an transaction ID will redirect to the transaction details page.
 

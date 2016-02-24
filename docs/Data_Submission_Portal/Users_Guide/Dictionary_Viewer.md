@@ -1,4 +1,4 @@
-# Overview
+## Overview
 
 The Dictionary viewer provides access to GDC-wide dictionaries as well as specific dictionaries that could be applied to a specific project.
 
@@ -8,11 +8,11 @@ The dictionary viewer is automatically updated from GDC Dictionary and can consi
 
 [![GDC Submission Dictionary Viewer](images/GDC_Submission_Dictionary_Viewer.png)](images/GDC_Submission_Dictionary_Viewer.png "Click to see the full image.")
 
-# Available Dictionaries
+## Available Dictionaries
 
 The exact list of available dictionaries will vary from one project to another
 
-# Dictionary View
+## Dictionary View
 
 After selecting a dictionary in the left side of the screen, the user can view the content of this dictionary. The following columns are available:
 
@@ -21,6 +21,6 @@ After selecting a dictionary in the left side of the screen, the user can view t
 * _Acceptable Types or Values_: Details what is expected by the system and rules for data validation. This field can take different values such as string, number, enum (list of values).
 * _Required?_: Indicates whether this field is required for the submission to be valid.
 
-# Download Template
+## Download Template
 
 After selecting a dictionary, its template can be downloaded from the system in TSV format.

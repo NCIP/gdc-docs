@@ -1,4 +1,4 @@
-# Overview
+## Overview
 
 GDC Data Submission Portal Dashboard aims at providing details about a specific project.
 
@@ -6,7 +6,7 @@ GDC Data Submission Portal Dashboard aims at providing details about a specific 
 
 The Dashboard contains various visual elements to guide the user through all stages of submission, from dictionary viewer to releasing a project.
 
-# Project status
+## Project status
 
 The top section of the dashboard is broken down in four widgets:
 
@@ -21,15 +21,15 @@ Clicking on "Details" opens a table view with more details.
 
 [![GDC Submission Dashboard Details Widget](images/GDC_Submission_Dashboard_Details.png)](images/GDC_Submission_Dashboard_Details.png "Click to see the full image.")
 
-# Reports
+## Reports
 
 This section provides access to system-wide reports (based on user permission). More details about those reports can be found in the [Reports section of the documentation](Reports.md)
 
-# Latest Transactions
+## Latest Transactions
 
 This table lists the 10 most recent [Transactions](Transactions.md) throughout all projects the user has access to.
 
-# Action Tabs
+## Action Tabs
 
 Theree actions tabs are available in the lower section of the dashboard.
 

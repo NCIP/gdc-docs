@@ -1,10 +1,10 @@
-# Overview
+## Overview
 
 GDC Data Submission Portal provides access to different reports listed below. Access to those reports is granted to users based on their project permissions.
 
 [![GDC Submission Reports](images/GDC_Submission_Reports.png)](images/GDC_Submission_Reports.png "Click to see the full image.")
 
-# Case Overview Report
+## Case Overview Report
 
 Generated daily, this report provides an overview of all cases in one or more projects.
 
@@ -13,14 +13,14 @@ Generated daily, this report provides an overview of all cases in one or more pr
 It can be downloaded in TSV format and previous version of the report are available to the user for comparison purposes.
 
 ```tsv
-Program	Project	dbGaP Study ID	# Cases Released	# Cases Unreleased	# Cases Expected	Date Expected for Release	Initial Upload Date	Project Last Update Date	# Cases Registered in dbGaP	# Cases with Clinical	# Cases with Sample	# Cases with Aliquot	# Cases with Portion	# Cases with Analyte	# Cases with WGS Data	# Cases with WXS Data	# Cases with RNA-Seq Data	# Cases with ChIP-Seq Data	# Cases with MiRNA-Seq Data	# Cases with Bisulfite-Seq Data	# Cases with Validation Data	# Cases with Amplicon Data	# Cases with Other Data
+Program	Project	dbGaP Study ID	## Cases Released	## Cases Unreleased	## Cases Expected	Date Expected for Release	Initial Upload Date	Project Last Update Date	## Cases Registered in dbGaP	## Cases with Clinical	## Cases with Sample	## Cases with Aliquot	## Cases with Portion	## Cases with Analyte	## Cases with WGS Data	## Cases with WXS Data	## Cases with RNA-Seq Data	## Cases with ChIP-Seq Data	## Cases with MiRNA-Seq Data	## Cases with Bisulfite-Seq Data	## Cases with Validation Data	## Cases with Amplicon Data	## Cases with Other Data
 TCGA	TEST	TEST	256	0	Not Available	Not Available	2015-11-10 10:40:15.689597-06:00	2015-11-10 10:40:15.689597-06:00	256	0	11	10	10	10	0	4	0	0	0	0	0	0	0
 TCGA	DEV1	phs000178	1	15	Not Available	Not Available	2015-11-18 09:27:36.990449-06:00	2015-11-18 09:27:36.990449-06:00	16	0	16	16	16	16	0	0	0	0	0	0	0	0	0
 TCGA	DEV2	phs000178	1	7	Not Available	Not Available	2015-11-17 20:14:02.194718-06:00	2015-11-17 20:14:02.194718-06:00	8	0	8	8	0	0	0	0	0	0	0	0	0	0	0
 TCGA	DEV3	phs000178	64	0	Not Available	Not Available	2015-12-11 15:41:29.760763-06:00	2015-12-11 15:41:29.760763-06:00	64	0	25	25	0	0	0	2	0	0	0	0	0	0	0
 ```
 
-# Data Validation Report
+## Data Validation Report
 
 The Data Validation Report provides a live view of quality metrics coming from data validation executed on the back-end.
 
@@ -36,7 +36,7 @@ TCGA	DEV3		0	0	1	0
 TCGA	TEST	TEST	0	2	0	0
 ```
 
-# Scientific Pre-alignment QC Report
+## Scientific Pre-alignment QC Report
 
 This report shows the files in the data bundle on which GDC will perform harmonization as well as QC information on the submitted unaligned BAM/FASTQ files. Each unaligned BAM/FASTQ will link to the QC report.
 
@@ -49,7 +49,7 @@ This report can be downloaded in TSV or JSON from the Read Groups section of the
 
 _Image 12.4-1 - Accessing Scientific Pre-alignment QC Report_
 
-## Legend
+### Legend
 
 | Module | Warning Criteria | Failure Criteria | Documentation Link |
 | --- | --- | --- | --- |
