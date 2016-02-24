@@ -70,6 +70,6 @@ extra:
   dictionary_app_root: '/apps/dictionary'
 markdown_extensions:
   - BSCodeTabExtension:
-      default_lang: 'javascript'
+      default_lang: 'Source'
       show_all_code_as_folders: True
       animate_tab_transitions: False
