@@ -201,6 +201,12 @@
   Dictionary.prototype._getView = function(viewName) {
     var _dictionary = this;
 
+    if (! _dictionary._d3Containers.views ||
+        ! _.has(_dictionary._d3Containers.views, _DICTIONARY_CONSTANTS.VIEWS.TABLE._ID) ||
+        ! _.has(_dictionary._d3Containers.views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID], viewName)) {
+      return null;
+    }
+
     return _dictionary._d3Containers.views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][viewName].view;
   };
 
