@@ -45,6 +45,10 @@ While navigating and searching through the GDC Data Portal, researchers can add 
 
 The GDC Data Portal provides two primary channels to allow users to download data from a cart: 1) download directly from the browser or 2) download using a dedicated Data Transfer Tool. The GDC Data Portal generates a list of desired files (or manifest) that can be easily imported into the GDC Data Transfer Tool to execute the download. Note that users can download all files that are under the GDC open access policy as well as any controlled access files that they have authorization for through dbGaP. Please visit [Obtaining Access to GDC Controlled Data](https://gdc.nci.nih.gov/node/8035/) for information how to obtain authorization to access controlled data sets through dbGaP.
 
+### BAM Slicing
+
+The GDC Data Portal allows BAM slicing. Users can submit their slicing request in [BED](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) format and download only the requested slice of a BAM file.
+
 ## Release Notes
 
-The GDC Data Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/index.md) sections of the documentation contains details about new features, bug fixes and known issues.
+The GDC Data Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/Data_Portal_Release_Notes.md) sections of the documentation contains details about new features, bug fixes and known issues.
