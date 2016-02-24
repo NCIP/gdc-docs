@@ -130,17 +130,19 @@ a.dictionary-tooltip {
 }
 
 a.dictionary-tooltip > span {
-  width: 300px;
-  padding: 10px 20px;
-  margin-top: 40px;
-  margin-left: 0px;
+  width: 30rem;
+  padding: 1rem 2rem;
+  margin-top: 4rem;
+  margin-left: 0;
   opacity: 0;
   visibility: hidden;
   z-index: 10;
   position: absolute;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
   font-style: normal;
-  border-radius: 3px;
+  font-weight: normal;
+  border-radius: 5px;
   box-shadow: 2px 2px 2px #999;
   -webkit-transition-property: opacity, margin-top, visibility, margin-left;
   -webkit-transition-duration: 0.4s, 0.3s, 0.4s, 0.3s;
@@ -155,9 +157,9 @@ a.dictionary-tooltip:hover > span {
   text-decoration: none;
   visibility: visible;
   overflow: visible;
-  margin-top: 30px;
+  margin-top: 4rem;
   display: inline;
-  margin-left: -60px;
+  margin-left: -6rem;
   opacity: 0.9;
 }
 
