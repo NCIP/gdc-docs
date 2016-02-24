@@ -350,6 +350,9 @@
     BROWSER_CAPABILITIES: {
       SMOOTH_SCROLL: 'scrollBehavior' in document.documentElement.style,
       HASH_CHANGE_EVENT: 'onhashchange' in window
+    },
+    DATA_FORMATS: {
+      MISSING_VAL: '--'
     }
 
   };

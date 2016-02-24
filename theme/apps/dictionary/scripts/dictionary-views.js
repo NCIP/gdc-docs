@@ -98,7 +98,7 @@
     function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData,
           category =  _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
-          uniqueKeys = _.get(dictionaryData, 'uniqueKeys', ['--']);
+          uniqueKeys = _.get(dictionaryData, 'uniqueKeys', [_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL]);
 
       tableContainerSelection.append('h2').text('Summary');
 
@@ -178,7 +178,7 @@
       var linkData = [];
 
       if (! _.has(link, 'name')) {
-        return ['--', '--', '--'];
+        return _.times(3, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL));
       }
 
       linkData.push(link.name);
@@ -211,7 +211,7 @@
             var subLinkDataNode = createLinkData(linkSubgroups[j]);
 
             if (_.isArray(subLinkDataNode)) {
-              subLinkData[0].push(subLinkDataNode[0]);
+              subLinkData[0].push(' - ' + subLinkDataNode[0]);
               subLinkData[1].push(subLinkDataNode[1]);
               subLinkData[2].push(subLinkDataNode[2]);
             }
