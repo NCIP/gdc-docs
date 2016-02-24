@@ -71,5 +71,5 @@ extra:
 markdown_extensions:
   - BSCodeTabExtension:
       default_lang: 'javascript'
-      show_all_code_as_folders: False
+      show_all_code_as_folders: True
       animate_tab_transitions: False
