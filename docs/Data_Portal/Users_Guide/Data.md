@@ -1,7 +1,8 @@
-# Cases and Files Search
-The data view is the entry point to data searching on the GDC Data Portal, it provides access to all main features of the portal
+# Data
 
 ## Overview
+
+The data view is the entry point to data searching on the GDC Data Portal, it provides access to all main features of the portal
 
 The Data view is the main section used on the GDC Data Portal to search for data.
 
@@ -9,7 +10,9 @@ The Data view is the main section used on the GDC Data Portal to search for data
 
 This view focuses on the number of data files available at GDC. Selecting items from the Cases and Files facet will reduce the numbers of files displayed to those files which have all the selected properties. Note that in this view, when a choice is selected (for example, Copy Number Variation), other facets will change to hide properties that are incompatible with the selected choice (for example, when Copy Number Variation is selected in the Files: Data Type facet, only data subtypes relevant to CNV are visible in the Files: Data Subtype facet).
 
-## Facets
+## Cases and Files Search
+
+### Facets
 Two types of facets are available, _'Cases'_ and _'Files'_ facets.
 
 By default, the following __Cases__ facets are available:
@@ -40,7 +43,7 @@ By default, the following __Files__ facets are available:
 * __Tags__: Short keyword or phrase assigned to data file to describe any perspective of the data file to facilitate data search.
 
 
-## Summary
+### Summary
 
 The summary tab displays a high-level view of the data currently being filtered.
 
@@ -51,7 +54,7 @@ On top of the page a button is available to add all filtered files to cart.
 Multiple pie charts are available to provide a visual and interactive representation of data available on the GDC Data Portal.
 Clicking on a specific slice of a table filter add the corresponding slice to currently applied filters.
 
-## Cases
+### Cases
 
 The Cases tab provides a list of all cases available on the GDC Data Portal. As with other sections of the portal, results can be filtered down via facets. Looking at the query field on top of the page is the best way to easily identify if a filter is currently being applied.
 
@@ -63,7 +66,7 @@ Clicking on any of the numbers in the table will apply this parameter to the fil
 
 From this tab, clicking on the shopping cart will add all files related to this case to the cart.
 
-## Files
+### Files
 
 [![Files Tab](images/gdc-data-portal-data-files.png)](images/gdc-data-portal-data-files.png "Click to see the full image.")
 
@@ -80,11 +83,11 @@ Alternatively, for each row user can:
 * Add the file to the cart
 * Download the file directly
 
-# Advanced
+## Advanced
 
 The _'Advanced'_ button redirects to the advanced query page; this feature is detailed in the [Advanced Search](Advanced_Search.md) section of the documentation.
 
-# Case Entity Page
+## Case Entity Page
 
 [![Case Entity Page](images/gdc-data-portal-case-entity-page-header.png)](images/gdc-data-portal-case-entity-page-header.png "Click to see the full image.")
 
@@ -94,7 +97,7 @@ The Case Entity page displays case details including the project and disease inf
 
 The Case Entity page also provides direct access to the Clinical information about that case, and the Biospecimen file associated with the samples collected from that case (if present).  These files can be downloaded using the links in this view.
 
-# File Entity Page
+## File Entity Page
 
 Clicking on a filename on the GDC Data Portal redirects to a dedicated page providing additional details about the file.
 
