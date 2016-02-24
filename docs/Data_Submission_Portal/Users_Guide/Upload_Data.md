@@ -3,8 +3,10 @@
 GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools).
 This chapter will focus on the upload and validation of the data.
 
-# Types of files for upload
-The GDC Data Submission Portal supports four types of files for submission:
+# Files to upload
+
+## File type
+The GDC Data Submission Portal supports four types of files for upload to the GDC:
 
 * __Clinical__: A case’s clinical data.
 * __Biospecimen__: Metadata describing a tissue specimen collected from a case and other material derived from samples for analysis.
@@ -13,22 +15,35 @@ The GDC Data Submission Portal supports four types of files for submission:
 
 More details about the submission process, data files and file formats can be found on the GDC website at [Data Submission Processes and Tools] (https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools) and [Data Types and File Formats] (https://gdc.nci.nih.gov/submit-data/gdc-data-types-and-file-formats).
 
-## Focus on Experiment Data
+### Focus on Experiment Data
 
 GDC has developed a submission unit called a “data bundle”, which is a set of files with associated metadata.
 
 Data bundle types are defined by what files are expected and what introspection is done for validation or linking to other GDC entities. Each data bundle will be validated via a bundle type and project specific schema, including a JavaScript Object Notation (JSON) data dictionary, relationship check and molecular data quality check. 
 
-The existing data bundles are described in the [GDC Dictionary] (../../Dictionary/viewer.md). 
+The experiment data supported by GDC is described in the [GDC Dictionary] (../../Dictionary/viewer.md). 
 
-For example, a read group data bundle is composed of:
+For example, Read Group is composed of:
 
-* Read Group entity
-* Submitted File entity
+* Read Group entity: will describe the experiment metadata (e.g. library strategy)
+* Submitted File entity: will describe the file metadata (e.g. filename). 
+
+The files (e.g. read_group.tsv and submitted\_file.tsv) describing these 2 entities must be uploaded to the GDC Submission Portal then the actual file (BAM file) must be uploaded through the GDC Data Transfer Tool.
 
 The user should submit metadata for both entities via the GDC Submission Portal.
 
 Following a data bundle upload, a __manifest__ can be obtained from the application and used to upload the actual files via the GDC Data Transfer Tool (DTT).
+
+## File format
+
+The GDC Data Submission Portal supports the following file formats for submission:
+
+* JSON
+* TSV
+
+During the upload and validation process, files are converted by the GDC API into entities and inserted into the database, maintaining a file-agnostic backend.
+
+The GDC Data Submission Portal offers the ability to download files in different formats. To do so the system converts database entities back to the requested file format.
 
 # Upload and Validation Process
 
@@ -40,14 +55,7 @@ Data upload and validation is one of the main feature of the GDC Data Submission
 
 The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate content of submitted files against the project's dictionary to detect potential errors. Invalid files will be flagged and submission to GDC will be denied until corrections are made by the user. A validation error report provided by the system can be used to isolate and correct errors for resubmission.
 
-The GDC Data Submission Portal supports the following file formats for submission:
 
-* JSON
-* TSV
-
-During the upload and validation process, files are converted by the GDC API into entities and inserted into the database, maintaining a file-agnostic backend.
-
-The GDC Data Submission Portal offers the ability to download files in different formats. To do so the system converts database entities back to the requested file format.
 
 
 # Step1. Prepare files with the data dictionary
