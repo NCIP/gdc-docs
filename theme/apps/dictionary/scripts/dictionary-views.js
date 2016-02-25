@@ -576,11 +576,14 @@
     TableEntityListView.prototype.renderView = function () {
       var _tableEntityListView = this;
       var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
+      var categoryKeys = _DICTIONARY_CONSTANTS.ENTITY_LIST_DICTIONARY_KEY_ORDER;
+      console.log(categoryKeys);
 
-      for (var category in categoryMap) {
-        if (categoryMap.hasOwnProperty(category)) {
-          _tableEntityListView.renderEntity(category, categoryMap[category]);
-        }
+      for (var i = 0; i < categoryKeys.length; i++) {
+        var category = categoryKeys[i];
+
+        _tableEntityListView.renderEntity(category, categoryMap[category]);
+
       }
 
       console.log('TableEntityListView Rendering!');
@@ -607,7 +610,7 @@
         var tooltipText = null;
 
         switch(_.first(categoryData).category) {
-          case 'clinical':
+          case 'case':
             tooltipText = 'Cases must be registered in GDC before clinical, biospecimen, experiment and annotation data can be submitted.';
             break;
           default:
@@ -641,7 +644,7 @@
         .html(function() {
           var tooltipText = getTooltipText();
           return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
-                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span>' : '');
+                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> <i style="color: #ccc;" class="fa fa-info-circle"></i>' : '');
         });
 
       var tRows = tBody.selectAll('tr')

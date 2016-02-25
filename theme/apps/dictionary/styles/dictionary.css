@@ -176,7 +176,7 @@
 /* Tooltips */
 a.dictionary-tooltip {
   outline: none;
-  text-decoration: none;
+  text-decoration: underline;
   border-bottom: dotted 1px #ccc;
   position: relative;
 }
