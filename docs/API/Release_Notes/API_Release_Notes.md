@@ -7,7 +7,7 @@
 
 ## v0.3.20.1: January 28, 2016
 
-### New Features and Changes
+*New Features and Changes*
 
 * Metadata export support for TSV, CSV and JSON formats, including:
 
@@ -25,7 +25,7 @@
 
 * Additional details are provided in JSON parsing error messages
 
-### Bugs Fixed Since Last Release
+*Bugs Fixed Since Last Release*
 
 * Biospecimen XML submissions with shipment_portion nodes now parsed correctly
 
@@ -35,7 +35,7 @@
 
 * Miscellaneous bug fixes
 
-### Known Issues and Workarounds
+*Known Issues and Workarounds*
 
 *   None to report
 
@@ -44,7 +44,7 @@
 ## v0.2.18: November 18, 2015
 
 
-#### New Features and Changes
+*New Features and Changes*
 
 *   Added support for molecular data upload.
 
@@ -56,11 +56,11 @@
 
 *   Users can delete previously submitted entities.
 
-#### Bugs Fixed Since Last Release
+*Bugs Fixed Since Last Release*
 
 *   None to report
 
-#### Known Issues and Workarounds
+*Known Issues and Workarounds*
 
 *   None to report
 
@@ -68,7 +68,7 @@
 
 ## v0.2.18-spr1: November 2, 2015
 
-#### New Features and Changes
+*New Features and Changes*
 
 *   Entity Metadata submission added with support for JSON, CSV, TSV, and XML formats and the following data entities:
     *   Clinical metadata
@@ -78,11 +78,11 @@
 *   Dry run option available for metadata submission to validate metadata files prior to submission
 *   Submission integrated with authorization to ensure read, create, update, and admin roles can be controlled at the project level
 
-#### Bugs Fixed Since Last Release
+*Bugs Fixed Since Last Release*
 
 *   None to report
 
-#### Known Issues and Workarounds
+*Known Issues and Workarounds*
 
 *   None to report
 
@@ -90,15 +90,15 @@
 
 ## v0.2.15-oicr1: August 7, 2015
 
-#### New Features and Changes
+*New Features and Changes*
 
 *   None to report
 
-#### Bugs Fixed Since Last Release
+*Bugs Fixed Since Last Release*
 
 *   Addressed an issue in the range aggregation feature (used by facets)
 
-#### Known Issues and Workarounds
+*Known Issues and Workarounds*
 
 *   Query and Download Service
     *   Universal Resource Locator (URL) length is limited.  As such, download requests with many files have to be divided into multiple requests. A feature that allows a payload to specify the file identifiers to download to overcome this limitation is planned for a future release.
@@ -111,15 +111,15 @@
 
 ## v0.2.15-oicr1: August 7, 2015
 
-#### New Features and Changes
+*New Features and Changes*
 
 *   None to report
 
-#### Bugs Fixed Since Last Release
+*Bugs Fixed Since Last Release*
 
 *   Addressed an issue in the range aggregation feature (used by facets)
 
-#### Known Issues and Workarounds
+*Known Issues and Workarounds*
 
 *   Query and Download Service
     *   Universal Resource Locator (URL) length is limited.  As such, download requests with many files have to be divided into multiple requests. A feature that allows a payload to specify the file identifiers to download to overcome this limitation is planned for a future release.
@@ -133,7 +133,7 @@
 
 ## v0.2.13: July 23, 2015
 
-#### New Features and Changes
+*New Features and Changes*
 
 *   Query and Download Service
 
@@ -149,7 +149,7 @@
 
     *   Hooked-up reports to new reports index
 
-#### Bugs Fixed Since Last Release
+*Bugs Fixed Since Last Release*
 
 *   Query and Download Service
 
@@ -161,7 +161,7 @@
 
     *   Fixed issue with support for IS NOT operator
 
-#### Known Issues and Workarounds
+*Known Issues and Workarounds*
 
 *   Query and Download Service
 
@@ -179,7 +179,7 @@
 
 ## v0.1.10: March 18, 2015
 
-#### New Features and Changes
+*New Features and Changes*
 
 *   Query and Download Service
 
@@ -199,7 +199,7 @@
 
     *   Downloads Comma Separated Values (CSVs) from dbGaP at regular intervals and verifies authorization using eRA Commons credentials
 
-#### Bugs Fixed Since Last Release
+*Bugs Fixed Since Last Release*
 
 *   Query and Download Service
 
@@ -209,7 +209,7 @@
 
     *   Further developed the prototype into a production ready service
 
-#### Known Issues and Workarounds
+*Known Issues and Workarounds*
 
 *   Query and Download Service
 
@@ -226,7 +226,7 @@
 
 ## v0.1.8: January 22, 2015
 
-#### New Features and Changes
+*New Features and Changes*
 
 *   Identity Service ([Signpost](https://github.com/NCI-GDC/signpost))
 
@@ -238,11 +238,11 @@
 
     *   Provides a prototype service for authenticating using eRA Commons as the identity provider and dbGaP for authorization
 
-#### Bugs Fixed Since Last Release
+*Bugs Fixed Since Last Release*
 
 *   None to report
 
-#### Known Issues and Workarounds
+*Known Issues and Workarounds*
 
 *   Identify Service ([Signpost](https://github.com/NCI-GDC/signpost))
 
