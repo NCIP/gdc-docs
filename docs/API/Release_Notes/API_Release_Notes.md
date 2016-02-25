@@ -4,7 +4,8 @@
 
 **Note:** Release details are maintained in the [GDC Data Application Programming Interface (API) Change Log](https://github.com/NCI-GDC/gdcapi/blob/develop/CHANGELOG.md).
 
----------------------------------------
+<hr style="border:0px; height:2px;" />
+
 
 ### v0.3.20.1: January 28, 2016
 
@@ -40,7 +41,7 @@
 
 *   None to report
 
----------------------------------------
+<hr style="border:0px; height:2px;" />
 
 ### v0.2.18: November 18, 2015
 
