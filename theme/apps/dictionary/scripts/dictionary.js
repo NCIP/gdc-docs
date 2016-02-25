@@ -114,7 +114,7 @@
       return;
     }
 
-    console.log(viewUpdateObj);
+    //console.log(viewUpdateObj);
 
     switch( viewUpdateObj.eventType ) {
 
@@ -344,13 +344,16 @@
       case: 'Case',
       clinical: 'Clinical',
       biospecimen: 'Biospecimen',
-      data_bundle: 'Data Bundles',
-      annotation: 'Annotation',
+      //data_bundle: 'Data Bundles',
+      data_bundle: 'Experiment Data',
+      annotation: 'Annotations',
       data_file: 'Data Files',
       references: 'References',
       administrative: 'Administrative',
+      //tbd: 'To be Determined',
       tbd: 'References'
     },
+    ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'data_bundle', 'annotation', 'administrative', 'TBD'],
     DICTIONARY_KEY_ORDER: [
       // clinical
       {'clinical': ['demographic', 'diagnosis', 'family_history', 'exposure', 'treatment']},
@@ -685,6 +688,45 @@
   ////////////////////////////////////////////////////////////////////////
   // Put the dictionary data returned into a useful format for later...
   ////////////////////////////////////////////////////////////////////////
+  function _sanitizeDictionaryData(d) {
+    var data = _.cloneDeep(d);
+    var dictionaryData = {};
+
+    delete data.biospecimen_data_bundle;
+    delete data.clinical_data_bundle;
+    delete data.pathology_data_bundle;
+
+
+    var dictionaryKeys = _.keys(data);
+
+    for (var i = 0; i < dictionaryKeys.length; i++) {
+      var dictionaryName = dictionaryKeys[i];
+      var dictionary = data[dictionaryName];
+      var dictionaryCategory = _.get(dictionary, 'category');
+
+      if (dictionaryCategory === 'data_file') {
+        dictionary.category = 'data_bundle';
+      }
+
+      if (dictionaryName === 'case') {
+        dictionary.category = 'case';
+      }
+
+      if (dictionaryName === 'annotation') {
+        dictionary.category = 'annotation';
+      }
+
+      //console.log(dictionary);
+      dictionaryData[dictionaryName] = dictionary;
+
+    }
+
+    //console.log(dictionaryData);
+
+
+    return dictionaryData;
+  }
+
   function _initDictionaryData(data) {
 
     if (! data || _.isEmpty(data) || ! _.has(data, '_definitions')) {
@@ -693,7 +735,7 @@
       return null;
     }
 
-    var dictDataList = data,
+    var dictDataList = _sanitizeDictionaryData(data),
         dictionaryData = {dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {}};
 
     var dictionaryKeys = _.keys(dictDataList);
