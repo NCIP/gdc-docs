@@ -396,7 +396,7 @@
         return _.times(3, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL));
       }
 
-      linkData.push(link.name);
+      linkData.push({id: _.get(link, 'target_type'), name: link.name});
       linkData.push(_valueOrDefault(link.backref) + ' ' +
                     _valueOrDefault(link.label) + ' '  +
                     _valueOrDefault(link.target_type));
@@ -428,7 +428,7 @@
             var subLinkDataNode = createLinkData(linkSubgroups[j]);
 
             if (_.isArray(subLinkDataNode)) {
-              subLinkData[0].push(' - ' + subLinkDataNode[0]);
+              subLinkData[0].push(subLinkDataNode[0]);
               subLinkData[1].push(subLinkDataNode[1]);
               // Link dictates whether subgroup is required
               subLinkData[2].push(link.required === true ? 'Yes': 'No');
@@ -492,8 +492,36 @@
         .enter()
         .append('td')
         .html(function(data, i) {
-          //console.log(data);
-          if (!_.isArray(data)) {
+
+          if (i === 0) {
+
+            var link = data;
+
+            if (_.isString(link)) {
+              return link;
+            }
+
+            var isNotSubgroup = false;
+
+            if (!_.isArray(link)) {
+              isNotSubgroup = true;
+              link = [data];
+            }
+
+            link = _.map(link, function(l) {
+              return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
+                      (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
+                      (isNotSubgroup ? '<i class="fa fa-file-o"></i> ': '<i class="fa fa-sitemap"></i> ') +
+                      l.id +
+                      '</a>';
+            }).join('<br />\n');
+
+
+            return link;
+          }
+
+
+          if (_.isString(data)) {
             return data;
           }
 

@@ -23,7 +23,7 @@ window.onload = function() {
         if (currentView.indexOf('entity') < 0) {
           dictionaryPreamble.hide();
 
-          if (previousView !== currentView) {
+          if (previousView !== currentView || window.location.hash.indexOf('_top')) {
             body.scrollTop(0);
           }
         }
