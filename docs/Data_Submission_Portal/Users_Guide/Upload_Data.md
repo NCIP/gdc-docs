@@ -65,10 +65,9 @@ A template file describes an entity with the following information:
 
 Example of a __demographic file__ that can be uploaded in TSV format:
 
-| type | project\_id | submitter\_id | cases.submitter\_id | ethnicity | gender | race | year\_of\_birth | year\_of\_death
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| demographic | PROJECT-DEV3 | CASE-1-DEMOGRAPHIC | CASE-1 | hispanic or latino | female | other | 1980 | 0
-| demographic | PROJECT-DEV3 | CASE-2-DEMOGRAPHIC | CASE-2 | not hispanic or latino | female | not allowed to collect | 1980 | 0
+```tsv
+type	project_id	submitter_id	cases.submitter_id	ethnicity	gender	race	year_of_birth	year_of_deathdemographic	TCGA-DEV3	TCGA-DEV-3-CASE-000-D1	TCGA-DEV-3-CASE-000	hispanic or latino	male	white	1950	0demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	female	white	1956	0
+```
 
 
 Once the user has prepared their files (in TSV or JSON format), they can move on to the next step, uploading their data through the Upload Data Wizard.
