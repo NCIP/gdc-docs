@@ -108,6 +108,65 @@
     ///////////////////////////////////////////////////////////////////////////////////////
     // Properties Table
     ///////////////////////////////////////////////////////////////////////////////////////
+    function _getPropertyValueRecursive(propertyVal) {
+
+      console.log(propertyVal);
+
+      if (_.has(propertyVal, 'enum')) {
+        return propertyVal.enum;
+      }
+      else if (_.has(propertyVal, 'items.properties')) {
+        return _.keys(propertyVal.items.properties)
+      }
+      else if (_.has(propertyVal, 'properties')) {
+        return _.keys(propertyVal.properties)
+      }
+      else if (_.has(propertyVal, 'type')) {
+        if (_.has(propertyVal, 'format')) {
+          return  propertyVal.type + ' (Format: ' + propertyVal.format + ')';
+        }
+        return propertyVal.type;
+      }
+
+      return propertyVal;
+    }
+
+    function _getPropertyValueOrType(property) {
+      var typesValuesPrecedence = ['enum', 'anyOf', 'oneOf', 'type'],
+          value = null;
+
+      if (! _.isObject(property)) {
+        return property;
+      }
+
+      for (var i = 0; i < typesValuesPrecedence.length; i++) {
+        var propertyName = typesValuesPrecedence[i],
+            propertyVal = property[propertyName];
+
+        if (_.has(property, propertyName)) {
+          var normalizedPropertyName = propertyName.toLowerCase();
+          switch (normalizedPropertyName) {
+            case 'enum':
+            case 'type':
+              value = {propertyName: normalizedPropertyName === 'enum' ? 'Enumeration' : propertyName, propertyValue: propertyVal};
+              break;
+            case 'anyof':
+            case 'oneof':
+              value = {propertyName: normalizedPropertyName === 'oneof' ? 'One of' : 'Any of', propertyValue: []};
+
+              for (var j = 0; j < propertyVal.length; j++) {
+                value.propertyValue.push(_getPropertyValueRecursive(propertyVal[j]));
+              }
+              break;
+          }
+
+          break;
+        }
+      }
+
+      return value;
+    }
+
     function _prepPropertiesTableData(dictionaryData) {
       var propertyData = [];
 
@@ -119,17 +178,14 @@
       }
 
       var propertyIDs = _.keys(dictionaryProperties);
-      // TODO: Property values will materialize into real entities soon switch
-      // the below code when the is done on the backend
 
-      //var propertyValues = window.$gdcApp.dictionaryViewer.getSourceData().dictionaryMap;
 
       for (var i = 0; i < propertyIDs.length; i++) {
         var p = [],
             propertyName = propertyIDs[i],
             property = dictionaryProperties[propertyName],
             description = property.description,
-            valueOrType = property.enum || property.type,
+            valueOrType = _getPropertyValueOrType(property),
             isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';
 
         p.push(propertyName);
@@ -149,7 +205,11 @@
     function _renderPropertiesTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData;
 
-      tableContainerSelection.append('h2').text('Properties');
+      tableContainerSelection.append('h2')
+        .append('a')
+        .attr('id', 'properties-table')
+        .attr('href',  '#?view=' + _tableDefinitionView._name + '&id=' + dictionaryData.id + '&anchor=properties-table')
+        .text('Properties');
 
       var definitionTable = tableContainerSelection.append('table')
         .classed('dictionary-properties-table', true);
@@ -186,16 +246,100 @@
             return data;
           }
 
+          if (data.propertyName === 'type') {
+            return data.propertyValue;
+          }
+
+          var bullets = _.map(data.propertyValue, function (val, i) {
+
+            var arrayVal = '';
+
+            //console.log(val, i);
+
+            if (_.isArray(val) && val.length === 1) {
+              arrayVal = val[0];
+            }
+            else if (_.isArray(val) && val.length > 1) {
+              arrayVal = val.join(', ');
+            }
+            else {
+              arrayVal = val;
+            }
+
+            return '<li>' + arrayVal + '</li>';
+          }).join('\n\t');
+
+
+          data = '<ul class="bullets"><li>' + data.propertyName + ': <ul>' + bullets + '</ul></li></ul>';
+
+          return data;
+        });
+
+  }
+
+    function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
+      var dictionaryData = _tableDefinitionView._dictionaryData,
+        category = _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
+        uniqueKeys = _.get(dictionaryData, 'uniqueKeys', [_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL]);
+
+      tableContainerSelection.append('h2')
+        .append('a')
+        .attr('id', 'summary-table')
+        .attr('href', '#?view=' + _tableDefinitionView._name + '&id=' + dictionaryData.id + '&anchor=summary-table')
+        .text('Summary');
+
+      var definitionTable = tableContainerSelection.append('table')
+        .classed('dictionary-summary-table', true);
+
+      var tHead = definitionTable.append('thead'),
+        tBody = definitionTable.append('tbody');
+
+      tHead.append('tr')
+        .classed('dictionary-summary-header', true)
+        .selectAll('th')
+        .data(['Title', _tableDefinitionView.getPrettyName()])
+        .enter()
+        .append('th')
+        .text(function (d) {
+          return d;
+        });
+
+
+      var dataRows = [
+        {id: 'category', title: 'Category', value: category},
+        {id: 'description', title: 'Description', value: dictionaryData.description},
+        {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
+      ];
+
+      var tRows = tBody.selectAll('tr')
+        .data(dataRows)
+        .enter()
+        .append('tr');
+
+      tRows.selectAll('td')
+        .data(function (row) {
+          return [{id: row.id, value: row.title}, {id: row.id, value: row.value}];
+        })
+        .enter()
+        .append('td')
+        .html(function (d, i) {
+
+          var data = d.value;
+
+          if (i !== 1 || d.id !== 'keys') {
+            return data;
+          }
+
           if (_.isArray(data)) {
 
             var newData = '<ul class="bullets">' +
-                          _.map(data,  function(val) {
+                          _.map(data, function (val) {
                             var arrayVal = '';
 
                             if (_.isArray(val) && val.length === 1) {
                               arrayVal = val[0];
                             }
-                            else if (_.isArray(val)  && val.length > 1) {
+                            else if (_.isArray(val) && val.length > 1) {
                               arrayVal = val.join(', ');
                             }
                             else {
@@ -212,84 +356,8 @@
 
           return data;
         });
-
     }
 
-    function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
-      var dictionaryData = _tableDefinitionView._dictionaryData,
-          category =  _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
-          uniqueKeys = _.get(dictionaryData, 'uniqueKeys', [_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL]);
-
-      tableContainerSelection.append('h2').text('Summary');
-
-      var definitionTable = tableContainerSelection.append('table')
-                    .classed('dictionary-summary-table', true);
-
-      var tHead = definitionTable.append('thead'),
-          tBody = definitionTable.append('tbody');
-
-      tHead.append('tr')
-        .classed('dictionary-summary-header', true)
-        .selectAll('th')
-        .data(['Title', _tableDefinitionView.getPrettyName()])
-        .enter()
-        .append('th')
-        .text(function(d) { return d; });
-
-
-      var dataRows = [
-        {id: 'category', title:'Category', value: category},
-        {id: 'description', title: 'Description', value: dictionaryData.description},
-        {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
-      ];
-
-      var tRows = tBody.selectAll('tr')
-                  .data(dataRows)
-                  .enter()
-                  .append('tr');
-
-      tRows.selectAll('td')
-        .data(function(row) {
-           return [{id: row.id, value: row.title}, {id: row.id, value: row.value}];
-        })
-        .enter()
-        .append('td')
-        .html(function(d, i) {
-
-          var data = d.value;
-
-          if (i !== 1 || d.id !== 'keys') {
-            return data;
-          }
-
-          if (_.isArray(data)) {
-
-              var newData = '<ul class="bullets">' +
-                     _.map(data,  function(val) {
-                        var arrayVal = '';
-
-                        if (_.isArray(val) && val.length === 1) {
-                          arrayVal = val[0];
-                        }
-                        else if (_.isArray(val)  && val.length > 1) {
-                          arrayVal = val.join(', ');
-                        }
-                        else {
-                          arrayVal = val;
-                        }
-
-                        return '<li>' + arrayVal + '</li>';
-                      }).join('\n') +
-                   '</ul>';
-
-            data = newData;
-
-          }
-
-          return data;
-        });
-
-    }
 
     ///////////////////////////////////////////////////////////////////////////////////////
     // Links Table
@@ -361,7 +429,11 @@
     function _renderLinksTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData;
 
-      tableContainerSelection.append('h2').text('Links');
+      tableContainerSelection.append('h2')
+        .append('a')
+        .attr('id', 'links-table')
+        .attr('href',  '#?view=' + _tableDefinitionView._name  + '&id=' + dictionaryData.id + '&anchor=links-table')
+        .text('Links');
 
       var definitionTable = tableContainerSelection.append('table')
         .classed('dictionary-links-table', true);

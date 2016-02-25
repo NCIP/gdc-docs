@@ -165,6 +165,30 @@
     return _fetch(webServiceURL, responseType);
   };
 
+
+  Dictionary.prototype.getDictionaryTemplates = function(category, excludes, dataFormat) {
+    var _dictionary = this,
+        entityCategory = category || '',
+        fileFormat = dataFormat || _DICTIONARY_CONSTANTS.END_POINT.ENDPOINT_PARAMS.TEMPLATE.TSV_TYPE,
+        entityExclusions = _.isArray(excludes) && excludes.length ? excludes : [],
+        params = {format: fileFormat},
+        webServiceURL = this._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: ''}),
+        containerEl = _dictionary._containerEl;
+
+    if (entityExclusions.length) {
+      params.exclude = entityExclusions.join(',');
+    }
+
+    if (entityCategory) {
+      params.category = category;
+    }
+
+    var f = _createHiddenForm(containerEl, webServiceURL, params);
+    f.submit();
+    containerEl.removeChild(f);
+
+  };
+
   Dictionary.prototype.getSourceData = function() {
     return this._data;
   };
@@ -331,17 +355,22 @@
       // annotation,
       {'annotation': ['annotation']}
     ],
-    RESPONSE_TYPE: {
-      TEXT: 'text/plain',
-      JSON: 'application/json'
-    },
-    WEB_SERVICE: {
+    END_POINT: {
       DEFAULT_URL: 'https://gdc-api.nci.nih.gov',
       //CONTEXT_PATTERN: '/auth/api/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
-      CONTEXT_PATTERN: '/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
+      CONTEXT_PROGRAM_PROJECT_PATTERN: '/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
+      CONTEXT_PATTERN: '/v0/submission/_dictionary/${dictionary_name}',
+      CONTEXT_TEMPLATE_PATTERN: '/v0/submission/template/${dictionary_name}',
       DEFAULT_PROGRAM: 'CGCI',
       DEFAULT_PROJECT: 'BLGSP',
-      DEFAULT_DICTIONARY: '_all'
+      DEFAULT_DICTIONARY: '_all',
+      ENDPOINT_PARAMS: {
+        TEMPLATE: {
+          JSON_TYPE: 'json',
+          CSV_TYPE: 'csv',
+          TSV_TYPE: 'tsv'
+        }
+      }
     },
     TEMPLATES: {
       RELATIVE_DIR: '/html-shards',
@@ -352,7 +381,13 @@
       HASH_CHANGE_EVENT: 'onhashchange' in window
     },
     DATA_FORMATS: {
-      MISSING_VAL: '--'
+      MISSING_VAL: '--',
+      TEXT_FORMAT: 'text/plain',
+      JSON_FORMAT: 'application/json',
+      TSV_FORMAT: 'text/tab-separated-values',
+      XML_FORMAT: 'text/xml',
+      CSV_FORMAT: 'text/csv',
+      BLOB_FORMAT: 'octet/stream'
     }
 
   };
@@ -371,8 +406,8 @@
     beforeRenderFn: _.noop,
     afterRenderFn: _.noop,
     dictionaryData: null, // if not null will use this as the data source
-    dataSourceBaseHost: _DICTIONARY_CONSTANTS.WEB_SERVICE.DEFAULT_URL, // override internal host defaults
-    dataSourceContextPattern: _DICTIONARY_CONSTANTS.WEB_SERVICE.CONTEXT_PATTERN,
+    dataSourceBaseHost: _DICTIONARY_CONSTANTS.END_POINT.DEFAULT_URL, // override internal host defaults
+    dataSourceContextPattern: _DICTIONARY_CONSTANTS.END_POINT.CONTEXT_PATTERN,
     defaultView: _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST
   };
 
@@ -438,6 +473,38 @@
       }
     }
 
+  }
+
+  function _createHiddenForm(parentEl, action, params, method) {
+    var formMethod = method || 'GET';
+
+    var _form_ = document.createElement('form');
+
+    _form_.setAttribute('method', formMethod);
+    _form_.setAttribute('action', action);
+
+    _form_.style.display = 'none';
+
+    if (_.isObject(params)) {
+
+      var paramKeys = _.keys(params);
+
+      for (var i = 0; i < paramKeys.length; i++) {
+
+        var paramName = paramKeys[i],
+            input = document.createElement('input');
+
+        input.setAttribute('type','hidden');
+        input.setAttribute('name', paramName);
+        input.setAttribute('value', params[paramName]);
+        _form_.appendChild(input);
+
+      }
+    }
+
+    parentEl.appendChild(_form_);
+
+    return _form_;
   }
 
   function _getParamsFromURL(shouldNotCacheParams) {
@@ -541,9 +608,9 @@
       patterns = ['program' , 'project', 'dictionary_name'];
 
     // Set pattern defaults if none is supplied...
-    patternMapping.program = patternMapping.program || _DICTIONARY_CONSTANTS.WEB_SERVICE.DEFAULT_PROGRAM;
-    patternMapping.project = patternMapping.project || _DICTIONARY_CONSTANTS.WEB_SERVICE.DEFAULT_PROJECT;
-    patternMapping.dictionary_name =   patternMapping.dictionary_name || _DICTIONARY_CONSTANTS.WEB_SERVICE.DEFAULT_DICTIONARY;
+    patternMapping.program = patternMapping.program || _DICTIONARY_CONSTANTS.END_POINT.DEFAULT_PROGRAM;
+    patternMapping.project = patternMapping.project || _DICTIONARY_CONSTANTS.END_POINT.DEFAULT_PROJECT;
+    patternMapping.dictionary_name = typeof patternMapping.dictionary_name === 'string' ? patternMapping.dictionary_name : _DICTIONARY_CONSTANTS.END_POINT.DEFAULT_DICTIONARY;
 
     for (var i = 0; i < patterns.length; i++) {
       var pattern = patterns[i];
@@ -573,7 +640,7 @@
       responseMimeType = _.isString(responseType) ? responseType : '';
 
     switch(responseMimeType) {
-      case _DICTIONARY_CONSTANTS.RESPONSE_TYPE.TEXT:
+      case _DICTIONARY_CONSTANTS.DATA_FORMATS.TEXT_FORMAT:
         responseParseFn = _responseParseText;
         break;
       default:
@@ -599,7 +666,7 @@
   function _fetchTemplate(templateFile) {
     return _fetch(  _DICTIONARY_CONSTANTS.APP_ABSOLUTE_DIR +
                     _DICTIONARY_CONSTANTS.TEMPLATES.RELATIVE_DIR + '/' +
-                    templateFile, _DICTIONARY_CONSTANTS.RESPONSE_TYPE.TEXT  );
+                    templateFile, _DICTIONARY_CONSTANTS.DATA_FORMATS.TEXT_FORMAT  );
   }
 
   ///////////////////////////////////////////////
@@ -616,12 +683,23 @@
       return null;
     }
 
-    var defData = data._definitions;
-
-    delete data._definitions;
-
     var dictDataList = data,
-      dictionaryData = {definitions:  defData, dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {}};
+        dictionaryData = {dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {}};
+
+    var dictionaryKeys = _.keys(dictDataList);
+
+    for (var i = 0; i < dictionaryKeys.length; i++) {
+      var dictionaryKey = dictionaryKeys[i];
+
+      // Add special private data prefixed with '_' to the dictionary data object directly...
+      if (dictionaryKey[0] === '_') {
+        dictionaryData[dictionaryKey.substr(1)] = dictDataList[dictionaryKey];
+        delete dictDataList[dictionaryKey];
+      }
+
+    }
+
+    console.log(dictionaryData);
 
     // Build our data structures and corresponding caches
     for (var dictionaryTitle in dictDataList) {
