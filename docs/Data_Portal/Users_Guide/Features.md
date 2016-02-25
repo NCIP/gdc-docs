@@ -128,9 +128,11 @@ Tables can be exported in four different formats:
 
 ## Pie Charts
 
-Most Pie charts in the GDC Data Portal are interactive. Mousing over a slice of the pie chart display detailed about the slice. Users are also offered the option to switch to a table view for more details.
+Most Pie charts in the GDC Data Portal are interactive. Users are also offered the option to switch to a table view for more details.
 
 [![Pie Charts Widget](images/gdc-pie-chart-view.png)](images/gdc-pie-chart-view.png "Click to see the full image.")
+
+Mousing over a slice of the pie chart display detailed about the slice. 
 
 [![Mouseover a Slice](images/gdc-pie-chart-mouse-over.png)](images/gdc-pie-chart-mouse-over.png "Click to see the full image.")
 

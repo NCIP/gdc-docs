@@ -14,10 +14,6 @@ This view focuses on the number of cases available at GDC within each program an
 
 [![Projects View, Main Window (Table View)](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
 
-[![Projects View, Main Window Detail - Number of Cases and Disease Type for each Project](images/gdc-projects-view-main-window-detail-number-participants-and-disease-type-each-project.png)](images/gdc-projects-view-main-window-detail-number-participants-and-disease-type-each-project.png "Click to see the full image.")
-
-[![Projects View, Main Window Detail - Number of Files for each Data Type](images/gdc-projects-view-main-window-detail-number-files-each-data-type.png)](images/gdc-projects-view-main-window-detail-number-files-each-data-type.png "Click to see the full image.")
-
 Clicking on any cell in the Project View Table will display filtered results in the ‘Data’ view described in this documentation.
 
 ### Available Facets
