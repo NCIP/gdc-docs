@@ -10,7 +10,7 @@ Samples, Portions, Analytes and Aliquots on the navigation panel (left side of t
 
 ## Biospecimen List View
 
-The biospecimen list view display the following informations:
+The biospecimen list view displays the following information:
 
 |Column|Description|
 | --- | --- |
@@ -24,7 +24,7 @@ Clicking on a biospecimen will open the details panel. Data in this panel is bro
 
 ## Details
 
-Provides details about the biospeciment itself, such as its UUID, status, project, creation date.
+Provides details about the biospeciment itself, such as its UUID, status, project and creation date.
 
 [![GDC Submission Biospecimen Details Navigation](images/GDC_Submission_Cases_Details_Details.png)](images/GDC_Submission_Cases_Details_Details.png "Click to see the full image.")
 
@@ -36,12 +36,12 @@ List entities (clinical, biospecimen, annotations) attached to a case in a tree-
 
 ### Annotations
 
-List annotations attached to the entity.
+Lists annotations attached to an entity.
 
 [![GDC Submission Cases Details Annotations](images/GDC_Submission_Cases_Details_Annotations.png)](images/GDC_Submission_Cases_Details_Annotations.png "Click to see the full image.")
 
 ### Transactions
 
-List all transactions associated to this case. Clicking on an transaction ID will redirect to the transaction details page.
+Lists all transactions associated to a case. Clicking on an transaction ID will redirect to the transaction details page.
 
 [![GDC Submission Cases Details Transactions](images/GDC_Submission_Cases_Details_Transactions.png)](images/GDC_Submission_Cases_Details_Transactions.png "Click to see the full image.")

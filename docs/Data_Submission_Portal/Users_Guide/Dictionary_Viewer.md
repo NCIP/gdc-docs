@@ -6,7 +6,7 @@ The Dictionary viewer provides access to GDC-wide dictionaries as well as specif
 
 More details about dictionaries can be found in a dedicated section of the documentation [=>LINK TO GDC DICTIONARY DOCUMENTATION].
 
-The dictionary viewer is automatically updated from GDC Dictionary and can considered an up-to-date view of the dictionary.
+The dictionary viewer is automatically updated from the GDC Dictionary and can considered an up-to-date view of the dictionary.
 
 [![GDC Submission Dictionary Viewer](images/GDC_Submission_Dictionary_Viewer.png)](images/GDC_Submission_Dictionary_Viewer.png "Click to see the full image.")
 

@@ -14,15 +14,15 @@ The Portal comprises different sections available through a toolbar on the upper
 
 The top toolbar provides access to the following elements:
 
-* __GDC Identifying Image__: Clicking on GFDC Identifying image will redirect to the submission dashboard.
-* __Search__: A context sensitive search provides a mechanism to search through different pages.
+* __GDC Identifying Image__: Clicking on GDC identifying image will redirect to the submission dashboard.
+* __Search__: A context-sensitive search provides a mechanism to search through different pages.
 * __Profile__: The user profile icon provides access to the token and to a logout feature.
 
 ## Layout
 
 [![GDC Data Submission Portal Layout](images/GDC_Submission_Portal_Layout.png)](images/GDC_Submission_Portal_Layout.png "Click to see the full image.")
 
-The GDC Data Submission Portal main window, visible when navigating through GDC Submission Portal, has been divided into three separate panels:
+The GDC Data Submission Portal main window, visible when navigating through the GDC Data Submission Portal, has been divided into three separate panels:
 
 * __Navigation panel__: A panel composed of links to different sections of the application.
 * __List panel__: A table listing items corresponding to the current selection.
@@ -39,12 +39,12 @@ The navigation panel provides access to the following elements (detailed in subs
 * __SUBMIT__: Access to the submission wizard. This button is only available when a single project is selected.
 * __Dashboard__: Shortcut to the project's dashboard.
 * __Cases / All Cases__: Access to the list of cases in the project.
-* __Biospecimen / Samples__: List of tissues or specimens obtained from patients
-* __Biospecimen / Portions__: Portion of a sample identified as one single entity
-* __Biospecimen / Analytes__: Experimental test material extracted from a portion of sample
-* __Biospecimen / Aliquots__: Portion of an analyte used for experimental assay
-* __Data / Data Read Groups__:  A read group is a type of data bundle that contains molecular data. A Data Bundle is set of files with associated metadata.
-* __Reports / Case Overview__: Reports related to submission
+* __Biospecimen / Samples__: List of tissues or specimens obtained from patients.
+* __Biospecimen / Portions__: Portion of a sample identified as one single entity.
+* __Biospecimen / Analytes__: Experimental test material extracted from a portion of sample.
+* __Biospecimen / Aliquots__: Portion of an analyte used for experimental assay.
+* __Data / Data Read Groups__:  A read group is a type of data bundle that contains molecular data. A data bundle is set of files with associated metadata.
+* __Reports / Case Overview__: Reports related to submission.
 * __Transactions__: List all actions happening on a project (submit data and release).
 
 ## Results Panel
@@ -55,7 +55,7 @@ Columns in the table vary depending of the selected element in the navigation pa
 
 [![GDC Data Submission Portal Navigation Panel](images/GDC_Submission_Results_Panel.png)](images/GDC_Submission_Results_Panel.png "Click to see the full image.")
 
-The table view supports pagination and columns sorting and, if applicable, alerts are displayed to notify that additional attention is required, such as the those shown below.
+The table view supports pagination and columns sorting and, if applicable, alerts are displayed to notify that additional attention is required, such as in the situations shown below.
 
 [![Cases with no clinical data](images/GDC_Submission_Cases_with_no_Clinical_Data.png)](images/GDC_Submission_Cases_with_no_Clinical_Data.png "Click to see the full image.")
 

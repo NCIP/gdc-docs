@@ -2,7 +2,7 @@
 
 ## Overview
 
-GDC Data Submission Portal provides access to different reports listed below. Access to those reports is granted to users based on their project permissions.
+GDC Data Submission Portal provides access to the different reports listed below. Access to those reports is granted to users based on their project permissions.
 
 [![GDC Submission Reports](images/GDC_Submission_Reports.png)](images/GDC_Submission_Reports.png "Click to see the full image.")
 
@@ -12,7 +12,7 @@ Generated daily, this report provides an overview of all cases in one or more pr
 
 [![Case Overview Report List](images/GDC_Submission_Reports_Case_Overview.png)](images/GDC_Submission_Reports_Case_Overview.png "Click to see the full image.")
 
-It can be downloaded in TSV format and previous version of the report are available to the user for comparison purposes.
+It can be downloaded in TSV format and previous versions of the report are available to the user for comparison.
 
 ```tsv
 Program	Project	dbGaP Study ID	## Cases Released	## Cases Unreleased	## Cases Expected	Date Expected for Release	Initial Upload Date	Project Last Update Date	## Cases Registered in dbGaP	## Cases with Clinical	## Cases with Sample	## Cases with Aliquot	## Cases with Portion	## Cases with Analyte	## Cases with WGS Data	## Cases with WXS Data	## Cases with RNA-Seq Data	## Cases with ChIP-Seq Data	## Cases with MiRNA-Seq Data	## Cases with Bisulfite-Seq Data	## Cases with Validation Data	## Cases with Amplicon Data	## Cases with Other Data
@@ -40,7 +40,7 @@ TCGA	TEST	TEST	0	2	0	0
 
 ## Scientific Pre-alignment QC Report
 
-This report shows the files in the data bundle on which GDC will perform harmonization as well as QC information on the submitted unaligned BAM/FASTQ files. Each unaligned BAM/FASTQ will link to the QC report.
+This report shows the files in the data bundle on which the GDC will perform harmonization as well as QC information on the submitted unaligned BAM/FASTQ files. Each unaligned BAM/FASTQ will link to the QC report.
 
 This report can be downloaded in TSV or JSON from the Read Groups section of the navigation panel.
 
@@ -68,7 +68,7 @@ _Image 12.4-1 - Accessing Scientific Pre-alignment QC Report_
 | Adapter Content | This module will issue a warning if any sequence is present in more than 5% of all reads. | This module will issue a warning if any sequence is present in more than 10% of all reads. | [Link](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html) |
 | Kmer Content | This module will issue a warning if any k-mer is imbalanced with a binomial p-value <0.01. | This module will issue a warning if any k-mer is imbalanced with a binomial p-value < 10^-5. | [Link](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/11%20Kmer%20Content.html) |
 
-By clicking on "Download Metadata", user can access all details about the report in a json format.
+By clicking on "Download Metadata", the user can access all details about the report in a JSON format.
 
 ```json
 {

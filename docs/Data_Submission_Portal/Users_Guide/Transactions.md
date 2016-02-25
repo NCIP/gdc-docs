@@ -2,13 +2,13 @@
 
 ## Overview
 
-The transactions view list all transactions which happen on the project since its creation.
+The transactions view lists all transactions which happen on the project since its creation.
 
 [![GDC Submission Transactions](images/GDC_Submission_Transactions.png)](images/GDC_Submission_Transactions.png "Click to see the full image.")
 
 ## Transactions List View
 
-The transactions list view display the following informations:
+The transactions list view displays the following information:
 
 |Column|Description|
 | --- | --- |
@@ -22,7 +22,7 @@ The transactions list view display the following informations:
 
 ## Transactions Details
 
-Clicking on a transaction will open the details panel. Data in this panel is broken down in multiple sections.
+Clicking on a transaction will open the details panel. Data in this panel is broken down into multiple sections.
 
 [![GDC Submission Transactions](images/GDC_Submission_Transactions_Details.png)](images/GDC_Submission_Transactions_Details.png "Click to see the full image.")
 
@@ -30,7 +30,7 @@ Navigation between those sections can be done either by scrolling down or by cli
 
 ### Details
 
-Provides details about the transaction itself, such as its project, type, number of affected cases.
+Provides details about the transaction itself, such as its project, type and number of affected cases.
 
 [![GDC Submission Transactions Details](images/GDC_Submission_Transactions_Details_Details.png)](images/GDC_Submission_Transactions_Details.png "Click to see the full image.")
 
@@ -42,6 +42,6 @@ List the type of files submitted and the number of affected cases and entities.
 
 ### Documents
 
-List files submitted during the transactions, a manifest can also be downloaded below this table.
+Lists files submitted during the transactions, a manifest can also be downloaded below this table.
 
 [![GDC Submission Transactions Documents](images/GDC_Submission_Transactions_Details_Documents.png)](images/GDC_Submission_Transactions_Details_Documents.png "Click to see the full image.")
