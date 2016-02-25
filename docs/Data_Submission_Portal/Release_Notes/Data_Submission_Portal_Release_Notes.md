@@ -1,22 +1,24 @@
-# Release 0.3.21
+# Data Portal Release Notes
+
+## Release 0.3.21
 
 * __GDC Product__: GDC Data Submission Portal
 * __Release Date__: January 27, 2016
 
-## New Features and Changes
+### New Features and Changes
 
 *   New landing page.
 *   Updated dashboard with new widgets, updated instructions and added a transactions list.
 *   Improved user experience in the browse section of the portal (new layout, revamped detailed section, updated icons, etc.).
 
-## Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 *   Some sections of the GDC Data Submission Portal are not compatible with Internet Explorer 10 and 11 (Note: support has been dropped for IE 10)
 *   Case count coverage report is currently not available. Case overview report is available from landing page.
 *   If a page does not return data, the Submission Portal does not indicate that there is no data.
 *   The projects dropdown show legacy projects, it should only show projects active for submission.
 
-## Known Issues and Workarounds
+### Known Issues and Workarounds
 
 *   Users may experience issues (e.g. unable to access a specific transaction ID) when navigating the transactions list page. The workaround is to refresh the page.
 *   Search feature partially implemented, some items are not searchable.
@@ -26,12 +28,12 @@
 
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
-# Release 0.2.18.3
+## Release 0.2.18.3
 
 * __GDC Product__: GDC Data Submission Portal
 * __Release Date__: November 30, 2015
 
-## New Features and Changes
+### New Features and Changes
 
 *   Dashboard to provide high-level details about one or more projects.
 *   Submission wizard to guide user through a three stage submission:
@@ -51,11 +53,11 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 *   Per-project dictionary viewer.
 *   Download authentication token.
 
-## Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 *   Initial Release - Not Applicable
 
-## Known Issues and Workarounds
+### Known Issues and Workarounds
 
 *   Some sections of the GDC Data Submission Portal are not compatible with Internet Explorer 10 and 11.
 *   Case count coverage report is currently not available.
