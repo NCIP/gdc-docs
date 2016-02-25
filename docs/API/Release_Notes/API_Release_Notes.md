@@ -1,15 +1,13 @@
-# GDC Application Programming Interface (API)
-
-## Release Notes
+# GDC Application Programming Interface (API) Release Notes
 
 **Note:** Release details are maintained in the [GDC Data Application Programming Interface (API) Change Log](https://github.com/NCI-GDC/gdcapi/blob/develop/CHANGELOG.md).
 
 <hr style="border:none; border-top:2px dotted #bdb9b9; height:2px;" />
 
 
-### v0.3.20.1: January 28, 2016
+## v0.3.20.1: January 28, 2016
 
-#### New Features and Changes
+### New Features and Changes
 
 * Metadata export support for TSV, CSV and JSON formats, including:
 
@@ -27,7 +25,7 @@
 
 * Additional details are provided in JSON parsing error messages
 
-#### Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 * Biospecimen XML submissions with shipment_portion nodes now parsed correctly
 
@@ -37,13 +35,13 @@
 
 * Miscellaneous bug fixes
 
-#### Known Issues and Workarounds
+### Known Issues and Workarounds
 
 *   None to report
 
 <hr style="border:none; border-top:2px dotted #bdb9b9; height:2px;" />
 
-### v0.2.18: November 18, 2015
+## v0.2.18: November 18, 2015
 
 
 #### New Features and Changes
@@ -68,7 +66,7 @@
 
 <hr style="border:none; border-top:2px dotted #bdb9b9; height:2px;" />
 
-### v0.2.18-spr1: November 2, 2015
+## v0.2.18-spr1: November 2, 2015
 
 #### New Features and Changes
 
@@ -90,7 +88,7 @@
 
 <hr style="border:none; border-top:2px dotted #bdb9b9; height:2px;" />
 
-### v0.2.15-oicr1: August 7, 2015
+## v0.2.15-oicr1: August 7, 2015
 
 #### New Features and Changes
 
@@ -111,7 +109,7 @@
 <hr style="border:none; border-top:2px dotted #bdb9b9; height:2px;" />
 
 
-### v0.2.15-oicr1: August 7, 2015
+## v0.2.15-oicr1: August 7, 2015
 
 #### New Features and Changes
 
@@ -133,7 +131,7 @@
 <hr style="border:none; border-top:2px dotted #bdb9b9; height:2px;" />
 
 
-### v0.2.13: July 23, 2015
+## v0.2.13: July 23, 2015
 
 #### New Features and Changes
 
@@ -179,7 +177,7 @@
 <hr style="border:none; border-top:2px dotted #bdb9b9; height:2px;" />
 
 
-### v0.1.10: March 18, 2015
+## v0.1.10: March 18, 2015
 
 #### New Features and Changes
 
@@ -226,7 +224,7 @@
 <hr style="border:none; border-top:2px dotted #bdb9b9; height:2px;" />
 
 
-### v0.1.8: January 22, 2015
+## v0.1.8: January 22, 2015
 
 #### New Features and Changes
 
