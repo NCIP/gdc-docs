@@ -253,6 +253,10 @@
 
           var data = d;
 
+          if (i === 0 && _.isString(data)) {
+            data = '<i class="fa fa-gear"></i> ' + data;
+          }
+
           if (_.isString(data)) {
             return data;
           }
@@ -511,7 +515,7 @@
             link = _.map(link, function(l) {
               return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
                       (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
-                      (isNotSubgroup ? '<i class="fa fa-file-o"></i> ': '<i class="fa fa-sitemap"></i> ') +
+                      (isNotSubgroup ? '<i class="fa fa-file-o"></i>': '<i class="fa fa-sitemap"></i>') + ' ' +
                       l.id +
                       '</a>';
             }).join('<br />\n');
