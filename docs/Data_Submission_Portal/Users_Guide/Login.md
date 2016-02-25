@@ -2,7 +2,7 @@
 
 More details about [Authentication and Authorization](../../Commons/Authentication.md) can be found in a [dedicated section of the documentation](../../Commons/Authentication.md).
 
-Based on the number of projects granted to the user, the GDC Data Submission Portal will adjust its layout and provides different functionalities.
+Based on the number of projects granted to the user, the GDC Data Submission Portal will adjust its layout and provide different functionalities.
 
 ## GDC Data Submission Portal Authentication
 
@@ -16,4 +16,4 @@ The login page will show up again if users logout or upon expiration of their au
 
 ### Obtaining a Token
 
-After successful authentication, users can [download a GDC Token](../../Commons/Authentication.md#gdc-authentication-token) from GDC Data Submission Portal.
+After successful authentication, users can [download a GDC Token](../../Commons/Authentication.md#gdc-authentication-token) from the GDC Data Submission Portal.
