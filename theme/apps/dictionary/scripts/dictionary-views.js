@@ -64,7 +64,7 @@
       _tableDefinitionView.renderHeader();
       _tableDefinitionView.renderSummaryTable();
       _tableDefinitionView.renderLinksTable();
-      //_tableDefinitionView.definitionTable();
+      _tableDefinitionView.renderPropertiesTable();
     };
 
 
@@ -92,9 +92,83 @@
       _renderLinksTable(_tableDefinitionView, linksTableContainerSel);
     };
 
+    TableDefinitionsView.prototype.renderPropertiesTable = function() {
+      var _tableDefinitionView = this;
+
+      var propertiesTableContainerSel = _tableDefinitionView._d3ContainerSelection.append('div')
+        .classed('dictionary-properties-table-container dictionary-definition-container', true);
+
+      _renderPropertiesTable(_tableDefinitionView, propertiesTableContainerSel);
+    };
+
     ///////////////////////////////////////////////////////////
     // Render Helpers
     ///////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    // Properties Table
+    ///////////////////////////////////////////////////////////////////////////////////////
+    function _prepPropertiesTableData(dictionaryData) {
+      var propertyData = [];
+
+      var dictionaryProperties = _.get(dictionaryData, 'properties', false);
+
+      if (! dictionaryProperties) {
+        return [_.times(4, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
+      }
+
+      var propertyIDs = _.keys(dictionaryProperties);
+      // TODO: Property values will materialize into real entities soon switch
+      // the below code when the is done on the backend
+
+      //var propertyValues = window.$gdcApp.dictionaryViewer.getSourceData().dictionaryMap;
+
+
+      //console.log(propertyValues);
+
+
+
+      return propertyData;
+    }
+
+    function _renderPropertiesTable(_tableDefinitionView, tableContainerSelection) {
+      var dictionaryData = _tableDefinitionView._dictionaryData;
+
+      tableContainerSelection.append('h2').text('Properties');
+
+      var definitionTable = tableContainerSelection.append('table')
+        .classed('dictionary-properties-table', true);
+
+      var tHead = definitionTable.append('thead'),
+          tBody = definitionTable.append('tbody');
+
+      tHead.append('tr')
+        .classed('dictionary-properties-header', true)
+        .selectAll('th')
+        .data(['Property', 'Description', 'Acceptable Types or Values', 'Required?'])
+        .enter()
+        .append('th')
+        .text(function(d) { return d; });
+
+      var dataRows = _prepPropertiesTableData(dictionaryData);
+
+      var tRows = tBody.selectAll('tr')
+        .data(dataRows)
+        .enter()
+        .append('tr');
+
+      tRows.selectAll('td')
+        .data(function(row) {
+          return row;
+        })
+        .enter()
+        .append('td')
+        .html(function(data) {
+          return data;
+        });
+
+    }
+
     function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData,
           category =  _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
@@ -233,7 +307,6 @@
 
       }
 
-      console.log(transformedData);
       return transformedData;
     }
 
@@ -271,14 +344,14 @@
         .enter()
         .append('td')
         .html(function(data) {
-          console.log(data);
+          //console.log(data);
           if (!_.isArray(data)) {
             return data;
           }
 
           var newData = data.join('<br />');
 
-          console.log(newData);
+          //console.log(newData);
 
           return newData;
         });

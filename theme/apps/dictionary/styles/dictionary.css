@@ -104,6 +104,7 @@
 }
 
 /* Dictionary Definition View */
+.dictionary-properties-table,
 .dictionary-links-table,
 .dictionary-summary-table {
   width: 100%;
@@ -112,6 +113,7 @@
   background-color: #f0f0f0;
 }
 
+.dictionary-properties-table th,
 .dictionary-links-header th,
 .dictionary-summary-header th {
   color: #565656;
@@ -135,6 +137,7 @@
   font-weight: bold;
 }
 
+.dictionary-properties-table td,
 .dictionary-links-table td,
 .dictionary-summary-table td {
   padding: 1rem 1rem;
