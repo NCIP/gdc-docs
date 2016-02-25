@@ -4,7 +4,7 @@
 
 **Note:** Release details are maintained in the [GDC Data Application Programming Interface (API) Change Log](https://github.com/NCI-GDC/gdcapi/blob/develop/CHANGELOG.md).
 
-<hr style="border:0px; height:2px; background:#6b6262;" />
+<hr style="border:none; border-top:2px dotted #6b6262; height:2px;" />
 
 
 ### v0.3.20.1: January 28, 2016
@@ -41,7 +41,7 @@
 
 *   None to report
 
-<hr style="border:0px; height:2px; background:#6b6262;" />
+<hr style="border:none; border-top:2px dotted #6b6262; height:2px;" />
 
 ### v0.2.18: November 18, 2015
 
@@ -66,7 +66,7 @@
 
 *   None to report
 
-<hr style="border:0px; height:2px; background:#6b6262;" />
+<hr style="border:none; border-top:2px dotted #6b6262; height:2px;" />
 
 ### v0.2.18-spr1: November 2, 2015
 
@@ -88,7 +88,7 @@
 
 *   None to report
 
-<hr style="border:0px; height:2px; background:#6b6262;" />
+<hr style="border:none; border-top:2px dotted #6b6262; height:2px;" />
 
 ### v0.2.15-oicr1: August 7, 2015
 
@@ -108,7 +108,7 @@
 *   Authentication and Authorization Service
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
-<hr style="border:0px; height:2px; background:#6b6262;" />
+<hr style="border:none; border-top:2px dotted #6b6262; height:2px;" />
 
 
 ### v0.2.15-oicr1: August 7, 2015
@@ -130,7 +130,7 @@
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
 
-<hr style="border:0px; height:2px; background:#6b6262;" />
+<hr style="border:none; border-top:2px dotted #6b6262; height:2px;" />
 
 
 ### v0.2.13: July 23, 2015
@@ -176,7 +176,7 @@
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
 
-<hr style="border:0px; height:2px; background:#6b6262;" />
+<hr style="border:none; border-top:2px dotted #6b6262; height:2px;" />
 
 
 ### v0.1.10: March 18, 2015
@@ -223,7 +223,7 @@
 
     *   Obtaining a token requires browser access. This is a limitation of eRA Commons and not the GDC authorization service. The Security Assertion Markup Language  (SAML) based protocol eRA Commons uses does not support [ECP](https://wiki.shibboleth.net/confluence/display/CONCEPT/ECP) (or similar)
 
-<hr style="border:0px; height:2px; background:#6b6262;" />
+<hr style="border:none; border-top:2px dotted #6b6262; height:2px;" />
 
 
 ### v0.1.8: January 22, 2015
