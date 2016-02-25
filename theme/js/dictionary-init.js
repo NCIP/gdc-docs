@@ -1,4 +1,3 @@
-/*
 window.onload = function() {
   'use strict';
 
@@ -12,7 +11,7 @@ window.onload = function() {
     }
 
     var dictionaryOptions = {
-      dataSourceBaseHost: 'http://localhost:8080'
+      //dataSourceBaseHost: 'http://localhost:8080'
     };
 
     window.$gdcApp.dictionaryViewer = new Dictionary(dictionaryContainer, dictionaryOptions);
@@ -25,4 +24,3 @@ window.onload = function() {
 window.onunload = function() {
   window.$gdcApp.dictionaryViewer.destroy();
 };
-*/

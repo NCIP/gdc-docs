@@ -12,6 +12,519 @@
   // Dictionary Views
   /////////////////////////////////////////////////////////
 
+  /////////////////////////////////////////////////////////
+  // TableDefinitionsView
+  /////////////////////////////////////////////////////////
+  Dictionary._Views.TableDefinitionsView = (function() {
+    function TableDefinitionsView() {
+
+      var _tableDefinitionView = this;
+
+      // Inherit from View
+      View.apply(_tableDefinitionView, arguments);
+
+      _tableDefinitionView._parentViewName = _DICTIONARY_CONSTANTS.VIEWS.TABLE._ID;
+      _tableDefinitionView._name = _DICTIONARY_CONSTANTS.VIEWS[_tableDefinitionView._parentViewName].TERM_DEFINITION;
+      _tableDefinitionView._prettyName = 'Definition View';
+
+      _tableDefinitionView.setDictionaryData = function(data) {
+
+        _tableDefinitionView._dictionaryData =  data;
+
+        if (_.has(data, 'title')) {
+          _tableDefinitionView._breadcrumbName = data.title;
+          _tableDefinitionView._prettyName =  data.title;
+        }
+
+        return _tableDefinitionView;
+      };
+
+      _tableDefinitionView.setDictionaryData(_tableDefinitionView._dictionaryData);
+    }
+
+    ////////////////////////////////////////////////////////////
+    // Custom Render
+    ////////////////////////////////////////////////////////////
+    TableDefinitionsView.prototype.renderView = function() {
+      var _tableDefinitionView = this;
+
+      if (_tableDefinitionView._dictionaryData) {
+        _tableDefinitionView.renderDefinitionView(_tableDefinitionView._dictionaryData);
+      }
+
+      console.log('TableDefinitionsView Rendering!');
+
+    };
+
+    TableDefinitionsView.prototype.renderDefinitionView = function(currentDictionary) {
+      var _tableDefinitionView = this;
+
+      console.log(currentDictionary);
+
+      _tableDefinitionView.renderHeader();
+      _tableDefinitionView.renderSummaryTable();
+      _tableDefinitionView.renderLinksTable();
+      _tableDefinitionView.renderPropertiesTable();
+    };
+
+
+    TableDefinitionsView.prototype.renderHeader = function() {
+      var _tableDefinitionView = this;
+      _tableDefinitionView._d3ContainerSelection.append('h1').text(_tableDefinitionView.getPrettyName());
+    };
+
+    TableDefinitionsView.prototype.renderSummaryTable = function() {
+      var _tableDefinitionView = this;
+
+      var summaryTableContainerSel = _tableDefinitionView._d3ContainerSelection.append('div')
+          .classed('dictionary-summary-table-container dictionary-definition-container', true);
+
+      _renderSummaryTable(_tableDefinitionView, summaryTableContainerSel);
+
+    };
+
+    TableDefinitionsView.prototype.renderLinksTable = function() {
+      var _tableDefinitionView = this;
+
+      var linksTableContainerSel = _tableDefinitionView._d3ContainerSelection.append('div')
+        .classed('dictionary-links-table-container dictionary-definition-container', true);
+
+      _renderLinksTable(_tableDefinitionView, linksTableContainerSel);
+    };
+
+    TableDefinitionsView.prototype.renderPropertiesTable = function() {
+      var _tableDefinitionView = this;
+
+      var propertiesTableContainerSel = _tableDefinitionView._d3ContainerSelection.append('div')
+        .classed('dictionary-properties-table-container dictionary-definition-container', true);
+
+      _renderPropertiesTable(_tableDefinitionView, propertiesTableContainerSel);
+    };
+
+    ///////////////////////////////////////////////////////////
+    // Render Helpers
+    ///////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    // Properties Table
+    ///////////////////////////////////////////////////////////////////////////////////////
+    function _prepPropertiesTableData(dictionaryData) {
+      var propertyData = [];
+
+      var dictionaryProperties = _.get(dictionaryData, 'properties', false);
+
+      if (! dictionaryProperties) {
+        return [_.times(4, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
+      }
+
+      var propertyIDs = _.keys(dictionaryProperties);
+      // TODO: Property values will materialize into real entities soon switch
+      // the below code when the is done on the backend
+
+      //var propertyValues = window.$gdcApp.dictionaryViewer.getSourceData().dictionaryMap;
+
+
+      //console.log(propertyValues);
+
+
+
+      return propertyData;
+    }
+
+    function _renderPropertiesTable(_tableDefinitionView, tableContainerSelection) {
+      var dictionaryData = _tableDefinitionView._dictionaryData;
+
+      tableContainerSelection.append('h2').text('Properties');
+
+      var definitionTable = tableContainerSelection.append('table')
+        .classed('dictionary-properties-table', true);
+
+      var tHead = definitionTable.append('thead'),
+          tBody = definitionTable.append('tbody');
+
+      tHead.append('tr')
+        .classed('dictionary-properties-header', true)
+        .selectAll('th')
+        .data(['Property', 'Description', 'Acceptable Types or Values', 'Required?'])
+        .enter()
+        .append('th')
+        .text(function(d) { return d; });
+
+      var dataRows = _prepPropertiesTableData(dictionaryData);
+
+      var tRows = tBody.selectAll('tr')
+        .data(dataRows)
+        .enter()
+        .append('tr');
+
+      tRows.selectAll('td')
+        .data(function(row) {
+          return row;
+        })
+        .enter()
+        .append('td')
+        .html(function(data) {
+          return data;
+        });
+
+    }
+
+    function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
+      var dictionaryData = _tableDefinitionView._dictionaryData,
+          category =  _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
+          uniqueKeys = _.get(dictionaryData, 'uniqueKeys', [_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL]);
+
+      tableContainerSelection.append('h2').text('Summary');
+
+      var definitionTable = tableContainerSelection.append('table')
+                    .classed('dictionary-summary-table', true);
+
+      var tHead = definitionTable.append('thead'),
+          tBody = definitionTable.append('tbody');
+
+      tHead.append('tr')
+        .classed('dictionary-summary-header', true)
+        .selectAll('th')
+        .data(['Title', _tableDefinitionView.getPrettyName()])
+        .enter()
+        .append('th')
+        .text(function(d) { return d; });
+
+
+      var dataRows = [
+        {id: 'category', title:'Category', value: category},
+        {id: 'description', title: 'Description', value: dictionaryData.description},
+        {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
+      ];
+
+      var tRows = tBody.selectAll('tr')
+                  .data(dataRows)
+                  .enter()
+                  .append('tr');
+
+      tRows.selectAll('td')
+        .data(function(row) {
+           return [{id: row.id, value: row.title}, {id: row.id, value: row.value}];
+        })
+        .enter()
+        .append('td')
+        .html(function(d, i) {
+
+          var data = d.value;
+
+          if (i !== 1 || d.id !== 'keys') {
+            return data;
+          }
+
+          if (_.isArray(data)) {
+
+              var newData = '<ul class="bullets">' +
+                     _.map(data,  function(val) {
+                        var arrayVal = '';
+
+                        if (_.isArray(val) && val.length === 1) {
+                          arrayVal = val[0];
+                        }
+                        else if (_.isArray(val)  && val.length > 1) {
+                          arrayVal = val.join(', ');
+                        }
+                        else {
+                          arrayVal = val;
+                        }
+
+                        return '<li>' + arrayVal + '</li>';
+                      }).join('\n') +
+                   '</ul>';
+
+            data = newData;
+
+          }
+
+          return data;
+        });
+
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    // Links Table
+    ///////////////////////////////////////////////////////////////////////////////////////
+    function createLinkData(link) {
+      var linkData = [];
+
+      if (! _.has(link, 'name')) {
+        return _.times(3, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL));
+      }
+
+      linkData.push(link.name);
+      linkData.push(link.backref + ' ' +  link.label + ' '  + link.target_type);
+      linkData.push(link.required);
+
+      return linkData;
+    }
+
+
+    function _prepLinksTableData(dictionaryData) {
+      var transformedData = [];
+
+      // Create Table Row Data
+      var links = _.get(dictionaryData, 'links', false);
+
+      if (! links || ! _.isArray(links) || links.length === 0) {
+        return [createLinkData()];
+      }
+
+      for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+
+        var linkSubgroups = _.get(link, 'subgroup', []);
+
+        if (linkSubgroups.length > 0) {
+          var subLinkData = [[],[],[]];
+
+          for (var j = 0; j < linkSubgroups.length; j++) {
+            var subLinkDataNode = createLinkData(linkSubgroups[j]);
+
+            if (_.isArray(subLinkDataNode)) {
+              subLinkData[0].push(' - ' + subLinkDataNode[0]);
+              subLinkData[1].push(subLinkDataNode[1]);
+              subLinkData[2].push(subLinkDataNode[2]);
+            }
+          }
+
+          if (subLinkData.length > 0) {
+            transformedData.push(subLinkData);
+          }
+
+          continue;
+        }
+
+
+        var linkDataNode = createLinkData(link);
+
+        if (linkDataNode.length > 0) {
+          transformedData.push(linkDataNode);
+        }
+
+      }
+
+      return transformedData;
+    }
+
+    function _renderLinksTable(_tableDefinitionView, tableContainerSelection) {
+      var dictionaryData = _tableDefinitionView._dictionaryData;
+
+      tableContainerSelection.append('h2').text('Links');
+
+      var definitionTable = tableContainerSelection.append('table')
+        .classed('dictionary-links-table', true);
+
+      var tHead = definitionTable.append('thead'),
+        tBody = definitionTable.append('tbody');
+
+      tHead.append('tr')
+        .classed('dictionary-links-header', true)
+        .selectAll('th')
+        .data(['Links to', 'Relationship', 'Required'])
+        .enter()
+        .append('th')
+        .text(function(d) { return d; });
+
+
+      var dataRows = _prepLinksTableData(dictionaryData);
+
+      var tRows = tBody.selectAll('tr')
+        .data(dataRows)
+        .enter()
+        .append('tr');
+
+      tRows.selectAll('td')
+        .data(function(row) {
+          return row;
+        })
+        .enter()
+        .append('td')
+        .html(function(data) {
+          //console.log(data);
+          if (!_.isArray(data)) {
+            return data;
+          }
+
+          var newData = data.join('<br />');
+
+          //console.log(newData);
+
+          return newData;
+        });
+
+    }
+
+
+
+    return TableDefinitionsView;
+
+  })();
+
+
+
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+
+
+  /////////////////////////////////////////////////////////
+  // TableEntityListView
+  /////////////////////////////////////////////////////////
+  Dictionary._Views.TableEntityListView = (function() {
+
+
+    function TableEntityListView() {
+
+      var _tableEntityListView = this;
+      // Inherit from View
+      View.apply(_tableEntityListView, arguments);
+
+      _tableEntityListView._parentViewName = _DICTIONARY_CONSTANTS.VIEWS.TABLE._ID;
+      _tableEntityListView._name = _DICTIONARY_CONSTANTS.VIEWS[_tableEntityListView._parentViewName].ENTITY_LIST;
+      _tableEntityListView._prettyName = 'Entity List';
+
+    }
+
+    TableEntityListView.prototype.renderView = function () {
+      var _tableEntityListView = this;
+      var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
+
+      for (var category in categoryMap) {
+        if (categoryMap.hasOwnProperty(category)) {
+          _tableEntityListView.renderEntity(category, categoryMap[category]);
+        }
+      }
+
+      console.log('TableEntityListView Rendering!');
+
+
+      _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
+      _tableEntityListView._callbackFn.call(null, new Dictionary._ViewUpdateObject(_tableEntityListView));
+    };
+
+
+    TableEntityListView.prototype.renderEntity = function(category, categoryData) {
+      var _tableEntityListView = this;
+
+      var entityTable = _tableEntityListView._d3ContainerSelection
+        .append('table')
+        .classed('dictionary-entity-table card', true)
+        .attr('id', 'dictionary-entity-' + category);
+
+      var tHead = entityTable.append('thead'),
+          tBody = entityTable.append('tbody');
+
+      var getTooltipText = function() {
+
+        var tooltipText = null;
+
+        switch(_.first(categoryData).category) {
+          case 'clinical':
+            tooltipText = 'Cases must be registered in GDC before clinical, biospecimen, experiment and annotation data can be submitted.';
+            break;
+          default:
+            break;
+        }
+
+        return tooltipText;
+      };
+
+      tHead.append('tr')
+        .append('th')
+        .attr('colspan', 2)
+        .classed('dictionary-entity-header', true)
+        .append('a')
+        .classed('dictionary-tooltip', function() {
+          return _.isString(getTooltipText());
+        })
+        .attr('id', category)
+        .attr('href',  '#?view=' + _tableEntityListView._name + '&anchor=' + category)
+        .on('click', function() {
+
+          // Here we just want to fire the event programmatically
+          if ( _DICTIONARY_CONSTANTS.BROWSER_CAPABILITIES.HASH_CHANGE_EVENT ) {
+            return;
+          }
+
+          _tableEntityListView._callbackFn.call(
+            null, new Dictionary._ViewUpdateObject(_tableEntityListView,  _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INNER_NAV, {id: category})
+          );
+        })
+        .html(function() {
+          var tooltipText = getTooltipText();
+          return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
+                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span>' : '');
+        });
+
+      var tRows = tBody.selectAll('tr')
+        .data(categoryData)
+        .enter()
+        .append('tr')
+        .classed('dictionary-entity-list-item', true);
+
+
+      tRows.selectAll('td')
+        .data(function(row) {
+          return [
+            {id: row.id,  title: row.title, description: row.description},
+            {id: row.id,  title: row.title, description: row.description}
+          ];
+        })
+        .enter()
+        .append('td')
+        .classed('link', function(data, i) {
+          var isLink = false;
+
+          if (i === 0) {
+            isLink = true;
+          }
+          return isLink;
+        })
+        .append('a')
+        .attr('title', function(data) {
+          return 'View details about ' + data.title;
+        })
+        .attr('id', function(data) { return data.id; })
+        .attr('href', function(data) {
+          return '#?view=' + _DICTIONARY_CONSTANTS.VIEWS[_tableEntityListView.getParentViewName()].TERM_DEFINITION + '&id=' + data.id;
+        })
+        .on('click', function(data) {
+
+          // Don't fire event twice since clicking on an href creates a pop event
+          if ( _DICTIONARY_CONSTANTS.BROWSER_CAPABILITIES.HASH_CHANGE_EVENT ) {
+            return;
+          }
+
+          _tableEntityListView._callbackFn.call(
+            null, new Dictionary._ViewUpdateObject(_tableEntityListView,  _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV, {id: data.id})
+          );
+        })
+        .text(function(data, i) {
+          var item = data.title;
+
+          if (i === 1) {
+            item = data.description;
+          }
+
+          return item;
+        });
+
+      return entityTable;
+    };
+
+
+    return TableEntityListView;
+  })();
+
+
+
+
+  /////////////////////////////////////////////////////////
+  // Parent View Definition
+  /////////////////////////////////////////////////////////
   function View(d3ContainerSelection, dictionaryData, actionCallbackFn) {
     var _view = this;
 
@@ -24,17 +537,27 @@
     _view._prettyName = _view._name;
     _view._breadcrumbName = null;
 
+    if (typeof _view.renderView === 'undefined') {
+      throw Error('You must define your own renderView method in your view!');
+    }
+
     /////////////////////////////////////////////////////////
     // Public View API
     /////////////////////////////////////////////////////////
     _view.render = function() {
-      console.log('Rendering!');
+      console.log('Rendering View!');
+
+      _view._d3ContainerSelection.html('');
+
+      // Template method - inherited functions define this!
+      _view.renderView();
 
       _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
       _view._callbackFn.call(null, new Dictionary._ViewUpdateObject(this));
 
       return _view;
     };
+
 
     _view.show = function() {
       console.log('Showing!');
@@ -81,7 +604,7 @@
     _view.setDictionaryData = function(data) {
       _view._dictionaryData = data;
       return _view;
-    }
+    };
 
     _view.getBreadcrumbName = function() {
       return _view._breadcrumbName;
@@ -96,212 +619,6 @@
     _viewObject.eventType = viewEventType || _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.DEFAULT;
     _viewObject.params = viewParams || null;
   };
-
-
-  /////////////////////////////////////////////////////////
-  // TableEntityListView
-  /////////////////////////////////////////////////////////
-  Dictionary._Views.TableEntityListView = (function() {
-
-
-    function TableEntityListView() {
-
-      var _tableEntityListView = this;
-      // Inherit from View
-      View.apply(_tableEntityListView, arguments);
-
-      _tableEntityListView._parentViewName = _DICTIONARY_CONSTANTS.VIEWS.TABLE._ID;
-      _tableEntityListView._name = _DICTIONARY_CONSTANTS.VIEWS[_tableEntityListView._parentViewName].ENTITY_LIST;
-      _tableEntityListView._prettyName = 'Entity List';
-
-      /////////////////////////////////////////
-      // Custom Render
-      /////////////////////////////////////////
-      _tableEntityListView.render = function () {
-
-        var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
-
-        for (var category in categoryMap) {
-          if (categoryMap.hasOwnProperty(category)) {
-            _tableEntityListView.renderEntity(category, categoryMap[category]);
-          }
-        }
-
-        console.log('TableEntityListView Rendering!');
-
-
-        _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
-        _tableEntityListView._callbackFn.call(null, new Dictionary._ViewUpdateObject(_tableEntityListView));
-      };
-
-    }
-
-
-    TableEntityListView.prototype.renderEntity = function(category, categoryData) {
-      var _tableEntityListView = this;
-
-      var entityTable = _tableEntityListView._d3ContainerSelection
-        .append('table')
-        .classed('dictionary-entity-table card', true)
-        .attr('id', 'dictionary-entity-' + category);
-
-      var tHead = entityTable.append('thead'),
-        tBody = entityTable.append('tbody');
-
-      var getTooltipText = function() {
-
-        var tooltipText = null;
-
-        switch(_.first(categoryData).category) {
-          case 'clinical':
-            tooltipText = 'Cases must be registered in GDC before clinical, biospecimen, experiment and annotation data can be submitted.';
-            break;
-          default:
-            break;
-        }
-
-        return tooltipText;
-      };
-
-      tHead.append('tr')
-        .append('th')
-        .attr('colspan', 2)
-        .classed('dictionary-entity-header', true)
-        .append('a')
-        .classed('dictionary-tooltip', function() {
-          return _.isString(getTooltipText());
-        })
-        .attr('id', category)
-        .attr('href',  '#?view=' + _tableEntityListView._name + '&anchor=' + category)
-        .on('click', function() {
-          _tableEntityListView._callbackFn.call(
-            null, new Dictionary._ViewUpdateObject(_tableEntityListView,  _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INNER_NAV, {id: category})
-          );
-        })
-        .html(function() {
-          var tooltipText = getTooltipText();
-          return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
-                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span>' : '');
-        });
-
-      var tRows = tBody.selectAll('tr')
-        .data(categoryData)
-        .enter()
-        .append('tr')
-        .classed('dictionary-entity-list-item', true);
-
-
-      tRows.selectAll('td')
-        .data(function(row) {
-          return [
-            {id: row.id,  title: row.title, description: row.description},
-            {id: row.id,  title: row.title, description: row.description}
-          ];
-        })
-        .enter()
-        .append('td')
-        .classed('link', function(data, i) {
-          var isLink = false;
-
-          if (i === 0) {
-            isLink = true;
-          }
-          return isLink;
-        })
-        .append('a')
-        .attr('title', function(data) {
-          return 'View details about ' + data.title;
-        })
-        .attr('id', function(data) { return data.id; })
-        .attr('href', function(data) {
-          return '#?view=' + _DICTIONARY_CONSTANTS.VIEWS[_tableEntityListView.getParentViewName()].TERM_DEFINITION + '&id=' + data.id;
-        })
-        .on('click', function(data) {
-          _tableEntityListView._callbackFn.call(
-            null, new Dictionary._ViewUpdateObject(_tableEntityListView,  _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV, {id: data.id})
-          );
-        })
-        .text(function(data, i) {
-          var item = data.title;
-
-          if (i === 1) {
-            item = data.description;
-          }
-
-          return item;
-        });
-
-      return entityTable;
-    };
-
-
-    return TableEntityListView;
-  })();
-
-  /////////////////////////////////////////////////////////
-  // TableDefinitionsView
-  /////////////////////////////////////////////////////////
-  Dictionary._Views.TableDefinitionsView = (function() {
-    function TableDefinitionsView() {
-
-      var _tableDefinitionView = this;
-
-      // Inherit from View
-      View.apply(_tableDefinitionView, arguments);
-
-      _tableDefinitionView._parentViewName = _DICTIONARY_CONSTANTS.VIEWS.TABLE._ID;
-      _tableDefinitionView._name = _DICTIONARY_CONSTANTS.VIEWS[_tableDefinitionView._parentViewName].TERM_DEFINITION;
-      _tableDefinitionView._prettyName = 'Definition View';
-
-      ////////////////////////////////////////////////////////////
-      // Custom Render
-      ////////////////////////////////////////////////////////////
-      _tableDefinitionView.render = function() {
-
-        if (_tableDefinitionView._dictionaryData) {
-          _tableDefinitionView.renderDefinitionView(_tableDefinitionView._dictionaryData);
-        }
-
-        console.log('TableDefinitionsView Rendering!');
-
-        _tableDefinitionView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
-        _tableDefinitionView._callbackFn.call(null, new Dictionary._ViewUpdateObject(_tableDefinitionView));
-      };
-
-      _tableDefinitionView.setDictionaryData = function(data) {
-
-        _tableDefinitionView._dictionaryDaya =  data;
-
-        if (_.has(data, 'title')) {
-          _tableDefinitionView._breadcrumbName = data.title;
-
-          _tableDefinitionView._prettyName = (_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP[data.category] || 'Unknown') +
-                                             ': ' + data.title + ' Definition';
-
-
-        }
-        console.log(_tableDefinitionView._prettyName);
-
-        return _tableDefinitionView;
-      };
-
-      _tableDefinitionView.setDictionaryData(_tableDefinitionView._dictionaryData);
-    }
-
-
-    TableDefinitionsView.prototype.renderDefinitionView = function(currentDictionary) {
-      var _tableDefinitionView = this;
-      console.log(currentDictionary);
-    };
-
-    return TableDefinitionsView;
-
-  })();
-
-
-
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
 
 
 

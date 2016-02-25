@@ -26,14 +26,16 @@
 
     _dictionary.init();
 
-    window.onpopstate = function(event) {
-      if (window.location.href.toLowerCase().indexOf('dictionary/viewer') >= 0) {
-        event.preventDefault();
-        _dictionary.triggerViewEventFromURL();
-        console.log(event);
-      }
+    if (_DICTIONARY_CONSTANTS.BROWSER_CAPABILITIES.HASH_CHANGE_EVENT) {
 
-    };
+      window.onhashchange = function (event) {
+
+        if (window.location.href.toLowerCase().indexOf('dictionary/viewer') >= 0) {
+          _dictionary.triggerViewEventFromURL(event);
+        }
+
+      };
+    }
   }
 
   /////////////////////////////////////////////////////////
@@ -73,7 +75,6 @@
       _dictionary._currentViewMode = _dictionary._options.defaultView;
     }
 
-    console.log( _dictionary._currentViewMode);
 
     if (_dictionary._data === null) {
 
@@ -97,12 +98,6 @@
 
               _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _.bind(_dictionary.viewListener, _dictionary));
 
-              /*_dictionary
-                .setCurrentView(_dictionary._currentViewMode)
-                .render();
-
-              _updatePageScroll(urlParams.anchor);
-              _dictionary.updateBreadcrumb();*/
               _dictionary.triggerViewEventFromURL();
           });
         });
@@ -120,7 +115,6 @@
     }
 
     console.log(viewUpdateObj);
-    console.log('view Listener invoked: ', view.getState());
 
     switch( viewUpdateObj.eventType ) {
 
@@ -133,33 +127,11 @@
 
       case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV:
 
-        var subViews = _.get(_DICTIONARY_CONSTANTS.VIEWS, view.getParentViewName(), false);
-
-        if (view.getParentViewName() && subViews) {
-          view.hide();
-
-          if (view.getViewName() === subViews.ENTITY_LIST && _.has(params, 'id')) {
-
-            _dictionary
-              .setCurrentView(subViews.TERM_DEFINITION)
-              .getCurrentView()
-              .setDictionaryData(_dictionary._data.dictionaryMap[params.id])
-              .show()
-              .render();
-          }
-
-          _dictionary.updateBreadcrumb();
-        }
-
-        break;
-
-      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INIT:
-
         var data = _dictionary._data,
             urlParams = _getParamsFromURL(),
             currentView = _dictionary.getCurrentView();
 
-        if (currentView) {
+        if (currentView && currentView !== view) {
           currentView.hide();
         }
 
@@ -167,11 +139,10 @@
           data = _dictionary._data.dictionaryMap[params.id];
         }
 
-
         _dictionary
           .setCurrentView(view.getViewName())
-          .getCurrentView(data)
-          .setDictionaryData(_dictionary._data)
+          .getCurrentView()
+          .setDictionaryData(data)
           .show()
           .render();
 
@@ -251,12 +222,18 @@
 
   };
 
-  Dictionary.prototype.triggerViewEventFromURL = function() {
+  Dictionary.prototype.triggerViewEventFromURL = function(event) {
     var _dictionary = this,
         urlParams = _getParamsFromURL(true),
         viewMode = _dictionary._options.defaultView,
         view = null,
         params = null;
+
+    if (event) {
+      console.log(event);
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
     if (_.has(urlParams, 'view')) {
       viewMode = urlParams.view;
@@ -268,8 +245,8 @@
       params = {id: urlParams.id};
     }
 
-    var viewEvent = new Dictionary._ViewUpdateObject(view, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INIT, params);
-    console.log(window.location.hash,  viewEvent);
+    var viewEvent = new Dictionary._ViewUpdateObject(view, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV, params);
+
     _dictionary.viewListener(viewEvent);
 
   };
@@ -288,7 +265,11 @@
   // Clean up
   Dictionary.prototype.destroy = function() {
     console.log('Cleaning up the dictionary...');
-    window.onpopstate = _.noop;
+
+    if (_DICTIONARY_CONSTANTS.BROWSER_CAPABILITIES.HASH_CHANGE_EVENT) {
+      window.onhashchange = _.noop;
+    }
+
     var _dictionary = this;
 
     _urlParamsCache = null;
@@ -321,7 +302,6 @@
       ENTER: 'enter', EXIT: 'exit', RENDERED: 'rendered'
     },
     VIEW_UPDATE_EVENT_TYPES: {
-      INIT: 'initialize-view',
       DEFAULT:'update',
       NAV: 'nav',
       INNER_NAV: 'inner-nav'
@@ -335,7 +315,7 @@
       data_file: 'Data Files',
       references: 'References',
       administrative: 'Administrative',
-      tbd: 'To Be Determined...'
+      tbd: 'References'
     },
     DICTIONARY_KEY_ORDER: [
       // clinical
@@ -357,7 +337,8 @@
     },
     WEB_SERVICE: {
       DEFAULT_URL: 'https://gdc-api.nci.nih.gov',
-      CONTEXT_PATTERN: '/auth/api/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
+      //CONTEXT_PATTERN: '/auth/api/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
+      CONTEXT_PATTERN: '/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
       DEFAULT_PROGRAM: 'CGCI',
       DEFAULT_PROJECT: 'BLGSP',
       DEFAULT_DICTIONARY: '_all'
@@ -367,7 +348,11 @@
       MAIN_DICTIONARY: 'dictionary.html'
     },
     BROWSER_CAPABILITIES: {
-      SMOOTH_SCROLL: 'scrollBehavior' in document.documentElement.style
+      SMOOTH_SCROLL: 'scrollBehavior' in document.documentElement.style,
+      HASH_CHANGE_EVENT: 'onhashchange' in window
+    },
+    DATA_FORMATS: {
+      MISSING_VAL: '--'
     }
 
   };
@@ -489,9 +474,6 @@
       argParams[keyVals[0]] = keyVals[1];
     }
 
-    console.log(argParams);
-
-
     // Parse Logic
     //#view=BLAH&id=ANCHOR_NAME
     if (argParams.view) {
@@ -518,7 +500,7 @@
     }
 
     if (view) {
-      console.log('View found in ULR = ', view);
+      console.log('View found in URL = ', view);
       argParams.view = view;
     }
     else {
@@ -604,11 +586,11 @@
         .then(responseParseFn)
         .then(function (responseData) {
           //resolve original promise
-          console.log('Request Succeeded - Data: ', responseData);
+          console.warn('Request Succeeded - Data: ', responseData);
           resolve(responseData);
         })
         .catch(function (error) {
-          console.log('Request Failed - Error: ', error);
+          console.warn('Request Failed - Error: ', error);
           reject(error);
         });
     });
