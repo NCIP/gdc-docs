@@ -2,9 +2,9 @@
 
 ## Overview
 
-GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools).
+The GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools).
 
-This chapter will focus on the upload and validation of the data to the GDC project workspace.
+This chapter will focus on the upload and validation of data to the GDC project workspace.
 
 ## Introduction to the Files
 
@@ -15,7 +15,7 @@ The GDC Data Submission Portal supports the following file formats for submissio
 * JSON
 * TSV
 
-During the upload and validation process, files are converted by the GDC API into entities and inserted into the database, maintaining a file-agnostic backend.
+During the upload and validation process, files are converted by the GDC API into entities and inserted into the database, maintaining a file-agnostic back-end.
 
 The GDC Data Submission Portal offers the ability to download files in different formats. To do so the system converts database entities back to the requested file format.
 
@@ -31,11 +31,11 @@ More details about the submission process, data files and file formats can be fo
 
 #### Focus on Experiment Data
 
-GDC has developed a submission unit called a “data bundle”, which is a set of files with associated metadata.
+The GDC has developed a submission unit called a “data bundle”, which is a set of files with associated metadata.
 
-Data bundle types are defined by what files are expected and what introspection is done for validation or linking to other GDC entities. Each data bundle will be validated via a bundle type and project specific schema, including a JavaScript Object Notation (JSON) data dictionary, relationship check and molecular data quality check.
+Data bundle types are defined by what files are expected and what introspection is done for validation or linking to other GDC entities. Each data bundle will be validated via a bundle type and project specific schema, including a JSON data dictionary, relationship check and molecular data quality check.
 
-The experiment data supported by GDC is described in the [GDC Dictionary](../../Dictionary/viewer.md).
+The experiment data supported by the GDC is described in the [GDC Dictionary](../../Dictionary/viewer.md).
 
 The table below is an example of files used to upload a read group to the GDC. The next section will describe how to perform these actions.
 
@@ -52,13 +52,13 @@ The table below is an example of files used to upload a read group to the GDC. T
 
 The [GDC Dictionary](../../Dictionary/viewer.md) describes the types of entities that can be uploaded to the GDC.
 
-Go to the GDC Dictionary to download the template files to be used for the upload. The templates can be populated with data by the user and should result in a valid file (if validation rules detailed in the dictionary are met).
+The user can go to the GDC Dictionary to download the template files to be used for the upload. The templates can be populated with data by the user and should result in a valid file (if validation rules detailed in the dictionary are met).
 
 A template file describes an entity with the following information:
 
-* __Type__: identification of the entity
-* __IDs__: Project ID and Submitter ID of the entity
-* __Links__: Submitter ID of the links to other entities
+* __Type__: identification of the entity.
+* __IDs__: Project ID and Submitter ID of the entity.
+* __Links__: Submitter ID of the links to other entities.
 * __Properties__: properties of the entity.
 
 
@@ -71,18 +71,18 @@ Example of a __demographic file__ that can be uploaded in TSV format:
 | demographic | PROJECT-DEV3 | CASE-2-DEMOGRAPHIC | CASE-2 | not hispanic or latino | female | not allowed to collect | 1980 | 0
 
 
-Once you have prepared your files (in TSV or JSON format), you can move on to the next step, upload your data through the Upload Data Wizard.
+Once the user has prepared their files (in TSV or JSON format), they can move on to the next step, uploading their data through the Upload Data Wizard.
 
 ## Step 2. Upload Data Wizard
 
 
-The GDC Data Submission Portal is equipped with a wizard window to guide you through the upload and validation of the data. There are stages:
+The GDC Data Submission Portal is equipped with a wizard window to guide you through the upload and validation of data. There are three stages:
 
 * __Upload Files__: Upload a file into the user's browser, at this point nothing is submitted to the project workspace.
-* __Validate Files__: Send the file to the GDC backend to validate its content (see below).
-* __Confirm Submission__: Submit validated file to the project workspace and produce a report.
+* __Validate Files__: Send a file to the GDC backend to validate its content (see below).
+* __Confirm Submission__: Submit a validated file to the project workspace and produce a report.
 
-The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate content of submitted files against the project's dictionary to detect potential errors. Invalid files will be flagged and the upload to the GDC will be denied until corrections are made by the user. A validation error report provided by the system can be used to isolate and correct errors for resubmission.
+The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of submitted files against the project's dictionary to detect potential errors. Invalid files will be flagged and the upload to the GDC will be denied until corrections are made by the user. A validation error report provided by the system can be used to isolate and correct errors for resubmission.
 
 ### Upload Files
 
@@ -98,10 +98,9 @@ As soon as the first file is added, the wizard will move to the _'VALIDATE'_ sec
 
 [![GDC Submission Wizard Validate Files](images/GDC_Submission_Wizard_Validate.png)](images/GDC_Submission_Wizard_Validate.png "Click to see the full image.")
 
-Once all files have been added, clicking on _'VALIDATE'_ will check if files are valid for submission.
+Once all files have been added, clicking on _'VALIDATE'_ will check if the files are valid for submission.
 
 [![Confirm Submission](images/GDC_Submission_Wizard_Confirm.png)](images/GDC_Submission_Wizard_Confirm.png "Click to see the full image.")
-
 
 If the upload contains invalid files, the user will not be able to submit the data and those files will need to be either corrected and re-uploaded or removed from the submission.
 
@@ -126,11 +125,11 @@ You can then click on _'CLICK HERE TO VIEW THE TRANSACTION'_ to be redirected to
 ## Step 3. GDC Data Transfer Tool
 
 
-**The step 3 is applicable to Experiment Data only.**
+**Step 3 is applicable to Experiment Data only.**
 
-Use the GDC Data Transfer Tool to upload the actual file.
+The GDC Data Transfer Tool is used to upload the actual file.
 
-Once you uploaded the metadata through the Upload Data Wizard (e.g. read_group and submitted file metadata), you will be able to download the manifest from the transaction report.
+Once the user has uploaded the metadata through the Upload Data Wizard (e.g. read_group and submitted file metadata), they will be able to download the manifest from the transaction report.
 
 **Note:** You can also download the manifest from the Browse menu.
 
@@ -140,6 +139,6 @@ Use this manifest to upload your actual files to the GDC Data Transfer Tool. Ple
 
 ## Download previously submitted files
 
-The transaction page, accessible through the Browse menu, list all previous transactions in the project. The user can download submitted files in the details section of the screen by selecting a particular transaction.
+The transaction page, accessible through the Browse menu, lists all previous transactions in the project. The user can download submitted files in the details section of the screen by selecting a particular transaction.
 
 [![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files.png)](images/GDC_Submission_Transactions_Original_Files.png "Click to see the full image.")
