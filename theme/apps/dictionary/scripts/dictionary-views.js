@@ -110,7 +110,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
     function _getPropertyValueRecursive(propertyVal) {
 
-      console.log(propertyVal);
+      //console.log(propertyVal);
 
       if (_.has(propertyVal, 'enum')) {
         return propertyVal.enum;
@@ -173,10 +173,6 @@
       var dictionaryProperties = _.get(dictionaryData, 'properties', false),
           requiredProperties = _.get(dictionaryData, 'required', false);
 
-      if (! dictionaryProperties) {
-        return [_.times(4, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
-      }
-
       var propertyIDs = _.keys(dictionaryProperties);
 
 
@@ -186,12 +182,21 @@
             property = dictionaryProperties[propertyName],
             description = property.description,
             valueOrType = _getPropertyValueOrType(property),
+            CDE = _.get(dictionaryData, 'terms.' + propertyName + '.termDef'),
             isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';
+
+        // Ignore system properties for now...
+        if (dictionaryData.systemProperties.indexOf(propertyName) >= 0) {
+         console.log('Skipping system property: ' + propertyName);
+          continue;
+        }
+
 
         p.push(propertyName);
         p.push(_valueOrDefault(description));
         p.push(_valueOrDefault(valueOrType));
         p.push(isRequired);
+        p.push(_valueOrDefault(CDE)) ;
         propertyData.push(p);
       }
 
@@ -199,11 +204,17 @@
 
       console.log('Property: ', propertyData);
 
+      if (propertyData.length === 0) {
+        return [_.times(5, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
+      }
+
       return propertyData;
     }
 
     function _renderPropertiesTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData;
+
+      console.log(dictionaryData);
 
       tableContainerSelection.append('h2')
         .append('a')
@@ -220,7 +231,7 @@
       tHead.append('tr')
         .classed('dictionary-properties-header', true)
         .selectAll('th')
-        .data(['Property', 'Description', 'Acceptable Types or Values', 'Required?'])
+        .data(['Property', 'Description', 'Acceptable Types or Values', 'Required?', 'CDE'])
         .enter()
         .append('th')
         .text(function(d) { return d; });
@@ -242,9 +253,25 @@
 
           var data = d;
 
-          if (i !== 2) {
+          if (_.isString(data)) {
             return data;
           }
+
+          if (i === 4) {
+            var cdeStr = '';
+
+            if (data.term_url) {
+              cdeStr = '<a href="' + (data.term_url ? data.term_url : '#') + '" target="_blank">' + data.cde_id +
+                       '</a>' + ' - ' + data.source;
+            }
+            else {
+              cdeStr = _valueOrDefault();
+            }
+
+            return cdeStr;
+          }
+
+
 
           if (data.propertyName === 'type') {
             return data.propertyValue;
@@ -403,7 +430,8 @@
             if (_.isArray(subLinkDataNode)) {
               subLinkData[0].push(' - ' + subLinkDataNode[0]);
               subLinkData[1].push(subLinkDataNode[1]);
-              subLinkData[2].push(subLinkDataNode[2]);
+              // Link dictates whether subgroup is required
+              subLinkData[2].push(link.required === true ? 'Yes': 'No');
             }
           }
 
@@ -463,11 +491,16 @@
         })
         .enter()
         .append('td')
-        .html(function(data) {
+        .html(function(data, i) {
           //console.log(data);
           if (!_.isArray(data)) {
             return data;
           }
+
+          if (i === 2) {
+            return _.first(data);
+          }
+
 
           var newData = data.join('<br />');
 

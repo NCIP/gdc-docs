@@ -127,6 +127,8 @@
 
       case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV:
 
+        _dictionary._options.beforeRenderFn.call(_dictionary, _dictionary);
+
         var data = _dictionary._data,
             urlParams = _getParamsFromURL(),
             currentView = _dictionary.getCurrentView();
@@ -136,7 +138,8 @@
         }
 
         if (_.has(params, 'id')) {
-          data = _dictionary._data.dictionaryMap[params.id];
+          data = {};
+          _.assign(data, _dictionary._data.dictionaryMap[params.id], {terms: _.get(_dictionary._data, 'terms',{})});
         }
 
         _dictionary
@@ -152,11 +155,17 @@
 
         _dictionary.updateBreadcrumb();
 
+        _dictionary._options.afterRenderFn.call(_dictionary, _dictionary);
+
         break;
 
       default:
         break;
     }
+  };
+
+  Dictionary.prototype.getCurrentViewName = function() {
+    return this._currentViewMode;
   };
 
   Dictionary.prototype.getDataFromSource = function(responseType) {
@@ -209,6 +218,7 @@
     var _dictionary = this;
 
     _dictionary._currentView = _dictionary._getView(viewName);
+    _dictionary._currentViewMode = viewName;
 
     return _dictionary;
   };

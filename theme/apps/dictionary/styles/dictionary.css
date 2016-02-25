@@ -2,6 +2,10 @@
   opacity: 0;
 }
 
+.dictionary-view .bullets {
+  padding-left: 1rem;
+}
+
 /* Dictionary Entity View */
 
 .dictionary-entity-table {
