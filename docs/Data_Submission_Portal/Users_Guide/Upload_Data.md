@@ -65,7 +65,7 @@ A template file describes an entity with the following information:
 
 Example of a __demographic file__ that can be uploaded in TSV format:
 
-```tsv
+```Demographic.tsv
 type	project_id	submitter_id	cases.submitter_id	ethnicity	gender	race	year_of_birth	year_of_deathdemographic	TCGA-DEV3	TCGA-DEV-3-CASE-000-D1	TCGA-DEV-3-CASE-000	hispanic or latino	male	white	1950	0demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	female	white	1956	0
 ```
 
@@ -103,7 +103,7 @@ Once all files have been added, clicking on _'VALIDATE'_ will check if the files
 
 If the upload contains invalid files, the user will not be able to submit the data and those files will need to be either corrected and re-uploaded or removed from the submission.
 
-[![Invalid Files in a Submission](images/GDC_Submission_wizard_Invalid_Files.png)](images/GDC_Submission_wizard_Invalid_Files.png "Click to see the full image.")
+[![Invalid Files in a Submission](images/GDC_Submission_Wizard_Invalid_Files.png)](images/GDC_Submission_Wizard_Invalid_Files.png "Click to see the full image.")
 
 Files can be removed from the submission by clicking on the _'garbage'_ icon related to the file.
 
