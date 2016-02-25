@@ -111,7 +111,8 @@
     function _prepPropertiesTableData(dictionaryData) {
       var propertyData = [];
 
-      var dictionaryProperties = _.get(dictionaryData, 'properties', false);
+      var dictionaryProperties = _.get(dictionaryData, 'properties', false),
+          requiredProperties = _.get(dictionaryData, 'required', false);
 
       if (! dictionaryProperties) {
         return [_.times(4, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
@@ -123,10 +124,24 @@
 
       //var propertyValues = window.$gdcApp.dictionaryViewer.getSourceData().dictionaryMap;
 
+      for (var i = 0; i < propertyIDs.length; i++) {
+        var p = [],
+            propertyName = propertyIDs[i],
+            property = dictionaryProperties[propertyName],
+            description = property.description,
+            valueOrType = property.enum || property.type,
+            isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';
+
+        p.push(propertyName);
+        p.push(_valueOrDefault(description));
+        p.push(_valueOrDefault(valueOrType));
+        p.push(isRequired);
+        propertyData.push(p);
+      }
 
       //console.log(propertyValues);
 
-
+      console.log('Property: ', propertyData);
 
       return propertyData;
     }
@@ -163,7 +178,38 @@
         })
         .enter()
         .append('td')
-        .html(function(data) {
+        .html(function(d, i) {
+
+          var data = d;
+
+          if (i !== 2) {
+            return data;
+          }
+
+          if (_.isArray(data)) {
+
+            var newData = '<ul class="bullets">' +
+                          _.map(data,  function(val) {
+                            var arrayVal = '';
+
+                            if (_.isArray(val) && val.length === 1) {
+                              arrayVal = val[0];
+                            }
+                            else if (_.isArray(val)  && val.length > 1) {
+                              arrayVal = val.join(', ');
+                            }
+                            else {
+                              arrayVal = val;
+                            }
+
+                            return '<li>' + arrayVal + '</li>';
+                          }).join('\n') +
+                          '</ul>';
+
+            data = newData;
+
+          }
+
           return data;
         });
 
@@ -256,8 +302,10 @@
       }
 
       linkData.push(link.name);
-      linkData.push(link.backref + ' ' +  link.label + ' '  + link.target_type);
-      linkData.push(link.required);
+      linkData.push(_valueOrDefault(link.backref) + ' ' +
+                    _valueOrDefault(link.label) + ' '  +
+                    _valueOrDefault(link.target_type));
+      linkData.push(link.required === true ? 'Yes' : 'No');
 
       return linkData;
     }
@@ -324,7 +372,7 @@
       tHead.append('tr')
         .classed('dictionary-links-header', true)
         .selectAll('th')
-        .data(['Links to', 'Relationship', 'Required'])
+        .data(['Links to', 'Relationship', 'Required?'])
         .enter()
         .append('th')
         .text(function(d) { return d; });
@@ -521,6 +569,9 @@
 
 
 
+  function _valueOrDefault(val) {
+    return val !== null && typeof val !== 'undefined' ? val : _DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL;
+  }
 
   /////////////////////////////////////////////////////////
   // Parent View Definition
