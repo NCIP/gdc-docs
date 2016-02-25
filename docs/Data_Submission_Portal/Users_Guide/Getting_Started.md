@@ -4,15 +4,15 @@
 
 The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission Portal User's Guide is the companion documentation for the [GDC Data Submission Portal](https://gdc.nci.nih.gov/submit-data/gdc-data-submission-portal) and provides detailed information and instructions for its use.
 
-The GDC Data Submission Portal is a platform allowing researchers to submit and release their data into GDC. The key features of the GDC Data Submission Portal are:
+The GDC Data Submission Portal is a platform that allows researchers to submit and release their data into the GDC. The key features of the GDC Data Submission Portal are:
 
-* __Upload and Validate Data__: Upload project data, metadata and associated files to the GDC project workspace. GDC will validate the data with the GDC data dictionary.
-* __Review and Submit__: Review your project data will lock the project and ensure no user can upload more data. Once project data is reviewed, Submit it to GDC for data processing (Harmonization Pipeline).
+* __Upload and Validate Data__: Upload project data, metadata and associated files to the GDC project workspace. The GDC will validate the data with the GDC data dictionary.
+* __Review and Submit__: Review your project data will lock the project and ensure no user can upload more data. Once project data is reviewed, Submit it to the GDC for data processing (Harmonization Pipeline).
 * __Release__: Release your harmonized data to the research community (on the GDC Data Portal).
 * __Download Data__: Download submitted data from your project workspace to review them or update them for re-upload before their release to the GDC Data Portal.
 * __Browse Data__: Browse submitted data in the GDC Data Submission Portal to make sure your project is ready for processing.
 * __Status and Alerts__: Visual mechanisms to easily identify incomplete submissions.
-* __Reports__: Access and download submission-related reports to get better insight into the status of submitted data.
+* __Reports__: Access and download submission-related reports to gain better insight into the status of submitted data.
 
 ## Submission Workflow
 
@@ -29,21 +29,21 @@ TO BE COMPLETED
 
 ### Release
 
-To ensure GDC always releases high-quality data, submitted files are not automatically released.
+To ensure the GDC always releases high-quality data, submitted files are not automatically released.
 
 Once cases meet a minimum set of requirements, a submitter can sign-off on those cases via the submission portal. The sign-off will initiate data indexing and harmonization in preparation for a release of the data to the [GDC Data Portal] (https://gdc-dev.nci.nih.gov/access-data/gdc-data-portal).
 
-Minimum requirements for releasing a case vary from one project to another, but must include data from the following three categories:
+Minimum requirements for releasing a case vary from one project to another, but it must include data from the following three categories:
 
-* Clinical Data: elements such as gender, age, diagnosis, etc. as defined in the GDC dictionary.
-* Biospecimen Data: entities such as sample, aliquot etc as defined in the GDC dictionary.
-* Molecular Data: at least one type of molecular data, such as, lane level DNA Sequences, as defined in the GDC dictionary.
+* Clinical Data: elements such as gender, age, diagnosis, etc. as defined in the GDC Dictionary.
+* Biospecimen Data: entities such as sample, aliquot, etc. as defined in the GDC Dictionary.
+* Molecular Data: at least one type of molecular data, such as, lane level DNA Sequences, as defined in the GDC Dictionary.
 
 By using the dictionary viewer, the user can identify minimum fields requirements for each of the three categories listed above.
 
-In general, submitters are requested to release their files within six months from first submission. This guideline is in place in support of GDC's aim to make data available to the community according to the Genomic Data Sharing policies outlined by NCI.
+In general, submitters are requested to release their files within six months from first submission. This guideline is in place in support of the GDC's aim to make data available to the community according to the Genomic Data Sharing policies outlined by NCI.
 
-Released cases and/or files can be redacted from GDC. Redaction is performed by GDC administrators, at case level through synchronization with dbGaP, and at file level through submitter's request usually after a data quality issue is identified. The GDC Data Submission Portal itself currently does not support redaction by researchers through the web user interface.
+Released cases and/or files can be redacted from the GDC. Redaction is performed by GDC administrators, at case level through synchronization with dbGaP, and at file level through submitter's request usually after a data quality issue is identified. The GDC Data Submission Portal itself currently does not support redaction by researchers through the web user interface.
 
 ### Data Access and Download
 
@@ -68,7 +68,7 @@ To provide users with a better understanding of dictionaries attached to project
 
 The user can access a list of all previous submissions by clicking on transactions in the left panel. This will display a list of all past transactions for the selected project. By clicking on a transaction users can access details of this transaction as well as download the submitted files.
 
-Transactions are also displayed on the dashboard via a widget displaying the most recent transactions.
+Transactions are also displayed on the dashboard by a widget displaying the most recent transactions.
 
 ### Reports
 
@@ -81,4 +81,4 @@ Upon loading the site, the GDC Data Submission Portal login page or Dashboard is
 
 ## Release Notes
 
-The GDC Data Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/Data_Submission_Portal_Release_Notes.md) sections of the documentation contains details about new features, bug fixes and known issues.
+The GDC Data Submission Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/Data_Submission_Portal_Release_Notes.md) section of the documentation contains details about new features, bug fixes and known issues.
