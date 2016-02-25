@@ -2,9 +2,9 @@
 
 ## Overview
 
-The _"Browse"_ tab provides access to all of the project's content. Most content is driven by [GDC Dictionary](../../Dictionary/index.md) and the interface is dynamically generated to accomodate the content.
+The _"Browse"_ tab provides access to all of a project's content. Most content is driven by the [GDC Dictionary](../../Dictionary/index.md) and the interface is dynamically generated to accomodate the content.
 
-Please refer to [GDC Dictionary](../../Dictionary/index.md) for more details about a dictionary-generated fields, columns and filters.
+Please refer to the [GDC Dictionary](../../Dictionary/index.md) for more details about dictionary-generated fields, columns and filters.
 
 All static components are detailed in this User Guide.
 
@@ -14,11 +14,11 @@ All static components are detailed in this User Guide.
 
 ### Upload
 
-An [upload](Upload_Data.md) button is available at the top-left section of the left panel. Depending of the project status, this will allow data to be [uploaded](Upload_Data.md) to GDC. 
+An [upload](Upload_Data.md) button is available at the top-left section of the left panel. Depending of the project status, this will allow data to be [uploaded](Upload_Data.md) to the GDC. 
 
 ### Filters
 
-A wide set of filters are available for the user to select the type of entity to be displayed. Most filters are dynamically created based on [GDC Dictionary](../../Dictionary/index.md), but some have been added to provide additional insight about the data.
+A wide set of filters are available for the user to select the type of entity to be displayed. Most filters are dynamically created based on the [GDC Dictionary](../../Dictionary/index.md), but some have been added to provide additional insight about the data.
 
 Hard-coded filters are:
 
@@ -60,11 +60,11 @@ ADD CONTENT
 
 The list view is a paginated list of all entities corresponding to the selected filter.
 
-On the top left section of the screen, the user can download data about all entities associated with the selected filter.
+On the top-left section of the screen, the user can download data about all entities associated with the selected filter.
 
 ### Details Panel
 
-Clicking on a case will open the details panel. Data in this panel is broken down in multiple sections and driven by [GDC Dictionary](../../Dictionary/index.md)
+Clicking on a case will open the details panel. Data in this panel is broken down into multiple sections and driven by the [GDC Dictionary](../../Dictionary/index.md)
 
 [![GDC Submission Case Details](images/GDC_Submission_Cases_Details.png)](images/GDC_Submission_Cases_Details.png "Click to see the full image.")
 
@@ -90,4 +90,4 @@ Clicking on the count will open a list page listing those entities.
 
 #### Transactions
 
-List the 10 most recent transactions associated with this entity ordered by date. Clicking on a transaction will open it in the list page.
+Lists the 10 most recent transactions associated with this entity ordered by date. Clicking on a transaction will open it in the list page.
