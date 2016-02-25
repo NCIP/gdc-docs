@@ -18,7 +18,7 @@
 
 ## Known Issues and Workarounds
 
-*   Users may experience issues (unable to access a specific transaction ID) when navigating the transactions list page. The workaround is to refresh the page.
+*   Users may experience issues (e.g. unable to access a specific transaction ID) when navigating the transactions list page. The workaround is to refresh the page.
 *   Search feature partially implemented, some items are not searchable.
 *   Implementation of Submit and Release not finalized.
 *   XML file submission is returning a bad request error. The workaround is to submit files through the GDC API.
