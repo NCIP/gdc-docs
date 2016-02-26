@@ -355,7 +355,7 @@
           }).join('\n\t');
 
 
-          data = '<ul class="bullets"><li>' + data.propertyName + ': <ul>' + bullets + '</ul></li></ul>';
+          data = '<div class="values-accordion"><ul class="bullets"><li>' + data.propertyName + ': <ul>' + bullets + '</ul></li></ul></div>';
 
           return data;
         });
