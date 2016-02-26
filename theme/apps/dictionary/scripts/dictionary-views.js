@@ -728,8 +728,8 @@
         })
         .html(function() {
           var tooltipText = getTooltipText();
-          return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
-                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> &nbsp;<i style="color: #ccc;" class="fa fa-info-circle"></i>' : '');
+          return '<i class="fa fa-book"></i> <em>' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) + '</em>' +
+                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> &nbsp;<!-- i style="color: #ccc;" class="fa fa-info-circle"></i -->' : '');
         });
 
       // Exclude the below from download
@@ -754,7 +754,7 @@
               })
             );
           })
-          .html('<i class="fa fa-cloud-download"></i>');
+          .html('<i class="fa fa-cloud-download"></i>&nbsp; Download  &nbsp;');
       }
 
       var tRows = tBody.selectAll('tr')

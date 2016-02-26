@@ -257,24 +257,40 @@
   left: -55%;
 }
 
-.dictionary-view-control a.dictionary-tooltip:hover > span {
+.dictionary-view-control .dictionary-tooltip:hover > span {
   margin-left: -25rem;
   margin-top: 5rem;
   z-index: 1000;
   text-align: left;
 }
 
-/* ******** */
+.dictionary-download-category-btn-container .dictionary-tooltip:hover > span {
+  margin-left: -31rem;
+  text-align: left;
+  width: 25rem;
+}
+
+.dictionary-download-category-btn-container .dictionary-tooltip:hover > span i {
+  margin-left: 18rem;
+}
+
+  /* ******** */
 
 /* Tooltips */
-a.dictionary-tooltip {
+.dictionary-tooltip {
   outline: none;
   text-decoration: none;
   /*border-bottom: dotted 1px #ccc;*/
   position: relative;
+  cursor: pointer;
 }
 
-a.dictionary-tooltip > span {
+.dictionary-tooltip em {
+  border-bottom: dotted 1px #ccc;
+  font-style: normal;
+}
+
+.dictionary-tooltip > span {
   width: 30rem;
   padding: 1rem 2rem;
   margin-top: 4rem;
@@ -297,7 +313,7 @@ a.dictionary-tooltip > span {
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-a.dictionary-tooltip:hover > span {
+.dictionary-tooltip:hover > span {
   opacity: 1;
   text-decoration: none;
   visibility: visible;
@@ -308,7 +324,11 @@ a.dictionary-tooltip:hover > span {
   opacity: 0.9;
 }
 
-a.dictionary-tooltip span i {
+.dictionary-tooltip:hover > span > a {
+  visibility: visible;
+}
+
+.dictionary-tooltip span i {
   width: 15px;
   height: 15px;
   margin-left: 0px;
@@ -323,7 +343,7 @@ a.dictionary-tooltip span i {
   *display: none;
 }
 
-a.dictionary-tooltip > span {
+.dictionary-tooltip > span {
   color: #fff;
   background: #000;
   background: -webkit-linear-gradient(top, #000000, #111);
@@ -331,7 +351,7 @@ a.dictionary-tooltip > span {
 
 }
 
-a.dictionary-tooltip span > i {
+.dictionary-tooltip span > i {
   background: #000;
   border-top: 1px solid #000;
   border-right: 1px solid #000;
