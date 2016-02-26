@@ -26,7 +26,7 @@ Tools that can help build GDC API calls:
 | [UrlDecode.org](http://urldecode.org/)| Decode/Encode url strings (for example, from { to %7B) |
 _Table : API Build Tools_
 
-**Note:** See Appendix C for examples of using these tools.
+**Note:** See [Appendix C](Appendix_C_Using_Third-party-Tools.md) for examples of using these tools.
 
 ## Endpoints
 
