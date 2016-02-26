@@ -1,26 +1,4 @@
-# Appendix C - Tools
-A large variety of tools are available to visualize and prepare calls to the GDC API.
-
-The following tools can be used to communicate with GDC API (non-exhaustive list):
-
-| Tool        | Type     |
-| ------------- |-------------|
-| [Curl](http://curl.haxx.se/docs/manpage.html) 		| Command line tool |
-| [HTTPie](https://github.com/jakubroztocil/httpie) 	| Command line tool |
-| [Postman REST Client](https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) 														| Google Chrome standalone app |
-| [Google Chrome](http://www.google.com/chrome/) 	  | Google Chrome web browser can be used to make API calls |
-| [DHC](http://restlet.com/products/dhc/)           | Google Chrome plugin to test REST APIs |
-_Table : API Communication Tools_
-
-The following online tools can be used to help build GDC API calls:
-
-| Tool        | Description     |
-| ------------- |-------------|
-| [JSONLint](http://jsonlint.com/)| Validate JSON strings |
-| [UrlDecode.org](http://urldecode.org/)| Decode/Encode url strings (for example, from { to %7B) |
-_Table : API Build Tools_
-
-**Note:** See Appendix C for an example of using `jsonlint` and `urldecode` for GET to POST conversion.
+# Appendix C - Using Third-party Tools
 
 ## Using jsonlint and urldecode for GET to POST Conversion
 
@@ -28,11 +6,11 @@ The first operation consists in breaking up the query below by identifying its p
 
     https://gdc-api.nci.nih.gov/files?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.clinical.gender%22%2C%22value%22%3A%5B%22female%22%5D%7D%7D%2C%7B%22op%22%3A%22%3E%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.clinical.age_at_diagnosis%22%2C%22value%22%3A%5B%229125%22%5D%7D%7D%2C%7B%22op%22%3A%22%3C%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.clinical.age_at_diagnosis%22%2C%22value%22%3A%5B%2212775%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.primary_site%22%2C%22value%22%3A%5B%22Skin%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_format%22%2C%22value%22%3A%5B%22CEL%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.case_id%22%2C%22value%22%3A%5B%22ccf8809a-cdfd-46f7-b607-001b8b91c1a4%22%5D%7D%7D%5D%7D&from=1&size=2&fields=file_id,file_size&pretty=true
 
-The following parameters can be identified: 
+The following parameters can be identified:
 
-* filters 
-* from 
-* size 
+* filters
+* from
+* size
 * fields
 
 **Note**: the pretty paremeter can be discarded at this point, since tools used for POST usually provide JSON parsing.
