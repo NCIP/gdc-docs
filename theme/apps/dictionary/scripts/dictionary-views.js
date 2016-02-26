@@ -108,34 +108,111 @@
     ///////////////////////////////////////////////////////////////////////////////////////
     // Properties Table
     ///////////////////////////////////////////////////////////////////////////////////////
+    function _getPropertyValueRecursive(propertyVal) {
+
+      //console.log(propertyVal);
+
+      if (_.has(propertyVal, 'enum')) {
+        return propertyVal.enum;
+      }
+      else if (_.has(propertyVal, 'items.properties')) {
+        return _.keys(propertyVal.items.properties)
+      }
+      else if (_.has(propertyVal, 'properties')) {
+        return _.keys(propertyVal.properties)
+      }
+      else if (_.has(propertyVal, 'type')) {
+        if (_.has(propertyVal, 'format')) {
+          return  propertyVal.type + ' (Format: ' + propertyVal.format + ')';
+        }
+        return propertyVal.type;
+      }
+
+      return propertyVal;
+    }
+
+    function _getPropertyValueOrType(property) {
+      var typesValuesPrecedence = ['enum', 'anyOf', 'oneOf', 'type'],
+          value = null;
+
+      if (! _.isObject(property)) {
+        return property;
+      }
+
+      for (var i = 0; i < typesValuesPrecedence.length; i++) {
+        var propertyName = typesValuesPrecedence[i],
+            propertyVal = property[propertyName];
+
+        if (_.has(property, propertyName)) {
+          var normalizedPropertyName = propertyName.toLowerCase();
+          switch (normalizedPropertyName) {
+            case 'enum':
+            case 'type':
+              value = {propertyName: normalizedPropertyName === 'enum' ? 'Enumeration' : propertyName, propertyValue: propertyVal};
+              break;
+            case 'anyof':
+            case 'oneof':
+              value = {propertyName: normalizedPropertyName === 'oneof' ? 'One of' : 'Any of', propertyValue: []};
+
+              for (var j = 0; j < propertyVal.length; j++) {
+                value.propertyValue.push(_getPropertyValueRecursive(propertyVal[j]));
+              }
+              break;
+          }
+
+          break;
+        }
+      }
+
+      return value;
+    }
+
     function _prepPropertiesTableData(dictionaryData) {
       var propertyData = [];
 
       var dictionaryProperties = _.get(dictionaryData, 'properties', false),
           requiredProperties = _.get(dictionaryData, 'required', false);
 
-      if (! dictionaryProperties) {
-        return [_.times(4, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
+
+
+
+      var propertyIDs;
+
+      var requiredPartition = _.partition(_.keys(dictionaryProperties), function(propertyName) {
+
+        return requiredProperties && requiredProperties.indexOf(propertyName) >= 0;
+      });
+
+      if (requiredPartition.length === 2) {
+        propertyIDs = _.sortBy(requiredPartition[0]).concat(_.sortBy(requiredPartition[1]));
+      }
+      else {
+        propertyIDs = requiredPartition;
       }
 
-      var propertyIDs = _.keys(dictionaryProperties);
-      // TODO: Property values will materialize into real entities soon switch
-      // the below code when the is done on the backend
-
-      //var propertyValues = window.$gdcApp.dictionaryViewer.getSourceData().dictionaryMap;
+      console.log(requiredPartition);
 
       for (var i = 0; i < propertyIDs.length; i++) {
         var p = [],
             propertyName = propertyIDs[i],
             property = dictionaryProperties[propertyName],
             description = property.description,
-            valueOrType = property.enum || property.type,
+            valueOrType = _getPropertyValueOrType(property),
+            CDE = _.get(dictionaryData, 'terms.' + propertyName + '.termDef'),
             isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';
+
+        // Ignore system properties for now...
+        if (dictionaryData.systemProperties.indexOf(propertyName) >= 0) {
+         console.log('Skipping system property: ' + propertyName);
+          continue;
+        }
+
 
         p.push(propertyName);
         p.push(_valueOrDefault(description));
         p.push(_valueOrDefault(valueOrType));
         p.push(isRequired);
+        p.push(_valueOrDefault(CDE)) ;
         propertyData.push(p);
       }
 
@@ -143,13 +220,23 @@
 
       console.log('Property: ', propertyData);
 
+      if (propertyData.length === 0) {
+        return [_.times(5, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
+      }
+
       return propertyData;
     }
 
     function _renderPropertiesTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData;
 
-      tableContainerSelection.append('h2').text('Properties');
+      console.log(dictionaryData);
+
+      tableContainerSelection.append('h2')
+        .append('a')
+        .attr('id', 'properties-table')
+        .attr('href',  '#?view=' + _tableDefinitionView._name + '&id=' + dictionaryData.id + '&anchor=properties-table')
+        .text('Properties');
 
       var definitionTable = tableContainerSelection.append('table')
         .classed('dictionary-properties-table', true);
@@ -160,7 +247,7 @@
       tHead.append('tr')
         .classed('dictionary-properties-header', true)
         .selectAll('th')
-        .data(['Property', 'Description', 'Acceptable Types or Values', 'Required?'])
+        .data(['Property', 'Description', 'Acceptable Types or Values', 'Required?', 'CDE'])
         .enter()
         .append('th')
         .text(function(d) { return d; });
@@ -178,24 +265,135 @@
         })
         .enter()
         .append('td')
+        .classed('required-val',function(d, i) {
+          if (i === 3) {
+            return d === 'Yes';
+          }
+
+          return false;
+        })
         .html(function(d, i) {
 
           var data = d;
 
-          if (i !== 2) {
+          if (i === 0 && _.isString(data)) {
+            data = '<i class="fa fa-gear"></i> ' + data;
+          }
+
+          if (_.isString(data)) {
+            return data;
+          }
+
+          if (i === 4) {
+            var cdeStr = '';
+
+            if (data.term_url) {
+              cdeStr = '<a href="' + (data.term_url ? data.term_url : '#') + '" target="_blank">' + data.cde_id +
+                       '</a>' + ' - ' + data.source;
+            }
+            else {
+              cdeStr = _valueOrDefault();
+            }
+
+            return cdeStr;
+          }
+
+
+
+          if (data.propertyName === 'type') {
+            return data.propertyValue;
+          }
+
+          var bullets = _.map(data.propertyValue, function (val, i) {
+
+            var arrayVal = '';
+
+            //console.log(val, i);
+
+            if (_.isArray(val) && val.length === 1) {
+              arrayVal = val[0];
+            }
+            else if (_.isArray(val) && val.length > 1) {
+              arrayVal = val.join(', ');
+            }
+            else {
+              arrayVal = val;
+            }
+
+            return '<li>' + arrayVal + '</li>';
+          }).join('\n\t');
+
+
+          data = '<ul class="bullets"><li>' + data.propertyName + ': <ul>' + bullets + '</ul></li></ul>';
+
+          return data;
+        });
+
+  }
+
+    function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
+      var dictionaryData = _tableDefinitionView._dictionaryData,
+        category = _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
+        uniqueKeys = _.get(dictionaryData, 'uniqueKeys', [_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL]);
+
+      tableContainerSelection.append('h2')
+        .append('a')
+        .attr('id', 'summary-table')
+        .attr('href', '#?view=' + _tableDefinitionView._name + '&id=' + dictionaryData.id + '&anchor=summary-table')
+        .text('Summary');
+
+      var definitionTable = tableContainerSelection.append('table')
+        .classed('dictionary-summary-table', true);
+
+      var tHead = definitionTable.append('thead'),
+        tBody = definitionTable.append('tbody');
+
+      tHead.append('tr')
+        .classed('dictionary-summary-header', true)
+        .selectAll('th')
+        .data(['Title', _tableDefinitionView.getPrettyName()])
+        .enter()
+        .append('th')
+        .text(function (d) {
+          return d;
+        });
+
+
+      var dataRows = [
+        {id: 'category', title: 'Category', value: category},
+        {id: 'description', title: 'Description', value: dictionaryData.description},
+        {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
+      ];
+
+      var tRows = tBody.selectAll('tr')
+        .data(dataRows)
+        .enter()
+        .append('tr');
+
+      tRows.selectAll('td')
+        .data(function (row) {
+          return [{id: row.id, value: row.title}, {id: row.id, value: row.value}];
+        })
+        .enter()
+        .append('td')
+        .html(function (d, i) {
+
+          var data = d.value;
+
+          if (i !== 1 || d.id !== 'keys') {
             return data;
           }
 
           if (_.isArray(data)) {
 
             var newData = '<ul class="bullets">' +
-                          _.map(data,  function(val) {
+                          _.map(data, function (val) {
                             var arrayVal = '';
 
                             if (_.isArray(val) && val.length === 1) {
                               arrayVal = val[0];
                             }
-                            else if (_.isArray(val)  && val.length > 1) {
+                            else if (_.isArray(val) && val.length > 1) {
                               arrayVal = val.join(', ');
                             }
                             else {
@@ -212,84 +410,8 @@
 
           return data;
         });
-
     }
 
-    function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
-      var dictionaryData = _tableDefinitionView._dictionaryData,
-          category =  _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
-          uniqueKeys = _.get(dictionaryData, 'uniqueKeys', [_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL]);
-
-      tableContainerSelection.append('h2').text('Summary');
-
-      var definitionTable = tableContainerSelection.append('table')
-                    .classed('dictionary-summary-table', true);
-
-      var tHead = definitionTable.append('thead'),
-          tBody = definitionTable.append('tbody');
-
-      tHead.append('tr')
-        .classed('dictionary-summary-header', true)
-        .selectAll('th')
-        .data(['Title', _tableDefinitionView.getPrettyName()])
-        .enter()
-        .append('th')
-        .text(function(d) { return d; });
-
-
-      var dataRows = [
-        {id: 'category', title:'Category', value: category},
-        {id: 'description', title: 'Description', value: dictionaryData.description},
-        {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
-      ];
-
-      var tRows = tBody.selectAll('tr')
-                  .data(dataRows)
-                  .enter()
-                  .append('tr');
-
-      tRows.selectAll('td')
-        .data(function(row) {
-           return [{id: row.id, value: row.title}, {id: row.id, value: row.value}];
-        })
-        .enter()
-        .append('td')
-        .html(function(d, i) {
-
-          var data = d.value;
-
-          if (i !== 1 || d.id !== 'keys') {
-            return data;
-          }
-
-          if (_.isArray(data)) {
-
-              var newData = '<ul class="bullets">' +
-                     _.map(data,  function(val) {
-                        var arrayVal = '';
-
-                        if (_.isArray(val) && val.length === 1) {
-                          arrayVal = val[0];
-                        }
-                        else if (_.isArray(val)  && val.length > 1) {
-                          arrayVal = val.join(', ');
-                        }
-                        else {
-                          arrayVal = val;
-                        }
-
-                        return '<li>' + arrayVal + '</li>';
-                      }).join('\n') +
-                   '</ul>';
-
-            data = newData;
-
-          }
-
-          return data;
-        });
-
-    }
 
     ///////////////////////////////////////////////////////////////////////////////////////
     // Links Table
@@ -301,7 +423,7 @@
         return _.times(3, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL));
       }
 
-      linkData.push(link.name);
+      linkData.push({id: _.get(link, 'target_type'), name: link.name});
       linkData.push(_valueOrDefault(link.backref) + ' ' +
                     _valueOrDefault(link.label) + ' '  +
                     _valueOrDefault(link.target_type));
@@ -333,9 +455,10 @@
             var subLinkDataNode = createLinkData(linkSubgroups[j]);
 
             if (_.isArray(subLinkDataNode)) {
-              subLinkData[0].push(' - ' + subLinkDataNode[0]);
+              subLinkData[0].push(subLinkDataNode[0]);
               subLinkData[1].push(subLinkDataNode[1]);
-              subLinkData[2].push(subLinkDataNode[2]);
+              // Link dictates whether subgroup is required
+              subLinkData[2].push(link.required === true ? 'Yes': 'No');
             }
           }
 
@@ -361,7 +484,11 @@
     function _renderLinksTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData;
 
-      tableContainerSelection.append('h2').text('Links');
+      tableContainerSelection.append('h2')
+        .append('a')
+        .attr('id', 'links-table')
+        .attr('href',  '#?view=' + _tableDefinitionView._name  + '&id=' + dictionaryData.id + '&anchor=links-table')
+        .text('Links');
 
       var definitionTable = tableContainerSelection.append('table')
         .classed('dictionary-links-table', true);
@@ -391,11 +518,51 @@
         })
         .enter()
         .append('td')
-        .html(function(data) {
-          //console.log(data);
-          if (!_.isArray(data)) {
+        .classed('required-val',function(d, i) {
+          if (i === 2) {
+            return d === 'Yes';
+          }
+
+          return false;
+        })
+        .html(function(data, i) {
+
+          if (i === 0) {
+
+            var link = data;
+
+            if (_.isString(link)) {
+              return link;
+            }
+
+            var isNotSubgroup = false;
+
+            if (!_.isArray(link)) {
+              isNotSubgroup = true;
+              link = [data];
+            }
+
+            link = _.map(link, function(l) {
+              return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
+                      (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
+                      (isNotSubgroup ? '<i class="fa fa-file-o"></i>': '<i class="fa fa-sitemap"></i>') + ' ' +
+                      l.id +
+                      '</a>';
+            }).join('<br />\n');
+
+
+            return link;
+          }
+
+
+          if (_.isString(data)) {
             return data;
           }
+
+          if (i === 2) {
+            return _.first(data);
+          }
+
 
           var newData = data.join('<br />');
 
@@ -439,11 +606,14 @@
     TableEntityListView.prototype.renderView = function () {
       var _tableEntityListView = this;
       var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
+      var categoryKeys = _DICTIONARY_CONSTANTS.ENTITY_LIST_DICTIONARY_KEY_ORDER;
+      console.log(categoryKeys);
 
-      for (var category in categoryMap) {
-        if (categoryMap.hasOwnProperty(category)) {
-          _tableEntityListView.renderEntity(category, categoryMap[category]);
-        }
+      for (var i = 0; i < categoryKeys.length; i++) {
+        var category = categoryKeys[i];
+
+        _tableEntityListView.renderEntity(category, categoryMap[category]);
+
       }
 
       console.log('TableEntityListView Rendering!');
@@ -470,7 +640,7 @@
         var tooltipText = null;
 
         switch(_.first(categoryData).category) {
-          case 'clinical':
+          case 'case':
             tooltipText = 'Cases must be registered in GDC before clinical, biospecimen, experiment and annotation data can be submitted.';
             break;
           default:
@@ -504,7 +674,7 @@
         .html(function() {
           var tooltipText = getTooltipText();
           return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
-                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span>' : '');
+                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> <i style="color: #ccc;" class="fa fa-info-circle"></i>' : '');
         });
 
       var tRows = tBody.selectAll('tr')

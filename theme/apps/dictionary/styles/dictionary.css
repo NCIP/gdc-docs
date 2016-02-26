@@ -2,43 +2,69 @@
   opacity: 0;
 }
 
-/* Dictionary Entity View */
+.dictionary-view .bullets {
+  padding-left: 1rem;
+}
 
+/* Dictionary Entity View */
+.dictionary-properties-table,
+.dictionary-links-table,
+.dictionary-summary-table,
 .dictionary-entity-table {
-  width: 100%;
-  margin-bottom: 1rem;
-  background-color: #fff;
+  width: 95%;
+  margin: 0rem auto 4rem auto;
+  background-color: transparent;
   position: relative;
 }
 
 
 .dictionary-entity-header {
-  color: #565656;
-  font-size: 1.5rem;
+  background: linear-gradient(#777, #444);
+  box-shadow: inset 0 1px 0 #999;
+  color: #fff;
   font-weight: bold;
-  padding: 0 0;
-  text-align: left;
-  vertical-align: middle;
-  text-decoration: none;
-  border-bottom: solid 1px #ccc;
-  background-color: #fff;
-  -webkit-box-shadow: 0px 8px 11px -10px rgba(0,0,0,0.56);
-  -moz-box-shadow: 0px 8px 11px -10px rgba(0,0,0,0.56);
-  box-shadow: 0px 8px 11px -10px rgba(0,0,0,0.56);
-  z-index: 1000;
+  padding: 1rem 0.5rem;
+  position: relative;
+  text-shadow: 0 1px 0 #000;
 }
 
 
 .dictionary-entity-header a:hover {
-  color: #c31547;
+  color: #ff8e92;
 }
 
 .dictionary-entity-header a {
   padding: 0.5rem 1rem;
-  display: block;
-  width: 100%;
   color: inherit;
 }
+
+
+.dictionary-entity-list-item:nth-child(odd) td {
+  background: #f1f1f1;
+}
+
+.dictionary-entity-list-item:last-of-type td {
+  box-shadow: inset 0 -1px 0 #fff;
+}
+
+.dictionary-entity-list-item:last-of-type td:first-child {
+  box-shadow: inset 1px -1px 0 #fff;
+}
+
+.dictionary-entity-list-item:last-of-type td:last-child {
+  box-shadow: inset -1px -1px 0 #fff;
+}
+
+.dictionary-entity-list-item tbody:hover td {
+  color: transparent;
+  text-shadow: 0 0 3px #aaa;
+}
+
+.dictionary-entity-table tbody:hover tr:hover td {
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
+}
+
 
 .dictionary-entity-list-item {
   padding: 0rem 0rem;
@@ -67,6 +93,10 @@
 
 .dictionary-entity-list-item:hover .link a {
   color: #166aa2;
+}
+
+.dictionary-entity-list-item:hover:first-child td {
+  border-top: none;
 }
 
 .dictionary-entity-list-item:hover td {
@@ -99,8 +129,23 @@
   background-color: #E7F0FF;
   background: -moz-linear-gradient(90deg, #E7F0FF 0%, #E7F0FF 25%, #FFFFFF 75%, #FFFFFF 100%);
   background: -ms-linear-gradient(90deg, #E7F0FF 0%, #E7F0FF 25%, #FFFFFF 75%, #FFFFFF 100%);
-  background: -webkit-linear-gradient(90deg, #E7F0FF 0%, #E7F0FF 25%, #FFFFFF 75%, #FFFFFF 100%);
-  background: linear-gradient(90deg, #E7F0FF 0%, #E7F0FF 25%, #FFFFFF 75%, #FFFFFF 100%);
+  background: -webkit-linear-gradient(90deg, #E7F0FF 0%, #fff 25%, #FFFFFF 75%, #FFFFFF 100%);
+  background: linear-gradient(90deg, #E7F0FF 0%, #fff 25%, #FFFFFF 75%, #FFFFFF 100%);
+}
+
+.required-val {
+  font-weight: bold;
+  color: #437c36;
+}
+
+
+.dictionary-definition-container h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dictionary-definition-container h2 a:hover {
+  text-decoration: underline;
 }
 
 /* Dictionary Definition View */
@@ -108,27 +153,28 @@
 .dictionary-links-table,
 .dictionary-summary-table {
   width: 100%;
+  margin: 0rem auto 4rem auto;
   font-size: 1.2rem;
   border: solid 1px #ccc;
-  background-color: #f0f0f0;
+  background-color: #fff;
 }
 
 .dictionary-properties-table th,
 .dictionary-links-header th,
 .dictionary-summary-header th {
-  color: #565656;
-  font-size: 1.5rem;
+  background: linear-gradient(#777, #444);
+  box-shadow: inset 0 1px 0 #999;
+  color: #fff;
   font-weight: bold;
-  padding: 0.25rem 1rem;
-  text-align: left;
-  vertical-align: middle;
-  text-decoration: none;
-  border-bottom: solid 1px #ccc;
-  background-color: #fff;
-  -webkit-box-shadow: 0px 8px 15px -10px rgba(0,0,0,0.56);
-  -moz-box-shadow: 0px 8px 15px -10px rgba(0,0,0,0.56);
-  box-shadow: 0px 8px 15px -10px rgba(0,0,0,0.56);
-  z-index: 1000;
+  padding: 0.5rem 0.5rem;
+  position: relative;
+  text-shadow: 0 1px 0 #000;
+}
+
+.dictionary-properties-table tr:nth-child(odd) td,
+.dictionary-links-table tr:nth-child(odd) td,
+.dictionary-summary-table tr:nth-child(odd) td {
+  background: #f1f1f1;
 }
 
 .dictionary-summary-table td:first-child {
@@ -173,7 +219,7 @@
 a.dictionary-tooltip {
   outline: none;
   text-decoration: none;
-  border-bottom: dotted 1px #ccc;
+  /*border-bottom: dotted 1px #ccc;*/
   position: relative;
 }
 
