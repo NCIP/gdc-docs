@@ -257,11 +257,22 @@
   left: -55%;
 }
 
+.dictionary-view-control .dictionary-tooltip span {
+  margin-left: -42rem;
+  margin-top: 5rem;
+  text-align: left;
+}
+
+
+
+.dictionary-view-control .dictionary-tooltip > span > i {
+  margin-left: 22rem;
+}
+
 .dictionary-view-control .dictionary-tooltip:hover > span {
-  margin-left: -25rem;
+  margin-left: -37rem;
   margin-top: 5rem;
   z-index: 1000;
-  text-align: left;
 }
 
 .dictionary-download-category-btn-container .dictionary-tooltip:hover > span {
