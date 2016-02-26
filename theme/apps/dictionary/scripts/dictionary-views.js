@@ -298,10 +298,16 @@
             return cdeStr;
           }
 
-
+          console.log(data);
 
           if (data.propertyName === 'type') {
-            return data.propertyValue;
+
+            if (!_.isArray(data.propertyValue)) {
+              return data.propertyValue;
+            }
+            else {
+              return data.propertyValue.join(', ');
+            }
           }
 
           var bullets = _.map(data.propertyValue, function (val, i) {
@@ -427,9 +433,9 @@
           linkLabel = link.label ?  link.label.split('_').join(' ') : _valueOrDefault();
 
       linkData.push({id: linkID, name: link.name});
-      linkData.push(_capitalizeWords(_valueOrDefault(link.backref)) + ' ' +
+      linkData.push(_capitalizeWords(_valueOrDefault(link.backref).split('_').join(' ')) + ' ' +
                     '<strong>' +   _capitalizeWords(linkLabel) + '</strong> '  +
-                    _capitalizeWords(_valueOrDefault(link.target_type)));
+                    _capitalizeWords(_valueOrDefault(link.target_type.split('_').join(' '))));
       linkData.push(link.required === true ? 'Yes' : 'No');
 
       return linkData;
@@ -523,6 +529,10 @@
         .append('td')
         .classed('required-val',function(d, i) {
           if (i === 2) {
+            if (_.isArray(d)) {
+              return _.first(d) === 'Yes'
+            }
+
             return d === 'Yes';
           }
 
@@ -549,7 +559,7 @@
               return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
                       (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
                       (isNotSubgroup ? '<i class="fa fa-file-o"></i>': '<i class="fa fa-sitemap"></i>') + ' ' +
-                      _capitalizeWords(l.id) +
+                      _capitalizeWords(_capitalizeWords(l.id.split('_').join(' '))) +
                       '</a>';
             }).join('<br />\n');
 
