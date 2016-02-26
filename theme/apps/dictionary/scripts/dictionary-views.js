@@ -423,10 +423,13 @@
         return _.times(3, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL));
       }
 
-      linkData.push({id: _.get(link, 'target_type'), name: link.name});
-      linkData.push(_valueOrDefault(link.backref) + ' ' +
-                    _valueOrDefault(link.label) + ' '  +
-                    _valueOrDefault(link.target_type));
+      var linkID = _.get(link, 'target_type'),
+          linkLabel = link.label ?  link.label.split('_').join(' ') : _valueOrDefault();
+
+      linkData.push({id: linkID, name: link.name});
+      linkData.push(_capitalizeWords(_valueOrDefault(link.backref)) + ' ' +
+                    '<strong>' +   _capitalizeWords(linkLabel) + '</strong> '  +
+                    _capitalizeWords(_valueOrDefault(link.target_type)));
       linkData.push(link.required === true ? 'Yes' : 'No');
 
       return linkData;
@@ -546,7 +549,7 @@
               return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
                       (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
                       (isNotSubgroup ? '<i class="fa fa-file-o"></i>': '<i class="fa fa-sitemap"></i>') + ' ' +
-                      l.id +
+                      _capitalizeWords(l.id) +
                       '</a>';
             }).join('<br />\n');
 
@@ -674,7 +677,7 @@
         .html(function() {
           var tooltipText = getTooltipText();
           return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
-                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> <i style="color: #ccc;" class="fa fa-info-circle"></i>' : '');
+                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> &nbsp;<i style="color: #ccc;" class="fa fa-info-circle"></i>' : '');
         });
 
       var tRows = tBody.selectAll('tr')
@@ -741,6 +744,14 @@
 
   function _valueOrDefault(val) {
     return val !== null && typeof val !== 'undefined' ? val : _DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL;
+  }
+
+  function _capitalizeWords(str) {
+    return str.replace(/[^\s]+/g, function(word) {
+      return word.replace(/^[a-z]/i, function(firstLetter) {
+        return firstLetter.toUpperCase();
+      });
+    });
   }
 
   /////////////////////////////////////////////////////////
