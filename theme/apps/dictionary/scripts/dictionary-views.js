@@ -620,13 +620,28 @@
       var _tableEntityListView = this;
       var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
       var categoryKeys = _DICTIONARY_CONSTANTS.ENTITY_LIST_DICTIONARY_KEY_ORDER;
-      console.log(categoryKeys);
+
+      //console.log(categoryKeys);
 
       for (var i = 0; i < categoryKeys.length; i++) {
         var category = categoryKeys[i];
 
         _tableEntityListView.renderEntity(category, categoryMap[category]);
 
+      }
+
+      // Print any remaining not explicitly sorted keys that may not be in the hardcoded order...
+      var leftOverCategories = _.difference(_.keys(_tableEntityListView._dictionaryData.dictionaryMapByCategory), categoryKeys);
+
+      if (leftOverCategories.length) {
+        console.warn('Sorted Category Differences: ', leftOverCategories);
+
+        for (i = 0; i < leftOverCategories.length; i++) {
+          var category = leftOverCategories[i];
+
+          _tableEntityListView.renderEntity(category, categoryMap[category]);
+
+        }
       }
 
       console.log('TableEntityListView Rendering!');
@@ -663,11 +678,13 @@
         return tooltipText;
       };
 
-      tHead.append('tr')
+      var tHeadRow = tHead.append('tr')
         .append('th')
         .attr('colspan', 2)
-        .classed('dictionary-entity-header', true)
-        .append('a')
+        .classed('dictionary-entity-header', true);
+
+
+      tHeadRow.append('a')
         .classed('dictionary-tooltip', function() {
           return _.isString(getTooltipText());
         })
@@ -689,6 +706,31 @@
           return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
                  (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> &nbsp;<i style="color: #ccc;" class="fa fa-info-circle"></i>' : '');
         });
+
+      // Exclude the below from download
+      var excludeCategories = ['tbd', 'administrative'];
+
+      if (excludeCategories.indexOf(category.toLowerCase()) < 0) {
+        tHeadRow.append('div')
+          .classed('dictionary-download-category-btn-container', true)
+          .append('a')
+          .attr('href', 'javascript:void(0)')
+          .attr('title', 'Download All Templates for the ' +
+                         _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
+                         ' Category')
+          .on('click', function () {
+
+            var exclusions = _.get(_DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES, category, null);
+
+            _tableEntityListView._callbackFn.call(
+              null, new Dictionary._ViewUpdateObject(_tableEntityListView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED, {
+                id: category,
+                excludes: exclusions
+              })
+            );
+          })
+          .html('<i class="fa fa-cloud-download"></i>');
+      }
 
       var tRows = tBody.selectAll('tr')
         .data(categoryData)
