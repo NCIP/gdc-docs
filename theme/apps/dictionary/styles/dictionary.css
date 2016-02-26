@@ -133,6 +133,12 @@
   background: linear-gradient(90deg, #E7F0FF 0%, #fff 25%, #FFFFFF 75%, #FFFFFF 100%);
 }
 
+.dictionary-download-category-btn-container {
+  display: inline-block;
+  text-align: right;
+  float: right;
+}
+
 .required-val {
   font-weight: bold;
   color: #437c36;
@@ -158,6 +164,11 @@
   border: solid 1px #ccc;
   background-color: #fff;
 }
+
+.dictionary-definition-container {
+  width: 95%;
+}
+
 
 .dictionary-properties-table th,
 .dictionary-links-header th,
@@ -214,6 +225,27 @@
   padding: 1rem 0rem 2.5rem 0rem;
   display: none;
 }
+
+/* Dictionary View Controls */
+
+.dictionary-view-control {
+  margin: 2rem auto;
+  text-align: right;
+  width: 95%;
+}
+
+.dictionary-view-control .dropdown-menu {
+  left: -55%;
+}
+
+.dictionary-view-control a.dictionary-tooltip:hover > span {
+  margin-left: -25rem;
+  margin-top: 5rem;
+  z-index: 1000;
+  text-align: left;
+}
+
+/* ******** */
 
 /* Tooltips */
 a.dictionary-tooltip {
