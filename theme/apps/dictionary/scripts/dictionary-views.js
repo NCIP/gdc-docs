@@ -173,8 +173,24 @@
       var dictionaryProperties = _.get(dictionaryData, 'properties', false),
           requiredProperties = _.get(dictionaryData, 'required', false);
 
-      var propertyIDs = _.keys(dictionaryProperties);
 
+
+
+      var propertyIDs;
+
+      var requiredPartition = _.partition(_.keys(dictionaryProperties), function(propertyName) {
+
+        return requiredProperties && requiredProperties.indexOf(propertyName) >= 0;
+      });
+
+      if (requiredPartition.length === 2) {
+        propertyIDs = _.sortBy(requiredPartition[0]).concat(_.sortBy(requiredPartition[1]));
+      }
+      else {
+        propertyIDs = requiredPartition;
+      }
+
+      console.log(requiredPartition);
 
       for (var i = 0; i < propertyIDs.length; i++) {
         var p = [],
@@ -249,6 +265,13 @@
         })
         .enter()
         .append('td')
+        .classed('required-val',function(d, i) {
+          if (i === 3) {
+            return d === 'Yes';
+          }
+
+          return false;
+        })
         .html(function(d, i) {
 
           var data = d;
@@ -495,6 +518,13 @@
         })
         .enter()
         .append('td')
+        .classed('required-val',function(d, i) {
+          if (i === 2) {
+            return d === 'Yes';
+          }
+
+          return false;
+        })
         .html(function(data, i) {
 
           if (i === 0) {
@@ -513,7 +543,7 @@
             }
 
             link = _.map(link, function(l) {
-              return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
+              return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '" title="' +
                       (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
                       (isNotSubgroup ? '<i class="fa fa-file-o"></i>': '<i class="fa fa-sitemap"></i>') + ' ' +
                       l.id +
