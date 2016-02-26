@@ -3,7 +3,7 @@
 ## The GDC Application Programming Interface (API): An Overview
 The GDC API drives the GDC Data and Submission Portals. It is made available to external users for programmatic access to the functionality provided by the portals. This includes searching for, downloading, and submitting data and metadata.
 
-The GDC API uses JSON as its communication format, and standard HTTP methods like GET, PUT, POST and DELETE.
+The GDC API uses JSON as its communication format, and standard HTTP methods like `GET`, `PUT`, `POST` and `DELETE`.
 
 ## Tools for communicating with the GDC API
 
@@ -31,13 +31,17 @@ Tools that can help build GDC API calls:
 
 ## Making calls to the GDC API
 
-Communicating with the GDC API involves making calls to API endpoints. Each endpoint corresponds to specific API functionality. The address of the latest version of a GDC API endpoint is `https://gdc-api.nci.nih.gov/<endpoint>`, where `<endpoint>` is the name of the endpoint. The address of an endpoint corresponding to a specific major version of the GDC API is `https://gdc-api.nci.nih.gov/<version>/<endpoint>`, where `<endpoint>` is the name of the endpoint and `<version>` is the GDC API version.
+Communicating with the GDC API involves making calls to API endpoints. Each endpoint corresponds to specific API functionality.
 
-**Examples:**
+The address of the latest version of a GDC API endpoint is `https://gdc-api.nci.nih.gov/<endpoint>`, where `<endpoint>` is the name of the endpoint.
 
-Call to the latest version of `status` endpoint: `https://gdc-api.nci.nih.gov/status`
+The address of an endpoint corresponding to a specific major version of the GDC API is `https://gdc-api.nci.nih.gov/<version>/<endpoint>`, where `<endpoint>` is the name of the endpoint and `<version>` is the GDC API version.
 
-Call to `status` endpoint of version 0 of GDC API: `https://gdc-api.nci.nih.gov/v1/status`
+### Examples:
+
+> Call to the latest version of `status` endpoint: `https://gdc-api.nci.nih.gov/status`
+>
+> Call to `status` endpoint of version 0 of GDC API: `https://gdc-api.nci.nih.gov/v1/status`
 
 ## Endpoints
 
