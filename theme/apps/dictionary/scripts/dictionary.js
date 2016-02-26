@@ -167,6 +167,14 @@
 
         break;
 
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED:
+
+        if (_.has(params, 'id')) {
+          _dictionary.getDictionaryTemplate(params.id);
+        }
+
+        break;
+
       default:
         break;
     }
@@ -182,6 +190,17 @@
     return _fetch(webServiceURL, responseType);
   };
 
+  Dictionary.prototype.getDictionaryTemplate = function(dictionaryID, dataFormat) {
+    var _dictionary = this,
+        fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
+        params = {format: fileFormat},
+        webServiceURL = this._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: dictionaryID}),
+        containerEl = _dictionary._containerEl;
+
+    var f = _createHiddenForm(containerEl, webServiceURL, params);
+    f.submit();
+    containerEl.removeChild(f);
+  };
 
   Dictionary.prototype.getDictionaryTemplates = function(category, excludes, dataFormat) {
     var _dictionary = this,
@@ -352,7 +371,8 @@
       DEFAULT:'update',
       NAV: 'nav',
       INNER_NAV: 'inner-nav',
-      TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED: 'template-category-requested'
+      TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED: 'template-category-requested',
+      TEMPLATE_DOWNLOAD_REQUESTED: 'template-dictionary-requested'
     },
     DICTIONARY_ENTITY_MAP: {
       case: 'Case',

@@ -1,5 +1,7 @@
 .dictionary-view {
   opacity: 0;
+  width: 95%;
+  margin: 7rem auto 0rem auto;
 }
 
 .dictionary-view .bullets {
@@ -11,7 +13,7 @@
 .dictionary-links-table,
 .dictionary-summary-table,
 .dictionary-entity-table {
-  width: 95%;
+  width: 100%;
   margin: 0rem auto 4rem auto;
   background-color: transparent;
   position: relative;
@@ -165,8 +167,21 @@
   background-color: #fff;
 }
 
+.definition-controls-container {
+  display: inline-block;
+  float: right;
+}
+
+.dictionary-control-bttn {
+  margin: 0rem 1rem;
+}
+
+.dictionary-control-bttn:last-child {
+  margin-right: 0rem;
+}
+
 .dictionary-definition-container {
-  width: 95%;
+  width: 100%;
 }
 
 
@@ -229,7 +244,7 @@
 /* Dictionary View Controls */
 
 .dictionary-view-control {
-  margin: 2rem auto;
+  margin: 1rem auto 4rem auto;
   text-align: right;
   width: 95%;
 }

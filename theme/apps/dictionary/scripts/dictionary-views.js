@@ -70,7 +70,32 @@
 
     TableDefinitionsView.prototype.renderHeader = function() {
       var _tableDefinitionView = this;
-      _tableDefinitionView._d3ContainerSelection.append('h1').text(_tableDefinitionView.getPrettyName());
+      var headerSelection = _tableDefinitionView._d3ContainerSelection.append('h1').text(_tableDefinitionView.getPrettyName());
+
+      var definitionControlsSelection = headerSelection.append('div')
+        .classed('definition-controls-container', true);
+
+
+      definitionControlsSelection.append('button')
+        .classed('btn btn-primary dictionary-control-bttn', true)
+        .on('click', function() {
+
+          _tableDefinitionView._callbackFn.call(
+            null, new Dictionary._ViewUpdateObject(_tableDefinitionView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
+              id: _tableDefinitionView._dictionaryData.id
+            })
+          );
+
+        })
+        .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
+
+      definitionControlsSelection.append('button')
+        .classed('btn btn-info dictionary-control-bttn', true)
+        .on('click', function() {
+          window.print();
+        })
+        .html('<i class="fa fa-print"></i> &nbsp;Print');
+
     };
 
     TableDefinitionsView.prototype.renderSummaryTable = function() {
