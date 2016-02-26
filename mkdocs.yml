@@ -19,7 +19,7 @@ pages:
   - Examples: 'API/Users_Guide/Examples.md'
   - Available Fields: 'API/Users_Guide/Appendix_A_Available_Fields.md'
   - Key Terms: 'API/Users_Guide/Appendix_B_Key_Terms.md'
-  - Using jsonlint and urldecode for GET to POST Conversion: 'API/Users_Guide/Appendix_C_Using_jsonlint_and_urldecode_for_GET_to_POST_Conversion.md'
+  - Using jsonlint and urldecode for GET to POST Conversion: 'API/Users_Guide/Appendix_C_Using_Third-party-Tools.md'
   - Release Notes: 'API/Release_Notes/API_Release_Notes.md'
 - Data Portal:
   - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
