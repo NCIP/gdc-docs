@@ -368,6 +368,9 @@
       // annotation,
       {'annotation': ['annotation']}
     ],
+    CATEGORY_TEMPLATES: [
+
+    ],
     END_POINT: {
       DEFAULT_URL: 'https://gdc-api.nci.nih.gov',
       //CONTEXT_PATTERN: '/auth/api/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
@@ -458,7 +461,7 @@
 
   function _updatePageScroll(anchor) {
     if (_.isString(anchor)) {
-      _scrollTo(anchor);
+      setTimeout(function() { _scrollTo(anchor); }, 50);
     }
   }
 

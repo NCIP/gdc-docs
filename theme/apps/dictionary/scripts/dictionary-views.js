@@ -277,7 +277,7 @@
           var data = d;
 
           if (i === 0 && _.isString(data)) {
-            data = '<i class="fa fa-gear"></i> ' + data;
+            data = '<div id="' + data + '"><a  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
           }
 
           if (_.isString(data)) {
