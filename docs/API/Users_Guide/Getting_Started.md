@@ -1,11 +1,13 @@
-# Getting Started with GDC API
-The GDC API is the external-facing REST API for GDC and drives the graphical interface of the GDC Data and Submission Portals. It is made available to external users for programmatic access to the same functionality provided by the portals. This includes searching for and downloading subsets of data files, metadata and annotations based on specific parameters and submitting files to GDC.
+# Getting Started
+
+## The GDC Application Programming Interface (API): An Overview
+The GDC API drives the GDC Data and Submission Portals. It is made available to external users for programmatic access to the functionality provided by the portals. This includes searching for, downloading, and submitting data and metadata.
 
 The GDC API uses JSON as its communication format, and standard HTTP methods like GET, PUT, POST and DELETE.
 
 ## Tools for communicating with the GDC API
 
-A large variety of tools are available communicating with the GDC API and for preparing and visualizing API calls. The following are two non-exhaustive lists:
+Many third-party tools can be used for communicating with the GDC API and for preparing and visualizing API calls. The following is a non-exhaustive list.
 
 Tools for communicating with the GDC API:
 
@@ -16,21 +18,35 @@ Tools for communicating with the GDC API:
 | [Postman REST Client](http://www.getpostman.com/) 														| App for Google Chrome and OS X |
 | [DHC REST Client](http://restlet.com/products/dhc/)           | Google Chrome extension |
 | [Google Chrome](http://www.google.com/chrome/) 	  | Google Chrome web browser |
-_Table : API Communication Tools_
 
 Tools that can help build GDC API calls:
 
 | Tool        | Description     |
 | ------------- |-------------|
 | [JSONLint](http://jsonlint.com/)| Validate JSON strings |
-| [UrlDecode.org](http://urldecode.org/)| Decode/Encode url strings (for example, from { to %7B) |
-_Table : API Build Tools_
+| [UrlDecode.org](http://urldecode.org/)| Decode/Encode URL strings |
 
 **Note:** See [Appendix C](Appendix_C_Using_Third-party-Tools.md) for examples of using these tools.
 
+
+## Making calls to the GDC API
+
+Communicating with the GDC API involves making calls to API endpoints. Each endpoint corresponds to specific API functionality. The address of the latest version of a GDC API endpoint is `https://gdc-api.nci.nih.gov/<endpoint>`, where `<endpoint>` is the name of the endpoint. The address of an endpoint corresponding to a specific version of the GDC API is `https://gdc-api.nci.nih.gov/<version>/<endpoint>`, where `<endpoint>` is the name of the endpoint and `<version>` is the GDC API version.
+
+
+```Call to latest version of 'files' endpoint
+	https://gdc-api.nci.nih.gov/files
+```
+
+```Call to "files" endpoint of v0 of GDC API
+	https://gdc-api.nci.nih.gov/v0/files
+```
+
+
+
 ## Endpoints
 
-The following endpoints are available for the GDC API.
+GDC API functionality is available through the following endpoints:
 
 | Endpoints | Type | Description |
 | --- | --- | --- |
@@ -73,24 +89,6 @@ Status Endpoints returns:
  - Build tag information
  - GDC API version
 
-## Versioning
-The API has built-in versioning support to allow users to select which major API version to use.
-
-When no API version is specified ```https://gdc-api.nci.nih.gov/<endpoint>```, the API will use the current production version of the endpoint.
-
-The API version can be specified between the endpoint name and the API URL.```https://gdc-api.nci.nih.gov/<version>/<endpoint>```
-
->**Example:** Using the production version of the GDC API.
-
-```
-	https://gdc-api.nci.nih.gov/files
-```
-
->**Example**: Using version 0 of the GDC API.
-
-```
-	https://gdc-api.nci.nih.gov/v0/files
-```
 
 ## Request Headers
 The GDC API supports the following request headers:
