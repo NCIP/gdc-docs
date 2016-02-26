@@ -735,6 +735,7 @@
     delete data.biospecimen_data_bundle;
     delete data.clinical_data_bundle;
     delete data.pathology_data_bundle;
+    delete data.clinical;
 
 
     var dictionaryKeys = _.keys(data);
