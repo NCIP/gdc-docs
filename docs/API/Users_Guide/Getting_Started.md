@@ -34,7 +34,7 @@ Tools that can help build GDC API calls:
 Communicating with the GDC API involves making calls to API endpoints. Each endpoint corresponds to specific API functionality. The address of the latest version of a GDC API endpoint is `https://gdc-api.nci.nih.gov/<endpoint>`, where `<endpoint>` is the name of the endpoint. The address of an endpoint corresponding to a specific version of the GDC API is `https://gdc-api.nci.nih.gov/<version>/<endpoint>`, where `<endpoint>` is the name of the endpoint and `<version>` is the GDC API version.
 
 
-``` Latest·version
+``` Latest&middot;version
 	https://gdc-api.nci.nih.gov/files
 ```
 
