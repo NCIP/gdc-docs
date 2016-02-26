@@ -3,6 +3,31 @@ The GDC API is the external-facing REST API for GDC and drives the graphical int
 
 The GDC API uses JSON as its communication format, and standard HTTP methods like GET, PUT, POST and DELETE.
 
+## Tools for communicating with the GDC API
+
+A large variety of tools are available communicating with the GDC API and for preparing and visualizing API calls. The following are two non-exhaustive lists:
+
+Tools for communicating with the GDC API:
+
+| Tool        | Type     |
+| ------------- |-------------|
+| [Curl](http://curl.haxx.se/docs/manpage.html) 		| Command line tool |
+| [HTTPie](http://httpie.org) 	| Command line tool |
+| [Postman REST Client](http://www.getpostman.com/) 														| App for Google Chrome and OS X |
+| [DHC REST Client](http://restlet.com/products/dhc/)           | Google Chrome extension |
+| [Google Chrome](http://www.google.com/chrome/) 	  | Google Chrome web browser |
+_Table : API Communication Tools_
+
+Tools that can help build GDC API calls:
+
+| Tool        | Description     |
+| ------------- |-------------|
+| [JSONLint](http://jsonlint.com/)| Validate JSON strings |
+| [UrlDecode.org](http://urldecode.org/)| Decode/Encode url strings (for example, from { to %7B) |
+_Table : API Build Tools_
+
+**Note:** See Appendix C for examples of using these tools.
+
 ## Endpoints
 
 The following endpoints are available for the GDC API.
