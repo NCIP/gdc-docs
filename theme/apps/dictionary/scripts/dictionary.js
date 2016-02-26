@@ -159,6 +159,22 @@
 
         break;
 
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED:
+
+        if (_.has(params, 'id')) {
+         _dictionary.getDictionaryTemplates(params.id, _.get(params, 'excludes', null));
+        }
+
+        break;
+
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED:
+
+        if (_.has(params, 'id')) {
+          _dictionary.getDictionaryTemplate(params.id);
+        }
+
+        break;
+
       default:
         break;
     }
@@ -174,17 +190,29 @@
     return _fetch(webServiceURL, responseType);
   };
 
+  Dictionary.prototype.getDictionaryTemplate = function(dictionaryID, dataFormat) {
+    var _dictionary = this,
+        fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
+        params = {format: fileFormat},
+        webServiceURL = this._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: dictionaryID}),
+        containerEl = _dictionary._containerEl;
+
+    var f = _createHiddenForm(containerEl, webServiceURL, params);
+    f.submit();
+    containerEl.removeChild(f);
+  };
 
   Dictionary.prototype.getDictionaryTemplates = function(category, excludes, dataFormat) {
     var _dictionary = this,
         entityCategory = category || '',
-        fileFormat = dataFormat || _DICTIONARY_CONSTANTS.END_POINT.ENDPOINT_PARAMS.TEMPLATE.TSV_TYPE,
+        fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
         entityExclusions = _.isArray(excludes) && excludes.length ? excludes : [],
         params = {format: fileFormat},
         webServiceURL = this._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: ''}),
         containerEl = _dictionary._containerEl;
 
-    if (entityExclusions.length) {
+    if (entityExclusions.length > 0) {
+      console.warn('Excluding Entities: ', entityExclusions);
       params.exclude = entityExclusions.join(',');
     }
 
@@ -196,6 +224,10 @@
     f.submit();
     containerEl.removeChild(f);
 
+  };
+
+  Dictionary.prototype.setDefaultDictionaryTemplateDownloadFormat = function(downloadFormat) {
+    this._options.defaultTemplateDownloadFormat = downloadFormat;
   };
 
   Dictionary.prototype.getSourceData = function() {
@@ -338,7 +370,9 @@
     VIEW_UPDATE_EVENT_TYPES: {
       DEFAULT:'update',
       NAV: 'nav',
-      INNER_NAV: 'inner-nav'
+      INNER_NAV: 'inner-nav',
+      TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED: 'template-category-requested',
+      TEMPLATE_DOWNLOAD_REQUESTED: 'template-dictionary-requested'
     },
     DICTIONARY_ENTITY_MAP: {
       case: 'Case',
@@ -368,9 +402,11 @@
       // annotation,
       {'annotation': ['annotation']}
     ],
-    CATEGORY_TEMPLATES: [
-
-    ],
+    CATEGORY_TEMPLATE_EXCLUDES: {
+      clinical: ['clinical'],
+      data_bundle: ['file', 'generated_file', 'clinical_data_bundle', 'biospecimen_data_bundle', 'pathology_data_bundle'],
+      annotation: ['analysis', 'archive', 'publication', 'slide']
+    },
     END_POINT: {
       DEFAULT_URL: 'https://gdc-api.nci.nih.gov',
       //CONTEXT_PATTERN: '/auth/api/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
@@ -424,7 +460,8 @@
     dictionaryData: null, // if not null will use this as the data source
     dataSourceBaseHost: _DICTIONARY_CONSTANTS.END_POINT.DEFAULT_URL, // override internal host defaults
     dataSourceContextPattern: _DICTIONARY_CONSTANTS.END_POINT.CONTEXT_PATTERN,
-    defaultView: _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST
+    defaultView: _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST,
+    defaultTemplateDownloadFormat: _DICTIONARY_CONSTANTS.END_POINT.ENDPOINT_PARAMS.TEMPLATE.TSV_TYPE
   };
 
 
@@ -698,6 +735,9 @@
     delete data.biospecimen_data_bundle;
     delete data.clinical_data_bundle;
     delete data.pathology_data_bundle;
+    delete data.clinical;
+    delete data.file;
+    delete data.generated_file;
 
 
     var dictionaryKeys = _.keys(data);
@@ -754,7 +794,7 @@
 
     }
 
-    console.log(dictionaryData);
+    //console.log(dictionaryData);
 
     // Build our data structures and corresponding caches
     for (var dictionaryTitle in dictDataList) {

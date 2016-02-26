@@ -1,5 +1,5 @@
 <div id="dictionary-nav-breadcrumb" class="dictionary-breadcrumb-container">
-    <i class="fa fa-book"></i> <a href="#" style="text-decoration: underline">Dictionary Viewer</a>
+    <i class="fa fa-book"></i> <a href="#?_top=1" style="text-decoration: underline">Dictionary Viewer</a>
     <span id="dictionary-nav-view-stack">
          <!-- <i class="fa fa-chevron-right"></i>
          <a href="/Dictionary/viewer/" style="text-decoration: underline">Dictionary Viewer</a>
@@ -8,6 +8,24 @@
 </div>
 
 <div id="dictionary-inner-container">
+    <div id="dictionary-view-summary-controls" class="dictionary-view-control">
+        <div>
+           <span class="dictionary-tooltip">
+               <i class="fa fa-info-circle"></i>&nbsp; <em>Download Template Format</em>: &nbsp;
+               <span><i></i>
+                   Use the template to upload data to the GDC. For more information, please refer to <a href="/Data_Submission_Portal/Users_Guide/Upload_Data/" target="_blank">Upload Data's User Guide</a>.
+                   Click the <b class="fa fa-cloud-download"></b> icon to download the templates for a specific category.</span></span>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" id="dictionary-current-template-data-format" aria-expanded="false">
+                    TSV <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('tsv'); document.getElementById('dictionary-current-template-data-format').innerHTML ='TSV <span class=\'caret\'></span>';">TSV</a></li>
+                    <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('json'); document.getElementById('dictionary-current-template-data-format').innerHTML = 'JSON <span class=\'caret\'></span>';">JSON</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="dictionary-view" id="dictionary-view-table-summary"></div>
     <div class="dictionary-view" id="dictionary-view-table-detail"></div>
 </div>

@@ -1,5 +1,29 @@
 # Data Submission Portal Release Notes
 
+## Release 0.3.24.1
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: February 26, 2016
+
+### New Features and Changes
+
+* Fully revamped dashboard, improved widgets with more details
+* Improved the release process and provided guidance
+* Removed dictionary viewer (moved to Documentation site)
+* Added reports
+
+### Bugs Fixed Since Last Release
+
+* Issues with Transactions list page have been addressed.
+* Search feature have been improved
+* Release process (submit and release) have been finalized and implemented
+
+### Known Issues and Workarounds
+
+* The Submission Portal does not support XML file submission. The workaround is to submit files through the GDC API.
+
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
 ## Release 0.3.21
 
 * __GDC Product__: GDC Data Submission Portal

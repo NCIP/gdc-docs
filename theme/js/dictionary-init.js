@@ -19,16 +19,21 @@ window.onload = function() {
       afterRenderFn: function(dictionary) {
 
         var currentView = dictionary.getCurrentViewName();
+        var shouldScrollToTop = window.location.hash.indexOf('_top') >= 0;
 
         if (currentView.indexOf('entity') < 0) {
           dictionaryPreamble.hide();
 
-          if (previousView !== currentView || window.location.hash.indexOf('_top') >= 0) {
+          if (previousView !== currentView) {
             body.scrollTop(0);
           }
         }
         else {
           dictionaryPreamble.show();
+        }
+
+        if (shouldScrollToTop) {
+          body.scrollTop(0);
         }
 
         previousView = currentView;
