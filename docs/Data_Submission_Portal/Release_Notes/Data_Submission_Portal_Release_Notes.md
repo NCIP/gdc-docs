@@ -1,4 +1,4 @@
-# Data Portal Release Notes
+# Data Submission Portal Release Notes
 
 ## Release 0.3.21
 
