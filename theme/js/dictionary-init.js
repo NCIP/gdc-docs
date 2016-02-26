@@ -59,7 +59,7 @@ window.onload = function() {
               $this.css({overflow: 'hidden', height: valueHeight});
               $this.parent().find('.accordion-more-less-toggle')
                 .css({marginLeft: '2.2rem'})
-                .append('<a href="javascript:void(0)" class="more-less-vals"><i class="fa fa-angle-down"></i> More Values</a>');
+                .append('<a href="javascript:void(0)" class="more-less-vals" title="Click to see more values."><i class="fa fa-angle-down"></i> More Values</a>');
             }
           })
 
@@ -70,11 +70,11 @@ window.onload = function() {
 
             if($this.hasClass('more')){
               $this.parent().parent().find('.bullets').css({overflow: 'hidden', height: valueHeight});
-              $this.html('<i class="fa fa-angle-down"></i> More Values</a>');
+              $this.attr('title', 'Click to see more values.').html('<i class="fa fa-angle-down"></i> More Values</a>');
             }
             else {
               $this.parent().parent().find('.bullets').css({overflow: 'visible', height: ''});
-              $this.html('<i class="fa fa-angle-up"></i> Less Values</a>');
+              $this.attr('title', 'Click to see less values.').html('<i class="fa fa-angle-up"></i> Less Values</a>');
             }
 
             $this.toggleClass('more');
