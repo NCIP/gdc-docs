@@ -9,14 +9,31 @@ The workflow diagram below presents the main features available within the GDC D
 
 ## Project Life Cyle
 
-ADD DIAGRAM HERE
-
 Summary:
 
 * The user can upload and validate Data if their project __is not__ REVIEW.
 * The user can review their project if it is OPEN. It will prevent users from uploading new data during the review period.
 * The user can submit data to the GDC if their project is REVIEW.
 * The user can release their project at any time; it will release the harmonized data to the GDC Data Portal.
+
+### Project State
+[![GDC Data Submission Portal Project State](images/GDC_Submission_Portal_Workflow_Project_State.png)](images/GDC_Submission_Portal_Workflow_Release_State.png "Click to see the full image.")
+
+### Project Release State
+[![GDC Data Submission Portal Project Release State](images/GDC_Submission_Portal_Workflow_Project_Release_State.png)](images/GDC_Submission_Portal_Workflow_Project_Release_State.png "Click to see the full image.")
+
+
+## File Status Life Cycle
+
+Summary:
+
+* The life cycle below described the workflow of the actual file (as opposed to the workflow of the file metadata)
+* When a user uploads the file metadata to the Submission Portal, the file status is __Registered__
+* Then the user should upload the actual file through the GDC Data Transfer Tool ==> On the dashboard, "__# Files Uploaded__" displayed in the last chart is the number of file that the user uploaded through the GDC Data Transfer Tool. In terms of File Status, it can be any file in the following states: {uploading, uploaded, validating, validated, submitted, processing, processed, error}.
+
+
+[![GDC Data Submission Portal File Status](images/GDC_Submission_Portal_Workflow_File_Status.png)](images/GDC_Submission_Portal_Workflow_File_Status.png "Click to see the full image.")
+
 
 ## Upload, Submit and Release
 
