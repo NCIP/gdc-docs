@@ -1,7 +1,10 @@
 .dictionary-view {
   opacity: 0;
   width: 95%;
-  margin: 7rem auto 0rem auto;
+  margin: 3rem auto 0rem auto;
+}
+.dictionary-view h1:after {
+  margin-top: 0.3rem;
 }
 
 .dictionary-view .bullets {
@@ -167,21 +170,50 @@
   background-color: #fff;
 }
 
+
 .definition-controls-container {
   display: inline-block;
   float: right;
 }
+
+#dictionary-app-container .btn {
+  padding: 0.5rem 1rem;
+  transition: background 0.25s ease-in-out;
+  color: #fff;
+}
+
+.dictionary-control-container {
+  position: relative;
+  font-size: 1.5rem;
+}
+
 .dictionary-view-control i[class^="fa"] {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 .dictionary-control-bttn {
-  margin: 0rem 1rem;
+  margin: 0rem 0rem;
 }
 
+.dictionary-template-download-bttn {
+  font-size: 1.5rem;
+  color: #6b6262;
+}
+
+.dictionary-template-download-bttn:focus,
+.dictionary-template-download-bttn:hover {
+  text-decoration: none;
+  color: #3a3a3a;
+}
+
+/*
 .dictionary-control-bttn:last-child {
   margin-right: 0rem;
+}
+*/
+.dictionary-download-template-bttn {
+  display: inline-block;
 }
 
 .dictionary-definition-container {
@@ -243,12 +275,13 @@
   font-size: 1.4rem;
   padding: 0rem 0rem 0rem 0rem;
   display: none;
+  height: 5rem;
 }
 
 /* Dictionary View Controls */
 
 .dictionary-view-control {
-  margin: 1rem auto 4rem auto;
+  margin: 2rem auto 2rem auto;
   text-align: right;
   width: 95%;
 }

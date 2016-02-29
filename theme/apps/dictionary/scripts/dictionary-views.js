@@ -70,31 +70,38 @@
 
     TableDefinitionsView.prototype.renderHeader = function() {
       var _tableDefinitionView = this;
-      var headerSelection = _tableDefinitionView._d3ContainerSelection.append('h1').text(_tableDefinitionView.getPrettyName());
+      var headerSelection = _tableDefinitionView._d3ContainerSelection.append('h1')
+            .text(_tableDefinitionView.getPrettyName());
 
       var definitionControlsSelection = headerSelection.append('div')
-        .classed('definition-controls-container', true);
+            .classed('definition-controls-container', true);
 
 
-      definitionControlsSelection.append('button')
-        .classed('btn btn-primary dictionary-control-bttn', true)
-        .on('click', function() {
+      // Exclude the below from download
+      var excludeCategories = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST;
 
-          _tableDefinitionView._callbackFn.call(
-            null, new Dictionary._ViewUpdateObject(_tableDefinitionView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
-              id: _tableDefinitionView._dictionaryData.id
-            })
-          );
+      if (excludeCategories.indexOf(_tableDefinitionView._dictionaryData.category.toLowerCase()) < 0) {
 
-        })
-        .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
+        definitionControlsSelection
+          .append('a')
+          .attr('href', 'javascript:void(0)')
+          .attr('title', 'Download the ' + _tableDefinitionView.getPrettyName() + ' template.')
+          .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
+          .on('click', function () {
 
-      definitionControlsSelection.append('button')
-        .classed('btn btn-info dictionary-control-bttn', true)
-        .on('click', function() {
-          window.print();
-        })
-        .html('<i class="fa fa-print"></i> &nbsp;Print');
+            _tableDefinitionView._callbackFn.call(
+              null, new Dictionary._ViewUpdateObject(_tableDefinitionView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
+                id: _tableDefinitionView._dictionaryData.id
+              })
+            );
+
+          })
+          .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
+    }
+    else {
+        d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
+    }
+
 
     };
 
@@ -763,7 +770,7 @@
         });
 
       // Exclude the below from download
-      var excludeCategories = ['tbd', 'administrative'];
+      var excludeCategories = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST;
 
       if (excludeCategories.indexOf(category.toLowerCase()) < 0) {
         tHeadRow.append('div')
@@ -887,6 +894,9 @@
       console.log('Rendering View!');
 
       _view._d3ContainerSelection.html('');
+
+      // Show the controls before rendering
+      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'block');
 
       // Template method - inherited functions define this!
       _view.renderView();

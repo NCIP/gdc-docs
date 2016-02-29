@@ -362,6 +362,9 @@
         _ID: 'TABLE',
         ENTITY_LIST: 'table-entity-list',
         TERM_DEFINITION: 'table-definition-view'
+      },
+      _STATIC: {
+        DICTIONARY_CONTROLS: '#dictionary-view-summary-controls'
       }
     },
     VIEW_STATE: {
@@ -402,6 +405,7 @@
       // annotation,
       {'annotation': ['annotation']}
     ],
+    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative'],
     CATEGORY_TEMPLATE_EXCLUDES: {
       clinical: ['clinical'],
       data_bundle: ['file', 'generated_file', 'clinical_data_bundle', 'biospecimen_data_bundle', 'pathology_data_bundle'],
