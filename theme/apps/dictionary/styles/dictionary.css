@@ -402,3 +402,10 @@
   opacity: 1;
 }
 /* ******** */
+
+a.dictionary-anchor:focus,
+a.dictionary-anchor:hover,
+a.dictionary-anchor {
+  color: inherit;
+  cursor: default;
+}

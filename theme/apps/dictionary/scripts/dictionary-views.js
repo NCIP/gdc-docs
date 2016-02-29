@@ -203,10 +203,26 @@
       var propertyData = [];
 
       var dictionaryProperties = _.get(dictionaryData, 'properties', false),
-          requiredProperties = _.get(dictionaryData, 'required', false);
+          requiredProperties = _.get(dictionaryData, 'required', false),
+          excludeProperties = _.get(dictionaryData, 'systemProperties', []);
 
+      var links = _prepLinksTableData(dictionaryData);
 
+      if (_.isArray(links.topLevelLinks)) {
+        excludeProperties = excludeProperties.concat(_.map(links.topLevelLinks, function(l) { return l[0].name; }));
+      }
 
+      if (_.isArray(links.subLinks) && links.subLinks.length) {
+        var sublinks = _.map(links.subLinks, function(sublinkGroup) {
+          _.map(sublinkGroup, function (l) {
+            return l[0].name;
+          });
+        });
+
+        console.log(sublinks);
+      }
+
+      console.log(excludeProperties);
 
       var propertyIDs;
 
@@ -234,7 +250,7 @@
             isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';
 
         // Ignore system properties for now...
-        if (dictionaryData.systemProperties.indexOf(propertyName) >= 0) {
+        if (excludeProperties.indexOf(propertyName) >= 0) {
          console.log('Skipping system property: ' + propertyName);
           continue;
         }
@@ -309,7 +325,7 @@
           var data = d;
 
           if (i === 0 && _.isString(data)) {
-            data = '<div id="' + data + '"><a  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
+            data = '<div id="' + data + '"><a class="dictionary-anchor"  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
           }
 
           if (_.isString(data)) {
@@ -476,7 +492,11 @@
 
     function _prepLinksTableData(dictionaryData) {
       var transformedData = [],
-          subLinks = [];
+          topLevelLinks = [],
+          subLinks = [],
+          sublinkNameIndexMap = {},
+          indexCounter = 0,
+          groupIndexCounter = 0;
 
       // Create Table Row Data
       var links = _.get(dictionaryData, 'links', false);
@@ -485,8 +505,13 @@
         return [createLinkData()];
       }
 
+
+      var exclusions = ['file','biospecimen_data_bundle','clinical_data_bundle'];
+
       for (var i = 0; i < links.length; i++) {
         var link = links[i];
+
+        indexCounter = 0;
 
         var linkSubgroups = _.get(link, 'subgroup', []);
 
@@ -496,11 +521,12 @@
           for (var j = 0; j < linkSubgroups.length; j++) {
             var subLinkDataNode = createLinkData(linkSubgroups[j]);
 
-            if (_.isArray(subLinkDataNode)) {
+            if (_.isArray(subLinkDataNode) && exclusions.indexOf(subLinkDataNode[0].id) < 0) {
               subLinkData[0].push(subLinkDataNode[0]);
               subLinkData[1].push(subLinkDataNode[1]);
               // Link dictates whether subgroup is required
               subLinkData[2].push(link.required === true ? 'Yes': 'No');
+              sublinkNameIndexMap[subLinkDataNode[0].name] = {groupIndex: groupIndexCounter, index: indexCounter++};
             }
           }
 
@@ -511,32 +537,59 @@
           continue;
         }
 
+        groupIndexCounter++;
 
         var linkDataNode = createLinkData(link);
 
         if (linkDataNode.length > 0) {
-          transformedData.push(linkDataNode);
+          topLevelLinks.push(linkDataNode);
         }
 
       }
 
-      // Sort ASC by subgroup
-      for (i = 0; i < subLinks.length; i++) {
-        var linkData = _.first(subLinks[i]);
-        if (_.isArray(linkData) && linkData.length) {
-          subLinks[i][0] = _.sortBy(linkData, function(l) { return l.name; });
+      if (! _.isEmpty(sublinkNameIndexMap)) {
+
+        var sortedSublinkNames = _.keys(sublinkNameIndexMap).sort();
+
+        //console.log(sublinkNameIndexMap);
+        var sortedSublinks = [];
+
+        var s = [[],[],[]];
+
+        for (i = 0; i < sortedSublinkNames.length; i++) {
+          var sublinkIndex = sublinkNameIndexMap[sortedSublinkNames[i]].index,
+              linkGroupIndex = sublinkNameIndexMap[sortedSublinkNames[i]].groupIndex;
+
+          //console.log(subLinks[linkGroupIndex][0][sublinkIndex]);
+
+          if (!_.isArray(sortedSublinks[linkGroupIndex])) {
+            sortedSublinks[linkGroupIndex] = [];
+          }
+
+          s[0].push(subLinks[linkGroupIndex][0][sublinkIndex]);
+          s[1].push(subLinks[linkGroupIndex][1][sublinkIndex]);
+          s[2].push(subLinks[linkGroupIndex][2][sublinkIndex]);
+
+
         }
+
+        sortedSublinks.push(s);
+
+
+
+        console.log('aaaa', sortedSublinks, subLinks);
+        subLinks = sortedSublinks;
       }
 
-      //console.log(transformedData);
+      console.log(subLinks);
 
 
       var sortASCandRequiredFirst = function (l) {
         return (l[2] === 'Yes' ? 'a' : 'z') + l[0].name;
       };
 
-      if (transformedData.length) {
-        transformedData = _.sortBy(transformedData, sortASCandRequiredFirst);
+      if (topLevelLinks.length) {
+        transformedData = _.sortBy(topLevelLinks, sortASCandRequiredFirst);
       }
 
       // If we have links and the first in group i
@@ -549,7 +602,7 @@
 
       //console.log('Transformed Data: ', transformedData);
 
-      return transformedData;
+      return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks};
     }
 
     function _renderLinksTable(_tableDefinitionView, tableContainerSelection) {
@@ -576,7 +629,7 @@
         .text(function(d) { return d; });
 
 
-      var dataRows = _prepLinksTableData(dictionaryData);
+      var dataRows = _prepLinksTableData(dictionaryData).links;
 
       var tRows = tBody.selectAll('tr')
         .data(dataRows)
