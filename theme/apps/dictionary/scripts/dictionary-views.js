@@ -528,11 +528,16 @@
         return (l[2] === 'Yes' ? 'a' : 'z') + l[0].name;
       };
 
+      if (transformedData.length) {
+        transformedData = _.sortBy(transformedData, sortASCandRequiredFirst);
+      }
+
+      // If we have links and the first in group i
       if (transformedData.length && _.first(transformedData)[2] === 'Yes') {
-        transformedData = _.sortBy(transformedData, sortASCandRequiredFirst).concat(subLinks);
+        transformedData = transformedData.concat(subLinks);
       }
       else {
-        transformedData = subLinks.concat(_.sortBy(transformedData, sortASCandRequiredFirst));
+        transformedData = subLinks.concat(transformedData);
       }
 
       //console.log('Transformed Data: ', transformedData);
