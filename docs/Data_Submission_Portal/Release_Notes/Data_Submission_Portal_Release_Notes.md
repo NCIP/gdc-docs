@@ -21,13 +21,13 @@
 ### Known Issues and Workarounds
 
 * The Submission Portal does not support XML file submission. The workaround is to submit files through the GDC API.
-* In Browse > Submitted Files, "DOWNLOAD ALL" download cases and clinical data instead of submitted files. A workaround is to initiate the download from the Dashboard. <!--PGDC-971-->
-850: * In Browse > Read Groups, accessing a parent case from the hierarchy section  <!--PGDC-850-->
+* In Browse > Submitted Files, "DOWNLOAD ALL" download cases and clinical data instead of submitted files. A workaround is to initiate the download from the Dashboard <!--PGDC-970-->
+* In Browse > Case > Details, experimental data are not listed in "Related Entities" section<!--PGDC-850-->
 * When uploading multiple files at once, validation will fail if a child entity is uploaded before its parent. Workaround is to ensure parent entities are uploaded before their children. <!--PGDC-861-->
 * Submission status column is inconsistent between Submitted Files and Read Group. Submission Status says "Validated" when it should say "Submitted" <!--PGDC-959-->
 * In the upload report, the number of affected cases is incorrect (show 0), it should be the total of created and updated entities <!--PGDC-838-->
 * In Dashboard > Release, Download of submitted data is currently not available <!--PGDC-774-->
-* In Browse > Read Groups, the number of files in "# Files" column is incorrect. A workaround is to look for the submitted files by looking at the entity details.
+* In Browse > Read Groups, the number of files in "# Files" column is incorrect. A workaround is to look for the submitted files by looking at the entity details <!--PGDC-916-->
 
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
