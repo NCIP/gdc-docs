@@ -29,23 +29,9 @@ Tools that can help build GDC API calls:
 **Note:** See [Appendix C](Appendix_C_Using_Third-party-Tools.md) for examples of using these tools.
 
 
-## Making calls to the GDC API
+## API Endpoints
 
-Communicating with the GDC API involves making calls to API endpoints. Each endpoint corresponds to specific API functionality.
-
-The address of the latest version of a GDC API endpoint is `https://gdc-api.nci.nih.gov/<endpoint>`, where `<endpoint>` is the name of the endpoint.
-
-The address of an endpoint corresponding to a specific major version of the GDC API is `https://gdc-api.nci.nih.gov/<version>/<endpoint>`, where `<endpoint>` is the name of the endpoint and `<version>` is the GDC API version.
-
-### Examples:
-
-> Call to the latest version of `status` endpoint: `https://gdc-api.nci.nih.gov/status`
->
-> Call to `status` endpoint of version 0 of GDC API: `https://gdc-api.nci.nih.gov/v1/status`
-
-## Endpoints
-
-GDC API functionality is available through the following endpoints:
+Communicating with the GDC API involves making a call to an API endpoint. Each GDC API endpoint provides specific functionality, as summarized in the following table:
 
 | Endpoint | Type | Description |
 | --- | --- | --- |
@@ -57,6 +43,14 @@ GDC API functionality is available through the following endpoints:
 | `data` | Download | Used to download GDC data |
 | `slicing` | BAM Slicing | Allows remote slicing of BAM format objects |
 | `submission` | Submission | Returns the available resources at the top level above programs i.e., registered programs |
+
+The HTTP URL that corresponds address of the latest version of a GDC API endpoint is `https://gdc-api.nci.nih.gov/<endpoint>`, where `<endpoint>` is the name of the endpoint.
+
+The address of an endpoint corresponding to a specific major version of the GDC API is `https://gdc-api.nci.nih.gov/<version>/<endpoint>`, where `<endpoint>` is the name of the endpoint and `<version>` is the GDC API version.
+
+For example, the address of the latest version of the `status` endpoint is `https://gdc-api.nci.nih.gov/status`, whereas the address of the `status` endpoint corresponding to version 0 of GDC API is `https://gdc-api.nci.nih.gov/v1/status`.
+
+
 
 ## Status Endpoint
 ``` shell
