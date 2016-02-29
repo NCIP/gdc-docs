@@ -468,7 +468,8 @@
 
 
     function _prepLinksTableData(dictionaryData) {
-      var transformedData = [];
+      var transformedData = [],
+          subLinks = [];
 
       // Create Table Row Data
       var links = _.get(dictionaryData, 'links', false);
@@ -497,7 +498,7 @@
           }
 
           if (subLinkData.length > 0) {
-            transformedData.push(subLinkData);
+            subLinks.push(subLinkData);
           }
 
           continue;
@@ -511,6 +512,30 @@
         }
 
       }
+
+      // Sort ASC by subgroup
+      for (i = 0; i < subLinks.length; i++) {
+        var linkData = _.first(subLinks[i]);
+        if (_.isArray(linkData) && linkData.length) {
+          subLinks[i][0] = _.sortBy(linkData, function(l) { return l.name; });
+        }
+      }
+
+      //console.log(transformedData);
+
+
+      var sortASCandRequiredFirst = function (l) {
+        return (l[2] === 'Yes' ? 'a' : 'z') + l[0].name;
+      };
+
+      if (transformedData.length && _.first(transformedData)[2] === 'Yes') {
+        transformedData = _.sortBy(transformedData, sortASCandRequiredFirst).concat(subLinks);
+      }
+      else {
+        transformedData = subLinks.concat(_.sortBy(transformedData, sortASCandRequiredFirst));
+      }
+
+      //console.log('Transformed Data: ', transformedData);
 
       return transformedData;
     }
