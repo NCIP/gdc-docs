@@ -853,6 +853,19 @@
                          ' Category')
           .on('click', function () {
 
+
+            // TODO: Remove hardcoding but for now this is necessary...
+            if (category === 'annotation') {
+
+              _tableEntityListView._callbackFn.call(
+                null, new Dictionary._ViewUpdateObject(_tableEntityListView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
+                  id: category
+                })
+              );
+
+              return;
+            }
+
             var exclusions = _.get(_DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES, category, null);
 
             _tableEntityListView._callbackFn.call(

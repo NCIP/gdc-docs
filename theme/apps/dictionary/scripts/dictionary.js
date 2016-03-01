@@ -217,7 +217,7 @@
     }
 
     if (entityCategory) {
-      params.category = category;
+      params.categories = category;
     }
 
     var f = _createHiddenForm(containerEl, webServiceURL, params);
@@ -391,7 +391,7 @@
       tbd: 'References'
     },
     ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'data_bundle', 'annotation', 'administrative', 'TBD'],
-    DICTIONARY_KEY_ORDER: [
+    /* DICTIONARY_KEY_ORDER: [
       // clinical
       {'clinical': ['demographic', 'diagnosis', 'family_history', 'exposure', 'treatment']},
 
@@ -404,7 +404,7 @@
         'slide_data_bundle', 'pathology_data_bundle']},
       // annotation,
       {'annotation': ['annotation']}
-    ],
+    ],*/
     CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative'],
     CATEGORY_TEMPLATE_EXCLUDES: {
       clinical: ['clinical'],
@@ -736,6 +736,7 @@
     var data = _.cloneDeep(d);
     var dictionaryData = {};
 
+    // TODO: Cleanup below hardcoding but unfortunately now this is necessary
     delete data.biospecimen_data_bundle;
     delete data.clinical_data_bundle;
     delete data.pathology_data_bundle;
