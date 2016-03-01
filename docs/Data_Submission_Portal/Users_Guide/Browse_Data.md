@@ -14,7 +14,7 @@ All static components are detailed in this User Guide.
 
 ### Upload
 
-An [upload](Upload_Data.md) button is available at the top-left section of the left panel. Depending on the project state, this will allow data to be [uploaded](Upload_Data.md) to the GDC. 
+An __Upload__ button is available at the top-left section of the left panel. Depending on the project state, this will allow data to be [uploaded](Upload_Data.md) to the GDC. 
 
 __Note__: This button is disabled if the project is in "REVIEW" state.
 
@@ -37,11 +37,12 @@ Current filters are:
 
 ### List View
 
-The list view is a paginated list of all entities corresponding to the selected filter.
+The list view is a paginated list of all entities corresponding to the selected filter. 
 
 On the top-left section of the screen, the user can download data about all entities associated with the selected filter.
 
-For Case filter, it will download all clinical data.
+* For the case filter, it will download all clinical data.
+* For the filter of the other entities, it will download the corresponding metadata (e.g. for the demographic filter, it will download all demographic data).
 
 [![GDC Submission Case Summary Download](images/GDC_Submission_Cases_Summary_Download.png)](images/GDC_Submission_Cases_Summary_Download.png "Click to see the full image.")
 
