@@ -356,38 +356,45 @@
 
           var data = d;
 
-          if (i === 0 && _.isString(data)) {
+          console.log(data);
 
-            if (data === _DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL) {
-              return data;
-            }
+          switch(i) {
+            case 0:
+              if (_.isString(data)) {
 
-            data = '<div id="' + data + '"><a class="dictionary-anchor"  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
+                if (data === _DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL) {
+                  return data;
+                }
+
+                data = '<div id="' + data + '"><a class="dictionary-anchor"  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
+              }
+              break;
+            case 1:
+              return '<div class="property-description">' + data + '</div>';
+              break;
+            case 4:
+              var cdeStr = '';
+
+              if (data.term_url) {
+                cdeStr = '<a href="' + (data.term_url ? data.term_url : '#') + '" target="_blank">' + data.cde_id +
+                         '</a>' + ' - ' + data.source;
+              }
+              else {
+                cdeStr = _valueOrDefault();
+              }
+
+              return cdeStr;
+              break;
+            default:
+              break;
+
           }
 
-          if (i === 1) {
-            return '<div class="property-description">' + data + '</div>';
-          }
 
           if (_.isString(data)) {
             return data;
           }
 
-          if (i === 4) {
-            var cdeStr = '';
-
-            if (data.term_url) {
-              cdeStr = '<a href="' + (data.term_url ? data.term_url : '#') + '" target="_blank">' + data.cde_id +
-                       '</a>' + ' - ' + data.source;
-            }
-            else {
-              cdeStr = _valueOrDefault();
-            }
-
-            return cdeStr;
-          }
-
-          console.log(data);
 
           if (data.propertyName === 'type') {
 
@@ -399,11 +406,9 @@
             }
           }
 
-          var bullets = _.map(data.propertyValue, function (val, i) {
+          var bullets = _.map(data.propertyValue, function (val) {
 
             var arrayVal = '';
-
-            //console.log(val, i);
 
             if (_.isArray(val) && val.length === 1) {
               arrayVal = val[0];
