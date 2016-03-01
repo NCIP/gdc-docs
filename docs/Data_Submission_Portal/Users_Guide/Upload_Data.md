@@ -4,7 +4,10 @@
 
 The GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools).
 
-This chapter will focus on the upload and validation of data to the GDC project workspace.
+This chapter will focus on the upload and validation of data to the project workspace.
+
+[![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
+
 
 ## Introduction to the Files
 
