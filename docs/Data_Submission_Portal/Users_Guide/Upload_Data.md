@@ -78,13 +78,12 @@ For example, a Demographic entity describes a Case entity. The user should defin
 
 Example below of a __demographic file__ that can be uploaded in TSV format.
 
-The 4 first columns are describing:
+The structure of the file is the following:
 
 * Type = demographic
-* Unique Keys: project\_id, submitter_id
-* Links: cases.submitter_id
-
-The remaining columns are describing user properties.
+* Unique Keys = project\_id, submitter_id 
+* Links = cases.submitter_id 
+* Properties = ethnicity, gender, etc.
 
 ```tsv
 type	project_id	submitter_id	cases.submitter_id	ethnicity	gender	race	year_of_birth	year_of_deathdemographic	TCGA-DEV3	TCGA-DEV-3-CASE-000-D1	TCGA-DEV-3-CASE-000	hispanic or latino	male	white	1950	0demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	female	white	1956	0
