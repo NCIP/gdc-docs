@@ -204,25 +204,55 @@
 
       var dictionaryProperties = _.get(dictionaryData, 'properties', false),
           requiredProperties = _.get(dictionaryData, 'required', false),
+          // Exclude System Properties
           excludeProperties = _.get(dictionaryData, 'systemProperties', []);
+
+      // Exclude the type property
+      excludeProperties = excludeProperties.concat(['type']);
+
+      // Exclude unique keys
+      if (_.isArray(dictionaryData.uniqueKeys)) {
+
+        var uniqueKeys = _.reduce(dictionaryData.uniqueKeys, function(flattenedKeys, keys) {
+          flattenedKeys = flattenedKeys.concat(keys);
+          return flattenedKeys;
+        }, []);
+
+        //console.log(uniqueKeys);
+        excludeProperties = excludeProperties.concat(uniqueKeys);
+      }
+
 
       var links = _prepLinksTableData(dictionaryData);
 
+      // Exclude links in properties
       if (_.isArray(links.topLevelLinks)) {
         excludeProperties = excludeProperties.concat(_.map(links.topLevelLinks, function(l) { return l[0].name; }));
       }
 
+      // Exclude Sublinks in properties
       if (_.isArray(links.subLinks) && links.subLinks.length) {
-        var sublinks = _.map(links.subLinks, function(sublinkGroup) {
-          _.map(sublinkGroup, function (l) {
-            return l[0].name;
-          });
+        var sublinks = links.subLinks;
+
+        var justSublinkNames = _.map(sublinks, function(sublinkIDObjs) {
+          // Link object in the first index of each sublink array group
+          return _.reduce(_.first(sublinkIDObjs), function(sublinksArray, l) {
+            sublinksArray.push(l.name);
+            return sublinksArray;
+          }, []);
+
         });
 
-        console.log(sublinks);
+        var flattenedSublinkIDs = _.reduce(justSublinkNames, function(propertyList, names) {
+          propertyList = propertyList.concat(names);
+          return propertyList;
+        }, []);
+
+        excludeProperties = excludeProperties.concat(flattenedSublinkIDs);
+        //console.log(flattenedSublinkIDs);
       }
 
-      console.log(excludeProperties);
+      console.log('Excluded Properties: ', excludeProperties);
 
       var propertyIDs;
 
@@ -238,7 +268,7 @@
         propertyIDs = requiredPartition;
       }
 
-      console.log(requiredPartition);
+      //console.log(requiredPartition);
 
       for (var i = 0; i < propertyIDs.length; i++) {
         var p = [],
@@ -251,7 +281,7 @@
 
         // Ignore system properties for now...
         if (excludeProperties.indexOf(propertyName) >= 0) {
-         console.log('Skipping system property: ' + propertyName);
+          console.log('Skipping system property: ' + propertyName);
           continue;
         }
 
@@ -325,6 +355,11 @@
           var data = d;
 
           if (i === 0 && _.isString(data)) {
+
+            if (data === _DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL) {
+              return data;
+            }
+
             data = '<div id="' + data + '"><a class="dictionary-anchor"  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
           }
 
@@ -493,40 +528,40 @@
     function _prepLinksTableData(dictionaryData) {
       var transformedData = [],
           topLevelLinks = [],
-          subLinks = [],
-          sublinkNameIndexMap = {},
-          indexCounter = 0,
-          groupIndexCounter = 0;
+          subLinks = [];
 
       // Create Table Row Data
       var links = _.get(dictionaryData, 'links', false);
 
       if (! links || ! _.isArray(links) || links.length === 0) {
-        return [createLinkData()];
+        var l =  [createLinkData()];
+        return  {links: l, topLevelLinks: [], subLinks: []};
       }
 
 
       var exclusions = ['file','biospecimen_data_bundle','clinical_data_bundle'];
 
       for (var i = 0; i < links.length; i++) {
-        var link = links[i];
-
-        indexCounter = 0;
-
-        var linkSubgroups = _.get(link, 'subgroup', []);
+        var link = links[i],
+            linkSubgroups = _.get(link, 'subgroup', []);
 
         if (linkSubgroups.length > 0) {
           var subLinkData = [[],[],[]];
 
-          for (var j = 0; j < linkSubgroups.length; j++) {
-            var subLinkDataNode = createLinkData(linkSubgroups[j]);
+          // Sort sublinks by name
+          var sortedLinkSubgroups = _.sortBy(linkSubgroups, function(l) {
+            return l.name;
+          });
+
+
+          for (var j = 0; j < sortedLinkSubgroups.length; j++) {
+            var subLinkDataNode = createLinkData(sortedLinkSubgroups[j]);
 
             if (_.isArray(subLinkDataNode) && exclusions.indexOf(subLinkDataNode[0].id) < 0) {
               subLinkData[0].push(subLinkDataNode[0]);
               subLinkData[1].push(subLinkDataNode[1]);
               // Link dictates whether subgroup is required
               subLinkData[2].push(link.required === true ? 'Yes': 'No');
-              sublinkNameIndexMap[subLinkDataNode[0].name] = {groupIndex: groupIndexCounter, index: indexCounter++};
             }
           }
 
@@ -537,7 +572,6 @@
           continue;
         }
 
-        groupIndexCounter++;
 
         var linkDataNode = createLinkData(link);
 
@@ -547,39 +581,6 @@
 
       }
 
-      if (! _.isEmpty(sublinkNameIndexMap)) {
-
-        var sortedSublinkNames = _.keys(sublinkNameIndexMap).sort();
-
-        //console.log(sublinkNameIndexMap);
-        var sortedSublinks = [];
-
-        var s = [[],[],[]];
-
-        for (i = 0; i < sortedSublinkNames.length; i++) {
-          var sublinkIndex = sublinkNameIndexMap[sortedSublinkNames[i]].index,
-              linkGroupIndex = sublinkNameIndexMap[sortedSublinkNames[i]].groupIndex;
-
-          //console.log(subLinks[linkGroupIndex][0][sublinkIndex]);
-
-          if (!_.isArray(sortedSublinks[linkGroupIndex])) {
-            sortedSublinks[linkGroupIndex] = [];
-          }
-
-          s[0].push(subLinks[linkGroupIndex][0][sublinkIndex]);
-          s[1].push(subLinks[linkGroupIndex][1][sublinkIndex]);
-          s[2].push(subLinks[linkGroupIndex][2][sublinkIndex]);
-
-
-        }
-
-        sortedSublinks.push(s);
-
-
-
-        console.log('aaaa', sortedSublinks, subLinks);
-        subLinks = sortedSublinks;
-      }
 
       console.log(subLinks);
 
