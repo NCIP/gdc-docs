@@ -24,6 +24,12 @@ The "Review" button is available only if the project is in "OPEN" state.
 
 Reviewing the project will prevent other users from uploading data to the project. Once the review is complete, the user can submit data to the GDC.
 
+Once the user clicks on "Review", the project state will change to "REVIEW":
+
+[![GDC Submission Review State](images/GDC_Submission_Submit_Release_Project_State_Review.png)](images/GDC_Submission_Submit_Release_Project_State_Review.png "Click to see the full image.")
+
+
+
 ### Submit to the GDC
 
 The "Submit" button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to submit data to the GDC.
