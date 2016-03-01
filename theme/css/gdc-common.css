@@ -1021,8 +1021,18 @@ footer a {
   border-top-color: transparent;
 }
 
+/* Preserve TSV tab content */
+.tab-set-container .tab-pane pre {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
 
-/* ************ */
+.tab-set-container .tab-pane pre code.tsv {
+  word-break: normal;
+  white-space: pre;
+}
+  /* ************ */
 
 /* Animations */
 .animated {
