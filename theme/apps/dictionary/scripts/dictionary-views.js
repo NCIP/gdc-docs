@@ -753,7 +753,7 @@
       for (var i = 0; i < categoryKeys.length; i++) {
         var category = categoryKeys[i];
 
-        _tableEntityListView.renderEntity(category, categoryMap[category]);
+        _tableEntityListView.renderEntity(category, categoryMap[category], _getSortFnForCategory(category, categoryMap[category]));
 
       }
 
@@ -779,8 +779,10 @@
     };
 
 
-    TableEntityListView.prototype.renderEntity = function(category, categoryData) {
+    TableEntityListView.prototype.renderEntity = function(category, categoryData, categorySortFn) {
       var _tableEntityListView = this;
+
+      categoryData = categorySortFn.call(_tableEntityListView, categoryData);
 
       var entityTable = _tableEntityListView._d3ContainerSelection
         .append('table')
@@ -923,6 +925,21 @@
     return TableEntityListView;
   })();
 
+  function _getSortFnForCategory(category, categoryData) {
+    var sortFunction = _.constant(categoryData);
+
+    switch(category.toLowerCase()) {
+      case 'biospecimen':
+        sortFunction = function(categoryData) {
+          return _.orderBy(categoryData, ['title'], ['desc']);
+        };
+        break;
+      default:
+        break;
+    }
+
+    return sortFunction;
+  }
 
 
   function _valueOrDefault(val) {
