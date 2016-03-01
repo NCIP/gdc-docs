@@ -94,7 +94,7 @@
           .on('focus', updateHREFFunction)
           .attr('title', 'Download the ' + _tableDefinitionView.getPrettyName() + ' template.')
           .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
-          .on('click', function () {
+          /*.on('click', function () {
 
             _tableDefinitionView._callbackFn.call(
               null, new Dictionary._ViewUpdateObject(_tableDefinitionView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
@@ -102,7 +102,7 @@
               })
             );
 
-          })
+          })*/
           .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
 
 
