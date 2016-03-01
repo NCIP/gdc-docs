@@ -4,6 +4,11 @@
 
 The GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools).
 
+This chapter will focus on the following features:
+
+* The review and submission of data to the GDC.
+* The Release of data to the GDC Data Portal
+
 ## Review and Submit
 
 Once data is uploaded to the project workspace (see previous section: [Upload Data](Upload_Data.md) , the submitter or project owner should review it to ensure that data is ready for processing by the GDC ([Harmonization process](https://gdc.nci.nih.gov/submit-data/gdc-data-processing-software-and-algorithms/2-data-harmonization)).
@@ -16,7 +21,11 @@ If the project is not ready for processing, the submitter or project owner can r
 
 In general, submitters are requested to submit their data to the GDC within six months from the first upload to the project workspace.
 
+[![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
+
 ### Review
+
+To review and submit data to the GDC, the user should have release privilege. He will be able to view the section below on the dashboard.
 
 The "Review" button is available only if the project is in "OPEN" state.
 
@@ -52,6 +61,10 @@ The project owner should release data when harmonization process is complete and
 Releasing the data will make the data available to the GDC Data Portal.
 
 As soon as the project owner releases the project, any harmonized (updated or added to the project) will be released to the [GDC Data Portal](https://gdc-portal.nci.nih.gov/projects/t).
+
+[![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_Release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
+
+To release data to the GDC Data Portal, the user should have release privilege. He will be able to view the following section on the dashboard.
 
 [![GDC Submission Release Tab](images/GDC_Submission_Submit_Release_Release_tab.png)](images/GDC_Submission_Submit_Release_Release_tab.png "Click to see the full image.")
 
