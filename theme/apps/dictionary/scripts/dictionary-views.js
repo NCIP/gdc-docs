@@ -270,13 +270,15 @@
 
       //console.log(requiredPartition);
 
+      var dictionaryTerms = dictionaryData.terms || {};
+
       for (var i = 0; i < propertyIDs.length; i++) {
         var p = [],
             propertyName = propertyIDs[i],
             property = dictionaryProperties[propertyName],
-            description = property.description,
+            description = _.get(dictionaryTerms, propertyName + '.description', false) || property.description,
             valueOrType = _getPropertyValueOrType(property),
-            CDE = _.get(dictionaryData, 'terms.' + propertyName + '.termDef'),
+            CDE = _.get(dictionaryTerms, propertyName + '.termDef'),
             isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';
 
         // Ignore system properties for now...
@@ -361,6 +363,10 @@
             }
 
             data = '<div id="' + data + '"><a class="dictionary-anchor"  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
+          }
+
+          if (i === 1) {
+            return '<div class="property-description">' + data + '</div>';
           }
 
           if (_.isString(data)) {

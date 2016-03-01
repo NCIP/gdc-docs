@@ -256,6 +256,10 @@
   margin: 4rem auto;
 }
 
+.property-description {
+  max-width: 38rem;
+}
+
 /* ********************* */
 
 .card {
