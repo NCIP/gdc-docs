@@ -82,9 +82,16 @@
 
       if (excludeCategories.indexOf(_tableDefinitionView._dictionaryData.category.toLowerCase()) < 0) {
 
+        var updateHREFFunction = function() {
+          d3.select(this)
+            .attr('href', _tableDefinitionView._parentDictionary.getDictionaryTemplateURL(_tableDefinitionView._dictionaryData.id));
+        };
+
         definitionControlsSelection
           .append('a')
-          .attr('href', 'javascript:void(0)')
+          .attr('href', '')
+          .on('mouseenter', updateHREFFunction)
+          .on('focus', updateHREFFunction)
           .attr('title', 'Download the ' + _tableDefinitionView.getPrettyName() + ' template.')
           .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
           .on('click', function () {
@@ -96,13 +103,10 @@
             );
 
           })
-          .html('<i class="fa fa-cloud-download"></i> &nbsp;Download');
+          .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
 
-        var updateHREFFunction = function() {
-          d3.select(this)
-            .attr('href', _tableDefinitionView._parentDictionary.getDictionaryTemplateURL(_tableDefinitionView._dictionaryData.id));
-        };
 
+        /*
         definitionControlsSelection
           .append('a')
           .attr('href', '')
@@ -112,6 +116,7 @@
           .attr('title', 'Share the ' + _tableDefinitionView.getPrettyName() + ' template.')
           .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
           .html('<i class="fa fa-share-alt"></i> &nbsp;Share');
+          */
     }
     else {
         d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
