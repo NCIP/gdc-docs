@@ -787,6 +787,10 @@
           case 'case':
             tooltipText = 'Cases must be registered in GDC before clinical, biospecimen, experiment and annotation data can be submitted.';
             break;
+          case 'administrative':
+          case 'TBD':
+            tooltipText = 'The entities listed in this category are maintained by GDC. Data submission is not applicable.';
+            break;
           default:
             break;
         }
