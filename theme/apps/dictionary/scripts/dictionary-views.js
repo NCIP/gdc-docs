@@ -96,7 +96,22 @@
             );
 
           })
-          .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
+          .html('<i class="fa fa-cloud-download"></i> &nbsp;Download');
+
+        var updateHREFFunction = function() {
+          d3.select(this)
+            .attr('href', _tableDefinitionView._parentDictionary.getDictionaryTemplateURL(_tableDefinitionView._dictionaryData.id));
+        };
+
+        definitionControlsSelection
+          .append('a')
+          .attr('href', '')
+          .on('mouseenter', updateHREFFunction)
+          .on('focus', updateHREFFunction)
+          .style({'margin-left': '2rem'})
+          .attr('title', 'Share the ' + _tableDefinitionView.getPrettyName() + ' template.')
+          .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
+          .html('<i class="fa fa-share-alt"></i> &nbsp;Share');
     }
     else {
         d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
@@ -970,7 +985,7 @@
   /////////////////////////////////////////////////////////
   // Parent View Definition
   /////////////////////////////////////////////////////////
-  function View(d3ContainerSelection, dictionaryData, actionCallbackFn) {
+  function View(d3ContainerSelection, dictionaryData, actionCallbackFn, parentDictionary) {
     var _view = this;
 
     _view._d3ContainerSelection = d3ContainerSelection;
@@ -981,6 +996,10 @@
     _view._parentViewName = '';
     _view._prettyName = _view._name;
     _view._breadcrumbName = null;
+
+    // Note: The below is optional and should only be used by views
+    // that need access to the dictionary object's functionality
+    _view._parentDictionary = parentDictionary || null;
 
     if (typeof _view.renderView === 'undefined') {
       throw Error('You must define your own renderView method in your view!');

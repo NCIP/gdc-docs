@@ -96,7 +96,7 @@
 
               _dictionary._data = _initDictionaryData(rawDictionaryData);
 
-              _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _.bind(_dictionary.viewListener, _dictionary));
+              _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary, _.bind(_dictionary.viewListener, _dictionary));
 
               _dictionary.triggerViewEventFromURL();
           });
@@ -190,11 +190,19 @@
     return _fetch(webServiceURL, responseType);
   };
 
+  Dictionary.prototype.getDictionaryTemplateURL = function(dictionaryID, dataFormat) {
+    var _dictionary = this,
+      fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
+      webServiceURL = _dictionary._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: dictionaryID});
+
+    return webServiceURL + '?format=' + fileFormat;
+  };
+
   Dictionary.prototype.getDictionaryTemplate = function(dictionaryID, dataFormat) {
     var _dictionary = this,
         fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
         params = {format: fileFormat},
-        webServiceURL = this._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: dictionaryID}),
+        webServiceURL = _dictionary._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: dictionaryID}),
         containerEl = _dictionary._containerEl;
 
     var f = _createHiddenForm(containerEl, webServiceURL, params);
@@ -208,7 +216,7 @@
         fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
         entityExclusions = _.isArray(excludes) && excludes.length ? excludes : [],
         params = {format: fileFormat},
-        webServiceURL = this._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: ''}),
+        webServiceURL = _dictionary._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: ''}),
         containerEl = _dictionary._containerEl;
 
     if (entityExclusions.length > 0) {
@@ -472,19 +480,20 @@
   ///////////////////////////////////////////////
   // Initialize D3 Views
   ///////////////////////////////////////////////
-  function _getD3ViewsForDictionary(dictionaryData, actionCallbackFn) {
+  function _getD3ViewsForDictionary(dictionary, actionCallbackFn) {
     var views =  {},
         tableViews = {
           summary: d3.select('#dictionary-view-table-summary'),
           detailed: d3.select('#dictionary-view-table-detail')
         },
-        urlParams = _getParamsFromURL();
+        urlParams = _getParamsFromURL(),
+        dictionaryData = dictionary._data;
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID] = {};
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST] = {
       el: tableViews.summary,
-      view: new  Dictionary._Views.TableEntityListView(tableViews.summary, dictionaryData, actionCallbackFn)
+      view: new  Dictionary._Views.TableEntityListView(tableViews.summary, dictionary, actionCallbackFn)
     };
 
     if (_.has(urlParams, 'id')) {
@@ -493,7 +502,7 @@
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.TERM_DEFINITION] = {
       el: tableViews.detailed,
-      view: new  Dictionary._Views.TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn)
+      view: new  Dictionary._Views.TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn, dictionary)
     };
 
 
