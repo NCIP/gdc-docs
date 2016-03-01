@@ -59,7 +59,7 @@ This guideline is in place in support of the GDC's aim to make data available to
 
 Released cases and/or files can be redacted from the GDC. Redaction is performed by GDC administrators, at case level through synchronization with dbGaP, and at file level through submitter's request usually after a data quality issue is identified. The GDC Data Submission Portal itself currently does not support redaction through the web user interface.
 
-### Data Access and Download
+### Browse and Download Data
 
 In addition to submitting and releasing files, the GDC Data Submission Portal can also display submitted files and entities through multiple pages and tables.
 
