@@ -350,6 +350,13 @@
         .data(['Property', 'Description', 'Acceptable Types or Values', 'Required?', 'CDE'])
         .enter()
         .append('th')
+        .classed('no-print',function(d, i) {
+          if (i === 4) {
+            return true;
+          }
+
+          return false;
+        })
         .text(function(d) { return d; });
 
       var dataRows = _prepPropertiesTableData(dictionaryData);
