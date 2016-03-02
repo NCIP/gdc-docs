@@ -243,6 +243,10 @@
     this._options.defaultTemplateDownloadFormat = downloadFormat;
   };
 
+  Dictionary.prototype.getDefaultDictionaryTemplateDownloadFormat = function() {
+    return this._options.defaultTemplateDownloadFormat;
+  };
+
   Dictionary.prototype.getSourceData = function() {
     return this._data;
   };
@@ -299,6 +303,10 @@
 
     breadcrumbStack.append('span').text(' ' + breadcrumbName);
 
+  };
+
+  Dictionary.prototype.fetchDictionaryTemplate = function(templateFile) {
+    return _fetchTemplate(templateFile);
   };
 
   Dictionary.prototype.triggerViewEventFromURL = function(event) {
@@ -739,10 +747,24 @@
     });
   }
 
-  function _fetchTemplate(templateFile) {
-    return _fetch(  _DICTIONARY_CONSTANTS.APP_ABSOLUTE_DIR +
+  var _fetchTemplateCache = {};
+
+  function _fetchTemplate(templateFile, forceReload) {
+    var cachedTemplate = _.get(_fetchTemplateCache, templateFile, false);
+
+    if (_.isString(cachedTemplate) && forceReload !== true) {
+      return new Promise(function(resolve) { resolve(cachedTemplate); });
+    }
+
+    var promise = _fetch(  _DICTIONARY_CONSTANTS.APP_ABSOLUTE_DIR +
                     _DICTIONARY_CONSTANTS.TEMPLATES.RELATIVE_DIR + '/' +
                     templateFile, _DICTIONARY_CONSTANTS.DATA_FORMATS.TEXT_FORMAT  );
+
+    promise.then(function(html) {
+      _fetchTemplateCache[templateFile] = html;
+    });
+
+    return promise;
   }
 
   ///////////////////////////////////////////////

@@ -20,11 +20,11 @@
                    Click the download icon link <b class="fa fa-cloud-download"></b> to download the respective template(s).</span></span>
             <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" id="dictionary-current-template-data-format" aria-expanded="false">
-                    TSV <span class="caret"></span>
+                    <span id="dictionary-data-format">TSV</span>  <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('tsv'); document.getElementById('dictionary-current-template-data-format').innerHTML ='TSV <span class=\'caret\'></span>';">TSV</a></li>
-                    <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('json'); document.getElementById('dictionary-current-template-data-format').innerHTML = 'JSON <span class=\'caret\'></span>';">JSON</a></li>
+                    <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('tsv'); document.getElementById('dictionary-data-format').innerHTML ='TSV';">TSV</a></li>
+                    <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('json'); document.getElementById('dictionary-data-format').innerHTML = 'JSON';">JSON</a></li>
                 </ul>
             </div>
         </div>

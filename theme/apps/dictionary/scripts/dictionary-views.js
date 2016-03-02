@@ -59,6 +59,8 @@
     TableDefinitionsView.prototype.renderDefinitionView = function(currentDictionary) {
       var _tableDefinitionView = this;
 
+      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
+
       console.log(currentDictionary);
 
       _tableDefinitionView.renderHeader();
@@ -75,8 +77,6 @@
 
       var definitionControlsSelection = headerSelection.append('div')
             .classed('definition-controls-container', true);
-
-
 
 
       // Exclude the below from download
@@ -106,20 +106,39 @@
 
           })*/
           .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
-/*
-        definitionControlsSelection.append('div').classed('btn-group').html(
-          '<div class="btn-group"> ' +
-          '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" id="dictionary-current-template-data-format" aria-expanded="false">' +
-          ''
 
-                                                                                                                                                                               TSV <span class="caret"></span>
-                                                                                                                                                                                               </button>
-                                                                                                                                                                                               <ul class="dropdown-menu">
-                                                                                                                                                                                                         <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('tsv'); document.getElementById('dictionary-current-template-data-format').innerHTML ='TSV <span class=\'caret\'></span>';">TSV</a></li>
-                                                                                                                                                                                                                                                  <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('json'); document.getElementById('dictionary-current-template-data-format').innerHTML = 'JSON <span class=\'caret\'></span>';">JSON</a></li>
-                                                                                                                                                                                                                                                                                           </ul>
-                                                                                                                                                                                                                                                                                           </div>'
-        )*/
+
+        _tableDefinitionView._parentDictionary
+          .fetchDictionaryTemplate('views/entity-definition-controls.view.html')
+          .then(function(html) {
+            var definitionControlSelection = definitionControlsSelection.append('div')
+              .style({display: 'inline-block', 'margin-left': '2rem'})
+              .html(html);
+
+            // TODO: Move main data format control into seperate view specific selector
+            var viewDataFormatLabel = definitionControlSelection.select('.data-format-value');
+            var mainDataFormatLabel = d3.select('#dictionary-data-format');
+
+            // Set the label to the current default on control load
+            viewDataFormatLabel.text(_tableDefinitionView._parentDictionary.getDefaultDictionaryTemplateDownloadFormat().toUpperCase());
+
+
+            definitionControlSelection.selectAll('a').on('click', function() {
+              var option = d3.select(this);
+
+              var dataFormat = option.attr('data-format') || _DICTIONARY_CONSTANTS.ENDPOINT_PARAMS.TSV_FORMAT,
+                  dataFormatLabelVal = dataFormat.toUpperCase();
+
+              viewDataFormatLabel.text(dataFormatLabelVal);
+              mainDataFormatLabel.text(dataFormatLabelVal);
+
+              _tableDefinitionView._parentDictionary.setDefaultDictionaryTemplateDownloadFormat(dataFormat);
+            });
+
+
+
+          });
+
 
         /*
         definitionControlsSelection
@@ -133,9 +152,7 @@
           .html('<i class="fa fa-share-alt"></i> &nbsp;Share');
           */
     }
-    else {
-      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
-    }
+
 
 
     };
@@ -431,7 +448,7 @@
 
           var data = d;
 
-          console.log(data);
+          //console.log(data);
 
           switch(i) {
             case 0:
@@ -682,7 +699,7 @@
       }
 
 
-      console.log(subLinks);
+      //console.log(subLinks);
 
 
       var sortASCandRequiredFirst = function (l) {
@@ -701,7 +718,7 @@
         transformedData = subLinks.concat(transformedData);
       }
 
-      console.log('Transformed Data: ', transformedData);
+      //console.log('Transformed Data: ', transformedData);
 
       return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks, excludedLinks: excludedLinks};
     }
