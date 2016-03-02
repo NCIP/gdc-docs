@@ -210,9 +210,9 @@
     containerEl.removeChild(f);
   };
 
-  Dictionary.prototype.getDictionaryTemplates = function(category, excludes, dataFormat) {
+  Dictionary.prototype.getDictionaryTemplates = function(categories, excludes, dataFormat) {
     var _dictionary = this,
-        entityCategory = category || '',
+        entityCategories = categories,
         fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
         entityExclusions = _.isArray(excludes) && excludes.length ? excludes : [],
         params = {format: fileFormat},
@@ -224,8 +224,13 @@
       params.exclude = entityExclusions.join(',');
     }
 
-    if (entityCategory) {
-      params.categories = category;
+    if (_.isString(entityCategories)) {
+      entityCategories = [entityCategories];
+    }
+
+    if (_.isArray(entityCategories) && entityCategories.length > 0) {
+      params.categories = entityCategories.join(',');
+      console.warn('Including Categories: ', entityCategories);
     }
 
     var f = _createHiddenForm(containerEl, webServiceURL, params);
@@ -418,6 +423,9 @@
       clinical: ['clinical'],
       data_bundle: ['file', 'generated_file', 'clinical_data_bundle', 'biospecimen_data_bundle', 'pathology_data_bundle'],
       annotation: ['analysis', 'archive', 'publication', 'slide']
+    },
+    CATEGORY_TEMPLATE_INCLUDES: {
+      'data_bundle': ['data_bundle','data_file']
     },
     END_POINT: {
       DEFAULT_URL: 'https://gdc-api.nci.nih.gov',

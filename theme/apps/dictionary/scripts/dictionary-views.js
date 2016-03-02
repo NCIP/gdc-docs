@@ -937,7 +937,9 @@
 
 
             // TODO: Remove hardcoding but for now this is necessary...
-            if (category === 'annotation') {
+            var oneOffDictionaries = ['annotation', 'case'];
+
+            if (oneOffDictionaries.indexOf(category) >= 0) {
 
               _tableEntityListView._callbackFn.call(
                 null, new Dictionary._ViewUpdateObject(_tableEntityListView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
@@ -952,7 +954,7 @@
 
             _tableEntityListView._callbackFn.call(
               null, new Dictionary._ViewUpdateObject(_tableEntityListView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED, {
-                id: category,
+                id: _.get(_DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES, category, category),
                 excludes: exclusions
               })
             );
