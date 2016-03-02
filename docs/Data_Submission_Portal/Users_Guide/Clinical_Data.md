@@ -8,7 +8,7 @@ The _"Clinical"_ section list all the clinical data entities available in a proj
 
 ## Clinical Data Filters
 
-Clinical data entities can be accessed from the menu through multiple filters automatically created based on the [GDC Dictionary](../../Dictionary/index.md). 
+Clinical data entities can be accessed from the menu through multiple filters automatically created based on the [GDC Data Dictionary](../../Dictionary/index.md). 
 
 The number of entities corresponding to those filters is displayed on the right side of the filter.
 
@@ -55,7 +55,7 @@ This table contains the following columns.
 |Column|Description|
 | --- | --- |
 | Ethnicity | Category of the Entity (Clinical, Biospecimen, Experiment Data)  |
-| Type | Type of Entity (based on dictionary)  |
+| Type | Type of Entity (based on Data Dictionary)  |
 | Count | Number of occurences of an Entity of this type |
 
 Clicking on the count will open a list page listing those entities.

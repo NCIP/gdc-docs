@@ -38,7 +38,7 @@ The GDC has developed a submission unit called a “data bundle”, which is a s
 
 Data bundle types are defined by what files are expected and what introspection is done for validation or linking to other GDC entities. Each data bundle will be validated via a bundle type and project specific schema, including a JSON data dictionary, relationship check and molecular data quality check.
 
-The experiment data supported by the GDC is described in the [GDC Dictionary](../../Dictionary/viewer.md).
+The experiment data supported by the GDC is described in the [GDC Data Dictionary](../../Dictionary/viewer.md).
 
 The table below is an example of files used to upload a read group to the GDC. The next section will describe how to perform these actions.
 
@@ -53,9 +53,9 @@ The table below is an example of files used to upload a read group to the GDC. T
 
 ## Step1. Prepare Files
 
-The [GDC Dictionary](../../Dictionary/viewer.md) describes the types of entities that can be uploaded to the GDC.
+The [GDC Data Dictionary](../../Dictionary/viewer.md) describes the types of entities that can be uploaded to the GDC.
 
-The user can go to the GDC Dictionary to __download the template files__ to be used for the upload. The templates can be populated with data by the user and should result in a valid file (if validation rules detailed in the dictionary are met).
+The user can go to the GDC Data Dictionary to __download the template files__ to be used for the upload. The templates can be populated with data by the user and should result in a valid file (if validation rules detailed in the data dictionary are met).
 
 A template file describes an entity with the following information:
 
@@ -111,7 +111,7 @@ submitted_file	TCGA-DEV3	fileID1_CASE-000-AL1	read_group_ID1		fileID88_CASE-000.
 
 Once the user has prepared their files (in TSV or JSON format), they can move on to the next step, uploading their data through the Upload Data Wizard.
 
-**Note:** Before you can upload clinical, biospecimen or experiment data, the cases must be registered in GDC. If the cases are not displayed in your project dashboard, please download the Case template from the [GDC Dictionary](../../Dictionary/viewer.md), complete it with the Cases Submitter IDs and upload the Cases through the Upload Data Wizard.
+**Note:** Before you can upload clinical, biospecimen or experiment data, the cases must be registered in GDC. If the cases are not displayed in your project dashboard, please download the Case template from the [GDC Data Dictionary](../../Dictionary/viewer.md), complete it with the Cases Submitter IDs and upload the Cases through the Upload Data Wizard.
 
 ## Step 2. Upload Data Wizard
 
@@ -122,7 +122,7 @@ The GDC Data Submission Portal is equipped with a wizard window to guide you thr
 * __Validate Files__: Send a file to the GDC backend to validate its content (see below).
 * __Confirm Upload__: Submit a validated file to the project workspace and produce a report.
 
-The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of submitted files against the project's dictionary to detect potential errors. Invalid files will be flagged and the upload to the GDC will be denied until corrections are made by the user. A validation error report provided by the system can be used to isolate and correct errors for resubmission.
+The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of submitted files against the project's data dictionary to detect potential errors. Invalid files will be flagged and the upload to the GDC will be denied until corrections are made by the user. A validation error report provided by the system can be used to isolate and correct errors for resubmission.
 
 ### Upload Files
 

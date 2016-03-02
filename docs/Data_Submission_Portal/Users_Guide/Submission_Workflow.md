@@ -40,7 +40,7 @@ Summary:
 ## Upload, Submit and Release
 
 ### Upload and Validate Data
-The submitter will upload data to the project workspace and validate the data with the GDC dictionary. At this point, data is not yet submitted to GDC.
+The submitter will upload data to the project workspace and validate the data with the GDC Data Dictionary. At this point, data is not yet submitted to GDC.
 [![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
 
 
