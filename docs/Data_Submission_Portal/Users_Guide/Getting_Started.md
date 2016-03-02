@@ -30,7 +30,7 @@ These are the main categories of data that can be uploaded:
 * Biospecimen Data: entities such as sample, aliquot, etc. as defined in the GDC Data Dictionary.
 * Experiment Data: at least one type of Experiment data, such as a Read Group, as defined in the GDC Data Dictionary.
 
-By using the [GDC Data Dictionary Viewer](../../Dictionary/viewer.md), the user can identify minimum fields requirements for each of the three categories listed above.
+By using the [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md), the user can identify minimum fields requirements for each of the three categories listed above.
 
 
 In general, submitters have six month to upload data to the project workspace before they should submit it to the GDC (see next section).
