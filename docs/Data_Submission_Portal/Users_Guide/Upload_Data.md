@@ -23,7 +23,7 @@ During the upload and validation process, files are converted by the GDC API int
 The GDC Data Submission Portal offers the ability to download files in different formats. To do so the system converts database entities back to the requested file format.
 
 ### File Type
-The GDC Data Submission Portal supports four types of files for upload to the GDC:
+The GDC Data Submission Portal supports the following types of files for upload to the GDC:
 
 * __Clinical__: A case’s clinical data.
 * __Biospecimen__: Metadata describing a tissue specimen collected from a case and other material derived from samples for analysis.
@@ -55,22 +55,42 @@ The table below is an example of files used to upload a read group to the GDC. T
 
 The [GDC Dictionary](../../Dictionary/viewer.md) describes the types of entities that can be uploaded to the GDC.
 
-The user can go to the GDC Dictionary to download the template files to be used for the upload. The templates can be populated with data by the user and should result in a valid file (if validation rules detailed in the dictionary are met).
+The user can go to the GDC Dictionary to __download the template files__ to be used for the upload. The templates can be populated with data by the user and should result in a valid file (if validation rules detailed in the dictionary are met).
 
 A template file describes an entity with the following information:
 
 * __Type__: identification of the entity.
-* __IDs__: Project ID and Submitter ID of the entity.
+* __Unique Keys__: Project ID and Submitter ID of the entity.
 * __Links__: Submitter ID of the links to other entities.
-* __Properties__: properties of the entity.
+* __Properties__: user properties of the entity.
+
+### Focus on Links
+
+In order to identify the relationship between 2 entities, the user should include in the file of the child entity a reference to the parent submitter ID (called link).
+
+For example, a Demographic entity describes a Case entity. The user should define __cases.submitter_id__ in the Demographic file.
 
 
+### Examples of files
 
-Example of a __demographic file__ that can be uploaded in TSV format:
+#### Demographic
+
+
+Example below of a __demographic file__ that can be uploaded in TSV format.
+
+The structure of the file is the following:
+
+* Type = demographic
+* Unique Keys = project\_id, submitter_id 
+* Links = cases.submitter_id 
+* Properties = ethnicity, gender, etc.
 
 ```tsv
 type	project_id	submitter_id	cases.submitter_id	ethnicity	gender	race	year_of_birth	year_of_deathdemographic	TCGA-DEV3	TCGA-DEV-3-CASE-000-D1	TCGA-DEV-3-CASE-000	hispanic or latino	male	white	1950	0demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	female	white	1956	0
 ```
+
+
+#### Read Group and Submitted File
 
 Example of a __Read Group__ upload, which needs 2 TSV files to describe metadata.
 
