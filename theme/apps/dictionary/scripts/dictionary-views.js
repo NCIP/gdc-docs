@@ -491,7 +491,7 @@
       var tHead = definitionTable.append('thead'),
         tBody = definitionTable.append('tbody');
 
-      tHead.append('tr')
+      /*tHead.append('tr')
         .classed('dictionary-summary-header', true)
         .selectAll('th')
         .data(['Title', _tableDefinitionView.getPrettyName()])
@@ -499,10 +499,11 @@
         .append('th')
         .text(function (d) {
           return d;
-        });
+        });*/
 
 
       var dataRows = [
+        {id: 'type', title: 'Type', value: _tableDefinitionView.getPrettyName()},
         {id: 'category', title: 'Category', value: category},
         {id: 'description', title: 'Description', value: dictionaryData.description},
         {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
@@ -522,6 +523,10 @@
         .html(function (d, i) {
 
           var data = d.value;
+
+          if (i === 1 && d.id === 'type') {
+            return '<span class="monospace">' + data + '</span>';
+          }
 
           if (i !== 1 || d.id !== 'keys') {
             return data;
