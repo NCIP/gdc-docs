@@ -59,8 +59,6 @@
     TableDefinitionsView.prototype.renderDefinitionView = function(currentDictionary) {
       var _tableDefinitionView = this;
 
-      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
-
       console.log(currentDictionary);
 
       _tableDefinitionView.renderHeader();
@@ -111,31 +109,26 @@
         _tableDefinitionView._parentDictionary
           .fetchDictionaryTemplate('views/entity-definition-controls.view.html')
           .then(function(html) {
-            var definitionControlSelection = definitionControlsSelection.append('div')
+            var templateDefinitionControlSelection = definitionControlsSelection.append('div')
               .style({display: 'inline-block', 'margin-left': '2rem'})
               .html(html);
 
-            // TODO: Move main data format control into seperate view specific selector
-            var viewDataFormatLabel = definitionControlSelection.select('.data-format-value');
-            var mainDataFormatLabel = d3.select('#dictionary-data-format');
+            var viewDataFormatLabel = templateDefinitionControlSelection.select('.data-format-value');
 
             // Set the label to the current default on control load
             viewDataFormatLabel.text(_tableDefinitionView._parentDictionary.getDefaultDictionaryTemplateDownloadFormat().toUpperCase());
 
 
-            definitionControlSelection.selectAll('a').on('click', function() {
+            templateDefinitionControlSelection.selectAll('a').on('click', function() {
               var option = d3.select(this);
 
               var dataFormat = option.attr('data-format') || _DICTIONARY_CONSTANTS.ENDPOINT_PARAMS.TSV_FORMAT,
                   dataFormatLabelVal = dataFormat.toUpperCase();
 
               viewDataFormatLabel.text(dataFormatLabelVal);
-              mainDataFormatLabel.text(dataFormatLabelVal);
 
               _tableDefinitionView._parentDictionary.setDefaultDictionaryTemplateDownloadFormat(dataFormat);
             });
-
-
 
           });
 
@@ -892,6 +885,32 @@
 
       //console.log(categoryKeys);
 
+      _tableEntityListView._parentDictionary
+        .fetchDictionaryTemplate('views/entity-list-controls.view.html')
+        .then(function(html) {
+          var templateDefinitionControlSelection = d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).append('div')
+            .style({display: 'inline-block', 'margin-left': '2rem'})
+            .html(html);
+
+          var viewDataFormatLabel = templateDefinitionControlSelection.select('.data-format-value');
+
+          // Set the label to the current default on control load
+          viewDataFormatLabel.text(_tableEntityListView._parentDictionary.getDefaultDictionaryTemplateDownloadFormat().toUpperCase());
+
+
+          templateDefinitionControlSelection.selectAll('a').on('click', function() {
+            var option = d3.select(this);
+
+            var dataFormat = option.attr('data-format') || _DICTIONARY_CONSTANTS.ENDPOINT_PARAMS.TSV_FORMAT,
+                dataFormatLabelVal = dataFormat.toUpperCase();
+
+            viewDataFormatLabel.text(dataFormatLabelVal);
+
+            _tableEntityListView._parentDictionary.setDefaultDictionaryTemplateDownloadFormat(dataFormat);
+          });
+
+        });
+
       for (var i = 0; i < categoryKeys.length; i++) {
         var category = categoryKeys[i];
 
@@ -1143,7 +1162,7 @@
       _view._d3ContainerSelection.html('');
 
       // Show the controls before rendering
-      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'block');
+      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).html('');
 
       // Template method - inherited functions define this!
       _view.renderView();
