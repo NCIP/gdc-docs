@@ -511,7 +511,7 @@
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST] = {
       el: tableViews.summary,
-      view: new  Dictionary._Views.TableEntityListView(tableViews.summary, dictionary, actionCallbackFn)
+      view: new  Dictionary._Views.TableEntityListView(tableViews.summary, dictionary, actionCallbackFn, dictionary)
     };
 
     if (_.has(urlParams, 'id')) {
