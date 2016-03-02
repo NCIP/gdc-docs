@@ -246,12 +246,12 @@
       var links = _prepLinksTableData(dictionaryData);
 
       // Exclude links in properties
-      if (_.isArray(links.topLevelLinks)) {
+      if (links !== null && _.isArray(links.topLevelLinks)) {
         excludeProperties = excludeProperties.concat(_.map(links.topLevelLinks, function(l) { return l[0].name; }));
       }
 
       // Exclude Sublinks in properties
-      if (_.isArray(links.subLinks) && links.subLinks.length) {
+      if (links !== null && _.isArray(links.subLinks) && links.subLinks.length) {
         var sublinks = links.subLinks;
 
         var justSublinkNames = _.map(sublinks, function(sublinkIDObjs) {
@@ -321,7 +321,7 @@
       console.log('Property: ', propertyData);
 
       if (propertyData.length === 0) {
-        return [_.times(5, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
+        return null; //[_.times(5, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
       }
 
       return propertyData;
@@ -337,6 +337,17 @@
         .attr('id', 'properties-table')
         .attr('href',  '#?view=' + _tableDefinitionView._name + '&id=' + dictionaryData.id + '&anchor=properties-table')
         .text('Properties');
+
+
+      var dataRows = _prepPropertiesTableData(dictionaryData);
+
+      if (dataRows === null) {
+        tableContainerSelection.append('h3')
+          .style({'margin-left': '1rem', 'color': '#777'})
+          .html('<i class="fa fa-gears"></i> &nbsp;No Properties for this entity.');
+
+        return;
+      }
 
       var definitionTable = tableContainerSelection.append('table')
         .classed('dictionary-properties-table', true);
@@ -358,8 +369,6 @@
           return false;
         })
         .text(function(d) { return d; });
-
-      var dataRows = _prepPropertiesTableData(dictionaryData);
 
       var tRows = tBody.selectAll('tr')
         .data(dataRows)
@@ -580,8 +589,9 @@
       var links = _.get(dictionaryData, 'links', false);
 
       if (! links || ! _.isArray(links) || links.length === 0) {
-        var l =  [createLinkData()];
-        return  {links: l, topLevelLinks: [], subLinks: []};
+        //var l =  [createLinkData()];
+        //return  {links: l, topLevelLinks: [], subLinks: []};
+        return null;
       }
 
 
@@ -662,6 +672,18 @@
         .attr('href',  '#?view=' + _tableDefinitionView._name  + '&id=' + dictionaryData.id + '&anchor=links-table')
         .text('Links');
 
+
+      var dataRows = _prepLinksTableData(dictionaryData);
+
+      if (dataRows === null) {
+        tableContainerSelection.append('h3')
+          .style({'margin-left': '1rem', 'color': '#777'})
+          .html('<i class="fa fa-unlink"></i> &nbsp;No Links for this entity.');
+        return;
+      }
+
+      dataRows = dataRows.links;
+
       var definitionTable = tableContainerSelection.append('table')
         .classed('dictionary-links-table', true);
 
@@ -686,9 +708,6 @@
           return d;
 
         });
-
-
-      var dataRows = _prepLinksTableData(dictionaryData).links;
 
       var tRows = tBody.selectAll('tr')
         .data(dataRows)
@@ -1079,7 +1098,7 @@
 
       _view._isHidden = false;
       _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
-      _view._d3ContainerSelection.style('display', 'block').transition().duration(250).style('opacity', 1);
+      _view._d3ContainerSelection.style('display', 'block').classed('active', true).transition().duration(250).style('opacity', 1);
 
       _view._callbackFn.call(null, new Dictionary._ViewUpdateObject(this));
 
@@ -1091,7 +1110,7 @@
 
       _view._isHidden = true;
       _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
-      _view._d3ContainerSelection.transition().duration(250).style('opacity', 0);
+      _view._d3ContainerSelection.classed('active', false).transition().duration(250).style('opacity', 0);
       setTimeout(function() { _view._d3ContainerSelection.style('display', 'none'); }, 250);
 
 
