@@ -228,7 +228,7 @@
           excludeProperties = _.get(dictionaryData, 'systemProperties', []);
 
       // Exclude the type property
-      excludeProperties = excludeProperties.concat(['type']);
+      excludeProperties = excludeProperties.concat(['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles']);
 
       // Exclude unique keys
       if (_.isArray(dictionaryData.uniqueKeys)) {
@@ -570,7 +570,7 @@
       }
 
 
-      var exclusions = ['file','biospecimen_data_bundle','clinical_data_bundle'];
+      var exclusions = ['file','biospecimen_data_bundle','clinical_data_bundle','pathology_data_bundle'];
 
       for (var i = 0; i < links.length; i++) {
         var link = links[i],
