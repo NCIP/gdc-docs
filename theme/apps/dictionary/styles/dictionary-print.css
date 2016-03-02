@@ -12,7 +12,7 @@
 table {
   width: 100% !important;
   margin-top: 2rem !important;
-  page-break-inside: auto;
+  page-break-inside: avoid;
 }
 
 table tr {
@@ -55,6 +55,7 @@ table td {
 
 body {
   padding-top: 0rem !important;
+  margin-top: 0 !important;
 }
 
 #dictionary-app-container {
