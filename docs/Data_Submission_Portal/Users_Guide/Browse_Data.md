@@ -4,7 +4,7 @@
 
 The _"Browse"_ menu provides access to all of a project's content. Most content is driven by the GDC Data Dictionary and the interface is dynamically generated to accomodate the content.
 
-Please refer to the [GDC Data Dictionary Viewer](../../Dictionary/viewer.md) for more details about dictionary-generated fields, columns and filters.
+Please refer to the [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md) for more details about dictionary-generated fields, columns and filters.
 
 All static components are detailed in this User Guide.
 
