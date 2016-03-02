@@ -3,6 +3,7 @@
 .dictionary-download-category-btn-container,
 .dictionary-print-button,
 .dictionary-tooltip > span,
+.navbar.navbar-default,
 .no-print {
   display: none !important;
   visibility: hidden;
@@ -11,6 +12,12 @@
 table {
   width: 100% !important;
   margin-top: 2rem !important;
+  page-break-inside: auto;
+}
+
+table tr {
+  page-break-inside: avoid;
+  page-break-after: auto;
 }
 
 table th:first-child {
@@ -48,4 +55,14 @@ table td {
 
 body {
   padding-top: 0rem !important;
+}
+
+.dictionary-view {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.dictionary-view.active {
+  display: block !important;
+  visibility: visible !important;
 }
