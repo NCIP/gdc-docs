@@ -77,7 +77,7 @@
             .classed('definition-controls-container', true);
 
 
-      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
+
 
       // Exclude the below from download
       var excludeCategories = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST;
@@ -132,6 +132,9 @@
           .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
           .html('<i class="fa fa-share-alt"></i> &nbsp;Share');
           */
+    }
+    else {
+      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
     }
 
 
