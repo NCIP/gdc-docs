@@ -3,8 +3,8 @@
 .dictionary-download-category-btn-container,
 .dictionary-print-button,
 .dictionary-tooltip > span,
-.navbar.navbar-default,
-.no-print {
+.navbar.navbar-default /*,
+.no-print*/ {
   display: none !important;
   visibility: hidden;
 }
@@ -57,6 +57,14 @@ body {
   padding-top: 0rem !important;
 }
 
+#dictionary-app-container {
+  font-size: 1.2rem !important;
+}
+
+.property-description {
+  width: 18rem;
+}
+
 .dictionary-view {
   display: none !important;
   visibility: hidden !important;
@@ -65,4 +73,8 @@ body {
 .dictionary-view.active {
   display: block !important;
   visibility: visible !important;
+}
+
+a[href]:after {
+  content: none;
 }
