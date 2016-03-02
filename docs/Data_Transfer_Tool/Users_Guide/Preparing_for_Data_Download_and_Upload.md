@@ -39,7 +39,7 @@ Select a type of Data Bundle on the left; here we selected the *Lane Level Seque
 
 ## Obtaining an Authentication Token
 
-The GDC Data Transfer Tool requires an authentication token to to upload data to GDC and to download controlled data. Tokens can be generated and downloaded directly from the GDC Data Portal.
+The GDC Data Transfer Tool requires an authentication token to upload data to GDC and to download controlled data. Tokens can be generated and downloaded directly from the GDC Data Portal.
 
 To generate a token, first log in to the GDC Data Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user John Doe&nbsp;is logged in to the GDC Data Portal, indicated by the username JOHNDOE:
 

@@ -1,4 +1,4 @@
-# Search and Retrieval 
+# Search and Retrieval
 The GDC API supports a wide range of query string operators. Users can use a query string operation by placing the query terms and a ```?``` after the endpoint in the URL ```https://gdc-api.nci.nih.gov/projects?```. This allows users to select, filter and order the desired data.
 ## Query Endpoints
 The following search and retrieval endpoints are available on the GDC API.
@@ -22,31 +22,31 @@ $  curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=2&sort=project.project
   "data": {
     "hits": [
       {
-        "state": "legacy", 
-        "project_id": "TCGA-ACC", 
-        "primary_site": "Adrenal Gland", 
-        "disease_type": "Adrenocortical Carcinoma", 
+        "state": "legacy",
+        "project_id": "TCGA-ACC",
+        "primary_site": "Adrenal Gland",
+        "disease_type": "Adrenocortical Carcinoma",
         "name": "Adrenocortical Carcinoma"
-      }, 
+      },
       {
-        "dbgap_accession_number": "phs000464", 
-        "disease_type": "Acute Lymphoblastic Leukemia", 
-        "state": "legacy", 
-        "primary_site": "Blood", 
-        "project_id": "TARGET-ALL-P2", 
+        "dbgap_accession_number": "phs000464",
+        "disease_type": "Acute Lymphoblastic Leukemia",
+        "state": "legacy",
+        "primary_site": "Blood",
+        "project_id": "TARGET-ALL-P2",
         "name": "Acute Lymphoblastic Leukemia - Phase II"
       }
-    ], 
+    ],
     "pagination": {
-      "count": 2, 
-      "sort": "project.project_id:asc", 
-      "from": 1, 
-      "pages": 22, 
-      "total": 44, 
-      "page": 1, 
+      "count": 2,
+      "sort": "project.project_id:asc",
+      "from": 1,
+      "pages": 22,
+      "total": 44,
+      "page": 1,
       "size": 2
     }
-  }, 
+  },
   "warnings": {}
 }
 ```
@@ -60,48 +60,48 @@ $ curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&prett
   "data": {
     "hits": [
       {
-        "origin": "migrated", 
-        "data_type": "Raw microarray data", 
-        "platform": "HG-U133_Plus_2", 
-        "file_name": "TCGA-AB-2842-03A-01R-0757-21.CEL.README", 
-        "md5sum": "56f9a6d58b450bf7e9f6431a86220b9d", 
-        "data_format": "CEL", 
-        "acl": "open", 
-        "access": "open", 
-        "uploaded_datetime": 1425340539, 
-        "state": "live", 
-        "data_subtype": "Raw intensities", 
-        "file_id": "ca13321c-02aa-4141-bdb6-84d31e3c5711", 
-        "file_size": 43, 
+        "origin": "migrated",
+        "data_type": "Raw microarray data",
+        "platform": "HG-U133_Plus_2",
+        "file_name": "TCGA-AB-2842-03A-01R-0757-21.CEL.README",
+        "md5sum": "56f9a6d58b450bf7e9f6431a86220b9d",
+        "data_format": "CEL",
+        "acl": "open",
+        "access": "open",
+        "uploaded_datetime": 1425340539,
+        "state": "live",
+        "data_subtype": "Raw intensities",
+        "file_id": "ca13321c-02aa-4141-bdb6-84d31e3c5711",
+        "file_size": 43,
         "experimental_strategy": "Gene expression array"
-      }, 
+      },
       {
-        "origin": "migrated", 
-        "data_type": "Raw microarray data", 
-        "platform": "HG-U133_Plus_2", 
-        "file_name": "TCGA-AB-2809-03A-01R-0757-21.CEL.README", 
-        "md5sum": "56f9a6d58b450bf7e9f6431a86220b9d", 
-        "data_format": "CEL", 
-        "acl": "open", 
-        "access": "open", 
-        "uploaded_datetime": 1425340539, 
-        "state": "live", 
-        "data_subtype": "Raw intensities", 
-        "file_id": "299d500b-49e2-4c62-9111-c0691592dce1", 
-        "file_size": 43, 
+        "origin": "migrated",
+        "data_type": "Raw microarray data",
+        "platform": "HG-U133_Plus_2",
+        "file_name": "TCGA-AB-2809-03A-01R-0757-21.CEL.README",
+        "md5sum": "56f9a6d58b450bf7e9f6431a86220b9d",
+        "data_format": "CEL",
+        "acl": "open",
+        "access": "open",
+        "uploaded_datetime": 1425340539,
+        "state": "live",
+        "data_subtype": "Raw intensities",
+        "file_id": "299d500b-49e2-4c62-9111-c0691592dce1",
+        "file_size": 43,
         "experimental_strategy": "Gene expression array"
       }
-    ], 
+    ],
     "pagination": {
-      "count": 2, 
-      "sort": "file_size:asc", 
-      "from": 1, 
-      "pages": 300936, 
-      "total": 601872, 
-      "page": 1, 
+      "count": 2,
+      "sort": "file_size:asc",
+      "from": 1,
+      "pages": 300936,
+      "total": 601872,
+      "page": 1,
       "size": 2
     }
-  }, 
+  },
   "warnings": {}
 }
 ```
@@ -116,36 +116,36 @@ $ curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22c
   "data": {
     "hits": [
       {
-        "sample_ids": "7f791228-dd77-4ab0-8227-d784a4c7fea1", 
-        "portion_ids": "8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5", 
-        "submitter_portion_ids": "TCGA-BH-A0EA-01A-21-A13C-20", 
-        "submitter_aliquot_ids": "TCGA-BH-A0EA-01A-11D-A10Y-09", 
-        "days_to_index": 0, 
-        "submitter_analyte_ids": "TCGA-BH-A0EA-01A-11D", 
-        "analyte_ids": "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831", 
-        "submitter_id": "TCGA-BH-A0EA", 
-        "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e", 
-        "slide_ids": "90154ea1-6b76-4445-870e-d531d6fa1239", 
-        "submitter_sample_ids": "TCGA-BH-A0EA-01A", 
-        "aliquot_ids": "561b8777-801a-49ed-a306-e7dafeb044b6", 
+        "sample_ids": "7f791228-dd77-4ab0-8227-d784a4c7fea1",
+        "portion_ids": "8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
+        "submitter_portion_ids": "TCGA-BH-A0EA-01A-21-A13C-20",
+        "submitter_aliquot_ids": "TCGA-BH-A0EA-01A-11D-A10Y-09",
+        "days_to_index": 0,
+        "submitter_analyte_ids": "TCGA-BH-A0EA-01A-11D",
+        "analyte_ids": "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
+        "submitter_id": "TCGA-BH-A0EA",
+        "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
+        "slide_ids": "90154ea1-6b76-4445-870e-d531d6fa1239",
+        "submitter_sample_ids": "TCGA-BH-A0EA-01A",
+        "aliquot_ids": "561b8777-801a-49ed-a306-e7dafeb044b6",
         "submitter_slide_ids": "TCGA-BH-A0EA-01A-01-TSA"
       }
-    ], 
+    ],
     "pagination": {
-      "count": 1, 
-      "sort": "", 
-      "from": 1, 
-      "pages": 1, 
-      "total": 1, 
-      "page": 1, 
+      "count": 1,
+      "sort": "",
+      "from": 1,
+      "pages": 1,
+      "total": 1,
+      "page": 1,
       "size": 10
     }
-  }, 
+  },
   "warnings": {}
 }
 ```
 ### Annotations Endpoint
-The GDC Annotation Endpoint ```'https://gdc-api.nci.nih.gov/annotations``` allows search and retrieval of annotations added to data after curation 
+The GDC Annotation Endpoint ```'https://gdc-api.nci.nih.gov/annotations``` allows search and retrieval of annotations added to data after curation
 >This example is a query for Annotations contained in GDC. It returns only the first two annotations.
 
 ```shell
@@ -202,7 +202,7 @@ The following query parameters can be used with all methods and resources in the
 Parameter | Default | Description
 --------- | ------- | -----------
 facets | false | Provides a list document counts for each included facet
-fields | false | Query option to specify which fields to include in the response 
+fields | false | Query option to specify which fields to include in the response
 filters| false | Query option filters specify criteria for the returned response
 from   | false | allows to specify the first record to return from the set resulting of a query
 size | false | determines the number of results to return
@@ -369,34 +369,34 @@ print json.dumps(response.json(), indent=2)
 {
   "data": {
     "pagination": {
-      "count": 0, 
-      "sort": "clinical.gender:asc", 
-      "from": 1, 
-      "pages": 14052, 
-      "total": 14052, 
-      "page": 1, 
+      "count": 0,
+      "sort": "clinical.gender:asc",
+      "from": 1,
+      "pages": 14052,
+      "total": 14052,
+      "page": 1,
       "size": 0
-    }, 
-    "hits": [], 
+    },
+    "hits": [],
     "aggregations": {
       "clinical.gender": {
         "buckets": [
           {
-            "key": "female", 
+            "key": "female",
             "doc_count": 6598
-          }, 
+          },
           {
-            "key": "male", 
+            "key": "male",
             "doc_count": 6303
-          }, 
+          },
           {
-            "key": "_missing", 
+            "key": "_missing",
             "doc_count": 1151
           }
         ]
       }
     }
-  }, 
+  },
   "warnings": {}
 }
 ```
@@ -544,21 +544,21 @@ print json.dumps(response.json(), indent=2)
     "hits": [
       {
         "file_name": "unc.edu.276a1e00-cf3a-4463-a97b-d544381219ea.2363081.rsem.isoforms.normalized_results"
-      }, 
+      },
       {
         "file_name": "nationwidechildrens.org_clinical.TCGA-EY-A5W2.xml"
       }
-    ], 
+    ],
     "pagination": {
-      "count": 2, 
-      "sort": "", 
-      "from": 1, 
-      "pages": 300936, 
-      "total": 601872, 
-      "page": 1, 
+      "count": 2,
+      "sort": "",
+      "from": 1,
+      "pages": 300936,
+      "total": 601872,
+      "page": 1,
       "size": 2
     }
-  }, 
+  },
   "warnings": {}
 }
 ```
@@ -589,45 +589,45 @@ print json.dumps(response.json(), indent=2)
     "hits": [
       {
         "submitter_id": "TARGET-20-PABGKN"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PABHET"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PABHKY"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PABLDZ"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PACDZR"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PACEGD"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PADDXZ"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PADYIR"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PADZCG"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PADZKD"
       }
-    ], 
+    ],
     "pagination": {
-      "count": 10, 
-      "sort": "submitter_id.raw:asc", 
-      "from": 1, 
-      "pages": 1406, 
-      "total": 14052, 
-      "page": 1, 
+      "count": 10,
+      "sort": "submitter_id.raw:asc",
+      "from": 1,
+      "pages": 1406,
+      "total": 14052,
+      "page": 1,
       "size": 10
     }
-  }, 
+  },
   "warnings": {}
 }
 ```
@@ -653,30 +653,30 @@ curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:a
     "hits": [
       {
         "submitter_id": "TARGET-20-PABGKN"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PABHET"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PABHKY"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PABLDZ"
-      }, 
+      },
       {
         "submitter_id": "TARGET-20-PACDZR"
       }
-    ], 
+    ],
     "pagination": {
-      "count": 5, 
-      "sort": "submitter_id.raw:asc", 
-      "from": 1, 
-      "pages": 2811, 
-      "total": 14052, 
-      "page": 1, 
+      "count": 5,
+      "sort": "submitter_id.raw:asc",
+      "from": 1,
+      "pages": 2811,
+      "total": 14052,
+      "page": 1,
       "size": 5
     }
-  }, 
+  },
   "warnings": {}
 }
 ```
@@ -762,7 +762,7 @@ Each Data Search and Retrieval endpoint is equipped with a "/_mapping" parameter
 
 Any query endpoint called with the ```/_mapping``` parameter will return a JSON response containing elements that can be used to query the endpoint.
 
-__Note__: The ```/projects/``` endpoint is being used for examply the ```/_mapping``` parameter and has been simplified. 
+__Note__: The ```/projects/``` endpoint is being used for examply the ```/_mapping``` parameter and has been simplified.
 
 ``` bash
 curl 'https://gdc-api.nci.nih.gov/projects/_mapping'

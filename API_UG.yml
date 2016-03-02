@@ -11,7 +11,7 @@ pages:
 - API:
   - Getting Started with the GDC API: 'API/Users_Guide/Getting_Started.md'
   - Authentication and Authorization: 'API/Users_Guide/Authentication_and_Authorization.md'
-  - Searching for and Retrieving Data and Metadata: 'API/Users_Guide/Searching_for_and_Retrieving_Data_and_Metadata.md'
+  - Searching for and Retrieving Data and Metadata: 'API/Users_Guide/Search_and_Retrieval.md'
   - Downloading Files: 'API/Users_Guide/Downloading_Files.md'
   - BAM Slicing: 'API/Users_Guide/BAM_Slicing.md'
   - Submission: 'API/Users_Guide/Submission.md'
