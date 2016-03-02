@@ -6,7 +6,7 @@ The GDC Data Submission Portal Dashboard aims to provide details about a specifi
 
 [![GDC Submission Dashboard Page](images/GDC_Submission_Dashboard.png)](images/GDC_Submission_Dashboard.png "Click to see the full image.")
 
-The Dashboard contains various visual elements to guide the user through all stages of submission, from dictionary viewer to releasing a project.
+The Dashboard contains various visual elements to guide the user through all stages of submission, from Data Dictionary viewer to releasing a project.
 
 To better understand the data displayed on the dashboard and the actions available, please refer to the [Submission Workflow](Submission_Workflow.md).
 

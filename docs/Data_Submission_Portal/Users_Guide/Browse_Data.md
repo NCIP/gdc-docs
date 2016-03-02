@@ -2,9 +2,9 @@
 
 ## Overview
 
-The _"Browse"_ menu provides access to all of a project's content. Most content is driven by the GDC Dictionary and the interface is dynamically generated to accomodate the content.
+The _"Browse"_ menu provides access to all of a project's content. Most content is driven by the GDC Data Dictionary and the interface is dynamically generated to accomodate the content.
 
-Please refer to the [GDC Dictionary Viewer](../../Dictionary/viewer.md) for more details about dictionary-generated fields, columns and filters.
+Please refer to the [GDC Data Dictionary Viewer](../../Dictionary/viewer.md) for more details about dictionary-generated fields, columns and filters.
 
 All static components are detailed in this User Guide.
 
@@ -20,7 +20,7 @@ __Note__: This button is disabled if the project is in "REVIEW" state.
 
 ### Filters
 
-A wide set of filters are available for the user to select the type of entity to be displayed. These filters are dynamically created based on the [GDC Dictionary](../../Dictionary/index.md).
+A wide set of filters are available for the user to select the type of entity to be displayed. These filters are dynamically created based on the [GDC Data Dictionary](../../Dictionary/index.md).
 
 Current filters are:
 
@@ -76,7 +76,7 @@ This section is available only at the case level.
 This table contains the following columns:
 
 * Category: Category of the Entity (Clinical, Biospecimen, Experiment Data)
-* Type: Type of entity (based on dictionary)
+* Type: Type of entity (based on Data Dictionary)
 * Count: Number of occurences of an entity of this type associated with the case. Clicking on the count will open a list page listing those entities.
 
 #### Focus on Hierachy

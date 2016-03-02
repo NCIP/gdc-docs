@@ -6,7 +6,7 @@ The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission 
 
 The GDC Data Submission Portal is a platform that allows researchers to submit and release their data into the GDC. The key features of the GDC Data Submission Portal are:
 
-* __Upload and Validate Data__: Upload project data to the GDC project workspace. The GDC will validate the data with the GDC data dictionary.
+* __Upload and Validate Data__: Upload project data to the GDC project workspace. The GDC will validate the data with the GDC Data Dictionary.
 * __Review and Submit__: Review your project data will lock the project and ensure no user can upload more data. Once project data is reviewed, Submit it to the GDC for data processing (Harmonization Process).
 * __Release__: Release your harmonized data to the research community (on the GDC Data Portal).
 * __Download Data__: Download uploaded data from your project workspace to review them or update them for re-upload before their release to the GDC Data Portal.
@@ -26,11 +26,11 @@ In order to submit data to the GDC, the submitter will prepare the data and uplo
 
 These are the main categories of data that can be uploaded: 
 
-* Clinical Data: elements such as gender, age, diagnosis, etc. as defined in the GDC Dictionary.
-* Biospecimen Data: entities such as sample, aliquot, etc. as defined in the GDC Dictionary.
-* Experiment Data: at least one type of Experiment data, such as a Read Group, as defined in the GDC Dictionary.
+* Clinical Data: elements such as gender, age, diagnosis, etc. as defined in the GDC Data Dictionary.
+* Biospecimen Data: entities such as sample, aliquot, etc. as defined in the GDC Data Dictionary.
+* Experiment Data: at least one type of Experiment data, such as a Read Group, as defined in the GDC Data Dictionary.
 
-By using the [GDC Dictionary Viewer](../../Dictionary/viewer.md), the user can identify minimum fields requirements for each of the three categories listed above.
+By using the [GDC Data Dictionary Viewer](../../Dictionary/viewer.md), the user can identify minimum fields requirements for each of the three categories listed above.
 
 
 In general, submitters have six month to upload data to the project workspace before they should submit it to the GDC (see next section).
