@@ -77,6 +77,8 @@
             .classed('definition-controls-container', true);
 
 
+      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
+
       // Exclude the below from download
       var excludeCategories = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST;
 
@@ -104,7 +106,20 @@
 
           })*/
           .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
+/*
+        definitionControlsSelection.append('div').classed('btn-group').html(
+          '<div class="btn-group"> ' +
+          '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" id="dictionary-current-template-data-format" aria-expanded="false">' +
+          ''
 
+                                                                                                                                                                               TSV <span class="caret"></span>
+                                                                                                                                                                                               </button>
+                                                                                                                                                                                               <ul class="dropdown-menu">
+                                                                                                                                                                                                         <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('tsv'); document.getElementById('dictionary-current-template-data-format').innerHTML ='TSV <span class=\'caret\'></span>';">TSV</a></li>
+                                                                                                                                                                                                                                                  <li><a href="javascript:void(0)" onclick="$gdcApp.dictionaryViewer.setDefaultDictionaryTemplateDownloadFormat('json'); document.getElementById('dictionary-current-template-data-format').innerHTML = 'JSON <span class=\'caret\'></span>';">JSON</a></li>
+                                                                                                                                                                                                                                                                                           </ul>
+                                                                                                                                                                                                                                                                                           </div>'
+        )*/
 
         /*
         definitionControlsSelection
@@ -117,9 +132,6 @@
           .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
           .html('<i class="fa fa-share-alt"></i> &nbsp;Share');
           */
-    }
-    else {
-        d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).style('display', 'none');
     }
 
 
@@ -228,7 +240,7 @@
           excludeProperties = _.get(dictionaryData, 'systemProperties', []);
 
       // Exclude the type property
-      excludeProperties = excludeProperties.concat(['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles']);
+      excludeProperties = excludeProperties.concat(_DICTIONARY_CONSTANTS.PROPERTY_EXCLUDES);
 
       // Exclude unique keys
       if (_.isArray(dictionaryData.uniqueKeys)) {
@@ -503,7 +515,7 @@
 
 
       var dataRows = [
-        {id: 'type', title: 'Type', value: _tableDefinitionView.getPrettyName()},
+        {id: 'type', title: 'Type', value: dictionaryData.id},
         {id: 'category', title: 'Category', value: category},
         {id: 'description', title: 'Description', value: dictionaryData.description},
         {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
@@ -600,7 +612,7 @@
       }
 
 
-      var exclusions = ['file','biospecimen_data_bundle','clinical_data_bundle','pathology_data_bundle'];
+      var exclusions = _DICTIONARY_CONSTANTS.LINK_EXCLUDES;
 
       for (var i = 0; i < links.length; i++) {
         var link = links[i],

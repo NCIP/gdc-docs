@@ -424,6 +424,8 @@
       data_bundle: ['file', 'generated_file', 'clinical_data_bundle', 'biospecimen_data_bundle', 'pathology_data_bundle'],
       annotation: ['analysis', 'archive', 'publication', 'slide']
     },
+    LINK_EXCLUDES: ['file','biospecimen_data_bundle','clinical_data_bundle','pathology_data_bundle'],
+    PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles'],
     CATEGORY_TEMPLATE_INCLUDES: {
       'data_bundle': ['data_bundle','data_file']
     },
