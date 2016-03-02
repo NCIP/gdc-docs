@@ -386,7 +386,7 @@
                   return data;
                 }
 
-                data = '<div id="' + data + '"><a class="dictionary-anchor"  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
+                data = '<div id="' + data + '"><a class="monospace dictionary-anchor"  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
               }
               break;
             case 1:
@@ -444,7 +444,7 @@
           }).join('\n\t');
 
 
-          data = '<div class="values-accordion"><ul class="bullets"><li>' + data.propertyName + ': <ul>' + bullets + '</ul></li></ul></div>';
+          data = '<div class="values-accordion"><ul class="bullets monospace"><li>' + data.propertyName + ': <ul>' + bullets + '</ul></li></ul></div>';
 
           return data;
         });
@@ -506,7 +506,7 @@
 
           if (_.isArray(data)) {
 
-            var newData = '<ul class="bullets">' +
+            var newData = '<ul class="bullets monospace">' +
                           _.map(data, function (val) {
                             var arrayVal = '';
 

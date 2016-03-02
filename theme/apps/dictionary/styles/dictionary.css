@@ -413,3 +413,7 @@ a.dictionary-anchor {
   color: inherit;
   cursor: default;
 }
+
+.monospace {
+  font-family: monospace;
+}
