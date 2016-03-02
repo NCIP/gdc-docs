@@ -261,31 +261,48 @@
       var links = _prepLinksTableData(dictionaryData);
 
       // Exclude links in properties
-      if (links !== null && _.isArray(links.topLevelLinks)) {
-        excludeProperties = excludeProperties.concat(_.map(links.topLevelLinks, function(l) { return l[0].name; }));
-      }
+      if (links !== null) {
 
-      // Exclude Sublinks in properties
-      if (links !== null && _.isArray(links.subLinks) && links.subLinks.length) {
-        var sublinks = links.subLinks;
+        if (links.topLevelLinks.length) {
+          excludeProperties = excludeProperties.concat(_.map(links.topLevelLinks, function(l) { return l[0].name; }));
+        }
 
-        var justSublinkNames = _.map(sublinks, function(sublinkIDObjs) {
-          // Link object in the first index of each sublink array group
-          return _.reduce(_.first(sublinkIDObjs), function(sublinksArray, l) {
-            sublinksArray.push(l.name);
-            return sublinksArray;
+        // Exclude Sublinks in properties
+        if (links.subLinks.length) {
+          var sublinks = links.subLinks;
+
+          var justSublinkNames = _.map(sublinks, function(sublinkIDObjs) {
+            // Link object in the first index of each sublink array group
+            return _.reduce(_.first(sublinkIDObjs), function(sublinksArray, l) {
+              sublinksArray.push(l.name);
+              return sublinksArray;
+            }, []);
+
+          });
+
+          var flattenedSublinkIDs = _.reduce(justSublinkNames, function(propertyList, names) {
+            propertyList = propertyList.concat(names);
+            return propertyList;
           }, []);
 
-        });
+          excludeProperties = excludeProperties.concat(flattenedSublinkIDs);
+          //console.log(flattenedSublinkIDs);
+        }
 
-        var flattenedSublinkIDs = _.reduce(justSublinkNames, function(propertyList, names) {
-          propertyList = propertyList.concat(names);
-          return propertyList;
-        }, []);
+        if (links.excludedLinks.length) {
+          var excludedLinks = links.excludedLinks;
+          var flattenedExcludedLinks = _.reduce(excludedLinks, function(list, link){
+            list.push(link.name);
+            return list;
+          }, []);
 
-        excludeProperties = excludeProperties.concat(flattenedSublinkIDs);
-        //console.log(flattenedSublinkIDs);
+          excludeProperties = excludeProperties.concat(flattenedExcludedLinks);
+        }
       }
+
+
+      // Make the excluded properties unique
+      excludeProperties = _.uniq(excludeProperties);
 
       console.log('Excluded Properties: ', excludeProperties);
 
@@ -318,7 +335,7 @@
 
         // Ignore system properties for now...
         if (excludeProperties.indexOf(propertyName) >= 0) {
-          console.log('Skipping system property: ' + propertyName);
+          console.log('Skipping excluded property: ' + propertyName);
           continue;
         }
 
@@ -333,7 +350,7 @@
 
       //console.log(propertyValues);
 
-      console.log('Property: ', propertyData);
+      //console.log('Property: ', propertyData);
 
       if (propertyData.length === 0) {
         return null; //[_.times(5, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
@@ -603,7 +620,8 @@
     function _prepLinksTableData(dictionaryData) {
       var transformedData = [],
           topLevelLinks = [],
-          subLinks = [];
+          subLinks = [],
+          excludedLinks = [];
 
       // Create Table Row Data
       var links = _.get(dictionaryData, 'links', false);
@@ -631,14 +649,19 @@
 
 
           for (var j = 0; j < sortedLinkSubgroups.length; j++) {
-            var subLinkDataNode = createLinkData(sortedLinkSubgroups[j]);
+            var subLinkDataNode = createLinkData(sortedLinkSubgroups[j]),
+                isLinkIncluded = exclusions.indexOf(subLinkDataNode[0].id) < 0;
 
-            if (_.isArray(subLinkDataNode) && exclusions.indexOf(subLinkDataNode[0].id) < 0) {
+            if (_.isArray(subLinkDataNode) && isLinkIncluded) {
               subLinkData[0].push(subLinkDataNode[0]);
               subLinkData[1].push(subLinkDataNode[1]);
               subLinkData[2].push(subLinkDataNode[2]);
               // Link dictates whether subgroup is required
               subLinkData[3].push(link.required === true ? 'Yes': 'No');
+            }
+
+            if (! isLinkIncluded) {
+              excludedLinks.push(subLinkDataNode[0]);
             }
           }
 
@@ -680,7 +703,7 @@
 
       console.log('Transformed Data: ', transformedData);
 
-      return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks};
+      return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks, excludedLinks: excludedLinks};
     }
 
     function _renderLinksTable(_tableDefinitionView, tableContainerSelection) {
