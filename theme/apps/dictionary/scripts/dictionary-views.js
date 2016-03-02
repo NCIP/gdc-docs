@@ -540,7 +540,7 @@
       var linkData = [];
 
       if (! _.has(link, 'name')) {
-        return _.times(3, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL));
+        return _.times(4, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL));
       }
 
       var linkID = _.get(link, 'target_type'),
@@ -577,7 +577,7 @@
             linkSubgroups = _.get(link, 'subgroup', []);
 
         if (linkSubgroups.length > 0) {
-          var subLinkData = [[],[],[]];
+          var subLinkData = [[],[],[],[]];
 
           // Sort sublinks by name
           var sortedLinkSubgroups = _.sortBy(linkSubgroups, function(l) {
@@ -590,9 +590,10 @@
 
             if (_.isArray(subLinkDataNode) && exclusions.indexOf(subLinkDataNode[0].id) < 0) {
               subLinkData[0].push(subLinkDataNode[0]);
-              subLinkData[1].push(subLinkDataNode[1]);
+              subLinkData[1].push(subLinkDataNode[0].name);
+              subLinkData[2].push(subLinkDataNode[1]);
               // Link dictates whether subgroup is required
-              subLinkData[2].push(link.required === true ? 'Yes': 'No');
+              subLinkData[3].push(link.required === true ? 'Yes': 'No');
             }
           }
 
@@ -655,10 +656,21 @@
       tHead.append('tr')
         .classed('dictionary-links-header', true)
         .selectAll('th')
-        .data(['Links to', 'Relationship', 'Required?'])
+        .data(['Links to Entity', 'Link Name' , 'Relationship', 'Required?'])
         .enter()
         .append('th')
-        .text(function(d) { return d; });
+        .html(function(d, i) {
+          if (i === 1) {
+            return '<span class="dictionary-tooltip"><em>' + d  +  '</em><span><i></i>The links ' +
+                   'should be included in the files uploaded to the GDC. ' +
+                   'For more information, please refer to the ' +
+                   '<a href="/Data_Submission_Portal/Users_Guide/Upload_Data/#step1-prepare-files" target="_blank">' +
+                   '<!-- b class="fa fa-external-link"></b --> File ' +
+                   'Preparation\'s User Guide</a>.</span></span>';
+          }
+          return d;
+
+        });
 
 
       var dataRows = _prepLinksTableData(dictionaryData).links;
@@ -675,7 +687,7 @@
         .enter()
         .append('td')
         .classed('required-val',function(d, i) {
-          if (i === 2) {
+          if (i === 3) {
             if (_.isArray(d)) {
               return _.first(d) === 'Yes'
             }
@@ -687,48 +699,54 @@
         })
         .html(function(data, i) {
 
-          if (i === 0) {
 
-            var link = data;
 
-            if (_.isString(link)) {
+          switch (i) {
+            case 0:
+              var link = data;
+
+              if (_.isString(link)) {
+                return link;
+              }
+
+              var isNotSubgroup = false;
+
+              if (!_.isArray(link)) {
+                isNotSubgroup = true;
+                link = [data];
+              }
+
+              link = _.map(link, function(l) {
+                return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
+                        (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
+                        (isNotSubgroup ? '<i class="fa fa-file-o"></i>': '<i class="fa fa-sitemap"></i>') + ' ' +
+                        _capitalizeWords(_capitalizeWords(l.id.split('_').join(' '))) +
+                        '</a>';
+              }).join('<br />\n');
+
+
               return link;
-            }
+              break;
+            case 1:
+              return '<span class="monospace">&middot; ' + data.join('<br />\n&middot; ') + '</span>';
+              break;
+            case 3:
+              return _.first(data);
+              break;
 
-            var isNotSubgroup = false;
+            default:
+              if (_.isString(data)) {
+                return data;
+              }
 
-            if (!_.isArray(link)) {
-              isNotSubgroup = true;
-              link = [data];
-            }
+              var newData = data.join('<br />');
 
-            link = _.map(link, function(l) {
-              return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
-                      (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
-                      (isNotSubgroup ? '<i class="fa fa-file-o"></i>': '<i class="fa fa-sitemap"></i>') + ' ' +
-                      _capitalizeWords(_capitalizeWords(l.id.split('_').join(' '))) +
-                      '</a>';
-            }).join('<br />\n');
+              //console.log(newData);
 
-
-            return link;
+              return newData;
+            break;
           }
 
-
-          if (_.isString(data)) {
-            return data;
-          }
-
-          if (i === 2) {
-            return _.first(data);
-          }
-
-
-          var newData = data.join('<br />');
-
-          //console.log(newData);
-
-          return newData;
         });
 
     }
