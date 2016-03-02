@@ -647,7 +647,8 @@
 
       for (var i = 0; i < links.length; i++) {
         var link = links[i],
-            linkSubgroups = _.get(link, 'subgroup', []);
+            linkSubgroups = _.get(link, 'subgroup', []),
+            isLinkIncluded = true;
 
         if (linkSubgroups.length > 0) {
           var subLinkData = [[],[],[],[]];
@@ -659,8 +660,9 @@
 
 
           for (var j = 0; j < sortedLinkSubgroups.length; j++) {
-            var subLinkDataNode = createLinkData(sortedLinkSubgroups[j]),
-                isLinkIncluded = exclusions.indexOf(subLinkDataNode[0].id) < 0;
+            var subLinkDataNode = createLinkData(sortedLinkSubgroups[j]);
+
+            isLinkIncluded = exclusions.indexOf(subLinkDataNode[0].id) < 0;
 
             if (_.isArray(subLinkDataNode) && isLinkIncluded) {
               subLinkData[0].push(subLinkDataNode[0]);
@@ -685,10 +687,21 @@
 
         var linkDataNode = createLinkData(link);
 
+        isLinkIncluded = exclusions.indexOf(linkDataNode[0].id) < 0;
+
+        if (! isLinkIncluded) {
+          excludedLinks.push(linkDataNode[0]);
+          continue;
+        }
+
         if (linkDataNode.length > 0) {
           topLevelLinks.push(linkDataNode);
         }
 
+      }
+
+      if (topLevelLinks.length === 0 && subLinks.length === 0) {
+        return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks, excludedLinks: excludedLinks};
       }
 
 
@@ -728,7 +741,7 @@
 
       var dataRows = _prepLinksTableData(dictionaryData);
 
-      if (dataRows === null) {
+      if (dataRows === null || (dataRows.links.length === 0 && dataRows.subLinks.length === 0)) {
         tableContainerSelection.append('h3')
           .style({'margin-left': '1rem', 'color': '#777'})
           .html('<i class="fa fa-unlink"></i> &nbsp;No Links for this entity.');
