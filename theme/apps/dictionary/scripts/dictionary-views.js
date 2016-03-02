@@ -372,6 +372,13 @@
 
           return false;
         })
+        .classed('no-print',function(d, i) {
+          if (i === 4) {
+            return true;
+          }
+
+          return false;
+        })
         .html(function(d, i) {
 
           var data = d;
@@ -547,6 +554,7 @@
           linkLabel = link.label ?  link.label.split('_').join(' ') : _valueOrDefault();
 
       linkData.push({id: linkID, name: link.name});
+      linkData.push(link.name);
       linkData.push(_capitalizeWords(_valueOrDefault(link.backref).split('_').join(' ')) + ' ' +
                     '<strong>' +   _capitalizeWords(linkLabel) + '</strong> '  +
                     _capitalizeWords(_valueOrDefault(link.target_type.split('_').join(' '))));
@@ -590,8 +598,8 @@
 
             if (_.isArray(subLinkDataNode) && exclusions.indexOf(subLinkDataNode[0].id) < 0) {
               subLinkData[0].push(subLinkDataNode[0]);
-              subLinkData[1].push(subLinkDataNode[0].name);
-              subLinkData[2].push(subLinkDataNode[1]);
+              subLinkData[1].push(subLinkDataNode[1]);
+              subLinkData[2].push(subLinkDataNode[2]);
               // Link dictates whether subgroup is required
               subLinkData[3].push(link.required === true ? 'Yes': 'No');
             }
@@ -633,7 +641,7 @@
         transformedData = subLinks.concat(transformedData);
       }
 
-      //console.log('Transformed Data: ', transformedData);
+      console.log('Transformed Data: ', transformedData);
 
       return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks};
     }
@@ -728,10 +736,20 @@
               return link;
               break;
             case 1:
+
+              if (_.isString(data)) {
+                return data;
+              }
+
               return '<span class="monospace">&middot; ' + data.join('<br />\n&middot; ') + '</span>';
               break;
             case 3:
+              if (! _.isArray(data)) {
+                return data;
+              }
+
               return _.first(data);
+
               break;
 
             default:
