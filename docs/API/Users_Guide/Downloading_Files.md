@@ -1,5 +1,16 @@
 # Downloading Files
 
+
+	OPEN ACCESS DATA:
+	curl --verbose -O -J "https://gdc-api.nci.nih.gov/data/96487cd7-8fa8-4bee-9863-17004a70b2e9"
+
+	Controlled access data:
+
+	export token=ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN0123456789ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN01234567890ALPHANUMER-ALPHANUMERICTOKEN01234567890AlPhAnUmErIcToKeN012-ALPHA-ALPHANUMERICTOKEN01234567+ALPHANUM+ALPHANUMERICTOKEN01234567890AlPhAnUmEr=
+
+	curl --verbose -O -J -H "X-Auth-Token: $token" "https://gdc-api.nci.nih.gov/data/a1c1b23b-cc41-4e85-b1b7-62a42873c5af"
+
+
 GDC API's ```download``` endpoint allows users to download single or multiple files. Each file in GDC is assigned a Universally Unique Identifier (UUID). The UUIDs of single or multiple files are needed to download them. UUIDs can be obtained by downloading a manifest from the Data Portal, or directly from the file entity page on the Data Portal. If a single UUID is provided, the API will return just the associated file. If a list of UUIDs are provided, the API will package all of the associated files together and return a single compressed (gzip) TAR file.  The GDC Data Portal also uses the GDC API endpoint allowing users download files via a web browser.
 
 <aside class="notice">**Note:**: Downloading controlled access data requires the use of a token. See <a href=#controlled-data-access>Controlled Data Access</a></aside>
@@ -17,7 +28,7 @@ $ curl -O -J -L  'https://gdc-api.nci.nih.gov/data/acad3917-f42e-40f9-b9dc-f6cca
 100 7905k  100 7905k    0     0  7549k      0  0:00:01  0:00:01 --:--:-- 7550k
 curl: Saved to filename '3999492009_R01C01_Grn.idat'
 ```
-## Multiple Files Download 
+## Multiple Files Download
 To download multiple files from GDC, provide a comma-separated list of UUIDs to the data endpoint, the GDC REST API will return a uniquely named tar.gz compressed archive file containing the downloaded files.
 
 ```shell
@@ -69,5 +80,3 @@ $ ls -l $filename
 -rw-rw-r-- 1 ubuntu ubuntu 8095289 Mar 19 20:39 acad3917-f42e-40f9-b9dc-f6cca2909273.3999492009_R01C01_Grn.idat
 $
 ```
-
-

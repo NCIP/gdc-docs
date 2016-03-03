@@ -1,0 +1,81 @@
+.definition-controls-container,
+.dictionary-control-container,
+.dictionary-download-category-btn-container,
+.dictionary-print-button,
+.dictionary-tooltip > span,
+.navbar.navbar-default /*,
+.no-print*/ {
+  display: none !important;
+  visibility: hidden;
+}
+
+table {
+  width: 100% !important;
+  margin-top: 2rem !important;
+  page-break-inside: avoid;
+}
+
+table tr {
+  page-break-inside: avoid;
+  page-break-after: auto;
+}
+
+table th:first-child {
+  border: solid 1px #ccc !important;
+  border-right: none !important;
+}
+
+table th {
+  padding-left: 0.5rem;
+  border-top: solid 1px #ccc !important;
+  border-bottom: solid 1px #ccc !important;
+}
+
+table th:last-child {
+  border: solid 1px #ccc !important;
+  border-left: none !important;
+}
+
+table td:first-child {
+  border-right: solid 1px #ccc;
+}
+
+table td {
+  padding: 1rem 1rem !important;
+  border-bottom: solid 1px #ccc !important;
+}
+
+.main-container {
+  padding-top: 0rem !important;
+}
+
+.dictionary-breadcrumb-container {
+  margin-bottom: 2rem;
+}
+
+body {
+  padding-top: 0rem !important;
+  margin-top: 0 !important;
+}
+
+#dictionary-app-container {
+  font-size: 1.2rem !important;
+}
+
+.property-description {
+  width: 18rem;
+}
+
+.dictionary-view {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.dictionary-view.active {
+  display: block !important;
+  visibility: visible !important;
+}
+
+a[href]:after {
+  content: none;
+}

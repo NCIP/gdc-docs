@@ -11,15 +11,15 @@ pages:
 - Home: index.md
 - API:
   - Getting Started: 'API/Users_Guide/Getting_Started.md'
-  - Authentication: 'Commons/Authentication.md'
-  - Searching for and Retrieving Data and Metadata: 'API/Users_Guide/Searching_for_and_Retrieving_Data_and_Metadata.md'
+  - Authorization and Authentication: 'API/Users_Guide/Authentication_and_Authorization.md'
+  - Search and Retrieval: 'API/Users_Guide/Search_and_Retrieval.md'
   - Downloading Files: 'API/Users_Guide/Downloading_Files.md'
   - BAM Slicing: 'API/Users_Guide/BAM_Slicing.md'
   - Submission: 'API/Users_Guide/Submission.md'
   - Examples: 'API/Users_Guide/Examples.md'
   - Available Fields: 'API/Users_Guide/Appendix_A_Available_Fields.md'
   - Key Terms: 'API/Users_Guide/Appendix_B_Key_Terms.md'
-  - Using jsonlint and urldecode for GET to POST Conversion: 'API/Users_Guide/Appendix_C_Using_jsonlint_and_urldecode_for_GET_to_POST_Conversion.md'
+  - Using jsonlint and urldecode for GET to POST Conversion: 'API/Users_Guide/Appendix_C_Using_Third-party-Tools.md'
   - Release Notes: 'API/Release_Notes/API_Release_Notes.md'
 - Data Portal:
   - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
@@ -56,9 +56,9 @@ pages:
   - Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md'
   - Key Terms: 'Data_Transfer_Tool/Users_Guide/Appendix_A_-_Key_Terms.md'
   - Release Notes: 'Data_Transfer_Tool/Release_Notes/GDC_Data_Transfer_Tool_Release_Notes.md'
-- Dictionary:
-  - About: 'Dictionary/index.md'
-  - Viewer: 'Dictionary/viewer.md'
+- Data Dictionary:
+  - About: 'Data_Dictionary/index.md'
+  - Viewer: 'Data_Dictionary/viewer.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'

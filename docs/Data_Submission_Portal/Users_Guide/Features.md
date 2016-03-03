@@ -2,77 +2,79 @@
 
 ## Sitemap
 
-[![GDC Data Submission Portal Sitemap](images/GDC_Submission_Portal_Sitemap.png)](images/GDC_Submission_Portal_Sitemap.png "Click to see the full image.")
+[![GDC Data Submission Portal Sitemap](images/GDC_Submission_Sitemap.png)](images/GDC_Submission_Sitemap.png "Click to see the full image.")
 
 The above image shows the GDC Data Submission Portal sitemap.
 
-## Main Menu
+## Homepage
 
-The Portal comprises different sections available through a toolbar on the upper level of the page and a navigation panel on the left-hand side of the page.
+[![GDC Data Submission Portal Homepage](images/GDC_Submission_Homepage.png)](images/GDC_Submission_Homepage.png "Click to see the full image.")
 
-[![GDC Data Submission Toolbar](images/GDC_Submission_Toolbar.png)](images/GDC_Submission_Toolbar.png "Click to see the full image.")
+The submitter should choose from the homepage in which project he would like to work.
 
-The top toolbar provides access to the following elements:
+The report section in the homepage will provide reports on all the projects the user has access to.
 
-* __GDC Identifying Image__: Clicking on GDC identifying image will redirect to the submission dashboard.
-* __Search__: A context-sensitive search provides a mechanism to search through different pages.
-* __Profile__: The user profile icon provides access to the token and to a logout feature.
 
-## Layout
+## Dashboard
+
+
+[![GDC Data Submission Portal Toolbar](images/GDC_Submission_Dashboard.png)](images/GDC_Submission_Dashboard.png "Click to see the full image.")
+
+The dashboard provides a quick access to all the actions a submitter or project owner can do:
+
+* __Charts__: Provides information on the content of project data (e.g. 42 regitered cases in this project have clinical data).
+* __Reports__: Provides report on the project (e.g. Case Overview Report).
+* __Actions__: Provides the list of actions the user can perform as part of the submission process. This list varies depending on the user's privileges.
+* __Latest Transactions__: Displays the latest transactions on the project.
+* __Browse__: Link to Browse menu (see next section).
+
+## Browse
+
+### Layout
 
 [![GDC Data Submission Portal Layout](images/GDC_Submission_Portal_Layout.png)](images/GDC_Submission_Portal_Layout.png "Click to see the full image.")
 
-The GDC Data Submission Portal main window, visible when navigating through the GDC Data Submission Portal, has been divided into three separate panels:
+The GDC Data Submission Portal Browse menu, has been divided into three separate panels:
 
-* __Navigation panel__: A panel composed of links to different sections of the application.
-* __List panel__: A table listing items corresponding to the current selection.
+* __Navigation panel__: A panel composed of links to different filtered items.
+* __Summary panel__: A table listing items corresponding to the current selection.
 * __Details panel__: Details and previous activities related to a particular entity selected in the results panel.
 
-[![GDC Data Submission Portal Results Panel](images/GDC_Submission_Results_Panel.png)](images/GDC_Submission_Results_Panel.png "Click to see the full image.")
 
-## Navigation Panel
+### Navigation Panel
 
 [![GDC Data Submission Portal Navigation Panel](images/GDC_Submission_Navigation.png)](images/GDC_Submission_Navigation.png "Click to see the full image.")
 
-The navigation panel provides access to the following elements (detailed in subsequent sections of the documentation):
+The navigation panel provides access to the following elements:
 
-* __SUBMIT__: Access to the submission wizard. This button is only available when a single project is selected.
-* __Dashboard__: Shortcut to the project's dashboard.
-* __Cases / All Cases__: Access to the list of cases in the project.
-* __Biospecimen / Samples__: List of tissues or specimens obtained from patients.
-* __Biospecimen / Portions__: Portion of a sample identified as one single entity.
-* __Biospecimen / Analytes__: Experimental test material extracted from a portion of sample.
-* __Biospecimen / Aliquots__: Portion of an analyte used for experimental assay.
-* __Data / Data Read Groups__:  A read group is a type of data bundle that contains molecular data. A data bundle is set of files with associated metadata.
-* __Reports / Case Overview__: Reports related to submission.
-* __Transactions__: List all actions happening on a project (submit data and release).
+* __Upload__: Access to the upload wizard. 
+* __List of Entities uploaded to the project workspace__: Cases, Clinical, Biospecimen and Experiment Data.
+* __Transactions__: List all actions happening on a project.
+* __Annotations__: list of annotations 
 
-## Results Panel
+### Summary Panel
 
-The results panel lists items in a table based on the element selected in the navigation panel or in the results of a search.
+The summary panel lists items in a table based on the element selected in the navigation panel or in the results of a search.
 
 Columns in the table vary depending of the selected element in the navigation panel.
 
-[![GDC Data Submission Portal Navigation Panel](images/GDC_Submission_Results_Panel.png)](images/GDC_Submission_Results_Panel.png "Click to see the full image.")
-
-The table view supports pagination and columns sorting and, if applicable, alerts are displayed to notify that additional attention is required, such as in the situations shown below.
-
 [![Cases with no clinical data](images/GDC_Submission_Cases_with_no_Clinical_Data.png)](images/GDC_Submission_Cases_with_no_Clinical_Data.png "Click to see the full image.")
 
-## Details and Activity Panel
+The table view supports pagination and columns sorting and, if applicable, alerts are displayed to notify that additional attention is required, such as in the situations shown above.
 
-The third panel, on the right-hand side of the page, provides more details about a selected entity in two sub-sections, _'Details'_ and _'Activity'_.
+
+### Detail Panel
+
+The third panel, on the right-hand side of the page, provides more details about a selected entity.
 
 The exact content of those sub-sections depends on the type of entity (e.g. case, sample, transaction) of the selection in the navigation panel.
 
-[![Transaction details](images/GDC_Submission_Transaction_Details.png)](images/GDC_Submission_Transaction_Details.png "Click to see the full image.")
+[![Browse Detail Panel](images/GDC_Submission_Details_Panel.png)](images/GDC_Submission_Details_Panel.png "Click to see the full image.")
 
-The Activity section lists all past transactions associated with an entity, clicking on a transaction will redirect the user to this particular transaction.
+The Transactions section shows all past transactions associated with an entity, clicking on a transaction will redirect the user to this particular transaction.
 
 ## Filtering and Searching
 
-The search menu available at the top of the screen is context-sensitive.
+The quick search menu available at the top of the screen will provide the ability to find your entity in the Browse menu. Type the entity ID, the GDC will provide an autocomplete feature.
 
-For example, when visiting the _'Samples'_ page, the search menu will display the prefix _'Within Samples'_ and only search within Samples.
-
-[![Transaction details](images/GDC_Submission_Search_within_Samples.png)](images/GDC_Submission_Search_within_Samples.png "Click to see the full image.")
+[![GDC Submission Portal Quick Search](images/GDC_Submission_Quick_Search.png)](images/GDC_Submission_Quick_Search.png "Click to see the full image.")

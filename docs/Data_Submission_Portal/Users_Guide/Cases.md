@@ -63,7 +63,7 @@ This table contains the following columns.
 |Column|Description|
 | --- | --- |
 | Category | Category of the Entity (Clinical, Biospecimen, Experiment Data)  |
-| Type | Type of entity (based on dictionary)  |
+| Type | Type of entity (based on Data Dictionary)  |
 | Count | Number of occurences of an entity of this type |
 
 Clicking on the count will open a list page listing those entities.

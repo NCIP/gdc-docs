@@ -70,7 +70,84 @@
 
     TableDefinitionsView.prototype.renderHeader = function() {
       var _tableDefinitionView = this;
-      _tableDefinitionView._d3ContainerSelection.append('h1').text(_tableDefinitionView.getPrettyName());
+      var headerSelection = _tableDefinitionView._d3ContainerSelection.append('h1')
+            .text(_tableDefinitionView.getPrettyName());
+
+      var definitionControlsSelection = headerSelection.append('div')
+            .classed('definition-controls-container', true);
+
+
+      // Exclude the below from download
+      var excludeCategories = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST;
+
+      if (excludeCategories.indexOf(_tableDefinitionView._dictionaryData.category.toLowerCase()) < 0) {
+
+        var updateHREFFunction = function() {
+          d3.select(this)
+            .attr('href', _tableDefinitionView._parentDictionary.getDictionaryTemplateURL(_tableDefinitionView._dictionaryData.id));
+        };
+
+        definitionControlsSelection
+          .append('a')
+          .attr('href', '')
+          .on('mouseenter', updateHREFFunction)
+          .on('focus', updateHREFFunction)
+          .attr('title', 'Download the ' + _tableDefinitionView.getPrettyName() + ' template.')
+          .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
+          /*.on('click', function () {
+
+            _tableDefinitionView._callbackFn.call(
+              null, new Dictionary._ViewUpdateObject(_tableDefinitionView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
+                id: _tableDefinitionView._dictionaryData.id
+              })
+            );
+
+          })*/
+          .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
+
+
+        _tableDefinitionView._parentDictionary
+          .fetchDictionaryTemplate('views/entity-definition-controls.view.html')
+          .then(function(html) {
+            var templateDefinitionControlSelection = definitionControlsSelection.append('div')
+              .style({display: 'inline-block', 'margin-left': '2rem'})
+              .html(html);
+
+            var viewDataFormatLabel = templateDefinitionControlSelection.select('.data-format-value');
+
+            // Set the label to the current default on control load
+            viewDataFormatLabel.text(_tableDefinitionView._parentDictionary.getDefaultDictionaryTemplateDownloadFormat().toUpperCase());
+
+
+            templateDefinitionControlSelection.selectAll('a').on('click', function() {
+              var option = d3.select(this);
+
+              var dataFormat = option.attr('data-format') || _DICTIONARY_CONSTANTS.ENDPOINT_PARAMS.TSV_FORMAT,
+                  dataFormatLabelVal = dataFormat.toUpperCase();
+
+              viewDataFormatLabel.text(dataFormatLabelVal);
+
+              _tableDefinitionView._parentDictionary.setDefaultDictionaryTemplateDownloadFormat(dataFormat);
+            });
+
+          });
+
+
+        /*
+        definitionControlsSelection
+          .append('a')
+          .attr('href', '')
+          .on('mouseenter', updateHREFFunction)
+          .on('focus', updateHREFFunction)
+          .style({'margin-left': '2rem'})
+          .attr('title', 'Share the ' + _tableDefinitionView.getPrettyName() + ' template.')
+          .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
+          .html('<i class="fa fa-share-alt"></i> &nbsp;Share');
+          */
+    }
+
+
+
     };
 
     TableDefinitionsView.prototype.renderSummaryTable = function() {
@@ -171,10 +248,73 @@
       var propertyData = [];
 
       var dictionaryProperties = _.get(dictionaryData, 'properties', false),
-          requiredProperties = _.get(dictionaryData, 'required', false);
+          requiredProperties = _.get(dictionaryData, 'required', false),
+          // Exclude System Properties
+          excludeProperties = _.get(dictionaryData, 'systemProperties', []);
+
+      // Exclude the type property
+      excludeProperties = excludeProperties.concat(_DICTIONARY_CONSTANTS.PROPERTY_EXCLUDES);
+
+      // Exclude unique keys
+      if (_.isArray(dictionaryData.uniqueKeys)) {
+
+        var uniqueKeys = _.reduce(dictionaryData.uniqueKeys, function(flattenedKeys, keys) {
+          flattenedKeys = flattenedKeys.concat(keys);
+          return flattenedKeys;
+        }, []);
+
+        //console.log(uniqueKeys);
+        excludeProperties = excludeProperties.concat(uniqueKeys);
+      }
 
 
+      var links = _prepLinksTableData(dictionaryData);
 
+      // Exclude links in properties
+      if (links !== null) {
+
+        if (links.topLevelLinks.length) {
+          excludeProperties = excludeProperties.concat(_.map(links.topLevelLinks, function(l) { return l[0].name; }));
+        }
+
+        // Exclude Sublinks in properties
+        if (links.subLinks.length) {
+          var sublinks = links.subLinks;
+
+          var justSublinkNames = _.map(sublinks, function(sublinkIDObjs) {
+            // Link object in the first index of each sublink array group
+            return _.reduce(_.first(sublinkIDObjs), function(sublinksArray, l) {
+              sublinksArray.push(l.name);
+              return sublinksArray;
+            }, []);
+
+          });
+
+          var flattenedSublinkIDs = _.reduce(justSublinkNames, function(propertyList, names) {
+            propertyList = propertyList.concat(names);
+            return propertyList;
+          }, []);
+
+          excludeProperties = excludeProperties.concat(flattenedSublinkIDs);
+          //console.log(flattenedSublinkIDs);
+        }
+
+        if (links.excludedLinks.length) {
+          var excludedLinks = links.excludedLinks;
+          var flattenedExcludedLinks = _.reduce(excludedLinks, function(list, link){
+            list.push(link.name);
+            return list;
+          }, []);
+
+          excludeProperties = excludeProperties.concat(flattenedExcludedLinks);
+        }
+      }
+
+
+      // Make the excluded properties unique
+      excludeProperties = _.uniq(excludeProperties);
+
+      console.log('Excluded Properties: ', excludeProperties);
 
       var propertyIDs;
 
@@ -190,20 +330,22 @@
         propertyIDs = requiredPartition;
       }
 
-      console.log(requiredPartition);
+      //console.log(requiredPartition);
+
+      var dictionaryTerms = dictionaryData.terms || {};
 
       for (var i = 0; i < propertyIDs.length; i++) {
         var p = [],
             propertyName = propertyIDs[i],
             property = dictionaryProperties[propertyName],
-            description = property.description,
+            description = _.get(dictionaryTerms, propertyName + '.description', false) || property.description,
             valueOrType = _getPropertyValueOrType(property),
-            CDE = _.get(dictionaryData, 'terms.' + propertyName + '.termDef'),
+            CDE = _.get(dictionaryTerms, propertyName + '.termDef'),
             isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';
 
         // Ignore system properties for now...
-        if (dictionaryData.systemProperties.indexOf(propertyName) >= 0) {
-         console.log('Skipping system property: ' + propertyName);
+        if (excludeProperties.indexOf(propertyName) >= 0) {
+          console.log('Skipping excluded property: ' + propertyName);
           continue;
         }
 
@@ -218,10 +360,10 @@
 
       //console.log(propertyValues);
 
-      console.log('Property: ', propertyData);
+      //console.log('Property: ', propertyData);
 
       if (propertyData.length === 0) {
-        return [_.times(5, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
+        return null; //[_.times(5, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
       }
 
       return propertyData;
@@ -238,6 +380,17 @@
         .attr('href',  '#?view=' + _tableDefinitionView._name + '&id=' + dictionaryData.id + '&anchor=properties-table')
         .text('Properties');
 
+
+      var dataRows = _prepPropertiesTableData(dictionaryData);
+
+      if (dataRows === null) {
+        tableContainerSelection.append('h3')
+          .style({'margin-left': '1rem', 'color': '#777'})
+          .html('<i class="fa fa-gears"></i> &nbsp;No Properties for this entity.');
+
+        return;
+      }
+
       var definitionTable = tableContainerSelection.append('table')
         .classed('dictionary-properties-table', true);
 
@@ -250,9 +403,14 @@
         .data(['Property', 'Description', 'Acceptable Types or Values', 'Required?', 'CDE'])
         .enter()
         .append('th')
-        .text(function(d) { return d; });
+        .classed('no-print',function(d, i) {
+          if (i === 4) {
+            return true;
+          }
 
-      var dataRows = _prepPropertiesTableData(dictionaryData);
+          return false;
+        })
+        .text(function(d) { return d; });
 
       var tRows = tBody.selectAll('tr')
         .data(dataRows)
@@ -272,43 +430,70 @@
 
           return false;
         })
+        .classed('no-print',function(d, i) {
+          if (i === 4) {
+            return true;
+          }
+
+          return false;
+        })
         .html(function(d, i) {
 
           var data = d;
 
-          if (i === 0 && _.isString(data)) {
-            data = '<i class="fa fa-gear"></i> ' + data;
+          //console.log(data);
+
+          switch(i) {
+            case 0:
+              if (_.isString(data)) {
+
+                if (data === _DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL) {
+                  return data;
+                }
+
+                data = '<div id="' + data + '"><a class="monospace dictionary-anchor"  href="#?view=' + _tableDefinitionView.getViewName() + '&id='+ dictionaryData.id + '&anchor=' + data + '"><i class="fa fa-gear"></i> ' + data + '</a></div>';
+              }
+              break;
+            case 1:
+              return '<div class="property-description">' + data + '</div>';
+              break;
+            case 4:
+              var cdeStr = '';
+
+              if (data.term_url) {
+                cdeStr = '<a href="' + (data.term_url ? data.term_url : '#') + '" target="_blank">' + data.cde_id +
+                         '</a>' + ' - ' + data.source;
+              }
+              else {
+                cdeStr = _valueOrDefault();
+              }
+
+              return cdeStr;
+              break;
+            default:
+              break;
+
           }
+
 
           if (_.isString(data)) {
             return data;
           }
 
-          if (i === 4) {
-            var cdeStr = '';
-
-            if (data.term_url) {
-              cdeStr = '<a href="' + (data.term_url ? data.term_url : '#') + '" target="_blank">' + data.cde_id +
-                       '</a>' + ' - ' + data.source;
-            }
-            else {
-              cdeStr = _valueOrDefault();
-            }
-
-            return cdeStr;
-          }
-
-
 
           if (data.propertyName === 'type') {
-            return data.propertyValue;
+
+            if (!_.isArray(data.propertyValue)) {
+              return data.propertyValue;
+            }
+            else {
+              return data.propertyValue.join(', ');
+            }
           }
 
-          var bullets = _.map(data.propertyValue, function (val, i) {
+          var bullets = _.map(data.propertyValue, function (val) {
 
             var arrayVal = '';
-
-            //console.log(val, i);
 
             if (_.isArray(val) && val.length === 1) {
               arrayVal = val[0];
@@ -324,7 +509,7 @@
           }).join('\n\t');
 
 
-          data = '<ul class="bullets"><li>' + data.propertyName + ': <ul>' + bullets + '</ul></li></ul>';
+          data = '<div class="values-accordion"><ul class="bullets monospace"><li>' + data.propertyName + ': <ul>' + bullets + '</ul></li></ul></div>';
 
           return data;
         });
@@ -348,7 +533,7 @@
       var tHead = definitionTable.append('thead'),
         tBody = definitionTable.append('tbody');
 
-      tHead.append('tr')
+      /*tHead.append('tr')
         .classed('dictionary-summary-header', true)
         .selectAll('th')
         .data(['Title', _tableDefinitionView.getPrettyName()])
@@ -356,10 +541,11 @@
         .append('th')
         .text(function (d) {
           return d;
-        });
+        });*/
 
 
       var dataRows = [
+        {id: 'type', title: 'Type', value: dictionaryData.id},
         {id: 'category', title: 'Category', value: category},
         {id: 'description', title: 'Description', value: dictionaryData.description},
         {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
@@ -380,13 +566,17 @@
 
           var data = d.value;
 
+          if (i === 1 && d.id === 'type') {
+            return '<span class="monospace">' + data + '</span>';
+          }
+
           if (i !== 1 || d.id !== 'keys') {
             return data;
           }
 
           if (_.isArray(data)) {
 
-            var newData = '<ul class="bullets">' +
+            var newData = '<ul class="bullets monospace">' +
                           _.map(data, function (val) {
                             var arrayVal = '';
 
@@ -420,13 +610,17 @@
       var linkData = [];
 
       if (! _.has(link, 'name')) {
-        return _.times(3, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL));
+        return _.times(4, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL));
       }
 
-      linkData.push({id: _.get(link, 'target_type'), name: link.name});
-      linkData.push(_valueOrDefault(link.backref) + ' ' +
-                    _valueOrDefault(link.label) + ' '  +
-                    _valueOrDefault(link.target_type));
+      var linkID = _.get(link, 'target_type'),
+          linkLabel = link.label ?  link.label.split('_').join(' ') : _valueOrDefault();
+
+      linkData.push({id: linkID, name: link.name});
+      linkData.push(link.name);
+      linkData.push(_capitalizeWords(_valueOrDefault(link.backref).split('_').join(' ')) + ' ' +
+                    '<strong>' +   _capitalizeWords(linkLabel) + '</strong> '  +
+                    _capitalizeWords(_valueOrDefault(link.target_type.split('_').join(' '))));
       linkData.push(link.required === true ? 'Yes' : 'No');
 
       return linkData;
@@ -434,36 +628,57 @@
 
 
     function _prepLinksTableData(dictionaryData) {
-      var transformedData = [];
+      var transformedData = [],
+          topLevelLinks = [],
+          subLinks = [],
+          excludedLinks = [];
 
       // Create Table Row Data
       var links = _.get(dictionaryData, 'links', false);
 
       if (! links || ! _.isArray(links) || links.length === 0) {
-        return [createLinkData()];
+        //var l =  [createLinkData()];
+        //return  {links: l, topLevelLinks: [], subLinks: []};
+        return null;
       }
 
-      for (var i = 0; i < links.length; i++) {
-        var link = links[i];
 
-        var linkSubgroups = _.get(link, 'subgroup', []);
+      var exclusions = _DICTIONARY_CONSTANTS.LINK_EXCLUDES;
+
+      for (var i = 0; i < links.length; i++) {
+        var link = links[i],
+            linkSubgroups = _.get(link, 'subgroup', []),
+            isLinkIncluded = true;
 
         if (linkSubgroups.length > 0) {
-          var subLinkData = [[],[],[]];
+          var subLinkData = [[],[],[],[]];
 
-          for (var j = 0; j < linkSubgroups.length; j++) {
-            var subLinkDataNode = createLinkData(linkSubgroups[j]);
+          // Sort sublinks by name
+          var sortedLinkSubgroups = _.sortBy(linkSubgroups, function(l) {
+            return l.name;
+          });
 
-            if (_.isArray(subLinkDataNode)) {
+
+          for (var j = 0; j < sortedLinkSubgroups.length; j++) {
+            var subLinkDataNode = createLinkData(sortedLinkSubgroups[j]);
+
+            isLinkIncluded = exclusions.indexOf(subLinkDataNode[0].id) < 0;
+
+            if (_.isArray(subLinkDataNode) && isLinkIncluded) {
               subLinkData[0].push(subLinkDataNode[0]);
               subLinkData[1].push(subLinkDataNode[1]);
+              subLinkData[2].push(subLinkDataNode[2]);
               // Link dictates whether subgroup is required
-              subLinkData[2].push(link.required === true ? 'Yes': 'No');
+              subLinkData[3].push(link.required === true ? 'Yes': 'No');
+            }
+
+            if (! isLinkIncluded) {
+              excludedLinks.push(subLinkDataNode[0]);
             }
           }
 
           if (subLinkData.length > 0) {
-            transformedData.push(subLinkData);
+            subLinks.push(subLinkData);
           }
 
           continue;
@@ -472,13 +687,46 @@
 
         var linkDataNode = createLinkData(link);
 
+        isLinkIncluded = exclusions.indexOf(linkDataNode[0].id) < 0;
+
+        if (! isLinkIncluded) {
+          excludedLinks.push(linkDataNode[0]);
+          continue;
+        }
+
         if (linkDataNode.length > 0) {
-          transformedData.push(linkDataNode);
+          topLevelLinks.push(linkDataNode);
         }
 
       }
 
-      return transformedData;
+      if (topLevelLinks.length === 0 && subLinks.length === 0) {
+        return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks, excludedLinks: excludedLinks};
+      }
+
+
+      //console.log(subLinks);
+
+
+      var sortASCandRequiredFirst = function (l) {
+        return (l[2] === 'Yes' ? 'a' : 'z') + l[0].name;
+      };
+
+      if (topLevelLinks.length) {
+        transformedData = _.sortBy(topLevelLinks, sortASCandRequiredFirst);
+      }
+
+      // If we have links and the first in group i
+      if (transformedData.length && _.first(transformedData)[2] === 'Yes') {
+        transformedData = transformedData.concat(subLinks);
+      }
+      else {
+        transformedData = subLinks.concat(transformedData);
+      }
+
+      //console.log('Transformed Data: ', transformedData);
+
+      return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks, excludedLinks: excludedLinks};
     }
 
     function _renderLinksTable(_tableDefinitionView, tableContainerSelection) {
@@ -490,6 +738,18 @@
         .attr('href',  '#?view=' + _tableDefinitionView._name  + '&id=' + dictionaryData.id + '&anchor=links-table')
         .text('Links');
 
+
+      var dataRows = _prepLinksTableData(dictionaryData);
+
+      if (dataRows === null || (dataRows.links.length === 0 && dataRows.subLinks.length === 0)) {
+        tableContainerSelection.append('h3')
+          .style({'margin-left': '1rem', 'color': '#777'})
+          .html('<i class="fa fa-unlink"></i> &nbsp;No Links for this entity.');
+        return;
+      }
+
+      dataRows = dataRows.links;
+
       var definitionTable = tableContainerSelection.append('table')
         .classed('dictionary-links-table', true);
 
@@ -499,13 +759,21 @@
       tHead.append('tr')
         .classed('dictionary-links-header', true)
         .selectAll('th')
-        .data(['Links to', 'Relationship', 'Required?'])
+        .data(['Links to Entity', 'Link Name' , 'Relationship', 'Required?'])
         .enter()
         .append('th')
-        .text(function(d) { return d; });
+        .html(function(d, i) {
+          if (i === 1) {
+            return '<span class="dictionary-tooltip"><em>' + d  +  '</em><span><i></i>The links ' +
+                   'should be included in the files uploaded to the GDC. ' +
+                   'For more information, please refer to the ' +
+                   '<a href="/Data_Submission_Portal/Users_Guide/Upload_Data/#step1-prepare-files" target="_blank">' +
+                   '<!-- b class="fa fa-external-link"></b --> File ' +
+                   'Preparation\'s User Guide</a>.</span></span>';
+          }
+          return d;
 
-
-      var dataRows = _prepLinksTableData(dictionaryData);
+        });
 
       var tRows = tBody.selectAll('tr')
         .data(dataRows)
@@ -519,7 +787,11 @@
         .enter()
         .append('td')
         .classed('required-val',function(d, i) {
-          if (i === 2) {
+          if (i === 3) {
+            if (_.isArray(d)) {
+              return _.first(d) === 'Yes'
+            }
+
             return d === 'Yes';
           }
 
@@ -527,48 +799,64 @@
         })
         .html(function(data, i) {
 
-          if (i === 0) {
 
-            var link = data;
 
-            if (_.isString(link)) {
+          switch (i) {
+            case 0:
+              var link = data;
+
+              if (_.isString(link)) {
+                return link;
+              }
+
+              var isNotSubgroup = false;
+
+              if (!_.isArray(link)) {
+                isNotSubgroup = true;
+                link = [data];
+              }
+
+              link = _.map(link, function(l) {
+                return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
+                        (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
+                        (isNotSubgroup ? '<i class="fa fa-file-o"></i>': '<i class="fa fa-sitemap"></i>') + ' ' +
+                        _capitalizeWords(_capitalizeWords(l.id.split('_').join(' '))) +
+                        '</a>';
+              }).join('<br />\n');
+
+
               return link;
-            }
+              break;
+            case 1:
 
-            var isNotSubgroup = false;
+              if (_.isString(data)) {
+                return data;
+              }
 
-            if (!_.isArray(link)) {
-              isNotSubgroup = true;
-              link = [data];
-            }
+              return '<span class="monospace">&middot; ' + data.join('<br />\n&middot; ') + '</span>';
+              break;
+            case 3:
+              if (! _.isArray(data)) {
+                return data;
+              }
 
-            link = _.map(link, function(l) {
-              return  '<a href="#?view=' + _tableDefinitionView.getViewName() + '&id=' + l.id + '&_top=1" title="' +
-                      (isNotSubgroup ? 'Entity' : 'Entity Subgroup') + '">' +
-                      (isNotSubgroup ? '<i class="fa fa-file-o"></i>': '<i class="fa fa-sitemap"></i>') + ' ' +
-                      l.id +
-                      '</a>';
-            }).join('<br />\n');
+              return _.first(data);
 
+              break;
 
-            return link;
+            default:
+              if (_.isString(data)) {
+                return data;
+              }
+
+              var newData = data.join('<br />');
+
+              //console.log(newData);
+
+              return newData;
+            break;
           }
 
-
-          if (_.isString(data)) {
-            return data;
-          }
-
-          if (i === 2) {
-            return _.first(data);
-          }
-
-
-          var newData = data.join('<br />');
-
-          //console.log(newData);
-
-          return newData;
         });
 
     }
@@ -607,13 +895,54 @@
       var _tableEntityListView = this;
       var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
       var categoryKeys = _DICTIONARY_CONSTANTS.ENTITY_LIST_DICTIONARY_KEY_ORDER;
-      console.log(categoryKeys);
+
+      //console.log(categoryKeys);
+
+      _tableEntityListView._parentDictionary
+        .fetchDictionaryTemplate('views/entity-list-controls.view.html')
+        .then(function(html) {
+          var templateDefinitionControlSelection = d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).append('div')
+            .style({display: 'inline-block', 'margin-left': '2rem'})
+            .html(html);
+
+          var viewDataFormatLabel = templateDefinitionControlSelection.select('.data-format-value');
+
+          // Set the label to the current default on control load
+          viewDataFormatLabel.text(_tableEntityListView._parentDictionary.getDefaultDictionaryTemplateDownloadFormat().toUpperCase());
+
+
+          templateDefinitionControlSelection.selectAll('a').on('click', function() {
+            var option = d3.select(this);
+
+            var dataFormat = option.attr('data-format') || _DICTIONARY_CONSTANTS.ENDPOINT_PARAMS.TSV_FORMAT,
+                dataFormatLabelVal = dataFormat.toUpperCase();
+
+            viewDataFormatLabel.text(dataFormatLabelVal);
+
+            _tableEntityListView._parentDictionary.setDefaultDictionaryTemplateDownloadFormat(dataFormat);
+          });
+
+        });
 
       for (var i = 0; i < categoryKeys.length; i++) {
         var category = categoryKeys[i];
 
-        _tableEntityListView.renderEntity(category, categoryMap[category]);
+        _tableEntityListView.renderEntity(category, categoryMap[category], _getSortFnForCategory(category, categoryMap[category]));
 
+      }
+
+      // Print any remaining not explicitly sorted keys that may not be in the hardcoded order...
+      var leftOverCategories = _.difference(_.keys(_tableEntityListView._dictionaryData.dictionaryMapByCategory), categoryKeys);
+
+      if (leftOverCategories.length) {
+        console.warn('Sorted Category Differences: ', leftOverCategories);
+
+        for (i = 0; i < leftOverCategories.length; i++) {
+          var category = leftOverCategories[i];
+
+          _tableEntityListView.renderEntity(category, categoryMap[category]);
+
+        }
       }
 
       console.log('TableEntityListView Rendering!');
@@ -624,8 +953,10 @@
     };
 
 
-    TableEntityListView.prototype.renderEntity = function(category, categoryData) {
+    TableEntityListView.prototype.renderEntity = function(category, categoryData, categorySortFn) {
       var _tableEntityListView = this;
+
+      categoryData = categorySortFn.call(_tableEntityListView, categoryData);
 
       var entityTable = _tableEntityListView._d3ContainerSelection
         .append('table')
@@ -643,6 +974,10 @@
           case 'case':
             tooltipText = 'Cases must be registered in GDC before clinical, biospecimen, experiment and annotation data can be submitted.';
             break;
+          case 'administrative':
+          case 'TBD':
+            tooltipText = 'The entities listed in this category are maintained by GDC. Data submission is not applicable.';
+            break;
           default:
             break;
         }
@@ -650,11 +985,13 @@
         return tooltipText;
       };
 
-      tHead.append('tr')
+      var tHeadRow = tHead.append('tr')
         .append('th')
         .attr('colspan', 2)
-        .classed('dictionary-entity-header', true)
-        .append('a')
+        .classed('dictionary-entity-header', true);
+
+
+      tHeadRow.append('a')
         .classed('dictionary-tooltip', function() {
           return _.isString(getTooltipText());
         })
@@ -673,9 +1010,49 @@
         })
         .html(function() {
           var tooltipText = getTooltipText();
-          return '<i class="fa fa-book"></i> ' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
-                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> <i style="color: #ccc;" class="fa fa-info-circle"></i>' : '');
+          return '<i class="fa fa-book"></i> <em>' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) + '</em>' +
+                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> &nbsp;<!-- i style="color: #ccc;" class="fa fa-info-circle"></i -->' : '');
         });
+
+      // Exclude the below from download
+      var excludeCategories = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST;
+
+      if (excludeCategories.indexOf(category.toLowerCase()) < 0) {
+        tHeadRow.append('div')
+          .classed('dictionary-download-category-btn-container', true)
+          .append('a')
+          .attr('href', 'javascript:void(0)')
+          .attr('title', 'Download All Templates for the ' +
+                         _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) +
+                         ' Category')
+          .on('click', function () {
+
+
+            // TODO: Remove hardcoding but for now this is necessary...
+            var oneOffDictionaries = ['annotation', 'case'];
+
+            if (oneOffDictionaries.indexOf(category) >= 0) {
+
+              _tableEntityListView._callbackFn.call(
+                null, new Dictionary._ViewUpdateObject(_tableEntityListView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
+                  id: category
+                })
+              );
+
+              return;
+            }
+
+            var exclusions = _.get(_DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES, category, null);
+
+            _tableEntityListView._callbackFn.call(
+              null, new Dictionary._ViewUpdateObject(_tableEntityListView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED, {
+                id: _.get(_DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES, category, category),
+                excludes: exclusions
+              })
+            );
+          })
+          .html('<i class="fa fa-cloud-download"></i>&nbsp; Download  &nbsp;');
+      }
 
       var tRows = tBody.selectAll('tr')
         .data(categoryData)
@@ -737,16 +1114,39 @@
     return TableEntityListView;
   })();
 
+  function _getSortFnForCategory(category, categoryData) {
+    var sortFunction = _.constant(categoryData);
+
+    switch(category.toLowerCase()) {
+      case 'biospecimen':
+        sortFunction = function(categoryData) {
+          return _.orderBy(categoryData, ['title'], ['desc']);
+        };
+        break;
+      default:
+        break;
+    }
+
+    return sortFunction;
+  }
 
 
   function _valueOrDefault(val) {
     return val !== null && typeof val !== 'undefined' ? val : _DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL;
   }
 
+  function _capitalizeWords(str) {
+    return str.replace(/[^\s]+/g, function(word) {
+      return word.replace(/^[a-z]/i, function(firstLetter) {
+        return firstLetter.toUpperCase();
+      });
+    });
+  }
+
   /////////////////////////////////////////////////////////
   // Parent View Definition
   /////////////////////////////////////////////////////////
-  function View(d3ContainerSelection, dictionaryData, actionCallbackFn) {
+  function View(d3ContainerSelection, dictionaryData, actionCallbackFn, parentDictionary) {
     var _view = this;
 
     _view._d3ContainerSelection = d3ContainerSelection;
@@ -757,6 +1157,10 @@
     _view._parentViewName = '';
     _view._prettyName = _view._name;
     _view._breadcrumbName = null;
+
+    // Note: The below is optional and should only be used by views
+    // that need access to the dictionary object's functionality
+    _view._parentDictionary = parentDictionary || null;
 
     if (typeof _view.renderView === 'undefined') {
       throw Error('You must define your own renderView method in your view!');
@@ -769,6 +1173,9 @@
       console.log('Rendering View!');
 
       _view._d3ContainerSelection.html('');
+
+      // Show the controls before rendering
+      d3.select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS).html('');
 
       // Template method - inherited functions define this!
       _view.renderView();
@@ -785,7 +1192,7 @@
 
       _view._isHidden = false;
       _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
-      _view._d3ContainerSelection.style('display', 'block').transition().duration(250).style('opacity', 1);
+      _view._d3ContainerSelection.style('display', 'block').classed('active', true).transition().duration(250).style('opacity', 1);
 
       _view._callbackFn.call(null, new Dictionary._ViewUpdateObject(this));
 
@@ -797,7 +1204,7 @@
 
       _view._isHidden = true;
       _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
-      _view._d3ContainerSelection.transition().duration(250).style('opacity', 0);
+      _view._d3ContainerSelection.classed('active', false).transition().duration(250).style('opacity', 0);
       setTimeout(function() { _view._d3ContainerSelection.style('display', 'none'); }, 250);
 
 

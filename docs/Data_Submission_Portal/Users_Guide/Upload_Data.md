@@ -4,7 +4,10 @@
 
 The GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools).
 
-This chapter will focus on the upload and validation of data to the GDC project workspace.
+This chapter will focus on the upload and validation of data to the project workspace.
+
+[![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
+
 
 ## Introduction to the Files
 
@@ -20,7 +23,7 @@ During the upload and validation process, files are converted by the GDC API int
 The GDC Data Submission Portal offers the ability to download files in different formats. To do so the system converts database entities back to the requested file format.
 
 ### File Type
-The GDC Data Submission Portal supports four types of files for upload to the GDC:
+The GDC Data Submission Portal supports the following types of files for upload to the GDC:
 
 * __Clinical__: A case’s clinical data.
 * __Biospecimen__: Metadata describing a tissue specimen collected from a case and other material derived from samples for analysis.
@@ -35,43 +38,80 @@ The GDC has developed a submission unit called a “data bundle”, which is a s
 
 Data bundle types are defined by what files are expected and what introspection is done for validation or linking to other GDC entities. Each data bundle will be validated via a bundle type and project specific schema, including a JSON data dictionary, relationship check and molecular data quality check.
 
-The experiment data supported by the GDC is described in the [GDC Dictionary](../../Dictionary/viewer.md).
+The experiment data supported by the GDC is described in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md).
 
 The table below is an example of files used to upload a read group to the GDC. The next section will describe how to perform these actions.
 
-| File | Example | Usage |
-| --- | --- | --- |
-| Read Group Metadata|read_group.tsv|Upload this file to the Submission Portal. It describes experiment metadata.|
-| Submitted File Metadata|submitted_file.tsv|Upload this file to the Submission Portal. It describes file metadata.|
-| Manifest|manifest.yml|Download this file from the Submission Portal. This manifest is used by the GDC DTT for the actual file upload.|
-| FAST File|ExperimentFile.fastq|Upload this file to the GDC DTT along with the manifest.|
+|# | File name | Description | GDC Tool |
+| --- | --- | --- | --- |
+|1a | read_group.tsv |Read Group Metadata|Upload this file to the Submission Portal. It describes the experiment metadata.|
+|1b | submitted_file.tsv|Submitted File Metadata|Upload this file to the Submission Portal. It describes the file metadata.|
+|2 | manifest.yml|Manifest|Download this file from the Submission Portal. This manifest is used by the GDC Data Transfer Tool for the actual file upload.|
+|3 | ExperimentFile.fastq|FAST File|Upload this file to the GDC Data Transfer Tool along with the manifest.|
 
 
 
 ## Step1. Prepare Files
 
-The [GDC Dictionary](../../Dictionary/viewer.md) describes the types of entities that can be uploaded to the GDC.
+The [GDC Data Dictionary](../../Data_Dictionary/viewer.md) describes the types of entities that can be uploaded to the GDC.
 
-The user can go to the GDC Dictionary to download the template files to be used for the upload. The templates can be populated with data by the user and should result in a valid file (if validation rules detailed in the dictionary are met).
+The user can go to the GDC Data Dictionary to __download the template files__ to be used for the upload. The templates can be populated with data by the user and should result in a valid file (if validation rules detailed in the data dictionary are met).
 
 A template file describes an entity with the following information:
 
 * __Type__: identification of the entity.
-* __IDs__: Project ID and Submitter ID of the entity.
+* __Unique Keys__: Project ID and Submitter ID of the entity.
 * __Links__: Submitter ID of the links to other entities.
-* __Properties__: properties of the entity.
+* __Properties__: user properties of the entity.
+
+### Focus on Links
+
+In order to identify the relationship between 2 entities, the user should include in the file of the child entity a reference to the parent submitter ID (called link).
+
+For example, a Demographic entity describes a Case entity. The user should define __cases.submitter_id__ in the Demographic file.
 
 
+### Examples of files
 
-Example of a __demographic file__ that can be uploaded in TSV format:
+#### Demographic
 
-| type | project\_id | submitter\_id | cases.submitter\_id | ethnicity | gender | race | year\_of\_birth | year\_of\_death
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| demographic | PROJECT-DEV3 | CASE-1-DEMOGRAPHIC | CASE-1 | hispanic or latino | female | other | 1980 | 0
-| demographic | PROJECT-DEV3 | CASE-2-DEMOGRAPHIC | CASE-2 | not hispanic or latino | female | not allowed to collect | 1980 | 0
+
+Example below of a __demographic file__ that can be uploaded in TSV format.
+
+The structure of the file is the following:
+
+* Type = demographic
+* Unique Keys = project\_id, submitter_id 
+* Links = cases.submitter_id 
+* Properties = ethnicity, gender, etc.
+
+```tsv
+type	project_id	submitter_id	cases.submitter_id	ethnicity	gender	race	year_of_birth	year_of_deathdemographic	TCGA-DEV3	TCGA-DEV-3-CASE-000-D1	TCGA-DEV-3-CASE-000	hispanic or latino	male	white	1950	0demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	female	white	1956	0
+```
+
+
+#### Read Group and Submitted File
+
+Example of a __Read Group__ upload, which needs 2 TSV files to describe metadata.
+
+File 1: read_group.tsv
+
+```tsv
+type	project_id	submitter_id	aliquots.submitter_id	experiment_name	is_paired_end	library_name	library_strategy	platform	read_group_name	read_length	sequencing_center	RIN	adapter_name	adapter_sequence	base_caller_name	base_caller_version	fastq_name	flow_cell_barcode	includes_spike_ins	instrument_model	library_preparation_kit_catalog_number	library_preparation_kit_name	library_preparation_kit_vendor	library_preparation_kit_version	library_selection	library_strand	sequencing_date	size_selection_range	spike_ins_concentration	spike_ins_fasta	target_capture_kit_catalog_number	target_capture_kit_name	target_capture_kit_target_region	target_capture_kit_vendor	target_capture_kit_version	to_trim_adapter_sequence
+read_group	TCGA-DEV3	read_group_ID1	TCGA-DEV-3-CASE-000-S1-AL1	Text for Experiment	TRUE	lib_1	WXS	Illumina	35	101	test								FALSE																	FALSE
+```
+
+File 2: submitted_file.tsv
+
+```tsv
+type	project_id	submitter_id	read_groups.submitter_id#1	slides.submitter_id	file_name	file_size	md5sum	file_format	state_comment
+submitted_file	TCGA-DEV3	fileID1_CASE-000-AL1	read_group_ID1		fileID88_CASE-000.fastq	61004	311253B0CA93B396A41C0A88F01557AE	fastq	
+```
 
 
 Once the user has prepared their files (in TSV or JSON format), they can move on to the next step, uploading their data through the Upload Data Wizard.
+
+**Note:** Before you can upload clinical, biospecimen or experiment data, the cases must be registered in GDC. If the cases are not displayed in your project dashboard, please download the Case template from the [GDC Data Dictionary](../../Data_Dictionary/viewer.md), complete it with the Cases Submitter IDs and upload the Cases through the Upload Data Wizard.
 
 ## Step 2. Upload Data Wizard
 
@@ -80,9 +120,9 @@ The GDC Data Submission Portal is equipped with a wizard window to guide you thr
 
 * __Upload Files__: Upload a file into the user's browser, at this point nothing is submitted to the project workspace.
 * __Validate Files__: Send a file to the GDC backend to validate its content (see below).
-* __Confirm Submission__: Submit a validated file to the project workspace and produce a report.
+* __Confirm Upload__: Submit a validated file to the project workspace and produce a report.
 
-The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of submitted files against the project's dictionary to detect potential errors. Invalid files will be flagged and the upload to the GDC will be denied until corrections are made by the user. A validation error report provided by the system can be used to isolate and correct errors for resubmission.
+The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of submitted files against the project's data dictionary to detect potential errors. Invalid files will be flagged and the upload to the GDC will be denied until corrections are made by the user. A validation error report provided by the system can be used to isolate and correct errors for resubmission.
 
 ### Upload Files
 
@@ -104,7 +144,7 @@ Once all files have been added, clicking on _'VALIDATE'_ will check if the files
 
 If the upload contains invalid files, the user will not be able to submit the data and those files will need to be either corrected and re-uploaded or removed from the submission.
 
-[![Invalid Files in a Submission](images/GDC_Submission_wizard_Invalid_Files.png)](images/GDC_Submission_wizard_Invalid_Files.png "Click to see the full image.")
+[![Invalid Files in a Submission](images/GDC_Submission_Wizard_Invalid_Files.png)](images/GDC_Submission_Wizard_Invalid_Files.png "Click to see the full image.")
 
 Files can be removed from the submission by clicking on the _'garbage'_ icon related to the file.
 

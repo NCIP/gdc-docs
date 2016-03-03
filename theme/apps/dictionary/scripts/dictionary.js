@@ -96,7 +96,7 @@
 
               _dictionary._data = _initDictionaryData(rawDictionaryData);
 
-              _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary._data, _.bind(_dictionary.viewListener, _dictionary));
+              _dictionary._d3Containers.views = _getD3ViewsForDictionary(_dictionary, _.bind(_dictionary.viewListener, _dictionary));
 
               _dictionary.triggerViewEventFromURL();
           });
@@ -159,6 +159,22 @@
 
         break;
 
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED:
+
+        if (_.has(params, 'id')) {
+         _dictionary.getDictionaryTemplates(params.id, _.get(params, 'excludes', null));
+        }
+
+        break;
+
+      case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED:
+
+        if (_.has(params, 'id')) {
+          _dictionary.getDictionaryTemplate(params.id);
+        }
+
+        break;
+
       default:
         break;
     }
@@ -174,28 +190,61 @@
     return _fetch(webServiceURL, responseType);
   };
 
-
-  Dictionary.prototype.getDictionaryTemplates = function(category, excludes, dataFormat) {
+  Dictionary.prototype.getDictionaryTemplateURL = function(dictionaryID, dataFormat) {
     var _dictionary = this,
-        entityCategory = category || '',
-        fileFormat = dataFormat || _DICTIONARY_CONSTANTS.END_POINT.ENDPOINT_PARAMS.TEMPLATE.TSV_TYPE,
-        entityExclusions = _.isArray(excludes) && excludes.length ? excludes : [],
+      fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
+      webServiceURL = _dictionary._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: dictionaryID});
+
+    return webServiceURL + '?format=' + fileFormat;
+  };
+
+  Dictionary.prototype.getDictionaryTemplate = function(dictionaryID, dataFormat) {
+    var _dictionary = this,
+        fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
         params = {format: fileFormat},
-        webServiceURL = this._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: ''}),
+        webServiceURL = _dictionary._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: dictionaryID}),
         containerEl = _dictionary._containerEl;
 
-    if (entityExclusions.length) {
+    var f = _createHiddenForm(containerEl, webServiceURL, params);
+    f.submit();
+    containerEl.removeChild(f);
+  };
+
+  Dictionary.prototype.getDictionaryTemplates = function(categories, excludes, dataFormat) {
+    var _dictionary = this,
+        entityCategories = categories,
+        fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
+        entityExclusions = _.isArray(excludes) && excludes.length ? excludes : [],
+        params = {format: fileFormat},
+        webServiceURL = _dictionary._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: ''}),
+        containerEl = _dictionary._containerEl;
+
+    if (entityExclusions.length > 0) {
+      console.warn('Excluding Entities: ', entityExclusions);
       params.exclude = entityExclusions.join(',');
     }
 
-    if (entityCategory) {
-      params.category = category;
+    if (_.isString(entityCategories)) {
+      entityCategories = [entityCategories];
+    }
+
+    if (_.isArray(entityCategories) && entityCategories.length > 0) {
+      params.categories = entityCategories.join(',');
+      console.warn('Including Categories: ', entityCategories);
     }
 
     var f = _createHiddenForm(containerEl, webServiceURL, params);
     f.submit();
     containerEl.removeChild(f);
 
+  };
+
+  Dictionary.prototype.setDefaultDictionaryTemplateDownloadFormat = function(downloadFormat) {
+    this._options.defaultTemplateDownloadFormat = downloadFormat;
+  };
+
+  Dictionary.prototype.getDefaultDictionaryTemplateDownloadFormat = function() {
+    return this._options.defaultTemplateDownloadFormat;
   };
 
   Dictionary.prototype.getSourceData = function() {
@@ -254,6 +303,10 @@
 
     breadcrumbStack.append('span').text(' ' + breadcrumbName);
 
+  };
+
+  Dictionary.prototype.fetchDictionaryTemplate = function(templateFile) {
+    return _fetchTemplate(templateFile);
   };
 
   Dictionary.prototype.triggerViewEventFromURL = function(event) {
@@ -330,6 +383,9 @@
         _ID: 'TABLE',
         ENTITY_LIST: 'table-entity-list',
         TERM_DEFINITION: 'table-definition-view'
+      },
+      _STATIC: {
+        DICTIONARY_CONTROLS: '#dictionary-view-summary-controls'
       }
     },
     VIEW_STATE: {
@@ -338,7 +394,9 @@
     VIEW_UPDATE_EVENT_TYPES: {
       DEFAULT:'update',
       NAV: 'nav',
-      INNER_NAV: 'inner-nav'
+      INNER_NAV: 'inner-nav',
+      TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED: 'template-category-requested',
+      TEMPLATE_DOWNLOAD_REQUESTED: 'template-dictionary-requested'
     },
     DICTIONARY_ENTITY_MAP: {
       case: 'Case',
@@ -354,7 +412,7 @@
       tbd: 'References'
     },
     ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'data_bundle', 'annotation', 'administrative', 'TBD'],
-    DICTIONARY_KEY_ORDER: [
+    /* DICTIONARY_KEY_ORDER: [
       // clinical
       {'clinical': ['demographic', 'diagnosis', 'family_history', 'exposure', 'treatment']},
 
@@ -367,7 +425,18 @@
         'slide_data_bundle', 'pathology_data_bundle']},
       // annotation,
       {'annotation': ['annotation']}
-    ],
+    ],*/
+    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative'],
+    CATEGORY_TEMPLATE_EXCLUDES: {
+      clinical: ['clinical'],
+      data_bundle: ['file', 'generated_file', 'clinical_data_bundle', 'biospecimen_data_bundle', 'pathology_data_bundle'],
+      annotation: ['analysis', 'archive', 'publication', 'slide']
+    },
+    LINK_EXCLUDES: ['file','biospecimen_data_bundle','clinical_data_bundle','pathology_data_bundle'],
+    PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles'],
+    CATEGORY_TEMPLATE_INCLUDES: {
+      'data_bundle': ['data_bundle','data_file']
+    },
     END_POINT: {
       DEFAULT_URL: 'https://gdc-api.nci.nih.gov',
       //CONTEXT_PATTERN: '/auth/api/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
@@ -421,26 +490,28 @@
     dictionaryData: null, // if not null will use this as the data source
     dataSourceBaseHost: _DICTIONARY_CONSTANTS.END_POINT.DEFAULT_URL, // override internal host defaults
     dataSourceContextPattern: _DICTIONARY_CONSTANTS.END_POINT.CONTEXT_PATTERN,
-    defaultView: _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST
+    defaultView: _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST,
+    defaultTemplateDownloadFormat: _DICTIONARY_CONSTANTS.END_POINT.ENDPOINT_PARAMS.TEMPLATE.TSV_TYPE
   };
 
 
   ///////////////////////////////////////////////
   // Initialize D3 Views
   ///////////////////////////////////////////////
-  function _getD3ViewsForDictionary(dictionaryData, actionCallbackFn) {
+  function _getD3ViewsForDictionary(dictionary, actionCallbackFn) {
     var views =  {},
         tableViews = {
           summary: d3.select('#dictionary-view-table-summary'),
           detailed: d3.select('#dictionary-view-table-detail')
         },
-        urlParams = _getParamsFromURL();
+        urlParams = _getParamsFromURL(),
+        dictionaryData = dictionary._data;
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID] = {};
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST] = {
       el: tableViews.summary,
-      view: new  Dictionary._Views.TableEntityListView(tableViews.summary, dictionaryData, actionCallbackFn)
+      view: new  Dictionary._Views.TableEntityListView(tableViews.summary, dictionary, actionCallbackFn, dictionary)
     };
 
     if (_.has(urlParams, 'id')) {
@@ -449,7 +520,7 @@
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.TERM_DEFINITION] = {
       el: tableViews.detailed,
-      view: new  Dictionary._Views.TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn)
+      view: new  Dictionary._Views.TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn, dictionary)
     };
 
 
@@ -458,7 +529,7 @@
 
   function _updatePageScroll(anchor) {
     if (_.isString(anchor)) {
-      _scrollTo(anchor);
+      setTimeout(function() { _scrollTo(anchor); }, 50);
     }
   }
 
@@ -676,10 +747,24 @@
     });
   }
 
-  function _fetchTemplate(templateFile) {
-    return _fetch(  _DICTIONARY_CONSTANTS.APP_ABSOLUTE_DIR +
+  var _fetchTemplateCache = {};
+
+  function _fetchTemplate(templateFile, forceReload) {
+    var cachedTemplate = _.get(_fetchTemplateCache, templateFile, false);
+
+    if (_.isString(cachedTemplate) && forceReload !== true) {
+      return new Promise(function(resolve) { resolve(cachedTemplate); });
+    }
+
+    var promise = _fetch(  _DICTIONARY_CONSTANTS.APP_ABSOLUTE_DIR +
                     _DICTIONARY_CONSTANTS.TEMPLATES.RELATIVE_DIR + '/' +
                     templateFile, _DICTIONARY_CONSTANTS.DATA_FORMATS.TEXT_FORMAT  );
+
+    promise.then(function(html) {
+      _fetchTemplateCache[templateFile] = html;
+    });
+
+    return promise;
   }
 
   ///////////////////////////////////////////////
@@ -692,9 +777,13 @@
     var data = _.cloneDeep(d);
     var dictionaryData = {};
 
+    // TODO: Cleanup below hardcoding but unfortunately now this is necessary
     delete data.biospecimen_data_bundle;
     delete data.clinical_data_bundle;
     delete data.pathology_data_bundle;
+    delete data.clinical;
+    delete data.file;
+    delete data.generated_file;
 
 
     var dictionaryKeys = _.keys(data);
@@ -751,7 +840,7 @@
 
     }
 
-    console.log(dictionaryData);
+    //console.log(dictionaryData);
 
     // Build our data structures and corresponding caches
     for (var dictionaryTitle in dictDataList) {

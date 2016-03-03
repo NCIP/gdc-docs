@@ -1,17 +1,19 @@
-# Release 0.2.18.3
+# Data Portal Release Notes
+
+## Release 0.2.18.3
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__: November 23, 2015
 
-## New Features and Changes
+### New Features and Changes
 
 * BAM slicing UI in the File Entity page (only available for BAM files with BAI files)
 
-## Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 * Disease Type does not auto filter (Data Facet)
 
-## Known Issues and Workarounds
+### Known Issues and Workarounds
 
 * Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet
 * In some specific situation (complex queries using must_not term), the advanced search might returns incorrect results
@@ -30,23 +32,23 @@
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
-# Release 0.2.15-oicr4
+## Release 0.2.15-oicr4
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__: October 1st, 2015
 
-## New Features and Changes
+### New Features and Changes
 
 *   n/a
 
-## Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 *   Data access and subtype units are correct in the data download statistics report
 *   Improved 508 compliance of the portal (including the data download statistics report)
 *   Addressed an issue with the user getting an empty page in specific browsing situations
 *   "My projects" filter has been re-enabled for users authenticated with eRACommons but without dbGap authorization.
 
-## Known Issues and Workarounds
+### Known Issues and Workarounds
 
 *   Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet
 *   In some specific situation (complex queries using must_not term), the advanced search might returns incorrect results
@@ -65,12 +67,12 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
-# Release 0.2.15-oicr2
+## Release 0.2.15-oicr2
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__: August 31, 2015
 
-## New Features and Changes
+### New Features and Changes
 
 *   Authentication, Authorization & Pop-up messages:
     *   If a user tries to download a related file that is controlled from the File Entity Page, he will get a pop-up message with appropriate guidance (“Login" or “No access to the file")
@@ -79,7 +81,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   If User downloads large files (from the Cart or from the File table), the Portal displays a spinner to indicate the download is in progress
 *   Data Download Report does not show the "Data Level" section anymore.
 
-## Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 *   The add to Cart button in File Entity Page changes its display value following a click. User can then click on “Remove from Cart”
 *   Total Case value in the Cart matches with the number of cases associated with the files in the Cart
@@ -87,7 +89,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   In Projects table, if User clicks on the count on Files, it links to the Data page - File table
 *   In File Entity Page, if there are no associated cases, it will display the message "No Cases Found." instead of "No Participants Found."
 
-## Known Issues and Workarounds
+### Known Issues and Workarounds
 
 *   Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet
 *   In some specific situation (complex queries using must_not term), the advanced search might returns incorrect results
@@ -104,12 +106,12 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
-# Release 0.2.15-oicr1
+## Release 0.2.15-oicr1
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__: August 12, 2015
 
-## New Features and Changes
+### New Features and Changes
 
 *   Renamed all references of High Performance Download Client (HPDC) to GDC Data Transfer Tool 
 *   Implemented more links between the Projects page and the Data page
@@ -118,14 +120,14 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
     *   User feedback when no results are available following a search
     *   Warning for unsupported browsers (Internet Explorer 9 is not supported)
 
-## Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 *   Optimizations for downloading large files from the browser
 *   Fixed various issues related to file search
 *   Fixed Section 508 compliance issues
 *   Clicking on "Total case" link in the Project List Page does not return results.
 
-## Known Issues and Workarounds
+### Known Issues and Workarounds
 
 *   Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet
 *   In some specific situation (complex queries using must_not term), the advanced search might returns incorrect results
@@ -137,12 +139,12 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
-# Release 0.2.13
+## Release 0.2.13
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__: July 23, 2015
 
-## New Features and Changes
+### New Features and Changes
 
 *   Improved data portal searching. Three search mechanisms are available to the user:
     *   **Facet search**: Starting with all content available on the GDC, allow users to filter down their search by clicking on elements on the left of the screen. This feature is available in **Projects** and **Data** page. Range support was also added to facets in this release
@@ -155,25 +157,25 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
     *   Added a range facet with barchart
     *   Add more charts (summary, cart)
 
-## Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 *   Hooked-up reports to real data
 *   Fixed various issues on GQL (Advanced Search)
 *   Table export to export appropriate columns
 *   Allow users to sort project list table
 
-## Known Issues and Workarounds
+### Known Issues and Workarounds
 
 *   Checksum missing for MAGE-TAB files
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
-# Release 0.1.10
+## Release 0.1.10
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__: March 18, 2015
 
-## New Features and Changes
+### New Features and Changes
 
 *   Authentication and Authorization
     *   Allow users to authenticate to the portal using their to ERA Commons credentials
@@ -196,11 +198,11 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Updated style/theme to match GDC Website
 *   Display a NCI Warning banner to inform users about GDC policy
 
-## Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 *   Improvements in 508 compliance
 
-## Known Issues and Workarounds
+### Known Issues and Workarounds
 
 *   TARGET data is currently not available
 *   Data:
@@ -210,12 +212,12 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
-# Release 0.1.8
+## Release 0.1.8
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__: January 22, 2015
 
-## New Features and Changes
+### New Features and Changes
 
 *   Allow users to perform a project search and obtain a list of projects (Project Search and List Pages)
 *   Allow users to retrieve project details (Project Entity Page)
@@ -231,11 +233,11 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Allow users to download files (Download)
 *   Allow users to authenticate using eRA Commons (Authentication)
 
-## Bugs Fixed Since Last Release
+### Bugs Fixed Since Last Release
 
 *   Initial Release - Not Applicable
 
-## Known Issues and Workarounds
+### Known Issues and Workarounds
 
 *   TARGET data is currently not available
 
