@@ -29,9 +29,9 @@ Note: "Submit to the GDC" and "Release" actions can be performed if the user has
 
 Summary:
 
-* The life cycle below described the workflow of the actual file (as opposed to the workflow of the file metadata).
+* The life cycle below describes the workflow of the actual file (as opposed to the workflow of the file metadata).
 * When a user uploads the file metadata to the Submission Portal, the file status is __Registered__.
-* Then the user should upload the actual file through the GDC Data Transfer Tool ==> On the dashboard, "__# Files Uploaded__" displayed in the last chart is the number of file that the user uploaded through the GDC Data Transfer Tool. In terms of File Status, it can be any file in the following states: {uploading, uploaded, validating, validated, submitted, processing, processed, error}.
+* Then the user should upload the actual file through the GDC Data Transfer Tool ==> On the dashboard, "__# Files Uploaded__" displayed in the last chart is the number of files that the user uploaded through the GDC Data Transfer Tool. In terms of File Status, it can be any file in the following states: {uploading, uploaded, validating, validated, submitted, processing, processed, error}.
 
 
 [![GDC Data Submission Portal File Status](images/GDC_Submission_Portal_Workflow_File_Status.png)](images/GDC_Submission_Portal_Workflow_File_Status.png "Click to see the full image.")
