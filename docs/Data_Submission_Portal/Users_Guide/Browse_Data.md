@@ -10,7 +10,7 @@ All static components are detailed in this User Guide.
 
 [![GDC Submission Cases Default View](images/GDC_Submission_Cases_Default.png)](images/GDC_Submission_Cases_Default.png "Click to see the full image.")
 
-## Main interface elements
+## Main Interface Elements
 
 ### Upload
 
@@ -42,7 +42,7 @@ The list view is a paginated list of all entities corresponding to the selected 
 On the top-left section of the screen, the user can download data about all entities associated with the selected filter.
 
 * For the case filter, it will download all clinical data.
-* For the filter of the other entities, it will download the corresponding metadata (e.g. for the demographic filter, it will download all demographic data).
+* For the filter of the other entities, it will download the corresponding metadata (e.g., for the demographic filter, it will download all demographic data).
 
 [![GDC Submission Case Summary Download](images/GDC_Submission_Cases_Summary_Download.png)](images/GDC_Submission_Cases_Summary_Download.png "Click to see the full image.")
 
@@ -52,11 +52,11 @@ On the top-left section of the screen, the user can download data about all enti
 
 Clicking on a case will open the details panel. Data in this panel is broken down into multiple sections depending on the entity type. The main sections are:
 
-* Summary: IDs and system properties associated with the entity
-* Detail: properties of the entity
-* Hierarchy or Related Entities: list of associated entities
-* Annotations: annotations on the entity
-* Transactions: transactions that affected the entity
+* Summary: IDs and system properties associated with the entity.
+* Detail: properties of the entity.
+* Hierarchy or Related Entities: list of associated entities.
+* Annotations: annotations on the entity.
+* Transactions: transactions that affected the entity.
 
 [![GDC Submission Case Details](images/GDC_Submission_Cases_Details.png)](images/GDC_Submission_Cases_Details.png "Click to see the full image.")
 
@@ -75,19 +75,19 @@ This section is available only at the case level.
 
 This table contains the following columns:
 
-* Category: Category of the Entity (Clinical, Biospecimen, Experiment Data)
-* Type: Type of entity (based on Data Dictionary)
+* Category: Category of the Entity (Clinical, Biospecimen, Experiment Data).
+* Type: Type of entity (based on Data Dictionary).
 * Count: Number of occurences of an entity of this type associated with the case. Clicking on the count will open a list page listing those entities.
 
 #### Focus on Hierachy
 
-The hierarchy section is available at any entity level (Clinical, Biospecimen, etc.), except for Case.
+The hierarchy section is available at any entity level (e.g., Clinical, Biospecimen, etc.), except for Case.
 
 The hierarchy shows:
 
-* The Case associated with the entity
-* The __direct__ parents of the entity
-* The __direct__ children of the entity
+* The Case associated with the entity.
+* The __direct__ parents of the entity.
+* The __direct__ children of the entity.
 
 
 [![GDC Submission Cases Details Hierarchy](images/GDC_Submission_Cases_Summary_Hierarchy.png)](images/GDC_Submission_Cases_Summary_Hierarchy.png "Click to see the full image.")
