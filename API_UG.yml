@@ -9,16 +9,16 @@ copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
 - API:
-  - Getting Started with the GDC API: 'API/Users_Guide/Getting_Started.md'
+  - Getting Started: 'API/Users_Guide/Getting_Started.md'
   - Authentication and Authorization: 'API/Users_Guide/Authentication_and_Authorization.md'
-  - Searching for and Retrieving Data and Metadata: 'API/Users_Guide/Search_and_Retrieval.md'
+  - Search and Retrieval: 'API/Users_Guide/Search_and_Retrieval.md'
   - Downloading Files: 'API/Users_Guide/Downloading_Files.md'
   - BAM Slicing: 'API/Users_Guide/BAM_Slicing.md'
   - Submission: 'API/Users_Guide/Submission.md'
-  - Examples: 'API/Users_Guide/Examples.md'
+  - Additional Examples: 'API/Users_Guide/Additional_Examples.md'
   - Appendix A - Available Fields: 'API/Users_Guide/Appendix_A_Available_Fields.md'
   - Appendix B - Key Terms: 'API/Users_Guide/Appendix_B_Key_Terms.md'
-  - Appendix C - Using jsonlint and urldecode for GET to POST Conversion: 'API/Users_Guide/Appendix_C_Using_Third-party-Tools.md'
+  - Appendix C - GET to POST Conversion: 'API/Users_Guide/Appendix_C_GET_to_POST_Conversion.md'
   - Release Notes: 'API/Release_Notes/API_Release_Notes.md'
 extra:
   project_root_dir: '/'

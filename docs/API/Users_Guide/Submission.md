@@ -407,15 +407,16 @@ the transaction. The error state will be accompanied by a list of errors recorde
 
 ### GraphQL Overview
 
-From the [GraphQL specification](https://facebook.github.io/graphql/):
-
 "GraphQL is a query language designed to build client applications by
 providing an intuitive and flexible syntax and system for describing
-their data requirements and interactions."  The GraphQL specification
-has proven to be a very effective method of querying the hierarchical
+their data requirements and interactions." (from [GraphQL specification](https://facebook.github.io/graphql/)).
+
+GraphQL has proven to be a very effective method of querying the hierarchical
 nature of the GDC's graph datamodel.  The `/graphql` endpoint on the
 GDC Submission API provides a real-time view of the state of the
-Entities in a project.
+entities in a project.
+
+#### Sample GraphQL query
 
 The following is a GraphQL query for a case in project
 TCGA-LAML that returns a JSON document containing the `submitter_id` of
@@ -460,13 +461,8 @@ Entities, the above query would be updated to contain `samples { alias
 
 ### GraphiQL IDE
 
-GDC includes the usage of an "in-browser IDE for exploring
-GraphQL", [GraphiQL](https://github.com/graphql/graphiql) at location
-below:
-
-```
-https://gdc-portal.nci.nih.gov/submission/graphiql
-```
+GDC provides an [in-browser IDE](https://gdc-portal.nci.nih.gov/submission/graphiql) for exploring
+GraphQL. It is an instance of [GraphiQL](https://github.com/graphql/graphiql).
 
 This IDE provides tab-completion and syntax checking using the GraphQL
 schema generated from the GDC Data Dictionary.  GraphiQL allows for
@@ -487,6 +483,8 @@ environment variable `TOKEN`:
 
 ```bash
 $ curl -XPOST -H"X-Auth-Token: $TOKEN" "https://gdc-api.nci.nih.gov/v0/submission/graphql/" -d'{"query": "{ aliquot(first: 2) { id }}"}'
+```
+```Response
 {
   "data": {
     "aliquot": [
@@ -506,9 +504,8 @@ $ curl -XPOST -H"X-Auth-Token: $TOKEN" "https://gdc-api.nci.nih.gov/v0/submissio
 
 **NOTE:** Query results have a default limit of 10 results, to choose
   a different number of results, override the default with `first: X`
-  where `X` is the maximum number of desired results.  If `X` is 0,
-  then no limit is applied. (For pagination, see the `offset` argument
-  as well)
+  where `X` is the maximum number of desired results.  If `X` is `0`,
+  then no limit is applied. (For pagination, see the `offset` argument)
 
 
 ### Examples

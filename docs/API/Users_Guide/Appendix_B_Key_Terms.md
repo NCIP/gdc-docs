@@ -27,5 +27,3 @@ The following table provides definitions and explanations for terms and acronyms
 | UUID | Universally Unique Identifier |
 | URL | Universal Resource Locator |
 | XML | Extensible Markup Language |
-
-_Table 1: Key Terms_

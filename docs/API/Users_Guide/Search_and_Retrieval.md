@@ -493,7 +493,7 @@ print json.dumps(response.json(), indent=2)
 
 #### Nested Operations
 
-Filters support complex nested operations as well as simple queries on a single field. There are different types of operations available for many uses. For more examples see [Examples](Examples.md).
+Filters support complex nested operations as well as simple queries on a single field. There are different types of operations available for many uses. For more examples see [Additional Examples](Additional_Examples.md).
 
 It is possible to obtain multiple values from multiple fields in one single query, e.g. `(facets=field1,field2)`.
 

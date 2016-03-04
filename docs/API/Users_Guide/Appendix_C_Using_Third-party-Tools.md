@@ -1,6 +1,6 @@
-# Appendix C - Using Third-party Tools
+# Appendix C - GET to POST Conversion
 
-## Using jsonlint and urldecode for GET to POST Conversion
+This Appendix explains how to use JSONLint and UrlDecode.org for GET to POST Conversion
 
 The first operation consists in breaking up the query below by identifying its parameters
 

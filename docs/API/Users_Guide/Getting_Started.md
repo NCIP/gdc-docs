@@ -26,7 +26,7 @@ Tools that can help build GDC API calls:
 | [JSONLint](http://jsonlint.com/)| Validate JSON strings |
 | [UrlDecode.org](http://urldecode.org/)| Tool for URL-encoding and URL-decoding strings, including JSON objects passed via URL |
 
-**Note:** See [Appendix C](Appendix_C_Using_Third-party-Tools.md) for examples of using these tools.
+**Note:** See [Appendix C](Appendix_C_GET_to_POST_Conversion.md) for examples of using JSONLint and UrlDecode.org.
 
 
 ## API Endpoints
