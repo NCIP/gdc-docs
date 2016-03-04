@@ -2,11 +2,11 @@
 
 ## Overview
 
-The transactions view lists all transactions which happen on the project since its creation.
+The transactions view lists all transactions which have happened on the project since its creation.
 
 [![GDC Submission Transactions](images/GDC_Submission_Transactions.png)](images/GDC_Submission_Transactions.png "Click to see the full image.")
 
-The types of transaction are the following:
+The types of transactions are the following:
 
 * __Upload__: the user uploads data to the project workspace.
 * __Review__: the user reviews the project before submitting data to the GDC.
@@ -37,7 +37,7 @@ Navigation between those sections can be done either by scrolling down or by cli
 
 ### Actions
 
-Some transactions provide actions, for example if the user uploads read groups and files metadata then he will be able to download the corresponding manifest from the transaction. This manifest is used to upload the actual files through the GDC Data Transfer Tool.
+Some transactions provide actions, for example if the user uploads read groups and files metadata then they will be able to download the corresponding manifest from the transaction. This manifest is used to upload the actual files through the GDC Data Transfer Tool.
 
 [![GDC Submission Transactions Details Action](images/GDC_Submission_Transactions_Details_Action.png)](images/GDC_Submission_Transactions_Details_Action.png "Click to see the full image.")
 
@@ -51,7 +51,7 @@ Provides details about the transaction itself, such as its project, type and num
 
 ### Types
 
-List the type of files submitted and the number of affected cases and entities.
+Lists the type of files submitted and the number of affected cases and entities.
 
 [![GDC Submission Transactions Types](images/GDC_Submission_Transactions_Details_Types.png)](images/GDC_Submission_Transactions_Details_Types.png "Click to see the full image.")
 

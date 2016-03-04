@@ -53,3 +53,7 @@ echo "$(date +'%d %B %Y - %k:%M'): Data_Transfer_Tool UG: Building PDF from pand
 /usr/bin/pandoc --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions docs/Data_Transfer_Tool/PDF/Data_Transfer_Tool_Title.txt -o docs/Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf docs/Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pd
 
 /usr/local/bin/mkdocs build -v --site-dir /var/www/gdc-docs-dev.nci.nih.gov/
+
+#Temporary fix to address a link that would be broken otherwise in the submission portal due to a change of the dictionary name
+rm /var/www/gdc-docs-dev.nci.nih.gov/Dictionary/ -R
+ln -sfn /var/www/gdc-docs-dev.nci.nih.gov/Data_Dictionary /var/www/gdc-docs-dev.nci.nih.gov/Dictionary

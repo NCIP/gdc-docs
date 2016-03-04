@@ -2,15 +2,15 @@
 
 ## Overview
 
-The GDC Data Submission Portal Dashboard aims to provide details about a specific project.
+The GDC Data Submission Portal Dashboard provides details about a specific project.
 
 [![GDC Submission Dashboard Page](images/GDC_Submission_Dashboard.png)](images/GDC_Submission_Dashboard.png "Click to see the full image.")
 
-The Dashboard contains various visual elements to guide the user through all stages of submission, from Data Dictionary viewer to releasing a project.
+The Dashboard contains various visual elements to guide the user through all stages of submission, from the Data Dictionary viewer to releasing a project.
 
 To better understand the data displayed on the dashboard and the actions available, please refer to the [Submission Workflow](Submission_Workflow.md).
 
-## Project status
+## Project Status
 
 The top section of the dashboard is broken down into four widgets:
 
@@ -31,14 +31,14 @@ This section provides access to system-wide reports (based on user permission). 
 
 ## Latest Transactions
 
-This table lists the 5 most recent [Transactions](Transactions.md) throughout all projects the user has access to.
+This table lists the five most recent [Transactions](Transactions.md) throughout all projects the user has access to.
 
 ## Action Tabs
 
 Three actions tabs are available in the lower section of the dashboard.
 
-* [Upload & Validate](Upload_Data.md) is used to upload files to GDC.
-* [Review & Submit](Submit_Release.md#review-and-submit) is used to submit files to GDC.
+* [Upload & Validate](Upload_Data.md) is used to upload files to the GDC.
+* [Review & Submit](Submit_Release.md#review-and-submit) is used to submit files to the GDC.
 * [Release](Submit_Release.md#release) is used to release files and have them available through the [GDC Data Portal](../../Data_Portal/Users_Guide/Getting_Started.md).
 
 Those actions and available features are detailed in their respective sections of the documentation.
