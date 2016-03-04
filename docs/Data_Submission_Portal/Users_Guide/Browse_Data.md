@@ -20,7 +20,7 @@ __Note__: This button is disabled if the project is in "REVIEW" state.
 
 ### Filters
 
-A wide set of filters are available for the user to select the type of entity to be displayed. These filters are dynamically created based on the [GDC Data Dictionary](../../Dictionary/index.md).
+A wide set of filters are available for the user to select the type of entity to be displayed. These filters are dynamically created based on the [GDC Data Dictionary](../../Data_Dictionary/index.md).
 
 Current filters are:
 
