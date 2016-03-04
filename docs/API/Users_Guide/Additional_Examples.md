@@ -379,7 +379,7 @@ This is an example of a value-based filter:
 }
 ```
 ```Query
-curl 'https://gdc-api.nci.nih.gov/casesfilters=%7B%0A%20%20%20%22op%22%20%3A%20%22%3D%22%20%2C%0%20%20%20%22content%22%20%3A%20%7B%0A%20%20%20%20%20%20%20%22field%22%20%3A%20%22cases.clinical.gender%22%20%2C%0A%20%20%20%20%20%20%20%22value%22%20%3A%20%5B%20%22male%22%20%5D%0A%20%20%20%7D%0A%7D&fields=clinical.gender,case_id&pretty=true'
+curl 'https://gdc-api.nci.nih.gov/cases?filters=%7b%0d%0a+++%22op%22+%3a+%22%3d%22+%2c%0d%0a+++%22content%22+%3a+%7b%0d%0a+++++++%22field%22+%3a+%22cases.clinical.gender%22+%2c%0d%0a+++++++%22value%22+%3a+%5b+%22male%22+%5d%0d%0a+++%7d%0d%0a%7d%0d%0a&fields=clinical.gender,case_id&pretty=true'
 ```
 
 #### Example: Filter using a range
