@@ -2,18 +2,17 @@
 
 ## Overview
 
-Using the following methods, users submitting to GDC can create, delete and update entities and relationships in the GDC data model.
+Using the following methods, users submitting to the GDC can create, delete and update entities and relationships in the GDC data model.
 
 ## GDC Dictionary
 
-Requests to the submission API must adhere to the schemas defined in the GDC Data Dictionary. The GDC Data Dictionary may be found [here](https://www.github.com/NCI-GDC/gdcdictionary).
+Requests to the submission API must adhere to the schemas defined in the [GDC Data Dictionary](https://www.github.com/NCI-GDC/gdcdictionary).
 
 ## Working with Entities
 
 ### Query Format
 
-When updating, creating, or deleting entities in the GDC, users need to specify the entity type, the entity id, any relationships the entity has to parent entities from which it was derived, and any properties (required and optional as defined by the entity schema). The structure for each entity should look
-as follows:
+When updating, creating, or deleting entities in the GDC, users need to specify the entity type, the entity id, any relationships the entity has to parent entities from which it was derived, and any properties (required and optional as defined by the entity schema). The structure for each entity should look as follows:
 
 ```json
 {
@@ -31,19 +30,19 @@ as follows:
 }
 ```
 
-One of **`id`** or `submitter_id` are required.
+The request must specify either an `id` or a `submitter_id`.
 
-**`id`** : A string specifying the id of the entity the user is creating, updating, or deleting. This is the official GDC UUID for the entity. If it is prefered to refer to the entity using a custom id, users can do so with the submitter_id field (described below).
+**`id`** : A string specifying the id of the entity the user is creating, updating, or deleting. This is the official GDC UUID for the entity. If it is prefered to refer to the entity using a custom id, users can do so with the `submitter_id` field (described below).
 
-**`submitter_id`** : This or ‘‘id‘‘ are required. A string specifying the custom id of the object the user is creating, updating or deleting. This is not the official GDC ID for the entity. If it is preferred to refer to the entity using a GDC ID, users can do so with the id field (described above).
+**`submitter_id`** : A string specifying the custom id of the object the user is creating, updating or deleting. This is not the official GDC ID for the entity.
 
-**`<entity_property_keys>`** : All keys except for *id* and *submitter_id* will be treated as properties keys. These key value pairs will be used as properties on referenced entity.
+**`<entity_property_keys>`** : All keys except for `id` and `submitter_id` will be treated as properties keys. These key value pairs will be used as properties on referenced entity.
 
-**`<relationship_name>`** : The name of a relationship. The value for this is a JSON object specifying either the submitter_id or the id of the neighboring entity.
+**`<relationship_name>`** : A JSON object specifying a relationship. The value for this is a JSON object specifying either the submitter_id or the id of the neighboring entity.
 
 ### Response Format
 
-The following fields should be included in all responses, regardless of success.
+The following fields are included in all API responses to submission requests.
 
 ```json
 {
@@ -418,11 +417,10 @@ nature of the GDC's graph datamodel.  The `/graphql` endpoint on the
 GDC Submission API provides a real-time view of the state of the
 Entities in a project.
 
-The following initial example will query for a case in project
-TCGA-LAML and return a JSON document containing the `submitter_id` of
+The following is a GraphQL query for a case in project
+TCGA-LAML that returns a JSON document containing the `submitter_id` of
 the case and of its samples.
 
-**GraphQL Query**
 
 ```JavaScript
 {
@@ -432,10 +430,7 @@ the case and of its samples.
     }
 }
 ```
-
-**Response**
-
-```json
+```Response
 {
   "data": {
     "case": [
@@ -520,9 +515,7 @@ $ curl -XPOST -H"X-Auth-Token: $TOKEN" "https://gdc-api.nci.nih.gov/v0/submissio
 
 #### Example
 
-Query for any one case in 'TCGA-LUAD' without Diagnosis information
-
-**GraphQL Query**
+GraphQL query for any one case in 'TCGA-LUAD' without Diagnosis information
 
 ```JavaScript
 {
@@ -530,12 +523,8 @@ Query for any one case in 'TCGA-LUAD' without Diagnosis information
       submitter_id
   }
 }
-
 ```
-
-**Response**
-
-```json
+```Response
 {
   "data": {
     "case": [
@@ -549,19 +538,14 @@ Query for any one case in 'TCGA-LUAD' without Diagnosis information
 
 #### Example
 
-Query for the number of cases in 'TCGA-LUAD' without Diagnosis information
-
-**GraphQL Query**
+GraphQL query for the number of cases in 'TCGA-LUAD' without Diagnosis information
 
 ```JavaScript
 {
   _case_count (project_id: "TCGA-LUAD", without_links: ["diagnoses"])
 }
 ```
-
-**Response**
-
-```json
+```Response
 {
   "data": {
     "_case_count": 5
@@ -574,8 +558,6 @@ Query for the number of cases in 'TCGA-LUAD' without Diagnosis information
 Query for the release state of aliquots belonging to case with `submitter_id:
 "TCGA-17-Z050"`
 
-**GraphQL Query**
-
 ```JavaScript
 {
   aliquot(with_path_to: {type: "case", submitter_id:"TCGA-17-Z050"}) {
@@ -586,10 +568,8 @@ Query for the release state of aliquots belonging to case with `submitter_id:
 
 #### Example
 
-Use a graphql fragment to get specific properties from two portions
+GraphQL query that uses a graphql fragment to get specific properties from two portions
 and give them aliases in the response.
-
-**GraphQL Query**
 
 ```JavaScript
 {
@@ -606,10 +586,7 @@ fragment portionProperties on portion {
   is_ffpe
 }
 ```
-
-**Response**
-
-```json
+```Response
 {
   "data": {
     "some_portion": [
@@ -630,9 +607,7 @@ fragment portionProperties on portion {
 
 #### Example
 
-Query for a case in "TCGA-LUAD" and return a biospecimen tree
-
-**GraphQL Query**
+GraphQL Query for a case in "TCGA-LUAD" and return a biospecimen tree
 
 ```JavaScript
 {
@@ -653,10 +628,7 @@ Query for a case in "TCGA-LUAD" and return a biospecimen tree
   }
 }
 ```
-
-**Response**
-
-```json
+```Response
 {
   "data": {
     "case": [
