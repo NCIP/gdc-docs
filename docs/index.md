@@ -13,4 +13,4 @@ The GDC documentation is divided into the following top-level sections:
 
 ## Learn More
 
-To learn more about GDC, please visit our official [GDC Website](https://gdc.nci.nih/gov).
+To learn more about GDC, please visit our official [GDC Website](https://gdc.nci.nih.gov).

@@ -1,8 +1,8 @@
-# Appendix A - Available Fields
+# Appendix A: Available Fields
 
-There are about 2,000 fields currently available in the GDC data model that are accessible via the GDC API. A list of allowed fields for each endpoint is below.
+There are about 2,000 fields available in the GDC data model that are accessible via the GDC API. A list of fields for each endpoint is below.
 
-## A.1 Project Fields
+## Project Fields
 
 | Field Name |
 | --- |
@@ -23,11 +23,8 @@ There are about 2,000 fields currently available in the GDC data model that are 
 | summary.case_count |
 | summary.file_size |
 
-_Table A.1-1: Project Fields_
 
-
-
-## A.2 File Fields
+## File Fields
 
 
 | Field Name |
@@ -263,10 +260,9 @@ _Table A.1-1: Project Fields_
 | associated_entities.entity_type |
 | associated_entities.case_id |
 
-_Table A.2-1: File Fields_
 
 
-## A.3 Case Fields
+## Case Fields
 
 
 | Field Name |
@@ -675,9 +671,8 @@ _Table A.2-1: File Fields_
 | tissue_source_site.tissue_source_site_id |
 | tissue_source_site.name |
 
-_Table A.3-1: case Fields_
 
-## A.4 Annotation Fields
+## Annotation Fields
 
 
 | Field Name |
@@ -701,5 +696,3 @@ _Table A.3-1: case Fields_
 | project.primary_site |
 | project.project_id |
 | project.disease_type |
-
-_Table A.4-1: Annotation Fields_

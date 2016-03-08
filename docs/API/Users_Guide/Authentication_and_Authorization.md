@@ -1,36 +1,47 @@
-# Controlled Data Access
-The GDC API and allows queries on available data and download of open access data without authentication. To download controlled access data, users are required to have a NIH eRA Commons account and appropriate dbGaP access. Clink on these links to learn more about how to <a href="https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data" target="_blank">obtain access to controlled data</a> or how to <a href="https://gdc.nci.nih.gov/submit-data/obtaining-access-submit-data" target="_blank">submit data</a> to GDC.
+# Authentication and Authorization
 
-As described in the following section, these credentials are used to obtain a GDC API token via the GDC Portals.
+The GDC API provides access to open-access data without authentication. Submitting data to the GDC and downloading controlled-access data requires authentication and appropriate authorization.  
 
-## Obtaining a Token
-Tokens are strings of characters provided with every API query for authentication. A token can be obtained through the <a href="https://gdc-portal.nci.nih.gov" target="_blank">GDC Data Portal</a> or <a href="https://gdc-portal.nci.nih.gov/submission" target="_blank">GDC Data Submission Portal</a> once the user's NIH eRA Commons account has been established. Your GDC account will be automatically established upon first login and the user will see a drop down menu next to her/his username.
+## Authorization
+
+Authorization for downloading controlled-access data or for submitting data to the GDC is obtained via dbGaP. See [Obtaining Access to Controlled Data](https://gdc-dev.nci.nih.gov/access-data/obtaining-access-controlled-data) and [Obtaining Access to Submit Data](https://gdc.nci.nih.gov/submit-data/obtaining-access-submit-data) for instructions on getting the appropriate authorization.
+
+## Authentication
+
+### About Authentication Tokens
+
+To perform functions for which authorization is required, the GDC API requires users to authenticate using a token generated using the [GDC Data Portal](https://gdc-portal.nci.nih.gov) or the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission). Users can obtain authentication tokens only after receiving appropriate authorization via dbGaP.
 
 ![GDC Login and Download Token Dropdown Menu](images/03-01__GDC_Login_and_Download_Token_Dropdown_Menu.png)  
-**GDC Login and Download Token Dropdown Menu**
 
-Users can download and save their token from here.
+Tokens are alphanumeric strings of characters like this one:
 
-## Using the Token
-Each GDC API request must include a "X-Auth-Token" custom header.
+	ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
 
+### Using a Token
+
+A token must be passed to the GDC API with each request that requires authorizationFor transactions that require authorization, each request submitted to the GDC API must include an `X-Auth-Token` custom header.
+
+
+#### Example: Downloading Controlled Data
+
+In the following example, the token is saved as an environment variable and passed to `curl`, making it easy to re-use the token:
+
+``` shell
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl -O -J -H "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/data/a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
 ```
-    export token=YOUR_TOKEN
-    curl -H 'X-Auth-Token:$token'  "https://gdcapi.nci.nih.gov/data/49ac8944-1468-456a-bb65-b08c7e24a97a"
+```Output
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 31.4M  100 31.4M    0     0   290k      0  0:01:50  0:01:50 --:--:--  172k
+curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.tangent.copynumber.data.txt'
 ```
 
->In the example above, replace **YOUR_TOKEN** with the token downloaded from the portal.
 
-## Token Expiration
-Tokens are valid for 90 days from the time of download. Please note:
+### Token Expiration
 
-- Using an expired token will result in a 401 HTTP error code.
-- Even if the resource is open access, using invalid credentials will result in a server error.
+Tokens are valid for 90 days from the time of download.
 
-```
-    HTTP/1.1 403 FORBIDDEN{
-      "error": "You don't have access to the data"
-    }
-```
-
-**NOTE**: 
+Any request to the GDC API that uses an expired token will fail and receive an HTTP error response.

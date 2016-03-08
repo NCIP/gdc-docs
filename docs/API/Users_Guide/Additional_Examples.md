@@ -1,4 +1,4 @@
-# Examples
+# Additional Examples
 
 ## Data Search and Retrieval
 
@@ -6,22 +6,14 @@
 
 This section contains additional examples for using endpoints.
 
-#### Status Endpoint Example
-<a name="status-endpoint-ex"></a>
-
 #### Project Endpoint Example
-<a name="project-endpoint-ex"></a>
 
 This example is a query for Projects contained in GDC. It returns only the first five projects sorted by project name.
 
-Query
-
+```Query
+curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=5&sort=project.name:asc&pretty=true'
 ```
-$ curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=5&sort=project.name:asc&pretty=true'
-```
-Response
-
-```
+```Response
 {
   "data": {
     "hits": [
@@ -75,19 +67,13 @@ Response
 }
 ```
 #### Files Endpoint Example
-<a name="files-endpoint-ex"></a>
 
 This example is a query for files contained in GDC. It returns only the first two files, sorted by file size, from smallest to largest.
 
-Query
-
+``` Query
+curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=true'
 ```
-$ curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=true'
-```
-
-Response
-
-```
+```Response
 {
   "data": {
     "hits": [
@@ -142,19 +128,13 @@ Response
 ```
 
 #### Cases Endpoint Example
-<a name="cases-endpoint-ex"></a>
 
 This example is a query for cases contained in GDC. It returns only the first five files.
 
-Query
-
+```Query
+curl 'https://gdc-api.nci.nih.gov/cases?from=1&size=5&pretty=true'
 ```
-$ curl 'https://gdc-api.nci.nih.gov/cases?from=1&size=5&pretty=true'
-```
-
-Response
-
-```
+```Response
 {
   "data": {
     "hits": [
@@ -237,20 +217,15 @@ Response
   "warnings": {}
 }
 ```
+
 #### Annotations Endpoint Example
-<a name="annotations-endpoint-ex"></a>
 
-This example is a query for Annotations contained in GDC. It returns only the first two annotations.
+This example is a query for annotations contained in the GDC. It returns only the first two annotations.
 
-Query
-
+```Query
+curl 'https://gdc-api.nci.nih.gov/annotations?from=1&size=2&pretty=true'
 ```
-$ curl 'https://gdc-api.nci.nih.gov/annotations?from=1&size=2&pretty=true'
-```
-
-Response
-
-```
+```Response
 {
   "data": {
     "hits": [
@@ -297,45 +272,37 @@ Response
 }
 ```
 
-#### Data Endpoint Examples
-<a name="data-endpoint-ex"></a>
-
-#### Submission Endpoint Examples
-<a name="submission-endpoint-ex"></a>
-
 ### Filters Examples
 
-This section contains additional examples for using endpoints.
+This section contains additional examples for using the `filters` parameter.
 
-#### Basic Syntax
+#### Example: Basic syntax
 
-The basic syntax for the query filter is as below:
+The following is an example of `filters` syntax, including the JSON object passed to the `filters` parameter, the corresponding API query, and the JSON object returned by the API. The example finds projects where the primary site is Blood.
 
-Query
-
+```Filter
+{
+  "op": "and",
+  "content": [
+    {
+      "op": "in",
+      "content": {
+        "field": "primary_site",
+        "value": [
+          "Blood"
+        ]
+      }
+    }
+  ]
+}
 ```
-$ curl 'https://gdc-api.nci.nih.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22primary_site%22%2C%22value%22%3A%5B%22Blood%22%5D%7D%7D%5D%7D&pretty=true'
+```Query
+curl 'https://gdc-api.nci.nih.gov/projects?filters=%7b%0d%0a++%22op%22%3a+%22and%22%2c%0d%0a++%22content%22%3a+%5b%0d%0a++++%7b%0d%0a++++++%22op%22%3a+%22in%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++%22field%22%3a+%22primary_site%22%2c%0d%0a++++++++%22value%22%3a+%5b%0d%0a++++++++++%22Blood%22%0d%0a++++++++%5d%0d%0a++++++%7d%0d%0a++++%7d%0d%0a++%5d%0d%0a%7d&pretty=true'
 ```
-
-**Note:** the above filter string is encoded to be compliant with curl and GET, the non-encode version would be:
-
-```
-{"op":"and","content":[{"op":"in","content":{"field":"primary_site","value":["Blood"]}}]}
-```
-
-Response
-
-```
+```Response
 {
   "data": {
     "hits": [
-      {
-        "state": "legacy",
-        "project_id": "TARGET-AML",
-        "primary_site": "Blood",
-        "disease_type": "Acute Myeloid Leukemia",
-        "name": "Acute Myeloid Leukemia"
-      },
       {
         "state": "legacy",
         "project_id": "TCGA-LAML",
@@ -344,18 +311,28 @@ Response
         "name": "Acute Myeloid Leukemia"
       },
       {
+        "dbgap_accession_number": "phs000465",
+        "disease_type": "Acute Myeloid Leukemia",
         "state": "legacy",
-        "project_id": "TARGET-AML-IF",
         "primary_site": "Blood",
-        "disease_type": "Acute Myeloid Leukemia Induction Failure",
-        "name": "Acute Myeloid Leukemia Induction Failure"
+        "project_id": "TARGET-AML",
+        "name": "Acute Myeloid Leukemia"
       },
       {
-        "state": "legacy",
-        "project_id": "TARGET-ALL-P2",
-        "primary_site": "Blood",
+        "dbgap_accession_number": "phs000464",
         "disease_type": "Acute Lymphoblastic Leukemia",
+        "state": "legacy",
+        "primary_site": "Blood",
+        "project_id": "TARGET-ALL-P2",
         "name": "Acute Lymphoblastic Leukemia - Phase II"
+      },
+      {
+        "dbgap_accession_number": "phs000515",
+        "disease_type": "Acute Myeloid Leukemia Induction Failure",
+        "state": "legacy",
+        "primary_site": "Blood",
+        "project_id": "TARGET-AML-IF",
+        "name": "Acute Myeloid Leukemia Induction Failure"
       },
       {
         "state": "legacy",
@@ -365,10 +342,11 @@ Response
         "name": "Chronic Myelogenous Leukemia"
       },
       {
-        "state": "legacy",
-        "project_id": "TARGET-ALL-P1",
-        "primary_site": "Blood",
+        "dbgap_accession_number": "phs000463",
         "disease_type": "Acute Lymphoblastic Leukemia",
+        "state": "legacy",
+        "primary_site": "Blood",
+        "project_id": "TARGET-ALL-P1",
         "name": "Acute Lymphoblastic Leukemia - Phase I"
       }
     ],
@@ -376,9 +354,9 @@ Response
       "count": 6,
       "sort": "",
       "from": 1,
-      "pages": 1,
-      "total": 6,
       "page": 1,
+      "total": 6,
+      "pages": 1,
       "size": 10
     }
   },
@@ -386,13 +364,12 @@ Response
 }
 ```
 
-**Note:** URL encoding is used in the above example to handle the special JSON characters. After URL decoding it becomes more apparent that this query finds projects where the primary site is Blood.
-
 #### Example: Filter cases keeping only 'male'
 
-Value-based filter
+This is an example of a value-based filter:
 
-```
+
+```Filter
 {
    "op" : "=" ,
    "content" : {
@@ -401,16 +378,15 @@ Value-based filter
    }
 }
 ```
-'Query returning males only with and fields Case_id and gender'
+```Query
+curl 'https://gdc-api.nci.nih.gov/cases?filters=%7b%0d%0a+++%22op%22+%3a+%22%3d%22+%2c%0d%0a+++%22content%22+%3a+%7b%0d%0a+++++++%22field%22+%3a+%22cases.clinical.gender%22+%2c%0d%0a+++++++%22value%22+%3a+%5b+%22male%22+%5d%0d%0a+++%7d%0d%0a%7d%0d%0a&fields=clinical.gender,case_id&pretty=true'
+```
 
-```
-$ curl 'https://gdc-api.nci.nih.gov/casesfilters=%7B%0A%20%20%20%22op%22%20%3A%20%22%3D%22%20%2C%0%20%20%20%22content%22%20%3A%20%7B%0A%20%20%20%20%20%20%20%22field%22%20%3A%20%22cases.clinical.gender%22%20%2C%0A%20%20%20%20%20%20%20%22value%22%20%3A%20%5B%20%22male%22%20%5D%0A%20%20%20%7D%0A%7D&fields=clinical.gender,case_id&pretty=true'
-```
 #### Example: Filter using a range
 
-Range Filter
+This is an example of filtering for age at diagnosis. The request is for cases where the age at diagnosis is between 40 and 70 years. *Note:* `age_at_diagnosis` is expressed in days.
 
-```
+```Filter
 {
     "op": "and",
     "content": [
@@ -435,20 +411,16 @@ Range Filter
     ]
 }
 ```
-
-Query returning case_id with age at diagnosis between 40 and 70 years
-
-```
-$ curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22%3E%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B14600%5D%7D%7D,%7B%22op%22:%22%3C%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B25550%5D%7D%7D%5D%7D&fields=clinical.age_at_diagnosis,case_id&pretty=true'
+```Query
+curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22%3E%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B14600%5D%7D%7D,%7B%22op%22:%22%3C%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B25550%5D%7D%7D%5D%7D&fields=clinical.age_at_diagnosis,case_id&pretty=true'
 ```
 
-**Note:** age_at_diagnosis is expressed in days.
 
-#### Example: Filter all project with primary_site being Kidney or Brain and program.name being TCGA (Multiple fields operation)
+#### Example: Multiple fields
 
-Multiple fields operation Filter
+Filter projects for primary_site being Kidney or Brain and program.name being TCGA
 
-```
+```Filter
 {
      "op" : "and" ,
      "content" : [{
@@ -471,21 +443,6 @@ Multiple fields operation Filter
          }]
 }
 ```
-
-Query returning case_id with age at diagnosis between 40 and 70 years
-
-```
-$ curl 'https://gdc-api.nci.nih.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22primary_site%22%2C%22value%22%3A%5B%22Kidney%22%2C%22Brain%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22program.name%22%2C%22value%22%3A%5B%22TCGA%22%5D%7D%7D%5D%7D&pretty=true'
-```
-
-## File Download
-
-The example below will download two files (2442bd46-fca4-4a03-9d58-e30929da6ed8 and bb8182f8-8cc1-4504-b900-de0ab3ace714).
-
-``` bash
-curl  -O https://gdc-api.nci.nih.gov/data/2442bd46-fca4-4a03-9d58-e30929da6ed8,bb8182f8-8cc1-4504-b900-de0ab3ace714
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 10647    0 10647    0     0  14746      0 --:--:-- --:--:-- --:--:-- 14746
-
+```Query
+curl 'https://gdc-api.nci.nih.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22primary_site%22%2C%22value%22%3A%5B%22Kidney%22%2C%22Brain%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22program.name%22%2C%22value%22%3A%5B%22TCGA%22%5D%7D%7D%5D%7D&pretty=true'
 ```

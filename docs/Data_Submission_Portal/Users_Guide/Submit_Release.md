@@ -11,7 +11,7 @@ This chapter will focus on the following features:
 
 ## Review and Submit
 
-Once data is uploaded to the project workspace (see previous section: [Upload Data](Upload_Data.md) , the submitter or project owner should review it to ensure that data is ready for processing by the GDC ([Harmonization process](https://gdc.nci.nih.gov/submit-data/gdc-data-processing-software-and-algorithms/2-data-harmonization)).
+Once data is uploaded to the project workspace (see previous section: [Upload Data](Upload_Data.md), the submitter or project owner should review it to ensure that data is ready for processing by the GDC ([Harmonization process](https://gdc.nci.nih.gov/submit-data/gdc-data-processing-software-and-algorithms/2-data-harmonization)).
 
 The review will lock the project and ensure no user can upload more data. During that period, the submitter or project owner can browse the data in the Submission Portal or download it. 
 
@@ -25,7 +25,7 @@ In general, submitters are requested to submit their data to the GDC within six 
 
 ### Review
 
-To review and submit data to the GDC, the user should have release privilege. He will be able to view the section below on the dashboard.
+To review and submit data to the GDC, the user should have release privileges. The user will be able to view the section below on the dashboard.
 
 The "Review" button is available only if the project is in "OPEN" state.
 
@@ -43,7 +43,7 @@ Once the user clicks on "Review", the project state will change to "REVIEW":
 
 The "Submit" button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to submit data to the GDC.
 
-Once the user submits data to the GDC, he __cannot upload additional data until the harmonization process is complete__.
+Once the user submits data to the GDC, they __cannot upload additional data until the harmonization process is complete__.
 
 [![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab.png)](images/GDC_Submission_Submit_Release_Submit_tab.png "Click to see the full image.")
 
@@ -52,7 +52,7 @@ When the user clicks on the action "Submit", the following Submit popup is displ
 [![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup.png)](images/GDC_Submission_Submit_Release_Submit_Popup.png "Click to see the full image.")
 
 
-After User clicks on "Submit Validated Data to the GDC", the project state becomes "Submitted":
+After the user clicks on "Submit Validated Data to the GDC", the project state becomes "Submitted":
 [![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State.png)](images/GDC_Submission_Submit_Release_Project_State.png "Click to see the full image.")
 
 
@@ -64,7 +64,7 @@ As soon as the project owner releases the project, any harmonized (updated or ad
 
 [![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_Release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
 
-To release data to the GDC Data Portal, the user should have release privilege. He will be able to view the following section on the dashboard.
+To release data to the GDC Data Portal, the user should have release privileges. The user will be able to view the following section on the dashboard.
 
 [![GDC Submission Release Tab](images/GDC_Submission_Submit_Release_Release_tab.png)](images/GDC_Submission_Submit_Release_Release_tab.png "Click to see the full image.")
 
@@ -72,9 +72,9 @@ When the user clicks on the action "Release", the following Release popup is dis
 
 [![GDC Submission Release Popup](images/GDC_Submission_Submit_Release_Release_Popup.png)](images/GDC_Submission_Submit_Release_Release_Popup.png "Click to see the full image.")
 
-After User clicks on "Release Submitted and Processed Data", the project release state becomes "Released":
+After the user clicks on "Release Submitted and Processed Data", the project release state becomes "Released":
 
 [![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State.png)](images/GDC_Submission_Submit_Release_Project_State.png "Click to see the full image.")
 
 
-__Note__: Released cases and/or files can be redacted from the GDC. Redaction is performed by GDC administrators, at case level through synchronization with dbGaP, and at file level through submitter's request usually after a data quality issue is identified. The GDC Data Submission Portal itself currently does not support redaction through the web user interface.
+__Note__: Released cases and/or files can be redacted from the GDC. Redaction is performed by GDC administrators, at case level through synchronization with dbGaP, and at file level at the submitter's request usually after a data quality issue is identified. The GDC Data Submission Portal itself currently does not support redaction through the web user interface.

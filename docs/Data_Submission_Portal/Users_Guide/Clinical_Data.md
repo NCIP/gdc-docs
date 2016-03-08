@@ -2,7 +2,7 @@
 
 ## Overview
 
-The _"Clinical"_ section list all the clinical data entities available in a project. Clicking on a particular clinical entity will open the details panel providing more details about the selected entity.
+The _"Clinical"_ section lists all the clinical data entities available in a project. Clicking on a particular clinical entity will open the details panel providing more details about the selected entity.
 
 [![GDC Submission Cases Default View](images/GDC_Submission_Clinical_Default.png)](images/GDC_Submission_Clinical_Default.png "Click to see the full image.")
 
@@ -24,13 +24,13 @@ The clinical list view displays the following information:
 | Status | Status of the entity |
 | Last Updated | Last time the entity was updated. |
 
-On the top left section of the screen, the user can download a tar.gz file containing all entities on the project. User has the choice between TSV or JSON format.
+On the top left section of the screen, the user can download a tar.gz file containing all entities on the project. The user has the choice between TSV or JSON format.
 
 ## Clinical Details
 
 Clicking on a case will open the details panel. Data in this panel is broken down into multiple sections.
 
-Navigation between those sections can be done either by scrolling down or by clicking on the section icon on the left side of the details panel.
+Navigation between these sections can be done either by scrolling down or by clicking on the section icon on the left side of the details panel.
 
 ### Summary
 

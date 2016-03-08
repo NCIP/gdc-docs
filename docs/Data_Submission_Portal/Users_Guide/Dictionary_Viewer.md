@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Data Dictionary viewer provides access to GDC-wide dictionaries as well as specific dictionaries that could be applied to a specific project.
+The Data Dictionary viewer provides access to GDC-wide dictionaries as well as specific dictionaries that can be applied to a specific project.
 
 More details about dictionaries can be found in a dedicated section of the documentation [=>LINK TO GDC DICTIONARY DOCUMENTATION].
 

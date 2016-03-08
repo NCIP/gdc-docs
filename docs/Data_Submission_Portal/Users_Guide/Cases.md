@@ -1,4 +1,4 @@
-# Case
+# Cases
 
 ## Overview
 
@@ -20,7 +20,7 @@ The number of cases corresponding to each filter is displayed on the right side 
 
 ## Cases List View
 
-The cases list view display the following informations:
+The cases list view displays the following information:
 
 |Column|Description|
 | --- | --- |
@@ -37,7 +37,7 @@ Clicking on a case will open the details panel. Data in this panel is broken dow
 
 [![GDC Submission Case Details](images/GDC_Submission_Cases_Details.png)](images/GDC_Submission_Cases_Details.png "Click to see the full image.")
 
-Navigation between those sections can be done either by scrolling down or by clicking on the section icon on the left side of the details panel.
+Navigation between these sections can be done either by scrolling down or by clicking on the section icon on the left side of the details panel.
 
 [![GDC Submission Cases Details Navigation](images/GDC_Submission_Cases_Details_Navigation.png)](images/GDC_Submission_Cases_Details_Navigation.png "Click to see the full image.")
 
