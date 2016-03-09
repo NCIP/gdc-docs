@@ -13,23 +13,14 @@
 ### New Features and Changes
 
 * New entities: *Slide Data Bundle* and *Pathology Data Bundle*
-
 * New `_dictionary/_all` endpoint displays the entire GDC dictionary for the `submission` endpoint, and project-specific dictionaries for project endpoints; e.g. `https://gdc-api.nci.nih.gov/v0/submission/_dictionary/_all` and `https://gdc-api.nci.nih.gov/v0/submission/TCGA/SKCM/_dictionary/_all`.
-
 * Support for releases
-
 * Project `state` property definition has been updated. The property can now have one of six values: `open` (default), `review`, `submitted`, `processing`, `closed`, and `legacy`.
-
 * `days_to_index` property has been removed from `Case`
-
 * `template` endpoint for submissions returns archive of all templates, e.g. `https://gdc-api.nci.nih.gov/v0/submission/TCGA/SKCM/template`
-
 * `template` endpoint can generate JSON using `/template?format=json`
-
 * `export` endpoint now supports POST requests
-
 * GraphQL: lists are accepted as top level property filters
-
 * GraphQL: `not` filter
 
 ### Bugs Fixed Since Last Release
