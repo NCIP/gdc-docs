@@ -21,7 +21,7 @@
 * `template` endpoint can generate JSON using `/template?format=json`
 * `export` endpoint now supports POST requests
 * GraphQL: lists are accepted as top level property filters
-* GraphQL: `not` filter
+* GraphQL: `not` filter was added
 
 ### Bugs Fixed Since Last Release
 
