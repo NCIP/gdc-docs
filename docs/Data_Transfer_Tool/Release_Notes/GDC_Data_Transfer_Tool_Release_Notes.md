@@ -5,6 +5,34 @@
 
 
 
+## v0.4.00
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: March 3, 2016
+
+
+### New Features and Changes
+
+* Help menus and options are more consistent across download, upload, and interactive modes
+* Default behavior is command line mode rather than interactive mode
+* Clearer error message when file IDs or manifests are not supplied in download mode
+
+### Bugs Fixed Since Last Release
+
+* None to report
+
+### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+
+Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md)
+
+
+
+
+
+
 ## v0.3.20
 
 * __GDC Product__: Data Transfer Tool
@@ -22,7 +50,7 @@
 ### Known Issues and Workarounds
 
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
-  * *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 
 Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md)
 
@@ -47,7 +75,7 @@ Release details are maintained in the [GDC Data Transfer Tool Change Log](https:
 ### Known Issues and Workarounds
 
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
-  * *Workaround:* Manually type out the file name or remove the single quotes from around the file path
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 
 Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md)
 
@@ -74,7 +102,7 @@ Release details are maintained in the [GDC Data Transfer Tool Change Log](https:
 ### Known Issues and Workarounds
 
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
-  * *Workaround:* Manually type out the file name or remove the single quotes from around the file path
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 
 Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md)
 
@@ -101,7 +129,7 @@ Release details are maintained in the [GDC Data Transfer Tool Change Log](https:
 ### Known Issues and Workarounds
 
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
-  * *Workaround:* Manually type out the file name or remove the single quotes from around the file path
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 
 Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md)
 
