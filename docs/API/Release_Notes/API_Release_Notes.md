@@ -38,7 +38,7 @@
 
 ### Known Issues and Workarounds
 
-* XXXXXXXXXXXXX
+* None to report
 
 Release details are maintained in the [GDC API change log](https://github.com/NCI-GDC/gdcapi/blob/develop/CHANGELOG.md)
 
