@@ -423,7 +423,7 @@ TCGA-LAML that returns a JSON document containing the `submitter_id` of
 the case and of its samples.
 
 
-```JavaScript
+```GraphQL
 {
     case (project_id: "TCGA-LAML", first: 1) {
          submitter_id
