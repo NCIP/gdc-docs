@@ -1,6 +1,6 @@
 # Welcome
 
-This is the official project documentation site of the [Genomic Data Commons (GDC)](https://gdc.nci.nih/gov).
+This is the official project documentation site of the [Genomic Data Commons (GDC)](https://gdc.nci.nih.gov).
 
 ## Contents
 
