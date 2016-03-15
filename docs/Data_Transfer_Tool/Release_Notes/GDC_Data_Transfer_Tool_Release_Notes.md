@@ -23,6 +23,8 @@
 
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
 	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* Delete function is not working.
+	* *Workaround:* Use an API call instead of the Data Transfer Tool to delete files
 
 Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md)
 
