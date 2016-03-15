@@ -68,11 +68,16 @@ window.onload = function() {
 
     var dictionaryPreamble = jQuery('#dictionary-preamble'),
         body = jQuery('body'),
-        previousView = null;
+        previousView = null,
+        loadingContainer = jQuery('#dictionary-loading-icon');
 
     var dictionaryOptions = {
       //dataSourceBaseHost: 'http://localhost:8080',
       afterRenderFn: function(dictionary) {
+
+        if (loadingContainer.is(':visible')) {
+          loadingContainer.fadeOut('fast');
+        }
 
         var currentView = dictionary.getCurrentViewName();
         var shouldScrollToTop = window.location.hash.indexOf('_top') >= 0;

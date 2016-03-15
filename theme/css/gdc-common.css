@@ -143,7 +143,7 @@ code {
   margin: 0 2px;
   padding: 0 5px;
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: normal;
   border: 1px solid #eaeaea;
   background-color: #f8f8f8;
   border-radius: 3px;
@@ -453,6 +453,10 @@ a.header-text-link {
 
 .modal-body {
   padding: 0 0;
+}
+
+#body {
+  min-height: 768px;
 }
 
 @media (min-width: 992px) {
@@ -1360,6 +1364,28 @@ footer a {
 
 .particle.blue {
   background-color: #123e57;
+}
+
+.loadingContainer {
+  width: 20rem;
+  height: 4rem;
+  position: fixed;
+  left: 40%;
+  top: 61%;
+  margin-left: 5rem;
+  display: block;
+  z-index: 10000;
+}
+
+.spinParticleContainer {
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  left: 40%;
+  top: 60%;
+  display: block;
+  -webkit-animation: Rotate 2.0s infinite linear;
+  animation: Rotate 2.0s infinite linear;
 }
 
 .spinParticle {

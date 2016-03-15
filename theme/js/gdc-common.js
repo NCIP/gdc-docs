@@ -616,7 +616,7 @@ $(function() {
     };
 
     setTimeout(function() {
-      fontSpy('icgc-icons', {
+      fontSpy('FontAwesome', {
         glyphs: '\ue800\ue8019\ue81c\ue843',
         success: _handleFontTransition,
         failure: _handleFontTransition
