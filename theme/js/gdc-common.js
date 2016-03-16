@@ -344,18 +344,26 @@ $(function() {
         offset: 0
       });
 
+      var sideBar = $('.bs-sidebar');
+
       $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
 
         // prevent default anchor click behavior
         e.preventDefault();
 
+        console.log(e);
+
         // store hash
         var hash = this.hash,
-          scrollTargetEl = $(hash);
+          anchor = $(this),
+          scrollTargetEl = $(hash),
+          mouseY = e.clientY;
+
+
 
         // animate
         scrollBody.animate({
-          scrollTop: scrollTargetEl.offset().top + 7
+          scrollTop: scrollTargetEl.offset().top + 7 /* plus some delta so scrollSpy highlight gets triggered */
         }, 300, function(){
 
           var targetEl = scrollTargetEl.find('a'),
@@ -367,7 +375,22 @@ $(function() {
           // when done, add hash to url
           // (default click behaviour)
           window.location.hash = hash;
+
+          var pos = sideBar.scrollTop(),
+              delta = sideBar.outerHeight() >> 2;
+
+          if (mouseY <  Math.round(sideBar.outerHeight() / 2)) {
+            delta = - delta;
+          }
+
+          pos += delta;
+
+          sideBar.animate({
+            scrollTop: Math.max(0, Math.round(pos))
+          }, 500);
         });
+
+
 
       });
 
