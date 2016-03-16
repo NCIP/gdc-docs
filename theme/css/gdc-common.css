@@ -499,11 +499,31 @@ a.header-text-link {
   }
 }
 
+.bs-sidebar .nav a {
+  color: #555;
+}
+
 /* Sidebar Summary Styles */
 .bs-sidebar .nav .main > a,
 .bs-sidebar .nav .nav > li > a {
+  color: #166aa2;
   border: none;
   /*border-left: solid 2px transparent;*/
+}
+
+.bs-sidebar .nav .main > a:hover,
+.bs-sidebar .nav .main:hover > a,
+.bs-sidebar .nav .main > a {
+  background-color: #ddd;
+}
+
+.bs-sidebar .nav .main ul {
+  padding-top: 0;
+  margin-bottom: 0;
+}
+
+.bs-sidebar .nav .main ul li {
+  background-color: #f0f0f0;
 }
 
 
@@ -519,7 +539,7 @@ a.header-text-link {
 }
 
 .bs-sidebar .nav .nav > li.active > a {
-  /* border-left-color: #166aa2; */
+  font-weight: bold;
 }
 
 .bs-sidebar .nav .main > a:hover,

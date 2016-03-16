@@ -1,0 +1,15 @@
+<ul class="nav bs-sidenav">
+  {% for toc_nav_item in toc %}
+        {% for toc_item in toc_nav_item.children %}
+        <li class="{% if toc_item.active %}active{% endif %}"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+          {% if toc_item.children %}
+          <ul class="nav">
+            {% for sub_toc_item in toc_item.children %}
+            <li class="{% if sub_toc_item.active %}active{% endif %}"><a href="{{ sub_toc_item.url }}">{{ sub_toc_item.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+  {% endfor %}
+</ul>
