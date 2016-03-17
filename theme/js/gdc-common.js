@@ -351,8 +351,6 @@ $(function() {
         // prevent default anchor click behavior
         e.preventDefault();
 
-        console.log(e);
-
         // store hash
         var hash = this.hash,
           scrollTargetEl = $(hash),
@@ -376,18 +374,6 @@ $(function() {
             // (default click behaviour)
             window.location.hash = hash;
 
-            var pos = sideBar.scrollTop(),
-                delta = sideBar.outerHeight() >> 2;
-
-            if (mouseY <  Math.round(sideBar.outerHeight() / 2)) {
-              delta = - delta;
-            }
-
-            pos += delta;
-
-            sideBar.animate({
-              scrollTop: Math.max(0, Math.round(pos))
-            }, 500);
         });
 
 
