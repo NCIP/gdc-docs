@@ -353,10 +353,7 @@ $(function() {
 
         // store hash
         var hash = this.hash,
-          scrollTargetEl = $(hash),
-          mouseY = e.clientY;
-
-
+          scrollTargetEl = $(hash);
 
           // animate
           scrollBody.animate({
@@ -376,24 +373,58 @@ $(function() {
 
         });
 
-
-
       });
-
 
       var mainContainer = $('.main-container'),
-          selectedNavRegion = sideBar.find('.main');
+          selectedNavRegion = sideBar.find('.main'),
+          _totalAnchorHeight = 0,
+          _anchorOffsetMap = [];
+
+      sideBar.find('a').each(function() {
+        var anchor = $(this),
+          anchorHeight = anchor.outerHeight();
+
+        _anchorOffsetMap.push({offset: _totalAnchorHeight, height: anchorHeight});
+
+        _totalAnchorHeight += anchorHeight;
+      });
+
+      // TODO: Could improve the search complexity O(n) given that the list is sorted by offset
+      var findAnchorForOffset = function(offset) {
+
+        if (! _anchorOffsetMap.length) {
+          return 0;
+        }
+        else if (_anchorOffsetMap.length === 1) {
+          return _anchorOffsetMap[0];
+        }
+
+        var i = 0;
+
+        for (; i < _anchorOffsetMap.length; i++) {
+          if (_anchorOffsetMap[i].offset > offset) {
+            break;
+          }
+        }
+
+        return _anchorOffsetMap[i - 1];
+      };
 
       $(window).scroll(function() {
-        var scollableDistance = Math.max(0, mainContainer.outerHeight() + mainContainer.offset().top + $('#docs-footer').outerHeight() - $(window).outerHeight());
+        var scollableDistance = Math.max(0, mainContainer.outerHeight() + mainContainer.offset().top +
+                                            $('#docs-footer').outerHeight() - $(window).outerHeight());
         var percentPageScrolled = Math.min(1.0, $(window).scrollTop() / scollableDistance);
 
-          sideBar.stop().animate({
-            scrollTop: Math.round(selectedNavRegion.outerHeight() * percentPageScrolled)
-          }, 200)
+        var proposedOffset = selectedNavRegion.outerHeight() * percentPageScrolled,
+          anchorOffset = findAnchorForOffset(proposedOffset);
 
+        sideBar.stop().animate({
+          scrollTop: Math.min(anchorOffset.offset - anchorOffset.height * 2, proposedOffset)
+        }, 200);
 
       });
+
+      sideBar.scroll(function(e) { e.stopPropagation(); });
 
       // Prevent disabled links from causing a page reload
       $('li.disabled a').click(function (e) {
@@ -439,7 +470,6 @@ $(function() {
       }
 
       mainHeader.prepend('<span class="header-badge"><i class="fa fa-book"></i></span>');
-
 
     }
 
