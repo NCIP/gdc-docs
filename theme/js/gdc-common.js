@@ -355,41 +355,56 @@ $(function() {
 
         // store hash
         var hash = this.hash,
-          anchor = $(this),
           scrollTargetEl = $(hash),
           mouseY = e.clientY;
 
 
 
-        // animate
-        scrollBody.animate({
-          scrollTop: scrollTargetEl.offset().top + 7 /* plus some delta so scrollSpy highlight gets triggered */
-        }, 300, function(){
+          // animate
+          scrollBody.animate({
+            scrollTop: scrollTargetEl.offset().top + 7 /* plus some delta so scrollSpy highlight gets triggered */
+          }, 300,
+            function(){
 
-          var targetEl = scrollTargetEl.find('a'),
-            classes = 'animated-long focusText';
+            var targetEl = scrollTargetEl.find('a'),
+              classes = 'animated-long focusText';
 
-          targetEl.addClass(classes);
+            targetEl.addClass(classes);
 
-          setTimeout(function() { targetEl.removeClass(classes); }, 1100);
-          // when done, add hash to url
-          // (default click behaviour)
-          window.location.hash = hash;
+            setTimeout(function() { targetEl.removeClass(classes); }, 1100);
+            // when done, add hash to url
+            // (default click behaviour)
+            window.location.hash = hash;
 
-          var pos = sideBar.scrollTop(),
-              delta = sideBar.outerHeight() >> 2;
+            var pos = sideBar.scrollTop(),
+                delta = sideBar.outerHeight() >> 2;
 
-          if (mouseY <  Math.round(sideBar.outerHeight() / 2)) {
-            delta = - delta;
-          }
+            if (mouseY <  Math.round(sideBar.outerHeight() / 2)) {
+              delta = - delta;
+            }
 
-          pos += delta;
+            pos += delta;
 
-          sideBar.animate({
-            scrollTop: Math.max(0, Math.round(pos))
-          }, 500);
+            sideBar.animate({
+              scrollTop: Math.max(0, Math.round(pos))
+            }, 500);
         });
 
+
+
+      });
+
+
+      var mainContainer = $('.main-container'),
+          selectedNavRegion = sideBar.find('.main');
+
+      $(window).scroll(function() {
+        var scollableDistance = Math.max(0, mainContainer.outerHeight() + mainContainer.offset().top + $('#docs-footer').outerHeight() - $(window).outerHeight());
+        var percentPageScrolled = Math.min(1.0, $(window).scrollTop() / scollableDistance);
+
+          sideBar.stop().animate({
+            scrollTop: Math.round(selectedNavRegion.outerHeight() * percentPageScrolled)
+          }, 200)
 
 
       });
