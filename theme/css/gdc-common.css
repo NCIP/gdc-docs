@@ -1395,6 +1395,7 @@ footer a {
   margin-left: 5rem;
   display: block;
   z-index: 10000;
+  display: none;
 }
 
 .spinParticleContainer {

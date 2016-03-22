@@ -69,7 +69,23 @@ window.onload = function() {
     var dictionaryPreamble = jQuery('#dictionary-preamble'),
         body = jQuery('body'),
         previousView = null,
-        loadingContainer = jQuery('#dictionary-loading-icon');
+        mainContainer = jQuery('.main-container'),
+        loadingContainer = jQuery('#dictionary-loading-icon'),
+        loadingOffsetWidth = (mainContainer.outerWidth() - loadingContainer.outerWidth()) >> 1,
+        loadingOffsetHeight = mainContainer.outerHeight() + 50;
+
+    loadingContainer.fadeIn(100);
+
+    // Vertically/Horizontally Align the Loading Icon
+    loadingContainer.css({
+      left: loadingOffsetWidth,
+      top: loadingOffsetHeight
+    });
+
+    loadingContainer.find('.spinParticleContainer').css({
+      left: loadingOffsetWidth,
+      top: loadingOffsetHeight - 5
+    });
 
     var dictionaryOptions = {
       //dataSourceBaseHost: 'http://localhost:8080',
