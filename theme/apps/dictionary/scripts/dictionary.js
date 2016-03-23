@@ -409,7 +409,8 @@
       references: 'References',
       administrative: 'Administrative',
       //tbd: 'To be Determined',
-      tbd: 'References'
+      tbd: 'References',
+      index_file: 'Index'
     },
     ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'data_bundle', 'annotation', 'administrative', 'TBD'],
     /* DICTIONARY_KEY_ORDER: [

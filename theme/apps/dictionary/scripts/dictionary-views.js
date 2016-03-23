@@ -939,9 +939,7 @@
 
         for (i = 0; i < leftOverCategories.length; i++) {
           var category = leftOverCategories[i];
-
-          _tableEntityListView.renderEntity(category, categoryMap[category]);
-
+          _tableEntityListView.renderEntity(category, categoryMap[category], _getSortFnForCategory(category, categoryMap[category]));
         }
       }
 
