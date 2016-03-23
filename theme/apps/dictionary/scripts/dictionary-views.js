@@ -1008,7 +1008,7 @@
         })
         .html(function() {
           var tooltipText = getTooltipText();
-          return '<i class="fa fa-book"></i> <em>' + _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category) + '</em>' +
+          return '<i class="fa fa-book"></i> <em>' + _capitalizeWords(_.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category)) + '</em>' +
                  (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> &nbsp;<!-- i style="color: #ccc;" class="fa fa-info-circle"></i -->' : '');
         });
 
