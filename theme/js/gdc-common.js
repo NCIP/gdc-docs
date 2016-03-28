@@ -659,6 +659,13 @@ $(function() {
     // Hightlight code
     hljs.initHighlightingOnLoad();
 
+    var particleContainer = $('.spinParticle');
+    particleContainer.addClass('endLoad');
+
+    setTimeout(function () {
+      particleContainer.hide();
+    }, 1000);
+    /*
     var _handleFontTransition = function () {
       var bodyEl = $('.main-container');
 
@@ -676,7 +683,7 @@ $(function() {
         failure: _handleFontTransition
       });
 
-    }, 0);
+    }, 0);*/
 
 
 
