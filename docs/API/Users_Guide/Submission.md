@@ -2,11 +2,13 @@
 
 ## Overview
 
-Using the following methods, users submitting to the GDC can create, delete and update entities and relationships in the GDC data model.
+The GDC Submission API uses methods and endpoints that are distinct from those that drive the functionality of the GDC Data Portal. In particular, data and metadata that is in the process of being submitted can only be queried using GraphQL, and not the methods described in [Search and Retrieval](Search_and_Retrieval.md).
+
+This section describes methods that can be used to submit, delete, and update data and metadata in the GDC.
 
 ## GDC Dictionary
 
-Requests to the submission API must adhere to the schemas defined in the [GDC Data Dictionary](https://www.github.com/NCI-GDC/gdcdictionary).
+Requests to the submission API must adhere to the schemas defined in the [GDC Data Dictionary](../../Data_Dictionary/index.md).
 
 ## Working with Entities
 

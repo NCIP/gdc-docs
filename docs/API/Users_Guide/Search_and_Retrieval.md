@@ -2,7 +2,9 @@
 
 ## Constructing Queries
 
-API queries for selecting, filtering, and sorting GDC data and metadata are constructed using [endpoints](#query-endpoints), [parameters](#query-parameters), and [filtering operators](#filtering-operators).
+API queries for selecting, filtering, and sorting GDC data and metadata are constructed using [endpoints](#query-endpoints), [parameters](#query-parameters), and [filtering operators](#filtering-operators). These queries work only on datasets that have been released to the GDC Data Portal.
+
+Data that is in the process of being submitted to GDC and is only available on the GDC Submission Portal cannot be queried using these methods. See [Submission](Submission.md) for information on how data submitters can query their unreleased data using GraphQL.
 
 ## Query Endpoints
 The following search and retrieval endpoints are available on the GDC API:
