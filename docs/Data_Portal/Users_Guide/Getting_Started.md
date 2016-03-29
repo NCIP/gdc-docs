@@ -17,9 +17,9 @@ Additional descriptions of key GDC Data Portal features are provided in the sect
 ## Accessing the GDC Data Portal
 
 The GDC Data Portal is accessible using a web browser such as Chrome, Internet Explorer, and Firefox at the following URL: [https://gdc-portal.nci.nih.gov](https://gdc-portal.nci.nih.gov).
-When navigating to the site, the GDC Data Portal main page is displayed.
+When navigating to the site, the GDC Data Portal homepage is displayed.
 
-[![GDC Data Portal Main Page](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
+[![GDC Data Portal Homepage](images/gdc-data-portal-homepage.png)](images/gdc-data-portal-homepage.png "Click to see the full image.")
 
 The GDC Data Portal allows download of open access data without requiring a user login. To retrieve controlled access data, users must have access to the controlled access data set through dbGaP and use the [Login](../../Commons/Authentication.md) functionality on the top-right corner of the screen.
 
@@ -35,7 +35,7 @@ The GDC Data Portal allows researchers to identify data they are looking for and
 
 ### Data Searching
 
-GDC Data Portal contains two primary mechanisms for searching data: 1) searching using predefined filters (also called Facets) or 2) searching via advanced search technology and the advanced query language. When a user clicks on a Facet, the GDC smart search is automatically populated to help users get familiar with the advanced query language. At any time, when a need for a more specific query arises, users can switch to smart search and update their query with more specific filters.
+GDC Data Portal contains two primary mechanisms for searching data: 1) searching using filters (also called Facets) or 2) searching via advanced search technology and the advanced query language. When a user clicks on a Facet, the GDC smart search is automatically populated to help users get familiar with the advanced query language. At any time, when a need for a more specific query arises, users can switch to smart search and update their query with more specific filters.
 
 ### Cart Facilities for Data Selection
 
