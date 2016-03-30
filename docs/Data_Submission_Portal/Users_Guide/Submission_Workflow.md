@@ -8,23 +8,25 @@ The workflow diagram below represents the data submission process that is implem
 
 ## Project Life Cyle
 
-The life cycle of a project in the GDC starts with the upload and validation of data into the project and ends with the release of the harmonized data to the GDC Data Portal and other GDC data access tools. Throughout the life cycle, the project transitions through various states in which the project is open for uploading data, in review, and released. This cycles is continous as additional project data becomes available. 
+The life cycle of a project in the GDC starts with the upload and validation of data into the project and ends with the release of the harmonized data to the GDC Data Portal and other GDC data access tools. Throughout the life cycle, the project transitions through various states in which the project is open for uploading data, in review, and released. This life cycle is continuous as new project data becomes available. 
 
 To summarize the project life cycle and transition to the various states of the project, the following operations can be performed by the submitter:
 
 * The submitter can upload and validate data if the project __is not in__ REVIEW.
-* The submitter can review the project if it _is_ OPEN. The GDC will prevent users from uploading any new data during the review period.
-* The submitter can submit data to the GDC for processing if the project _is in_ REVIEW.
+* The submitter can review the project if it __is__ OPEN. The GDC will prevent users from uploading any new data during the review period.
+* The submitter can submit data to the GDC for processing if the project __is in__ REVIEW.
 * The submitter can release the project once the data has been submitted and processed. The GDC will release the harmonized data to the GDC Data Portal and other GDC Data Access Tools.
 
 Note: "Submit to the GDC" and "Release" actions can be performed only if the user has release privileges.
 
 ### Project State
+The diagram below demonstrates the transition of a project through the various states. In the initial state, the project is OPEN for data upload and validation. Once the data is ready for review, the project state transitions to REVIEW. During the REVIEW state, the project is locked so that additional data can not be uploaded. Once review has been completed and the submitter submits the data for GDC processing, the project state transitions to SUBMITTED. If during the review period, additional data changes are needed, the project can be re-opened and the state transitions back to OPEN. Once the data has been processed, the submitter can release the data and the project state transitions to RELEASE. Once the data is released to the GDC for access through GDC data access tools, the project state transitions back to OPEN to allow for new data to be submitted to the project.
+
 [![GDC Data Submission Portal Project State](images/GDC_Submission_Portal_Workflow_Project_State.png)](images/GDC_Submission_Portal_Workflow_Release_State.png "Click to see the full image.")
 
 ### Project Release State
+Once a submitter selects to release the data, the project state transitions to RELEASE. If the submitter does not select to release the data within six months of data harmonization, the data is automatically released per the [NCI Genomic Data Sharing Policy](http://www.cancer.gov/grants-training/grants-management/nci-policies/genomic-data).
 [![GDC Data Submission Portal Project Release State](images/GDC_Submission_Portal_Workflow_Project_Release_State.png)](images/GDC_Submission_Portal_Workflow_Project_Release_State.png "Click to see the full image.")
-
 
 ## File Status Life Cycle
 
