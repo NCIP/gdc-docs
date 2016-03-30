@@ -15,11 +15,13 @@ Annotations are important as they indicate that issues or caveats have been foun
 The following facets are available to search for annotations:
 
 * __Annotation ID__: Seach using annotation ID
+* __Entity ID__: Seach using entity ID
+* __Case UUID__: Seach using case UUID
 * __Primary Site__: Tissue type of the cancer
 * __Project__: See project section of the documentation
 * __Entity Type__: Patient, Sample, Portion, Slide, Analyte, Aliquot
 * __Annotation Category__: See link below
-* __Annotation Created Since__: Search for annotations by date of creation
+* __Annotation Created__: Search for annotations by date of creation
 * __Annotation Classification__: See link below
 
 ### Annotation List
