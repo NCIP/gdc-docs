@@ -6,6 +6,28 @@ The workflow diagram below represents the data submission process that is implem
 
 [![GDC Data Submission Portal Workflow](images/GDC_Submission_Portal_Workflow.png)](images/GDC_Submission_Portal_Workflow.png "Click to see the full image.")
 
+### Upload and Validate Data
+The submitter will upload clinical and biospecimen data to the project workspace and validate the data. The GDC will validate the data against the GDC Data Dictionary. The submitter will upload experiment metadata to the workspace which will register experiment data for submission through the Data Transfer Tool. Once the submitter uploads the experiment metadata, the Data Submission Portal will generate a manifest file that identifies the experiment data that will be uploaded. The submitter will use the manifest file to upload the experiment data through the Data Transfer Tool.
+
+At this point, data is not yet submitted to GDC.
+
+[![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
+
+### Review and Submit Data
+When data in the project workspace is ready for processing, the submitter or project owner must submit the data to the GDC in order for processing to occur through the GDC Data Harmonization Pipeline. Submitting data to the GDC will initiate the [GDC Data Harmonization Pipeline](https://gdc-dev.nci.nih.gov/submit-data/gdc-data-harmonization).
+
+During this process, there are two primary actions that should be performed:
+
+* REVIEW Project: When a submitter reviews the project, the project is locked and prevents other users from uploading new data to the project. During this process, the submitter should verify that the data is ready for processing. If during the REVIEW process, the submitter thinks the data is not ready for processing, the submitter can RE-OPEN the project. This would allow the submitter to upload additional data to the project workspace.
+* SUBMIT Data: After reviewing the project data, the user can submit the project to the GDC. This will trigger the harmonization process.
+
+[![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
+
+### Release Data
+When the GDC harmonized data is ready and the project data is complete, the submitter or project owner will release the project. This will release harmonized data to the GDC for access through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools). 
+
+[![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_Release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
+
 ## Project Life Cyle
 
 The life cycle of a project in the GDC describes the workflow of a project throughout the data submission process. The project life cycle starts with the upload and validation of data into the project and ends with the release of the harmonized data to the GDC Data Portal and other GDC data access tools. Throughout the life cycle, the project transitions through various states in which the project is open for uploading data, in review, and released. This life cycle is continuous as new project data becomes available. 
@@ -43,27 +65,3 @@ To summarize the file status life cycle and transition to the various states of 
 * An error occurs during file validation or processing. The GDC sets the file status to ERROR.
 
 [![GDC Data Submission Portal File Status](images/GDC_Submission_Portal_Workflow_File_Status.png)](images/GDC_Submission_Portal_Workflow_File_Status.png "Click to see the full image.")
-
-## Upload, Submit, and Release Data
-
-### Upload and Validate Data
-The submitter will upload clinical and biospecimen data to the project workspace and validate the data. The GDC will validate the data against the GDC Data Dictionary. The submitter will upload experiment metadata to the workspace which will register experiment data for submission through the Data Transfer Tool. Once the submitter uploads the experiment metadata, the Data Submission Portal will generate a manifest file that identifies the experiment data that will be uploaded. The submitter will use the manifest file to upload the experiment data through the Data Transfer Tool.
-
-At this point, data is not yet submitted to GDC.
-
-[![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
-
-### Review and Submit Data
-When data in the project workspace is ready for processing, the submitter or project owner must submit the data to the GDC in order for processing to occur through the GDC Data Harmonization Pipeline. Submitting data to the GDC will initiate the [GDC Data Harmonization Pipeline](https://gdc-dev.nci.nih.gov/submit-data/gdc-data-harmonization).
-
-During this process, there are two primary actions that should be performed:
-
-* REVIEW Project: When a submitter reviews the project, the project is locked and prevents other users from uploading new data to the project. During this process, the submitter should verify that the data is ready for processing. If during the REVIEW process, the submitter thinks the data is not ready for processing, the submitter can RE-OPEN the project. This would allow the submitter to upload additional data to the project workspace.
-* SUBMIT Data: After reviewing the project data, the user can submit the project to the GDC. This will trigger the harmonization process.
-
-[![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
-
-### Release Data
-When the GDC harmonized data is ready and the project data is complete, the submitter or project owner will release the project. This will release harmonized data to the GDC for access through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools). 
-
-[![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_Release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
