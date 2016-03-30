@@ -1,2 +1,2 @@
-% GDC Data Submission Portal Users Guide
-% Genomic Data Commons
+% GDC Data Submission Portal User's Guide
+% NCI Genomic Data Commons (GDC)
