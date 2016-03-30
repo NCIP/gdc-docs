@@ -1,10 +1,10 @@
-The [GDC Data Dictionary](http://gdc-docs.nci.nih.gov/Dictionary/) identifies the properties and accepted types or values for required, preferred, and optional data elements as well as their relationships.
+The [GDC Data Dictionary](http://gdc-docs.nci.nih.gov/Dictionary/viewer/) identifies the properties and accepted types or values for required, preferred, and optional data elements as well as their relationships.
 
 # GDC Dictionary Key Features
 
 ## View Data Dictionary
 
-The GDC [Dictionary Viewer](http://gdc-docs.nci.nih.gov/Data_Dictionary/) provides a view of the latest version of the GDC dictionary. The [Dictionary Viewer](http://gdc-docs.nci.nih.gov/Data_Dictionary/) provides the following features:
+The GDC [Dictionary Viewer](http://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/) provides a view of the latest version of the GDC dictionary. The [Dictionary Viewer](http://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/) provides the following features:
 
 *   _Navigation within the dictionary_ - Users can navigate within the dictionary to view the descriptions and definitions of an entity, properties of the entity, and definitions and values of entity properties.
 *   _Links to semantic resources_ - Common data element public identifiers are provided for terms and properties along with links to semantic data resources

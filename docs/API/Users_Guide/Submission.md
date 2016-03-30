@@ -2,9 +2,37 @@
 
 ## Overview
 
-The GDC Submission API uses methods and endpoints that are distinct from those that drive the functionality of the GDC Data Portal. In particular, data and metadata that is in the process of being submitted can only be queried using GraphQL, and not the methods described in [Search and Retrieval](Search_and_Retrieval.md).
+The GDC Submission API uses methods and endpoints that are distinct from those that drive the functionality of the GDC Data Portal. In particular, data and metadata that is in the process of being submitted can only be queried using [GraphQL](#querying-submitted-data-and-metadata-using-graphql), and not the methods described in [Search and Retrieval](Search_and_Retrieval.md).
 
-This section describes methods that can be used to submit, delete, and update data and metadata in the GDC.
+This section describes the GDC API's submission functionality, including methods for submitting, deleting, updating, searching, and retrieving data and metadata.
+
+## Submission endpoint
+
+### Constructing the endpoint URL
+
+The endpoint for submitting data to a specific project in GDC is constructed as follows:
+<pre>https://gdc-api.nci.nih.gov/<b>[&#x3C;API_version&#x3E;/]</b>submission/<b>&#x3C;Program.name&#x3E;</b>/<b>&#x3C;Project.code&#x3E;</b>/</pre>
+where `[<API_version>/]` is the optional API version component (see [Getting Started](Getting_Started.md)).
+
+### Program.name and Project.code
+
+The values of `Program.name` and `Project.code` can be obtained from the project URL on the GDC Data Submission Portal:
+
+<pre>https://gdc-portal.nci.nih.gov/submission/<b>&#x3C;Program.name&#x3E;</b>/<b>&#x3C;Project.code&#x3E;</b>/dashboard</pre>
+
+### Example
+
+For example, a project with GDC Data Submission Portal URL
+
+<pre>https://gdc-portal.nci.nih.gov/submission/<b>TCGA</b>/<b>ALCH</b>/dashboard</pre>
+
+would have a versioned submission endpoint at
+
+<pre>https://gdc-api.nci.nih.gov/<b>v0/</b>submission/<b>TCGA</b>/<b>ALCH</b></pre>
+
+and an unversioned submission endpoint at
+
+<pre>https://gdc-api.nci.nih.gov/submission/<b>TCGA</b>/<b>ALCH</b></pre>
 
 ## GDC Dictionary
 
@@ -14,7 +42,7 @@ Requests to the submission API must adhere to the schemas defined in the [GDC Da
 
 ### Query Format
 
-When updating, creating, or deleting entities in the GDC, users need to specify the entity type, the entity id, any relationships the entity has to parent entities from which it was derived, and any properties (required and optional as defined by the entity schema). The structure for each entity should look as follows:
+When updating, creating, or deleting entities in the GDC, users need to specify the entity `type`, the entity `id`, any relationships the entity has to parent entities from which it was derived, and any properties (required and optional as defined by the entity schema). The structure for each entity should look as follows:
 
 ```json
 {
@@ -401,7 +429,7 @@ entity. This entity did not pass validation or an internal error occured when at
 the transaction. The error state will be accompanied by a list of errors recorded about the entity
 (see label-error-messages).
 
-## GraphQL
+## Querying submitted data and metadata using GraphQL
 
 **NOTE:** The GDC Submission API GraphQL service is an authenticated
   resource for which a GDC Authorization Token must be
