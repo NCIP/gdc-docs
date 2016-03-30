@@ -15,7 +15,7 @@ This report provides an overview of all cases associated with one or more projec
 The report is downloadable in TSV format.
 
 ```TSV
-Program	Project	dbGaP Study ID	# Cases Released	# Cases Unreleased	# Cases Expected	Date Expected for Release	Initial Upload Date	Project Last Update Date	# Cases Registered in dbGaP	# Cases with Clinical	# Cases with Sample	# Cases with Aliquot	# Cases with Portion	# Cases with Analyte	# Cases with WGS Data	## Cases with WXS Data	# Cases with RNA-Seq Data	# Cases with ChIP-Seq Data	# Cases with MiRNA-Seq Data	# Cases with Bisulfite-Seq Data	# Cases with Validation Data	# Cases with Amplicon Data	# Cases with Other Data
+Program	Project	dbGaP Study ID	# Cases Released	# Cases Unreleased	# Cases Expected	Date Expected for Release	Initial Upload Date	Project Last Update Date	# Cases Registered in dbGaP	# Cases with Clinical	# Cases with Sample	# Cases with Aliquot	# Cases with Portion	# Cases with Analyte	# Cases with WGS Data	# Cases with WXS Data	# Cases with RNA-Seq Data	# Cases with ChIP-Seq Data	# Cases with MiRNA-Seq Data	# Cases with Bisulfite-Seq Data	# Cases with Validation Data	# Cases with Amplicon Data	# Cases with Other Data
 TCGA	TEST	TEST	256	0	Not Available	Not Available	2015-11-10 10:40:15.689597-06:00	2015-11-10 10:40:15.689597-06:00	256	0	11	10	10	10	0	4	0	0	0	0	0	0	0
 TCGA	DEV1	phs000178	1	15	Not Available	Not Available	2015-11-18 09:27:36.990449-06:00	2015-11-18 09:27:36.990449-06:00	16	0	16	16	16	16	0	0	0	0	0	0	0	0	0
 TCGA	DEV2	phs000178	1	7	Not Available	Not Available	2015-11-17 20:14:02.194718-06:00	2015-11-17 20:14:02.194718-06:00	8	0	8	8	0	0	0	0	0	0	0	0	0	0	0
