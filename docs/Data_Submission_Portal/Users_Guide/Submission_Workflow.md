@@ -7,19 +7,19 @@ The workflow diagram below represents the data submission process that is implem
 [![GDC Data Submission Portal Workflow](images/GDC_Submission_Portal_Workflow.png)](images/GDC_Submission_Portal_Workflow.png "Click to see the full image.")
 
 ### Upload and Validate Data
-The submitter will upload clinical and biospecimen data to the project workspace and validate the data. The GDC will validate the data against the GDC Data Dictionary. The submitter will upload experiment metadata to the workspace which will register experiment data for submission through the Data Transfer Tool. Once the submitter uploads the experiment metadata, the Data Submission Portal will generate a manifest file that identifies the experiment data that will be uploaded. The submitter will use the manifest file to upload the experiment data through the Data Transfer Tool.
+The submitter will upload clinical and biospecimen data to the project workspace using GDC templates that are available and described in the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/). The GDC will validate the uploaded data against the GDC Data Dictionary. The submitter will upload experiment metadata to the workspace which will register experiment data for submission through the [Data Transfer Tool](https://gdc-dev.nci.nih.gov/access-data/gdc-data-transfer-tool), a high performance client-based tool for uploading data. Once the submitter uploads the experiment metadata, the Data Submission Portal will generate a manifest file that identifies the experiment data that will be uploaded. The submitter will use the manifest file to upload the experiment data through the Data Transfer Tool.
 
-At this point, data is not yet submitted to GDC.
+At this point, the data is not yet submitted to the GDC.
 
 [![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
 
 ### Review and Submit Data
-When data in the project workspace is ready for processing, the submitter or project owner must submit the data to the GDC in order for processing to occur through the GDC Data Harmonization Pipeline. Submitting data to the GDC will initiate the [GDC Data Harmonization Pipeline](https://gdc-dev.nci.nih.gov/submit-data/gdc-data-harmonization).
+When data in the project workspace is ready for processing, the submitter or project owner must submit the data to the GDC in order for processing to occur through the [GDC Data Harmonization Pipeline](https://gdc-dev.nci.nih.gov/submit-data/gdc-data-harmonization). Submitting data to the GDC will initiate the GDC Data Harmonization Pipeline. 
 
 During this process, there are two primary actions that should be performed:
 
-* REVIEW Project: When a submitter reviews the project, the project is locked and prevents other users from uploading new data to the project. During this process, the submitter should verify that the data is ready for processing. If during the REVIEW process, the submitter thinks the data is not ready for processing, the submitter can RE-OPEN the project. This would allow the submitter to upload additional data to the project workspace.
-* SUBMIT Data: After reviewing the project data, the user can submit the project to the GDC. This will trigger the harmonization process.
+* Review the Project: When a submitter reviews the project, the project is locked to prevent other users who are authorized to submit data to the project from uploading new data. During this process, the submitter should verify that the data is ready for processing. If during the review process, the submitter thinks the data is not ready for processing, the submitter can re-open the project. This would allow the submitter or authorized user to upload additional data to the project workspace.
+* Submit the Data: After reviewing the project data, the user can submit the project to the GDC. This will trigger the harmonization process.
 
 [![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
 
