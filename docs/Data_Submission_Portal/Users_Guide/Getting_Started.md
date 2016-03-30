@@ -7,8 +7,8 @@ The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission P
 The GDC Data Submission Portal is a platform that allows researchers to submit and release data into the GDC. The key features of the GDC Data Submission Portal are:
 
 * __Upload and Validate Data__: Upload project data to the GDC project workspace. The GDC will validate the data against the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/).
-* __Review and Submit__: Review project data which will lock the project to ensure that no authorized user can upload data while in review. Once the review is complete, the data can be submitted to the GDC for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization).
-* __Release__: Release harmonized data to the research community through [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
+* __Review and Submit Data__: Review project data which will lock the project to ensure that no authorized user can upload data while in review. Once the review is complete, the data can be submitted to the GDC for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization).
+* __Release Data__: Release data to the research community through [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
 * __Download Data__: Download uploaded data from the project workspace for review or update. Re-upload data before release through [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
 * __Browse Data__: Browse uploaded data in the GDC Data Submission Portal to make sure that the project is ready for processing.
 * __Status and Alerts__: Obtain visual cues to easily identify incomplete submissions.
