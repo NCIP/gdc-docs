@@ -2,21 +2,22 @@
 
 ## Overview
 
-The workflow diagram below presents the main features available within the GDC Data Submission Portal to submit data and release it to the research community on the GDC Data Portal.
+The workflow diagram below represents the data submission process that is implemented by the GDC Data Submission Portal. In this process, the submitter logs into the GDC Data Submission Portal, uploads data into the project workspace, and validates the data. Once the data is ready for processing, the submitter reviews the data and submits the data to the GDC. The GDC processes the data through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). Once harmonization has been completed, the submitter reviews the harmonized data and releases the data to the GDC for access through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools). 
 
 [![GDC Data Submission Portal Workflow](images/GDC_Submission_Portal_Workflow.png)](images/GDC_Submission_Portal_Workflow.png "Click to see the full image.")
 
-
 ## Project Life Cyle
 
-Summary:
+The life cycle of a project in the GDC starts with the upload and validation of data into the project and ends with the release of the harmonized data to the GDC Data Portal and other GDC data access tools. Throughout the life cycle, the project transitions through various states in which the project is open for uploading data, in review, and released. This cycles is continous as additional project data becomes available. 
 
-* The user can upload and validate Data if their project __is not__ REVIEW.
-* The user can review the project if it is OPEN. It will prevent users from uploading new data during the review period.
-* The user can submit data to the GDC if the project is REVIEW.
-* The user can release the project at any time; it will release the harmonized data to the GDC Data Portal.
+To summarize the project life cycle and transition to the various states of the project, the following operations can be performed by the submitter:
 
-Note: "Submit to the GDC" and "Release" actions can be performed if the user has release privilege.
+* The submitter can upload and validate data if the project __is not in__ REVIEW.
+* The submitter can review the project if it _is_ OPEN. The GDC will prevent users from uploading any new data during the review period.
+* The submitter can submit data to the GDC for processing if the project _is in_ REVIEW.
+* The submitter can release the project once the data has been submitted and processed. The GDC will release the harmonized data to the GDC Data Portal and other GDC Data Access Tools.
+
+Note: "Submit to the GDC" and "Release" actions can be performed only if the user has release privileges.
 
 ### Project State
 [![GDC Data Submission Portal Project State](images/GDC_Submission_Portal_Workflow_Project_State.png)](images/GDC_Submission_Portal_Workflow_Release_State.png "Click to see the full image.")
