@@ -1,6 +1,6 @@
 # User Access
 
-More details about [Authentication and Authorization](../../Commons/Authentication.md) can be found in a [dedicated section of the documentation](../../Commons/Authentication.md).
+More details about [Authentication and Authorization](../../Commons/Authentication.md) can be found in the [Authentication](../../Commons/Authentication.md) section.
 
 Based on the number of projects granted to the user, the GDC Data Submission Portal will adjust its layout and provide different functionalities.
 
@@ -10,6 +10,6 @@ When accessing the GDC Data Submission Portal for the first time, users will be 
 
 [![GDC Data Submission Portal splash page](images/GDC_Submission_Login_Splash_page.png)](images/GDC_Submission_Login_Splash_page.png "Click to see the full image.")
 
-Links to GDC website are also available to provide the user with more details about dbGaP as well as more details about the submission process and tools.
+Links to GDC website are available on the splash screen for additional details about dbGaP as well as GDC submission process and tools.
 
-The login page will show up again if users logout or upon expiration of their authentication token after 30 minutes of inactivity.
+The login page will show up again if a user logs out of the GDC Data Submission Portal  or upon expiration of the user's authentication token after 30 minutes of inactivity.
