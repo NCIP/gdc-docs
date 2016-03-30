@@ -35,15 +35,15 @@ In general, submitters have six months to upload data to the project workspace b
 
 ### Review and Submit Data
 
-Once data is uploaded to the project workspace, the submitter or project owner should review it to ensure that the data is ready for processing through the ([GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). The review will lock the project to ensure that additional data cannot be uploaded while in review. During this period, the submitter or project owner can browse or download the data in the Data Submission Portal. 
+Once data is uploaded to the project workspace, the submitter or project owner should review it to ensure that the data is ready for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). The review will lock the project to ensure that additional data cannot be uploaded while in review. During this period, the submitter or project owner can browse or download the data in the Data Submission Portal. 
 
-If the project is ready for processing, the submitter or project owner can submit the data to the GDC. If the project is not ready for processing, the submitter or project owner can re-open it. This will allow the submitter to upload more data to the project workspace.
+If the project is ready for processing, the submitter or project owner can submit the data to the GDC. If the project is not ready for processing, the submitter or project owner can re-open it. This will allow the submitter to upload additional data to the project workspace.
 
 In general, submitters are requested to submit their data to the GDC within six months from the first upload to the project workspace.
 
 ### Release Data
 
-To ensure that the GDC always releases high-quality data, harmonized data is not automatically released. The Submitter or Project Owner will be able to review harmonized data and decide whether to release the data to the GDC Data Portal and other GDC data acess tools. The confirmation of the release will initiate data indexing and will release the data to the [GDC Data Portal](https://gdc-portal.nci.nih.gov/projects/t) and other GDC data access tools.
+To ensure that the GDC always releases high-quality data, harmonized data is not automatically released. The Submitter or Project Owner will be able to review harmonized data and decide whether to release the data to the GDC. The confirmation of the release will initiate data indexing and will release the data to the [GDC Data Portal](https://gdc-portal.nci.nih.gov/projects/t) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
 
 In general, submitters are requested to release files within six months from submission to the GDC. This guideline is in place in support of the GDC's aim to make data available to the community according to the [NCI Genomic Data Sharing Policy](http://www.cancer.gov/grants-training/grants-management/nci-policies/genomic-data).
 
@@ -63,7 +63,7 @@ The GDC Data Submission Portal dashboard and navigation panel displays the numbe
 
 The user can access a list of all actions performed in a project by clicking on transactions in the Browse menu (e.g., upload data, review project, etc.). This will display a list of all past transactions for the selected project. By clicking on a transaction, users can access details of this transaction as well as download the original uploaded files.
 
-Transactions are also displayed on the dashboard to highlight the most recent transactions.
+Transactions are also displayed on the dashboard highlighting the most recent transactions.
 
 ### Reports
 
@@ -72,7 +72,7 @@ The GDC Data Submission Portal provides a broad range of submission oriented rep
 ## Access
 
 The GDC Data Submission Portal is accessible using a web browser such as Chrome, Internet Explorer, or Firefox at the following URL: [https://gdc-portal.nci.nih.gov/submission/](https://gdc-portal.nci.nih.gov/submission/).
-Upon navigating to the site, the GDC Data Submission Portal login page or Dashboard is displayed.
+Upon navigating to the site, the GDC Data Submission Portal login page or dashboard is displayed.
 
 ## Release Notes
 
