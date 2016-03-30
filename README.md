@@ -9,7 +9,7 @@
 ### Install & Run
 
  - `pip install -r requirements`
- - `mkdocs serve`
+ - `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
 
 ### Build
 
