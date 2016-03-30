@@ -84,13 +84,13 @@ Used to combine multiple clauses, allowing you to refine your search.
 
 Examples:
 
-```Example 1
+```Example_1
 # Find all open files in breast cancer
 
 cases.project.primary_site = Breast and files.access = open
 ```
 
-```Example 2
+```Example_2
 # Find all open files in breast cancer and data type is copy number variation
 
 cases.project.primary_site = Breast and files.access = open and files.data_type = "Copy number variation"
