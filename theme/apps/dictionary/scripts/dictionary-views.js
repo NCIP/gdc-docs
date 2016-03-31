@@ -186,9 +186,6 @@
     // Properties Table
     ///////////////////////////////////////////////////////////////////////////////////////
     function _getPropertyValueRecursive(propertyVal) {
-
-      //console.log(propertyVal);
-
       if (_.has(propertyVal, 'enum')) {
         return propertyVal.enum;
       }
@@ -263,7 +260,6 @@
           return flattenedKeys;
         }, []);
 
-        //console.log(uniqueKeys);
         excludeProperties = excludeProperties.concat(uniqueKeys);
       }
 
@@ -296,7 +292,6 @@
           }, []);
 
           excludeProperties = excludeProperties.concat(flattenedSublinkIDs);
-          //console.log(flattenedSublinkIDs);
         }
 
         if (links.excludedLinks.length) {
@@ -330,8 +325,6 @@
         propertyIDs = requiredPartition;
       }
 
-      //console.log(requiredPartition);
-
       var dictionaryTerms = dictionaryData.terms || {};
 
       for (var i = 0; i < propertyIDs.length; i++) {
@@ -358,10 +351,6 @@
         propertyData.push(p);
       }
 
-      //console.log(propertyValues);
-
-      //console.log('Property: ', propertyData);
-
       if (propertyData.length === 0) {
         return null; //[_.times(5, _.constant(_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL))];
       }
@@ -372,14 +361,11 @@
     function _renderPropertiesTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData;
 
-      console.log(dictionaryData);
-
       tableContainerSelection.append('h2')
         .append('a')
         .attr('id', 'properties-table')
         .attr('href',  '#?view=' + _tableDefinitionView._name + '&id=' + dictionaryData.id + '&anchor=properties-table')
         .text('Properties');
-
 
       var dataRows = _prepPropertiesTableData(dictionaryData);
 
@@ -440,8 +426,6 @@
         .html(function(d, i) {
 
           var data = d;
-
-          //console.log(data);
 
           switch(i) {
             case 0:
@@ -704,10 +688,6 @@
         return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks, excludedLinks: excludedLinks};
       }
 
-
-      //console.log(subLinks);
-
-
       var sortASCandRequiredFirst = function (l) {
         return (l[2] === 'Yes' ? 'a' : 'z') + l[0].name;
       };
@@ -723,8 +703,6 @@
       else {
         transformedData = subLinks.concat(transformedData);
       }
-
-      //console.log('Transformed Data: ', transformedData);
 
       return {links: transformedData, topLevelLinks: topLevelLinks, subLinks: subLinks, excludedLinks: excludedLinks};
     }
@@ -851,8 +829,6 @@
 
               var newData = data.join('<br />');
 
-              //console.log(newData);
-
               return newData;
             break;
           }
@@ -895,8 +871,6 @@
       var _tableEntityListView = this;
       var categoryMap = _tableEntityListView._dictionaryData.dictionaryMapByCategory;
       var categoryKeys = _DICTIONARY_CONSTANTS.ENTITY_LIST_DICTIONARY_KEY_ORDER;
-
-      //console.log(categoryKeys);
 
       _tableEntityListView._parentDictionary
         .fetchDictionaryTemplate('views/entity-list-controls.view.html')
@@ -988,7 +962,6 @@
         .attr('colspan', 2)
         .classed('dictionary-entity-header', true);
 
-
       tHeadRow.append('a')
         .classed('dictionary-tooltip', function() {
           return _.isString(getTooltipText());
@@ -1053,7 +1026,11 @@
       }
 
       var tRows = tBody.selectAll('tr')
-        .data(categoryData)
+        .data(categoryData.filter(function (entity) {
+          return _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category]
+            ? _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category].indexOf(entity.id) > -1
+            : true;
+        }))
         .enter()
         .append('tr')
         .classed('dictionary-entity-list-item', true);

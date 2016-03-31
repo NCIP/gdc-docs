@@ -109,12 +109,9 @@
         view =  viewUpdateObj.view,
         params = viewUpdateObj.params;
 
-
     if (! view) {
       return;
     }
-
-    //console.log(viewUpdateObj);
 
     switch( viewUpdateObj.eventType ) {
 
@@ -402,45 +399,28 @@
       case: 'Case',
       clinical: 'Clinical',
       biospecimen: 'Biospecimen',
-      //data_bundle: 'Data Bundles',
       data_bundle: 'Experiment Data',
       annotation: 'Annotations',
       data_file: 'Data Files',
       references: 'References',
       administrative: 'Administrative',
-      //tbd: 'To be Determined',
       tbd: 'References',
       index_file: 'Index'
     },
     ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'data_bundle', 'annotation', 'administrative', 'TBD'],
-    /* DICTIONARY_KEY_ORDER: [
-      // clinical
-      {'clinical': ['demographic', 'diagnosis', 'family_history', 'exposure', 'treatment']},
-
-      // biospecimen
-      {'biospecimen': ['sample', 'portion', 'analyte', 'aliquot']},
-
-      // data bundle
-      {'data_bundle': ['read_group', 'submitted_file',
-        'clinical_data_bundle', 'biospecimen_data_bundle',
-        'slide_data_bundle', 'pathology_data_bundle']},
-      // annotation,
-      {'annotation': ['annotation']}
-    ],*/
     CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative'],
     CATEGORY_TEMPLATE_EXCLUDES: {
       clinical: ['clinical'],
       data_bundle: ['file', 'generated_file', 'clinical_data_bundle', 'biospecimen_data_bundle', 'pathology_data_bundle'],
       annotation: ['analysis', 'archive', 'publication', 'slide']
     },
-    LINK_EXCLUDES: ['file','biospecimen_data_bundle','clinical_data_bundle','pathology_data_bundle'],
+    LINK_EXCLUDES: ['file', 'biospecimen_data_bundle', 'clinical_data_bundle', 'pathology_data_bundle'],
     PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles'],
     CATEGORY_TEMPLATE_INCLUDES: {
-      'data_bundle': ['data_bundle','data_file']
+      'data_bundle': ['read_group', 'slide', 'slide_image', 'submitted_unaligned_reads']
     },
     END_POINT: {
-      DEFAULT_URL: 'https://gdc-api.nci.nih.gov',
-      //CONTEXT_PATTERN: '/auth/api/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
+      DEFAULT_URL: 'https://gdc-api.nci.nih.gov', // TODO: env variable? 'http://localhost:5000'
       CONTEXT_PROGRAM_PROJECT_PATTERN: '/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
       CONTEXT_PATTERN: '/v0/submission/_dictionary/${dictionary_name}',
       CONTEXT_TEMPLATE_PATTERN: '/v0/submission/template/${dictionary_name}',
@@ -521,9 +501,8 @@
 
     views[_DICTIONARY_CONSTANTS.VIEWS.TABLE._ID][_DICTIONARY_CONSTANTS.VIEWS.TABLE.TERM_DEFINITION] = {
       el: tableViews.detailed,
-      view: new  Dictionary._Views.TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn, dictionary)
+      view: new Dictionary._Views.TableDefinitionsView(tableViews.detailed, dictionaryData, actionCallbackFn, dictionary)
     };
-
 
     return views;
   }
