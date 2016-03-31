@@ -34,10 +34,9 @@ The dashboard provides quick access to all the actions a submitter or project ow
 
 The GDC Data Submission Portal browse menu consists of three separate panels:
 
-* __Navigation panel__: A panel composed of links to different items to filter by case, clinical, or biospecimen entities.
-* __Summary panel__: A table listing search results corresponding to the current selection in the navigation panel filter.
-* __Details panel__: A panel displaying details and previous activities related to a particular entity selected in the summary panel.
-
+* __Navigation Panel__: A panel composed of links to different items to filter by case, clinical, or biospecimen entities.
+* __Summary Panel__: A table listing search results corresponding to the current selection in the navigation panel filter.
+* __Details Panel__: A panel displaying details and previous activities related to a particular entity selected in the summary panel.
 
 ### Navigation Panel
 
