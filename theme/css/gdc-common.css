@@ -289,8 +289,7 @@ code {
   top: 0px;
   height: 64px;
   width: 0px;
-  opacity: 0.5;
-  background-color: #dedddd;
+  background-color: rgb(222,221,221);
   transition: all .2s linear;
 }
 
@@ -1431,7 +1430,8 @@ footer a {
   left: 50%;
   top: 40%;
   z-index: 900000;
-  display: block;
+  /* display: block; */
+  display: none;
   -moz-animation: Rotate 2.0s infinite linear;
   -webkit-animation: Rotate 2.0s infinite linear;
   animation: Rotate 2.0s infinite linear;
@@ -1529,5 +1529,130 @@ footer a {
     -webkit-transform: scale(3, 3);
     transform: scale(3, 3);
     opacity: 0.0;
+  }
+}
+
+/* GDC App List */
+.gdc-app-list {
+  list-style: none;
+  display: inline-block;
+  color: #777;
+  background-color: transparent;
+  padding: 0rem 0rem;
+  margin-bottom: 0rem;
+  margin-top: 0.5rem;
+}
+
+.gdc-app-list:hover {
+  background-color: #dedddd;
+}
+
+.gdc-app-list a {
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+  padding: 2rem 1rem 1.5rem 1rem;
+}
+
+.gdc-app-list a:hover {
+  text-decoration: none;
+}
+
+.gdc-app-list .dropdown {
+  position: relative;
+}
+
+.gdc-app-list .dropdown-menu.gdc-apps-menu-container {
+  padding: 0.5rem 0.5rem;
+  margin-top: 1rem;
+  z-index: 100000;
+  position: absolute;
+  left: -16.5rem;
+}
+
+.gdc-app-list .dropdown-menu.gdc-apps-menu-container:before {
+  width: 0;
+  height: 0;
+  top: -10px;
+  right: 12px;
+  position: absolute;
+  content: ' ';
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ccc;
+}
+
+.gdc-app-list .gdc-apps-menu-grid {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.gdc-app-list table {
+  border: none;
+  background-color: transparent;
+  margin: 0rem 0rem;
+}
+
+.gdc-app-list table.table-striped td,
+.gdc-app-list table.table-striped tr,
+.gdc-app-list table.table-striped tr:hover,
+.gdc-app-list table tr,
+.gdc-app-list table td {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+}
+
+.gdc-app-list table p {
+  margin: 0rem 0rem;
+  white-space: nowrap;
+}
+
+
+.gdc-app-list .gdc-apps-menu-grid:before {
+   width: 0;
+   height: 0;
+   top: -9px;
+   right: 12px;
+   position: absolute;
+   content: ' ';
+   border-left: 10px solid transparent;
+   border-right: 10px solid transparent;
+   border-bottom: 10px solid #fff;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid .icon {
+  font-size: 2rem;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid .active {
+  background-color: #ccc;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid td {
+  padding: 0.25rem;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid  a {
+  display: block;
+  padding: 0.8rem 0.5rem 0.2rem 0.5rem;
+  color: inherit;
+  transition: background 0.25s ease-in-out;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid a:hover {
+  text-decoration: none;
+  background-color: #ededed;
+}
+
+@media (max-width: 1200px) {
+  .gdc-app-list .dropdown-menu.gdc-apps-menu-container {
+    left: -21rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .gdc-app-nav {
+    display: none;
   }
 }

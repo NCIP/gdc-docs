@@ -47,7 +47,7 @@ div.col-md-9 img {
 }
 
 .searchbox-container:hover {
-  background-color: #dedddd;
+  background-color: rgb(222,221,221);
 }
 
 .container .searchbox-container a {
