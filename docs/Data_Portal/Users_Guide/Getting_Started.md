@@ -19,7 +19,7 @@ Additional descriptions of key GDC Data Portal features are provided in the sect
 The GDC Data Portal is accessible using a web browser such as Chrome, Internet Explorer, and Firefox at the following URL: [https://gdc-portal.nci.nih.gov](https://gdc-portal.nci.nih.gov).
 When navigating to the site, the GDC Data Portal homepage is displayed.
 
-[![GDC Data Portal Homepage](images/gdc-data-portal-homepage.png)](images/gdc-data-portal-homepage.png "Click to see the full image.")
+![GDC Data Portal Homepage](images/gdc-data-portal-homepage.png "GDC Data Portal Homepage")
 
 The GDC Data Portal allows download of open access data without requiring a user login. To retrieve controlled access data, users must have access to the controlled access data set through dbGaP and use the [Login](../../Commons/Authentication.md) functionality on the top-right corner of the screen.
 
