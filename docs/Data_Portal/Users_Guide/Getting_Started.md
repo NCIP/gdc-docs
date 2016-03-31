@@ -39,7 +39,7 @@ GDC Data Portal contains two primary mechanisms for searching data: 1) searching
 
 ### Cart Facilities for Data Selection
 
-While navigating and searching through the GDC Data Portal, researchers can add files to their cart. The cart provides detailed statistics about the files it contains to inform the user about the overall number and size of files the user may want to download.
+While navigating and searching through the GDC Data Portal, researchers can add files to their cart. The cart provides some statistics about the files it contains to inform the user about the overall number and size of files the user will download through the cart.
 
 ### Data Download
 

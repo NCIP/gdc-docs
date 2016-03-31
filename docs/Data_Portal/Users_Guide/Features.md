@@ -4,10 +4,9 @@
 
 [![GDC Data Portal Sitemap](images/gdc-data-portal-sitemap.png)](images/gdc-data-portal-sitemap.png "Click to see the full image.")
 
-The portal is composed by 8 major sections available to the user through a toolbar on the upper level of the GDC Data Portal.
 
 
-## Main Menu
+## Toolbar
 
 ### Left Section
 
@@ -15,11 +14,11 @@ The portal is composed by 8 major sections available to the user through a toolb
 
 The left portion of this toolbar provides access to the following elements:
 
-* __Projects__: High-level overview of all data
+* __Projects__: High-level overview of all data broken down by project
 * __Data__: Search through all cases and files
 * __Annotations__: Search through all annotations
-* __Reports__: Reports about data available
-* __Help__: A link to this user guide
+* __Reports__: Statistics on downloaded data since the GDC Data Portal launch
+
 
 Each _'Projects'_, _'Data'_, and _'Annotations'_ view enables the user to set filters from within the view to either browse the data or select it for export or download. It provides different and independent ways of organizing GDC data and metadata.   
 
@@ -29,10 +28,10 @@ Each _'Projects'_, _'Data'_, and _'Annotations'_ view enables the user to set fi
 
 The right portion of this toolbar provides access to the following elements:
 
-* __Quick Search__: Quickly search for more information about a specific entity
+* __Quick Search__: ID Search for a specific entity 
 * __Login__: Log into the GDC Data Portal through eRA Commons
 * __Cart__: Access to user populated cart mechanism
-* __GDC Apps__: Dropdown menu used to quickly navigate between GDC Systems.
+* __GDC Apps__: Dropdown menu used to navigate between GDC Systems.
 
 [![GDC Apps](images/gdc-data-portal-gdc-apps.png)](images/gdc-data-portal-gdc-apps.png "Click to see the full image.")
 
@@ -43,7 +42,7 @@ The GDC Data Portal provide three different means to search and navigate through
 
 * __Faceted Navigation__: By clicking on relevant items on the left portion of _'Projects'_ & _'Data'_ views, a user can filter down displayed elements. Customized facets can be added by user to expand the GDC Data Portal capabilities.
 * __Advanced Search__: Provides access to advanced and complex queries using a purpose-built query language.
-* __Quick Search__: Provide, from any place on the GDC Data Portal, a quick access to specific entities.
+* __Quick Search__: Provide, from any place on the GDC Data Portal, a quick access to a specific entity (Project, Case, File or Annotation).
 
 ### Faceted Navigation
 
@@ -89,7 +88,7 @@ This will open a search window allowing the user to search for the field using i
 
 Newly added facets will show up on the top of the facet section and can be removed individually by clicking on the red cross, or globally by clicking on "Reset".
 
-[![Customize Facet](images/gdc-data-portal-data-facet-gender.png)](images/gdc-data-portal-data-facet-gender.png "Click to see the full image.")
+[![Customize Facet](images/gdc-data-portal-data-facet-ffpe.png)](images/gdc-data-portal-data-facet-ffpe.png "Click to see the full image.")
 
 Added facets have the same behavior than default facets. Customized facets are stored in the browser's local storage and remain available between visits to the GDC Data Portal.
 
