@@ -22,4 +22,4 @@ Selecting a project ID will redirect the user to the [Project's dashboard](Dashb
 
 ## Latest Transactions
 
-The latest transactions section in the homepage lists the most recent [Transactions](Transactions.md) associated with the projects that the user has access to.
+The latest transactions section in the homepage lists the most recent [transactions](Transactions.md) associated with the projects that the user has access to.
