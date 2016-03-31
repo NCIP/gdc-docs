@@ -6,7 +6,7 @@ The GDC Data Submission Portal dashboard provides details about a specific proje
 
 [![GDC Submission Dashboard Page](images/GDC_Submission_Dashboard.png)](images/GDC_Submission_Dashboard.png "Click to see the full image.")
 
-The dashboard contains various visual elements to guide the user through all stages of submission, from viewing the Data Dictionary to in support of data upload and validation to releasing a project.
+The dashboard contains various visual elements to guide the user through all stages of submission, from viewing the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/) in support of data upload and validation to releasing a project.
 
 To better understand the data displayed on the dashboard and the available actions, please refer to the [Submission Workflow](Submission_Workflow.md).
 
@@ -27,7 +27,7 @@ Clicking on "MORE" opens a table view with additional details.
 
 ## Action Tabs
 
-There are three actions tabs available in the middle section of the dashboard.
+There are three action tabs available in the middle section of the dashboard.
 
 * [Upload & Validate](Upload_Data.md): Allows a submitter to upload project data to the GDC project workspace. The GDC will validate the uploaded data against the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/).
 * [Review & Submit](Submit_Release.md#review-and-submit): Allows a submitter to review project data which will lock the project to ensure that additional data cannot be uploaded while in review. Once the review is complete, the data can be submitted to the GDC for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization).
