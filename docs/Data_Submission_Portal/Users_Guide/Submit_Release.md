@@ -11,7 +11,7 @@ This chapter will focus on the following features:
 
 ## Review and Submit
 
-Once data is uploaded to the project workspace (see previous section: [Upload Data](Upload_Data.md), the submitter or project owner should review it to ensure that data is ready for processing by the GDC ([Harmonization process](https://gdc.nci.nih.gov/submit-data/gdc-data-processing-software-and-algorithms/2-data-harmonization)).
+Once data is uploaded to the project workspace (see previous section: [Upload Data](Upload_Data.md), the submitter or project owner should review it to ensure that data is ready for processing by the GDC ([Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization)).
 
 The review will lock the project and ensure no user can upload more data. During that period, the submitter or project owner can browse the data in the Submission Portal or download it. 
 
