@@ -12,14 +12,14 @@ If the submitter has access to only one project, then the dashboard for the proj
 
 ## Reports
 
-The reports section provides access to project reports on data submission, based on user authorization. More details about the reports are available in the [Reports](Reports.md) section.
+The reports section in the homepage provides access to project reports on data submission, based on user authorization. More details about the reports are available in the [Reports](Reports.md) section.
 
 ## Projects
 
-The projects section provides a table that lists the projects that the user has access to. For users having access to a large number of projects, this table can be filtered down and sorted by clicking on the column headers.
+The projects section in the homepage lists the projects that the user has access to. For users having access to a large number of projects, this table can be filtered down and sorted by clicking on the column headers.
 
 Selecting a project ID will redirect the user to the [Project's dashboard](Dashboard.md).
 
 ## Latest Transactions
 
-The latest transactions section provides a table that lists the most recent [Transactions](Transactions.md) associated with the projects that the user has access to.
+The latest transactions section in the homepage lists the most recent [Transactions](Transactions.md) associated with the projects that the user has access to.
