@@ -5,4 +5,12 @@ The GDC <i>Data Dictionary</i> is a human and machine-readable document expresse
 semantics, submission, query and search, and reporting. Each link on this page describes the dictionary for a defined GDC entity. The dictionary page contains a description or definition of the entity, properties that entity may possess, and definitions and values those
 properties may assume. When defined, common data element public IDs and links to semantic data resources are supplied for terms and properties. GDC continues to establish the semantic basis for all of its entities and terms.
 </p>
+<div id="dictionary-loading-icon" class="loadingContainer">
+Loading Dictionary Data...
+    <div class="spinParticleContainer">
+        <div class="particle red"></div>
+        <div class="particle grey other-particle"></div>
+        <div class="particle blue other-other-particle"></div>
+    </div>
+</div>
 <div id="dictionary-app-container"></div>

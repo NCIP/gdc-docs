@@ -5,6 +5,39 @@
 
 
 
+## v0.3.24.2
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: April 4, 2016
+
+### New Features and Changes
+
+* Updates to GDC data model
+* File metadata can be submitted before file upload
+* GQL improvements
+* `/download/metadata` endpoint allows download of MAGE-TAB and SRA XML
+* `/submission/&#x3C;Program.name&#x3E;/&#x3C;Project.code&#x3E;/entities/&#x3C;uuid&#x3E;` endpoint allows retrieval of Submission Portal entities by UUID
+* Miscellaneous improvements
+
+### Bugs Fixed Since Last Release
+
+* Submission: files in `validated`, `submitted`, `processing`, and `processed` states can no longer be updated. To change these files the user must delete or redact them.
+* `_mapping` endpoint now available for `annotations` endpoint
+* Order of files submitted in same transaction does not matter
+* Fixed incorrect response for bulk transactions
+* Miscellaneous bug fixes
+
+### Known Issues and Workarounds
+
+* None to report
+
+Release details are maintained in the [GDC API change log](https://github.com/NCI-GDC/gdcapi/blob/develop/CHANGELOG.md)
+
+
+
+
+
+
 ## v0.3.24.1
 
 * __GDC Product__: Application Programming Interface (API)

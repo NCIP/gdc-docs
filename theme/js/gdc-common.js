@@ -344,6 +344,8 @@ $(function() {
         offset: 0
       });
 
+      var sideBar = $('.bs-sidebar');
+
       $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
 
         // prevent default anchor click behavior
@@ -353,23 +355,76 @@ $(function() {
         var hash = this.hash,
           scrollTargetEl = $(hash);
 
-        // animate
-        scrollBody.animate({
-          scrollTop: scrollTargetEl.offset().top
-        }, 300, function(){
+          // animate
+          scrollBody.animate({
+            scrollTop: scrollTargetEl.offset().top + 7 /* plus some delta so scrollSpy highlight gets triggered */
+          }, 300,
+            function(){
 
-          var targetEl = scrollTargetEl.find('a'),
-            classes = 'animated-long focusText';
+            var targetEl = scrollTargetEl.find('a'),
+              classes = 'animated-long focusText';
 
-          targetEl.addClass(classes);
+            targetEl.addClass(classes);
 
-          setTimeout(function() { targetEl.removeClass(classes); }, 1100);
-          // when done, add hash to url
-          // (default click behaviour)
-          window.location.hash = hash;
+            setTimeout(function() { targetEl.removeClass(classes); }, 1100);
+            // when done, add hash to url
+            // (default click behaviour)
+            window.location.hash = hash;
+
         });
 
       });
+
+      var mainContainer = $('.main-container'),
+          selectedNavRegion = sideBar.find('.main'),
+          _totalAnchorHeight = 0,
+          _anchorOffsetMap = [];
+
+      sideBar.find('a').each(function() {
+        var anchor = $(this),
+          anchorHeight = anchor.outerHeight();
+
+        _anchorOffsetMap.push({offset: _totalAnchorHeight, height: anchorHeight});
+
+        _totalAnchorHeight += anchorHeight;
+      });
+
+      // TODO: Could improve the search complexity O(n) given that the list is sorted by offset
+      var findAnchorForOffset = function(offset) {
+
+        if (! _anchorOffsetMap.length) {
+          return 0;
+        }
+        else if (_anchorOffsetMap.length === 1) {
+          return _anchorOffsetMap[0];
+        }
+
+        var i = 0;
+
+        for (; i < _anchorOffsetMap.length; i++) {
+          if (_anchorOffsetMap[i].offset > offset) {
+            break;
+          }
+        }
+
+        return _anchorOffsetMap[i - 1];
+      };
+
+      $(window).scroll(function() {
+        var scollableDistance = Math.max(0, mainContainer.outerHeight() + mainContainer.offset().top +
+                                            $('#docs-footer').outerHeight() - $(window).outerHeight());
+        var percentPageScrolled = Math.min(1.0, $(window).scrollTop() / scollableDistance);
+
+        var proposedOffset = selectedNavRegion.outerHeight() * percentPageScrolled,
+          anchorOffset = findAnchorForOffset(proposedOffset);
+
+        sideBar.stop().animate({
+          scrollTop: Math.min(anchorOffset.offset - anchorOffset.height * 2, proposedOffset)
+        }, 200);
+
+      });
+
+      sideBar.scroll(function(e) { e.stopPropagation(); });
 
       // Prevent disabled links from causing a page reload
       $('li.disabled a').click(function (e) {
@@ -415,7 +470,6 @@ $(function() {
       }
 
       mainHeader.prepend('<span class="header-badge"><i class="fa fa-book"></i></span>');
-
 
     }
 
@@ -604,6 +658,13 @@ $(function() {
 
     // Hightlight code
     hljs.initHighlightingOnLoad();
+    /*
+    var particleContainer = $('.spinParticle');
+    particleContainer.addClass('endLoad');
+
+    setTimeout(function () {
+      particleContainer.hide();
+    }, 1000);
 
     var _handleFontTransition = function () {
       var bodyEl = $('.main-container');
@@ -616,13 +677,13 @@ $(function() {
     };
 
     setTimeout(function() {
-      fontSpy('icgc-icons', {
+      fontSpy('FontAwesome', {
         glyphs: '\ue800\ue8019\ue81c\ue843',
         success: _handleFontTransition,
         failure: _handleFontTransition
       });
 
-    }, 0);
+    }, 0);*/
 
 
 

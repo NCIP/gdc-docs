@@ -37,6 +37,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   font-family: "franklin_gothic_fsbook", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #6b6262;
+  -webkit-transform: color 0.2s ease-in-out;
+  -moz-transform: color 0.2s ease-in-out;
+  -ms-transform: color 0.2s ease-in-out;
+  -o-transform: color 0.2s ease-in-out;
+  transform: color 0.2s ease-in-out;
 }
 
 h1 {
@@ -65,15 +70,19 @@ h2 {
   font-size: 2.4rem;
 }
 
+
+h3 a.header-text-link,
 h3 {
   font-size: 2rem;
-  font-style: italic;
+  color: #c31547;
 }
 
+h4 a.header-text-link,
 h4 {
-  font-size: 2rem;
-  font-variant: small-caps;
-  font-weight: bold;
+  font-variant: normal;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size:100%;
 }
 
 h5 {
@@ -143,7 +152,7 @@ code {
   margin: 0 2px;
   padding: 0 5px;
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: normal;
   border: 1px solid #eaeaea;
   background-color: #f8f8f8;
   border-radius: 3px;
@@ -230,6 +239,7 @@ code {
   width: 100%;
   height: 64px;
   max-width: 1280px;
+  z-index: 999;
 }
 
 .navbar-default:before {
@@ -279,8 +289,7 @@ code {
   top: 0px;
   height: 64px;
   width: 0px;
-  opacity: 0.5;
-  background-color: #dedddd;
+  background-color: rgb(222,221,221);
   transition: all .2s linear;
 }
 
@@ -455,6 +464,10 @@ a.header-text-link {
   padding: 0 0;
 }
 
+#body {
+  min-height: 768px;
+}
+
 @media (min-width: 992px) {
   .bs-sidebar.affix,
   .bs-sidebar.affix-bottom {
@@ -495,11 +508,31 @@ a.header-text-link {
   }
 }
 
+.bs-sidebar .nav a {
+  color: #555;
+}
+
 /* Sidebar Summary Styles */
 .bs-sidebar .nav .main > a,
 .bs-sidebar .nav .nav > li > a {
+  color: #166aa2;
   border: none;
   /*border-left: solid 2px transparent;*/
+}
+
+.bs-sidebar .nav .main > a:hover,
+.bs-sidebar .nav .main:hover > a,
+.bs-sidebar .nav .main > a {
+  background-color: #ddd;
+}
+
+.bs-sidebar .nav .main ul {
+  padding-top: 0;
+  margin-bottom: 0;
+}
+
+.bs-sidebar .nav .main ul li {
+  background-color: #f0f0f0;
 }
 
 
@@ -515,7 +548,7 @@ a.header-text-link {
 }
 
 .bs-sidebar .nav .nav > li.active > a {
-  /* border-left-color: #166aa2; */
+  font-weight: bold;
 }
 
 .bs-sidebar .nav .main > a:hover,
@@ -1362,13 +1395,44 @@ footer a {
   background-color: #123e57;
 }
 
+.loadingContainer {
+  width: 20rem;
+  height: 4rem;
+  position: fixed;
+  left: 40%;
+  top: 61%;
+  margin-left: 5rem;
+  display: block;
+  z-index: 10000;
+  display: none;
+}
+
+.spinParticleContainer {
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  left: 40%;
+  top: 60%;
+  display: block;
+  -webkit-animation: Rotate 2.0s infinite linear;
+  animation: Rotate 2.0s infinite linear;
+}
+
+.spinParticle.endLoad {
+  -webkit-animation: BlowUp 1s 1 ease-out;
+  animation: BlowUp 1s 1 ease-out;
+}
+
 .spinParticle {
   width: 4rem;
   height: 4rem;
   position: fixed;
   left: 50%;
   top: 40%;
-  display: block;
+  z-index: 900000;
+  /* display: block; */
+  display: none;
+  -moz-animation: Rotate 2.0s infinite linear;
   -webkit-animation: Rotate 2.0s infinite linear;
   animation: Rotate 2.0s infinite linear;
 }
@@ -1439,4 +1503,156 @@ footer a {
       -webkit-transform: scale(1.0);
       transform: scale(1.0);
     }
+}
+
+
+@-webkit-keyframes BlowUp {
+  0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 1.0;
+  }
+  100% {
+    -webkit-transform: scale(3, 3);
+    transform: scale(3, 3);
+    opacity: 0.0;
+  }
+}
+
+@keyframes BlowUp {
+  0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 1.0;
+  }
+  100% {
+    -webkit-transform: scale(3, 3);
+    transform: scale(3, 3);
+    opacity: 0.0;
+  }
+}
+
+/* GDC App List */
+.gdc-app-list {
+  list-style: none;
+  display: inline-block;
+  color: #777;
+  background-color: transparent;
+  padding: 0rem 0rem;
+  margin-bottom: 0rem;
+  margin-top: 0.5rem;
+}
+
+.gdc-app-list:hover {
+  background-color: #dedddd;
+}
+
+.gdc-app-list a {
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+  padding: 2rem 1rem 1.5rem 1rem;
+}
+
+.gdc-app-list a:hover {
+  text-decoration: none;
+}
+
+.gdc-app-list .dropdown {
+  position: relative;
+}
+
+.gdc-app-list .dropdown-menu.gdc-apps-menu-container {
+  padding: 0.5rem 0.5rem;
+  margin-top: 1rem;
+  z-index: 100000;
+  position: absolute;
+  left: -16.5rem;
+}
+
+.gdc-app-list .dropdown-menu.gdc-apps-menu-container:before {
+  width: 0;
+  height: 0;
+  top: -10px;
+  right: 12px;
+  position: absolute;
+  content: ' ';
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ccc;
+}
+
+.gdc-app-list .gdc-apps-menu-grid {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.gdc-app-list table {
+  border: none;
+  background-color: transparent;
+  margin: 0rem 0rem;
+}
+
+.gdc-app-list table.table-striped td,
+.gdc-app-list table.table-striped tr,
+.gdc-app-list table.table-striped tr:hover,
+.gdc-app-list table tr,
+.gdc-app-list table td {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+}
+
+.gdc-app-list table p {
+  margin: 0rem 0rem;
+  white-space: nowrap;
+}
+
+
+.gdc-app-list .gdc-apps-menu-grid:before {
+   width: 0;
+   height: 0;
+   top: -9px;
+   right: 12px;
+   position: absolute;
+   content: ' ';
+   border-left: 10px solid transparent;
+   border-right: 10px solid transparent;
+   border-bottom: 10px solid #fff;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid .icon {
+  font-size: 2rem;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid .active {
+  background-color: #ccc;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid td {
+  padding: 0.25rem;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid  a {
+  display: block;
+  padding: 0.8rem 0.5rem 0.2rem 0.5rem;
+  color: inherit;
+  transition: background 0.25s ease-in-out;
+}
+
+.gdc-app-list .gdc-apps-menu-container .gdc-apps-menu-grid a:hover {
+  text-decoration: none;
+  background-color: #ededed;
+}
+
+@media (max-width: 1200px) {
+  .gdc-app-list .dropdown-menu.gdc-apps-menu-container {
+    left: -21rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .gdc-app-nav {
+    display: none;
+  }
 }

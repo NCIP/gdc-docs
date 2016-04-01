@@ -4,6 +4,60 @@
 
 
 
+## v0.7.00
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: March 30, 2016
+
+
+### New Features and Changes
+
+* Data Transfer Tool version numbers are now independent of GDC API version numbers
+
+### Bugs Fixed Since Last Release
+
+* Parsing of command line arguments relating to authentication tokens has been fixed. Arguments `-t` and `--token-file` accept token files, whereas `-T` and `--token` accept token strings.
+
+### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* Delete function is not working.
+	* *Workaround:* Use an API call instead of the Data Transfer Tool to delete files
+
+Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md)
+
+
+
+
+
+## v0.6.00
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: March 10, 2016
+
+
+### New Features and Changes
+
+* Data Transfer Tool version numbers are now independent of GDC API version numbers
+
+### Bugs Fixed Since Last Release
+
+* Parsing of command line arguments relating to authentication tokens has been fixed. Arguments `-t` and `--token-file` accept token files, whereas `-T` and `--token` accept token strings.
+
+### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* Delete function is not working.
+	* *Workaround:* Use an API call instead of the Data Transfer Tool to delete files
+
+Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md)
+
+
+
+
+
 
 ## v0.4.00
 

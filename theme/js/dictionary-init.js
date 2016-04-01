@@ -68,11 +68,32 @@ window.onload = function() {
 
     var dictionaryPreamble = jQuery('#dictionary-preamble'),
         body = jQuery('body'),
-        previousView = null;
+        previousView = null,
+        mainContainer = jQuery('.main-container'),
+        loadingContainer = jQuery('#dictionary-loading-icon'),
+        loadingOffsetWidth = (mainContainer.outerWidth() - loadingContainer.outerWidth()) >> 1,
+        loadingOffsetHeight = mainContainer.outerHeight() + 50;
+
+    loadingContainer.fadeIn(100);
+
+    // Vertically/Horizontally Align the Loading Icon
+    loadingContainer.css({
+      left: loadingOffsetWidth,
+      top: loadingOffsetHeight
+    });
+
+    loadingContainer.find('.spinParticleContainer').css({
+      left: loadingOffsetWidth,
+      top: loadingOffsetHeight - 5
+    });
 
     var dictionaryOptions = {
       //dataSourceBaseHost: 'http://localhost:8080',
       afterRenderFn: function(dictionary) {
+
+        if (loadingContainer.is(':visible')) {
+          loadingContainer.fadeOut('fast');
+        }
 
         var currentView = dictionary.getCurrentViewName();
         var shouldScrollToTop = window.location.hash.indexOf('_top') >= 0;

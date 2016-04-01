@@ -42,11 +42,97 @@
                 <li class="menu-bar"></li>
             </ul>
 
+          <!-- GDC Apps -->
+          <div class="gdc-app-nav col-sm-2 col-md-2 pull-right" style="max-width: 150px">
+            <ul class="gdc-app-list">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="icon-gdc-apps-menu"></i>
+                  <span class="hidden-md hidden-sm" data-translate>GDC Apps</span>
+                </a>
+                <div data-dropdown-menu class="dropdown-menu gdc-apps-menu-container" role="menu">
+                  <table class="gdc-apps-menu-grid" role="presentation">
+                    <tbody>
+                    <tr>
+                      <td>
+                        <a href="https://gdc-portal.nci.nih.gov/" title="Data Portal" target="_blank">
+                          <span class="icon icon-gdc-data-portal">
+                            <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span>
+                          </span>
+                          <p>Data Portal</p>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool" title="GDC Data Transfer Tool" target="_blank">
+                          <span class="icon icon-gdc-data-transer-tool">
+                            <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span>
+                          </span>
+                          <p>Data Transfer Tool</p>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href="https://gdc.nci.nih.gov/developers/gdc-application-programming-interface-api" title="GDC API" target="_blank">
+                          <span class="icon icon-gdc-portal-api">
+                            <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span>
+                          </span>
+                          <p>API</p>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="https://gdc-portal.nci.nih.gov/submission/" title="GDC Submission Portal" target="_blank">
+                         <span class="icon icon-gdc-submission-portal">
+                          <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span>
+                        </span>
+                          <p>Data Submission Portal</p>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href="#" title="GDC Docs" class="active">
+                      <span class="icon icon-gdc-docs">
+                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span>
+                      </span>
+                          <p>Documentation</p>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="https://gdc.nci.nih.gov/" title="GDC Website" target="_blank">
+                      <span class="icon icon-gdc-website">
+                         <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span>
+                      </span>
+                          <p>Website</p>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href="https://gdc-portal.nci.nih.gov/legacy-archive" title="GDC Legacy Archive" target="_blank">
+                       <span class="icon icon-gdc-legacy-archive">
+                           <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span>
+                        </span>
+                          <p>Legacy Archive</p>
+                        </a>
+                      </td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </li>
+            </ul>
+          </div>
+          <!-- -->
+
             <!-- Search -->
-            <div class="searchbox-container col-sm-3 col-md-3 pull-right">
+            <div class="searchbox-container col-sm-1 col-md-1 pull-right">
                <a id="gdc-search-button" title="Click Search the GDC Documentation" href="javascript:$gdcApp.searchModal.show()"><i class="fa fa-search"></i>&nbsp;
                    <span class="hidden">Quick Search</span></a>
             </div>
+
 
             {% if false %}
             <ul class="nav navbar-nav navbar-right">

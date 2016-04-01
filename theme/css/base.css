@@ -47,7 +47,7 @@ div.col-md-9 img {
 }
 
 .searchbox-container:hover {
-  background-color: #dedddd;
+  background-color: rgb(222,221,221);
 }
 
 .container .searchbox-container a {
@@ -249,8 +249,8 @@ h6:hover .header-link {
 .bs-sidenav {
   margin-top: 30px;
   margin-bottom: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   border-radius: 5px;
 }
 

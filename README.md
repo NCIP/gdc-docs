@@ -1,15 +1,27 @@
-# Docs Site installation
- - Install mkdocs
- - Install ...
- - 
+# GDC Documentation Site
 
-# Repository Conventions
+### Technology
+
+ - Python 2.6, 2.7, 3.3, 3.4 and 3.5.
+ - [mkdocs](http://www.mkdocs.org/)
+ - [BSCodeTabs for mkdocs](https://github.com/mikecules/MarkdownBSCodeTabs#for-use-in-mkdocs)
+
+### Install & Run
+
+ - `pip install -r requirements`
+ - `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
+
+### Build
+
+ - `mkdocs build --clean`
+
+### Repository Conventions
 
 - All Shared content in the "Commons" directory
 - One Directory per GDC product (API, Data_Portal, Data_Submission_Portal, Data_Transfer_Tool)
 - Each GDC product have a Users_Guide and Release_Notes directory
 
-## Linking
+### Linking
 
 To another documentation page
 ```
@@ -22,13 +34,11 @@ Inside another documentation page
 [Authentication and Authorization](../../Commons/Authentication.md#internal-section)
 ```
 
-# Documentation Conventions
+### Documentation Conventions
 
 A detailed list of all conventions is available on [GDC Website](https://gdc.nci.nih.gov/conventions-page)
 
-# Run mkdocs
-
-# Build PDF
+### Build PDF
 
 Install mkdocs2pandoc, following instructions available here:
 ```

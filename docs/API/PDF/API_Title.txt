@@ -1,2 +1,2 @@
-% GDC API Users Guide
-% Genomic Data Commons
+% GDC API User's Guide
+% NCI Genomic Data Commons (GDC)

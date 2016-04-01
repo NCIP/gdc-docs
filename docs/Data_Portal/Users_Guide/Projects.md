@@ -24,17 +24,16 @@ As mentioned previously in this documentation, the projects view offer the abili
 *   __Primary Site__: Originating or primary anatomic site of the cancer under investigation or review.
 *   __Cancer Program__: Programs are overarching activities meant to fulfill a broad scientific objective.  As mentioned above, Projects fulfill more specific requirements within a Program.
 *   __Disease Type__: type of cancer studied in the project.
-*   __Data Type__: Kind of data contained in the file. Note that each of these data types may have subtypes, and that the numbers given in the table reflect the numbers of latest files for all subtypes of that data type.  Data Subtypes can be explored in Facets contained in the ‘Files’ tab in the ‘Data’ view described below.
-    *   _Clinical_ – Clinical Data about the case, as well as Biospecimen data about the sample and aliquots
-    *   _Array_ – Gene Expression Array Data
+*   __Data Category__: Kind of data contained in the file. Note that each of these data types may have subtypes, and that the numbers given in the table reflect the numbers of latest files for all subtypes of that data type.  Data Subtypes can be explored in Facets contained in the ‘Files’ tab in the ‘Data’ view described below.
+
     *   _Seq_ – Raw Sequencing Data
+    *   _Exp_ – Raw Microarray Data   
     *   _SNV_ – Single Nucleotide Variation
     *   _CNV_ – Copy Number Variation
     *   _SV_ – Structural Rearrangement
-    *   _Exp_ – Raw Microarray Data
-    *   _PExp_ – Protein Expression
     *   _Meth_ – Methylation
-    *   _Other_ – a catch-all for any other data associated with a particular sample
+    *   _Clinical_ – Clinical Data about the case, as well as Biospecimen data about the sample and aliquots     
+    *   _Biospecimen_ – Clinical Data about the case, as well as Biospecimen data about the sample and aliquots
 *   __Experimental Strategy__: This describes NGS sequencing strategies or microarray technological platforms/array types and other experimental assays.
 
 ### Graph View
@@ -60,3 +59,8 @@ Each project has its own entity page aimed at providing an overview of all cases
 Clicking on various numbers will link to the corresponding search page (data or annotations) with filters already applied.
 
 For example, if the cases link in the ‘Clinical’ row in the ‘Available Data’ Table is chosen, the user will see a case view with the appropriate filters already applied.
+
+On the top right section of the screen, two download options are available:
+
+* __Download Clinical JSON__: Downloads a list of all Cases associated with this project.
+* __Download Biospecimen JSON__: Downloads Biospecimen data from all cases associated with this project.
