@@ -16,8 +16,7 @@
 * File metadata can be submitted before file upload
 * GQL improvements
 * `/download/metadata` endpoint allows download of MAGE-TAB and SRA XML
-* `/submission/&#x3C;Program.name&#x3E;/&#x3C;Project.code&#x3E;/entities/&#x3C;uuid&#x3E;` endpoint allows retrieval of Submission Portal entities by UUID
-* Miscellaneous improvements
+* `/submission/<Program.name>/<Project.code>/entities/<uuid>` endpoint allows retrieval of Submission Portal entities by UUID
 
 ### Bugs Fixed Since Last Release
 
@@ -25,7 +24,6 @@
 * `_mapping` endpoint now available for `annotations` endpoint
 * Order of files submitted in same transaction does not matter
 * Fixed incorrect response for bulk transactions
-* Miscellaneous bug fixes
 
 ### Known Issues and Workarounds
 
