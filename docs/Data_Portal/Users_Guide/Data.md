@@ -120,16 +120,8 @@ In the lower section of the screen, the following tables provide more details ab
 [![Files Entity Page](images/gdc-data-portal-files-entity-page-part2.png)](images/gdc-data-portal-files-entity-page-part2.png "Click to see the full image.")
 
 
-### Information for legacy data
 
-The [Legacy Archive](Legacy_Archive.md) will not display "Workflow, Reference Genome and Read Groups" sections (these sections are applicable to the GDC harmonization pipeline only).
+**Note**: *The Legacy Archive* will not display "Workflow, Reference Genome and Read Groups" sections (these sections are applicable to the GDC harmonization pipeline only). However it may provide information on Archives and MAGE-TABs. For more information, please refer to the section [Legacy Archive](Legacy_Archive.md). 
 
-However they might provide the information below.
-
-If the file was originally produced as part of an archive containing many other files, the archive information (Archive ID and number of files in the archive) is displayed in the file properties and, if selected, the user will see a _'Files'_ view containing all other files in that archive.
-
-If the file was part of a MAGE-TAB archive, the whole archive can be downloaded from the file details page.  BAI sequence data index files are related to sequence data BAM files and will be displayed if relevant.
-
-[![Files Entity Page](images/gdc-data-portal-files-entity-page-Archive-MagTab.png)](images/gdc-data-portal-files-entity-page-Archive-MagTab.png "Click to see the full image.")
 
 

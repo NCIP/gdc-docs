@@ -113,29 +113,27 @@ files.data_type = "Raw microarray data" or files.data_type = "Raw sequencing dat
 *   Find all files where donors are male or vital status is alive: 
 
 ```
-cases.clinical.gender = male or cases.clinical.vital_status = alive
+cases.demographic.gender = male or cases.diagnoses.vital_status = alive
 ```
 
 ## Operators
 
 An operator in GQL is one or more symbols or words comparing the value of a field on its left with one or more values on its right, such that only true results are retrieved by the clause. 
 
-**List of Operators:**
+### List of Operators and Query format
 
-| Operator | Name |
+| Operator | Description |
 | --- | --- |
-| = | EQUAL |
-| != | NOT EQUAL |
-| < | LOWER THAN |
-| <= | LOWER THAN OR EQUAL |
-| \> | GREATER THAN |
-| \>= | GREATER THAN OR EQUAL |
-| IN | IN |
-| NOT IN | NOT IN |
-| IS MISSING | IS MISSING |
-| IS NOT MISSING | IS NOT MISSING |
-
-**Limitation**: `<`, `<=`, `>`, `>=`, Cannot be used with __text__ or __date__ fields.
+| = | Field EQUAL Value (String or Number) |
+| != | Field NOT EQUAL Value (String or Number) |
+| < | Field LOWER THAN Value (Number or Date) |
+| <= | Field LOWER THAN OR EQUAL Value (Number or Date) |
+| \> | Field GREATER THAN Value (Number or Date) |
+| \>= | Field GREATER THAN OR EQUAL Value (Number or Date) |
+| IN | Field IN [Value 1, Value 2] |
+| EXCLUDE | Field EXCLUDE [Value 1, Value 2] |
+| IS MISSING | Field IS MISSING |
+| NOT MISSING | Field NOT MISSING |
 
 
 ### "=" operator - EQUAL
@@ -153,7 +151,7 @@ files.data_type = "Gene expression"
 *   Find all cases whose gender is female:
 
 ```
-cases.clinical.gender = female
+cases.demographic.gender = female
 ```
 
 ### "!=" operator - NOT EQUAL
@@ -162,7 +160,7 @@ The "`!=`" operator is used to search for files where the value of the specified
 
 The "`!=`" operator will not match a field that has no value (i.e. a field that is empty). For example, `gender != male` will only match cases who have a gender and the gender is not male. To find cases other than male or with no gender populated, you would need to type gender != male or gender is missing.
 
-Examples:
+Example:
 
 *   Find all files with an experimental different from genotyping array:
 
@@ -174,76 +172,56 @@ files.experimental_strategy != "Genotyping array"
 
 The "`>`" operator is used to search for files where the value of the specified field is greater than the specified value.
 
-Examples:
+Example:
 
 * Find all cases whose number of days to death is greater than 60:
 
 ```
-cases.clinical.days_to_death > 60
+cases.diagnoses.days_to_death > 60
 ```
 
-* Find all cases whose year of diagnosis is after 2000:
-
-```
-cases.clinical.year_of_diagnosis > 2000
-```
 
 ### ">=" operator - GREATER THAN OR EQUALS
 
 The "`>=`" operator is used to search for files where the value of the specified field is greater than or equal to the specified value.
 
-Examples:
+Example:
 
 * Find all cases whose number of days to death is equal or greater than 60:
 
 ```
-cases.clinical.days_to_death >= 60
+cases.diagnoses.days_to_death >= 60
 ```
 
-* Find all cases whose year of diagnosis is in 2005 or later:
 
-```
-cases.clinical.year_of_diagnosis >= 2005
-```
 
 ### "<" operator - LESS THAN
 
 The "`<`" operator is used to search for files where the value of the specified field is less than the specified value.
 
-Examples:
+Example:
 
 *   Find all cases whose age at diagnosis is less than 400 days:
 
 ```
-cases.clinical.age_at_diagnosis < 400
+cases.diagnoses.age_at_diagnosis < 400
 ```
 
-*   Find all cases whose year of diagnosis is before 1990:
-
-```
-cases.clinical.year_of_diagnosis < 1990
-```
 
 ### "<=" operator - LESS THAN OR EQUALS
 
 The "`<=`" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
 
-Examples:
-
-* Find all cases whose year of diagnosis is in 1990 or earlier:
-
-```
-cases.clinical.year_of_diagnosis <= 1990
-```
+Example:
 
 *   Find all cases with a number of days to death less than or equal to 20:
 
 ```
-cases.clinical.days_to_death <= 20
+cases.diagnoses.days_to_death <= 20
 ```
 
 
-### "in" Operator 
+### "IN" Operator 
 
 The "`IN`" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
 
@@ -254,54 +232,54 @@ Examples:
 *   Find all files in breast, breast and lung and cancer:
 
 ```
-cases.project.primary_site in [Brain, Breast,Lung]
+cases.project.primary_site IN [Brain, Breast,Lung]
 ```
 
 *   Find all files tagged with exon or junction or hg19:
 
 ```
-files.tags in [exon, junction, hg19]
+files.data_type IN ["Aligned reads", "Unaligned reads"]
 ```
 
-### "not in" Operator 
+### "EXCLUDE" Operator 
 
-The " `NOT IN` " operator is used to search for files where the value of the specified field is not one of multiple specified values.
+The " `EXCLUDE` " operator is used to search for files where the value of the specified field is not one of multiple specified values.
 
-Using "`NOT IN`" is equivalent to using multiple  `NOT_EQUALS (!=)`  statements, but is shorter and more convenient. That is, typing `project NOT IN [ProjectA, ProjectB, ProjectC] `is the same as typing `project != "ProjectA" OR project ! = "ProjectB" OR project ! = "ProjectC"`.`
+Using "`EXCLUDE`" is equivalent to using multiple  `NOT_EQUALS (!=)` statements, but is shorter and more convenient. That is, typing `project EXCLUDE [ProjectA, ProjectB, ProjectC] `is the same as typing `project != "ProjectA" OR project ! = "ProjectB" OR project ! = "ProjectC"`.`
 
-The "`NOT IN`" operator will not match a field that has no value (i.e. a field that is empty). For example, `experimental strategy not in ["WGS","WXS"]` will only match files that have an experimental strategy **and** the experimental strategy is not "WGS" or "WXS". To find files with an experimental strategy different from than "WGS" or "WXS" **or is not assigned**, you would need to type: files.experimental_strategy in ["WXS","WGS"] or files.experimental_strategy is missing.
+The "`EXCLUDE`" operator will not match a field that has no value (i.e. a field that is empty). For example, `experimental strategy EXCLUDE ["WGS","WXS"]` will only match files that have an experimental strategy **and** the experimental strategy is not "WGS" or "WXS". To find files with an experimental strategy different from than "WGS" or "WXS" **or is not assigned**, you would need to type: files.experimental_strategy in ["WXS","WGS"] or files.experimental\_strategy is missing.
 
 Examples:
 
 *   Find all issues where experimental strategy is not WXS, WGS, Genotyping array:
 
 ```
-files.experimental_strategy not in ["WXS","WGS", "Genotyping array"]
+files.experimental_strategy EXCLUDE [WXS, WGS, "Genotyping array"]
 ```
 
 
-### "is missing" Operator 
+### "IS MISSING" Operator 
 
-The "`IS`" operator can only be used with missing. That is, it is used to search for files where the specified field has no value.
+The "`IS`" operator can only be used with "`MISSING`". That is, it is used to search for files where the specified field has no value.
 
 Examples:
 
 *   Find all cases where gender is missing: 
 
 ```
-cases.clinical.gender is missing
+cases.demographic.gender is MISSING
 ```
 
-### "is not missing" Operator 
+### "NOT MISSING" Operator 
 
-The " `IS NOT` " operator can only be used with missing. That is, it is used to search for files where the specified field has a value.
+The " `NOT` " operator can only be used with "`MISSING`". That is, it is used to search for files where the specified field has a value.
 
 Examples:
 
 *   Find all cases where race is not missing: 
 
 ```
-cases.clinical.race is not missing
+cases.demographic.race NOT MISSING
 ```
 
 ## Special Cases
@@ -322,17 +300,13 @@ cases.project.primary_site = Brain and files.data_type = "Copy number variation"
 
 The unit for age at diagnosis is in **days**. The user has to convert the number of years to number of days.
 
-*   Example: Find all cases whose age at diagnosis > 40 years old (40 * 365)
+The __conversion factor__ is 1 year = 365.25 days
+
+*   Example: Find all cases whose age at diagnosis > 40 years old (40 * 365.25)
 
 ```
-cases.clinical.age_at_diagnosis > 14600
+cases.diagnoses.age_at_diagnosis > 14610
 ```
-
-### Fields not Supported in the Advanced Search
-
-The dates fields are currently not supported in the advanced search. 
-
-For example, a user cannot look for all the files which were created after January 1, 2015 (creation_datetime).
 
 
 ## Fields Reference
@@ -341,7 +315,7 @@ The full list of fields available on the GDC Data Portal can be found through th
 
 [https://gdc-api.nci.nih.gov/gql/_mapping](https://gdc-api.nci.nih.gov/gql/_mapping)
 
-Alternatively, a static list of those fields is available below.
+Alternatively, a static list of fields is available below (not exhaustive).
 
 ### Files
 
@@ -377,23 +351,29 @@ Alternatively, a static list of those fields is available below.
 
 ### Cases
 
-+ cases.clinical.age_at_diagnosis
-+ cases.clinical.clinical_id
-+ cases.clinical.days_to_death
-+ cases.clinical.ethnicity
-+ cases.clinical.gender
-+ cases.clinical.icd_10
-+ cases.clinical.race
-+ cases.clinical.vital_status
-+ cases.clinical.year_of_diagnosis
 + cases.case_id
++ cases.submitter_id
++ cases.diagnoses.age_at_diagnosis
++ cases.diagnoses.days_to_death
++ cases.demographic.ethnicity
++ cases.demographic.gender
++ cases.demographic.race
++ cases.diagnoses.vital_status
 + cases.project.disease_type
 + cases.project.name
 + cases.project.program.name
 + cases.project.program.program_id
 + cases.project.project_id
 + cases.project.state
-+ cases.samples.current_weight
++ cases.samples.sample_id
++ cases.samples.submitter_id
++ cases.samples.sample_type
++ cases.samples.sample_type_id
++ cases.samples.shortest_dimension
++ cases.samples.time_between_clamping_and_freezing
++ cases.samples.time_between_excision_and_freezing
++ cases.samples.tumor_code
++ cases.samples.tumor_code_id+ cases.samples.current_weight
 + cases.samples.days_to_collection
 + cases.samples.days_to_sample_procurement
 + cases.samples.freezing_method
@@ -448,18 +428,3 @@ Alternatively, a static list of those fields is available below.
 + cases.samples.portions.slides.submitter_id
 + cases.samples.portions.submitter_id
 + cases.samples.portions.weight
-+ cases.samples.sample_id
-+ cases.samples.sample_type
-+ cases.samples.sample_type_id
-+ cases.samples.shortest_dimension
-+ cases.samples.submitter_id
-+ cases.samples.time_between_clamping_and_freezing
-+ cases.samples.time_between_excision_and_freezing
-+ cases.samples.tumor_code
-+ cases.samples.tumor_code_id
-+ cases.submitter_id
-+ cases.tissue_source_site.bcr_id
-+ cases.tissue_source_site.code
-+ cases.tissue_source_site.name
-+ cases.tissue_source_site.project
-+ cases.tissue_source_site.tissue_source_site_id
