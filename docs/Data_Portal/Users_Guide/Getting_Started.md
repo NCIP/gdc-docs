@@ -2,7 +2,7 @@
 
 ## The Genomic Data Commons (GDC) Data Portal: An Overview
 
-The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Portal User's Guide is the companion documentation to the [GDC Data Portal](https://gdc.nci.nih.gov/node/7966/). The GDC User's Guide provides detailed information and instructions for using the [GDC Data Portal](https://gdc.nci.nih.gov/node/7966/).
+The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Portal User's Guide is the companion documentation to the [GDC Data Portal](https://gdc-portal.nci.nih.gov/). The GDC User's Guide provides detailed information and instructions for using the GDC Data Portal.
 
 The GDC Data Portal is a robust data-driven platform that allows users to search and download cancer data sets for analysis using modern web technologies. Key GDC Data Portal features include:
 
@@ -10,7 +10,7 @@ The GDC Data Portal is a robust data-driven platform that allows users to search
 *   Visualization allowing users to perform fine-grained filtering of search results
 *   Data search using advanced smart search technology
 *   Data selection into a personalized cart
-*   Data download from cart or a from GDC Data Transfer Tool
+*   Data download directly from the cart or from GDC Data Transfer Tool using a manifest
 
 Additional descriptions of key GDC Data Portal features are provided in the section that follows.
 
@@ -19,7 +19,7 @@ Additional descriptions of key GDC Data Portal features are provided in the sect
 The GDC Data Portal is accessible using a web browser such as Chrome, Internet Explorer, and Firefox at the following URL: [https://gdc-portal.nci.nih.gov](https://gdc-portal.nci.nih.gov).
 When navigating to the site, the GDC Data Portal homepage is displayed.
 
-[![GDC Data Portal Homepage](images/gdc-data-portal-homepage.png)](images/gdc-data-portal-homepage.png "Click to see the full image.")
+[![GDC Data Portal Homepage](images/gdc-data-portal-homepage.png "GDC Data Portal Homepage")](images/gdc-data-portal-homepage.png "Click to see the full image.")
 
 The GDC Data Portal allows download of open access data without requiring a user login. To retrieve controlled access data, users must have access to the controlled access data set through dbGaP and use the [Login](../../Commons/Authentication.md) functionality on the top-right corner of the screen.
 
@@ -39,11 +39,15 @@ GDC Data Portal contains two primary mechanisms for searching data: 1) searching
 
 ### Cart Facilities for Data Selection
 
-While navigating and searching through the GDC Data Portal, researchers can add files to their cart. The cart provides detailed statistics about the files it contains to inform the user about the overall number and size of files the user may want to download.
+While navigating and searching through the GDC Data Portal, researchers can add files to their cart. The cart provides some statistics about the files it contains to inform the user about the overall number and size of files the user will download through the cart.
 
 ### Data Download
 
-The GDC Data Portal provides two primary channels to allow users to download data from a cart: 1) download directly from the browser or 2) download using a dedicated Data Transfer Tool. The GDC Data Portal generates a list of desired files (or manifest) that can be easily imported into the GDC Data Transfer Tool to execute the download. Note that users can download all files that are under the GDC open access policy as well as any controlled access files that they have authorization for through dbGaP. Please visit [Obtaining Access to GDC Controlled Data](https://gdc.nci.nih.gov/node/8035/) for information how to obtain authorization to access controlled data sets through dbGaP.
+The GDC Data Portal provides two primary channels to allow users to download data from a cart: 
+
+1) Download directly from the browser (Cart Download) or 
+
+2) Download using the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool). The GDC Data Portal generates a manifest based on all the files selected in the Cart. This manifest can then be easily imported into the GDC Data Transfer Tool to execute the download. Note that users can download all files that are under the GDC open access policy as well as any controlled access files that they have authorization for through dbGaP. Please visit [Obtaining Access to GDC Controlled Data](https://gdc.nci.nih.gov/node/8035/) for information on how to obtain authorization to access controlled data sets through dbGaP.
 
 ### BAM Slicing
 

@@ -12,7 +12,7 @@ pages:
   - Getting Started: 'Data_Submission_Portal/Users_Guide/Getting_Started.md'
   - Submission Workflow: 'Data_Submission_Portal/Users_Guide/Submission_Workflow.md'
   - Authentication: 'Commons/Authentication.md'
-  - Overview and Features: 'Data_Submission_Portal/Users_Guide/Features.md'
+  - Features: 'Data_Submission_Portal/Users_Guide/Features.md'
   - User Access: 'Data_Submission_Portal/Users_Guide/Login.md'
   - Homepage: 'Data_Submission_Portal/Users_Guide/Homepage.md'
   - Dashboard: 'Data_Submission_Portal/Users_Guide/Dashboard.md'

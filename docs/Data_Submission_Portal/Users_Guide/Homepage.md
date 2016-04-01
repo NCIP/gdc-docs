@@ -2,26 +2,24 @@
 
 ## Overview
 
-After [authentication](Login.md), users are redirected to a homepage if the user has access to multiple projects. This homepage acts as the entry point to GDC Submission, it provides easy access to all key elements useful to the authenticated user.
+After [authentication](Login.md), users are redirected to a homepage if the user has access to multiple projects. The homepage acts as the entry point for GDC data submission and provides submitters with access to a list of authorized projects, reports, and transactions.
 
 [![GDC Submitter Landing Page](images/GDC_Submission_Landing_Submitter.png)](images/GDC_Submission_Landing_Submitter.png "Click to see the full image.")
 
-Content of the homepage varies based on the user profile (e.g. submitter, program office).
+Content on the homepage varies based on the user profile (e.g. submitter, program office).
 
-
-If the submitter has access to only one project then they will directly access the project dashboard and will not see the homepage.
-
+If the submitter has access to only one project, then the dashboard for the project will automatically be displayed instead of the homepage.
 
 ## Reports
 
-This section provides access to system-wide reports (based on user permission). More details about those reports can be found in the [Reports section of the documentation](Reports.md)
+The reports section in the homepage provides access to project reports on data submission, based on user authorization. More details about the reports are available in the [Reports](Reports.md) section.
 
 ## Projects
 
-This table lists projects the user has access to. For users having access to a large number of projects, this table can be filtered down and sorted by clicking on column headers.
+The projects section in the homepage lists the projects that the user has access to. For users having access to a large number of projects, this table can be filtered down and sorted by clicking on the column headers.
 
-Clicking on a project ID will redirect the user to the [Project's dashboard](Dashboard.md).
+Selecting a project ID will redirect the user to the [Project's dashboard](Dashboard.md).
 
 ## Latest Transactions
 
-This table lists the most recent [Transactions](Transactions.md) throughout all projects the user has access to.
+The latest transactions section in the homepage lists the most recent [transactions](Transactions.md) associated with the projects that the user has access to.
