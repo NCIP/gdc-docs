@@ -7,65 +7,64 @@
 
 ### New Features and Changes
 
-* Implemented an homepage providing high-level data about GDC Data Portal
-* Created the GDC Legacy Archive to display legacy data
-* Updated the GDC Data Portal for Harmonized data
-* Updated Login process to be consistent with GDC Data Submission Portal login
-* Added export GDC Clinical and Biospecimen data from Project and Case entity pages (replacing download Clinical XML)
-* Improved GDC Data Portal search capabilities:
-   * Added customized facets, expanding the GDC Data Portal search capabilities to non-default facets
-   * Updated the list of fields suggested in the Advanced Search and Custom Facets
-   * Added prefix search on case submitter ID on Facet panel
-   * Improved operator auto-suggestion based on field type in Advanced Search
-* Improved download experience by letting the browser handle the download (allow canceling)
-* Cart:
-   * Added download metadata files (SRA XML and MAGE-TAB)
-   * Added download Biospecimen and Clinical data
-* Improved Biospecimen tree in case entity page (search for ID and expand tree)
-* Improved 508 and Internet Explorer support
-* Improved table in Projects page ("Total" row with links to search page)
-* Improved BAM Slicing UI (added example and ability to use tabulations for BED format in the text box)
+*   Implemented an homepage providing high-level data about GDC Data Portal
+*   Created the GDC Legacy Archive to display legacy data
+*   Updated the GDC Data Portal for Harmonized data
+*   Updated Login process to be consistent with GDC Data Submission Portal login
+*   Added export GDC Clinical and Biospecimen data from Project and Case entity pages (replacing download Clinical XML)
+*   Improved GDC Data Portal search capabilities:
+    *   Added customized facets, expanding the GDC Data Portal search capabilities to non-default facets
+    *   Updated the list of fields suggested in the Advanced Search and Custom Facets
+    *   Added prefix search on case submitter ID on Facet panel
+    *   Improved operator auto-suggestion based on field type in Advanced Search
+*   Improved download experience by letting the browser handle the download (allow canceling)
+*   Cart:
+    *   Added download metadata files (SRA XML and MAGE-TAB)
+    *   Added download Biospecimen and Clinical data
+*   Improved Biospecimen tree in case entity page (search for ID and expand tree)
+*   Improved 508 and Internet Explorer support
+*   Improved table in Projects page ("Total" row with links to search page)
+*   Improved BAM Slicing UI (added example and ability to use tabulations for BED format in the text box)
 
 ### Bugs Fixed Since Last Release
 
-* Disease Type does not auto filter (Data Facet)
-
-* When exporting the annotation table to a file, the create date field is not displayed in the same format than the UI
-* This ticket is not applicable anymore "In Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.", the case entity page has a standard download clinical feature.
+*   Disease Type does not auto filter (Data Facet)
+*   When exporting the annotation table to a file, the create date field is not displayed in the same format than the UI
+*   This ticket is not applicable anymore "In Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.", the case entity page has a standard download clinical feature.
 
 
 ### Known Issues and Workarounds
 
-* General
-   * If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
-* Tables and Export
-   * Table sorting icon does not include numbers <!-- PGDC-35 -->
-   * Table export return correct content (XML, TSV) although file extension is incorrect (always JSON) <!-- PGDC-1986 -->
-   * Nested values are not exported properly <!-- PGDC-910 SV-13 -->
-   * Project table summary chart does not display colors with Internet Explorer 11 <!-- PGDC-1953 -->
-   * Exporting a table containing a very large number of records might trigger an exception (when the server is timing out)<!-- PGDC-1962 -->
-   * Restore default table column arrangement does not restore to default but to previous state <!-- PGDC-1769 -->
-* Cart and Download
-   * When saving file for download, the download pop-up indicates "from:blob:" <!-- PGDC-115 -->
-   * User with update only can also download files also role should not allow <!-- PGDC-1782 -->
-   * User can add more files to the cart than supported if adding files one by one <!-- PGDC-1957 -->
-   * In very specific situations, the cart can display inconsistent data <!-- PGDC-1028 -->   
-   * Make the cart limit warning message more explanatory <!-- PGDC-1952 -->   
-   * In some situations the cart will display the authentication window for authenticated users when trying to download <!-- PGDC-1959 -->   
-* Search
-   * In the data page, some pie chart titles are too long <!-- PGDC-914 -->
-   * Facets displaying histogram do not display a mouseover tooltip if the value is very low <!-- PGDC-913 -->
-* Layout, Browser specific and Accessibility
-   * No favicon is displayed on Internet Explorer <!-- PGDC-1948 -->
-   * When disabling CSS, footer elements are displayed out of order <!-- PGDC-1972 -->
-   * Download cart button does not function properly with Safari 9.0.3 <!-- PGDC-1978 -->
-   * If javascript is disabled html tags are displayed in the warning message <!-- PGDC-1835 -->
-   * Layout issue when browser is reduced to a small window size <!-- PGDC-16 -->
-   * Layout issues when using the browser zoom in function on tables <!-- PGDC-116 -->
-* Non UI-related tickets
-   * Investigations were done on this issue "Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message." was related  to ACL permissions (not UI related).
-   * Investigations were done on this issue "Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet" was related to Data not imported (not UI related).
-   * Associated entities is empty for some files (note: this is a data issue) <!-- PGDC-1887 -->
+*   General
+    *   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+*   Tables and Export
+    *   Table sorting icon does not include numbers <!-- PGDC-35 -->
+    *   Table export return correct content (XML, TSV) although file extension is incorrect (always JSON) <!-- PGDC-1986 -->
+    *   Nested values are not exported properly <!-- PGDC-910 SV-13 -->
+    *   Project table summary chart does not display colors with Internet Explorer 11 <!-- PGDC-1953 -->
+    *   Exporting a table containing a very large number of records might trigger an exception (when the server is timing out)<!-- PGDC-1962 -->
+    *   Restore default table column arrangement does not restore to default but to previous state <!-- PGDC-1769 -->
+*   Cart and Download
+    *   When saving file for download, the download pop-up indicates "from:blob:" <!-- PGDC-115 -->
+    *   User with update only can also download files also role should not allow <!-- PGDC-1782 -->
+    *   User can add more files to the cart than supported if adding files one by one <!-- PGDC-1957 -->
+    *   In very specific situations, the cart can display inconsistent data <!-- PGDC-1028 -->   
+    *   Make the cart limit warning message more explanatory <!-- PGDC-1952 -->   
+    *   In some situations the cart will display the authentication window for authenticated users when trying to download <!-- PGDC-1959 -->   
+*   Search
+    *   In the data page, some pie chart titles are too long <!-- PGDC-914 -->
+    *   Facets displaying histogram do not display a mouseover tooltip if the value is very low <!-- PGDC-913 -->
+*   Layout, Browser specific and Accessibility
+    *   No favicon is displayed on Internet Explorer <!-- PGDC-1948 -->
+    *   When disabling CSS, footer elements are displayed out of order <!-- PGDC-1972 -->
+    *   Download cart button does not function properly with Safari 9.0.3 <!-- PGDC-1978 -->
+    *   If javascript is disabled html tags are displayed in the warning message <!-- PGDC-1835 -->
+    *   Layout issue when browser is reduced to a small window size <!-- PGDC-16 -->
+    *   Layout issues when using the browser zoom in function on tables <!-- PGDC-116 -->
+*   Non UI-related tickets
+    *   Investigations were done on this issue "Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message." was related  to ACL permissions (not UI related).
+    *   Investigations were done on this issue "Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet" was related to Data not imported (not UI related).
+    *   Associated entities is empty for some files (note: this is a data issue) <!-- PGDC-1887 -->
 
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
