@@ -1,4 +1,68 @@
+WORK IN PROGRESS
+
 # Data Portal Release Notes
+
+## Release 0.3.24.4
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: April, 4th 2016
+
+### New Features and Changes
+
+* Implemented an homepage providing high-level data about GDC Data Portal
+* Created GDC Legacy Archive section on the GDC Data Portal
+* Updated the GDC Data Portal for Harmonized data
+* Users can add customized facets, expanding the GDC Data Portal search capabilities to non-default fields
+* Login has been updated to be consistent with GDC Data Submission Portal login
+* Added data export option in various sections of the GDC Data Portal
+* Improved advanced search query language
+* Whitelisted some custom facet and advanced search fields
+* Cart & File download:
+   * Download metadata files
+   * Improved performance for large carts (10,000s of files)
+   * File download has been improved to be handled by the browser
+* Improved Biospecimen tree in case entity page
+* Improved 508 and Internet Explorer support
+* Improved project page
+
+### Bugs Fixed Since Last Release
+
+* Disease Type does not auto filter (Data Facet)
+
+### Known Issues and Workarounds
+
+* Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet
+* When exporting the annotation table to a file, the create date field is not displayed in the same format than the UI
+* Checksum missing for MAGE-TAB files
+* Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
+* In Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
+* If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+* Table sorting icon does not include numbers <!-- PGDC-35 -->
+
+Jira Tickets
+* Table export always return JSON content (although file extension is correct) <!-- PGDC-1986 -->
+* Nested values are not exported properly <!-- PGDC-910 SV-13 -->
+* When saving file for download, the download pop-up indicates "from:blob:" <!-- PGDC-115 -->
+* User with update only can also download files also role should not allow <!-- PGDC-1782 -->
+* Project table summary chart does not display colors with Internet Explorer 11 <!-- PGDC-1953 -->
+* User can add more files to the cart than supported if adding files one by one <!-- PGDC-1957 -->
+* In the data page, some pie chart titles are too long <!-- PGDC-914 -->
+* In very specific situations, the cart can display inconsistent data <!-- PGDC-1028 -->
+* Facets displaying histogram do not display a mouseover tooltip if the value is very low <!-- PGDC-913 -->
+* No favicon is displayed on Internet Explorer <!-- PGDC-1948 -->
+* Make the cart limit warning message more explanatory <!-- PGDC-1952 -->
+* In some situations the cart will display the authentication window for authenticated users when trying to download <!-- PGDC-1959 -->
+* Exporting a table containing a very large number of records might trigger an exception <!-- PGDC-1962 -->
+* When disabling CSS, footer elements are displayed out of order <!-- PGDC-1972 -->
+* Download cart button does not function properly with Safari 9.0.3 <!-- PGDC-1978 -->
+* Some fields are missing in the whitelist therefore are still available in advanced search and custom facets and display no results when used <!-- PGDC-1834 -->
+* If javascript is disabled html tags are displayed in the warning message <!-- PGDC-1835 -->
+* Associated entities is empty for some files <!-- PGDC-1887 -->
+* Restore default table column arrangement does not restore to default but to previous state <!-- PGDC-1769 -->
+* Layout issue when browser is reduced to a small window size <!-- PGDC-16 -->
+* Layout issues when using the browser zoom in function on tables <!-- PGDC-116 -->
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.18.3
 
