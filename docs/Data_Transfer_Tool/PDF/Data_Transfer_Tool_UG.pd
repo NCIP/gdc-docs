@@ -1,0 +1,841 @@
+## Getting Started with the GDC Data Transfer Tool
+
+### Getting Started
+
+#### The GDC Data Transfer Tool: An Overview
+
+Raw sequence data, typically stored as BAM or FASTQ files, make up the bulk of data stored at The NCI Genomic Data Commons (GDC) . The size of a single file can vary greatly. Most BAM files stored in the GDC are in the 50 MB - 40 GB size range, with some of the whole genome BAM files reaching sizes of 200-300 GB.
+
+The GDC Data Transfer Tool provides an optimized method of transferring data to and from the GDC, and enables resumption of interrupted transfers. The tool's download and upload functionality is built upon a high-performance, UDP-based data transfer protocol known as [UDT](http://udt.sourceforge.net/), or User Datagram Protocol (UDP)-based Data Transfer. The UDT protocol is implemented in C++ for speed, but exposed via Python to provide a clean, user-friendly command line interface. The GDC Data Transfer Tool is also capable of performing TCP downloads for cases where UDP traffic may be blocked.
+
+#### Downloading the GDC Data Transfer Tool
+
+##### System Recommendations
+
+The system recommendations for using the GDC Data Transfer Tool&nbsp;are as follows:
+
+* OS: Linux (Ubuntu 14.x or later), OS X (10.9 Mavericks or later), or Windows (7 or later)
+* CPU: At least eight 64-bit cores, Intel or AMD
+* RAM: At least 8 GiB
+* Storage: Enterprise-class storage system capable of at least 1 Gb/s (gigabit per second) write throughput and sufficient free space for BAM files.
+
+##### Binary Distributions
+
+Binary distributions are available on the [GDC Transfer Tool page](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool). To install the GDC Data Transfer Tool, download the respective binary distribution and unzip the distribution&#39;s archive to a location on the target system.
+
+##### Release Notes
+
+Release Notes are available on the GDC Data Transfer Tool Release Notes page.
+
+## Accessing Built-in Help
+
+### Accessing Built-in Help
+
+#### Help Menus
+
+The GDC Data Transfer Tool comes with built-in help menus. These menus are displayed when the GDC Data Transfer Tool is run without commands or when -h / --help flag is specified for any command. Running the GDC Data Transfer Tool without commands will present a list of available commands. The available menus are provided below.
+
+##### The GDC Data Transfer Tool Built-in Help Menus (run without commands)
+
+    > gdc-client
+    Type 'help' for a list of commands or 'help <topic>' for detailed usage.
+
+    Basic commands are:
+    - download   (download files in registry)
+    - add        (adds ids to registry)
+    - list       (lists file ids already registered)
+    - manifest   (add ids from a GDC manifest file to registry)
+    - remove     (remove ids from registry)
+    - token      (load an authorization token file)
+    - cd         (move to directory you want to download to)
+    - pwd        (print the current working directory)
+    - set        (set advanced configuration setting)
+    - settings   (list advanced configuration settings)
+    - upload     (upload files to object storage)
+    - delete     (delete files from object storage)
+    - abort      (abort a previous partial upload)
+
+    TIPS:
+    - Rather than type out path names, try dragging and dropping manifest and token files into the terminal.
+    - You can execute shell commands by prepending '!', i.e. !ls.
+    - You can run the gdc-client binary with advanced options from the command line (gdc-client --help).
+
+    gdc-client repl >
+
+
+##### GDC Data Transfer Tool Download Help Menus (with -h / --help flag specified)
+
+    > gdc-client download -h
+    usage: gdc-client download [-h] [-m MANIFEST] [-v] [-d DIR] [-s server]
+                               [--no-segment-md5sums] [--debug] [-n N_PROCESSES]
+                               [--http-chunk-size HTTP_CHUNK_SIZE]
+                               [--save-interval SAVE_INTERVAL]
+                               [--no-related-files] [--no-annotations]
+                               [-t TOKEN | -T TOKEN] [-u] [-H PROXY_HOST]
+                               [-P PROXY_PORT] [-e]
+                               [file_id [file_id ...]]
+
+    positional arguments:
+      file_id               uuids to download
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -m MANIFEST, --manifest MANIFEST
+                            GDC Download manifest file.
+      -v, --verbose         verbose logging
+      -d DIR, --dir DIR     Directory to download files to. Defaults to current
+                            dir
+      -s server, --server server
+                            The UDT server address server[:port]
+      --no-segment-md5sums  Calculate inbound segment md5sums and/or verify
+                            md5sums on restart
+      --debug               Print stack traces
+      -n N_PROCESSES, --n-processes N_PROCESSES
+                            Number of client connections.
+      --http-chunk-size HTTP_CHUNK_SIZE
+                            Size in bytes of standard HTTP block size.
+      --save-interval SAVE_INTERVAL
+                            The number of chunks after which to flush state file.
+                            A lower save interval will result in more frequent
+                            printout but lower performance.
+      --no-related-files    Do not download related files.
+      --no-annotations      Do not download annotations.
+      -t TOKEN, --token-file TOKEN
+                            authentication token file
+      -T TOKEN, --token TOKEN
+                            authentication token
+      -u, --udt             Use the UDT protocol. Better for WAN connections
+      -H PROXY_HOST, --proxy-host PROXY_HOST
+                            The port to bind the local proxy to
+      -P PROXY_PORT, --proxy-port PROXY_PORT
+                            The port to bind the local proxy to
+      -e, --external-proxy  Do not create a local proxy but bind to an external
+                            one
+    >
+
+
+##### GDC Data Transfer Tool Upload Help Menus (with -h / --help flag specified)
+
+    > gdc-client upload -h
+    usage: gdc-client upload [-h] [--project-id PROJECT_ID]
+                             [--identifier IDENTIFIER] [--path path] --token file
+                             [--insecure] [--verbose] [--server SERVER]
+                             [--part-size PART_SIZE] [-n N_PROCESSES]
+                             [--upload-id UPLOAD_ID] [--disable-multipart]
+                             [--abort] [--resume] [--delete] [--manifest MANIFEST]
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      --project-id PROJECT_ID, -p PROJECT_ID
+                            The project ID that owns the file
+      --identifier IDENTIFIER, -i IDENTIFIER
+                            The id or alias
+      --path path, -f path  directory path to find file
+      --token file, -t file
+                            auth token
+      --insecure, -k        Allow connections to server without certs
+      --verbose, -v         Print stack traces
+      --server SERVER, -s SERVER
+                            GDC API server address
+      --part-size PART_SIZE, -ps PART_SIZE
+                            Part size for multipart upload
+      -n N_PROCESSES, --n-processes N_PROCESSES
+                            Number of client connections.
+      --upload-id UPLOAD_ID, -u UPLOAD_ID
+                            Multipart upload id
+      --disable-multipart   Disable multipart upload
+      --abort               Abort previous multipart upload
+      --resume, -r          Resume previous multipart upload
+      --delete              Delete an uploaded file
+      --manifest MANIFEST, -m MANIFEST
+                            Manifest which describes files to be uploaded
+
+
+## Preparing for Data Download and Upload
+
+### Preparing for Data Download and Upload
+
+The GDC Data Transfer Tool is intended to be used in conjunction with the [GDC Data Portal](https://gdc-portal.nci.nih.gov) to transfer data to or from GDC. First, the GDC Data Portal&#39;s interface is used to generate a manifest file or obtain UUID(s) and (for controlled data) an authentication token. The GDC Data Transfer Tool is then used to transfer the data files listed in the manifest file or identified by UUID(s).
+
+#### Obtaining a Manifest File for Data Download
+
+The GDC Data Transfer Tool supports downloading of multiple files listed in a GDC manifest file. Manifest files can be generated and downloaded directly from the GDC Data Portal:
+
+First, select the data files of interest. Click the *Cart* button in the row corresponding to the file of interest. The button will turn green to indicate that the file has been selected.
+
+![GDC Data Portal: Selecting Files of Interest](/Users/FGerthoffert/GitHub/gdc-docs/site/Data_Transfer_Tool/Users_Guide/images/04-01_Data-Portal-Selecting-Files.png)
+**GDC Data Portal: Selecting Files of Interest**
+
+Once all files of interest have been selected, click on the *Cart* button in the upper right-hand corner. This will bring up the cart page, which provides an overview of all currently selected files. This list of files can be downloaded as a manifest file by clicking on the blue *Download Manifest* button.
+
+![GDC Data Portal: Cart Page](/Users/FGerthoffert/GitHub/gdc-docs/site/Data_Transfer_Tool/Users_Guide/images/04-02-Data-Portal-Cart-Page.png)
+**GDC Data Portal: Cart Page**
+
+#### Obtaining UUIDs for Data Download
+
+A manifest file is not required to download files from GDC. The GDC Data Transfer Tool will accept file UUID(s) instead of a manifest file for downloading individual data files. To obtain a data file's UUID from the GDC Data Portal, click the file name to find its detail page including its GDC UUID.
+
+![GDC Data Portal: Detailed File Page](/Users/FGerthoffert/GitHub/gdc-docs/site/Data_Transfer_Tool/Users_Guide/images/04-03-data-portal-file-detail-page.png)
+**GDC Data Portal: Detailed File Page**
+
+#### Obtaining a Manifest File for Data Upload
+
+The GDC Data Transfer Tool supports uploading multiple files listed in a GDC manifest file. A manifest file for a data bundle can be generated using the GDC Data Submission Portal.
+
+To obtain a manifest file, first select a project from the dropdown menu in the top left corner of the GDC Data Submission Portal:
+
+![GDC Data Submission Portal: Select Project of Interest](/Users/FGerthoffert/GitHub/gdc-docs/site/Data_Transfer_Tool/Users_Guide/images/04-04_Submission-Portal-select-project.png)
+**GDC Data Submission Portal: Select Project of Interest**
+
+Select a type of Data Bundle on the left; here we selected the *Lane Level Sequence* bundle type. In the middle pane you will see a list of data bundles in the project. Select a data bundle to be uploaded, and download the corresponding manifest file by clicking the link on the right:
+
+![GDC Data Submission Portal: Detailed bundle page](/Users/FGerthoffert/GitHub/gdc-docs/site/Data_Transfer_Tool/Users_Guide/images/04-05_submission-portal-download-manifest.png)
+**GDC Data Submission Portal: Detailed bundle page**
+
+#### Obtaining an Authentication Token
+
+The GDC Data Transfer Tool requires an authentication token to upload data to GDC and to download controlled data. Tokens can be generated and downloaded directly from the GDC Data Portal.
+
+To generate a token, first log in to the GDC Data Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user John Doe&nbsp;is logged in to the GDC Data Portal, indicated by the username JOHNDOE:
+
+![GDC Data Portal Home Screen after Login](/Users/FGerthoffert/GitHub/gdc-docs/site/Data_Transfer_Tool/Users_Guide/images/04-06_gdc-data-portal-home-screen-after-login.png)
+**GDC Data Portal Home Screen after Login**
+
+Clicking the username will open a drop-down menu. Select *Download Token* from the menu to generate an authentication token.
+
+![GDC Data Portal User Dropdown Menu](/Users/FGerthoffert/GitHub/gdc-docs/site/Data_Transfer_Tool/Users_Guide/images/04-07-data-portal-user-dropdown-menu.png)
+**GDC Data Portal User Dropdown Menu**
+
+**NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user.
+
+## Data Download and Upload
+
+### Data Download and Upload
+
+#### Downloads
+
+
+##### TCP and UDT Modes
+
+The GDC Data Transfer Tool supports two download modes:
+
+* **TCP mode** is the default mode. It provides broader compatibility with different network configurations, including configurations where UDP traffic is blocked. In TCP mode, the GDC Data Transfer Tool relies on the ubiquitous [Transmission Control Protocol (TCP) protocol](https://tools.ietf.org/html/rfc793) to download files.
+
+* **UDT mode** uses a protocol known as [UDT](http://udt.sourceforge.net/), or User Datagram Protocol (UDP)-based Data Transfer. UDT was designed for high-speed networks and supports transfers of terabyte-size data sets across the globe. UDT offers improved speeds when transferring data over high-speed networks such as ESnet, StarLight, and Internet2. UDT also offers improved performance for network routes that experience long ping times (RTT) and/or packet loss, such as those that can occur between GDC's facilities in Chicago and a geographically remote location. UDT mode requires a network configuration that is open to UDP traffic, including an open UDP port 9000.
+
+Both modes provide improved transfer speeds over browser-based HTTP(S) downloads, and enable resumption of interrupted transfers.
+
+*__Note:__ GDC Data Transfer Tool's UDT mode is currently only supported for downloads on Linux systems. UDT support for uploads, and for OS X and Windows systems is under development.*
+
+###### TCP Downloads
+
+The following example is a GDC Data Transfer Tool command for downloading two files from GDC in TCP mode:
+
+	> gdc-client download gdc_file_uuid1 gdc_file_uuid2
+
+
+###### UDT Downloads
+
+UDT mode is activated using the **-u** switch. The following example is a command for downloading two files from GDC in UDT mode:
+
+	> gdc-client download gdc_file_uuid1 gdc_file_uuid2 -u
+
+
+##### Downloading Data Using a Manifest File
+
+A convenient way to download multiple files from GDC is to use a manifest file generated by the GDC Data Portal. After generating a manifest file (see Preparing for Data Download and Upload for instructions), initiate the download using the GDC Data Transfer Tool by supplying the **-m** or **--manifest** option, followed by the location and name of the manifest file. OS X users can drag and drop the manifest file into Terminal to provide its location.
+
+The following is an example of a command for downloading files from GDC using a manifest file:
+
+	> gdc-client download -m gdc_manifest_6746fe840d924cf623b4634b5ec6c630bd4c06b5.txt
+
+##### Downloading Data Using GDC File UUIDs
+
+The GDC Data Transfer Tool also supports downloading of one or more individual files using UUID(s) instead of a manifest file. To do this, enter the UUID(s) after the download command:
+
+	> gdc-client download 22a29915-6712-4f7a-8dba-985ae9a1f005
+
+Multiple UUIDs can be specified, separated by a space:
+
+	> gdc-client download e5976406-473a-4fbd-8c97-e95187cdc1bd fb3e261b-92ac-4027-b4d9-eb971a92a4c3
+
+##### Resuming a Failed Download
+
+The GDC Data Transfer Tool supports resumption of interrupted downloads. To resume an incomplete download, repeat the download of the manifest or UUID(s) in the same folder as the initial download.
+
+	> gdc-client download f80ec672-d00f-42d5-b5ae-c7e06bc39da1
+
+##### Downloading Controlled Data
+
+A user authentication token is required for downloading controlled data from GDC. Tokens can be obtained from the GDC Data Portal (see instructions in Section 4. Once downloaded, the token *file* can be passed to the GDC Data Transfer Tool using the **-t** or **--token-file** option:
+
+	> gdc-client download -m gdc_manifest_e24fac38d3b19f67facb74d3efa746e08b0c82c2.txt -t gdc-user-token.2015-06-17T09-10-02-04-00.txt
+
+Alternatively, the full token can be supplied in plain text using the **--token** or **-T** option.
+
+#### Uploads
+
+##### Uploading Data Using a Manifest File
+
+GDC Data Transfer Tool supports uploading molecular data using a manifest file. The manifest file for a data bundle can be retrieved from the GDC Data Submission Portal, or directly from the GDC Submission API given a data bundle UUID. The user authentication token file needs to be specified using the **-t** or **--token** option.
+
+	> curl -H "X-Auth-Token:$token" "https://gdc-api.nci.nih.gov/submission/CGCI/BLGSP/manifest?ids=460ad2fe-5a7f-4797-9e18-336d33e21444" >manifest.yml
+
+	> gdc-client upload -m manifest.yml -t token.txt
+
+##### Uploading Data Using a GDC File UUID
+
+The GDC Data Transfer Tool also supports uploading molecular data using a file UUID. The tool will first make a request to get the filename and project id from GDC API, and then upload the corresponding file from the current directory.
+
+	> gdc-client upload -i cd939bdd-b607-4dd4-87a6-fad12893932d -t token.txt
+
+##### Resuming a Failed Upload
+
+By default, GDC Data Transfer Tool uses multipart transfer to upload files. If an upload failed but some parts were transmitted successfully, a resume file will be saved with the filename *resume\_[manifest\_filename]*. Running the upload command again will resume the transfer of only those parts of the file that failed to upload in the previous attempt.
+
+	> gdc-client upload -m manifest.yml -t token
+
+##### Replacing Previously Uploaded Data
+
+Previously uploaded data can be replaced with new data by deleting it first using the **--delete** switch:
+
+	> gdc-client upload -m manifest.yml -t token --delete
+
+#### Troubleshooting
+
+##### Invalid Token
+
+An error message about an &#39;invalid token&#39; means that a new authentication token needs to be obtained from the GDC Data Portal or the GDC Data Submission Portal as described in Preparing for Data Download and Upload.
+
+##### dbGaP Permissions Error
+
+Users may see the following error message when attempting to download a file from GDC:
+
+	 403 Client Error: FORBIDDEN: {
+	  "message": "You don't have access to the data: You don't have access to the data"
+	}
+
+This error message means that the user does not have dbGaP access to the project that the file belongs to. Instructions for requesting access from dbGaP can be found [here](https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data/registering-and-working-era-commons-and-dbgap).
+
+##### File Availability Error
+
+Users may also see the following error message when attempting to download a file from GDC:
+
+	403 Client Error: FORBIDDEN: {
+	  "message": "You don't have access to the data: Requested file abd28349-92cd-48a3-863a-007a218de80f does not allow read access"
+	}
+
+This error message means that the file is not available for download. This may be because the file has not been uploaded or released yet.
+
+##### GDC Upload Privileges Error
+
+Users may see the following error message when attempting to upload a file:
+
+	Can't upload:{
+	  "message": "You don't have access to the data: You don't have create role to do 'upload'"
+	}
+
+This means that the user has dbGaP read access to the data, but does not have GDC upload privileges. Users can contact GDC User Support to request upload privileges.
+
+##### File in Uploaded State Error
+
+Re-uploading a file may return the following error: <q>File in uploaded state, upload not allowed</q>. To resolve this issue, delete the file using the **--delete** switch before re-uploading.
+
+#####  UDT Download Times Out
+
+If downloads work in TCP mode but time out in UDT mode, there may be a problem with the user's network configuration. UDT mode requires a network configuration that is open to UDP traffic, including an open UDP port 9000. Contact your network administrator for assistance.
+
+## Appendix A - Key Terms
+
+The following table provides definitions and explanations for terms and acronyms relevant to the content presented within this document.
+
+<table border="1" cellpadding="0" cellspacing="0" width="100%"><caption>Table 1: Key Terms</caption>
+
+<thead>
+
+<tr>
+
+<th>Term</th>
+
+<th>Definition</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+eRA
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+Electronic Research Administration
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+GDC
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+Genomic Data Commons
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+HTTP
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+Hypertext Transfer Protocol
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+HTTPS
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+HTTP Secure
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+ID
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+Identifier
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+NCI
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+National Cancer Institute
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+TCGA
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+The Cancer Genome Atlas
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+TCP
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+Transmission Control Protocol
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+UDP
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+User Datagram Protocol
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+UDT
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+User Datagram Protocol (UDP)-based Data Transfer
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="width:27%;height:5px;">
+
+UUID
+
+</td>
+
+<td style="width:73%;height:5px;">
+
+Universally Unique Identifier
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+## Release Notes
+
+### Data Transfer Tool Release Notes
+
+
+
+
+
+#### v0.7.00
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: March 30, 2016
+
+
+##### New Features and Changes
+
+* Data Transfer Tool version numbers are now independent of GDC API version numbers
+
+##### Bugs Fixed Since Last Release
+
+* Parsing of command line arguments relating to authentication tokens has been fixed. Arguments `-t` and `--token-file` accept token files, whereas `-T` and `--token` accept token strings.
+
+##### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* Delete function is not working.
+	* *Workaround:* Use an API call instead of the Data Transfer Tool to delete files
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+#### v0.6.00
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: March 10, 2016
+
+
+##### New Features and Changes
+
+* Data Transfer Tool version numbers are now independent of GDC API version numbers
+
+##### Bugs Fixed Since Last Release
+
+* Parsing of command line arguments relating to authentication tokens has been fixed. Arguments `-t` and `--token-file` accept token files, whereas `-T` and `--token` accept token strings.
+
+##### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* Delete function is not working.
+	* *Workaround:* Use an API call instead of the Data Transfer Tool to delete files
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+
+#### v0.4.00
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: March 3, 2016
+
+
+##### New Features and Changes
+
+* Help menus and options are more consistent across download, upload, and interactive modes
+* Default behavior is command line mode rather than interactive mode
+* Clearer error message when file IDs or manifests are not supplied in download mode
+
+##### Bugs Fixed Since Last Release
+
+* None to report
+
+##### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+
+#### v0.3.20
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: January 28, 2016
+
+
+##### New Features and Changes
+
+* None to report
+
+##### Bugs Fixed Since Last Release
+
+* GDC API compatibility fixes
+
+##### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+
+#### v0.2.18
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: December 18, 2015
+
+##### New Features and Changes
+
+* None to report
+
+##### Bugs Fixed Since Last Release
+
+* Fixed a bug where adding a new line to the end of an auth token would break the header for a request.
+
+##### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+
+#### v0.2.18-spr3
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: November 18, 2015
+
+##### New Features and Changes
+
+* Added molecular data upload via manifest files.
+* Single part or multi-part upload is available dependent on file size.
+* Users can resume partially uploaded files for multi-part uploads.
+
+##### Bugs Fixed Since Last Release
+
+* None to report
+
+##### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+
+#### v0.2.15.2
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: August 31, 2015
+
+##### New Features and Changes
+
+* None to report
+
+##### Bugs Fixed Since Last Release
+
+* Fixed an issue where the authorization token was not properly passed to related files downloads, preventing download of controlled access related files.
+* Fixed an issue where some error messages would not return a descriptive response for the user.
+* Fixed an issue where the client would not properly read URLs if a trailing '/' was not added at the end.
+
+##### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+
+#### v0.2.15.1
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: August 7, 2015
+
+##### New Features and Changes
+
+* Reorganized the High Performance Download Client into the GDC Client. This change was made in order to accomodate future functionality into one consolidated client.
+* The GDC Client will now download associated files and annotations.
+
+##### Bugs Fixed Since Last Release
+
+* None to report
+
+##### Known Issues and Workarounds
+
+* On some Mac OS X systems, it is possible that a directory user permission error might be raised when attempting to download files.
+  * *Workaround:* Switch the current working directory and attempt to download again
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+
+#### v0.2.13
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: July 23, 2015
+
+##### New Features and Changes
+
+* Removed debug definition from default configuration so users can specify prior to compile if they want verbose logging output
+
+##### Bugs Fixed Since Last Release
+
+* Fixed a receive buffer space bug
+
+##### Known Issues and Workarounds
+
+* None to report
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+
+#### v0.1.13
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: June 2, 2015
+
+##### New Features and Changes
+
+* Provides support for interactive text mode
+* Adds a default server Uniform Resource Locator (URL)
+* Updated command line syntax to default to TCP/HTTP in support of ease of use
+* Provides support for Windows
+* Packaged for OSX, Ubuntu, and Windows
+
+##### Bugs Fixed Since Last Release
+
+* None to report
+
+##### Known Issues and Workarounds
+
+* None to report
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
+
+
+
+
+
+#### v0.1.10
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: March 18, 2015
+
+##### New Features and Changes
+
+* Allow users to retrieve large, high volume molecular data using a manifest file generated by the GDC Data Portal
+* Allow users to download retrieved files
+
+##### Bugs Fixed Since Last Release
+
+* None to report
+
+##### Known Issues and Workarounds
+
+* Does not support the Windows platform
+
+Release details are maintained in the GDC Data Transfer Tool Change Log
+
