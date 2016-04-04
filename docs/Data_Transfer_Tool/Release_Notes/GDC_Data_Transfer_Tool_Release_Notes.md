@@ -12,11 +12,12 @@
 
 ### New Features and Changes
 
-* Data Transfer Tool version numbers are now independent of GDC API version numbers
+* Incorporated improved exception handling
+* API response errors are now displayed
 
 ### Bugs Fixed Since Last Release
 
-* Parsing of command line arguments relating to authentication tokens has been fixed. Arguments `-t` and `--token-file` accept token files, whereas `-T` and `--token` accept token strings.
+* gdc-client upload --delete function has been fixed
 
 ### Known Issues and Workarounds
 
