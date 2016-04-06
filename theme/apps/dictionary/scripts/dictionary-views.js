@@ -902,11 +902,14 @@
         var category = categoryKeys[i];
 
         _tableEntityListView.renderEntity(category, categoryMap[category], _getSortFnForCategory(category, categoryMap[category]));
-
       }
 
       // Print any remaining not explicitly sorted keys that may not be in the hardcoded order...
-      var leftOverCategories = _.difference(_.keys(_tableEntityListView._dictionaryData.dictionaryMapByCategory), categoryKeys);
+      var leftOverCategories = _.difference(
+        _.keys(_tableEntityListView._dictionaryData.dictionaryMapByCategory), categoryKeys
+      ).filter(function (key) {
+        return _DICTIONARY_CONSTANTS.CATEGORY_EXCLUDES.indexOf(key) === -1
+      });
 
       if (leftOverCategories.length) {
         console.warn('Sorted Category Differences: ', leftOverCategories);
@@ -918,7 +921,6 @@
       }
 
       console.log('TableEntityListView Rendering!');
-
 
       _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
       _tableEntityListView._callbackFn.call(null, new Dictionary._ViewUpdateObject(_tableEntityListView));
@@ -1026,11 +1028,19 @@
       }
 
       var tRows = tBody.selectAll('tr')
-        .data(categoryData.filter(function (entity) {
-          return _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category]
-            ? _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category].indexOf(entity.id) > -1
-            : true;
-        }))
+        .data(
+          categoryData.filter(function (entity) {
+            return _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category]
+              ? _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category].indexOf(entity.id) > -1
+              : true;
+          })
+          .sort(function (a, b) {
+            return _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[a.category]
+              ? _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[a.category].indexOf(a.id) -
+                _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[b.category].indexOf(b.id)
+              : 0;
+          })
+        )
         .enter()
         .append('tr')
         .classed('dictionary-entity-list-item', true);

@@ -407,8 +407,9 @@
       tbd: 'References',
       index_file: 'Index'
     },
-    ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'data_bundle', 'annotation', 'administrative', 'TBD'],
-    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative'],
+    ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'data_bundle', 'annotation', 'administrative'],
+    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative', 'index_file', 'analysis'],
+    CATEGORY_EXCLUDES: ['TBD'],
     CATEGORY_TEMPLATE_EXCLUDES: {
       clinical: ['clinical'],
       data_bundle: ['file', 'generated_file', 'clinical_data_bundle', 'biospecimen_data_bundle', 'pathology_data_bundle'],
@@ -417,7 +418,7 @@
     LINK_EXCLUDES: ['file', 'biospecimen_data_bundle', 'clinical_data_bundle', 'pathology_data_bundle'],
     PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles'],
     CATEGORY_TEMPLATE_INCLUDES: {
-      'data_bundle': ['read_group', 'slide', 'slide_image', 'submitted_unaligned_reads']
+      data_bundle: ['read_group', 'submitted_unaligned_reads', 'slide', 'slide_image']
     },
     END_POINT: {
       DEFAULT_URL: 'https://gdc-api.nci.nih.gov', // TODO: env variable? 'http://localhost:5000'
