@@ -1015,12 +1015,17 @@
               return;
             }
 
-            var exclusions = _.get(_DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES, category, null);
+            var exclusions = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES[category];
+            var inclusions = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[category];
 
-            _tableEntityListView._callbackFn.call(
-              null, new Dictionary._ViewUpdateObject(_tableEntityListView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED, {
-                id: _.get(_DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES, category, category),
-                excludes: exclusions
+            _tableEntityListView._callbackFn(new Dictionary._ViewUpdateObject(
+              _tableEntityListView,
+              _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED,
+              {
+                id: category === 'data_bundle' ? 'data_bundle,data_file' : category,
+                excludes: inclusions
+                  ? _.difference(categoryData.map(function(x) { return x.id; }), inclusions)
+                  : exclusions
               })
             );
           })
