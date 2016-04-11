@@ -286,7 +286,7 @@ cases.demographic.race NOT MISSING
 
 ### Date format
 
-A date value should follow the following format: **YYYY-MM-DD** (without quotes).
+The date format should be the following: **YYYY-MM-DD** (without quotes).
 
 Example:
 
