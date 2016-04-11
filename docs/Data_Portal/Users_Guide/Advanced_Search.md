@@ -291,7 +291,7 @@ The date format should be the following: **YYYY-MM-DD** (without quotes).
 Example:
 
 ```
-files.updated_datetime > 2016-01-01
+files.updated_datetime > 2015-12-31
 ```
 
 
