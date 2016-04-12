@@ -3,7 +3,7 @@
 ## Release 0.3.24.4
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: April, 4th 2016
+* __Release Date__: April 4, 2016
 
 ### New Features and Changes
 
@@ -104,7 +104,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 ## Release 0.2.15-oicr4
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: October 1st, 2015
+* __Release Date__: October 1, 2015
 
 ### New Features and Changes
 
