@@ -14,7 +14,7 @@ At this point, the data is not yet submitted to the GDC.
 [![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
 
 ### Review and Submit Data
-When data in the project workspace is ready for processing, the submitter or project owner must submit the data to the GDC in order for processing to occur through the [GDC Data Harmonization Pipeline](https://gdc-dev.nci.nih.gov/submit-data/gdc-data-harmonization). Submitting data to the GDC will initiate the GDC Data Harmonization Pipeline. 
+When data in the project workspace is ready for processing, the submitter or project owner must submit the data to the GDC in order for processing to occur through the [GDC Data Harmonization Pipeline](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). Submitting data to the GDC will initiate the GDC Data Harmonization Pipeline. 
 
 During this process, there are two primary actions that should be performed:
 
