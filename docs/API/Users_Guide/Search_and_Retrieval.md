@@ -824,7 +824,7 @@ print json.dumps(response.json(), indent=2)
 
 ### Sort
 
-The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:dsc` (descending) prefix, e.g. `sort=field:dsc`.
+The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:dsc` (descending) prefix, e.g. `sort=field:desc`.
 
 #### Example
 
