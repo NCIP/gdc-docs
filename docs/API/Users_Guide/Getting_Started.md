@@ -87,7 +87,7 @@ The GDC API supports the following request headers:
 | --- | --- |
 | Content-Type | Format of the request that the user is providing to the GDC API: `application/json` or `application/xml`. |
 | Accept | Format of the response that the user expects from the GDC API: `application/json` or `application/xml`. |
-| X-Auth-Token | The authentication token as provided by the GDC. See [Authorization and Authentication](Authentication_and_Authorization.md) |
+| X-Auth-Token | The authentication token as provided by the GDC. See [Authorization and Authentication](Authentication_and_Authorization.md). |
 
 
 ## Response Headers
