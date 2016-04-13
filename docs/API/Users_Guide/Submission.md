@@ -108,50 +108,44 @@ The following fields are included in all API responses to submission requests.
 
 ```json
 {
-	"code": int,
-	"created_entity_count": int,
-	"entities": [object],
-	"entity_error_count": int,
-	"message": string,
-	"success": boolean,
-	"transactional_error_count": int,
-	"transactional_errors": [transactional_error],
-	"updated_entity_count": int
+  "cases_related_to_created_entities_count": int,
+  "cases_related_to_updated_entities_count": int,
+  "code": int,
+  "created_entity_count": int,
+  "entities": [entities],
+  "entity_error_count": int,
+  "message": string,
+  "success": boolean,
+  "transaction_id": string,
+  "transactional_error_count": int,
+  "transactional_errors": [transactional_errors],
+  "updated_entity_count": int
 }
 ```
 
-**success** A boolean value stating whether the transaction was successful. If the value is False, then no changes will be made to the database.
+**`cases_related_to_created_entities_count`**  A count of the number of cases related to the created entities.
 
-**code** The HTTP status code of the response message. A human readable summary of the transaction results.
+**`cases_related_to_updated_entities_count`**  A count of the number of cases related to the created entities.
 
-**transactional_errors** A list of transactional errors that have occurred. These errors are errors that are not specific to
-an individual entity. Transactional errors are of the form:
+**`code`**  The HTTP status code of the response message. A human readable summary of the transaction results.
+
+**`created_entity_count`**  A count of the number of entities created.
+
+**`entities`**  A list of entities of the form:
 
 ```json
 {
-	"message": string
+  "action": string,
+  "errors": [entity_errors],
+  "id": string,
+  "related_cases": [object],
+  "type": string,
+  "unique_keys": [unique_keys],
+  "valid": boolean,
+  "warnings": [object]
 }
 ```
-
-**`transactional_error_count`** A count of the number of transactional errors that occured.
-
-**`entity_error_count`** A count of the number of entities that were not successful.
-
-**entities** A list of entities of the form:
-
-```json
-{
-	"submitter_id": string,
-	"errors": [entity_errors],
-	"id": string,
-	"valid": boolean,
-	"type": string
-}
-```
-
-**entity_errors**
-
-A list of errors that occurred while parsing, validating, or performing a CRUD operation on a
+*`entity_errors`*  A list of errors that occurred while parsing, validating, or performing a CRUD operation on a
 specific entity. Entity errors are of the form:
 
 ```json
@@ -161,9 +155,33 @@ specific entity. Entity errors are of the form:
 }
 ```
 
-For a listing of the types of errors, see Creating Entities.
+*`unique_keys`*  Properties, or combinations of properties, that can be used to uniquely identify the node in the GDC.  Unique_keys are of the form:
 
-**`created_entity_count`** The number of entities created by the transaction.
+```json
+{
+	"project_id": string,
+	"submitter_id": string
+}
+```
+<br>
+
+**`entity_error_count`** A count of the number of entities that were not successful.
+
+**`message`**  A human-readable message describing the transaction.
+
+**`success`**  A boolean value stating whether the transaction was successful. If the value is False, then no changes will be made to the database.
+
+**`transaction_id`**  A string specifying the transaction id.
+
+**`transactional_error_count`**  A count of the number of transactional errors that occurred.
+
+**`transactional_errors`**  A list of transactional errors that have occurred. These errors are errors that are not specific to an individual entity. Transactional errors are of the form:
+
+```json
+{
+	"message": string
+}
+```
 
 **`updated_entity_count`** The number of existing entities updated by the transaction.
 
