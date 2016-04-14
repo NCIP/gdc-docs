@@ -1,51 +1,51 @@
 # Data Portal Release Notes
 
-## Release 0.3.24.4
+## Release 0.3.24.2
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: April, 4th 2016
+* __Release Date__: April 4, 2016
 
 ### New Features and Changes
 
-*   Implemented an homepage providing high-level data about GDC Data Portal
-*   Created the GDC Legacy Archive to display legacy data
-*   Updated the GDC Data Portal for Harmonized data
-*   Updated Login process to be consistent with GDC Data Submission Portal login
-*   Added export GDC Clinical and Biospecimen data from Project and Case entity pages (replacing download Clinical XML)
+*   Implemented a homepage to provide high-level information about the GDC Data Portal
+*   Created the GDC Legacy Archive to provide access to legacy data
+*   Updated the GDC Data Portal to support harmonized data
+*   Updated the login process to be consistent with the GDC Data Submission Portal login
+*   Added the ability to export clinical and biospecimen data from Project and Case entity pages (replacing download clinical XML)
 *   Improved GDC Data Portal search capabilities:
     *   Added customized facets, expanding the GDC Data Portal search capabilities to non-default facets
     *   Updated the list of fields suggested in the Advanced Search and Custom Facets
-    *   Added prefix search on case submitter ID on Facet panel
-    *   Improved operator auto-suggestion based on field type in Advanced Search
-*   Improved download experience by letting the browser handle the download (allow canceling)
-*   Cart:
-    *   Added download metadata files (SRA XML and MAGE-TAB)
-    *   Added download Biospecimen and Clinical data
-*   Improved Biospecimen tree in case entity page (search for ID and expand tree)
-*   Improved 508 and Internet Explorer support
-*   Improved table in Projects page ("Total" row with links to search page)
-*   Improved BAM Slicing UI (added example and ability to use tabulations for BED format in the text box)
+    *   Added prefix search on case submitter ID on the Facet panel
+    *   Improved operator auto-suggestion based on field type in the Advanced Search
+*   Improved the download experience by letting the browser handle the download (allow canceling)
+*   Enhanced Cart capabilities:
+    *   Added the ability to download metadata files (SRA XML and MAGE-TAB)
+    *   Added the ability to download biospecimen and clinical data
+*   Improved the Biospecimen tree in the Case entity page (users can search for ID and expand the tree)
+*   Improved support for Section 508 standards and the Internet Explorer browser
+*   Improved the table view in the Projects page (Added a "Total" row with links to the search page)
+*   Improved the BAM Slicing UI (added an example and the ability to use tabulations for BED format in the text box)
 
 ### Bugs Fixed Since Last Release
 
 *   Disease Type does not auto filter (Data Facet)
 *   When exporting the annotation table to a file, the create date field is not displayed in the same format than the UI
-*   This ticket is not applicable anymore "In Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.", the case entity page has a standard download clinical feature.
+*   This ticket is not applicable anymore: "In the Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.". The Case entity page has a standard download clinical feature.
 
 
 ### Known Issues and Workarounds
 
 *   General
-    *   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
 *   Tables and Export
     *   Table sorting icon does not include numbers <!-- PGDC-35 -->
     *   Table export return correct content (XML, TSV) although file extension is incorrect (always JSON) <!-- PGDC-1986 -->
     *   Nested values are not exported properly <!-- PGDC-910 SV-13 -->
     *   Project table summary chart does not display colors with Internet Explorer 11 <!-- PGDC-1953 -->
     *   Exporting a table containing a very large number of records might trigger an exception (when the server is timing out)<!-- PGDC-1962 -->
-    *   Restore default table column arrangement does not restore to default but to previous state <!-- PGDC-1769 -->
+    *   Restore default table column arrangement does not restore to the default but it restores to the previous state <!-- PGDC-1769 -->
 *   Cart and Download
-    *   When saving file for download, the download pop-up indicates "from:blob:" <!-- PGDC-115 -->
+    *   When saving a file for download, the download pop-up indicates "from:blob:" <!-- PGDC-115 -->
     *   User with update only can also download files also role should not allow <!-- PGDC-1782 -->
     *   User can add more files to the cart than supported if adding files one by one <!-- PGDC-1957 -->
     *   In very specific situations, the cart can display inconsistent data <!-- PGDC-1028 -->   
@@ -104,7 +104,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 ## Release 0.2.15-oicr4
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: October 1st, 2015
+* __Release Date__: October 1, 2015
 
 ### New Features and Changes
 

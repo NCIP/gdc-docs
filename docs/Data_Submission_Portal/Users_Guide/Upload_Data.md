@@ -45,7 +45,7 @@ The table below is an example of files used to upload a read group to the GDC. T
 |# | File name | Description | GDC Tool |
 | --- | --- | --- | --- |
 |1a | read_group.tsv |Read Group Metadata|Upload this file to the Submission Portal. It describes the experiment metadata.|
-|1b | submitted_file.tsv|Submitted File Metadata|Upload this file to the Submission Portal. It describes the file metadata.|
+|1b | submitted\_unaligned_reads.tsv|Submitted File Metadata|Upload this file to the Submission Portal. It describes the file metadata.|
 |2 | manifest.yml|Manifest|Download this file from the Submission Portal. This manifest is used by the GDC Data Transfer Tool for the actual file upload.|
 |3 | ExperimentFile.fastq|FAST File|Upload this file to the GDC Data Transfer Tool along with the manifest.|
 
@@ -92,7 +92,7 @@ demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	fe
 ```
 
 
-#### Read Group and Submitted File
+#### Read Group and File
 
 Example of a __Read Group__ upload, which needs 2 TSV files to describe metadata.
 
@@ -103,11 +103,11 @@ type	project_id	submitter_id	aliquots.submitter_id	experiment_name	is_paired_end
 read_group	TCGA-DEV3	read_group_ID1	TCGA-DEV-3-CASE-000-S1-AL1	Text for Experiment	TRUE	lib_1	WXS	Illumina	35	101	test								FALSE																	FALSE
 ```
 
-File 2: submitted_file.tsv
+File 2: submitted\_unaligned_reads.tsv
 
 ```tsv
-type	project_id	submitter_id	read_groups.submitter_id#1	slides.submitter_id	file_name	file_size	md5sum	file_format	state_comment
-submitted_file	TCGA-DEV3	fileID1_CASE-000-AL1	read_group_ID1		fileID88_CASE-000.fastq	61004	311253B0CA93B396A41C0A88F01557AE	fastq	
+type	project_id	submitter_id	read_groups.submitter_id	file_name	file_size	md5sum	data_category	data_type	data_format	experimental_strategy
+submitted_unaligned_reads	TCGA-DEV3	fileID1_CASE-000-AL1	read_group_ID1	fileID88_CASE-000.fastq	61004	311253B0CA93B396A41C0A88F01557AE	Sequencing Data	Unaligned Reads	FASTQ	WGS
 ```
 
 
@@ -179,8 +179,8 @@ Once the user has uploaded the metadata through the Upload Data Wizard (e.g., re
 
 Users can use this manifest to upload their actual files to the GDC Data Transfer Tool. Please refer to the [GDC Data Transfer Tool's User Guide] (../Data_Transfer_Tool/Users_Guide/Getting_Started.md) for more information.
 
-## Download previously submitted files
+## Download previously uploaded files
 
-The transaction page, accessible through the Browse menu, lists all previous transactions in the project. The user can download submitted files in the details section of the screen by selecting a particular transaction.
+The transaction page, accessible through the Browse menu, lists all previous transactions in the project. The user can download files uploaded to the GDC workspace in the details section of the screen by selecting a particular transaction.
 
 [![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files.png)](images/GDC_Submission_Transactions_Original_Files.png "Click to see the full image.")

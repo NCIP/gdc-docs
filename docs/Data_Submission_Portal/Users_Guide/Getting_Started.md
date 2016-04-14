@@ -16,17 +16,17 @@ The GDC Data Submission Portal is a platform that allows researchers to submit a
 
 ## Submission Workflow
 
-The Submission Workflow is described in detail in the [Data Submission Workflow](Submission_Workflow.md) section. 
+The Submission Workflow is described in detail in the [Data Submission Workflow](Submission_Workflow.md) section.
 
 ## Key Features
 
 ### Upload and Validate Data
 In order to submit data to the GDC, the submitter will prepare the data and upload it to the project workspace.
 
-The main categories of data that can be uploaded include: 
+The main categories of data that can be uploaded include:
 
 * Clinical Data: Elements such as gender, age, diagnosis, etc. as defined in the GDC Data Dictionary.
-* Biospecimen Data: Entities such as samples, aliquots, etc. as defined in the GDC Data Dictionary.
+* Biospecimen Data: Nodes such as samples, aliquots, etc. as defined in the GDC Data Dictionary.
 * Experiment Data: At least one type of experiment data, such as a read group, as defined in the GDC Data Dictionary.
 
 By using the [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md), the user can identify the minimum field requirements for each of the three categories listed above.
@@ -35,7 +35,7 @@ In general, submitters have six months to upload data to the project workspace b
 
 ### Review and Submit Data
 
-Once data is uploaded to the project workspace, the submitter or project owner should review it to ensure that the data is ready for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). The review will lock the project to ensure that additional data cannot be uploaded while in review. During this period, the submitter or project owner can browse or download the data in the Data Submission Portal. 
+Once data is uploaded to the project workspace, the submitter or project owner should review it to ensure that the data is ready for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). The review will lock the project to ensure that additional data cannot be uploaded while in review. During this period, the submitter or project owner can browse or download the data in the Data Submission Portal.
 
 If the project is ready for processing, the submitter or project owner can submit the data to the GDC. If the project is not ready for processing, the submitter or project owner can re-open it. This will allow the submitter to upload additional data to the project workspace.
 
@@ -53,7 +53,7 @@ Released cases and/or files can be redacted from the GDC. Redaction is performed
 
 In addition to submitting and releasing files, the GDC Data Submission Portal can also display submitted files and entities through multiple pages and tables.
 
-Along with listing entities, the GDC Data Submission Portal also offers users the ability to download files submitted initially or the latest version of a specific entity (e.g. the clinical data for a case).
+Along with listing nodes, the GDC Data Submission Portal also offers users the ability to download files submitted initially or the latest version of a specific node (e.g. the clinical data for a case).
 
 ### Status and Alerts
 
@@ -67,7 +67,7 @@ Transactions are also displayed on the dashboard highlighting the most recent tr
 
 ### Reports
 
-The GDC Data Submission Portal provides a broad range of submission oriented reports. Reports are detailed in the [Reports](Reports.md) section.
+The GDC Data Submission Portal provides a broad range of submission-oriented reports. Reports are detailed in the [Reports](Reports.md) section.
 
 ## Access
 

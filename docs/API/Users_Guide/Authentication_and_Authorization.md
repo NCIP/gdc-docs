@@ -4,7 +4,7 @@ The GDC API provides access to open-access data without authentication. Submitti
 
 ## Authorization
 
-Authorization for downloading controlled-access data or for submitting data to the GDC is obtained via dbGaP. See [Obtaining Access to Controlled Data](https://gdc-dev.nci.nih.gov/access-data/obtaining-access-controlled-data) and [Obtaining Access to Submit Data](https://gdc.nci.nih.gov/submit-data/obtaining-access-submit-data) for instructions on getting the appropriate authorization.
+Authorization for downloading controlled-access data or for submitting data to the GDC is obtained via dbGaP. See [Obtaining Access to Controlled Data](https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data) and [Obtaining Access to Submit Data](https://gdc.nci.nih.gov/submit-data/obtaining-access-submit-data) for instructions on getting the appropriate authorization.
 
 ## Authentication
 

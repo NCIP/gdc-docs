@@ -2,7 +2,6 @@
 
 ## Overview
 
-! __Section to be further completed__ !
 
 If the file listed in the entity page is a BAM file, a "BAM Slicing" button will be available. Clicking on it will open the BAM slicing window.
 

@@ -34,11 +34,43 @@ and an unversioned submission endpoint at
 
 <pre>https://gdc-api.nci.nih.gov/submission/<b>TCGA</b>/<b>ALCH</b></pre>
 
-## GDC Dictionary
+## GDC Data Model
 
-Requests to the submission API must adhere to the schemas defined in the [GDC Data Dictionary](../../Data_Dictionary/index.md).
+### Entities, Properties, and Links
+
+The GDC Data Model is a representation of data stored in the GDC. It is used to retrieve, submit, update, and delete data. Although the GDC Data Model may contain some cyclic elements, it can be helpful to think of it as a [Directed Acyclic Graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) composed of **entities**. Each entity in the GDC has a set of properties and links.
+
+* **Properties** are key-value pairs associated with an entity. Properties cannot be nested, which means that the value must be numerical, boolean, or a string, and cannot be another key-value set. Properties can be either required or optional. The following properties are of particular importance in constructing the GDC Data Model:
+    * **Type** is a required property for all entities. Entity types include `project`, `case`, `demographic`, `sample`, `read_group` and others.
+    * **System properties** are properties used in GDC system operation and maintenance, that cannot be modified except under special circumstances.
+    * **Unique keys** are properties, or combinations of properties, that can be used to uniquely identify the entity in the GDC. For example, the tuple (combination) of `[ project_id, submitter_id ]` is a unique key for most entities, which means that although `submitter_id` does not need to be unique in GDC, it must be unique within a project.
+* **Links** define relationships between entities, and the multiplicity of those relationships (e.g. one-to-one, one-to-many, many-to-many).
+
+The properties and links that an entity can have are defined by the **JSON schema** corresponding to the entity's `type`. Entity JSON schemas are stored in the GDC Data Dictionary. The entire collection of schemas can be downloaded at the following GDC Data Dictionary endpoint:
+
+<pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>_all</b></pre>
+
+[//]: # (this is just a comment ignore me I beg of you_)
+
+Individual schemas can be downloaded at the endpoint that corresponds to the entity type. For example, the JSON schema for `case` entities can be found at:
+
+<pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>case</b></pre>
+
+Functionally similar entity types are grouped under the same **category**. For example, entity types `slide_image` and `submitted_unaligned_reads` belong to `data_file` category, which comprises entities that correspond to files downloadable from the GDC Object Store. The [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) provides a user-friendly overview of entity schemas, grouped by category.
+
+To submit data to the GDC, users must create and link entities according to their schemas, creating a graph similar to the example provided [here](https://gdc.nci.nih.gov/node/8396/).
+
+###
+
 
 ## Working with Entities
+
+The GDC Data Model
+
+### GDC Entity Identifiers explained
+
+
+
 
 ### Query Format
 
@@ -76,50 +108,44 @@ The following fields are included in all API responses to submission requests.
 
 ```json
 {
-	"code": int,
-	"created_entity_count": int,
-	"entities": [object],
-	"entity_error_count": int,
-	"message": string,
-	"success": boolean,
-	"transactional_error_count": int,
-	"transactional_errors": [transactional_error],
-	"updated_entity_count": int
+  "cases_related_to_created_entities_count": int,
+  "cases_related_to_updated_entities_count": int,
+  "code": int,
+  "created_entity_count": int,
+  "entities": [entities],
+  "entity_error_count": int,
+  "message": string,
+  "success": boolean,
+  "transaction_id": string,
+  "transactional_error_count": int,
+  "transactional_errors": [transactional_errors],
+  "updated_entity_count": int
 }
 ```
 
-**success** A boolean value stating whether the transaction was successful. If the value is False, then no changes will be made to the database.
+**`cases_related_to_created_entities_count`**  A count of the number of cases related to the created entities.
 
-**code** The HTTP status code of the response message. A human readable summary of the transaction results.
+**`cases_related_to_updated_entities_count`**  A count of the number of cases related to the created entities.
 
-**transactional_errors** A list of transactional errors that have occurred. These errors are errors that are not specific to
-an individual entity. Transactional errors are of the form:
+**`code`**  The HTTP status code of the response message. A human readable summary of the transaction results.
+
+**`created_entity_count`**  A count of the number of entities created.
+
+**`entities`**  A list of entities of the form:
 
 ```json
 {
-	"message": string
+  "action": string,
+  "errors": [entity_errors],
+  "id": string,
+  "related_cases": [object],
+  "type": string,
+  "unique_keys": [unique_keys],
+  "valid": boolean,
+  "warnings": [object]
 }
 ```
-
-**`transactional_error_count`** A count of the number of transactional errors that occured.
-
-**`entity_error_count`** A count of the number of entities that were not successful.
-
-**entities** A list of entities of the form:
-
-```json
-{
-	"submitter_id": string,
-	"errors": [entity_errors],
-	"id": string,
-	"valid": boolean,
-	"type": string
-}
-```
-
-**entity_errors**
-
-A list of errors that occurred while parsing, validating, or performing a CRUD operation on a
+*`entity_errors`*  A list of errors that occurred while parsing, validating, or performing a CRUD operation on a
 specific entity. Entity errors are of the form:
 
 ```json
@@ -129,9 +155,33 @@ specific entity. Entity errors are of the form:
 }
 ```
 
-For a listing of the types of errors, see Creating Entities.
+*`unique_keys`*  Properties, or combinations of properties, that can be used to uniquely identify the node in the GDC.  Unique_keys are of the form:
 
-**`created_entity_count`** The number of entities created by the transaction.
+```json
+{
+	"project_id": string,
+	"submitter_id": string
+}
+```
+<br>
+
+**`entity_error_count`** A count of the number of entities that were not successful.
+
+**`message`**  A human-readable message describing the transaction.
+
+**`success`**  A boolean value stating whether the transaction was successful. If the value is False, then no changes will be made to the database.
+
+**`transaction_id`**  A string specifying the transaction id.
+
+**`transactional_error_count`**  A count of the number of transactional errors that occurred.
+
+**`transactional_errors`**  A list of transactional errors that have occurred. These errors are errors that are not specific to an individual entity. Transactional errors are of the form:
+
+```json
+{
+	"message": string
+}
+```
 
 **`updated_entity_count`** The number of existing entities updated by the transaction.
 
@@ -383,6 +433,17 @@ BRCA).
 
 The request body syntax is the same as the POST method for the same endpoint.
 
+### Uploading data Files
+
+
+If a user want to upload a bam or fastq directly with the api they can do a put request on the file uuid, eg
+
+[1:48]
+curl -XPUT -H "X-Auth-Token: $TOKEN" https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@dummy.fastq
+
+[
+
+
 ### Deleting Entities
 
 
@@ -393,6 +454,38 @@ The above endpoint is used to delete existing GDC entities. Using DELETE on the 
 The GDC does not allow deletions or creations that would leave nodes without parents (i.e. nodes that do not have an entity from which they were derived). To prevent catastrophic mistakes the automatic cascading of deletes is not allowed.
 
 To inform the user which entities must be deleted for the target entity to be deleted, the API will respond with a list of entities that must be deleted prior to deleting the target entity.
+
+
+```Shell
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl -H "X-Auth-Token: $token" -X DELETE https://gdc-api.nci.nih.gov/v0/submission/GDC/EXAMPLE/entities/67782964-0065-491d-b051-2ae404bb734d
+```
+```Response
+{
+  "code": 200,
+  "deleted_entity_count": 1,
+  "dependent_ids": "",
+  "entities": [
+    {
+      "action": "delete",
+      "errors": [],
+      "id": "67782964-0065-491d-b051-2ae404bb734d",
+      "related_cases": [],
+      "type": "case",
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Successfully deleted 1 entities",
+  "success": true,
+  "transaction_id": 192,
+  "transactional_error_count": 0,
+  "transactional_errors": []
+}
+```
+
 
 **Parameters**
 
@@ -540,6 +633,109 @@ $ curl -XPOST -H"X-Auth-Token: $TOKEN" "https://gdc-api.nci.nih.gov/v0/submissio
 
 ### Examples
 
+#### Example
+
+Complete list of existing cases in a project titled "GDC-EXAMPLE", including count of cases and fields `submitter_id` and `id`:
+
+```Query
+{
+  case (project_id: "GDC-EXAMPLE", first: 0) {
+    id
+    submitter_id
+
+  }
+  _case_count (project_id: "GDC-EXAMPLE")
+}
+```
+```Response
+{
+  "data": {
+    "_case_count": 20,
+    "case": [
+      {
+        "id": "700d1110-b6b4-4251-89d4-fa6f0698e3f8",
+        "submitter_id": "GDC-EXAMPLE-000004"
+      },
+      {
+        "id": "be01357d-7348-40b4-a997-8a61ae7af17d",
+        "submitter_id": "GDC-EXAMPLE-000005"
+      },
+      {
+        "id": "e5638697-6ef3-4bf8-a373-102519093f33",
+        "submitter_id": "GDC-EXAMPLE-000008"
+      },
+      {
+        "id": "4871d41a-680e-4fd0-901c-b06f06ecae33",
+        "submitter_id": "GDC-EXAMPLE-000007"
+      },
+      {
+        "id": "2f18c2c1-bff2-43b6-9702-e138c72d8c6b",
+        "submitter_id": "GDC-EXAMPLE-000009"
+      },
+      {
+        "id": "ec83e038-4f01-47a6-bc69-47fb297d0282",
+        "submitter_id": "GDC-EXAMPLE-000006"
+      },
+      {
+        "id": "e4642952-d259-4be1-9c53-ed95aa1fc50b",
+        "submitter_id": "GDC-EXAMPLE-000011"
+      },
+      {
+        "id": "8bcaf0b3-21d0-45c6-87ee-c997efb417dc",
+        "submitter_id": "GDC-EXAMPLE-000010"
+      },
+      {
+        "id": "83de027e-bcbf-4239-975b-7e8ced82448e",
+        "submitter_id": "GDC-EXAMPLE-000013"
+      },
+      {
+        "id": "bbd91cc1-06e2-4e60-8b93-e09c3b16f00c",
+        "submitter_id": "GDC-EXAMPLE-000014"
+      },
+      {
+        "id": "574fd163-4368-440c-9548-d76a0fbc9056",
+        "submitter_id": "GDC-EXAMPLE-000015"
+      },
+      {
+        "id": "47c92cdd-ff11-4c25-b0f0-0f7671144271",
+        "submitter_id": "GDC-EXAMPLE-000016"
+      },
+      {
+        "id": "9f13caab-1fda-4b2a-b500-f79dc978c6c1",
+        "submitter_id": "GDC-EXAMPLE-000017"
+      },
+      {
+        "id": "9418f194-8741-44db-bd8f-36f4fd8c3bf2",
+        "submitter_id": "GDC-EXAMPLE-000018"
+      },
+      {
+        "id": "6fb2a018-c5f3-45e5-81d3-e58e7e4bf921",
+        "submitter_id": "GDC-EXAMPLE-000019"
+      },
+      {
+        "id": "70236972-e796-414a-9b7a-3b29b849ba7c",
+        "submitter_id": "GDC-EXAMPLE-000020"
+      },
+      {
+        "id": "6f78e86f-9e31-4af5-a0d9-b8970ece476d",
+        "submitter_id": "GDC-EXAMPLE-000021"
+      },
+      {
+        "id": "c6fcb2f0-c6bb-4b40-a761-bae3e63869cb",
+        "submitter_id": "GDC-EXAMPLE-000002"
+      },
+      {
+        "id": "67782964-0065-491d-b051-2ae404bb734d",
+        "submitter_id": "GDC-EXAMPLE-000001"
+      },
+      {
+        "id": "b45d2891-ba81-4ecc-a250-c58060934227",
+        "submitter_id": "GDC-EXAMPLE-000012"
+      }
+    ]
+  }
+}
+```
 #### Example
 
 GraphQL query for any one case in 'TCGA-LUAD' without Diagnosis information

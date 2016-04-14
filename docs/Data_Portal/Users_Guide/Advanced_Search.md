@@ -284,6 +284,17 @@ cases.demographic.race NOT MISSING
 
 ## Special Cases
 
+### Date format
+
+The date format should be the following: **YYYY-MM-DD** (without quotes).
+
+Example:
+
+```
+files.updated_datetime > 2015-12-31
+```
+
+
 ### Using Quotes
 
 A value must be quoted if it contains a space. Otherwise the advanced search will not be able to interpret the value.
