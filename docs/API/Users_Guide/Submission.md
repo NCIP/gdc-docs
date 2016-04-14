@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GDC Submission API uses methods and endpoints that are distinct from those that drive the functionality of the GDC Data Portal. In particular, data and metadata that is in the process of being submitted can only be queried using [GraphQL](#querying-submitted-data-and-metadata-using-graphql), and not the methods described in [Search and Retrieval](Search_and_Retrieval.md).
+The GDC Submission API uses methods and endpoints that are distinct from those that drive the functionality of the GDC Data Portal. In particular, data and metadata that are in the process of being submitted can only be queried using [GraphQL](#querying-submitted-data-and-metadata-using-graphql), and not the methods described in [Search and Retrieval](Search_and_Retrieval.md).
 
 This section describes the GDC API's submission functionality, including methods for submitting, deleting, updating, searching, and retrieving data and metadata.
 
@@ -10,7 +10,7 @@ This section describes the GDC API's submission functionality, including methods
 
 ### Constructing the endpoint URL
 
-The endpoint for submitting data to a specific project in GDC is constructed as follows:
+The endpoint for submitting data to a specific project in the GDC is constructed as follows:
 <pre>https://gdc-api.nci.nih.gov/<b>[&#x3C;API_version&#x3E;/]</b>submission/<b>&#x3C;Program.name&#x3E;</b>/<b>&#x3C;Project.code&#x3E;</b>/</pre>
 where `[<API_version>/]` is the optional API version component (see [Getting Started](Getting_Started.md)).
 
@@ -36,181 +36,207 @@ and an unversioned submission endpoint at
 
 ## GDC Data Model
 
-### Entities, Properties, and Links
+### Nodes, Properties, Links, and Schemas
 
-The GDC Data Model is a representation of data stored in the GDC. It is used to retrieve, submit, update, and delete data. Although the GDC Data Model may contain some cyclic elements, it can be helpful to think of it as a [Directed Acyclic Graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) composed of **entities**. Each entity in the GDC has a set of properties and links.
+The GDC Data Model is a representation of data stored in the GDC. It is used to retrieve, submit, update, and delete data. Although the GDC Data Model may contain some cyclic elements, it can be helpful to think of it as a [Directed Acyclic Graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) composed of interconnected **nodes**. Each node in the GDC has a set of properties and links.
 
-* **Properties** are key-value pairs associated with an entity. Properties cannot be nested, which means that the value must be numerical, boolean, or a string, and cannot be another key-value set. Properties can be either required or optional. The following properties are of particular importance in constructing the GDC Data Model:
-    * **Type** is a required property for all entities. Entity types include `project`, `case`, `demographic`, `sample`, `read_group` and others.
+* **Properties** are key-value pairs associated with a node. Properties cannot be nested, which means that the value must be numerical, boolean, or a string, and cannot be another key-value set. Properties can be either required or optional. The following properties are of particular importance in constructing the GDC Data Model:
+    * **Type** is a required property for all nodes. Node types include `project`, `case`, `demographic`, `sample`, `read_group` and others.
     * **System properties** are properties used in GDC system operation and maintenance, that cannot be modified except under special circumstances.
-    * **Unique keys** are properties, or combinations of properties, that can be used to uniquely identify the entity in the GDC. For example, the tuple (combination) of `[ project_id, submitter_id ]` is a unique key for most entities, which means that although `submitter_id` does not need to be unique in GDC, it must be unique within a project.
-* **Links** define relationships between entities, and the multiplicity of those relationships (e.g. one-to-one, one-to-many, many-to-many).
+    * **Unique keys** are properties, or combinations of properties, that can be used to uniquely identify the node in the GDC. For example, the tuple (combination) of `[ project_id, submitter_id ]` is a unique key for most nodes, which means that although `submitter_id` does not need to be unique in GDC, it must be unique within a project.
+* **Links** define relationships between nodes, and the multiplicity of those relationships (e.g. one-to-one, one-to-many, many-to-many).
 
-The properties and links that an entity can have are defined by the **JSON schema** corresponding to the entity's `type`. Entity JSON schemas are stored in the GDC Data Dictionary. The entire collection of schemas can be downloaded at the following GDC Data Dictionary endpoint:
+The properties and links that a node can have are defined by the **JSON schema** corresponding to the node's `type`. Node JSON schemas are stored in the [GDC Data Dictionary](#dictionary-endpoint).
+
+Functionally similar node types are grouped under the same **category**. For example, node types `slide_image` and `submitted_unaligned_reads` belong to `data_file` category, which comprises nodes that correspond to files downloadable from the GDC Object Store.
+
+To submit data to the GDC, users must create and link nodes according to their schemas, creating a graph that can be represented by the diagram provided [here](https://gdc.nci.nih.gov/node/8396/).
+
+### Unique Keys
+
+When a node is created, it must be assigned a unique identifier in the form of a [version 4 universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). The UUID uniquely identifies the node in the GDC, and is stored in the node's `id` property. For most submittable nodes, the UUID can be assigned by the submitter. If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the transaction. See [Appendix D](Appendix_D_Format_of_Submission_Requests_and_Responses.md) for details of the API response format.
+
+In addition to `id`, many nodes also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the node. Typically this string identifies a corresponding entry in submitter's records. The GDC's only requirement with respect to `submitter_id` is that it be a string that is unique for all nodes within a project. The GDC Submission API requires a `submitter_id` for most nodes.
+
+**Note:** For `case` nodes, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
+
+### GDC Data Dictionary
+
+The [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) provides a user-friendly overview of node schemas, grouped by category. It also provides templates in JSON and TSV formats, that can be used for creating or updating nodes. Information in the GDC Data Dictionary can also be accessed programmatically using `dictionary` and `template` endpoints.
+
+#### Dictionary Endpoint
+
+The entire collection of GDC node schemas can be downloaded at the following GDC Data Dictionary endpoint:
 
 <pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>_all</b></pre>
 
 [//]: # (this is just a comment ignore me I beg of you_)
 
-Individual schemas can be downloaded at the endpoint that corresponds to the entity type. For example, the JSON schema for `case` entities can be found at:
+Individual schemas can be downloaded at the endpoint that corresponds to the node type. For example, the JSON schema for `case` nodes can be found at:
 
 <pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>case</b></pre>
 
-Functionally similar entity types are grouped under the same **category**. For example, entity types `slide_image` and `submitted_unaligned_reads` belong to `data_file` category, which comprises entities that correspond to files downloadable from the GDC Object Store. The [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) provides a user-friendly overview of entity schemas, grouped by category.
+#### Template Endpoint
 
-To submit data to the GDC, users must create and link entities according to their schemas, creating a graph similar to the example provided [here](https://gdc.nci.nih.gov/node/8396/).
+Submission templates are accessible programmatically at the `templates` endpoint. For example, the JSON template for `case` nodes can be obtained from:
 
-###
+	https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json
 
+and the entire collection of GDC Submission Templates can be obtained from:
 
-## Working with Entities
-
-The GDC Data Model
-
-### GDC Entity Identifiers explained
+	https://gdc-api.nci.nih.gov/v0/submission/template/?format=json
 
 
+## Format of Submission API Requests and Responses
 
+When creating or updating nodes in the GDC, the request must specify the node `type`, the node `id` or `submitter_id`, relationships (links) that the node has to existing nodes, and node properties as defined by the node JSON schema. To delete nodes, only the `id` property is required. The general format of GDC API submission requests and responses is provided in [Appendix D](Appendix_D_Format_of_Submission_Requests_and_Responses.md).
 
-### Query Format
+## Creating and Updating Nodes
 
-When updating, creating, or deleting entities in the GDC, users need to specify the entity `type`, the entity `id`, any relationships the entity has to parent entities from which it was derived, and any properties (required and optional as defined by the entity schema). The structure for each entity should look as follows:
+Requests to create or update entities are transactional. If multiple nodes are being created and/or updated in a transaction, and an error is encountered for one of the nodes, then the transaction will fail and no changes will be made to the GDC.
 
-```json
+### POST and PUT Requests
+
+The GDC Submission API provides two methods for creating nodes: HTTP POST requests and HTTP PUT requests. The POST method will create nodes that do not exist, and will fail if any of the nodes in the transaction already exist in the GDC. The PUT method will create new nodes and update existing nodes, and identify which nodes were created or updated in the API response.
+
+The GDC suggests using POST for creating new nodes, and PUT for updating nodes only. This helps to avoid inadvertent node updates that can occur when using PUT.
+
+### Example: Creating a Case node
+
+In this example, a case node is created using POST. Then an attempt is made to create the same node again using POST, resulting in an error. Then the originally created node is updated (with the same information) using PUT.
+
+The JSON in the requests below was generated using the Case JSON template that can be obtained from the [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) and from `https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json`.
+
+```Request1
 {
-    "type": string,
-    "id": string,
-    "submitter_id": string,
-    "<entity_property_keys>": any type,
-    "<relationship_name>": [
+  "project_id": "TCGA-ALCH",
+  "type": "case",
+  "submitter_id": "TCGA-ALCH-000001",
+  "projects": {
+    "code": "ALCH"
+  }
+
+}
+```
+```shell1
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 201,
+  "created_entity_count": 1,
+  "entities": [
+    {
+      "action": "create",
+      "errors": [],
+      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "related_cases": [],
+      "type": "case",
+      "unique_keys": [
         {
-            "id": string,
-            "submitter_id": string
-        },
-        ...
-    ]
+          "project_id": "TCGA-ALCH",
+          "submitter_id": "TCGA-ALCH-000001"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 215,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 0
 }
 ```
-
-The request must specify either an `id` or a `submitter_id`.
-
-**`id`** : A string specifying the id of the entity the user is creating, updating, or deleting. This is the official GDC UUID for the entity. If it is prefered to refer to the entity using a custom id, users can do so with the `submitter_id` field (described below).
-
-**`submitter_id`** : A string specifying the custom id of the object the user is creating, updating or deleting. This is not the official GDC ID for the entity.
-
-**`<entity_property_keys>`** : All keys except for `id` and `submitter_id` will be treated as properties keys. These key value pairs will be used as properties on referenced entity.
-
-**`<relationship_name>`** : A JSON object specifying a relationship. The value for this is a JSON object specifying either the submitter_id or the id of the neighboring entity.
-
-### Response Format
-
-The following fields are included in all API responses to submission requests.
-
-```json
+```shell2
+curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/
+```
+```Response2
 {
-  "cases_related_to_created_entities_count": int,
-  "cases_related_to_updated_entities_count": int,
-  "code": int,
-  "created_entity_count": int,
-  "entities": [entities],
-  "entity_error_count": int,
-  "message": string,
-  "success": boolean,
-  "transaction_id": string,
-  "transactional_error_count": int,
-  "transactional_errors": [transactional_errors],
-  "updated_entity_count": int
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities": [
+    {
+      "action": null,
+      "errors": [
+        {
+          "keys": [
+            "id"
+          ],
+          "message": "Cannot create entity that already exists. Try updating entity (PUT instead of POST)",
+          "type": "NOT_UNIQUE"
+        }
+      ],
+      "id": null,
+      "related_cases": [],
+      "type": "case",
+      "unique_keys": [
+        {
+          "project_id": "TCGA-ALCH",
+          "submitter_id": "TCGA-ALCH-000001"
+        }
+      ],
+      "valid": false,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 1,
+  "message": "Transaction aborted due to 1 invalid entity.",
+  "success": false,
+  "transaction_id": null,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 0
 }
 ```
-
-**`cases_related_to_created_entities_count`**  A count of the number of cases related to the created entities.
-
-**`cases_related_to_updated_entities_count`**  A count of the number of cases related to the created entities.
-
-**`code`**  The HTTP status code of the response message. A human readable summary of the transaction results.
-
-**`created_entity_count`**  A count of the number of entities created.
-
-**`entities`**  A list of entities of the form:
-
-```json
+```shell3
+curl --header "X-Auth-Token: $token" --request PUT --data @Request https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/
+```
+```Response3
 {
-  "action": string,
-  "errors": [entity_errors],
-  "id": string,
-  "related_cases": [object],
-  "type": string,
-  "unique_keys": [unique_keys],
-  "valid": boolean,
-  "warnings": [object]
-}
-```
-*`entity_errors`*  A list of errors that occurred while parsing, validating, or performing a CRUD operation on a
-specific entity. Entity errors are of the form:
-
-```json
-{
-	"keys": [string],
-	"message": string
-}
-```
-
-*`unique_keys`*  Properties, or combinations of properties, that can be used to uniquely identify the node in the GDC.  Unique_keys are of the form:
-
-```json
-{
-	"project_id": string,
-	"submitter_id": string
-}
-```
-<br>
-
-**`entity_error_count`** A count of the number of entities that were not successful.
-
-**`message`**  A human-readable message describing the transaction.
-
-**`success`**  A boolean value stating whether the transaction was successful. If the value is False, then no changes will be made to the database.
-
-**`transaction_id`**  A string specifying the transaction id.
-
-**`transactional_error_count`**  A count of the number of transactional errors that occurred.
-
-**`transactional_errors`**  A list of transactional errors that have occurred. These errors are errors that are not specific to an individual entity. Transactional errors are of the form:
-
-```json
-{
-	"message": string
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 0,
+  "entities": [
+    {
+      "action": "update",
+      "errors": [],
+      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "related_cases": [],
+      "type": "case",
+      "unique_keys": [
+        {
+          "project_id": "TCGA-ALCH",
+          "submitter_id": "TCGA-ALCH-000001"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 216,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 1
 }
 ```
 
-**`updated_entity_count`** The number of existing entities updated by the transaction.
 
-### Creating Entities
 
-Entities can be created via both the POST and PUT HTTP methods.
-
-**When to use POST:** Submitters should use the POST method
-when creating new entities. The POST method will ensure that the entities in the posted transaction have not
-previously been created. This helps to avoid inadvertent updates that can occur when using PUT.
-
-**When to use PUT:** Submitters should use the PUT method to update
-existing entities and/or create new ones. The PUT method will create entities that have not been previously created and update those that have been previously created. The response body will specify whether each entity in the transaction was created or updated.
-
-Requests to create/update entities are transactional, meaning that if a single entity is invalid, the transaction will fail and no changes will be made to the database.
-
-`POST /v0/submission/<program>/<project>/` This endpoint is used to create GDC entities. Using the POST on a project’s endpoint will
-create any valid entities specified in the request body.
-
-**Parameters**
-
-* program (str) – The program to which the submitter belongs and the context in
-which the API request is valid. The program is the human-readable name, e.g.
-TCGA.
-
-* project (str) – The project to which the submitter belongs and the context in
-which The API request is valid. The project is the human-readable code, e.g.
-BRCA.
-
+### Creating an Aliquot node
 **Example Usage:**
 
 The following example will:
@@ -393,28 +419,6 @@ In the second example response, the API returned error code 400 and each entity 
 
 The GDC API will also return a list of all errors by entity.
 
-### Retrieving Entities
-
-`GET /v0/submission/<program>/<project>/entities/entity_id_string.` This endpoint is for retrieving existing GDC entities by ID. For more advanced querying on entities or retrieving set of entities, the GraphQL endpoint described in Section 6.4 is recommended.
-
-The return type of a GET on this endpoint is a JSON array containing JSON object elements, each
-corresponding to a provided ID. Return results are unordered.
-
-If any ID is not found in the database, a status code of 404 is returned with the missing IDs.
-
-**Parameters**
-
-* **program** (str) – The program to which the case belongs and the context in
-which the API request is valid. The program is the human-readable name, e.g.
-TCGA.
-
-* **project** (str) – The project to which the case belongs and the context in
-which The API request is valid. The project is the human-readable code, e.g.
-BRCA.
-
-* **ids** (str) – A comma separated list of ids specifying the entities to retrieve. These
-ids may be official GDC ids or project unique submitter_id.
-
 ### Updating Entities
 
 `PUT /v0/submission/<program>/<project>/` This endpoint is used to update/create GDC entities. Using the PUT method on a project’s endpoint
@@ -444,7 +448,32 @@ curl -XPUT -H "X-Auth-Token: $TOKEN" https://gdc-api.nci.nih.gov/v0/submission/G
 [
 
 
-### Deleting Entities
+
+
+## Retrieving Entities
+
+`GET /v0/submission/<program>/<project>/entities/entity_id_string.` This endpoint is for retrieving existing GDC entities by ID. For more advanced querying on entities or retrieving set of entities, the GraphQL endpoint described in Section 6.4 is recommended.
+
+The return type of a GET on this endpoint is a JSON array containing JSON object elements, each
+corresponding to a provided ID. Return results are unordered.
+
+If any ID is not found in the database, a status code of 404 is returned with the missing IDs.
+
+**Parameters**
+
+* **program** (str) – The program to which the case belongs and the context in
+which the API request is valid. The program is the human-readable name, e.g.
+TCGA.
+
+* **project** (str) – The project to which the case belongs and the context in
+which The API request is valid. The project is the human-readable code, e.g.
+BRCA.
+
+* **ids** (str) – A comma separated list of ids specifying the entities to retrieve. These
+ids may be official GDC ids or project unique submitter_id.
+
+
+## Deleting Entities
 
 
 `DELETE /v0/submission/<program>/<project>/entities/ids`.
@@ -498,7 +527,7 @@ which the API request is valid. The project is the human-readable code (e.g. BRC
 
 * **ids** (str) – A comma separated list of ids specifying the entities to delete. These ids must be official GDC ids.
 
-### Error Types
+## Error Types
 
 **EntityNotFoundError** A referenced entity was not found. This includes both the transaction and the datamodel.
 
@@ -506,7 +535,7 @@ which the API request is valid. The project is the human-readable code (e.g. BRC
 
 **ValidationError** A provided property did not pass a validation test.
 
-### Status Messages
+## Status Messages
 
 API responses will contain a status for each entity specified in the request:
 
@@ -528,7 +557,7 @@ the transaction. The error state will be accompanied by a list of errors recorde
   resource for which a GDC Authorization Token must be
   provided. Access is limited to authorized submitters.
 
-### GraphQL Overview
+## GraphQL Overview
 
 "GraphQL is a query language designed to build client applications by
 providing an intuitive and flexible syntax and system for describing
@@ -539,7 +568,7 @@ nature of the GDC's graph datamodel.  The `/graphql` endpoint on the
 GDC Submission API provides a real-time view of the state of the
 entities in a project.
 
-#### Sample GraphQL query
+### Sample GraphQL query
 
 The following is a GraphQL query for a case in project
 TCGA-LAML that returns a JSON document containing the `submitter_id` of

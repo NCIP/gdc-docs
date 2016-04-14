@@ -17,9 +17,10 @@ pages:
   - BAM Slicing: 'API/Users_Guide/BAM_Slicing.md'
   - Submission: 'API/Users_Guide/Submission.md'
   - Additional Examples: 'API/Users_Guide/Additional_Examples.md'
-  - Appendix A - Available Fields: 'API/Users_Guide/Appendix_A_Available_Fields.md'
-  - Appendix B - Key Terms: 'API/Users_Guide/Appendix_B_Key_Terms.md'
-  - Appendix C - GET to POST Conversion: 'API/Users_Guide/Appendix_C_GET_to_POST_Conversion.md'
+  - "Appendix A: Available Fields": 'API/Users_Guide/Appendix_A_Available_Fields.md'
+  - "Appendix B: Key Terms": 'API/Users_Guide/Appendix_B_Key_Terms.md'
+  - "Appendix C: GET to POST Conversion": 'API/Users_Guide/Appendix_C_GET_to_POST_Conversion.md'
+  - "Appendix D: Format of Submission Queries and Responses": 'API/Users_Guide/Appendix_D_Format_of_Submission_Requests_and_Responses.md'
   - Release Notes: 'API/Release_Notes/API_Release_Notes.md'
 - Data Portal:
   - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
