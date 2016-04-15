@@ -68,7 +68,7 @@ The following fields are included in all API responses to submission requests.
 	  "warnings": [object]
 	}
 
-**`entity_errors`**: A list of errors that occurred while parsing, validating, or performing a CRUD operation on a
+*`entity_errors`*: A list of errors that occurred while parsing, validating, or performing a CRUD operation on a
 specific entity. Entity errors are of the form:
 
 	{
@@ -77,7 +77,7 @@ specific entity. Entity errors are of the form:
 	}
 
 
-**`unique_keys`**: Properties, or combinations of properties, that can be used to uniquely identify the node in the GDC.  Unique_keys are of the form:
+*`unique_keys`*: Properties, or combinations of properties, that can be used to uniquely identify the node in the GDC.  Unique_keys are of the form:
 
 
 	{

@@ -104,7 +104,7 @@ When creating or updating nodes in the GDC, the request must specify the node `t
 
 ## Submission Transactions
 
-Submission involves a series of transactions initiated by the submitter, that create and link nodes according to their [schemas](#nodes-properties-links-and-schemas), constructing a graph that can be represented by the diagram provided [here](https://gdc.nci.nih.gov/node/8396/). With the exception of `program` and `project` administrative nodes created by the GDC, all new nodes must be linked, at creation, to existing nodes or to new nodes being created in the same transaction. For example, a submitter cannot create a `portion` node unless the submitter either (1) has previously created the corresponding `case` and `sample` nodes, or (2) is creating those nodes in the same transaction. This also means that nodes cannot be deleted if they have "child" nodes attached to them.
+Submission involves a series of transactions initiated by the submitter, that create and link nodes according to their [schemas](#nodes-properties-links-and-schemas), constructing a graph that can be represented by the diagram provided [here](https://gdc.nci.nih.gov/node/8396/). With the exception of `program` and `project`, which are administrative nodes created by the GDC, all new nodes must be linked, at creation, to existing nodes or to new nodes being created in the same transaction. For example, a submitter cannot create a `portion` node unless the submitter either (1) has previously created the corresponding `case` and `sample` nodes, or (2) is creating those nodes in the same transaction. This also means that nodes cannot be deleted if they have "child" nodes attached to them.
 
 If multiple nodes are being created and/or updated in a transaction, and an error is encountered for one of the nodes, then the transaction will fail and no changes will be made to the GDC.
 
@@ -476,7 +476,7 @@ curl --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/T
 
 ## Deleting Nodes
 
-The `entities` endpoint is also be used to delete nodes. This is accomplished using a DELETE request to the endpoint, specifying the node's UUID. If a node cannot be deleted because it is linked to child nodes, the GDC Submission API will respond with an error providing a list of nodes that must be deleted prior to deleting the subject node.
+The `entities` endpoint can also be used to delete nodes. This is accomplished using a DELETE request to the endpoint, specifying the node's UUID. If a node cannot be deleted because it is linked to child nodes, the GDC Submission API will respond with an error providing a list of nodes that must be deleted prior to deleting the subject node.
 
 
 ```Shell
@@ -512,7 +512,7 @@ curl --header "X-Auth-Token: $token" --request DELETE https://gdc-api.nci.nih.go
 
 ## Uploading Data Files
 
-Experimental data files like BAM and FASTQ can be uploaded directly to the API using the `files` endpoint, by specifying the UUID of the corresponding `data_file` node:
+Experimental data files like BAM and FASTQ can be uploaded directly to the API using the `files` endpoint, by specifying the UUID of the corresponding `data_file` node.  Uploading files may be more efficiently performed using the [GDC Data Transfer Tool](http://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Getting_Started).
 
 	export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
 
