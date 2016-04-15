@@ -25,13 +25,13 @@ curl: Saved to filename '14-3-3_beta-R-V_GBL1112940.tif'
 To download multiple files from the GDC, provide a comma-separated list of UUIDs to the `data` endpoint. The GDC API will return a `.tar.gz` archive containing the downloaded files.
 
 ```shell
-curl -O -J 'https://gdc-api.nci.nih.gov/data/96487cd7-8fa8-4bee-9863-17004a70b2e9,5e55748f-61fa-43e8-886f-6f1ec7a91af6'
+curl -O -J 'https://gdc-api.nci.nih.gov/data/e3228020-1c54-4521-9182-1ea14c5dc0f7,18e1e38e-0f0a-4a0e-918f-08e6201ea140'
 ```
 ```Output
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 10.1M    0 10.1M    0     0   341k      0 --:--:--  0:00:30 --:--:--  283k
-curl: Saved to filename 'gdc_download_cfbc1fe89d423c5dc60b5eecf12b797d14553d17.tar.gz'
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                               Dload  Upload   Total   Spent    Left  Speed
+100  287k    0  287k    0     0  30131      0 --:--:--  0:00:09 --:--:-- 42759
+curl: Saved to filename 'gdc_download_064d1aa8cc8cbab33e93979bebbf7d6af2d6a802.tar.gz'
 ```
 
 ## Downloading Controlled-access Files

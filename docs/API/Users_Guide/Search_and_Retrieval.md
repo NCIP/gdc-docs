@@ -18,7 +18,7 @@ The following search and retrieval endpoints are available on the GDC API:
 | \_mapping | Information about elements that can be used to query other endpoints |
 
 ### Project Endpoint
-The GDC Project Endpoint `https://gdc-api.nci.nih.gov/projects` provides overall access to all the data served by GDC organized by Project such project(study) name, program,disease, primary site and state.
+The GDC Project Endpoint `https://gdc-api.nci.nih.gov/projects` provides overall access to all the data served by GDC organized by Project such project(study) name, program, disease, primary site and state.
 
 #### Example
 This example is a query for projects contained in the GDC. It uses the [from](#from), [size](#size), [sort](#sort), and [pretty](#pretty) parameters, and returns the first two projects sorted by project id.
@@ -284,12 +284,12 @@ The following query parameters can be used with all methods and resources in the
 
 Parameter | Default | Description
 --------- | ------- | -----------
-facets | false | Provides a list document counts for each included facet
+facets | false | Provides a list of number of files available given current filters facet
 fields | false | Query option to specify which fields to include in the response
 filters| false | Query option filters specify criteria for the returned response
 from   | false | Specifies the first record to return from the set resulting of a query
-size | false | determines the number of results to return
-sort | false | specifies a field to sort the returned results by sort order: + use asc for ascending order + use des for descending order
+size | false | Determines the number of results to return
+sort | false | Specifies a field to sort the returned results by sort order: + use asc for ascending order + use desc for descending order
 pretty | false | Returns response with indentations and line breaks in a human-readable format
 format | false | Returns response in XML or TSV format, JSON is default
 
@@ -824,7 +824,7 @@ print json.dumps(response.json(), indent=2)
 
 ### Sort
 
-The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:dsc` (descending) prefix, e.g. `sort=field:desc`.
+The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:desc` (descending) prefix, e.g. `sort=field:desc`.
 
 #### Example
 

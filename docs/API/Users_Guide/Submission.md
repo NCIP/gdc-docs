@@ -67,7 +67,7 @@ Functionally similar node types are grouped under the same **category**. For exa
 
 When a node is created, it must be assigned a unique identifier in the form of a [version 4 universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). The UUID uniquely identifies the node in the GDC, and is stored in the node's `id` property. For most submittable nodes, the UUID can be assigned by the submitter. If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the transaction. See [Appendix D](Appendix_D_Format_of_Submission_Requests_and_Responses.md) for details of the API response format.
 
-In addition to `id`, many nodes also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the node. Typically this string identifies a corresponding entry in submitter's records. The GDC's only requirement with respect to `submitter_id` is that it be a string that is unique for all nodes within a project. The GDC Submission API requires a `submitter_id` for most nodes.
+In addition to `id`, many nodes also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the node. Typically this string identifies a corresponding entry in the submitter's records. The GDC's only requirement with respect to `submitter_id` is that it be a string that is unique for each node within a project. The GDC Submission API requires a `submitter_id` for most nodes.
 
 **Note:** For `case` nodes, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
