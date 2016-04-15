@@ -20,11 +20,11 @@ The general format of JSON objects submitted to the GDC API is as follows:
 
 The request must specify either an `id` or a `submitter_id`.
 
-**`id`**: A string specifying the `id` of the node that the user is creating or updating. This is the persistent GDC UUID4 for the node. If it is preferred to refer to the entity using a custom id, users can do so with the `submitter_id` field (described below).
+**`id`**: A string specifying the `id` of the node that the user is creating or updating. This is the persistent GDC UUID4 for the node. If it is preferred to refer to the node using a custom id, users can do so with the `submitter_id` field (described below).
 
-**`submitter_id`**: A string specifying the custom id of the object the user is creating or updating. This is not the official GDC ID for the entity.
+**`submitter_id`**: A string specifying the custom id of the object the user is creating or updating. This is not the official GDC ID for the node.
 
-**`<properties>`**: These key-value pairs will be applied to properties on the referenced entity.
+**`<properties>`**: These key-value pairs will be applied to properties on the referenced node.
 
 **`<relationship_name>`**: A JSON object that specifies a relationship (link) between the node and other nodes. Links are typically established using the `submitter_id` or `id` of the neighboring node.
 
@@ -103,3 +103,24 @@ specific entity. Entity errors are of the form:
 	}
 
 **`updated_entity_count`**: Number of existing entities updated by the transaction.
+
+
+### Error Types
+
+**`EntityNotFoundError`** A referenced entity was not found among existing entities and entities specified in the transaction.
+
+**`MissingPropertyError`** A required property was not provided.
+
+**`ValidationError`** A provided property did not pass a validation test.
+
+## Status Messages
+
+API responses will contain a status for each entity specified in the request:
+
+**`success`**: The desired transaction was sucessful and the entity’s state was modified in the GDC.
+
+**`valid`**: The desired transaction was not sucessful, but the trasaction was not aborted because of this entity.
+
+**`error`**: The desired transaction was not sucessful, and the transaction was aborted because of this entity. This entity did not pass validation or an internal error occured when attempting to complete the transaction. The error state will be accompanied by a list of errors recorded about the entity (see label-error-messages).
+
+**Note:** GDC API requests are transactional. An error with processing a node specified in the transaction will abort the transaction and will result in no changes being applied for any node involved in the transaction.
