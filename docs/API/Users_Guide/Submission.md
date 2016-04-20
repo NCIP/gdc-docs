@@ -20,10 +20,6 @@ The values of `Program.name` and `Project.code` can be obtained from the project
 
 <pre>https://gdc-portal.nci.nih.gov/submission/<b>&#x3C;Program.name&#x3E;</b>/<b>&#x3C;Project.code&#x3E;</b>/dashboard</pre>
 
-#### Dry Run Mode
-
-The `submission` endpoint provides a `_dry_run` mode that simulates submission transactions without making changes to the GDC. This mode is activated by appending `/_dry_run` to the end of a submission endpoint.
-
 #### Example
 
 For example, a project with GDC Data Submission Portal URL
@@ -34,62 +30,59 @@ would have a versioned submission endpoint at
 
 <pre>https://gdc-api.nci.nih.gov/<b>v0/</b>submission/<b>TCGA</b>/<b>ALCH</b></pre>
 
-an unversioned submission endpoint at
+and an unversioned submission endpoint at
 
 <pre>https://gdc-api.nci.nih.gov/submission/<b>TCGA</b>/<b>ALCH</b></pre>
-
-and a dry run endpoint at
-
-<pre>https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/<b>_dry_run</b></pre>
-
-[//]: # (this is just a comment ignore me I beg of you_)
-
 
 
 ## GDC Data Model
 
-### Nodes, Properties, Links, and Schemas
+### Entities, Properties, Links, and Schemas
 
-The GDC Data Model is a representation of data stored in the GDC. It is used to retrieve, submit, update, and delete data. Although the GDC Data Model may contain some cyclic elements, it can be helpful to think of it as a [Directed Acyclic Graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) composed of interconnected **nodes**. Each node in the GDC has a set of properties and links.
+The GDC Data Model is a representation of data stored in the GDC. It is used to retrieve, submit, update, and delete data. Although the GDC Data Model may contain some cyclic elements, it can be helpful to think of it as a [Directed Acyclic Graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) composed of interconnected **entities**. Each entity in the GDC has a set of properties and links.
 
-* **Properties** are key-value pairs associated with a node. Properties cannot be nested, which means that the value must be numerical, boolean, or a string, and cannot be another key-value set. Properties can be either required or optional. The following properties are of particular importance in constructing the GDC Data Model:
-    * **Type** is a required property for all nodes. Node types include `project`, `case`, `demographic`, `sample`, `read_group` and others.
+* **Properties** are key-value pairs associated with a entity. Properties cannot be nested, which means that the value must be numerical, boolean, or a string, and cannot be another key-value set. Properties can be either required or optional. The following properties are of particular importance in constructing the GDC Data Model:
+    * **Type** is a required property for all entities. Entity types include `project`, `case`, `demographic`, `sample`, `read_group` and others.
     * **System properties** are properties used in GDC system operation and maintenance, that cannot be modified except under special circumstances.
-    * **Unique keys** are properties, or combinations of properties, that can be used to uniquely identify the node in the GDC. For example, the tuple (combination) of `[ project_id, submitter_id ]` is a unique key for most nodes, which means that although `submitter_id` does not need to be unique in GDC, it must be unique within a project.
-* **Links** define relationships between nodes, and the multiplicity of those relationships (e.g. one-to-one, one-to-many, many-to-many).
+    * **Unique keys** are properties, or combinations of properties, that can be used to uniquely identify the entity in the GDC. For example, the tuple (combination) of `[ project_id, submitter_id ]` is a unique key for most entities, which means that although `submitter_id` does not need to be unique in GDC, it must be unique within a project.
+* **Links** define relationships between entities, and the multiplicity of those relationships (e.g. one-to-one, one-to-many, many-to-many).
 
-The properties and links that a node can have are defined by the **JSON schema** corresponding to the node's `type`. Node JSON schemas are stored in the [GDC Data Dictionary](#gdc-data-dictionary).
+The properties and links that an entity can have are defined by the **JSON schema** corresponding to the entity's `type`. Entity JSON schemas are stored in the [GDC Data Dictionary](#gdc-data-dictionary).
 
-Functionally similar node types are grouped under the same **category**. For example, node types `slide_image` and `submitted_unaligned_reads` belong to `data_file` category, which comprises nodes that correspond to files downloadable from the GDC Object Store.
+Functionally similar entity types are grouped under the same **category**. For example, entity types `slide_image` and `submitted_unaligned_reads` belong to `data_file` category, which comprises entities that correspond to files downloadable from the GDC Object Store.
 
 
 ### Unique Keys
 
-When a node is created, it must be assigned a unique identifier in the form of a [version 4 universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). The UUID uniquely identifies the node in the GDC, and is stored in the node's `id` property. For most submittable nodes, the UUID can be assigned by the submitter. If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the transaction. See [Appendix D](Appendix_D_Format_of_Submission_Requests_and_Responses.md) for details of the API response format.
+When a entity is created, it must be assigned a unique identifier in the form of a [version 4 universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). The UUID uniquely identifies the entity in the GDC, and is stored in the entity's `id` property. For most submittable entities, the UUID can be assigned by the submitter. If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the transaction. See [Appendix D](Appendix_D_Format_of_Submission_Requests_and_Responses.md) for details of the API response format.
 
+<<<<<<< Updated upstream
 In addition to `id`, many nodes also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the node. Typically this string identifies a corresponding entry in the submitter's records. The GDC's only requirement with respect to `submitter_id` is that it be a string that is unique for each node within a project. The GDC Submission API requires a `submitter_id` for most nodes.
+=======
+In addition to `id`, many entities also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the entity. Typically this string identifies a corresponding entry in submitter's records. The GDC's only requirement with respect to `submitter_id` is that it be a string that is unique for all entities within a project. The GDC Submission API requires a `submitter_id` for most entities.
+>>>>>>> Stashed changes
 
-**Note:** For `case` nodes, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
+**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
 ### GDC Data Dictionary
 
-The [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) provides a user-friendly overview of node schemas, grouped by category. It also provides templates in JSON and TSV formats, that can be used for creating or updating nodes. Information in the GDC Data Dictionary can also be accessed programmatically using `dictionary` and `template` endpoints.
+The [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) provides a user-friendly overview of entity schemas, grouped by category. It also provides templates in JSON and TSV formats, that can be used for creating or updating entities. Information in the GDC Data Dictionary can also be accessed programmatically using `dictionary` and `template` endpoints.
 
 #### Dictionary Endpoint
 
-The entire collection of GDC node schemas can be downloaded at the following GDC Data Dictionary endpoint:
+The entire collection of GDC entity schemas can be downloaded at the following GDC Data Dictionary endpoint:
 
 <pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>_all</b></pre>
 
 [//]: # (this is just a comment ignore me I beg of you_)
 
-Individual schemas can be downloaded at the endpoint that corresponds to the node type. For example, the JSON schema for `case` nodes can be found at:
+Individual schemas can be downloaded at the endpoint that corresponds to the entity type. For example, the JSON schema for `case` entities can be found at:
 
 <pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>case</b></pre>
 
 #### Template Endpoint
 
-Submission templates are accessible programmatically at the `templates` endpoint. For example, the JSON template for `case` nodes can be obtained from:
+Submission templates are accessible programmatically at the `templates` endpoint. For example, the JSON template for `case` entities can be obtained from:
 
 	https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json
 
@@ -100,33 +93,97 @@ and the entire collection of GDC Submission Templates can be obtained from:
 
 ## Format of Submission API Requests and Responses
 
-When creating or updating nodes in the GDC, the request must specify the node `type`, the node `id` or `submitter_id`, relationships (links) that the node has to existing nodes, and node properties as defined by the node JSON schema. To delete nodes, only the `id` property is required. The general format of GDC API submission requests and responses is provided in [Appendix D](Appendix_D_Format_of_Submission_Requests_and_Responses.md).
+When creating or updating entities in the GDC, the request must specify the entity `type`, the entity `id` or `submitter_id`, relationships (links) that the entity has to existing entities, and entity properties as defined by the entity JSON schema. To delete entities, only the `id` property is required. The general format of GDC API submission requests and responses is provided in [Appendix D](Appendix_D_Format_of_Submission_Requests_and_Responses.md).
 
 ## Submission Transactions
 
+<<<<<<< Updated upstream
 Submission involves a series of transactions initiated by the submitter, that create and link nodes according to their [schemas](#nodes-properties-links-and-schemas), constructing a graph that can be represented by the diagram provided [here](https://gdc.nci.nih.gov/node/8396/). With the exception of `program` and `project`, which are administrative nodes created by the GDC, all new nodes must be linked, at creation, to existing nodes or to new nodes being created in the same transaction. For example, a submitter cannot create a `portion` node unless the submitter either (1) has previously created the corresponding `case` and `sample` nodes, or (2) is creating those nodes in the same transaction. This also means that nodes cannot be deleted if they have "child" nodes attached to them.
+=======
+Submission involves a series of transactions initiated by the submitter, that create and link entities according to their [schemas](#entities-properties-links-and-schemas), constructing a graph that can be represented by the diagram provided [here](https://gdc.nci.nih.gov/node/8396/). With the exception of `program` and `project` administrative entities created by the GDC, all new entities must be linked, at creation, to existing entities or to new entities being created in the same transaction. For example, a submitter cannot create a `portion` entity unless the submitter either (1) has previously created the corresponding `case` and `sample` entities, or (2) is creating those entities in the same transaction. This also means that entities cannot be deleted if they have "child" entities attached to them.
+>>>>>>> Stashed changes
 
-If multiple nodes are being created and/or updated in a transaction, and an error is encountered for one of the nodes, then the transaction will fail and no changes will be made to the GDC.
+If multiple entities are being created and/or updated in a transaction, and an error is encountered for one of the entities, then the transaction will fail and no changes will be made to the GDC.
 
-## Creating and Updating Nodes
+## Creating and Updating Entities
 
 ### POST and PUT Requests
 
-The GDC Submission API provides two methods for creating nodes: HTTP POST requests and HTTP PUT requests:
+The GDC Submission API provides two methods for creating entities: HTTP POST requests and HTTP PUT requests:
 
-* The **POST** method will create nodes that do not exist, and will fail if any of the nodes in the transaction already exist in the GDC.
+* The **POST** method will create entities that do not exist, and will fail if any of the entities in the transaction already exist in the GDC.
 
-* The **PUT** method will create new nodes and update existing nodes, and identify which nodes were created or updated in the API response.
+* The **PUT** method will create new entities and update existing entities, and identify which entities were created or updated in the API response.
 
-The GDC suggests using POST for creating new nodes, and using PUT only for updating nodes. This helps to avoid inadvertent node updates that can occur when using PUT for creating nodes.
+The GDC suggests using POST for creating new entities, and using PUT only for updating entities. This helps to avoid inadvertent entity updates that can occur when using PUT for creating entities.
 
-### Example: Creating and Updating a Case Node
+### Dry Run Mode
 
-In this example, a case node is created using POST. Then an attempt is made to create the same node again using POST, resulting in an error. Then the originally created node is updated (with the same information) using PUT.
+The `submission` endpoint provides a `_dry_run` mode that simulates submission transactions without making changes to the GDC. This mode is activated by appending `/_dry_run` to the end of a submission endpoint.
+
+The following is an example of a POST request, creating an entity in dry run mode:
+
+
+
+
+```Request
+{
+  "project_id": "TCGA-ALCH",
+  "type": "case",
+  "submitter_id": "TCGA-ALCH-000001",
+  "projects": {
+    "code": "ALCH"
+  }
+}
+```
+```Command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/_dry_run
+```
+```Response
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 201,
+  "created_entity_count": 0,
+  "entities": [
+    {
+      "action": "create",
+      "errors": [],
+      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "related_cases": [],
+      "type": "case",
+      "unique_keys": [
+        {
+          "project_id": "TCGA-ALCH",
+          "submitter_id": "TCGA-ALCH-000001"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Dry run mode. Transaction would have been successful.",
+  "success": true,
+  "transaction_id": 215,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 0
+}
+```
+
+
+
+
+### Example: Creating and Updating a Case Entities
+
+In this example, a case entity is created using POST. Then an attempt is made to create the same entity again using POST, resulting in an error. Then the originally created entity is updated (with the same information) using PUT.
 
 The JSON in the request was generated using the `case` JSON template that can be obtained from the [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) and from `https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json`.
 
-**Note:** For `case` nodes, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
+**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
 
 ```Request1
@@ -258,9 +315,9 @@ curl --header "X-Auth-Token: $token" --request PUT --data @Request https://gdc-a
 
 
 
-### Example: Creating an Aliquot Node
+### Example: Creating an Aliquot Entity
 
-In this example, an `aliquot` node and a `sample` node are created in a single transaction. The `aliquot` is linked to `sample` which is linked to `case`. The first request is an example of using `submitter_id` properties to link nodes together. The second request is an example of using UUIDs for creating the links.
+In this example, an `aliquot` entity and a `sample` entity are created in a single transaction. The `aliquot` is linked to `sample` which is linked to `case`. The first request is an example of using `submitter_id` properties to link entities together. The second request is an example of using UUIDs for creating the links.
 
 #### Request 1: Creating Links Using submitter_id
 
@@ -439,9 +496,11 @@ curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-
 ```
 
 
-## Retrieving Nodes
+## Retrieving Entities
 
-JSON objects representing submitted nodes can be retrieved using the `entities` endpoint of the GDC Submission API. This endpoint retrieves nodes by UUID. See [GraphQL](#graphql) for more advanced methods of querying submitted data.
+### Entities Endpoint
+
+JSON objects representing submitted entities can be retrieved using the `entities` endpoint of the GDC Submission API. This endpoint retrieves entities by UUID. A single UUID or a comma-separated list of UUIDs can be passed to this endpoint as a query.
 
 ```Command
 export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
@@ -474,9 +533,192 @@ curl --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/T
 }
 ```
 
-## Deleting Nodes
+### Export Endpoint
 
+<<<<<<< Updated upstream
 The `entities` endpoint can also be used to delete nodes. This is accomplished using a DELETE request to the endpoint, specifying the node's UUID. If a node cannot be deleted because it is linked to child nodes, the GDC Submission API will respond with an error providing a list of nodes that must be deleted prior to deleting the subject node.
+=======
+The `export` endpoint provides additional functionality for exporting entities from the GDC submission system. The `ids` parameter accepts a UUID or a comma-separated list of UUIDs. The `format` parameter allows the user to specify the preferred format of the API response: JSON, TSV, or CSV. When the `with_children` parameter is set to `with_children`, the response includes the metadata stored in all "child" entities of the entity being requested.
+
+
+```Command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+
+curl --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/export?ids=11f8321-832f-4a8b-8384-a2f6256557e0&format=json&with_children=with_children'
+```
+```Response
+{
+  "case": [
+    {
+      "tissue_source_sites": [],
+      "submitter_id": "TCGA-ALCH-000026",
+      "project_id": "TCGA-ALCH",
+      "type": "case",
+      "id": "11f83251-832f-4a8b-8384-a2f6256557e0",
+      "projects": [
+        {
+          "code": "ALCH",
+          "id": "d9906779-f1da-5d9f-9caa-6d5ecb2e3cd6"
+        }
+      ]
+    }
+  ],
+  "sample": [
+    {
+      "sample_type_id": "10",
+      "time_between_excision_and_freezing": null,
+      "oct_embedded": "false",
+      "tumor_code_id": null,
+      "submitter_id": "Blood-00001_api26",
+      "intermediate_dimension": null,
+      "id": "23308708-6a63-471e-947c-6a93c6e85983",
+      "time_between_clamping_and_freezing": null,
+      "pathology_report_uuid": null,
+      "tumor_descriptor": null,
+      "sample_type": "Blood Derived Normal",
+      "project_id": "TCGA-ALCH",
+      "current_weight": null,
+      "composition": null,
+      "is_ffpe": null,
+      "shortest_dimension": null,
+      "tumor_code": null,
+      "tissue_type": null,
+      "days_to_sample_procurement": null,
+      "cases": [
+        {
+          "id": "11f83251-832f-4a8b-8384-a2f6256557e0",
+          "submitter_id": "TCGA-ALCH-000026"
+        }
+      ],
+      "freezing_method": null,
+      "type": "sample",
+      "preservation_method": null,
+      "days_to_collection": null,
+      "initial_weight": null,
+      "longest_dimension": null
+    }
+  ],
+  "read_group": [
+    {
+      "library_name": "Solexa-34688",
+      "is_paired_end": true,
+      "size_selection_range": null,
+      "adapter_sequence": null,
+      "library_strand": null,
+      "submitter_id": "Blood-00001-aliquot_lane1_barcode26",
+      "library_preparation_kit_name": null,
+      "adapter_name": null,
+      "target_capture_kit_name": null,
+      "includes_spike_ins": null,
+      "library_preparation_kit_version": null,
+      "id": "90163202-cfd7-4f6a-8214-e7e4e924d3a6",
+      "spike_ins_concentration": null,
+      "target_capture_kit_vendor": null,
+      "read_length": 75,
+      "sequencing_date": "2010-08-04",
+      "spike_ins_fasta": null,
+      "to_trim_adapter_sequence": null,
+      "RIN": null,
+      "platform": "Illumina",
+      "library_selection": "Hybrid_Selection",
+      "library_strategy": "WXS",
+      "library_preparation_kit_catalog_number": null,
+      "target_capture_kit_target_region": null,
+      "fastq_name": null,
+      "target_capture_kit_version": null,
+      "aliquots": [
+        {
+          "id": "e66dee54-5f4c-4471-9e08-dba0f6cdaaa4",
+          "submitter_id": "Blood-00001-aliquot26"
+        }
+      ],
+      "read_group_name": "205DD.3-2",
+      "library_preparation_kit_vendor": null,
+      "project_id": "TCGA-ALCH",
+      "type": "read_group",
+      "target_capture_kit_catalog_number": null,
+      "instrument_model": "Illumina HiSeq 2000",
+      "base_caller_name": null,
+      "experiment_name": "Resequencing",
+      "flow_cell_barcode": "205DDABXX",
+      "sequencing_center": "BI",
+      "base_caller_version": null
+    }
+  ],
+  "aliquot": [
+    {
+      "source_center": "23",
+      "centers": [],
+      "analytes": [],
+      "submitter_id": "Blood-00001-aliquot26",
+      "amount": 10,
+      "samples": [
+        {
+          "id": "23308708-6a63-471e-947c-6a93c6e85983",
+          "submitter_id": "Blood-00001_api26"
+        }
+      ],
+      "concentration": 0.07,
+      "project_id": "TCGA-ALCH",
+      "type": "aliquot",
+      "id": "e66dee54-5f4c-4471-9e08-dba0f6cdaaa4"
+    }
+  ],
+  "submitted_unaligned_reads": [
+    {
+      "read_groups": [
+        {
+          "id": "90163202-cfd7-4f6a-8214-e7e4e924d3a6",
+          "submitter_id": "Blood-00001-aliquot_lane1_barcode26"
+        }
+      ],
+      "data_type": "Unaligned Reads",
+      "file_name": "dummy.fastq",
+      "md5sum": "70c48a8a670ed2a02327601a10038d06",
+      "data_format": "FASTQ",
+      "submitter_id": "Blood-00001-aliquot_lane1_barcode26.fastq",
+      "state_comment": null,
+      "data_category": "Sequencing Data",
+      "file_size": 38,
+      "project_id": "TCGA-ALCH",
+      "type": "submitted_unaligned_reads",
+      "id": "6d45f2a0-8161-42e3-97e6-e058ac18f3f3",
+      "experimental_strategy": "WGS"
+    },
+    {
+      "read_groups": [
+        {
+          "id": "90163202-cfd7-4f6a-8214-e7e4e924d3a6",
+          "submitter_id": "Blood-00001-aliquot_lane1_barcode26"
+        }
+      ],
+      "data_type": "Unaligned Reads",
+      "file_name": "dummy.fastq",
+      "md5sum": "70c48a8a670ed2a02327601a10038d06",
+      "data_format": "FASTQ",
+      "submitter_id": "Blood-00001-aliquot_lane1_barcode27.fastq",
+      "state_comment": null,
+      "data_category": "Sequencing Data",
+      "file_size": 38,
+      "project_id": "TCGA-ALCH",
+      "type": "submitted_unaligned_reads",
+      "id": "4faabdd6-45bb-4259-8868-13d5b1149748",
+      "experimental_strategy": "WGS"
+    }
+  ]
+}
+```
+
+### GraphQL
+
+Submitters can use the GraphQL query language for advanced search and retrieval of data from the GDC Submission Portal. See [GraphQL](#querying-submitted-data-using-graphql) for more information.
+
+
+## Deleting Entities
+
+The `entities` endpoint is also be used to delete entities. This is accomplished using a DELETE request to the endpoint, specifying the entity's UUID. If a entity cannot be deleted because it is linked to child entities, the GDC Submission API will respond with an error providing a list of entities that must be deleted prior to deleting the subject entity.
+>>>>>>> Stashed changes
 
 
 ```Shell
@@ -509,33 +751,28 @@ curl --header "X-Auth-Token: $token" --request DELETE https://gdc-api.nci.nih.go
 }
 ```
 
-
 ## Uploading Data Files
 
+<<<<<<< Updated upstream
 Experimental data files like BAM and FASTQ can be uploaded directly to the API using the `files` endpoint, by specifying the UUID of the corresponding `data_file` node.  Uploading files may be more efficiently performed using the [GDC Data Transfer Tool](http://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Getting_Started).
+=======
+Experimental data files like BAM and FASTQ can be uploaded directly to the API using the `files` endpoint, by specifying the UUID of the corresponding `data_file` entity:
+>>>>>>> Stashed changes
 
 	export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
 
 	curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@data.fastq
 
 
-
 ## Querying Submitted Data Using GraphQL
-
-**NOTE:** The GDC Submission API GraphQL service is an authenticated
-  resource for which a GDC Authorization Token must be
-  provided. Access is limited to authorized submitters.
 
 ### GraphQL Overview
 
-"GraphQL is a query language designed to build client applications by
-providing an intuitive and flexible syntax and system for describing
-their data requirements and interactions." (from [GraphQL specification](https://facebook.github.io/graphql/)).
+[GraphQL](https://facebook.github.io/graphql/) is a query language that makes it easy to search and retrieve data from graph data structures such as the GDC Data Model.
 
-GraphQL has proven to be a very effective method of querying the hierarchical
-nature of the GDC's graph datamodel.  The `/graphql` endpoint on the
-GDC Submission API provides a real-time view of the state of the
-entities in a project.
+Unlike the methods outlined in [Search and Retrieval](Search_and_Retrieval.md), which provide access to public releases (or snapshots) of GDC data, the `/graphql` endpoint of GDC Submission API makes it possible for submitters to access "live" data, which provides a real-time view of the state of entities in a project.
+
+**NOTE:** Access to GDC Submission API GraphQL service is limited to authorized and authenticated submitters. Submitters may only access data in their own project using GraphQL.
 
 ### Sample GraphQL query
 
