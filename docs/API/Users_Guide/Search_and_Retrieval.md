@@ -284,25 +284,14 @@ The following query parameters can be used with all methods and resources in the
 
 Parameter | Default | Description
 --------- | ------- | -----------
-<<<<<<< Updated upstream
-facets | false | Provides a list of number of files available given current filters facet
-=======
-format | false | Specifies the API response format: JSON (default), XML, or TSV
+format | JSON | Specifies the API response format: JSON, XML, or TSV
 pretty | false | Returns response with indentations and line breaks in a human-readable format
->>>>>>> Stashed changes
-fields | false | Query option to specify which fields to include in the response
-size | false | Specifies the number of results to return
-from   | false | Specifies the first record to return from the set resulting of a query
-<<<<<<< Updated upstream
-size | false | Determines the number of results to return
-sort | false | Specifies a field to sort the returned results by sort order: + use asc for ascending order + use desc for descending order
-pretty | false | Returns response with indentations and line breaks in a human-readable format
-format | false | Returns response in XML or TSV format, JSON is default
-=======
-sort | false | Specifies sorting algorithm for the results in the API response
-filters| false | Query option filters specify criteria for the returned response
-facets | false | Provides a list document counts for each included facet.
->>>>>>> Stashed changes
+fields | null | Query option to specify which fields to include in the response
+size | 10 | Specifies the number of results to return
+from   | 1 | Specifies the first record to return from the set resulting of a query
+sort | null | Specifies sorting algorithm for the results in the API response
+filters| null | Query option filters specify criteria for the returned response
+facets | null | Provides a list of number of files available given current filters facet
 
 
 ### Format
@@ -596,11 +585,11 @@ print json.dumps(response.json(), indent=2)
 
 ### Sort
 
-The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:dsc` (descending) prefix, e.g. `sort=field:desc`.
+The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:dsc` (descending) prefix, e.g. `sort=field:desc`. A list of all valid _field_ names that can be used as facets is available in [Appendix A](Appendix_A_Available_Fields.md).
 
 #### Example
 
-Sort cases by submitter_id in ascending order:
+Sort cases by `submitter_id` in ascending order:
 
 ``` shell
 curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&pretty=true'
@@ -911,62 +900,9 @@ print json.dumps(response.json(), indent=2)
 More in depth examples of various filter types supported in GDC are available in the [Appendix A](Appendix_A_Available_Fields.md)
 
 ### Facets
-The `facets` query parameter provides aggregated data based on a search query. The primary intended use of this parameter is for displaying aggregate information in the GDC Data Portal. In the simplest case, a terms facet can return facet counts for various facet values for a specific field.
+The `facets` query parameter provides aggregated data based on a search query. The primary intended use of this parameter is for displaying aggregate information in the GDC Data Portal. For example, to get a count of projects in each program, `facets=program.name` can be passed to the `projects` endpoint.
 
 #### Example
-
-<<<<<<< Updated upstream
-This example returns the names of the first two files:
-
-``` Shell
-curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&from=0&size=2&pretty=true'
-```
-``` Python
-import requests
-import json
-
-files_endpt = 'https://gdc-api.nci.nih.gov/files'
-params = {'fields':'file_name',
-          'from':0, 'size':2}
-response = requests.get(files_endpt, params = params)
-print json.dumps(response.json(), indent=2)
-
-```
-``` Output
-{
-  "data": {
-    "hits": [
-      {
-        "file_name": "unc.edu.276a1e00-cf3a-4463-a97b-d544381219ea.2363081.rsem.isoforms.normalized_results"
-      },
-      {
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EY-A5W2.xml"
-      }
-    ],
-    "pagination": {
-      "count": 2,
-      "sort": "",
-      "from": 1,
-      "pages": 300936,
-      "total": 601872,
-      "page": 1,
-      "size": 2
-    }
-  },
-  "warnings": {}
-}
-```
-
-### Sort
-
-The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:desc` (descending) prefix, e.g. `sort=field:desc`.
-
-#### Example
-=======
-To get a count of projects in each program, `facets=program.name` can be passed to the `projects` endpoint.
->>>>>>> Stashed changes
-
-A list of all valid _field_ names that can be used as facets is available in [Appendix A](Appendix_A_Available_Fields.md).
 
 ```shell
 curl  'https://gdc-api.nci.nih.gov/projects?facets=program.name&from=1&size=0&sort=program.name:asc&pretty=true'
@@ -982,7 +918,7 @@ params = {'facets':'program.name',
 response = requests.get(projects_endpt, params = params)
 print json.dumps(response.json(), indent=2)
 ```
-``` Output
+```Response
 
 	{
 	  "data": {
