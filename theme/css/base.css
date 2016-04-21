@@ -451,3 +451,25 @@ h6:hover .header-link {
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
 }
+
+a.skip-main {
+  left:-999px;
+  position:absolute;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  z-index:-999;
+}
+a.skip-main:focus, a.skip-main:active {
+  top: 0;
+  left: 0;
+  color: #636363;
+  padding:5px;
+  width: 200px;
+  height: auto;
+  text-align:center;
+  font-size:1.2em;
+  z-index:99999;
+  background-color: white;
+}
