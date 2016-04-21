@@ -515,7 +515,7 @@ a.header-text-link {
 /* Sidebar Summary Styles */
 .bs-sidebar .nav .main > a,
 .bs-sidebar .nav .nav > li > a {
-  color: #2e424f;
+  color: #166aa2;
   border: none;
   /*border-left: solid 2px transparent;*/
 }
@@ -523,7 +523,7 @@ a.header-text-link {
 .bs-sidebar .nav .main > a:hover,
 .bs-sidebar .nav .main:hover > a,
 .bs-sidebar .nav .main > a {
-  background-color: #ddd;
+  background-color: rgb(242, 242, 242);
 }
 
 .bs-sidebar .nav .main ul {
@@ -532,7 +532,7 @@ a.header-text-link {
 }
 
 .bs-sidebar .nav .main ul li {
-  background-color: #f0f0f0;
+  background-color: rgb(248, 248, 248);
 }
 
 
