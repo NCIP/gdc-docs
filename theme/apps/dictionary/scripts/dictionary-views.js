@@ -742,7 +742,7 @@
         .append('th')
         .html(function(d, i) {
           if (i === 1) {
-            return '<span class="dictionary-tooltip"><em>' + d  +  '</em><span><i></i>The links ' +
+            return '<span class="dictionary-tooltip"><em>' + d  +  '</em><span class="dictionary-tooltip-content"><i></i>The links ' +
                    'should be included in the files uploaded to the GDC. ' +
                    'For more information, please refer to the ' +
                    '<a href="/Data_Submission_Portal/Users_Guide/Upload_Data/#step1-prepare-files" target="_blank">' +
@@ -983,8 +983,8 @@
         })
         .html(function() {
           var tooltipText = getTooltipText();
-          return '<i class="fa fa-book"></i> <em>' + _capitalizeWords(_.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category)) + '</em>' +
-                 (_.isString(tooltipText) ? '<span><i></i>' + tooltipText + '</span> &nbsp;<!-- i style="color: #ccc;" class="fa fa-info-circle"></i -->' : '');
+          return '<span class="fa fa-book" aria-hidden="true"></span> <em>' + _capitalizeWords(_.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, category.toLowerCase(), category)) + '</em>' +
+                 (_.isString(tooltipText) ? '<span class="dictionary-tooltip-content"><i></i>' + tooltipText + '</span> &nbsp;<!-- i style="color: #ccc;" class="fa fa-info-circle"></i -->' : '');
         });
 
       // Exclude the below from download
