@@ -41,7 +41,7 @@ and an unversioned submission endpoint at
 
 The GDC Data Model is a representation of data stored in the GDC. It is used to retrieve, submit, update, and delete data. Although the GDC Data Model may contain some cyclic elements, it can be helpful to think of it as a [Directed Acyclic Graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) composed of interconnected **entities**. Each entity in the GDC has a set of properties and links.
 
-* **Properties** are key-value pairs associated with a entity. Properties cannot be nested, which means that the value must be numerical, boolean, or a string, and cannot be another key-value set. Properties can be either required or optional. The following properties are of particular importance in constructing the GDC Data Model:
+* **Properties** are key-value pairs associated with an entity. Properties cannot be nested, which means that the value must be numerical, boolean, or a string, and cannot be another key-value set. Properties can be either required or optional. The following properties are of particular importance in constructing the GDC Data Model:
     * **Type** is a required property for all entities. Entity types include `project`, `case`, `demographic`, `sample`, `read_group` and others.
     * **System properties** are properties used in GDC system operation and maintenance, that cannot be modified except under special circumstances.
     * **Unique keys** are properties, or combinations of properties, that can be used to uniquely identify the entity in the GDC. For example, the tuple (combination) of `[ project_id, submitter_id ]` is a unique key for most entities, which means that although `submitter_id` does not need to be unique in GDC, it must be unique within a project.
@@ -54,7 +54,7 @@ Functionally similar entity types are grouped under the same **category**. For e
 
 ### Unique Keys
 
-When a entity is created, it must be assigned a unique identifier in the form of a [version 4 universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). The UUID uniquely identifies the entity in the GDC, and is stored in the entity's `id` property. For most submittable entities, the UUID can be assigned by the submitter. If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the transaction. See [Appendix D](Appendix_D_Format_of_Submission_Requests_and_Responses.md) for details of the API response format.
+When an entity is created, it must be assigned a unique identifier in the form of a [version 4 universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). The UUID uniquely identifies the entity in the GDC, and is stored in the entity's `id` property. For most submittable entities, the UUID can be assigned by the submitter. If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the transaction. See [Appendix D](Appendix_D_Format_of_Submission_Requests_and_Responses.md) for details of the API response format.
 
 In addition to `id`, many entities also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the entity. Typically this string identifies a corresponding entry in submitter's records. The GDC's only requirement with respect to `submitter_id` is that it be a string that is unique for all entities within a project. The GDC Submission API requires a `submitter_id` for most entities.
 
@@ -113,9 +113,7 @@ The GDC suggests using POST for creating new entities, and using PUT only for up
 
 The `submission` endpoint provides a `_dry_run` mode that simulates submission transactions without making changes to the GDC. This mode is activated by appending `/_dry_run` to the end of a submission endpoint.
 
-The following is an example of a POST request, creating an entity in dry run mode:
-
-
+The following is an example of a POST request, that simulates creating an entity in dry run mode:
 
 
 ```Request
@@ -137,13 +135,13 @@ curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
-  "code": 201,
-  "created_entity_count": 0,
+  "code": 200,
+  "created_entity_count": 1,
   "entities": [
     {
       "action": "create",
       "errors": [],
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "id": "61f48d1c-9439-448c-a90c-d6dbe76b3654",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
@@ -157,16 +155,14 @@ curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-
     }
   ],
   "entity_error_count": 0,
-  "message": "Dry run mode. Transaction would have been successful.",
+  "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": 215,
+  "transaction_id": null,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
 }
 ```
-
-
 
 
 ### Example: Creating and Updating a Case Entities
@@ -706,7 +702,7 @@ Submitters can use the GraphQL query language for advanced search and retrieval 
 
 ## Deleting Entities
 
-The `entities` endpoint can also be used to delete entities. This is accomplished using a DELETE request to the endpoint, specifying the entity's UUID. If a entity cannot be deleted because it is linked to child entities, the GDC Submission API will respond with an error providing a list of entities that must be deleted prior to deleting the subject entity.
+The `entities` endpoint can also be used to delete entities. This is accomplished using a DELETE request to the endpoint, specifying the entity's UUID. If an entity cannot be deleted because it is linked to child entities, the GDC Submission API will respond with an error providing a list of entities that must be deleted prior to deleting the subject entity.
 
 A subgraph (a parent along with all of its child entities) can be deleted in a single transaction by passing a comma-separated list of UUIDs to the `entities` endpoint.
 
@@ -759,203 +755,193 @@ Unlike the methods outlined in [Search and Retrieval](Search_and_Retrieval.md), 
 
 **NOTE:** Access to GDC Submission API GraphQL service is limited to authorized and authenticated submitters. Submitters may only access data in their own project using GraphQL.
 
-### Sample GraphQL query
 
-The following is a GraphQL query for a case in project
-TCGA-LAML that returns a JSON document containing the `submitter_id` of
-the case and of its samples.
+### GraphQL IDE
+
+The GDC GraphQL IDE is an instance of [GraphiQL](https://github.com/graphql/graphiql), an in-browser GraphQL IDE that facilitates construction and execution of GraphQL queries. The GDC GraphQL IDE provides tab-completion and syntax checking using schema from the GDC Data Dictionary. It can be found at [https://gdc-portal.nci.nih.gov/submission/graphiql](https://gdc-portal.nci.nih.gov/submission/graphiql).
+
+Before interacting directly with the GDC Submission API's GraphQL endpoint, users are encouraged to become familiar with executing queries using the GDC GraphQL IDE.
+
+### GraphQL Endpoint
+
+GDC data submitters can access the GDC Submission API GraphQL endpoint at:
+
+<pre>https://gdc-api.nci.nih.gov/[&#x3C;API_version&#x3E;/]submission/&#x3C;Program.name&#x3E;/&#x3C;Project.code&#x3E;<b>/graphql</b></pre>
+
+**NOTE:** An authentication token is required for all requests to the `graphql` endpoint. Queries are restricted to those projects for which the submitter has obtained authorization.
 
 
-```GraphQL
+### Constructing a Query
+
+When sending GraphQL requests to the API directly, the bare GraphQL query must be wrapped in a "query" JSON object as shown below:
+
+<pre>
+{  
+	"query": "<b>{Bare_GraphQL_Query}</b>",
+	"variables": null
+}
+</pre>
+
+When using the GDC GraphQL IDE, the bare JSON query must be used without a JSON wrapper.
+
+#### Bare GraphQL query
+
+In its simplest form, a GraphQL query is a **selection set** (curly brackets) that encloses a set of **fields**. The selection set defines the set of information that is to be retrieved. Furthermore, in GraphQL fields are conceptually equivalent to functions that retrieve additional fields and, in some cases, can take arguments. So each field in a selection set can have its own selection set, thereby creating a nested query structure that can navigate complex data relationships. See [GraphQL Specification](https://facebook.github.io/graphql/) for further details.
+
+In GDC GraphQL IDE, a root field (field within the outermost/umbrella selection set) typically corresponds to an entity, whereas fields inside nested selection sets are typically a combination of entities and entity properties.
+
+A simple GraphQL query looks like this:
+
+	{
+	  case (project_id: "TCGA-ALCH", first: 0) {
+	    id
+	    submitter_id
+
+	  }
+	  _case_count (project_id: "TCGA-ALCH")
+	}
+
+[//]: # (this is just a comment ignore me I beg of you_)
+
+
+The query above has two root fields: `case` and `_case_count`. The `case` field corresponds to the `case` entity in the GDC Data Model. The query supplies two arguments to the field:
+
+1. `project_id: "GDC-INTERNAL"`, which requests only cases in the TCGA-ALCH project.
+2. `first: 0`, which requests that the API provide all results in the response, without pagination ( a nonzero positive integer value of `first` specifies the number of results to return, 10 by default; "pages" are selected using `offset`).
+
+The `_case_count` field is a special field that returns the number of cases that match the supplied argument.
+
+The bare query above can be used as is in the GraphQL IDE. In order to pass this query to the GDC API directly, it needs to be further processed as described below.
+
+#### Passing GraphQL queries to GDC API directly
+
+Before a bare GraphQL query is passed to the GDC API, it must be processed as follows:
+
+1. [Escape](http://text-rescue.com/string-escape/json-escape-tool.html) the query using JSON string rules
+2. Wrap the query in a ["query" JSON object](#constructing-a-query).
+3. [Percent-encode](http://text-rescue.com/string-escape/percent-url-encoding-tool.html) the JSON object.
+
+Using the `case` and `_case_count` example above as the starting point, the results are as follows:
+
+```bare_GraphQL
 {
-    case (project_id: "TCGA-LAML", first: 1) {
-         submitter_id
-         samples { submitter_id }
-    }
+	case (project_id: "TCGA-ALCH", first: 0) {
+		id
+		submitter_id
+
+	}
+	_case_count (project_id: "TCGA-ALCH")
 }
 ```
-```Response
+```escaped_GraphQL
+{\n\tcase (project_id: \"TCGA-ALCH\", first: 0) {\n\t\tid\n\t\tsubmitter_id\n\n\t}\n\t_case_count (project_id: \"TCGA-ALCH\")\n}
+```
+```JSON
 {
-  "data": {
-    "case": [
-      {
-        "samples": [
-          {
-            "submitter_id": "TCGA-AB-2901-11A"
-          },
-          {
-            "submitter_id": "TCGA-AB-2901-03A"
-          }
-        ],
-        "submitter_id": "TCGA-AB-2901"
-      }
-    ]
-  }
+	"query": "{\n\tcase (project_id: \"TCGA-ALCH\", first: 0) {\n\t\tid\n\t\tsubmitter_id\n\n\t}\n\t_case_count (project_id: \"TCGA-ALCH\")\n}",
+	"variables": null
 }
 ```
-
-### GDC Data Dictionary Usage
-
-All fields defined in the GDC Data Dictionary can be queried using GraphQL.  The
-GraphQL schema is generated off of the Data Dictionary.  For example,
-if the term `submitter_id` was changed to `alias` for all Sample
-Entities, the above query would be updated to contain `samples { alias
-}` rather than `samples { submitter_id }`.
-
-### GraphiQL IDE
-
-GDC provides an [in-browser IDE](https://gdc-portal.nci.nih.gov/submission/graphiql) for exploring
-GraphQL. It is an instance of [GraphiQL](https://github.com/graphql/graphiql).
-
-This IDE provides tab-completion and syntax checking using the GraphQL
-schema generated from the GDC Data Dictionary.  GraphiQL allows for
-easy discoverability of both fields and query filters.
-
-
-### API Usage
-
-All authorized submitters (those who have READ permissions on a
-project) can access project Entities via the GraphQL endpoint, located
-at `/submission/graphql/`.  As with all authorized API requests, the
-authorization token (as downloaded from the Portal) is provided in the
-request header `X-Auth-Token`
-
-The following example demonstrates a download using `curl` in a Unix
-environment with one assumption that users have their token stored in the
-environment variable `TOKEN`:
-
-```bash
-$ curl -XPOST -H"X-Auth-Token: $TOKEN" "https://gdc-api.nci.nih.gov/v0/submission/graphql/" -d'{"query": "{ aliquot(first: 2) { id }}"}'
+```Encoded_JSON
+%7B%0A%09%22query%22%3A%20%22%7B%5Cn%5Ctcase%20%28project_id%3A%20%5C%22TCGA-ALCH%5C%22%2C%20first%3A%200%29%20%7B%5Cn%5Ct%5Ctid%5Cn%5Ct%5Ctsubmitter_id%5Cn%5Cn%5Ct%7D%5Cn%5Ct_case_count%20%28project_id%3A%20%5C%22TCGA-ALCH%5C%22%29%5Cn%7D%22%2C%0A%09%22variables%22%3A%20null%0A%7D
 ```
-```Response
-{
-  "data": {
-    "aliquot": [
-      {
-        "id": "222417ce-fd47-4dcc-b458-e06751097099"
-      },
-      {
-        "id": "7646a246-5b14-4a50-9c12-7c10dba580d1"
-      }
-    ]
-  }
-}
+```Shell_command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --request POST --header "X-Auth-Token: $token" "https://gdc-api.nci.nih.gov/v0/submission/graphql" -d%7B%0A%09%22query%22%3A%20%22%7B%5Cn%5Ctcase%20%28project_id%3A%20%5C%22TCGA-ALCH%5C%22%2C%20first%3A%200%29%20%7B%5Cn%5Ct%5Ctid%5Cn%5Ct%5Ctsubmitter_id%5Cn%5Cn%5Ct%7D%5Cn%5Ct_case_count%20%28project_id%3A%20%5C%22TCGA-ALCH%5C%22%29%5Cn%7D%22%2C%0A%09%22variables%22%3A%20null%0A%7D
 ```
-
-**NOTE:** Query results will only contain results from
-  the projects that the user has READ access to.
-
-**NOTE:** Query results have a default limit of 10 results, to choose
-  a different number of results, override the default with `first: X`
-  where `X` is the maximum number of desired results.  If `X` is `0`,
-  then no limit is applied. (For pagination, see the `offset` argument)
-
-
-### Examples
-
-#### Example
-
-Complete list of existing cases in a project titled "GDC-EXAMPLE", including count of cases and fields `submitter_id` and `id`:
-
-```Query
-{
-  case (project_id: "GDC-EXAMPLE", first: 0) {
-    id
-    submitter_id
-
-  }
-  _case_count (project_id: "GDC-EXAMPLE")
-}
-```
-```Response
+```API_Response
 {
   "data": {
     "_case_count": 20,
     "case": [
       {
         "id": "700d1110-b6b4-4251-89d4-fa6f0698e3f8",
-        "submitter_id": "GDC-EXAMPLE-000004"
+        "submitter_id": "TCGA-ALCH-000004"
       },
       {
         "id": "be01357d-7348-40b4-a997-8a61ae7af17d",
-        "submitter_id": "GDC-EXAMPLE-000005"
+        "submitter_id": "TCGA-ALCH-000005"
       },
       {
         "id": "e5638697-6ef3-4bf8-a373-102519093f33",
-        "submitter_id": "GDC-EXAMPLE-000008"
+        "submitter_id": "TCGA-ALCH-000008"
       },
       {
         "id": "4871d41a-680e-4fd0-901c-b06f06ecae33",
-        "submitter_id": "GDC-EXAMPLE-000007"
+        "submitter_id": "TCGA-ALCH-000007"
       },
       {
         "id": "2f18c2c1-bff2-43b6-9702-e138c72d8c6b",
-        "submitter_id": "GDC-EXAMPLE-000009"
+        "submitter_id": "TCGA-ALCH-000009"
       },
       {
         "id": "ec83e038-4f01-47a6-bc69-47fb297d0282",
-        "submitter_id": "GDC-EXAMPLE-000006"
+        "submitter_id": "TCGA-ALCH-000006"
       },
       {
         "id": "e4642952-d259-4be1-9c53-ed95aa1fc50b",
-        "submitter_id": "GDC-EXAMPLE-000011"
+        "submitter_id": "TCGA-ALCH-000011"
       },
       {
         "id": "8bcaf0b3-21d0-45c6-87ee-c997efb417dc",
-        "submitter_id": "GDC-EXAMPLE-000010"
+        "submitter_id": "TCGA-ALCH-000010"
       },
       {
         "id": "83de027e-bcbf-4239-975b-7e8ced82448e",
-        "submitter_id": "GDC-EXAMPLE-000013"
+        "submitter_id": "TCGA-ALCH-000013"
       },
       {
         "id": "bbd91cc1-06e2-4e60-8b93-e09c3b16f00c",
-        "submitter_id": "GDC-EXAMPLE-000014"
+        "submitter_id": "TCGA-ALCH-000014"
       },
       {
         "id": "574fd163-4368-440c-9548-d76a0fbc9056",
-        "submitter_id": "GDC-EXAMPLE-000015"
+        "submitter_id": "TCGA-ALCH-000015"
       },
       {
         "id": "47c92cdd-ff11-4c25-b0f0-0f7671144271",
-        "submitter_id": "GDC-EXAMPLE-000016"
+        "submitter_id": "TCGA-ALCH-000016"
       },
       {
         "id": "9f13caab-1fda-4b2a-b500-f79dc978c6c1",
-        "submitter_id": "GDC-EXAMPLE-000017"
+        "submitter_id": "TCGA-ALCH-000017"
       },
       {
         "id": "9418f194-8741-44db-bd8f-36f4fd8c3bf2",
-        "submitter_id": "GDC-EXAMPLE-000018"
+        "submitter_id": "TCGA-ALCH-000018"
       },
       {
         "id": "6fb2a018-c5f3-45e5-81d3-e58e7e4bf921",
-        "submitter_id": "GDC-EXAMPLE-000019"
+        "submitter_id": "TCGA-ALCH-000019"
       },
       {
         "id": "70236972-e796-414a-9b7a-3b29b849ba7c",
-        "submitter_id": "GDC-EXAMPLE-000020"
+        "submitter_id": "TCGA-ALCH-000020"
       },
       {
         "id": "6f78e86f-9e31-4af5-a0d9-b8970ece476d",
-        "submitter_id": "GDC-EXAMPLE-000021"
+        "submitter_id": "TCGA-ALCH-000021"
       },
       {
         "id": "c6fcb2f0-c6bb-4b40-a761-bae3e63869cb",
-        "submitter_id": "GDC-EXAMPLE-000002"
+        "submitter_id": "TCGA-ALCH-000002"
       },
       {
         "id": "67782964-0065-491d-b051-2ae404bb734d",
-        "submitter_id": "GDC-EXAMPLE-000001"
+        "submitter_id": "TCGA-ALCH-000001"
       },
       {
         "id": "b45d2891-ba81-4ecc-a250-c58060934227",
-        "submitter_id": "GDC-EXAMPLE-000012"
+        "submitter_id": "TCGA-ALCH-000012"
       }
     ]
   }
 }
 ```
+
+### Additional Examples
+
 #### Example
 
 GraphQL query for any one case in 'TCGA-LUAD' without Diagnosis information
