@@ -819,7 +819,7 @@ Before a bare GraphQL query is passed to the GDC API, it must be processed as fo
 
 1. [Escape](http://text-rescue.com/string-escape/json-escape-tool.html) the query using JSON string rules
 2. Wrap the query in a ["query" JSON object](#constructing-a-query).
-3. [Percent-encode](http://text-rescue.com/string-escape/percent-url-encoding-tool.html) the JSON object.
+3. Pass the query to the `graphql` endpoint in an HTTP POST request.
 
 Using the `case` and `_case_count` example above as the starting point, the results are as follows:
 
@@ -836,19 +836,16 @@ Using the `case` and `_case_count` example above as the starting point, the resu
 ```escaped_GraphQL
 {\n\tcase (project_id: \"TCGA-ALCH\", first: 0) {\n\t\tid\n\t\tsubmitter_id\n\n\t}\n\t_case_count (project_id: \"TCGA-ALCH\")\n}
 ```
-```JSON
+```Query_json
 {
 	"query": "{\n\tcase (project_id: \"TCGA-ALCH\", first: 0) {\n\t\tid\n\t\tsubmitter_id\n\n\t}\n\t_case_count (project_id: \"TCGA-ALCH\")\n}",
 	"variables": null
 }
 ```
-```Encoded_JSON
-%7B%0A%09%22query%22%3A%20%22%7B%5Cn%5Ctcase%20%28project_id%3A%20%5C%22TCGA-ALCH%5C%22%2C%20first%3A%200%29%20%7B%5Cn%5Ct%5Ctid%5Cn%5Ct%5Ctsubmitter_id%5Cn%5Cn%5Ct%7D%5Cn%5Ct_case_count%20%28project_id%3A%20%5C%22TCGA-ALCH%5C%22%29%5Cn%7D%22%2C%0A%09%22variables%22%3A%20null%0A%7D
-```
 ```Shell_command
 export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
 
-curl --request POST --header "X-Auth-Token: $token" "https://gdc-api.nci.nih.gov/v0/submission/graphql" -d%7B%0A%09%22query%22%3A%20%22%7B%5Cn%5Ctcase%20%28project_id%3A%20%5C%22TCGA-ALCH%5C%22%2C%20first%3A%200%29%20%7B%5Cn%5Ct%5Ctid%5Cn%5Ct%5Ctsubmitter_id%5Cn%5Cn%5Ct%7D%5Cn%5Ct_case_count%20%28project_id%3A%20%5C%22TCGA-ALCH%5C%22%29%5Cn%7D%22%2C%0A%09%22variables%22%3A%20null%0A%7D
+curl --request POST --header "X-Auth-Token: $token" "https://gdc-api.nci.nih.gov/v0/submission/graphql" -d@Query_json
 ```
 ```API_Response
 {
@@ -946,7 +943,7 @@ curl --request POST --header "X-Auth-Token: $token" "https://gdc-api.nci.nih.gov
 
 GraphQL query for any one case in 'TCGA-LUAD' without Diagnosis information
 
-```JavaScript
+```bare_GraphQL
 {
   case (project_id: "TCGA-LUAD", without_links: ["diagnoses"], first: 1) {
       submitter_id
@@ -969,7 +966,7 @@ GraphQL query for any one case in 'TCGA-LUAD' without Diagnosis information
 
 GraphQL query for the number of cases in 'TCGA-LUAD' without Diagnosis information
 
-```JavaScript
+```bare_GraphQL
 {
   _case_count (project_id: "TCGA-LUAD", without_links: ["diagnoses"])
 }
@@ -984,23 +981,33 @@ GraphQL query for the number of cases in 'TCGA-LUAD' without Diagnosis informati
 
 #### Example
 
-Query for the release state of aliquots belonging to case with `submitter_id:
-"TCGA-17-Z050"`
+Query for the `state` of aliquots belonging to case with `submitter_id: "TCGA-ALCH-000001"`
 
-```JavaScript
+```bare_GraphQL
 {
-  aliquot(with_path_to: {type: "case", submitter_id:"TCGA-17-Z050"}) {
+  aliquot(with_path_to: {type: "case", submitter_id:"TCGA-ALCH-000001"}) {
     id release_state
+  }
+}
+```
+```Response
+{
+  "data": {
+    "aliquot": [
+      {
+        "id": "7af58da0-cb3e-43e2-a074-4bd8f27565ba",
+        "state": "validated"
+      }
+    ]
   }
 }
 ```
 
 #### Example
 
-GraphQL query that uses a graphql fragment to get specific properties from two portions
-and give them aliases in the response.
+GraphQL query that uses a GraphQL fragment to get specific properties from two portions and give them aliases in the response.
 
-```JavaScript
+```bare_GraphQL
 {
   some_portion: portion (first: 1) {
     ...portionProperties
@@ -1038,7 +1045,7 @@ fragment portionProperties on portion {
 
 GraphQL Query for a case in "TCGA-LUAD" and return a biospecimen tree
 
-```JavaScript
+```bare_GraphQL
 {
   case(project_id: "TCGA-LUAD", first: 1) {
     id

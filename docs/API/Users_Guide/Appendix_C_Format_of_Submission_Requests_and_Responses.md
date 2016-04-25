@@ -1,4 +1,4 @@
-# Appendix D: Format of Submission Requests and Responses
+# Appendix C: Format of Submission Requests and Responses
 
 ### Format of Submission Request
 
