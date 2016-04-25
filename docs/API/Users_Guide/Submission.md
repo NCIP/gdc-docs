@@ -744,6 +744,13 @@ Experimental data files like BAM and FASTQ can be uploaded directly to the API u
 
 	curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@data.fastq
 
+### Upload Manifest
+
+The `manifest` endpoint can be used to generate a manifest for uploading files using the GDC Data Transfer Tool, for example:
+
+	https://gdc-api.nci.nih.gov/v0/submission/PROGRAM/PROJECT/manifest?ids=79638863-959f-4027-9e43-4e8775b0c49f
+
+The endpoint requires a list of file UUIDs to generate a manifest.
 
 ## Querying Submitted Data Using GraphQL
 
