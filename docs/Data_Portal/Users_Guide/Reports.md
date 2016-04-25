@@ -4,4 +4,4 @@ The "Reports” section hosts various reports summarizing GDC Data Portal use an
 
 [![Data Download Statistics Report](images/gdc-data-portal-dl-report.png)](images/gdc-data-portal-dl-report.png "Click to see the full image.")
 
-The information contained in the reports can be downloaded in JSON format from the reports page.
+
