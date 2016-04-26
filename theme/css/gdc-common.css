@@ -22,7 +22,7 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: #f0eaea;
+  background-color: rgb(249, 249, 249);
   color: #3a3a3a;
   line-height: 2rem;
 }
@@ -102,14 +102,14 @@ a:hover {
 a,
 a:link,
 a:visited {
-  color: #347cb0;
+  color: #1a527a;
   text-decoration: none;
 }
 
 
 a:hover,
 a:focus {
-  color: #347cb0;
+  color: #1a527a;
   text-decoration: underline;
 }
 
@@ -202,7 +202,7 @@ code {
   margin: 0 auto;
   /* top: 0px;
   left: 0rem; */
-  background-color: #f5f5f5;
+  background-color: rgb(250, 250, 250);
   /* -webkit-box-shadow: 10px 0px 37px 4px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 0px 37px 4px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 17px 4px rgba(0,0,0,0.75);
@@ -523,7 +523,7 @@ a.header-text-link {
 .bs-sidebar .nav .main > a:hover,
 .bs-sidebar .nav .main:hover > a,
 .bs-sidebar .nav .main > a {
-  background-color: #ddd;
+  background-color: rgb(242, 242, 242);
 }
 
 .bs-sidebar .nav .main ul {
@@ -532,7 +532,7 @@ a.header-text-link {
 }
 
 .bs-sidebar .nav .main ul li {
-  background-color: #f0f0f0;
+  background-color: rgb(248, 248, 248);
 }
 
 
@@ -776,7 +776,9 @@ footer {
   line-height: 1.7rem;
 }
 
-footer a {
+footer a,
+footer a:link,
+footer a:visited {
   color: #c2cfd5;
   text-align: center;
 }

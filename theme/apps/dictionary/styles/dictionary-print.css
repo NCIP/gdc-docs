@@ -2,7 +2,7 @@
 .dictionary-control-container,
 .dictionary-download-category-btn-container,
 .dictionary-print-button,
-.dictionary-tooltip > span,
+.dictionary-tooltip > .dictionary-tooltip-content,
 .navbar.navbar-default /*,
 .no-print*/ {
   display: none !important;

@@ -20,7 +20,7 @@ Tokens are alphanumeric strings of characters like this one:
 
 ### Using a Token
 
-A token must be passed to the GDC API with each request that requires authorizationFor transactions that require authorization, each request submitted to the GDC API must include an `X-Auth-Token` custom header.
+A token must be passed to the GDC API with each request that requires authorization. For transactions that require authorization, each request submitted to the GDC API must include an `X-Auth-Token` custom header.
 
 
 #### Example: Downloading Controlled Data
@@ -42,6 +42,6 @@ curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.t
 
 ### Token Expiration
 
-Tokens are valid for 90 days from the time of download.
+Tokens are valid for 30 days from the time of download.
 
 Any request to the GDC API that uses an expired token will fail and receive an HTTP error response.

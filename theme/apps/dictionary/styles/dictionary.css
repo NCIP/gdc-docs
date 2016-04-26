@@ -347,7 +347,7 @@
   font-style: normal;
 }
 
-.dictionary-tooltip > span {
+.dictionary-tooltip > .dictionary-tooltip-content {
   width: 30rem;
   padding: 1rem 2rem;
   margin-top: 4rem;
@@ -371,7 +371,7 @@
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-.dictionary-tooltip:hover > span {
+.dictionary-tooltip:hover > .dictionary-tooltip-content {
   opacity: 1;
   text-decoration: none;
   visibility: visible;
@@ -382,11 +382,11 @@
   opacity: 0.95;
 }
 
-.dictionary-tooltip:hover > span > a {
+.dictionary-tooltip:hover > .dictionary-tooltip-content > a {
   visibility: visible;
 }
 
-.dictionary-tooltip span i {
+.dictionary-tooltip .dictionary-tooltip-content i {
   width: 15px;
   height: 15px;
   margin-left: 0px;
@@ -401,13 +401,13 @@
   *display: none;
 }
 
-.dictionary-tooltip > span {
+.dictionary-tooltip > .dictionary-tooltip-content {
   color: #675A21;
   background-color: #EDE9D7;
 
 }
 
-.dictionary-tooltip span > i {
+.dictionary-tooltip .dictionary-tooltip-content > i {
   background: #EDE9D7;
   border-top: 1px solid #EDE9D7;
   border-right: 1px solid #EDE9D7;

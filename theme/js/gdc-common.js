@@ -469,7 +469,7 @@ $(function() {
         return;
       }
 
-      mainHeader.prepend('<span class="header-badge"><i class="fa fa-book"></i></span>');
+      mainHeader.prepend('<span class="header-badge"><span class="fa fa-book" aria-hidden="true"></span></span>');
 
     }
 

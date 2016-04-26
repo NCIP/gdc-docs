@@ -18,7 +18,7 @@ The following search and retrieval endpoints are available on the GDC API:
 | \_mapping | Information about elements that can be used to query other endpoints |
 
 ### Project Endpoint
-The GDC Project Endpoint `https://gdc-api.nci.nih.gov/projects` provides overall access to all the data served by GDC organized by Project such project(study) name, program,disease, primary site and state.
+The GDC Project Endpoint `https://gdc-api.nci.nih.gov/projects` provides overall access to all the data served by GDC organized by Project such project(study) name, program, disease, primary site and state.
 
 #### Example
 This example is a query for projects contained in the GDC. It uses the [from](#from), [size](#size), [sort](#sort), and [pretty](#pretty) parameters, and returns the first two projects sorted by project id.
@@ -284,75 +284,142 @@ The following query parameters can be used with all methods and resources in the
 
 Parameter | Default | Description
 --------- | ------- | -----------
-facets | false | Provides a list document counts for each included facet
-fields | false | Query option to specify which fields to include in the response
-filters| false | Query option filters specify criteria for the returned response
-from   | false | Specifies the first record to return from the set resulting of a query
-size | false | determines the number of results to return
-sort | false | specifies a field to sort the returned results by sort order: + use asc for ascending order + use des for descending order
+format | JSON | Specifies the API response format: JSON, XML, or TSV
 pretty | false | Returns response with indentations and line breaks in a human-readable format
-format | false | Returns response in XML or TSV format, JSON is default
+fields | null | Query option to specify which fields to include in the response
+size | 10 | Specifies the number of results to return
+from   | 1 | Specifies the first record to return from the set resulting of a query
+sort | null | Specifies sorting algorithm for the results in the API response
+filters| null | Query option filters specify criteria for the returned response
+facets | null | Provides a list of number of files available given current filters facet
 
-### Facets
-The `facets` query parameter provides aggregated data based on a search query. In the simplest case, a terms facet can return facet counts for various facet values for a specific field.
+
+### Format
+
+Specifies the format of the API response. JSON is default, and `TSV` and `XML` options are available.
+
+#### Examples
+
+```shell1
+curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&size=5&format=TSV'
+```
+```python1
+import requests
+
+cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+params = {'fields':'submitter_id',
+          'format':'TSV'}
+response = requests.get(cases_endpt, params = params)
+print response.content
+```
+```response1
+submitter_id
+TCGA-RC-A6M6
+TCGA-B6-A0RV
+TCGA-MB-A5Y8
+TCGA-BQ-5876
+TCGA-Z6-A9VB
+```
+```shell2
+curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&size=5&format=XML&pretty=true'
+```
+```python2
+import requests
+
+cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+params = {'fields':'submitter_id',
+          'format':'XML',
+          'pretty':'true'}
+response = requests.get(cases_endpt, params = params)
+print response.content
+```
+```Output2
+<?xml version="1.0" ?>
+<response>
+	<data>
+		<hits>
+			<item>
+				<submitter_id>TCGA-MQ-A4LV</submitter_id>
+			</item>
+			<item>
+				<submitter_id>TCGA-N9-A4Q1</submitter_id>
+			</item>
+			<item>
+				<submitter_id>TCGA-78-7154</submitter_id>
+			</item>
+			<item>
+				<submitter_id>TCGA-S7-A7WX</submitter_id>
+			</item>
+			<item>
+				<submitter_id>TCGA-XF-AAML</submitter_id>
+			</item>
+		</hits>
+		<pagination>
+			<count>5</count>
+			<sort/>
+			<from>1</from>
+			<pages>2811</pages>
+			<total>14052</total>
+			<page>1</page>
+			<size>5</size>
+		</pagination>
+	</data>
+	<warnings/>
+</response>
+```
+
+### Pretty
+
+Returns when the `pretty` parameter is set to `true`, the API response is formatted with additional whitespace to improve legibility.
 
 #### Example
 
-To get a count of projects in each program, `facets=program.name` can be passed to the `projects` endpoint.
-
-A list of all valid _field_ names that can be used as facets is available in [Appendix A](Appendix_A_Available_Fields.md).
-
-```shell
-curl  'https://gdc-api.nci.nih.gov/projects?facets=program.name&from=1&size=0&sort=program.name:asc&pretty=true'
+```Request1
+curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5'
 ```
-```python
-import requests
-import json
-
-projects_endpt = 'https://gdc-api.nci.nih.gov/projects'
-params = {'facets':'program.name',
-          'from':1, 'size':0,
-          'sort':'program.name:asc'}
-response = requests.get(projects_endpt, params = params)
-print json.dumps(response.json(), indent=2)
+```Response1
+{"data": {"hits": [{"submitter_id": "TARGET-20-PABGKN"}, {"submitter_id": "TARGET-20-PABHET"}, {"submitter_id": "TARGET-20-PABHKY"}, {"submitter_id": "TARGET-20-PABLDZ"}, {"submitter_id": "TARGET-20-PACDZR"}], "pagination": {"count": 5, "sort": "submitter_id.raw:asc", "from": 1, "pages": 2811, "total": 14052, "page": 1, "size": 5}}, "warnings": {}}
 ```
-``` Output
-
-	{
-	  "data": {
-		"pagination": {
-		  "count": 0,
-		  "sort": "program.name:asc",
-		  "from": 1,
-		  "pages": 46,
-		  "total": 46,
-		  "page": 1,
-		  "size": 0
-		},
-		"hits": [],
-		"aggregations": {
-		  "program.name": {
-			"buckets": [
-			  {
-				"key": "TCGA",
-				"doc_count": 37
-			  },
-			  {
-				"key": "TARGET",
-				"doc_count": 9
-			  }
-			]
-		  }
-		}
-	  },
-	  "warnings": {}
-	}
+```Request2
+curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5&pretty=true'
 ```
-
+```Response2
+{
+  "data": {
+    "hits": [
+      {
+        "submitter_id": "TARGET-20-PABGKN"
+      },
+      {
+        "submitter_id": "TARGET-20-PABHET"
+      },
+      {
+        "submitter_id": "TARGET-20-PABHKY"
+      },
+      {
+        "submitter_id": "TARGET-20-PABLDZ"
+      },
+      {
+        "submitter_id": "TARGET-20-PACDZR"
+      }
+    ],
+    "pagination": {
+      "count": 5,
+      "sort": "submitter_id.raw:asc",
+      "from": 1,
+      "pages": 2811,
+      "total": 14052,
+      "page": 1,
+      "size": 5
+    }
+  },
+  "warnings": {}
+}
+```
 
 ### Fields
 
-This query option specifies which fields to include in the response. Using fields can help improve performance. A complete listing of all valid fields for each endpoint type are available in [Appendix A](Appendix_A_Available_Fields.md).
+This query parameter specifies which fields are to be included in the API response. Using `fields` to restrict the number of fields returned can improve performance. A listing of available fields for each endpoint is provided in [Appendix A](Appendix_A_Available_Fields.md).
 
 #### Example
 
@@ -370,58 +437,227 @@ params = {'fields':'file_name'}
 response = requests.get(files_endpt, params = params)
 print json.dumps(response.json(), indent=2)
 ```
-``` Output
-	{
-	  "data": {
-		"hits": [
-		  {
-			"file_name": "Collagen_VI-R-V_GBL1112757.tif"
-		  },
-		  {
-			"file_name": "DUNGS_p_TCGA_b84_115_SNP_N_GenomeWideSNP_6_C09_771624.birdseed.data.txt"
-		  },
-		  {
-			"file_name": "unc.edu.ba350477-3c49-4258-8409-f39447687497.2145690.junction_quantification.txt"
-		  },
-		  {
-			"file_name": "SWEDE_p_TCGAb322_23_24_25_26NSP_GenomeWideSNP_6_C06_1364960.hg18.seg.txt"
-		  },
-		  {
-			"file_name": "unc.edu.a696be4d-8576-43a3-8137-30778dff9b89.2445604.junction_quantification.txt"
-		  },
-		  {
-			"file_name": "MSK_252152921979_S01_CGH-v4_10_27Aug08__GCN_V3_A1__CBS_out.txt"
-		  },
-		  {
-			"file_name": "9721366028_R05C01_Red.idat"
-		  },
-		  {
-			"file_name": "28bdce76404c4a5a9a766c6e93f390ed.bam"
-		  },
-		  {
-			"file_name": "PKC-delta_pS664-R-V_GBL9016761.tif"
-		  },
-		  {
-			"file_name": "jhu-usc.edu_LAML.HumanMethylation450.2.lvl-2.TCGA-AB-3011-03A-01D-0742-05.txt"
-		  }
-		],
-		"pagination": {
-		  "count": 10,
-		  "sort": "",
-		  "from": 1,
-		  "pages": 54777,
-		  "total": 547761,
-		  "page": 1,
-		  "size": 10
-		}
+```Response
+{
+  "data": {
+	"hits": [
+	  {
+		"file_name": "Collagen_VI-R-V_GBL1112757.tif"
 	  },
-	  "warnings": {}
+	  {
+		"file_name": "DUNGS_p_TCGA_b84_115_SNP_N_GenomeWideSNP_6_C09_771624.birdseed.data.txt"
+	  },
+	  {
+		"file_name": "unc.edu.ba350477-3c49-4258-8409-f39447687497.2145690.junction_quantification.txt"
+	  },
+	  {
+		"file_name": "SWEDE_p_TCGAb322_23_24_25_26NSP_GenomeWideSNP_6_C06_1364960.hg18.seg.txt"
+	  },
+	  {
+		"file_name": "unc.edu.a696be4d-8576-43a3-8137-30778dff9b89.2445604.junction_quantification.txt"
+	  },
+	  {
+		"file_name": "MSK_252152921979_S01_CGH-v4_10_27Aug08__GCN_V3_A1__CBS_out.txt"
+	  },
+	  {
+		"file_name": "9721366028_R05C01_Red.idat"
+	  },
+	  {
+		"file_name": "28bdce76404c4a5a9a766c6e93f390ed.bam"
+	  },
+	  {
+		"file_name": "PKC-delta_pS664-R-V_GBL9016761.tif"
+	  },
+	  {
+		"file_name": "jhu-usc.edu_LAML.HumanMethylation450.2.lvl-2.TCGA-AB-3011-03A-01D-0742-05.txt"
+	  }
+	],
+	"pagination": {
+	  "count": 10,
+	  "sort": "",
+	  "from": 1,
+	  "pages": 54777,
+	  "total": 547761,
+	  "page": 1,
+	  "size": 10
 	}
+  },
+  "warnings": {}
+}
 ```
+
+### Size and From
+
+GDC API provides a pagination feature that limits the number of results returned by the API. It is implemented using `size` and `from` query parameters.
+
+The `size` query parameter specifies the maximum number of results to return. Default `size` is 10. Specifying a `size` of `0` will return all results. If the number of query results is greater than `size`, only some of the results will be returned.
+
+The `from` query parameter specifies the first record to return out of the set of results. For example, if there are 20 cases returned from the `cases` endpoint, then setting `from` to `11` will return results 11 to 20. The `from` parameter can be used in conjunction with the `size` parameter to return a specific subset of results.
+
+
+#### Example
+
+
+``` Shell1
+curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&from=0&size=2&pretty=true'
+```
+``` Python1
+import requests
+import json
+
+files_endpt = 'https://gdc-api.nci.nih.gov/files'
+params = {'fields':'file_name',
+          'from':0, 'size':2}
+response = requests.get(files_endpt, params = params)
+print json.dumps(response.json(), indent=2)
+
+```
+```Response1
+{
+  "data": {
+    "hits": [
+      {
+        "file_name": "unc.edu.276a1e00-cf3a-4463-a97b-d544381219ea.2363081.rsem.isoforms.normalized_results"
+      },
+      {
+        "file_name": "nationwidechildrens.org_clinical.TCGA-EY-A5W2.xml"
+      }
+    ],
+    "pagination": {
+      "count": 2,
+      "sort": "",
+      "from": 1,
+      "pages": 300936,
+      "total": 601872,
+      "page": 1,
+      "size": 2
+    }
+  },
+  "warnings": {}
+}
+```
+``` Shell2
+curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&from=101&size=5&pretty=true'
+```
+``` Python2
+import requests
+import json
+
+files_endpt = 'https://gdc-api.nci.nih.gov/files'
+params = {'fields':'file_name',
+          'from':101, 'size':5}
+response = requests.get(files_endpt, params = params)
+print json.dumps(response.json(), indent=2)
+```
+``` Output2
+{
+  "data": {
+    "hits": [
+      {
+        "file_name": "unc.edu.956590e9-4962-497b-a59f-81ee0a1c0caf.1379536.junction_quantification.txt"
+      },
+      {
+        "file_name": "MATZO_p_TCGAb40_SNP_1N_GenomeWideSNP_6_G09_667760.ismpolish.data.txt"
+      },
+      {
+        "file_name": "GIRTH_p_TCGA_b108_137_SNP_N_GenomeWideSNP_6_D06_787864.hg18.seg.txt"
+      },
+      {
+        "file_name": "PLENA_p_TCGAb63and64_SNP_N_GenomeWideSNP_6_B12_697382.CEL"
+      },
+      {
+        "file_name": "TCGA-HU-8604-01A-11R-2402-13.isoform.quantification.txt"
+      }
+    ],
+    "pagination": {
+      "count": 5,
+      "sort": "",
+      "from": 100,
+      "pages": 109553,
+      "total": 547761,
+      "page": 21,
+      "size": 5
+    }
+  },
+  "warnings": {}
+}
+```
+
+### Sort
+
+The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:desc` (descending) prefix, e.g. `sort=field:desc`. A list of all valid _field_ names that can be used as facets is available in [Appendix A](Appendix_A_Available_Fields.md).
+
+#### Example
+
+Sort cases by `submitter_id` in ascending order:
+
+``` shell
+curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&pretty=true'
+```
+``` python
+import requests
+import json
+
+cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+params = {'fields':'submitter_id',
+          'sort':'submitter_id:asc'}
+response = requests.get(cases_endpt, params = params)
+print json.dumps(response.json(), indent=2)
+
+```
+``` Output
+{
+  "data": {
+    "hits": [
+      {
+        "submitter_id": "TARGET-20-PABGKN"
+      },
+      {
+        "submitter_id": "TARGET-20-PABHET"
+      },
+      {
+        "submitter_id": "TARGET-20-PABHKY"
+      },
+      {
+        "submitter_id": "TARGET-20-PABLDZ"
+      },
+      {
+        "submitter_id": "TARGET-20-PACDZR"
+      },
+      {
+        "submitter_id": "TARGET-20-PACEGD"
+      },
+      {
+        "submitter_id": "TARGET-20-PADDXZ"
+      },
+      {
+        "submitter_id": "TARGET-20-PADYIR"
+      },
+      {
+        "submitter_id": "TARGET-20-PADZCG"
+      },
+      {
+        "submitter_id": "TARGET-20-PADZKD"
+      }
+    ],
+    "pagination": {
+      "count": 10,
+      "sort": "submitter_id.raw:asc",
+      "from": 1,
+      "pages": 1406,
+      "total": 14052,
+      "page": 1,
+      "size": 10
+    }
+  },
+  "warnings": {}
+}
+```
+
 
 ### Filters
 
-Using the query option `filters` lets users specify criteria for the returned response. The `filters` syntax is a JSON object that contains the query filters that are translatable to Elastic Search JSON-based queries used by the GDC middleware. Users can get a list of available values for a specific field in the filter by making a call to the appropriate API endpoint using the `facets` parameter.
+The `filters` parameter is a key parameter than enables complex search queries to be passed to the GDC API. Queries are passed as JSON objects.
 
 
 #### Filtering Operators
@@ -439,65 +675,11 @@ Operators (**op** in the examples in Section 6.2) can take different values depe
 
 When using multiple fields, operator content requires nested data containing additional operators.
 
-#### Example
-
-To get a list of available values for the `clinical.gender` field, users can query the cases endpoint using the `facets` parameter:
-
-```shell
-curl 'https://gdc-api.nci.nih.gov/cases?facets=clinical.gender&from=1&size=0&sort=clinical.gender:asc&pretty=true'
-```
-```python
-import requests
-import json
-
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
-params = {'facets':'clinical.gender',
-          'from':1, 'size':0,
-          'sort':'clinical.gender:asc'}
-response = requests.get(cases_endpt, params = params)
-print json.dumps(response.json(), indent=2)
-```
-``` Output
-{
-	"data": {
-	"pagination": {
-		"count": 0,
-		"sort": "clinical.gender:asc",
-		"from": 1,
-		"pages": 14052,
-		"total": 14052,
-		"page": 1,
-		"size": 0
-	},
-	"hits": [],
-	"aggregations": {
-		"clinical.gender": {
-		"buckets": [
-			{
-			"key": "female",
-			"doc_count": 6598
-			},
-			{
-			"key": "male",
-			"doc_count": 6303
-			},
-			{
-			"key": "_missing",
-			"doc_count": 1151
-			}
-		]
-		}
-	}
-	},
-	"warnings": {}
-}
-```
+Users can get a list of available values for a specific field in the filter by making a call to the appropriate API endpoint using the `fields` parameter.
 
 #### Nested Operations
 
 Filters support complex nested operations as well as simple queries on a single field. There are different types of operations available for many uses. For more examples see [Additional Examples](Additional_Examples.md).
-
-It is possible to obtain multiple values from multiple fields in one single query, e.g. `(facets=field1,field2)`.
 
 #### Example
 
@@ -512,7 +694,7 @@ The JSON object to be passed to the `filter` parameter looks like:
 		  }
 	}
 
-URL-encoding the above JSON object (see [Tools](Getting_Started.md#tools-for-communicating-with-the-gdc-api)) results in the following string:
+URL-encoding the above JSON object using [Percent-(URL)-encoding tool](http://text-rescue.com/string-escape/percent-url-encoding-tool.html) results in the following string:
 
 	%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.clinical.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d
 
@@ -717,313 +899,54 @@ print json.dumps(response.json(), indent=2)
 
 More in depth examples of various filter types supported in GDC are available in the [Appendix A](Appendix_A_Available_Fields.md)
 
-
-### From
-
-The GDC API uses pagination, the `from` query parameter specifies the first record to return out of the set of results. For example, if there are 20 cases returned from the `case` endpoint, `from` can be set to 10 and results 10-20 will be returned. The `from` parameter can be used in conjunction with the `size` parameter to return a specific subset of results. For more information see [Filters](#filters) examples.
-
+### Facets
+The `facets` query parameter provides aggregated data based on a search query. The primary intended use of this parameter is for displaying aggregate information in the GDC Data Portal. For example, to get a count of projects in each program, `facets=program.name` can be passed to the `projects` endpoint.
 
 #### Example
-
-Getting 5 file results starting from the 100th result from a set of 500.
-
-``` Shell
-curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&from=101&size=5&pretty=true'
-```
-``` Python
-import requests
-import json
-
-files_endpt = 'https://gdc-api.nci.nih.gov/files'
-params = {'fields':'file_name',
-          'from':101, 'size':5}
-response = requests.get(files_endpt, params = params)
-print json.dumps(response.json(), indent=2)
-
-```
-``` Output
-{
-  "data": {
-    "hits": [
-      {
-        "file_name": "unc.edu.956590e9-4962-497b-a59f-81ee0a1c0caf.1379536.junction_quantification.txt"
-      },
-      {
-        "file_name": "MATZO_p_TCGAb40_SNP_1N_GenomeWideSNP_6_G09_667760.ismpolish.data.txt"
-      },
-      {
-        "file_name": "GIRTH_p_TCGA_b108_137_SNP_N_GenomeWideSNP_6_D06_787864.hg18.seg.txt"
-      },
-      {
-        "file_name": "PLENA_p_TCGAb63and64_SNP_N_GenomeWideSNP_6_B12_697382.CEL"
-      },
-      {
-        "file_name": "TCGA-HU-8604-01A-11R-2402-13.isoform.quantification.txt"
-      }
-    ],
-    "pagination": {
-      "count": 5,
-      "sort": "",
-      "from": 100,
-      "pages": 109553,
-      "total": 547761,
-      "page": 21,
-      "size": 5
-    }
-  },
-  "warnings": {}
-}
-```
-
-### Size
-
-The `size` query parameter specifies the number of results to return. When `size` is not specified the default is 10.
-
-#### Example
-
-This example returns the names of the first two files:
-
-``` Shell
-curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&from=0&size=2&pretty=true'
-```
-``` Python
-import requests
-import json
-
-files_endpt = 'https://gdc-api.nci.nih.gov/files'
-params = {'fields':'file_name',
-          'from':0, 'size':2}
-response = requests.get(files_endpt, params = params)
-print json.dumps(response.json(), indent=2)
-
-```
-``` Output
-{
-  "data": {
-    "hits": [
-      {
-        "file_name": "unc.edu.276a1e00-cf3a-4463-a97b-d544381219ea.2363081.rsem.isoforms.normalized_results"
-      },
-      {
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EY-A5W2.xml"
-      }
-    ],
-    "pagination": {
-      "count": 2,
-      "sort": "",
-      "from": 1,
-      "pages": 300936,
-      "total": 601872,
-      "page": 1,
-      "size": 2
-    }
-  },
-  "warnings": {}
-}
-```
-
-### Sort
-
-The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:dsc` (descending) prefix, e.g. `sort=field:desc`.
-
-#### Example
-
-Sort cases by submitter_id in ascending order:
-
-``` shell
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&pretty=true'
-```
-``` python
-import requests
-import json
-
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
-params = {'fields':'submitter_id',
-          'sort':'submitter_id:asc'}
-response = requests.get(cases_endpt, params = params)
-print json.dumps(response.json(), indent=2)
-
-```
-``` Output
-{
-  "data": {
-    "hits": [
-      {
-        "submitter_id": "TARGET-20-PABGKN"
-      },
-      {
-        "submitter_id": "TARGET-20-PABHET"
-      },
-      {
-        "submitter_id": "TARGET-20-PABHKY"
-      },
-      {
-        "submitter_id": "TARGET-20-PABLDZ"
-      },
-      {
-        "submitter_id": "TARGET-20-PACDZR"
-      },
-      {
-        "submitter_id": "TARGET-20-PACEGD"
-      },
-      {
-        "submitter_id": "TARGET-20-PADDXZ"
-      },
-      {
-        "submitter_id": "TARGET-20-PADYIR"
-      },
-      {
-        "submitter_id": "TARGET-20-PADZCG"
-      },
-      {
-        "submitter_id": "TARGET-20-PADZKD"
-      }
-    ],
-    "pagination": {
-      "count": 10,
-      "sort": "submitter_id.raw:asc",
-      "from": 1,
-      "pages": 1406,
-      "total": 14052,
-      "page": 1,
-      "size": 10
-    }
-  },
-  "warnings": {}
-}
-```
-
-### Pretty
-
-Returns response with indentations and line breaks in a human-readable format.
-
-#### Example: pretty=false
-
-```Shell
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5'
-```
-```Output
-{"data": {"hits": [{"submitter_id": "TARGET-20-PABGKN"}, {"submitter_id": "TARGET-20-PABHET"}, {"submitter_id": "TARGET-20-PABHKY"}, {"submitter_id": "TARGET-20-PABLDZ"}, {"submitter_id": "TARGET-20-PACDZR"}], "pagination": {"count": 5, "sort": "submitter_id.raw:asc", "from": 1, "pages": 2811, "total": 14052, "page": 1, "size": 5}}, "warnings": {}}
-```
-
-####  Example: pretty=true
-
-Same query as above with pretty=true returns a more human-readable format
-
-```Shell
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5&pretty=true'
-```
-```Output
-{
-  "data": {
-    "hits": [
-      {
-        "submitter_id": "TARGET-20-PABGKN"
-      },
-      {
-        "submitter_id": "TARGET-20-PABHET"
-      },
-      {
-        "submitter_id": "TARGET-20-PABHKY"
-      },
-      {
-        "submitter_id": "TARGET-20-PABLDZ"
-      },
-      {
-        "submitter_id": "TARGET-20-PACDZR"
-      }
-    ],
-    "pagination": {
-      "count": 5,
-      "sort": "submitter_id.raw:asc",
-      "from": 1,
-      "pages": 2811,
-      "total": 14052,
-      "page": 1,
-      "size": 5
-    }
-  },
-  "warnings": {}
-}
-```
-
-### Format
-
-Specifies the format of the API response. JSON is default, and `TSV` and `XML` options are available.
-
-#### Example: TSV
-
-A query with `format=TSV` returns results in a tab separated values (TSV) format.
 
 ```shell
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&size=5&format=TSV'
+curl  'https://gdc-api.nci.nih.gov/projects?facets=program.name&from=1&size=0&sort=program.name:asc&pretty=true'
 ```
 ```python
 import requests
+import json
 
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
-params = {'fields':'submitter_id',
-          'format':'TSV'}
-response = requests.get(cases_endpt, params = params)
-print response.content
+projects_endpt = 'https://gdc-api.nci.nih.gov/projects'
+params = {'facets':'program.name',
+          'from':1, 'size':0,
+          'sort':'program.name:asc'}
+response = requests.get(projects_endpt, params = params)
+print json.dumps(response.json(), indent=2)
 ```
-```Output
-submitter_id
-TCGA-RC-A6M6
-TCGA-B6-A0RV
-TCGA-MB-A5Y8
-TCGA-BQ-5876
-TCGA-Z6-A9VB
-```
+```Response
 
-#### Example: XML
-
-A query with `format=XML` returns results in XML format:
-
-```shell
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&size=5&format=XML&pretty=true'
-```
-```python
-import requests
-
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
-params = {'fields':'submitter_id',
-          'format':'XML',
-          'pretty':'true'}
-response = requests.get(cases_endpt, params = params)
-print response.content
-```
-```Output
-<?xml version="1.0" ?>
-<response>
-	<data>
-		<hits>
-			<item>
-				<submitter_id>TCGA-MQ-A4LV</submitter_id>
-			</item>
-			<item>
-				<submitter_id>TCGA-N9-A4Q1</submitter_id>
-			</item>
-			<item>
-				<submitter_id>TCGA-78-7154</submitter_id>
-			</item>
-			<item>
-				<submitter_id>TCGA-S7-A7WX</submitter_id>
-			</item>
-			<item>
-				<submitter_id>TCGA-XF-AAML</submitter_id>
-			</item>
-		</hits>
-		<pagination>
-			<count>5</count>
-			<sort/>
-			<from>1</from>
-			<pages>2811</pages>
-			<total>14052</total>
-			<page>1</page>
-			<size>5</size>
-		</pagination>
-	</data>
-	<warnings/>
-</response>
+	{
+	  "data": {
+		"pagination": {
+		  "count": 0,
+		  "sort": "program.name:asc",
+		  "from": 1,
+		  "pages": 46,
+		  "total": 46,
+		  "page": 1,
+		  "size": 0
+		},
+		"hits": [],
+		"aggregations": {
+		  "program.name": {
+			"buckets": [
+			  {
+				"key": "TCGA",
+				"doc_count": 37
+			  },
+			  {
+				"key": "TARGET",
+				"doc_count": 9
+			  }
+			]
+		  }
+		}
+	  },
+	  "warnings": {}
+	}
 ```

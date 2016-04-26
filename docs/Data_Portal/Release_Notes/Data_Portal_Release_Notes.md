@@ -1,5 +1,59 @@
 # Data Portal Release Notes
 
+## Release 0.3.24-spr5
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: April 18, 2016
+
+### New Features and Changes
+
+*   This is a bug-fixing release, no new features were added.
+
+### Bugs Fixed Since Last Release
+
+*   Tables and Export
+    *   Table export return correct content (XML, TSV) although file extension is incorrect (always JSON) <!-- PGDC-1986 -->
+    *   Nested values are not exported properly <!-- PGDC-910 SV-13 -->
+    *   Project table summary chart does not display colors with Internet Explorer 11 <!-- PGDC-1953 -->
+*   Cart and Download
+    *   When saving a file for download, the download pop-up indicates "from:blob:" <!-- PGDC-115 -->
+    *   User with update only can also download files also role should not allow <!-- PGDC-1782 -->
+    *   User can add more files to the cart than supported if adding files one by one <!-- PGDC-1957 -->
+    *   In very specific situations, the cart can display inconsistent data <!-- PGDC-1028 -->   
+    *   In some situations the cart will display the authentication window for authenticated users when trying to download <!-- PGDC-1959 -->  
+*   Search
+    *   In the data page, some pie chart titles are too long <!-- PGDC-914 -->
+    *   Facets displaying histogram do not display a mouseover tooltip if the value is very low <!-- PGDC-913 -->
+*   Layout, Browser specific and Accessibility
+    *   No favicon is displayed on Internet Explorer <!-- PGDC-1948 -->
+    *   Download cart button does not function properly with Safari 9.0.3 <!-- PGDC-1978 -->
+    *   Layout issue when browser is reduced to a small window size <!-- PGDC-16 -->
+
+
+### Known Issues and Workarounds
+
+*   General
+    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+*   Tables and Export
+    *   Table sorting icon does not include numbers <!-- PGDC-35 -->
+    *   Restore default table column arrangement does not restore to the default but it restores to the previous state <!-- PGDC-1769 -->
+*   Cart and Download
+    *   Make the cart limit warning message more explanatory <!-- PGDC-1952 -->   
+    *   In some situations, adding filtered files to the cart might fail <!-- PGDC-1981 -->   
+*   Layout, Browser specific and Accessibility
+    *   When disabling CSS, footer elements are displayed out of order <!-- PGDC-1972 -->
+    *   If javascript is disabled html tags are displayed in the warning message <!-- PGDC-1835 -->
+    *   Layout issues when using the browser zoom in function on tables <!-- PGDC-116 -->
+    *   Cart download spinner not showing at the proper place <!-- PGDC-2056 -->
+    *   Not all facets are expanded by default when loading the app <!-- PGDC-2061 -->
+*   Non UI-related tickets
+    *   Investigations were done on this issue "Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message." was related  to ACL permissions (not UI related).
+    *   Investigations were done on this issue "Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet" was related to Data not imported (not UI related).
+    *   Associated entities is empty for some files (note: this is a data issue) <!-- PGDC-1887 -->
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
 ## Release 0.3.24.2
 
 * __GDC Product__: GDC Data Portal
