@@ -39,7 +39,7 @@ To ensure that the GDC always releases high-quality data, harmonized data is not
 
 ### Redaction
 
-Data uploaded to the GDC can be deleted and updated by the submitter before it is submitted for processing and harmonization. After harmonized data is released, it can only be redacted under certain conditions. There is no automated redaction process; redaction is performed by GDC Administrators. To request redaction of released data, please contact GDC User Services.
+Data uploaded to the GDC can be deleted and updated by the submitter before it is submitted for processing and harmonization. After harmonized data is released, it can only be redacted by GDC Administrators under certain conditions. To request redaction of released data, please contact GDC User Services.
 
 ### Browse and Download Data
 
