@@ -2,7 +2,7 @@
 
 ## Overview
 
-The workflow diagram below represents the data submission process that is implemented by the GDC Data Submission Portal. In this process, the submitter logs into the GDC Data Submission Portal, uploads data into the project workspace, and validates the data. Once the data is ready for processing, the submitter reviews the data and submits the data to the GDC. The GDC processes the data through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). Once harmonization has been completed, the submitter reviews the harmonized data and releases the data to the GDC for access through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools). 
+The workflow diagram below represents the data submission process that is implemented by the GDC Data Submission Portal. In this process, the submitter logs into the GDC Data Submission Portal, uploads data into the project workspace, and validates the data. Once the data is ready for processing, the submitter reviews the data and submits the data to the GDC. The GDC processes the data through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). Once harmonization has been completed, the submitter reviews the harmonized data and releases the data to the GDC for access through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
 
 [![GDC Data Submission Portal Workflow](images/GDC_Submission_Portal_Workflow.png)](images/GDC_Submission_Portal_Workflow.png "Click to see the full image.")
 
@@ -14,7 +14,7 @@ At this point, the data is not yet submitted to the GDC.
 [![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
 
 ### Review and Submit Data
-When data in the project workspace is ready for processing, the submitter or project owner must submit the data to the GDC in order for processing to occur through the [GDC Data Harmonization Pipeline](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). Submitting data to the GDC will initiate the GDC Data Harmonization Pipeline. 
+When data in the project workspace is ready for processing, the submitter or project owner must submit the data to the GDC in order for processing to occur through the [GDC Data Harmonization Pipeline](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). Submitting data to the GDC will initiate the GDC Data Harmonization Pipeline.
 
 During this process, there are two primary actions that should be performed:
 
@@ -24,15 +24,15 @@ During this process, there are two primary actions that should be performed:
 [![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
 
 ### Release Data
-When the GDC harmonized data is ready and the project data is complete, the submitter or project owner will release the project. This will release harmonized data to the GDC for access through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools). 
+When the GDC harmonized data is ready and the project data is complete, the submitter or project owner will release the project. This will release harmonized data to the GDC for access through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
 
 [![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_Release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
 
-## Project Life Cyle
+## Project Lifecycle
 
-The life cycle of a project in the GDC describes the workflow of a project throughout the data submission process. The project life cycle starts with the upload and validation of data into the project and ends with the release of the harmonized data to the GDC Data Portal and other GDC data access tools. Throughout the life cycle, the project transitions through various states in which the project is open for uploading data, in review, and released. This life cycle is continuous as new project data becomes available. 
+The lifecycle of a project in the GDC describes the workflow of a project throughout the data submission process. The project lifecycle starts with the upload and validation of data into the project and ends with the release of the harmonized data to the GDC Data Portal and other GDC data access tools. Throughout the lifecycle, the project transitions through various states in which the project is open for uploading data, in review, and released. This lifecycle is continuous as new project data becomes available.
 
-To summarize the project life cycle and transition to the various states of the project, the following operations can be performed by the submitter:
+To summarize the project lifecycle and transition to the various states of the project, the following operations can be performed by the submitter:
 
 * The submitter can upload and validate data if the project __is not in__ REVIEW.
 * The submitter can review the project if it __is__ OPEN. The GDC will prevent users from uploading any new data during the review period.
@@ -51,14 +51,14 @@ Once a submitter selects to release the data, the project state transitions to R
 
 [![GDC Data Submission Portal Project Release State](images/GDC_Submission_Portal_Workflow_Project_Release_State.png)](images/GDC_Submission_Portal_Workflow_Project_Release_State.png "Click to see the full image.")
 
-## File Status Life Cycle
+## File Status Lifecycle
 
-The life cycle of a file in the GDC describes the workflow of an actual file throughout the data submission process. The life cycle starts when a submitter uploads file metadata to the Submission Portal. The act of uploading the file metadata, registers the file in the GDC. The submitter can then use the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool), a high performance client-based tool, to upload the actual file. Throughout the life cycle, the file status transitions through various states from when the file is initialy registered through file processing.
+This section describes states of experimental data files throughout the data submission process. An experimental data file could be a FASTQ or BAM genomic sequence file, or a pathology slide image file. The file lifecycle starts when a submitter uploads file metadata to the Submission Portal. The act of uploading the file metadata registers a description of the file in the GDC. The submitter can then use the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool), a high performance client-based tool, to upload the actual file. Throughout the lifecycle, the file status transitions through various states from when the file is initialy registered through file processing and release.
 
-To summarize the file status life cycle and transition to the various states of the file, the following operations can be performed by the submitter:
+To summarize the file status lifecycle and transition to the various states of the file, the following operations can be performed by the submitter:
 
 * The submitter uploads the file metadata to the Submission Portal which sets the file status to REGISTERED.
-* The submitter then uploads the actual file through the GDC Data Transfer Tool which sets the file status to UPLOADING and UPLOADED when the file upload has completed. The Submission Portal displays "__# Files Uploaded__" in the last chart on the dashboard which represents the number of files that the user uploaded through the GDC Data Transfer Tool. 
+* The submitter then uploads the actual file through the GDC Data Transfer Tool which sets the file status to UPLOADING and UPLOADED when the file upload has completed. The Submission Portal displays "__# Files Uploaded__" in the last chart on the dashboard which represents the number of files that the user uploaded through the GDC Data Transfer Tool.
 * The GDC validates the uploaded data which sets the file status to VALIDATING and VALIDATED once complete.
 * The submitter submits the validated file to the GDC which sets the file status to SUBMITTED.
 * The GDC processes the file which sets the file status to PROCESSING and PROCESSED once complete.

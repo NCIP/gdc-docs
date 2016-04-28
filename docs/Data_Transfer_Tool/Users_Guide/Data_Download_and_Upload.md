@@ -49,7 +49,7 @@ Multiple UUIDs can be specified, separated by a space:
 
 ### Resuming a Failed Download
 
-The GDC Data Transfer Tool supports resumption of interrupted downloads. To resume an incomplete download, repeat the download of the manifest or UUID(s) in the same folder as the initial download. 
+The GDC Data Transfer Tool supports resumption of interrupted downloads. To resume an incomplete download, repeat the download of the manifest or UUID(s) in the same folder as the initial download.
 
 	> gdc-client download f80ec672-d00f-42d5-b5ae-c7e06bc39da1
 
@@ -67,9 +67,16 @@ Alternatively, the full token can be supplied in plain text using the **--token*
 
 GDC Data Transfer Tool supports uploading molecular data using a manifest file. The manifest file for a data bundle can be retrieved from the GDC Data Submission Portal, or directly from the GDC Submission API given a data bundle UUID. The user authentication token file needs to be specified using the **-t** or **--token** option.
 
-	> curl -H "X-Auth-Token:$token" "https://gdc-api.nci.nih.gov/submission/CGCI/BLGSP/manifest?ids=460ad2fe-5a7f-4797-9e18-336d33e21444" >manifest.yml
-	
-	> gdc-client upload -m manifest.yml -t token.txt
+First, generate an upload manifest, either using the GDC Data Submission Portal, or [using a call](/API/Users_Guide/Submission.md#upload-manifest) to the GDC Submission API `manifest` endpoint (as in the following example):
+
+```Manifest
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/submission/CGCI/BLGSP/manifest?ids=460ad2fe-5a7f-4797-9e18-336d33e21444' >manifest.yml
+```
+```Upload
+gdc-client upload --manifest manifest.yml --token-file token.txt
+```
 
 ### Uploading Data Using a GDC File UUID
 
