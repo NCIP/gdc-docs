@@ -17,7 +17,7 @@ The top section of the dashboard is broken down into four primary charts:
 * __Cases with Clinical__: Details the number of cases for which clinical data have been uploaded.
 * __Cases with Biospecimen__: Details the number of cases for which biospecimen data have been uploaded.
 * __Cases with Experiment Data__: Details the number of cases for which experiment data have been uploaded.
-* __Files Uploaded__: Details the number of files uploaded through the GDC Data Transfer Tool. For more information on this chart, please refer to [File Status Life Cycle](Submission_Workflow.md#file-status-life-cycle). 
+* __Files Uploaded__: Details the number of files uploaded through the GDC Data Transfer Tool. For more information on this chart, please refer to [File Status Lifecycle](Submission_Workflow.md#file-status-life-cycle). 
 
 These charts are constantly updated to reflect the current state of the selected project.
 

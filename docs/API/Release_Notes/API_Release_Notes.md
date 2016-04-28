@@ -5,10 +5,35 @@
 
 
 
+## v0.3.24-spr5
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: April 19, 2016
+
+### New Features and Changes
+
+* None to report
+
+### Bugs Fixed Since Last Release
+
+* API responds with an error when multiple `submitter_id` properties are submitted for the same entity in a transaction.
+* API download functionality now provides indication when when no related files (e.g. SRA XML) exist.
+
+### Known Issues and Workarounds
+
+* None to report
+
+Release details are maintained in the [GDC API change log](https://github.com/NCI-GDC/gdcapi/blob/develop/CHANGELOG.md)
+
+
+
+
+
+
 ## v0.3.24.2
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__: April 4, 2016
+* __Release Date__: April 5, 2016
 
 ### New Features and Changes
 
