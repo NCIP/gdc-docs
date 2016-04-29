@@ -13,7 +13,7 @@ Users can also use the `manifest` endpoint to create a download manifest file th
 To download a single file from the GDC, pass its UUID to the data endpoint.
 
 ```shell
-curl -O -J 'https://gdc-api.nci.nih.gov/data/5b2974ad-f932-499b-90a3-93577a9f0573'
+curl --remote-name --remote-header-name 'https://gdc-api.nci.nih.gov/data/5b2974ad-f932-499b-90a3-93577a9f0573'
 ```
 ```Output
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -27,7 +27,7 @@ curl: Saved to filename '14-3-3_beta-R-V_GBL1112940.tif'
 To download multiple files from the GDC, provide a comma-separated list of UUIDs to the `data` endpoint. The GDC API will return a `.tar.gz` archive containing the downloaded files.
 
 ```shell
-curl -O -J 'https://gdc-api.nci.nih.gov/data/e3228020-1c54-4521-9182-1ea14c5dc0f7,18e1e38e-0f0a-4a0e-918f-08e6201ea140'
+curl --remote-name --remote-header-name 'https://gdc-api.nci.nih.gov/data/e3228020-1c54-4521-9182-1ea14c5dc0f7,18e1e38e-0f0a-4a0e-918f-08e6201ea140'
 ```
 ```Output
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
