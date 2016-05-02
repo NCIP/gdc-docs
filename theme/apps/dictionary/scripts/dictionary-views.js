@@ -103,7 +103,7 @@
             );
 
           })*/
-          .html('<i class="fa fa-cloud-download"></i> &nbsp;Download Template');
+          .html('<span aria-hidden="true" class="fa fa-cloud-download"></span> &nbsp;Download Template');
 
 
         _tableDefinitionView._parentDictionary
@@ -1029,7 +1029,7 @@
               })
             );
           })
-          .html('<i class="fa fa-cloud-download"></i>&nbsp; Download  &nbsp;');
+          .html('<span aria-hidden="true" class="fa fa-cloud-download"></span>&nbsp; Download  &nbsp;');
       }
 
       var tRows = tBody.selectAll('tr')
