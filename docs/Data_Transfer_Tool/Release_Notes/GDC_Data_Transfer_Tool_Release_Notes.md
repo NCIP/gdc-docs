@@ -12,7 +12,7 @@
 
 ### New Features and Changes
 
-* Improvements to command line interface to improve usability
+* Usability improvements to command line interface 
 * Updated help menus
 * Warning on insecure token file permissions
 * Validation of upload manifest against new upload manifest YAML schema
