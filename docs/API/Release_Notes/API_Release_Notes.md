@@ -18,7 +18,7 @@
 ### Bugs Fixed Since Last Release
 
 * Authentication system fixed to allow download of harmonized files
-* BCR clinical `follow_up` is required
+* BCR clinical XML `follow_up` element is not required
 * Index files can be downloaded
 * Downloaded data files are named correctly
 
