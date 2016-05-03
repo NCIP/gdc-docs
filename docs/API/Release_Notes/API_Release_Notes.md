@@ -5,6 +5,34 @@
 
 
 
+## v0.3.24.3
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: April 19, 2016
+
+### New Features and Changes
+
+* BAM slicing: regions can be specified using a GENCODE v22 (HGNC) gene names
+* New YAML format of upload manifests
+
+### Bugs Fixed Since Last Release
+
+* Authentication system fixed to allow download of harmonized files
+* BCR clinical `follow_up` is required
+* Index files can be downloaded
+* Downloaded data files are named correctly
+
+### Known Issues and Workarounds
+
+* None to report
+
+Release details are maintained in the [GDC API change log](https://github.com/NCI-GDC/gdcapi/blob/develop/CHANGELOG.md)
+
+
+
+
+
+
 ## v0.3.24-spr5
 
 * __GDC Product__: Application Programming Interface (API)
