@@ -13,7 +13,7 @@ Please note the following:
 * The functionality of this API differs from the usual functionality of `samtools` in that alignment records that overlap multiple regions will not be returned multiple times.
 * A request with no region or gene specified will return the BAM header, which makes it easy to inspect the references to which the alignment records were aligned.
 * A request for regions that are not included in the source BAM is not considered an error, and is treated the same as if no records existed for the region.
-* BAM slicing functionality is intended to be used with GDC harmonized data only. Slicing of unharmonized BAM files (e.g. BAM files in GDC Legacy Portal) can produce unexpected results, in particular due to inconsistencies in the choice of reference genome used for alignment, and inconsistent chromosome identifiers.
+* BAM slicing functionality is intended to be used with GDC harmonized data (i.e. BAM files available in the GDC Data Portal). Slicing of unharmonized BAM files (i.e. BAM files in the GDC Legacy Portal) may be possible. Users attempting to slice unharmonized BAM files should be aware of inconsistencies in the choice of reference genome used for alignment of unharmonized BAMs (e.g. GRCh38 vs GRCh37), and inconsistent chromosome identifiers (e.g. "chr1" vs "1"). Slicing using GENCODE/HGNC gene names is not supported for unharmonized files.
 
 ### Query Parameters
 
@@ -21,8 +21,10 @@ The following query parameters and JSON fields are supported:
 
 | Description | Query Parameter | JSON Field | Query format |
 |---|---|---|
-| region specified using chromosomal coordinates | region | regions | region=<chr>(:<start>(-<stop>)?)?</stop></start></chr> |
+| entire chromosome, or a position or region on the chromosome, specified using chromosomal coordinates | region | regions | region=<chr>(:<start>(-<stop>)?)?</stop></start></chr> |
 | region specified using a HGNC / GENCODE v22 gene name |  gencode | gencode | gencode=<gene_name> |
+
+**NOTE:** The successfully sliced BAM will contain all reads that overlap (entirely or partially) with the specified region or gene. It is possible to specify an open-ended region, e.g. `chr2:10000`, which would return all reads that (completely or partially) overlap with the region of chromosome 2 from position 10,000 to the end of the chromosome.
 
 ### JSON Schema
 
@@ -55,14 +57,14 @@ JSON payloads can be syntactically verified using the following JSON schema:
 ```Regions_GET
 export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
 
-curl --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/slicing/view/df80679e-c4d3-487b-934c-fcc782e5d46e?region=chr1&region=chr2:1000&region=chr3:1000-2000' --output get_regions_slice.bam
+curl --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/slicing/view/df80679e-c4d3-487b-934c-fcc782e5d46e?region=chr1&region=chr2:10000&region=chr3:10000-20000' --output get_regions_slice.bam
 ```
 ```Regions_Payload
 {
     "regions": [
         "chr1",
-        "chr2:1000",
-        "chr3:1000-2000"
+        "chr2:10000",
+        "chr3:10000-20000"
     ]
 }
 ```
