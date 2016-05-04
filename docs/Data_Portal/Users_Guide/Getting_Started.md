@@ -43,9 +43,9 @@ While navigating and searching through the GDC Data Portal, researchers can add 
 
 ### Data Download
 
-The GDC Data Portal provides two primary channels to allow users to download data from a cart: 
+The GDC Data Portal provides two primary channels to allow users to download data from a cart:
 
-1) Download directly from the browser (Cart Download) or 
+1) Download directly from the browser (Cart Download) or
 
 2) Download using the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool). The GDC Data Portal generates a manifest based on all the files selected in the Cart. This manifest can then be easily imported into the GDC Data Transfer Tool to execute the download. Note that users can download all files that are under the GDC open access policy as well as any controlled access files that they have authorization for through dbGaP. Please visit [Obtaining Access to GDC Controlled Data](https://gdc.nci.nih.gov/node/8035/) for information on how to obtain authorization to access controlled data sets through dbGaP.
 
@@ -55,4 +55,4 @@ The GDC Data Portal allows BAM slicing. Users can submit their slicing request i
 
 ## Release Notes
 
-The GDC Data Portal is regularly being updated with new features. The [Release Notes](../Release_Notes/Data_Portal_Release_Notes.md) sections of the documentation contains details about new features, bug fixes and known issues.
+The GDC Data Portal is regularly being updated with new features. The [Release Notes](../../Releases/Data_Portal/Data_Portal_Release_Notes.md) sections of the documentation contains details about new features, bug fixes and known issues.
