@@ -13,7 +13,7 @@ Please note the following:
 * The functionality of this API differs from the usual functionality of `samtools` in that alignment records that overlap multiple regions will not be returned multiple times.
 * A request with no region or gene specified will return the BAM header, which makes it easy to inspect the references to which the alignment records were aligned.
 * A request for regions that are not included in the source BAM is not considered an error, and is treated the same as if no records existed for the region.
-* BAM slicing functionality is intended to be used with GDC harmonized data (i.e. BAM files available in the GDC Data Portal). Slicing of unharmonized BAM files (i.e. BAM files in the GDC Legacy Portal) may be possible. Users attempting to slice unharmonized BAM files should be aware of inconsistencies in the choice of reference genome used for alignment of unharmonized BAMs (e.g. GRCh38 vs GRCh37), and inconsistent chromosome identifiers (e.g. "chr1" vs "1"). Slicing using GENCODE/HGNC gene names is not supported for unharmonized files.
+* Examples provided for BAM slicing functionality are intended for use with GDC harmonized data (i.e. BAM files available in the GDC Data Portal). Slicing of unharmonized BAM files (i.e. BAM files in the GDC Legacy Portal) can be performed, however, users should be aware of inconsistencies in the choice of reference genome used for alignment of unharmonized BAMs (e.g. GRCh38 vs GRCh37) and inconsistent chromosome identifiers (e.g. "chr1" vs "1"). Slicing using GENCODE/HGNC gene names is not supported for unharmonized files.
 
 ### Query Parameters
 
