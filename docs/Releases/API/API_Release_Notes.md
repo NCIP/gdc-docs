@@ -8,7 +8,7 @@
 ## v0.3.24.3
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__: April 19, 2016
+* __Release Date__: May 2, 2016
 
 ### New Features and Changes
 
