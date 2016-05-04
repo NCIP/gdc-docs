@@ -13,7 +13,7 @@ Please note the following:
 * The functionality of this API differs from the usual functionality of `samtools` in that alignment records that overlap multiple regions will not be returned multiple times.
 * A request with no region or gene specified will return the BAM header, which makes it easy to inspect the references to which the alignment records were aligned.
 * A request for regions that are not included in the source BAM is not considered an error, and is treated the same as if no records existed for the region.
-* BAM slicing functionality is intended to be used with GDC harmonized data (i.e. BAM files available in the GDC Data Portal). Slicing of unharmonized BAM files (e.g. BAM files in the GDC Legacy Portal) may be possible. Users attempting to slice unharmonized BAM files should be aware of inconsistencies in the choice of reference genome used for alignment of unharmonized BAMs (e.g. GRCh38 vs GRCh37), and inconsistent chromosome identifiers (e.g. "chr1" vs "1"). GENCODE/HGNC-based gene name slicing is not supported for unharmonized files.
+* BAM slicing functionality is intended to be used with GDC harmonized data (i.e. BAM files available in the GDC Data Portal). Slicing of unharmonized BAM files (i.e. BAM files in the GDC Legacy Portal) may be possible. Users attempting to slice unharmonized BAM files should be aware of inconsistencies in the choice of reference genome used for alignment of unharmonized BAMs (e.g. GRCh38 vs GRCh37), and inconsistent chromosome identifiers (e.g. "chr1" vs "1"). Slicing using GENCODE/HGNC gene names is not supported for unharmonized files.
 
 ### Query Parameters
 
@@ -24,8 +24,7 @@ The following query parameters and JSON fields are supported:
 | entire chromosome, or a position or region on the chromosome, specified using chromosomal coordinates | region | regions | region=<chr>(:<start>(-<stop>)?)?</stop></start></chr> |
 | region specified using a HGNC / GENCODE v22 gene name |  gencode | gencode | gencode=<gene_name> |
 
-**NOTE** The successfully sliced BAM will contain all reads that overlap (entirely or partially) with the specified region, gene, or position.
-
+**NOTE:** The successfully sliced BAM will contain all reads that overlap (entirely or partially) with the specified region or gene. It is possible to specify an open-ended region, e.g. `chr2:10000`, which would return all reads that (completely or partially) overlap with the region of chromosome 2 from position 10,000 to the end of the chromosome.
 
 ### JSON Schema
 
