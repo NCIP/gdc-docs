@@ -47,7 +47,7 @@ In the example above, replace YOUR_TOKEN with the contents of token file downloa
 
 ### Token Expiration
 
-Tokens are valid for ninety days from the time of download. Using an expired token will result in a 401 HTTP error code:
+Tokens are valid for thirty days from the time of download. Using an expired token will result in a 401 HTTP error code:
 
 ```http
 HTTP/1.1 403 FORBIDDEN{

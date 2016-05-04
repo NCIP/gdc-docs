@@ -22,7 +22,6 @@ pages:
   - Cart and Files Download: 'Data_Portal/Users_Guide/Cart.md'
   - Legacy Archive: 'Data_Portal/Users_Guide/Legacy_Archive.md'
   - Key Terms: 'Data_Portal/Users_Guide/Key_Terms.md'
-  - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'

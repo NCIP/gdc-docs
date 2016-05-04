@@ -23,4 +23,4 @@ Binary distributions are available on the [GDC Transfer Tool page](https://gdc.n
 
 ### Release Notes
 
-Release Notes are available on the [GDC Data Transfer Tool Release Notes](../Release_Notes/GDC_Data_Transfer_Tool_Release_Notes.md) page.
+Release Notes are available on the [GDC Data Transfer Tool Release Notes](../../Releases/Data_Transfer_Tool/GDC_Data_Transfer_Tool_Release_Notes.md) page.
