@@ -23,4 +23,4 @@
 
 * None to report
 
-Details are provided in [Data Release Manifest](Manifests/2016-05-09.txt)
+Details are provided in [Data Release Manifest](GDCv0.9_releaseNotes_05042016.txt)
