@@ -4,32 +4,17 @@
 
 The GDC Data Transfer Tool comes with built-in help menus. These menus are displayed when the GDC Data Transfer Tool is run without commands or when -h / --help flag is specified for any command. Running the GDC Data Transfer Tool without commands will present a list of available commands. The available menus are provided below.
 
-### The GDC Data Transfer Tool Built-in Help Menus (run without commands)
+### Root menu
 
-    > gdc-client
-    Type 'help' for a list of commands or 'help <topic>' for detailed usage.
-    
-    Basic commands are:
-    - download   (download files in registry)
-    - add        (adds ids to registry)
-    - list       (lists file ids already registered)
-    - manifest   (add ids from a GDC manifest file to registry)
-    - remove     (remove ids from registry)
-    - token      (load an authorization token file)
-    - cd         (move to directory you want to download to)
-    - pwd        (print the current working directory)
-    - set        (set advanced configuration setting)
-    - settings   (list advanced configuration settings)
-    - upload     (upload files to object storage)
-    - delete     (delete files from object storage)
-    - abort      (abort a previous partial upload)
-    
-    TIPS:
-    - Rather than type out path names, try dragging and dropping manifest and token files into the terminal.
-    - You can execute shell commands by prepending '!', i.e. !ls.
-    - You can run the gdc-client binary with advanced options from the command line (gdc-client --help).
-    
-    gdc-client repl >
+The GDC Data Transfer Tool displays the following help menu when executed without any arguments.
+
+```Shell
+./gdc-client
+```
+```Change
+usage: gdc-client [-h] [--version] {download,upload,interactive} ...
+gdc-client: error: too few arguments
+```
 
 
 ### GDC Data Transfer Tool Download Help Menus (with -h / --help flag specified)
@@ -43,10 +28,10 @@ The GDC Data Transfer Tool comes with built-in help menus. These menus are displ
                                [-t TOKEN | -T TOKEN] [-u] [-H PROXY_HOST]
                                [-P PROXY_PORT] [-e]
                                [file_id [file_id ...]]
-    
+
     positional arguments:
       file_id               uuids to download
-    
+
     optional arguments:
       -h, --help            show this help message and exit
       -m MANIFEST, --manifest MANIFEST
@@ -92,7 +77,7 @@ The GDC Data Transfer Tool comes with built-in help menus. These menus are displ
                              [--part-size PART_SIZE] [-n N_PROCESSES]
                              [--upload-id UPLOAD_ID] [--disable-multipart]
                              [--abort] [--resume] [--delete] [--manifest MANIFEST]
-    
+
     optional arguments:
       -h, --help            show this help message and exit
       --project-id PROJECT_ID, -p PROJECT_ID
@@ -118,4 +103,3 @@ The GDC Data Transfer Tool comes with built-in help menus. These menus are displ
       --delete              Delete an uploaded file
       --manifest MANIFEST, -m MANIFEST
                             Manifest which describes files to be uploaded
-

@@ -8,7 +8,6 @@ repo_url: https://github.com/NCI-GDC/gdc-docs
 copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
-- Home: index.md
 - API:
   - Getting Started: 'API/Users_Guide/Getting_Started.md'
   - Authorization and Authentication: 'API/Users_Guide/Authentication_and_Authorization.md'
