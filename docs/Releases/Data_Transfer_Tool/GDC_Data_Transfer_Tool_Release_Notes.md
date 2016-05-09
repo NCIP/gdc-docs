@@ -4,6 +4,32 @@
 
 
 
+## v0.9.00
+
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: May 9, 2016
+
+
+### New Features and Changes
+
+* Optimizations to improve download performance
+* Improved error message when `upload` argument is used without additional arguments
+
+### Bugs Fixed Since Last Release
+
+* None to report
+
+### Known Issues and Workarounds
+
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+
+Release details are maintained in the [GDC Data Transfer Tool Change Log](https://github.com/NCI-GDC/gdc-client/blob/master/CHANGELOG.md)
+
+
+
+
+
 ## v0.8.00
 
 * __GDC Product__: Data Transfer Tool
@@ -12,7 +38,7 @@
 
 ### New Features and Changes
 
-* Usability improvements to command line interface 
+* Usability improvements to command line interface
 * Updated help menus
 * Warning on insecure token file permissions
 * Validation of upload manifest against new upload manifest YAML schema
