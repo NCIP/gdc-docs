@@ -23,4 +23,4 @@
 
 * None to report
 
-Details are provided in [Data Release Manifest](GDC_PreLaunch_release_notes_05102016.txt)
+Details are provided in [Data Release Manifest](Manifests/GDC_PreLaunch_release_notes_05102016.txt)
