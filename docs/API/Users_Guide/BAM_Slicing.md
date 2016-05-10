@@ -82,7 +82,7 @@ HTTP/1.1 206
 <bam_data_stream>
 ```
 
-## Example: Specifying a gene
+## Examples: Specifying a gene
 
 The following two requests are examples of BAM slicing using HGNC / GENCODE v22 gene name(s).
 
