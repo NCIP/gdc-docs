@@ -2,7 +2,12 @@
     <div class="container">
 
         <!-- Collapsed navigation -->
-        <div class="navbar-header">
+        <div>
+            <!-- Main title -->
+            <a class="navbar-brand" href="{{ config.extra.project_root_dir }}{{ homepage_url }}">
+                <img src="/img/nih-header-logo-color.png" alt="NCI GDC Documentation Logo" />
+                <span class="hidden">NCI GDC Documentation</span>
+            </a>
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -11,48 +16,12 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <!-- Main title -->
-            <a class="navbar-brand" href="{{ config.extra.project_root_dir }}{{ homepage_url }}">
-                <img src="/img/nih-header-logo-color.png" alt="NCI GDC Documentation Logo" />
-                <span class="hidden">NCI GDC Documentation</span>
-            </a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            <!-- Main navigation -->
-            <ul class="nav navbar-nav">
-            {% for nav_item in nav %}
-            {% if nav_item.children %}
-                <li class="dropdown{% if nav_item.active %} active{% endif %}">
-                    <a href="#" title="{{nav_item.title}}" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.title }} <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    {% for nav_item in nav_item.children %}
-                        {% include "nav-sub.html" %}
-                    {% endfor %}
-                    </ul>
-                </li>
-            {% else %}
-                <li {% if nav_item.active %}class="active"{% endif %}>
-                    <a href="{{ config.extra.project_root_dir }}{{ nav_item.url }}">{{ nav_item.title }}</a>
-                </li>
-            {% endif %}
-            {% endfor %}
-                <li class="menu-bar"></li>
-                <li>
-                  <a aria-label="Search" id="gdc-search-button" title="Click Search the GDC Documentation" href="javascript:$gdcApp.searchModal.show()">
-                    <span class="fa fa-search" aria-hidden="true"></span>&nbsp;
-                    <span class="hidden">Quick Search</span>
-                  </a>
-                </li>
-            </ul>
-
             <!-- GDC Apps -->
-            <div class="gdc-app-nav col-sm-2 col-md-2 pull-right" style="max-width: 150px">
+            <div class="pull-right">
               <div class="gdc-app-list">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-label="GDC Apps Menu">
                   <span class="icon-gdc-apps-menu" aria-hidden="true"></span>
-                  <span class="hidden-md hidden-sm" data-translate>GDC Apps</span>
+                  <span data-translate>GDC Apps</span>
                 </a>
                 <div data-dropdown-menu class="dropdown-menu gdc-apps-menu-container" role="menu">
                   <table class="gdc-apps-menu-grid" role="presentation">
@@ -134,6 +103,36 @@
               </div>
             </div>
             <!-- -->
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav nav-full">
+            {% for nav_item in nav %}
+            {% if nav_item.children %}
+                <li class="dropdown{% if nav_item.active %} active{% endif %}">
+                    <a href="#" title="{{nav_item.title}}" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.title }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    {% for nav_item in nav_item.children %}
+                        {% include "nav-sub.html" %}
+                    {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+                <li {% if nav_item.active %}class="active"{% endif %}>
+                    <a href="{{ config.extra.project_root_dir }}{{ nav_item.url }}">{{ nav_item.title }}</a>
+                </li>
+            {% endif %}
+            {% endfor %}
+                <li class="menu-bar"></li>
+                <li>
+                  <a aria-label="Search" id="gdc-search-button" title="Click Search the GDC Documentation" href="javascript:$gdcApp.searchModal.show()">
+                    <span class="fa fa-search" aria-hidden="true"></span>&nbsp;
+                    <span class="hidden">Quick Search</span>
+                  </a>
+                </li>
+            </ul>
 
             {% if false %}
             <ul class="nav navbar-nav navbar-right">
