@@ -468,6 +468,18 @@ a.header-text-link {
   margin: 0 auto;
 }
 
+@media (min-width: 925px) and (max-width: 1347px) {
+  #body,
+  .bs-sidebar {
+    margin-top: 7rem;
+  }
+
+  .navbar-default .navbar-nav {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 @media (min-width: 992px) {
   .bs-sidebar.affix,
   .bs-sidebar.affix-bottom {
@@ -809,7 +821,7 @@ footer a:visited {
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 925px) {
 
   #body {
     margin-top: inherit;
@@ -900,6 +912,7 @@ footer a:visited {
 
   .navbar-default .navbar-collapse {
     padding-bottom: 1rem;
+    width: 100%;
   }
 
 
@@ -1543,6 +1556,7 @@ footer a:visited {
   padding: 0rem 0rem;
   margin-bottom: 0rem;
   margin-top: 0.5rem;
+  position: relative;
 }
 
 .gdc-app-list:hover {
@@ -1553,7 +1567,7 @@ footer a:visited {
   color: inherit;
   display: inline-block;
   cursor: pointer;
-  padding: 2rem 1rem 1.5rem 1rem;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
 }
 
 .gdc-app-list a:hover {
@@ -1653,8 +1667,14 @@ footer a:visited {
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 925px) {
   .gdc-app-nav {
+    display: none;
+  }
+}
+
+@media (min-width: 925px) {
+  .gdc-app-nav-small {
     display: none;
   }
 }
