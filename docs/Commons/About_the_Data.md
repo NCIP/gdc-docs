@@ -2,42 +2,29 @@
 
 ## Overview
 
-The GDC provides access to data from several cancer research programs including The Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective Treatments (TARGET), and the Cancer Genome Characterization Initiative (CGCI).
+The GDC receives, processes, harmonizes, and distributes clinical, biospecimen, and genomic data from multiple cancer research programs. Among the datasets available in the GDC are data from the following programs:
 
-For all new programs and projects data sets added to GDC, the GDC Data Portal provides access to these submitted data sets, which comply with GDC’s data standards for biospecimen, clinical, and molecular data.
+* [The Cancer Genome Atlas (TCGA)](https://wiki.nci.nih.gov/display/TCGA/TCGA+Data+Primer)
+* [Therapeutically Applicable Research to Generate Effective Treatments (TARGET)](https://ocg.cancer.gov/programs/target/using-target-data)
+* [the Cancer Genome Characterization Initiative (CGCI)](https://ocg.cancer.gov/programs/cgci)
 
-For additional information on current GDC supported programs, the following resources are available:
+At the highest level, data in the GDC is organized by **program** (e.g. *TCGA*). Each program contains one or more **projects** (e.g. *TCGA-LAML*, Acute Myeloid Leukemia).
 
-*   [TCGA Data Primer](https://wiki.nci.nih.gov/display/TCGA/TCGA+Data+Primer)
-*   [TARGET Data](https://ocg.cancer.gov/programs/target/using-target-data)
-*   [CGCI Data](https://ocg.cancer.gov/programs/cgci)
+## Open vs Controlled Access
 
-## Data Access
+The NIH promotes broad and responsible sharing of genomic research data and respects the privacy and intentions of research participants.
 
-### Controlled Access Data
+Some data in the GDC are open access, which means that no authentication or authorization is necessary to access it. Other data are controlled access, which means that dbGaP authorization and eRA Commons authentication are necessary for access. Whether data is open or controlled is determined according to the [NIH Genomic Data Sharing Policy](https://gds.nih.gov/) in a process that is driven by informed consent of research participants.
 
-The GDC provides access to open and controlled data.  Example of controlled access data include: genomic sequence, germline variants, SNP6 genotype data, and possibly certain clinical data elements depending on the program.
+Open access data generally includes high level genomic data that is not individually identifiable, as well as most clinical and all biospecimen data elements.
 
-Access to controlled data is granted by program-specific Data Access Committees.  Anyone who wishes to download controlled access data from the GDC must follow the same set of steps required by NCBI for access to this data in dbGaP.  That is, an eRA Commons account must be obtained, and then access must be approved by the appropriate Data Access Committee.  Instructions for how to obtain authorization for controlled access data can be found at the following link: [https://dbgap.ncbi.nlm.nih.gov/aa/dbgap_request_process.pdf](https://dbgap.ncbi.nlm.nih.gov/aa/dbgap_request_process.pdf)
+Controlled data generally includes individually identifiable data such as low level genomic sequencing data, germline variants, SNP6 genotype data, and certain clinical data elements. Access to controlled data is granted by program-specific *Data Access Committees*. See [Obtaining Access to Controlled Data](https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data) for details.
 
-To download Controlled Access data, users must login to the GDC Data Portal using an eRA commons username and password.  
+## Browsing GDC Metadata
 
-### Open Access Data
-
-The GDC Data Portal provides access to data that is publicly available.  Open access data includes all Level 3 data (somatic mutations, gene expression, protein expression), as well as most clinical and all biospecimen data elements.
-
-Users can browse information in the GDC Portal without having to login.  Anything that can be seen without logging in is Open Access data or metadata.  
-
-#### Logging In
-
-While not required for public data access, a user may login using the ‘login’ button at the upper right side of GDC Data Portal opening screen. 
-
-More details about [Authentication and Authorization](Authentication.md) can be found in a [dedicated section of the documentation](Authentication.md).
-
-#### GDC Data Portal Display of Controlled and Open Access Data
-
-All metadata displayed in the GDC Data Portal is open access.  When data files are displayed, there will be a column in the display that indicates whether the file is open or controlled access.
+The GDC Data Portal provides granular access to metadata that describes all data released to the GDC. The Portal uses a "lock" icon to indicate whether each individual data file is open or controlled-access:
 
 [![GDC Data Portal Main Page](images/gdc-data-portal-controlled-files.png)](images/gdc-data-portal-controlled-files.png "Click to see the full image.")
 
-The ‘lock’ icon represents whether a file is controlled or open access.  It does not indicate whether a particular user has access to that file.  As mentioned above, if the ‘My Projects’ option is checked, then a user will only see files that they have access to.
+
+**NOTE:** The "lock" icon does not indicate whether the user has access to the file.  Authenticated users can use the ‘Only My Projects’ checkbox to display only those files to which they have access.

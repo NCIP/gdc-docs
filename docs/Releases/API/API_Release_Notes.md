@@ -14,6 +14,7 @@
 
 * BAM slicing: regions can be specified using a GENCODE v22 (HGNC) gene names
 * New YAML format of upload manifests
+* Annotations no longer include `creator` information
 
 ### Bugs Fixed Since Last Release
 
