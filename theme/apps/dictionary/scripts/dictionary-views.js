@@ -132,21 +132,7 @@
 
           });
 
-
-        /*
-        definitionControlsSelection
-          .append('a')
-          .attr('href', '')
-          .on('mouseenter', updateHREFFunction)
-          .on('focus', updateHREFFunction)
-          .style({'margin-left': '2rem'})
-          .attr('title', 'Share the ' + _tableDefinitionView.getPrettyName() + ' template.')
-          .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
-          .html('<i class="fa fa-share-alt"></i> &nbsp;Share');
-          */
     }
-
-
 
     };
 
@@ -342,7 +328,6 @@
           continue;
         }
 
-
         p.push(propertyName);
         p.push(_valueOrDefault(description));
         p.push(_valueOrDefault(valueOrType));
@@ -517,17 +502,6 @@
       var tHead = definitionTable.append('thead'),
         tBody = definitionTable.append('tbody');
 
-      /*tHead.append('tr')
-        .classed('dictionary-summary-header', true)
-        .selectAll('th')
-        .data(['Title', _tableDefinitionView.getPrettyName()])
-        .enter()
-        .append('th')
-        .text(function (d) {
-          return d;
-        });*/
-
-
       var dataRows = [
         {id: 'type', title: 'Type', value: dictionaryData.id},
         {id: 'category', title: 'Category', value: category},
@@ -621,8 +595,6 @@
       var links = _.get(dictionaryData, 'links', false);
 
       if (! links || ! _.isArray(links) || links.length === 0) {
-        //var l =  [createLinkData()];
-        //return  {links: l, topLevelLinks: [], subLinks: []};
         return null;
       }
 
@@ -1025,6 +997,11 @@
                 id: category === 'data_bundle' ? 'data_bundle,data_file' : category,
                 excludes: inclusions
                   ? _.difference(categoryData.map(function(x) { return x.id; }), inclusions)
+
+                      // https://jira.opensciencedatacloud.org/browse/PGDC-2328
+                      // 'file' is not inside categoryMap returned from the api
+                      .concat('file')
+                      
                   : exclusions
               })
             );
