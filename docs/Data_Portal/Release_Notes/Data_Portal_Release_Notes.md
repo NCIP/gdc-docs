@@ -34,6 +34,6 @@
     *   The portal might return incorrect match between cases and files when using field cases.samples.portions.created_datetime (custom facet or advanced search) <!-- PGDC-2440 -->
     *   Selecting File Submitter ID option on the file tab result in a Data Portal Error <!-- PGDC-2430 -->
 *   Tables and Export
-    *   Table sorting icon does not include numbers <!-- PGDC-35 -->    *   
+    *   Table sorting icon does not include numbers <!-- PGDC-35 -->    
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
