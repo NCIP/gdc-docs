@@ -123,6 +123,30 @@ curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=
 	}
 ```
 
+#### files/ids Endpoint
+
+The `files/ids` endpoint corresponds to the "Quick Search" functionality of the GDC Data Portal. The API response includes all files for which the query matches the beginning (or entirety) of any of the following fields:
+
+	project.project_id
+	project.name
+	project.disease_type.analyzed
+	project.primary_site.analyzed
+	case.aliquot_ids
+	case.submitter_aliquot_ids
+	case.analyte_ids
+	case.submitter_analyte_ids
+	case.case_id.raw
+	case.submitter_id.raw
+	case.portion_ids
+	case.submitter_portion_ids
+	case.sample_ids
+	case.slide_ids
+	case.submitter_slide_ids
+	case.submitter_sample_ids
+	file.file_id.raw
+	file.file_name.raw
+	file.submitter_id
+
 ### Cases Endpoint
 
 The GDC Cases Endpoint `https://gdc-api.nci.nih.gov/cases` enables search and retrieval of information related to a specific case, or sample donor.
