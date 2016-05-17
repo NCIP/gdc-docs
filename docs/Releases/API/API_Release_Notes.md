@@ -5,6 +5,37 @@
 
 
 
+## v1.0.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: May 16, 2016
+
+### New Features and Changes
+
+* HTTP interface that uses JSON as the primary data exchange format
+* Programmatic access to functionality provided by GDC Data and Submission portals, via `projects`, `cases`, `files`, `annotations`, `data`, `slicing`, `status`, and `submission` endpoints
+* Programmatic access to GDC Legacy Archive via `legacy` endpoint
+* Token-based authentication for secure access to controlled data and to submission functionality
+* RESTful search that supports simple and complex queries, sorting, and output in JSON, TSV, and XML
+* Support for downloading of individual files and of archives containing multiple files
+* Generation of download and upload manifests for use with the GDC Data Transfer Tool
+* BAM slicing functionality for downloading specified part(s) of a BAM file
+* Transactional submission system that links individual data elements according to a graph-based GDC Data Model
+* Two data entity identifiers: UUIDs, which are consistent across GDC, and Submitter IDs, for compatibility with submitters' tracking systems
+
+### Bugs Fixed Since Last Release
+
+* None to report
+
+
+### Known Issues and Workarounds
+
+* None to report
+
+
+
+
+
 ## v0.3.24.3
 
 * __GDC Product__: Application Programming Interface (API)
@@ -13,8 +44,11 @@
 ### New Features and Changes
 
 * BAM slicing: regions can be specified using a GENCODE v22 (HGNC) gene names
+* BAM slicing: disabled for files in GDC legacy archive
 * New YAML format of upload manifests
 * Annotations no longer include `creator` information
+* `legacy` endpoint added; provides access to data in legacy archive
+* Certain API responses now include MD5 checksums, using `Content-MD5` HTTP header
 
 ### Bugs Fixed Since Last Release
 
@@ -22,6 +56,7 @@
 * BCR clinical XML `follow_up` element is not required
 * Index files can be downloaded
 * Downloaded data files are named correctly
+
 
 ### Known Issues and Workarounds
 

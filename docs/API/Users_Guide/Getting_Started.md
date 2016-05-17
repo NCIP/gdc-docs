@@ -40,6 +40,7 @@ Communicating with the GDC API involves making calls to API endpoints. Each GDC 
 | files | Search & Retrieval | Find all files with specific characteristics such as file_name, md5sum, data_format and others. |
 | annotations | Search & Retrieval | Search annotations added to data after curation |
 | data | Download | Used to download GDC data |
+| manifest | Download | Generates manifests for use with GDC Data Transfer Tool |
 | slicing | BAM Slicing | Allows remote slicing of BAM format objects |
 | submission | Submission | Returns the available resources at the top level above programs i.e., registered programs |
 

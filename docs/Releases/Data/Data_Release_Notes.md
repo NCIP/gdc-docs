@@ -15,12 +15,8 @@
 * TCGA
 * TARGET
 
-### Changes
+### Known Issues and Workarounds
 
-* None to report
-
-### Redactions
-
-* None to report
+BAM files produced by our RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 
 Details are provided in [Data Release Manifest](Manifests/GDC_PreLaunch_release_notes_05102016.txt)
