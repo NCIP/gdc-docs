@@ -657,23 +657,28 @@ print json.dumps(response.json(), indent=2)
 
 ### Filters
 
-The `filters` parameter is a key parameter than enables complex search queries to be passed to the GDC API. Queries are passed as JSON objects.
+The `filters` parameter enables passing of complex search queries to the GDC API. The parameter carries a percent-encoded JSON object that contains a query.
 
 
 #### Filtering Operators
 
-Operators allow users to define query conditions. These can be used to restrict facet values and then to connect these in logical statements.
+Operators allow users to define query conditions.
 
-Operators can relate an operation to one field (Single Field Operators, e.g. A = B) or multiple fields (e.g. [and (a,b,c,d)].
+| Operator | Description                                      | Number of Operands | Logic example                                                |
+|----------|--------------------------------------------------|--------------------|--------------------------------------------------------------|
+| =        | equals (string or number)                        | one                | gender = "female"                                            |
+| !=       | does not equal (string or number)                | one                | project_id != "TARGET-AML"                                   |
+| <        | less than (number)                               | one                | age at diagnosis < 90y                                       |
+| <=       | less than or equal (number)                      | one                | age at diagnosis <= 17                                       |
+| >        | greater than (number)                            | one                | age at diagnosis > 50                                        |
+| >=       | greater than or equal (number)                   | one                | age at diagnosis >= 18                                       |
+| is       | is (missing)                                     | one                | gender is missing                                            |
+| not      | not (missing)                                    | one                | race not missing                                             |
+| in       | matches a string or number in (a list)           | multiple           | primary_site in [Brain, Lung]                                |
+| exclude  | does not match any strings or values in (a list) | multiple           | experimental_strategy exclude [WXS, WGS, "Genotyping array"] |
+| and      | (operation1) and (operation2)                    | multiple           | {primary_site in [Brain, Lung]} and {gender = "female"}      |
+| or       | (operation1) or (operation2)                     | multiple           | {project_id != "TARGET-AML"} or {age at diagnosis < 90y}     |
 
-Operators (**op** in the examples in Section 6.2) can take different values depending of the context and type of data.
-
-| Type | Possible Values |
-| --- | --- |
-| Single field | =, != , <, <=, =, >, >=, in, is, not, range, exclude |
-| Multiple fields | and, or |
-
-When using multiple fields, operator content requires nested data containing additional operators.
 
 Users can get a list of available values for a specific field in the filter by making a call to the appropriate API endpoint using the `fields` parameter.
 
@@ -685,7 +690,7 @@ Filters support complex nested operations as well as simple queries on a single 
 
 This example returns `male` cases.
 
-The JSON object to be passed to the `filter` parameter looks like:
+The JSON object to be passed to the GDC API looks like:
 
 	{"op": "=",
 		  "content": {
@@ -698,7 +703,7 @@ URL-encoding the above JSON object using [Percent-(URL)-encoding tool](http://te
 
 	%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.clinical.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d
 
-The above string can now be passed to the `filters` parameter in an API call:
+The above string can now be passed to the GDC API using the `filters` parameter:
 
 ```shell
  curl  'https://gdc-api.nci.nih.gov/cases?filters=%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.clinical.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d&pretty=true'
