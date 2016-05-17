@@ -31,7 +31,7 @@
     *   Download manifest button is available for TARGET projects with 0 files, resulting in error if user clic on button <!-- PGDC-2416 -->
 *   Data    
     *   When adding a custom range facet, default values are incorrectly populated <!-- PGDC-2445 --> <!-- PGDC-2444 -->  <!-- PGDC-2225 -->
-    *   The portal might return incorrect match between cases and files when using field cases.samples.portions.created_datetime <!-- PGDC-2440 -->
+    *   The portal might return incorrect match between cases and files when using field cases.samples.portions.created_datetime (custom facet or advanced search) <!-- PGDC-2440 -->
     *   Selecting File Submitter ID option on the file tab result in a Data Portal Error <!-- PGDC-2430 -->
 *   Tables and Export
     *   Table sorting icon does not include numbers <!-- PGDC-35 -->    *   
