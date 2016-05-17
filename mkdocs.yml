@@ -56,6 +56,11 @@ pages:
 - Data Dictionary:
   - About: 'Data_Dictionary/index.md'
   - Viewer: 'Data_Dictionary/viewer.md'
+- Data:
+  - File Formats:
+    - GDC VCF Format: 'Data/File_Formats/VCF_Format.md'
+  - Bioinformatics Pipelines:
+    - Annotation Pipeline: 'Data/Bioinformatics_Pipelines/Annotation_Pipeline.md'
 - Releases:
   - API Release Notes: 'Releases/API/API_Release_Notes.md'
   - Data Release Notes: 'Releases/Data/Data_Release_Notes.md'
