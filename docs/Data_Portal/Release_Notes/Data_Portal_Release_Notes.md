@@ -26,8 +26,14 @@
 ### Known Issues and Workarounds
 
 *   General
-    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out.
+    *   '--' symbol is missing on empty fields (blank instead) <!-- PGDC-2418 -->
+    *   Download manifest button is available for TARGET projects with no files, resulting in error if user clic on button <!-- PGDC-2416 -->
+*   Data    
+    *   When adding a custom range facet, default values are incorrectly populated <!-- PGDC-2445 --> <!-- PGDC-2444 -->  <!-- PGDC-2225 -->
+    *   The portal might return incorrect match between cases and files when using field cases.samples.portions.created_datetime <!-- PGDC-2440 -->
+    *   Selecting File Submitter ID option on the file tab result in a Data Portal Error <!-- PGDC-2430 -->
 *   Tables and Export
-    *   Table sorting icon does not include numbers <!-- PGDC-35 -->
+    *   Table sorting icon does not include numbers <!-- PGDC-35 -->    *   
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
