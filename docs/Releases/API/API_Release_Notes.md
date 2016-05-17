@@ -19,7 +19,7 @@
 * RESTful search that supports simple and complex queries, sorting, and output in JSON, TSV, and XML
 * Support for downloading of individual files and of archives containing multiple files
 * Generation of download and upload manifests for use with the GDC Data Transfer Tool
-* BAM slicing functionality for downloading specified part(s) of a BAM file
+* BAM slicing functionality for downloading part(s) of a BAM file specified using chromosomal coordinates or HGNC gene names
 * Transactional submission system that links individual data elements according to a graph-based GDC Data Model
 * Two data entity identifiers: UUIDs, which are consistent across GDC, and Submitter IDs, for compatibility with submitters' tracking systems
 
