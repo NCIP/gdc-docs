@@ -5,7 +5,7 @@
 
 
 
-## v1.0.0
+## v1.0.1
 
 * __GDC Product__: Application Programming Interface (API)
 * __Release Date__: May 16, 2016
