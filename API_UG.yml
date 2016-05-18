@@ -10,7 +10,7 @@ theme_dir: theme
 pages:
 - API:
   - Getting Started: 'API/Users_Guide/Getting_Started.md'
-  - Authentication and Authorization: 'API/Users_Guide/Authentication_and_Authorization.md'
+  - Authorization and Authentication: 'API/Users_Guide/Authentication_and_Authorization.md'
   - Search and Retrieval: 'API/Users_Guide/Search_and_Retrieval.md'
   - Downloading Files: 'API/Users_Guide/Downloading_Files.md'
   - BAM Slicing: 'API/Users_Guide/BAM_Slicing.md'
@@ -19,6 +19,7 @@ pages:
   - "Appendix A: Available Fields": 'API/Users_Guide/Appendix_A_Available_Fields.md'
   - "Appendix B: Key Terms": 'API/Users_Guide/Appendix_B_Key_Terms.md'
   - "Appendix C: Format of Submission Queries and Responses": 'API/Users_Guide/Appendix_C_Format_of_Submission_Requests_and_Responses.md'
+  - Release Notes: 'API/Release_Notes/API_Release_Notes.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'

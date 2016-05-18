@@ -55,4 +55,4 @@ The GDC Data Portal allows BAM slicing. Users can submit their slicing request i
 
 ## Release Notes
 
-The GDC Data Portal is regularly being updated with new features. The [Release Notes](../../Releases/Data_Portal/Data_Portal_Release_Notes.md) sections of the documentation contains details about new features, bug fixes and known issues.
+The GDC Data Portal is regularly being updated with new features. The [Release Notes](../../Data_Portal/Release_Notes/Data_Portal_Release_Notes.md) sections of the documentation contains details about new features, bug fixes and known issues.

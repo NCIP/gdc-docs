@@ -61,4 +61,4 @@ The GDC Data Submission Portal provides a broad range of submission-oriented rep
 
 ## Release Notes
 
-The [Release Notes](../../Releases/Submission_Portal/Data_Submission_Portal_Release_Notes.md) section of this User's Guide contains details about new features, bug fixes and known issues.
+The [Release Notes](../../Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md) section of this User's Guide contains details about new features, bug fixes and known issues.

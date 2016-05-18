@@ -21,6 +21,7 @@ pages:
   - Browse Data: 'Data_Submission_Portal/Users_Guide/Browse_Data.md'
   - Reports: 'Data_Submission_Portal/Users_Guide/Reports.md'
   - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
+  - Release Notes: 'Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
