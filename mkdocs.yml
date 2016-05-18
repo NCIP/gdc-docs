@@ -21,7 +21,7 @@ pages:
   - "Appendix B: Key Terms": 'API/Users_Guide/Appendix_B_Key_Terms.md'
   - "Appendix C: Format of Submission Queries and Responses": 'API/Users_Guide/Appendix_C_Format_of_Submission_Requests_and_Responses.md'
   - Release Notes: 'API/Release_Notes/API_Release_Notes.md'
-  - PDF: 'API/PDF.md'
+  - "\U0001F4C4 PDF Version of This User Guide": 'API/PDF.md'
 - Data Portal:
   - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
   - About the Data: 'Commons/About_the_Data.md'
