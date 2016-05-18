@@ -34,7 +34,7 @@
 * For some TCGA and CCLE projects the case and file counts from project page do not match count on the data page.  This is caused by material derived from the same patient appearing in both TCGA and CCLE programs.
 * The Data Transfer Tool does not verify the MD5 sum of downloaded files.
 * TARGET xls files currently assigned to incorrect Data Type and Platform.
-* When filtering cases in the Data Portal, values input by user are inappropriately multiplied by 365 for certain range facets.  Examples is Cigarettes per Day.
+* When filtering cases in the Data Portal, values input by user are inappropriately multiplied by 365 for certain range facets.  Example is Cigarettes per Day.
 * In the Data Portal Files Page, only files on displayed page are added when click "Add all files to the Cart".  It should instead add all files in the list.
 * Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 * Some files are not linked to any cases.
