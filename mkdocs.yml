@@ -37,6 +37,7 @@ pages:
   - Legacy Archive: 'Data_Portal/Users_Guide/Legacy_Archive.md'
   - Key Terms: 'Data_Portal/Users_Guide/Key_Terms.md'
   - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
+  - "\U0001F4C4 PDF Version of This User Guide": 'Data_Portal/PDF.md'
 - Data Submission Portal:
   - Getting Started: 'Data_Submission_Portal/Users_Guide/Getting_Started.md'
   - Submission Workflow: 'Data_Submission_Portal/Users_Guide/Submission_Workflow.md'
@@ -51,6 +52,7 @@ pages:
   - Reports: 'Data_Submission_Portal/Users_Guide/Reports.md'
   - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
   - Release Notes: 'Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md'
+  - "\U0001F4C4 PDF Version of This User Guide": 'Data_Submission_Portal/PDF.md'
 - Data Transfer Tool:
   - Getting Started: 'Data_Transfer_Tool/Users_Guide/Getting_Started.md'
   - Accessing Built-in Help: 'Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md'
@@ -58,6 +60,7 @@ pages:
   - Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md'
   - Key Terms: 'Data_Transfer_Tool/Users_Guide/Appendix_A_-_Key_Terms.md'
   - Release Notes: 'Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md'
+  - "\U0001F4C4 PDF Version of This User Guide": 'Data_Transfer_Tool/PDF.md'
 - Data Dictionary:
   - About: 'Data_Dictionary/index.md'
   - Viewer: 'Data_Dictionary/viewer.md'
@@ -65,6 +68,7 @@ pages:
   - "File Format: VCF": 'Data/File_Formats/VCF_Format.md'
   - "Bioinformatics Pipeline: Variant Annotation": 'Data/Bioinformatics_Pipelines/Annotation_Pipeline.md'
   - Release Notes: 'Data/Release_Notes/Data_Release_Notes.md'
+  - "\U0001F4C4 PDF Version of This User Guide": 'Data/PDF.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
