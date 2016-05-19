@@ -21,7 +21,7 @@ pages:
   - "Appendix B: Key Terms": 'API/Users_Guide/Appendix_B_Key_Terms.md'
   - "Appendix C: Format of Submission Queries and Responses": 'API/Users_Guide/Appendix_C_Format_of_Submission_Requests_and_Responses.md'
   - Release Notes: 'API/Release_Notes/API_Release_Notes.md'
-  - "\U0001F4C4 PDF Version of This User Guide": 'API/PDF.md'
+  - "\U0001F4C4 PDF Version of This User Guide": 'API/PDF/index.md'
 - Data Portal:
   - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
   - About the Data: 'Commons/About_the_Data.md'
@@ -52,7 +52,7 @@ pages:
   - Reports: 'Data_Submission_Portal/Users_Guide/Reports.md'
   - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
   - Release Notes: 'Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md'
-  - "\U0001F4C4 PDF Version of This User Guide": 'Data_Submission_Portal/PDF.md'
+  - "\U0001F4C4 PDF Version of This User Guide": 'Data_Submission_Portal/PDF/index.md'
 - Data Transfer Tool:
   - Getting Started: 'Data_Transfer_Tool/Users_Guide/Getting_Started.md'
   - Accessing Built-in Help: 'Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md'
@@ -60,7 +60,7 @@ pages:
   - Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md'
   - Key Terms: 'Data_Transfer_Tool/Users_Guide/Appendix_A_-_Key_Terms.md'
   - Release Notes: 'Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md'
-  - "\U0001F4C4 PDF Version of This User Guide": 'Data_Transfer_Tool/PDF.md'
+  - "\U0001F4C4 PDF Version of This User Guide": 'Data_Transfer_Tool/PDF/index.md'
 - Data Dictionary:
   - About: 'Data_Dictionary/index.md'
   - Viewer: 'Data_Dictionary/viewer.md'
@@ -68,7 +68,7 @@ pages:
   - "File Format: VCF": 'Data/File_Formats/VCF_Format.md'
   - "Bioinformatics Pipeline: Variant Annotation": 'Data/Bioinformatics_Pipelines/Annotation_Pipeline.md'
   - Release Notes: 'Data/Release_Notes/Data_Release_Notes.md'
-  - "\U0001F4C4 PDF Version of This User Guide": 'Data/PDF.md'
+  - "\U0001F4C4 PDF Version of This User Guide": 'Data/PDF/index.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
