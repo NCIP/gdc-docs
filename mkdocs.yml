@@ -37,7 +37,7 @@ pages:
   - Legacy Archive: 'Data_Portal/Users_Guide/Legacy_Archive.md'
   - Key Terms: 'Data_Portal/Users_Guide/Key_Terms.md'
   - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
-  - "PDF Version of This User Guide": 'https://gdc-docs.nci.nih.gov/Data_Portal/PDF/Data_Portal_UG.pdf'
+  - PDF Version of This User Guide: 'https://gdc-docs.nci.nih.gov/Data_Portal/PDF/Data_Portal_UG.pdf'
 - Data Submission Portal:
   - Getting Started: 'Data_Submission_Portal/Users_Guide/Getting_Started.md'
   - Submission Workflow: 'Data_Submission_Portal/Users_Guide/Submission_Workflow.md'
