@@ -8,24 +8,23 @@ The GDC VCF file format follows standards of the [Variant Call Format (VCF) Vers
 
 A standard VCF file is composed of three parts, in the following order:  
 
-### Part 1, Meta-information
+### Part 1: Meta-information
 
-These are lines that begin with `##`. Some of the notable fields in the meta-information section are:
+The meta-information section of a VCF file comprises lines that begin with `##`. Some key components of this section are:
 
-*   **source**: somatic mutation calling tool
-*   **INDIVIDUAL:**
-	*  **NAME:** barcode of the individual
-	*  **ID:** GDC case UUID
-*  **SAMPLE:**
-	*  **ID:** NORMAL or TUMOR
-	*  **NAME:** barcode of aliquot
-	*  **LIQUOT_ID:** GDC aliquot UUID
-	*  **BAM_ID:** BAM file UUID
-*   **FILTER:** description of filters
-*   **FORMAT:** format of sample genotype data
+*  **INDIVIDUAL:** information on the study participant, including:
+ 	* *NAME:* Submitter ID (barcode) associated with the participant, and
+	* *ID:* GDC case UUID
+*  **SAMPLE:** sample information, including:
+	*  *ID:* NORMAL or TUMOR
+	*  *NAME:* Submitter ID (barcode) of the aliquot
+	*  *ALIQUOT_ID:* GDC aliquot UUID
+	*  *BAM_ID:* BAM file UUID
+*   **FILTER:** description of filters that have been applied to the data
+*   **FORMAT:** description of genotype fields
 *   **INFO:** format of *additional information* fields (see [GDC INFO Fields](#gdc-info-fields) below)
 
-### Part 2, Column Header Line
+### Part 2: Column Header Line
 
 This is a single tab-delimited line that names the data columns in the following order:
 
@@ -43,13 +42,13 @@ This is a single tab-delimited line that names the data columns in the following
 
 See [Variant Call Format (VCF) Version 4.1 Specification](https://samtools.github.io/hts-specs/VCFv4.1.pdf) for details.
 
-### Part 3, Data
+### Part 3: Data
 
 This part of a VCF file contains tab-delimited information, one line per record, with each record representing a position in the genome.
 
 ## GDC INFO fields
 
-The following variant annotations are currently included in Annotated Somatic Mutation VCF files.  Please refer to [GDC Somatic Mutation Annotation Pipeline](../Bioinformatics_Pipelines/Annotation_Pipeline.md) for details on how this information is generated.
+The following variant annotation fields are currently included in Annotated Somatic Mutation VCF files.  Please refer to [GDC Somatic Mutation Annotation Pipeline](../Bioinformatics_Pipelines/Annotation_Pipeline.md) for details on how this information is generated.
 
 |field|description|
 |--|--|
