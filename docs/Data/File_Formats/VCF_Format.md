@@ -28,7 +28,7 @@ The meta-information section of a VCF file comprises lines that begin with `##`.
 
 This is a single tab-delimited line that names the data columns in the following order:
 
-0. **#CHROM:** chromosome
+0. **CHROM:** chromosome
 0. **POS:** position
 0. **ID:** identifier
 0. **REF:** reference base(s)
