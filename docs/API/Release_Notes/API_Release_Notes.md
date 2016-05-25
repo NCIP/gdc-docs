@@ -8,6 +8,7 @@
 * __Release Date__: May 25, 2016
 
 ### New Features and Changes
+* BAM index files (.bai) are not automatically downloaded with parent BAM.
 
 ### Bugs Fixed Since Last Release
 
@@ -16,9 +17,10 @@
 
 ### Known Issues and Workarounds
 
-* BAM index files (.bai) are not automatically downloaded with parent BAM.
+
 * Certain very long API requests will time out.  It is recommended to break up into a series of smaller requests.
-* TARGET xls files currently assigned to incorrect Data Type and Platform.
+* Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
+* Use of a decimal in an integer search field produces unexpected error.
 
 
 
@@ -50,10 +52,8 @@
 ### Known Issues and Workarounds
 
 
-* TARGET xls files currently assigned to incorrect Data Type and Platform.
-* When filtering cases in the Data Portal, values input by user are inappropriately multiplied by 365 for certain range facets.  Example is Cigarettes per Day.
+
 * Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
-* Some files are not linked to any cases.
 * Use of a decimal in an integer search field produces unexpected error.
 * Certain very long API requests will time out.  It is recommended to break up into a series of smaller requests.
 
