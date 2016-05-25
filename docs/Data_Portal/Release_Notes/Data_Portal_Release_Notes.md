@@ -13,22 +13,21 @@
 
 *   General
     *  Fixed 508 compliance issues <!-- PGDC-2497 --><!-- PGDC-2431 -->
-    *  Download manifest button is available for TARGET projects with 0 files, resulting in error if user clic on button <!-- PGDC-2416 -->
-    *  If a user tries to download a token after session expiry, an invite will offer the user to log in <!-- PGDC-2455 -->   
-    *  My project filter should be unselected by default after user logs-in <!-- PGDC-2462 -->  
+    *  Disabled download manifest action on projects without files  <!-- PGDC-2416 -->
+    *  Updated the portal to indicate to the user that his session expired when he tries to download the authentication token. <!-- PGDC-2455 -->   
+    *  Unselected "My project" filter after user logs-in <!-- PGDC-2462 -->  
     *  Fixed missing padding when query includes "My Projects" <!-- PGDC-2420 -->
-    *  The portal was allowing download manifest when there was no files in the project <!-- PGDC-2416 -->
-    *  Add to cart limitation to 10,000 files was not enforced everywhere on the Data Portal <!-- PGDC-2409 -->
-*   Data
-    *  Tables: Improved usability of the "Sort" feature  <!-- PGDC-1771 -->
-    *  Tables: adding all files to the cart was only adding files displayed on the current page instead of all files corresponding to the current query <!-- PGDC-2439 -->
+    *  Enforced "Add to cart" limitation to 10,000 files everywhere on the Data Portal <!-- PGDC-2409 -->
+*   Tables
+    *  Improved usability of the "Sort" feature  <!-- PGDC-1771 -->
+    *  Updated the "Add all files to cart" button to add all files corresponding to the current query (and not only displayed files) <!-- PGDC-2439 -->
     *  Tables: Platform show "0" when selected platform is "Affymetrix SNP 6.0" <!-- PGDC-2419 -->
+*   Data
     *  When adding a custom range facet, default values are incorrectly populated <!-- PGDC-2445 --> <!-- PGDC-2444 -->  <!-- PGDC-2225 -->    
     *  Sorting File Submitter ID option on the file tab result in a Data Portal Error <!-- PGDC-2430 -->    
 *   File Entity Page
     *  Improved "Associated Cases/Biospecimen" table for files associated to a lot of cases  <!-- PGDC-1993 -->    
     *  BAM Slicing was retuning an error <!-- PGDC-2433 -->
-
 
 ### Known Issues and Workarounds
 
