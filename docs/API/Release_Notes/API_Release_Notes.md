@@ -16,7 +16,9 @@
 * Programmatic access to functionality provided by GDC Data and Submission portals, via `projects`, `cases`, `files`, `annotations`, `data`, `slicing`, `status`, and `submission` endpoints
 * Programmatic access to GDC Legacy Archive via `legacy` endpoint
 * Token-based authentication for secure access to controlled data and to submission functionality
-* RESTful search that supports simple and complex queries, sorting, and output in JSON, TSV, and XML
+* RESTful search that supports simple and complex queries via `filters`, `fields`, and `facets` parameters, and `project`, `files`, `cases`, and `annotations` endpoints.
+* Search results can be sorted using `sort` parameter, paginated using `size` and `from` parameters, and output in JSON, TSV, and XML using `format` and `pretty` parameters.
+* `_mapping` endpoint enables user discovery of fields available for data search and retrieval operations
 * Support for downloading of individual files and of archives containing multiple files
 * Generation of download and upload manifests for use with the GDC Data Transfer Tool
 * BAM slicing functionality for downloading part(s) of a BAM file specified using chromosomal coordinates or HGNC gene names
