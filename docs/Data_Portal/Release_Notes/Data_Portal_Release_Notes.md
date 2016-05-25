@@ -31,8 +31,7 @@
 
 ### Known Issues and Workarounds
 
-*   General
-    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. User needs to refresh the page to see current authentication status.
+*   General.
     *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". This only impact users at the NIH. Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status.
     *   Download SRA XML files from the legacy archive portal might not be possible in some context <!-- PGDC-2457 --> <!-- PGDC-2469 -->  
     *   Not possible to use the browser's back button after hitting a 404 page <!-- PGDC-2429 -->
@@ -45,7 +44,7 @@
     *   '--' symbol is missing on empty fields (blank instead), additional missing fields identified since last release.  <!-- PGDC-2447 -->    
 *   Cart
     *   When removing a file from the cart and clicking undo, GDC looses track of permission status of the user towards this file and will ask for the user to log-in again. <!-- PGDC-2496 -->     
-    *   Counts displayed in the top right of the screen, next to the Cart icon, might get inconsistent if files are removed from the cart. <!-- PGDC-2403 -->
+    *   Counts displayed in the top right of the screen, next to the Cart icon, might get inconsistent if files are removed from the server. <!-- PGDC-2403 -->
 *   Annotations
     *   Annotations notes do not wrap to the next line at the beginning or the end of a word, some words might be split in two lines <!-- PGDC-2474 -->
 *   Web Browsers
