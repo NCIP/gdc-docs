@@ -1,7 +1,26 @@
 # API Release Notes
 
 
+## v1.1.0
 
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: May 25, 2016
+
+### New Features and Changes
+
+* BAM index files (.bai) are not automatically downloaded with parent BAM.
+* `status` endpoint provides additional details about GDC system status
+
+### Bugs Fixed Since Last Release
+
+* Sorting by file `submitter_id` no longer causes an internal server error
+* BAM index files are now included with harmonized BAM files
+
+### Known Issues and Workarounds
+
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests.
+* Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
+* Use of a decimal in an integer search field produces unexpected error.
 
 
 
@@ -16,7 +35,9 @@
 * Programmatic access to functionality provided by GDC Data and Submission portals, via `projects`, `cases`, `files`, `annotations`, `data`, `slicing`, `status`, and `submission` endpoints
 * Programmatic access to GDC Legacy Archive via `legacy` endpoint
 * Token-based authentication for secure access to controlled data and to submission functionality
-* RESTful search that supports simple and complex queries, sorting, and output in JSON, TSV, and XML
+* RESTful search that supports simple and complex queries via `filters`, `fields`, and `facets` parameters, and `project`, `files`, `cases`, and `annotations` endpoints.
+* Search results can be sorted using `sort` parameter, paginated using `size` and `from` parameters, and output in JSON, TSV, and XML using `format` and `pretty` parameters.
+* `_mapping` endpoint enables user discovery of fields available for data search and retrieval operations
 * Support for downloading of individual files and of archives containing multiple files
 * Generation of download and upload manifests for use with the GDC Data Transfer Tool
 * BAM slicing functionality for downloading part(s) of a BAM file specified using chromosomal coordinates or HGNC gene names
@@ -30,21 +51,9 @@
 
 ### Known Issues and Workarounds
 
-* Some files appear to belong to both CCLE and TCGA programs.  This is caused by material derived from the same patient appearing in both programs.
-* For some TCGA and CCLE projects the case and file counts from project page do not match count on the data page.  This is caused by material derived from the same patient appearing in both TCGA and CCLE programs.
-* The Data Transfer Tool does not verify the MD5 sum of downloaded files.
-* TARGET xls files currently assigned to incorrect Data Type and Platform.
-* When filtering cases in the Data Portal, values input by user are inappropriately multiplied by 365 for certain range facets.  Example is Cigarettes per Day.
-* In the Data Portal Files Page, only files on displayed page are added when click "Add all files to the Cart".  It should instead add all files in the list.
 * Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
-* Some files are not linked to any cases.
-* In Data Portal, Creation Datetime for files is currently rendered in Linux Epoch time rather than human readable date and time.
 * Use of a decimal in an integer search field produces unexpected error.
-* Controlled data is referred to as "Protected" instead of "Controlled" in the Data Download Statistics Report.
-* Certain very long API requests will time out.  It is recommended to break up into a series of smaller requests.
-* Sorting on File Submitter ID on Data Portal Files page can cause internal server error.
-* Tables are missing first column in the summary page of the Data Search.
-
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests.
 
 
 
