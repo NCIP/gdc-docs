@@ -12,7 +12,6 @@
 ### Bugs Fixed Since Last Release
 
 *   General
-    *  '--' symbol is missing on empty fields (blank instead) <!-- PGDC-2418 -->
     *  Fixed 508 compliance issues <!-- PGDC-2497 --><!-- PGDC-2431 -->
     *  Download manifest button is available for TARGET projects with 0 files, resulting in error if user clic on button <!-- PGDC-2416 -->
     *  If a user tries to download a token after session expiry, an invite will offer the user to log in <!-- PGDC-2455 -->   
@@ -44,7 +43,7 @@
     *   Default values for age at diagnosis is showing 0 to 89 instead of 0 to 90 <!-- PGDC-2478 -->
     *   Biospecimen search in the case entity page does not highlight (but does bold and filter) results in yellow when title case is not followed <!-- PGDC-2451 -->
     *   Table sorting icon does not include numbers <!-- PGDC-35 -->    
-    *   '--' symbol is missing on empty fields (blank instead), additional missing fields identified.  <!-- PGDC-2447 -->    
+    *   '--' symbol is missing on empty fields (blank instead), additional missing fields identified since last release.  <!-- PGDC-2447 -->    
 *   Cart
     *   When removing a file from the cart and clicking undo, GDC looses track of permission status of the user towards this file and will ask for the user to log-in again. <!-- PGDC-2496 -->     
     *   Counts displayed in the top right of the screen, next to the Cart icon, might get inconsistent if files are removed from the cart. <!-- PGDC-2403 -->
