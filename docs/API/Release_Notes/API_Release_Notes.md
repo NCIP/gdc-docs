@@ -1,24 +1,24 @@
 # API Release Notes
 
 
-
 ## v1.1.0
 
 * __GDC Product__: Application Programming Interface (API)
 * __Release Date__: May 25, 2016
 
 ### New Features and Changes
+
 * BAM index files (.bai) are not automatically downloaded with parent BAM.
+* `status` endpoint provides additional details about GDC system status
 
 ### Bugs Fixed Since Last Release
 
-* None to report
-
+* Sorting by file `submitter_id` no longer causes an internal server error
+* BAM index files are now included with harmonized BAM files
 
 ### Known Issues and Workarounds
 
-
-* Certain very long API requests will time out.  It is recommended to break up into a series of smaller requests.
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests.
 * Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 * Use of a decimal in an integer search field produces unexpected error.
 
@@ -51,11 +51,9 @@
 
 ### Known Issues and Workarounds
 
-
-
 * Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 * Use of a decimal in an integer search field produces unexpected error.
-* Certain very long API requests will time out.  It is recommended to break up into a series of smaller requests.
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests.
 
 
 
