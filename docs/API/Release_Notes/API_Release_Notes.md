@@ -8,7 +8,7 @@
 
 ### New Features and Changes
 
-* BAM index files (.bai) are not automatically downloaded with parent BAM.
+* None to report
 
 ### Bugs Fixed Since Last Release
 
@@ -18,7 +18,7 @@
 ### Known Issues and Workarounds
 
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests.
-* Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
+* Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 * Use of a decimal in an integer search field produces unexpected error.
 
 
