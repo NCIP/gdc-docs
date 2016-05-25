@@ -12,22 +12,22 @@
 ### Bugs Fixed Since Last Release
 
 *   General
-    *  Fixed 508 compliance issues <!-- PGDC-2497 --><!-- PGDC-2431 -->
-    *  Disabled download manifest action on projects without files  <!-- PGDC-2416 -->
+    *  Fixed 508 compliance issues. <!-- PGDC-2497 --><!-- PGDC-2431 -->
+    *  Disabled download manifest action on projects without files.  <!-- PGDC-2416 -->
     *  Updated the portal to indicate to the user that his session expired when he tries to download the authentication token. <!-- PGDC-2455 -->   
-    *  Unselected "My project" filter after user logs-in <!-- PGDC-2462 -->  
-    *  Fixed missing padding when query includes "My Projects" <!-- PGDC-2420 -->
-    *  Enforced "Add to cart" limitation to 10,000 files everywhere on the Data Portal <!-- PGDC-2409 -->
+    *  Unselected "My project" filter after user logs-in. <!-- PGDC-2462 -->  
+    *  Fixed missing padding when query includes "My Projects". <!-- PGDC-2420 -->
+    *  Enforced "Add to cart" limitation to 10,000 files everywhere on the Data Portal. <!-- PGDC-2409 -->
 *   Tables
     *  Improved usability of the "Sort" feature  <!-- PGDC-1771 -->
-    *  Updated the "Add all files to cart" button to add all files corresponding to the current query (and not only displayed files) <!-- PGDC-2439 -->
-    *  Tables: Platform show "0" when selected platform is "Affymetrix SNP 6.0" <!-- PGDC-2419 -->
+    *  Updated the "Add all files to cart" button to add all files corresponding to the current query (and not only displayed files). <!-- PGDC-2439 -->
+    *  Fixed an issue where Platform would show "0" when selected platform is "Affymetrix SNP 6.0". <!-- PGDC-2419 -->
 *   Data
-    *  When adding a custom range facet, default values are incorrectly populated <!-- PGDC-2445 --> <!-- PGDC-2444 -->  <!-- PGDC-2225 -->    
-    *  Sorting File Submitter ID option on the file tab result in a Data Portal Error <!-- PGDC-2430 -->    
+    *  Corrected default values populated when adding a custom range facet. <!-- PGDC-2445 --> <!-- PGDC-2444 -->  <!-- PGDC-2225 -->    
+    *  Fixed an issue preventing the user to sort by File Submitter ID in data tables.<!-- PGDC-2430 -->    
 *   File Entity Page
-    *  Improved "Associated Cases/Biospecimen" table for files associated to a lot of cases  <!-- PGDC-1993 -->    
-    *  BAM Slicing was retuning an error <!-- PGDC-2433 -->
+    *  Improved "Associated Cases/Biospecimen" table for files associated to a lot of cases.  <!-- PGDC-1993 -->    
+    *  Fixed an error when performing BAM Slicing. <!-- PGDC-2433 -->
 
 ### Known Issues and Workarounds
 
