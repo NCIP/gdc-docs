@@ -9,7 +9,6 @@
 ### New Features and Changes
 
 * BAM index files (.bai) are not automatically downloaded with parent BAM.
-* `status` endpoint provides additional details about GDC system status
 
 ### Bugs Fixed Since Last Release
 
