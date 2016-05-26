@@ -3,7 +3,7 @@
 ## Downloads
 
 
-### TCP and UDT Modes
+<!--### TCP and UDT Modes
 
 The GDC Data Transfer Tool supports two download modes:
 
@@ -28,6 +28,7 @@ UDT mode is activated using the **-u** switch. The following example is a comman
 
 	> gdc-client download gdc_file_uuid1 gdc_file_uuid2 -u
 
+-->
 
 ### Downloading Data Using a Manifest File
 
@@ -136,6 +137,8 @@ This means that the user has dbGaP read access to the data, but does not have GD
 
 Re-uploading a file may return the following error: <q>File in uploaded state, upload not allowed</q>. To resolve this issue, delete the file using the **--delete** switch before re-uploading.
 
+<!--
 ###  UDT Download Times Out
 
 If downloads work in TCP mode but time out in UDT mode, there may be a problem with the user's network configuration. UDT mode requires a network configuration that is open to UDP traffic, including an open UDP port 9000. Contact your network administrator for assistance.
+-->
