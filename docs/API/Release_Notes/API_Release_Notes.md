@@ -8,7 +8,7 @@
 * __Release Date__: May 25, 2016
 
 ### New Features and Changes
-* BAM index files (.bai) are not automatically downloaded with parent BAM.
+* BAM index files (.bai) are now automatically downloaded with parent BAM.
 
 ### Bugs Fixed Since Last Release
 
@@ -17,7 +17,7 @@
 
 ### Known Issues and Workarounds
 
-
+* Fields are not counted as missing if parent field is also missing.  A user may encounter this with nested fields using advanced search on the Data Portal or providing a filter with the API.  Will impact use of "IS MISSING" or "NOT MISSING" search parameters.
 * Certain very long API requests will time out.  It is recommended to break up into a series of smaller requests.
 * Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 * Use of a decimal in an integer search field produces unexpected error.
