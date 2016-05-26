@@ -39,6 +39,7 @@ gdc-client: error: too few arguments
       -v, --verbose         verbose logging
       -d DIR, --dir DIR     Directory to download files to. Defaults to current
                             dir
+      -s server, --server server The TCP server address server[:port])
       --no-segment-md5sums  Calculate inbound segment md5sums and/or verify
                             md5sums on restart
       --debug               Print stack traces
@@ -63,8 +64,8 @@ gdc-client: error: too few arguments
       -e, --external-proxy  Do not create a local proxy but bind to an external
                             one
 
-<!--      -s server, --server server The UDT server address server[:port])
-      -u, --udt             Use the UDT protocol. Better for WAN connections-->
+
+<!--      -u, --udt             Use the UDT protocol. Better for WAN connections-->
 
 ### GDC Data Transfer Tool Upload Help Menus (with -h / --help flag specified)
 
