@@ -374,6 +374,10 @@ code {
   color: #5b5151;
 }
 
+.nav-icon {
+  margin-right: 6px;
+}
+
 /* Main Body Container */
 .container {
   /* font-size: 1.0rem; - icgc data portal default */
