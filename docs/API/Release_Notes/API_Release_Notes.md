@@ -18,7 +18,6 @@
 
 * Sorting by file `submitter_id` no longer causes an internal server error
 * BAM index files are now included with harmonized BAM files
-* Fields are not counted as missing if parent field is also missing.  A user may encounter this with nested fields using advanced search on the Data Portal or providing a filter with the API.  Will impact use of "IS MISSING" or "NOT MISSING" search parameters.
 * Certain very long API requests will time out.  It is recommended to break up into a series of smaller requests.
 * Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 
