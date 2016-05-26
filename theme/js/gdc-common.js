@@ -1,5 +1,26 @@
 $(function() {
 
+  $(".dropdown-menu a:contains('pdf')").each(function () {
+    var el = $(this);
+    var text = el.text();
+    var split = text.split(' ');
+    var url = split.pop();
+    el.attr('href', url);
+    el.text(split.join(' '));
+  });
+
+  $(".dropdown-menu a:contains('fa-')").each(function () {
+    var el = $(this);
+    var text = el.text();
+    var actualContent = text.split(' ').slice(1, Infinity).join(' ');
+    var iconClass = text.match(/fa-\S*/);
+
+    if (iconClass) {
+      el.html("<i class='nav-icon fa " + iconClass + "'></i>" + actualContent)
+    }
+  });
+
+
   function ModalSearchManager(id) {
     var _self = this,
       _modalID = id,
