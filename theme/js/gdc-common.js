@@ -18,7 +18,10 @@ $(function() {
     var iconClass = text.match(/fa-\S*/);
 
     if (iconClass) {
-      el.html("<i class='nav-icon fa " + iconClass + "'></i>" + actualContent)
+      el.html(
+        "<span aria-hidden='true' class='nav-icon fa " + iconClass + "'></span>"
+       + actualContent
+      )
     }
   });
 
