@@ -7,15 +7,10 @@
 * __Release Date__: May 25, 2016
 
 ### New Features and Changes
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 * BAM index files (.bai) are now automatically downloaded with parent BAM.
 
 ### Bugs Fixed Since Last Release
-=======
->>>>>>> origin/develop
-=======
->>>>>>> origin/develop
 
 * None to report
 
@@ -23,27 +18,15 @@
 
 * Sorting by file `submitter_id` no longer causes an internal server error
 * BAM index files are now included with harmonized BAM files
-<<<<<<< HEAD
-
-<<<<<<< HEAD
 * Fields are not counted as missing if parent field is also missing.  A user may encounter this with nested fields using advanced search on the Data Portal or providing a filter with the API.  Will impact use of "IS MISSING" or "NOT MISSING" search parameters.
 * Certain very long API requests will time out.  It is recommended to break up into a series of smaller requests.
 * Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
-=======
-### Known Issues and Workarounds
-
-* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests.
-* Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
->>>>>>> origin/develop
-=======
 
 ### Known Issues and Workarounds
 
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING".
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests.
 * Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
->>>>>>> origin/develop
-* Use of a decimal in an integer search field produces unexpected error.
-
 
 
 ## v1.0.1
