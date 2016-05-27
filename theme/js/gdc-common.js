@@ -1,9 +1,9 @@
 $(function() {
 
-  $(".dropdown-menu a:contains('pdf')").each(function () {
+  $(".dropdown-menu a:contains('pdf'), .bs-sidenav a:contains('pdf')").each(function () {
     var el = $(this);
     var text = el.text();
-    var split = text.split(' ');
+    var split = text.trim().split(' ');
     var url = split.pop();
     el.attr('href', url);
     el.attr('target', '_blank');
@@ -11,10 +11,10 @@ $(function() {
     el.parent().removeClass('active');
   });
 
-  $(".dropdown-menu a:contains('fa-')").each(function () {
+  $(".dropdown-menu a:contains('fa-'), .bs-sidenav a:contains('fa-')").each(function () {
     var el = $(this);
     var text = el.text();
-    var actualContent = text.split(' ').slice(1, Infinity).join(' ');
+    var actualContent = text.trim().split(' ').slice(1, Infinity).join(' ');
     var iconClass = text.match(/fa-\S*/);
 
     if (iconClass) {
