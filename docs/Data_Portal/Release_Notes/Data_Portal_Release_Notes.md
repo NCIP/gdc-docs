@@ -37,6 +37,7 @@
     *   Not possible to use the browser's back button after hitting a 404 page <!-- PGDC-2429 -->
     *   404 page missing from Legacy Archive Portal <!-- PGDC-2477 -->
     *   Table widget icon and export JSON icon should be different <!-- PGDC-2446 -->     
+    *   In GDC Legacy Archive Portal, downloading the manifest for the entire content will time out due to the number of files, workaround is to filter down the results by using facets. <!-- PGDC-2411 -->
 *   Data and facets
     *   Default values for age at diagnosis is showing 0 to 89 instead of 0 to 90 <!-- PGDC-2478 -->
     *   Biospecimen search in the case entity page does not highlight (but does bold and filter) results in yellow when title case is not followed <!-- PGDC-2451 -->

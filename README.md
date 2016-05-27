@@ -34,9 +34,16 @@ Inside another documentation page
 [Authentication and Authorization](../../Commons/Authentication.md#internal-section)
 ```
 
+### Adding icons and PDFs
+The convention for this, when updating mkdocs.yml is the following:
+- <font-awesome-icon> <content> <url ending in .pdf>: 'index.md'
+example:
+- fa-file-pdf-o Download PDF /API/PDF/API_UG.pdf: 'index.md'
+
 ### Documentation Conventions
 
 A detailed list of all conventions is available on [GDC Website](https://gdc.nci.nih.gov/conventions-page)
+
 
 ### Build PDF
 
