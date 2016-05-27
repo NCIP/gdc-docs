@@ -27,7 +27,7 @@
 
 ### Bugs Fixed Since Last Release
 
-* None to report
+* Use of non-ASCII characters in token passed to Data Transfer Tool produces an incorrect error message.
 
 ### Known Issues and Workarounds
 

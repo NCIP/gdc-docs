@@ -11,94 +11,109 @@ The GDC Data Transfer Tool displays the following help menu when executed withou
 ```Shell
 ./gdc-client
 ```
-```Change
+```Output
 usage: gdc-client [-h] [--version] {download,upload,interactive} ...
 gdc-client: error: too few arguments
 ```
 
 
-### GDC Data Transfer Tool Download Help Menus (with -h / --help flag specified)
+### Download help menu
 
-    > gdc-client download -h
-    usage: gdc-client download [-h] [-m MANIFEST] [-v] [-d DIR] [-s server]
-                               [--no-segment-md5sums] [--debug] [-n N_PROCESSES]
-                               [--http-chunk-size HTTP_CHUNK_SIZE]
-                               [--save-interval SAVE_INTERVAL]
-                               [--no-related-files] [--no-annotations]
-                               [-t TOKEN | -T TOKEN] [-u] [-H PROXY_HOST]
-                               [-P PROXY_PORT] [-e]
-                               [file_id [file_id ...]]
+The GDC Data Transfer Tool displays the following help menu for its download functionality.
 
-    positional arguments:
-      file_id               uuids to download
+```Shell
+./gdc-client download --help
+```
+```Output
+usage: gdc-client download [-h] [--debug] [-v] [--log-file LOG_FILE]
+                           [-T TOKEN | -t TOKEN] [-H HOST] [-P PORT] [-d DIR]
+                           [-s server] [--no-segment-md5sums] [-n N_PROCESSES]
+                           [--http-chunk-size HTTP_CHUNK_SIZE]
+                           [--save-interval SAVE_INTERVAL]
+                           [--no-related-files] [--no-annotations]
+                           [-m MANIFEST]
+                           [file_id [file_id ...]]
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -m MANIFEST, --manifest MANIFEST
-                            GDC Download manifest file.
-      -v, --verbose         verbose logging
-      -d DIR, --dir DIR     Directory to download files to. Defaults to current
-                            dir
-      -s server, --server server The TCP server address server[:port])
-      --no-segment-md5sums  Calculate inbound segment md5sums and/or verify
-                            md5sums on restart
-      --debug               Print stack traces
-      -n N_PROCESSES, --n-processes N_PROCESSES
-                            Number of client connections.
-      --http-chunk-size HTTP_CHUNK_SIZE
-                            Size in bytes of standard HTTP block size.
-      --save-interval SAVE_INTERVAL
-                            The number of chunks after which to flush state file.
-                            A lower save interval will result in more frequent
-                            printout but lower performance.
-      --no-related-files    Do not download related files.
-      --no-annotations      Do not download annotations.
-      -t TOKEN, --token-file TOKEN
-                            authentication token file
-      -T TOKEN, --token TOKEN
-                            authentication token
-      -H PROXY_HOST, --proxy-host PROXY_HOST
-                            The port to bind the local proxy to
-      -P PROXY_PORT, --proxy-port PROXY_PORT
-                            The port to bind the local proxy to
-      -e, --external-proxy  Do not create a local proxy but bind to an external
-                            one
+positional arguments:
+  file_id               GDC files to download
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug               enable debug logging
+  -v, --verbose         enable verbose logging
+  --log-file LOG_FILE   log file [stderr]
+  -T TOKEN, --token TOKEN
+                        GDC API auth token string
+  -t TOKEN, --token-file TOKEN
+                        GDC API auth token file
+  -H HOST, --host HOST  GDC API host [gdc-api.nci.nih.gov]
+  -P PORT, --port PORT  GDC API port [443]
+  -d DIR, --dir DIR     Directory to download files to. Defaults to current
+                        dir
+  -s server, --server server
+                        The TCP server address server[:port]
+  --no-segment-md5sums  Calculate inbound segment md5sums and/or verify
+                        md5sums on restart
+  -n N_PROCESSES, --n-processes N_PROCESSES
+                        Number of client connections.
+  --http-chunk-size HTTP_CHUNK_SIZE
+                        Size in bytes of standard HTTP block size.
+  --save-interval SAVE_INTERVAL
+                        The number of chunks after which to flush state file.
+                        A lower save interval will result in more frequent
+                        printout but lower performance.
+  --no-related-files    Do not download related files.
+  --no-annotations      Do not download annotations.
+  -m MANIFEST, --manifest MANIFEST
+                        GDC download manifest file
+```
+
+### Upload help menu
+
+The GDC Data Transfer Tool displays the following help menu for its upload functionality.
 
 
-<!--      -u, --udt             Use the UDT protocol. Better for WAN connections-->
+```Shell
+./gdc-client upload --help
+```
+```Output
+usage: gdc-client upload [-h] [--debug] [-v] [--log-file LOG_FILE]
+                         [-T TOKEN | -t TOKEN] [-H HOST] [-P PORT]
+                         [--project-id PROJECT_ID] [--identifier IDENTIFIER]
+                         [--path path] [--upload-id UPLOAD_ID] [--insecure]
+                         [--server SERVER] [--part-size PART_SIZE]
+                         [-n N_PROCESSES] [--disable-multipart] [--abort]
+                         [--resume] [--delete] [--manifest MANIFEST]
 
-### GDC Data Transfer Tool Upload Help Menus (with -h / --help flag specified)
-
-    > gdc-client upload -h
-    usage: gdc-client upload [-h] [--project-id PROJECT_ID]
-                             [--identifier IDENTIFIER] [--path path] --token file
-                             [--insecure] [--verbose] [--server SERVER]
-                             [--part-size PART_SIZE] [-n N_PROCESSES]
-                             [--upload-id UPLOAD_ID] [--disable-multipart]
-                             [--abort] [--resume] [--delete] [--manifest MANIFEST]
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      --project-id PROJECT_ID, -p PROJECT_ID
-                            The project ID that owns the file
-      --identifier IDENTIFIER, -i IDENTIFIER
-                            The id or alias
-      --path path, -f path  directory path to find file
-      --token file, -t file
-                            auth token
-      --insecure, -k        Allow connections to server without certs
-      --verbose, -v         Print stack traces
-      --server SERVER, -s SERVER
-                            GDC API server address
-      --part-size PART_SIZE, -ps PART_SIZE
-                            Part size for multipart upload
-      -n N_PROCESSES, --n-processes N_PROCESSES
-                            Number of client connections.
-      --upload-id UPLOAD_ID, -u UPLOAD_ID
-                            Multipart upload id
-      --disable-multipart   Disable multipart upload
-      --abort               Abort previous multipart upload
-      --resume, -r          Resume previous multipart upload
-      --delete              Delete an uploaded file
-      --manifest MANIFEST, -m MANIFEST
-                            Manifest which describes files to be uploaded
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug               enable debug logging
+  -v, --verbose         enable verbose logging
+  --log-file LOG_FILE   log file [stderr]
+  -T TOKEN, --token TOKEN
+                        GDC API auth token string
+  -t TOKEN, --token-file TOKEN
+                        GDC API auth token file
+  -H HOST, --host HOST  GDC API host [gdc-api.nci.nih.gov]
+  -P PORT, --port PORT  GDC API port [443]
+  --project-id PROJECT_ID, -p PROJECT_ID
+                        The project ID that owns the file
+  --identifier IDENTIFIER, -i IDENTIFIER
+                        The file id
+  --path path, -f path  directory path to find file
+  --upload-id UPLOAD_ID, -u UPLOAD_ID
+                        Multipart upload id
+  --insecure, -k        Allow connections to server without certs
+  --server SERVER, -s SERVER
+                        GDC API server address
+  --part-size PART_SIZE, -ps PART_SIZE
+                        Part size for multipart upload
+  -n N_PROCESSES, --n-processes N_PROCESSES
+                        Number of client connections
+  --disable-multipart   Disable multipart upload
+  --abort               Abort previous multipart upload
+  --resume, -r          Resume previous multipart upload
+  --delete              Delete an uploaded file
+  --manifest MANIFEST, -m MANIFEST
+                        Manifest which describes files to be uploaded
+```
