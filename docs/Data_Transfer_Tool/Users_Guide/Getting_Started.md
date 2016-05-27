@@ -6,8 +6,6 @@ Raw sequence data, typically stored as BAM or FASTQ files, make up the bulk of d
 
 The GDC Data Transfer Tool provides an optimized method of transferring data to and from the GDC, and enables resumption of interrupted transfers.
 
-[//]: # (The tool's download and upload functionality is built upon a high-performance, UDP-based data transfer protocol known as [UDT](http://udt.sourceforge.net/), or User Datagram Protocol (UDP)-based Data Transfer. The UDT protocol is implemented in C++ for speed, but exposed via Python to provide a clean, user-friendly command line interface. The GDC Data Transfer Tool is also capable of performing TCP downloads for cases where UDP traffic may be blocked.)
-
 ## Downloading the GDC Data Transfer Tool
 
 ### System Recommendations
