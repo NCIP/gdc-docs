@@ -19,14 +19,11 @@
 * Sorting by file `submitter_id` no longer causes an internal server error
 * BAM index files are now included with harmonized BAM files
 * Certain very long API requests will time out.  It is recommended to break up into a series of smaller requests.
-* Use of non-ascii characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 
 ### Known Issues and Workarounds
 
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING".
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests.
-* Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
-
 
 
 
