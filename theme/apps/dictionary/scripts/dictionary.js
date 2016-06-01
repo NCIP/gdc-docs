@@ -113,6 +113,18 @@
       return;
     }
 
+    // replace '^2' with superscript
+    $(".property-description:contains('^')").each(function () {
+      var el = $(this);
+      var content = el.text();
+      var matched = content.match(/\^\d*/);
+      var toReplace = content.replace(
+        /\^\d*/,
+        '<sup>' + matched[0].split('').slice(1, Infinity).join('') + '</sup>'
+      );
+      el.html(toReplace);
+    });
+
     switch( viewUpdateObj.eventType ) {
 
       case _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.INNER_NAV:
