@@ -514,7 +514,7 @@ print json.dumps(response.json(), indent=2)
 
 GDC API provides a pagination feature that limits the number of results returned by the API. It is implemented using `size` and `from` query parameters.
 
-The `size` query parameter specifies the maximum number of results to return. Default `size` is 10. Specifying a `size` of `0` will return all results. If the number of query results is greater than `size`, only some of the results will be returned.
+The `size` query parameter specifies the maximum number of results to return. Default `size` is 10. If the number of query results is greater than `size`, only some of the results will be returned.
 
 The `from` query parameter specifies the first record to return out of the set of results. For example, if there are 20 cases returned from the `cases` endpoint, then setting `from` to `11` will return results 11 to 20. The `from` parameter can be used in conjunction with the `size` parameter to return a specific subset of results.
 

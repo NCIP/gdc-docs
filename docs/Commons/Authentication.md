@@ -41,7 +41,7 @@ Each GDC API request must include a "X-Auth-Token" custom header.
 ```bash
 export token=YOUR_TOKEN
 
-curl --header "X-Auth-Token: $token"  'https://gdcapi.nci.nih.gov/data/49ac8944-1468-456a-bb65-b08c7e24a97a'
+curl --header "X-Auth-Token: $token"  'https://gdc-api.nci.nih.gov/data/49ac8944-1468-456a-bb65-b08c7e24a97a'
 ```
 In the example above, replace YOUR_TOKEN with the contents of token file downloaded from the portal.
 
