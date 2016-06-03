@@ -443,68 +443,138 @@ curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:a
 
 ### Fields
 
-This query parameter specifies which fields are to be included in the API response. Using `fields` to restrict the number of fields returned can improve performance. A listing of available fields for each endpoint is provided in [Appendix A](Appendix_A_Available_Fields.md).
+This query parameter specifies which fields are to be included in the API response. A listing of available fields for each endpoint is provided in [Appendix A](Appendix_A_Available_Fields.md).
 
 #### Example
 
-To get back only the file names for each file, `fields=file_name` can be passed to the `files` endpoint.
+The following example requests case submitter ID, file UUID, file name and file size from the `files` endpoint.
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&pretty=true'
+curl 'https://gdc-api.nci.nih.gov/files?fields=cases.submitter_id,file_id,file_name,file_size&pretty=true'
 ```
 ```python
 import requests
 import json
 
 files_endpt = 'https://gdc-api.nci.nih.gov/files'
-params = {'fields':'file_name'}
+params = {'fields':'cases.submitter_id,file_id,file_name,file_size'}
 response = requests.get(files_endpt, params = params)
 print json.dumps(response.json(), indent=2)
 ```
 ```Response
 {
   "data": {
-	"hits": [
-	  {
-		"file_name": "Collagen_VI-R-V_GBL1112757.tif"
-	  },
-	  {
-		"file_name": "DUNGS_p_TCGA_b84_115_SNP_N_GenomeWideSNP_6_C09_771624.birdseed.data.txt"
-	  },
-	  {
-		"file_name": "unc.edu.ba350477-3c49-4258-8409-f39447687497.2145690.junction_quantification.txt"
-	  },
-	  {
-		"file_name": "SWEDE_p_TCGAb322_23_24_25_26NSP_GenomeWideSNP_6_C06_1364960.hg18.seg.txt"
-	  },
-	  {
-		"file_name": "unc.edu.a696be4d-8576-43a3-8137-30778dff9b89.2445604.junction_quantification.txt"
-	  },
-	  {
-		"file_name": "MSK_252152921979_S01_CGH-v4_10_27Aug08__GCN_V3_A1__CBS_out.txt"
-	  },
-	  {
-		"file_name": "9721366028_R05C01_Red.idat"
-	  },
-	  {
-		"file_name": "28bdce76404c4a5a9a766c6e93f390ed.bam"
-	  },
-	  {
-		"file_name": "PKC-delta_pS664-R-V_GBL9016761.tif"
-	  },
-	  {
-		"file_name": "jhu-usc.edu_LAML.HumanMethylation450.2.lvl-2.TCGA-AB-3011-03A-01D-0742-05.txt"
-	  }
-	],
-	"pagination": {
-	  "count": 10,
-	  "sort": "",
-	  "from": 1,
-	  "pages": 54777,
-	  "total": 547761,
-	  "page": 1,
-	  "size": 10
-	}
+    "hits": [
+      {
+        "file_name": "NARKY_p_TCGAb69_SNP_N_GenomeWideSNP_6_H03_697832.grch38.seg.txt",
+        "cases": [
+          {
+            "submitter_id": "TCGA-BP-4989"
+          }
+        ],
+        "file_id": "3bd4d5dc-563a-481c-87a6-ec0017d0d58a",
+        "file_size": 54200
+      },
+      {
+        "file_name": "652ecf99-1af9-41fc-b0a5-d3e5c07a7b5d.FPKM.txt.gz",
+        "cases": [
+          {
+            "submitter_id": "TCGA-60-2709"
+          }
+        ],
+        "file_id": "b3286166-01f9-4149-81b5-a2ea5f27c50e",
+        "file_size": 530665
+      },
+      {
+        "file_name": "CUSKS_p_TCGAb47_SNP_1N_GenomeWideSNP_6_D05_628212.nocnv_grch38.seg.txt",
+        "cases": [
+          {
+            "submitter_id": "TCGA-A8-A07Z"
+          }
+        ],
+        "file_id": "282cc9d1-c5e9-49ff-b27b-e00c1e5529c6",
+        "file_size": 15806
+      },
+      {
+        "file_name": "REEDY_p_TCGAb65_SNP_N_GenomeWideSNP_6_F01_697686.nocnv_grch38.seg.txt",
+        "cases": [
+          {
+            "submitter_id": "TCGA-CJ-4871"
+          }
+        ],
+        "file_id": "fe44a644-eefc-42c5-aac7-a216bc1e88e1",
+        "file_size": 6179
+      },
+      {
+        "file_name": "84df7a8fee9fedb5e8e22849ec66d294_gdc_realn.bam",
+        "cases": [
+          {
+            "submitter_id": "TCGA-A2-A0CO"
+          }
+        ],
+        "file_id": "acd0ec73-c1fe-463e-912c-84e8416510e5",
+        "file_size": 15545555724
+      },
+      {
+        "file_name": "ed8c4bb6-891a-4cf2-80ba-42c5594760d0.vcf",
+        "cases": [
+          {
+            "submitter_id": "TCGA-BQ-7059"
+          }
+        ],
+        "file_id": "ed8c4bb6-891a-4cf2-80ba-42c5594760d0",
+        "file_size": 264694
+      },
+      {
+        "file_name": "nationwidechildrens.org_clinical.TCGA-IG-A6QS.xml",
+        "cases": [
+          {
+            "submitter_id": "TCGA-IG-A6QS"
+          }
+        ],
+        "file_id": "fe8cf009-f033-4536-95c7-836adcba5bf3",
+        "file_size": 36996
+      },
+      {
+        "file_name": "05f6f9f7-6fb7-4c95-b79c-fdfaba16539d.vep.reheader.vcf.gz",
+        "cases": [
+          {
+            "submitter_id": "TCGA-DK-A3IV"
+          }
+        ],
+        "file_id": "05f6f9f7-6fb7-4c95-b79c-fdfaba16539d",
+        "file_size": 415044
+      },
+      {
+        "file_name": "C484.TCGA-12-5301-01A-01D-1486-08.7_gdc_realn.bam",
+        "cases": [
+          {
+            "submitter_id": "TCGA-12-5301"
+          }
+        ],
+        "file_id": "3b0293c2-4a26-428c-b097-9489f23a2a2d",
+        "file_size": 23661175335
+      },
+      {
+        "file_name": "75a36e71-400d-46a5-93b0-7813cf0595ea.FPKM.txt.gz",
+        "cases": [
+          {
+            "submitter_id": "TCGA-BF-A5EO"
+          }
+        ],
+        "file_id": "28f763c7-8064-4151-ae0e-31e70cd9bfe8",
+        "file_size": 488422
+      }
+    ],
+    "pagination": {
+      "count": 10,
+      "sort": "",
+      "from": 1,
+      "page": 1,
+      "total": 216435,
+      "pages": 21644,
+      "size": 10
+    }
   },
   "warnings": {}
 }
