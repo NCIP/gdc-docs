@@ -15,7 +15,7 @@
 
 * MD5 checks on downloaded files
 * BAM index files (.bai) are now automatically downloaded with parent BAM.
-* UDT support is back
+* UDT protocol now included for optimized transfers between geographically distant infrastructure.
 
 ### Bugs Fixed Since Last Release
 
