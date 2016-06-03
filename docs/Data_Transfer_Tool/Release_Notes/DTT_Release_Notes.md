@@ -13,9 +13,9 @@
 
 ### New Features and Changes
 
-* MD5 checks on downloaded files
+* MD5 checksum verification of downloaded files
 * BAM index files (.bai) are now automatically downloaded with parent BAM.
-* UDT protocol now included for optimized transfers between geographically distant infrastructure.
+* UDT mode included to help improve certain high-speed transfers between the GDC and distant locations.
 
 ### Bugs Fixed Since Last Release
 
