@@ -30,7 +30,7 @@ usage: gdc-client download [-h] [--debug] [-v] [--log-file LOG_FILE]
                            [-s server] [--no-segment-md5sums] [-n N_PROCESSES]
                            [--http-chunk-size HTTP_CHUNK_SIZE]
                            [--save-interval SAVE_INTERVAL]
-                           [--no-related-files] [--no-annotations]
+                           [--no-related-files] [--no-annotations] [-u]
                            [-m MANIFEST]
                            [file_id [file_id ...]]
 
@@ -64,6 +64,7 @@ optional arguments:
                         printout but lower performance.
   --no-related-files    Do not download related files.
   --no-annotations      Do not download annotations.
+  -u, --udt             Use the UDT protocol. Better for WAN connections
   -m MANIFEST, --manifest MANIFEST
                         GDC download manifest file
 ```
