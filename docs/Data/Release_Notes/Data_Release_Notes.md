@@ -39,7 +39,7 @@
     * TCGA data that failed harmonization or QC or have been newly updated in CGHub: ~1.0% of WXS aliquots, ~1.6% of RNA-Seq aliquots
     * All TARGET-PPTP data
     * TARGET data that failed harmonization or QC, have been newly updated in CGHub, or whose project names are undergoing reorganization: ~76% of WXS aliquots, ~49% of RNA-Seq aliquots, ~57% of miRNA-Seq.
-*	MAFs are not yet available for query or search in the GDC Data Portal or API.  You may download these files using the following manifests, which can be passed directly to the Data Transfer Tool.  Links for the open-access MAFs are provided below for downloading invidual files.
+*	MAFs are not yet available for query or search in the GDC Data Portal or API.  You may download these files using the following manifests, which can be passed directly to the Data Transfer Tool.  Links for the open-access MAFs are provided below for downloading individual files.
     * [Open-access MAFs manifest](Manifests/GDC_open_MAFs_manifest.txt)
     * [Controlled-access MAFs manifest](Manifests/GDC_controlled_MAFs_manifest.txt)
 
