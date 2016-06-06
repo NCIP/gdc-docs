@@ -28,7 +28,7 @@ fi
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Building script for ${ENVIRONMENT}"
 
-if [ -d "/home/ubuntu/gdc-docs-${ENVIRONMENT}/" ]; then
+if [ -d "~/gdc-docs-${ENVIRONMENT}/" ]; then
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Directory exists, removing"
    sudo rm ~/gdc-docs-${ENVIRONMENT}/ -R
 fi
