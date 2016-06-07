@@ -44,6 +44,7 @@ From the cart, the fowllowing download options are available to the end user:
 * __SRA XML__: Experiment, analysis and run metadata files associated with the files in the cart
 * __File Metadata__: Metadata of the files in the cart (file properties, associated entities and workflow information if applicable).
 
+Although an entire cart could be downloaded from Web Browsers, those are not ideally equipped to download very large files, in particular due to the absence of a retry/resume mechanism. To improve user experience we implemented a limit of 5 GB for direct download. Over 5 GB it is recommended to use the GDC Data Transfer Tool.
 
 __Note__: when downloading multiple files from the GDC Data Portal, those files are automatically bundled-up into one single Gzipped (.tar.gz) file.
 
