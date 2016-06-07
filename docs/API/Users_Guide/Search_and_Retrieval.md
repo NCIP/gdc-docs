@@ -166,37 +166,117 @@ curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22con
 ```
 ``` Output
 
-	{
-	  "data": {
-	    "hits": [
-	      {
-	        "sample_ids": "7f791228-dd77-4ab0-8227-d784a4c7fea1",
-	        "portion_ids": "8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
-	        "submitter_portion_ids": "TCGA-BH-A0EA-01A-21-A13C-20",
-	        "submitter_aliquot_ids": "TCGA-BH-A0EA-01A-11D-A10Y-09",
-	        "days_to_index": 0,
-	        "submitter_analyte_ids": "TCGA-BH-A0EA-01A-11D",
-	        "analyte_ids": "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
-	        "submitter_id": "TCGA-BH-A0EA",
-	        "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
-	        "slide_ids": "90154ea1-6b76-4445-870e-d531d6fa1239",
-	        "submitter_sample_ids": "TCGA-BH-A0EA-01A",
-	        "aliquot_ids": "561b8777-801a-49ed-a306-e7dafeb044b6",
-	        "submitter_slide_ids": "TCGA-BH-A0EA-01A-01-TSA"
-	      }
-	    ],
-	    "pagination": {
-	      "count": 1,
-	      "sort": "",
-	      "from": 1,
-	      "pages": 1,
-	      "total": 1,
-	      "page": 1,
-	      "size": 10
-	    }
-	  },
-	  "warnings": {}
+{
+"data": {
+	"hits": [
+		{
+			"sample_ids": [
+				"7f791228-dd77-4ab0-8227-d784a4c7fea1",
+				"9a6c71a6-82cd-42b1-a93f-f569370848d6"
+			],
+			"portion_ids": [
+				"cb6086d1-3416-4310-b109-e8fa6e8b72d4",
+				"8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
+				"ae4f5816-f97a-4605-9b05-9ab820467dee"
+			],
+			"submitter_portion_ids": [
+				"TCGA-BH-A0EA-01A-11",
+				"TCGA-BH-A0EA-01A-21-A13C-20",
+				"TCGA-BH-A0EA-10A-01"
+			],
+			"created_datetime": null,
+			"submitter_aliquot_ids": [
+				"TCGA-BH-A0EA-01A-11R-A114-13",
+				"TCGA-BH-A0EA-01A-11D-A111-01",
+				"TCGA-BH-A0EA-01A-11W-A12T-09",
+				"TCGA-BH-A0EA-01A-11R-A114-13",
+				"TCGA-BH-A0EA-01A-11R-A115-07",
+				"TCGA-BH-A0EA-01A-11D-A111-01",
+				"TCGA-BH-A0EA-01A-11D-A314-09",
+				"TCGA-BH-A0EA-01A-11D-A112-05",
+				"TCGA-BH-A0EA-01A-11D-A10Y-09",
+				"TCGA-BH-A0EA-01A-11D-A10X-02",
+				"TCGA-BH-A0EA-01A-11W-A12T-09",
+				"TCGA-BH-A0EA-01A-11D-A10X-02",
+				"TCGA-BH-A0EA-01A-11D-A10Y-09",
+				"TCGA-BH-A0EA-01A-11D-A314-09",
+				"TCGA-BH-A0EA-01A-11R-A115-07",
+				"TCGA-BH-A0EA-01A-11D-A112-05",
+				"TCGA-BH-A0EA-10A-01D-A110-09",
+				"TCGA-BH-A0EA-10A-01D-A113-01",
+				"TCGA-BH-A0EA-10A-01W-A12U-09",
+				"TCGA-BH-A0EA-10A-01D-A10Z-02",
+				"TCGA-BH-A0EA-10A-01D-A113-01",
+				"TCGA-BH-A0EA-10A-01D-A110-09",
+				"TCGA-BH-A0EA-10A-01W-A12U-09",
+				"TCGA-BH-A0EA-10A-01D-A10Z-02"
+			],
+			"updated_datetime": "2016-05-02T14:37:43.619198-05:00",
+			"submitter_analyte_ids": [
+				"TCGA-BH-A0EA-01A-11R",
+				"TCGA-BH-A0EA-01A-11D",
+				"TCGA-BH-A0EA-01A-11W",
+				"TCGA-BH-A0EA-10A-01W",
+				"TCGA-BH-A0EA-10A-01D"
+			],
+			"analyte_ids": [
+				"30cb470f-66d4-4085-8c30-83a42e8453d4",
+				"66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
+				"f19f408a-815f-43d9-8032-e9482b796371",
+				"69ddc092-88a0-4839-a2bb-9f1c9e760409",
+				"fe678556-acf4-4bde-a95e-860bb0150a95"
+			],
+			"submitter_id": "TCGA-BH-A0EA",
+			"case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
+			"state": null,
+			"aliquot_ids": [
+				"bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
+				"97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
+				"edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
+				"bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
+				"ca71ca96-cbb7-4eab-9487-251dda34e107",
+				"97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
+				"eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
+				"42d050e4-e8ee-4442-b9c0-0ee14706b138",
+				"561b8777-801a-49ed-a306-e7dafeb044b6",
+				"262715e1-835c-4f16-8ee7-6900e26f7cf5",
+				"edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
+				"262715e1-835c-4f16-8ee7-6900e26f7cf5",
+				"561b8777-801a-49ed-a306-e7dafeb044b6",
+				"eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
+				"ca71ca96-cbb7-4eab-9487-251dda34e107",
+				"42d050e4-e8ee-4442-b9c0-0ee14706b138",
+				"cfbd5476-e83a-401d-9f9a-639c73a0e35b",
+				"2beb34c4-d493-4a73-b21e-de77d43251ff",
+				"b1a3739d-d554-4202-b96f-f25a444e2042",
+				"cde982b7-3b0a-49eb-8710-a599cb0e44c1",
+				"2beb34c4-d493-4a73-b21e-de77d43251ff",
+				"cfbd5476-e83a-401d-9f9a-639c73a0e35b",
+				"b1a3739d-d554-4202-b96f-f25a444e2042",
+				"cde982b7-3b0a-49eb-8710-a599cb0e44c1"
+			],
+			"slide_ids": [
+				"90154ea1-6b76-4445-870e-d531d6fa1239",
+				"a0826f0d-986a-491b-8c6f-b34f8929f3ee"
+			],
+			"submitter_sample_ids": [
+				"TCGA-BH-A0EA-01A",
+				"TCGA-BH-A0EA-10A"
+			]
+		}
+	],
+	"pagination": {
+		"count": 1,
+		"sort": "",
+		"from": 1,
+		"page": 1,
+		"total": 1,
+		"pages": 1,
+		"size": 10
 	}
+},
+"warnings": {}
+}
 ```
 
 ### Annotations Endpoint
