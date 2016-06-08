@@ -34,6 +34,7 @@
 * All legacy files for TCGA are available in the GDC Legacy Archive, but not always linked back to cases depending on available metadata.
 * Public MAFs (those with germline variants removed) are only available for MuTect2 pipeline.  MAFs for other pipelines are forthcoming.  
 * TARGET-AML and TARGET-ALL projects are undergoing reorganization.  Pending reorganization, cases from these projects may not contain many Clinical, Biospecimen, or genomic data files.
+* No data from TARGET-PPTP is available.
 *	Legacy data not available in harmonized form:
     *	Annotated VCF files from TARGET, anticipated in future data release
     * TCGA data that failed harmonization or QC or have been newly updated in CGHub: ~1.0% of WXS aliquots, ~1.6% of RNA-Seq aliquots
