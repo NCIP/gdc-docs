@@ -10,6 +10,7 @@ theme_dir: theme
 pages:
 - GDC Data:
   - Introduction: 'Data/Introduction.md'
+  - "File Format: MAF": 'Data/File_Formats/MAF_Format.md'
   - "File Format: VCF": 'Data/File_Formats/VCF_Format.md'
   - "Bioinformatics Pipeline: Variant Annotation": 'Data/Bioinformatics_Pipelines/Annotation_Pipeline.md'
   - Release Notes: 'Data/Release_Notes/Data_Release_Notes.md'
