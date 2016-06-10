@@ -22,12 +22,10 @@ Listed below are the columns in a protected MAF. Most columns are explained in e
 5. Column #32 “Sequencer” includes sequencers used. If different sequencers were used to generate normal and tumor data, normal sequencer is listed first.
 6. Column #113-116 “vcf_info”, “vcf_format”, “vcf_tumor_gt” and “vcf_normal_gt” are the corresponding columns from VCF files. Including them facilitates parsing specific variant information.
 7. Column #117 “GDC_Validation_Status”: GDC also collects TCGA validation sequences.  It compares these with variants derived from Next-Generation Sequencing data from the same sample and populates the comparison result in "GDC_Validation_Status".
-
     * "Valid", if Alternative allele(s) in the tumor validation sequence is(are) the same as GDC variant call
     * "Invalid", if none of the alternative allele(s) in the tumor validation sequence is the same as GDC variant call
     * "Inconclusive" if two alternative allele exists, and one matches while the other does not.
     * "Unknown" if no validation sequence exists
-
 8. Column #118 GDC_Valid_Somatic is TRUE if GDC_Validation_Status is "Valid" and the variant is "Somatic" in validation calls.  It is FALSE if these criteria are not met.
 
 ### List of Columns
