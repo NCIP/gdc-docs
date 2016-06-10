@@ -162,7 +162,7 @@ Also removed: n_depth < 8
     * Keep variants if any of the follow three criteria applies, but dbSNP sites that are not annotated as "Somatic" in VEP are also removed
         * GDC_Valid_Somatic is TRUE
         * VEP "Somatic" field is not empty (currently not implemented)
-        * The variant affects transcript sequences (Variant_Classification cannot be 3'UTR, 3'Flank, 5'UTR, 5'Flank, IGR, or Intron. Variant_Classification can only be \{Frame_Shift_Del, Frame_Shift_Ins, In_Frame_Del, In_Frame_Ins, Missense_Mutation, Nonsense_Mutation, Silent, Splice_Site, Translation_Start_Site, Nonstop_Mutation, RNA, Targeted_Region, De_novo_Start_InFrame, De_novo_Start_OutOfFrame)
+        * The variant affects transcript sequences.  Variant_Classification cannot be 3'UTR, 3'Flank, 5'UTR, 5'Flank, IGR, or Intron. Variant_Classification can only be Frame_Shift_Del, Frame_Shift_Ins, In_Frame_Del, In_Frame_Ins, Missense_Mutation, Nonsense_Mutation, Silent, Splice_Site, Translation_Start_Site, Nonstop_Mutation, RNA, Targeted_Region, De_novo_Start_InFrame, or De_novo_Start_OutOfFrame.
 4. Removal of the following columns:
     * vcf_info
     * vcf_format
