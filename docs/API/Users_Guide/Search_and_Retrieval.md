@@ -61,6 +61,67 @@ curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=2&sort=project.project_id
 	}
 ```
 
+#### Retrieval of project metadata using project_id
+
+The `project` endpoint supports a simple query format that retrieves the metadata of a single project using its `project_id`:
+
+```shell
+curl 'https://gdc-api.nci.nih.gov/projects/TARGET-NBL?expand=summary,summary.experimental_strategies,summary.data_categories&pretty=true'
+```
+```Response
+{
+  "data": {
+    "dbgap_accession_number": "phs000467",
+    "name": "Neuroblastoma",
+    "summary": {
+      "data_categories": [
+        {
+          "case_count": 151,
+          "file_count": 471,
+          "data_category": "Transcriptome Profiling"
+        },
+        {
+          "case_count": 216,
+          "file_count": 1728,
+          "data_category": "Simple Nucleotide Variation"
+        },
+        {
+          "case_count": 1120,
+          "file_count": 1,
+          "data_category": "Clinical"
+        },
+        {
+          "case_count": 270,
+          "file_count": 599,
+          "data_category": "Raw Sequencing Data"
+        }
+      ],
+      "case_count": 1120,
+      "file_count": 2799,
+      "experimental_strategies": [
+        {
+          "case_count": 221,
+          "file_count": 2170,
+          "experimental_strategy": "WXS"
+        },
+        {
+          "case_count": 151,
+          "file_count": 628,
+          "experimental_strategy": "RNA-Seq"
+        }
+      ],
+      "file_size": 8157089415961
+    },
+    "released": true,
+    "state": "legacy",
+    "primary_site": "Nervous System",
+    "project_id": "TARGET-NBL",
+    "disease_type": "Neuroblastoma"
+  },
+  "warnings": {}
+}
+```
+
 ### Files Endpoint
 
 The GDC Files Endpoint `https://gdc-api.nci.nih.gov/files` enables search and retrieval of information relating to files stored in the GDC, including file properties such as `file_name`, `md5sum`, `data_format`, and others.
@@ -123,6 +184,39 @@ curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=
 	}
 ```
 
+#### Retrieval of file metadata using individual UUIDs:
+
+The `files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID:
+
+```Shell
+curl 'https://gdc-api.nci.nih.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pretty=true'
+```
+```
+{
+  "data": {
+    "data_type": "Raw Simple Somatic Mutation",
+    "updated_datetime": "2016-06-04T23:42:25.428738-05:00",
+    "created_datetime": "2016-06-03T19:04:32.950673-05:00",
+    "file_name": "000225ad-497b-4a8c-967e-a72159c9b3c9.snp.Somatic.hc.vcf.gz",
+    "md5sum": "bbe8a7157acbfc9133e47898650b5437",
+    "data_format": "VCF",
+    "acl": [
+      "phs000178"
+    ],
+    "access": "controlled",
+    "state": "submitted",
+    "file_id": "000225ad-497b-4a8c-967e-a72159c9b3c9",
+    "data_category": "Simple Nucleotide Variation",
+    "file_size": 19690,
+    "submitter_id": "TCGA-VR-A8ET-01A-11D-A403-09_TCGA-VR-A8ET-10B-01D-A403-09_varscan",
+    "type": "simple_somatic_mutation",
+    "file_state": "processed",
+    "experimental_strategy": "WXS"
+  },
+  "warnings": {}
+}
+```
+
 #### files/ids Endpoint
 
 The `files/ids` endpoint corresponds to the "Quick Search" functionality of the GDC Data Portal. The API response includes all files for which the query matches the beginning (or entirety) of any of the following fields:
@@ -149,7 +243,7 @@ The `files/ids` endpoint corresponds to the "Quick Search" functionality of the 
 
 ### Cases Endpoint
 
-The GDC Cases Endpoint `https://gdc-api.nci.nih.gov/cases` enables search and retrieval of information related to a specific case, or sample donor.
+The GDC Cases Endpoint `https://gdc-api.nci.nih.gov/cases` enables search and retrieval of information related to a specific case.
 
 
 #### Example
@@ -276,6 +370,140 @@ curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22con
 	}
 },
 "warnings": {}
+}
+```
+
+#### Retrieval of case metadata using individual UUIDs:
+
+The `cases` endpoint supports a simple query format that retrieves the metadata of a single case using its UUID:
+
+```shell
+curl 'https://gdc-api.nci.nih.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pretty=true&expand=diagnoses'
+```
+```Response
+{
+  "data": {
+    "diagnoses": [
+      {
+        "classification_of_tumor": "not reported",
+        "last_known_disease_status": "not reported",
+        "updated_datetime": "2016-05-16T10:59:16.740358-05:00",
+        "primary_diagnosis": "c50.9",
+        "submitter_id": "TCGA-BH-A0EA_diagnosis",
+        "tumor_stage": "stage iia",
+        "age_at_diagnosis": 26548.0,
+        "vital_status": "dead",
+        "morphology": "8500/3",
+        "days_to_death": 991.0,
+        "days_to_last_known_disease_status": null,
+        "days_to_last_follow_up": null,
+        "state": null,
+        "days_to_recurrence": null,
+        "diagnosis_id": "84654ad5-2a2c-5c3b-8340-ecac6a5550fe",
+        "tumor_grade": "not reported",
+        "tissue_or_organ_of_origin": "c50.9",
+        "days_to_birth": -26548.0,
+        "progression_or_recurrence": "not reported",
+        "prior_malignancy": "not reported",
+        "site_of_resection_or_biopsy": "c50.9",
+        "created_datetime": null
+      }
+    ],
+    "sample_ids": [
+      "7f791228-dd77-4ab0-8227-d784a4c7fea1",
+      "9a6c71a6-82cd-42b1-a93f-f569370848d6"
+    ],
+    "portion_ids": [
+      "cb6086d1-3416-4310-b109-e8fa6e8b72d4",
+      "8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
+      "ae4f5816-f97a-4605-9b05-9ab820467dee"
+    ],
+    "submitter_portion_ids": [
+      "TCGA-BH-A0EA-01A-11",
+      "TCGA-BH-A0EA-01A-21-A13C-20",
+      "TCGA-BH-A0EA-10A-01"
+    ],
+    "created_datetime": null,
+    "submitter_aliquot_ids": [
+      "TCGA-BH-A0EA-01A-11R-A114-13",
+      "TCGA-BH-A0EA-01A-11D-A111-01",
+      "TCGA-BH-A0EA-01A-11W-A12T-09",
+      "TCGA-BH-A0EA-01A-11R-A114-13",
+      "TCGA-BH-A0EA-01A-11R-A115-07",
+      "TCGA-BH-A0EA-01A-11D-A111-01",
+      "TCGA-BH-A0EA-01A-11D-A314-09",
+      "TCGA-BH-A0EA-01A-11D-A112-05",
+      "TCGA-BH-A0EA-01A-11D-A10Y-09",
+      "TCGA-BH-A0EA-01A-11D-A10X-02",
+      "TCGA-BH-A0EA-01A-11W-A12T-09",
+      "TCGA-BH-A0EA-01A-11D-A10X-02",
+      "TCGA-BH-A0EA-01A-11D-A10Y-09",
+      "TCGA-BH-A0EA-01A-11D-A314-09",
+      "TCGA-BH-A0EA-01A-11R-A115-07",
+      "TCGA-BH-A0EA-01A-11D-A112-05",
+      "TCGA-BH-A0EA-10A-01D-A110-09",
+      "TCGA-BH-A0EA-10A-01D-A113-01",
+      "TCGA-BH-A0EA-10A-01W-A12U-09",
+      "TCGA-BH-A0EA-10A-01D-A10Z-02",
+      "TCGA-BH-A0EA-10A-01D-A113-01",
+      "TCGA-BH-A0EA-10A-01D-A110-09",
+      "TCGA-BH-A0EA-10A-01W-A12U-09",
+      "TCGA-BH-A0EA-10A-01D-A10Z-02"
+    ],
+    "updated_datetime": "2016-05-02T14:37:43.619198-05:00",
+    "submitter_analyte_ids": [
+      "TCGA-BH-A0EA-01A-11R",
+      "TCGA-BH-A0EA-01A-11D",
+      "TCGA-BH-A0EA-01A-11W",
+      "TCGA-BH-A0EA-10A-01W",
+      "TCGA-BH-A0EA-10A-01D"
+    ],
+    "analyte_ids": [
+      "30cb470f-66d4-4085-8c30-83a42e8453d4",
+      "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
+      "f19f408a-815f-43d9-8032-e9482b796371",
+      "69ddc092-88a0-4839-a2bb-9f1c9e760409",
+      "fe678556-acf4-4bde-a95e-860bb0150a95"
+    ],
+    "submitter_id": "TCGA-BH-A0EA",
+    "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
+    "state": null,
+    "aliquot_ids": [
+      "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
+      "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
+      "edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
+      "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
+      "ca71ca96-cbb7-4eab-9487-251dda34e107",
+      "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
+      "eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
+      "42d050e4-e8ee-4442-b9c0-0ee14706b138",
+      "561b8777-801a-49ed-a306-e7dafeb044b6",
+      "262715e1-835c-4f16-8ee7-6900e26f7cf5",
+      "edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
+      "262715e1-835c-4f16-8ee7-6900e26f7cf5",
+      "561b8777-801a-49ed-a306-e7dafeb044b6",
+      "eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
+      "ca71ca96-cbb7-4eab-9487-251dda34e107",
+      "42d050e4-e8ee-4442-b9c0-0ee14706b138",
+      "cfbd5476-e83a-401d-9f9a-639c73a0e35b",
+      "2beb34c4-d493-4a73-b21e-de77d43251ff",
+      "b1a3739d-d554-4202-b96f-f25a444e2042",
+      "cde982b7-3b0a-49eb-8710-a599cb0e44c1",
+      "2beb34c4-d493-4a73-b21e-de77d43251ff",
+      "cfbd5476-e83a-401d-9f9a-639c73a0e35b",
+      "b1a3739d-d554-4202-b96f-f25a444e2042",
+      "cde982b7-3b0a-49eb-8710-a599cb0e44c1"
+    ],
+    "slide_ids": [
+      "90154ea1-6b76-4445-870e-d531d6fa1239",
+      "a0826f0d-986a-491b-8c6f-b34f8929f3ee"
+    ],
+    "submitter_sample_ids": [
+      "TCGA-BH-A0EA-01A",
+      "TCGA-BH-A0EA-10A"
+    ]
+  },
+  "warnings": {}
 }
 ```
 
