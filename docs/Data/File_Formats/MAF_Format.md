@@ -4,7 +4,7 @@
 
 Mutation Annotation Format (MAF) is a tab-delimited text file that lists mutations.  The GDC produces two types of MAF files, Protected and Somatic (or Public) MAFs, for each variant calling pipeline in each GDC project. These MAFs are derived from the GDC annotated VCF files.
 
-Annotated VCF files often have variants reported on multiple transcripts whereas the protected MAF (\*protected.maf) only reports the most critically affected one.  Somatic MAFs (\*somatic.maf) are further processed to remove low quality, unvalidated, and potential germline variants. In addition, for tumor samples that contain variants from multiple combinations of tumor normal aliquot pairs, only one pair is selected in the Somatic MAF. Somatic MAFs are open access and can be freely distributed.
+Annotated VCF files often have variants reported on multiple transcripts whereas the protected MAF (\*protected.maf) only reports the most critically affected one.  Somatic MAFs (\*somatic.maf) are further processed to remove low quality and potential germline variants. In addition, for tumor samples that contain variants from multiple combinations of tumor normal aliquot pairs, only one pair is selected in the Somatic MAF. Somatic MAFs are open access and can be freely distributed.
 
 The GDC MAF file format follows the standard format of the <a href="https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification">TCGA Mutation Annotation Format</a>, but with additional columns.  
 
