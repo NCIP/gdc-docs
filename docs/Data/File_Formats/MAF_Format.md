@@ -164,13 +164,13 @@ Also removed: n_depth < 8
         * VEP "Somatic" field is not empty (currently not implemented)
         * The variant affects transcript sequences (Variant_Classification cannot be 3'UTR, 3'Flank, 5'UTR, 5'Flank, IGR, or Intron. Variant_Classification can only be \{Frame_Shift_Del, Frame_Shift_Ins, In_Frame_Del, In_Frame_Ins, Missense_Mutation, Nonsense_Mutation, Silent, Splice_Site, Translation_Start_Site, Nonstop_Mutation, RNA, Targeted_Region, De_novo_Start_InFrame, De_novo_Start_OutOfFrame)
 4. Removal of the following columns:
-        * vcf_info
-        * vcf_format
-        * vcf_tumor_gt
-        * vcf_normal_gt
+    * vcf_info
+    * vcf_format
+    * vcf_tumor_gt
+    * vcf_normal_gt
 5. Set values to be blank in the following columns that may contain information about germline genotypes:
-        * Match_Norm_Seq_Allele1
-        * Match_Norm_Validation_Allele1
-        * Match_Norm_Validation_Allele2
-        * n_ref_count
-        * n_alt_count
+    * Match_Norm_Seq_Allele1
+    * Match_Norm_Validation_Allele1
+    * Match_Norm_Validation_Allele2
+    * n_ref_count
+    * n_alt_count
