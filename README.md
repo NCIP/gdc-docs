@@ -1,3 +1,8 @@
+![](https://gdc.nci.nih.gov/sites/all/themes/gdc_bootstrap/logo.png)
+
+# GDC Open Source code
+GDC is Open Source, Github Repositories containing source code of GDC Applications can be found on GDC GitHub Organization page available at this address: [https://github.com/NCI-GDC/](https://github.com/NCI-GDC/) 
+
 # GDC Documentation Site
 
 ### Technology
