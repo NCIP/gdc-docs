@@ -1,7 +1,14 @@
 ![](https://gdc.nci.nih.gov/sites/all/themes/gdc_bootstrap/logo.png)
 
 # GDC Open Source code
-GDC is Open Source, Github Repositories containing source code of GDC Applications can be found on GDC GitHub Organization page available at this address: [https://github.com/NCI-GDC/](https://github.com/NCI-GDC/) 
+GDC is Open Source, Github Repositories containing source code of GDC Applications can be found on [GDC GitHub Organization page](https://github.com/NCI-GDC/)
+
+- GDC Data Portal: https://github.com/NCI-GDC/portal-ui
+- GDC Legacy Archive: https://github.com/NCI-GDC/portal-ui-legacy
+- GDC Data Transfer Tool: https://github.com/NCI-GDC/gdc-client
+- GDC Data Dictionary: https://github.com/NCI-GDC/gdcdictionary
+- GDC Data Model: https://github.com/NCI-GDC/gdcdatamodel
+- GDC Psqlgraph: https://github.com/NCI-GDC/psqlgraph
 
 # GDC Documentation Site
 
