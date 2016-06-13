@@ -81,16 +81,17 @@ Institutions that regularly transfer very large volumes of data between GDC faci
 
 An error message about an &#39;invalid token&#39; means that a new authentication token needs to be obtained from the GDC Data Portal or the GDC Data Submission Portal as described in [Preparing for Data Download and Upload](Preparing_for_Data_Download_and_Upload.md).
 
-	 403 Client Error: FORBIDDEN: {
-		  "message": "Your token is invalid or expired, please get a new token from GDC Data Portal"
-		}
+
+	403 Client Error: FORBIDDEN: {
+			"message": "Your token is invalid or expired, please get a new token from GDC Data Portal"
+			}
 
 ### dbGaP Permissions Error
 
 Users may see the following error message when attempting to download a file from GDC:
 
 	 403 Client Error: FORBIDDEN: {
-		  "message": "You don't have access to the data: Please specify a X-Auth-Token"
+		 "message": "You don't have access to the data: Please specify a X-Auth-Token"
 		 }
 
 
@@ -111,8 +112,8 @@ This error message means that the file is not available for download. This may b
 Users may see the following error message when attempting to upload a file:
 
 	Can't upload: {
-	  "message": "You don't have access to the data: You don't have create role to do 'upload'"
-	}
+	   "message": "You don't have access to the data: You don't have create role to do 'upload'"
+	   }
 
 This means that the user has dbGaP read access to the data, but does not have GDC upload privileges. Users can contact GDC User Support to request upload privileges.
 
@@ -121,7 +122,7 @@ This means that the user has dbGaP read access to the data, but does not have GD
 Re-uploading a file may return the following error:
 
 	 Can't upload: {
-		  "message": "File in uploaded state, upload not allowed"
+		"message": "File in uploaded state, upload not allowed"
 		 }
 
 To resolve this issue, delete the file using the **--delete** switch before re-uploading.
