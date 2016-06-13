@@ -81,13 +81,18 @@ Institutions that regularly transfer very large volumes of data between GDC faci
 
 An error message about an &#39;invalid token&#39; means that a new authentication token needs to be obtained from the GDC Data Portal or the GDC Data Submission Portal as described in [Preparing for Data Download and Upload](Preparing_for_Data_Download_and_Upload.md).
 
+	 403 Client Error: FORBIDDEN: {
+		  "message": "Your token is invalid or expired, please get a new token from GDC Data Portal"
+		}
+
 ### dbGaP Permissions Error
 
 Users may see the following error message when attempting to download a file from GDC:
 
 	 403 Client Error: FORBIDDEN: {
-	  "message": "You don't have access to the data: You don't have access to the data"
-	}
+		  "message": "You don't have access to the data: Please specify a X-Auth-Token"
+		 }
+
 
 This error message means that the user does not have dbGaP access to the project that the file belongs to. Instructions for requesting access from dbGaP can be found [here](https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data/registering-and-working-era-commons-and-dbgap).
 
@@ -95,17 +100,17 @@ This error message means that the user does not have dbGaP access to the project
 
 Users may also see the following error message when attempting to download a file from GDC:
 
-	403 Client Error: FORBIDDEN: {
-	  "message": "You don't have access to the data: Requested file abd28349-92cd-48a3-863a-007a218de80f does not allow read access"
-	}
+	 403 Client Error: FORBIDDEN: {
+		  "message": "You don't have access to the data: Requested file abd28349-92cd-48a3-863a-007a218de80f does not allow read access"
+		}
 
-This error message means that the file is not available for download. This may be because the file has not been uploaded or released yet.
+This error message means that the file is not available for download. This may be because the file has not been uploaded or released yet or that it is not a file entity.
 
 ### GDC Upload Privileges Error
 
 Users may see the following error message when attempting to upload a file:
 
-	Can't upload:{
+	Can't upload: {
 	  "message": "You don't have access to the data: You don't have create role to do 'upload'"
 	}
 
@@ -113,4 +118,10 @@ This means that the user has dbGaP read access to the data, but does not have GD
 
 ### File in Uploaded State Error
 
-Re-uploading a file may return the following error: <q>File in uploaded state, upload not allowed</q>. To resolve this issue, delete the file using the **--delete** switch before re-uploading.
+Re-uploading a file may return the following error:
+
+	 Can't upload: {
+		  "message": "File in uploaded state, upload not allowed"
+		 }
+
+To resolve this issue, delete the file using the **--delete** switch before re-uploading.
