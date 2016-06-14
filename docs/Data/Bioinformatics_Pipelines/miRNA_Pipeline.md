@@ -9,17 +9,20 @@ For more information see [BCGSC's GitHub](https://github.com/bcgsc/mirna) or the
 ## GDC Analysis Steps
 
 ### Alignment Workflow
-The miRNA pipeline begins with the <a href="/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow">Alignment Workflow</a>, which in the case of miRNA uses BWA-aln.  This outputs one BAM file for each read group in the input.
+The miRNA pipeline begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow), which in the case of miRNA uses BWA-aln.  This outputs one BAM file for each read group in the input.
 
-Input - [Submitted Unaligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) or [Submitted Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads) (format FASTQ or BAM)
-</br>
-Output - [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) (format BAM)
+| I/O | Entity | Format |
+|---|---|---|
+| Input | [Submitted Unaligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) or [Submitted Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads) |  FASTQ or BAM |
+| Output | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) | BAM  |
+
 
 ### miRNA Expression Workflow
 Following alignment, BAM files are processed through the [miRNA Expression Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=mirna_expression_workflow).
 
 The outputs of the miRNA profiling pipeline report raw read counts and counts normalized to reads per million mapped reads (RPM) in two separate files mirnas.quantification.txt and isoforms.quantification.txt. The former contains summed expression for all reads aligned to known miRNAs in the miRBase reference. If there are multiple alignments to different miRNAs or different regions of the same miRNA, the read is flagged as cross-mapped and every miRNA annotation is preserved. The latter contains observed isoforms.
 
-Input - [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) (format BAM)
-</br>
-Output - [miRNA Expression](/Data_Dictionary/viewer/#?view=table-definition-view&id=mirna_expression) (format TXT)
+| I/O | Entity | Format |
+|---|---|---|
+| Input | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) |  BAM |
+| Output | [miRNA Expression](/Data_Dictionary/viewer/#?view=table-definition-view&id=mirna_expression) | TXT  |
