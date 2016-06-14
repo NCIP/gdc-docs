@@ -50,6 +50,8 @@ The HTTP URL of an endpoint corresponding to a specific major version of the GDC
 
 For example, the address of the latest version of the `status` endpoint is `https://gdc-api.nci.nih.gov/status`, whereas the address of the `status` endpoint corresponding to version 0 of GDC API is `https://gdc-api.nci.nih.gov/v0/status`.
 
+To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL: `https://gdc-api.nci.nih.gov/<version>/<legacy>/<endpoint>`.
+
 ## Entity UUIDs
 
 All objects (*entities*) in the GDC are assigned a unique identifier in the form of a [version 4 universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). The UUID uniquely identifies the entity in the GDC, and is stored in the entity's `id` property.

@@ -1,3 +1,15 @@
+![](https://gdc.nci.nih.gov/sites/all/themes/gdc_bootstrap/logo.png)
+
+# GDC Open Source code
+GDC is Open Source, Github Repositories containing source code of GDC Applications can be found on [GDC GitHub Organization page](https://github.com/NCI-GDC/).
+
+- GDC Data Portal: https://github.com/NCI-GDC/portal-ui
+- GDC Legacy Archive: https://github.com/NCI-GDC/portal-ui-legacy
+- GDC Data Transfer Tool: https://github.com/NCI-GDC/gdc-client
+- GDC Data Dictionary: https://github.com/NCI-GDC/gdcdictionary
+- GDC Data Model: https://github.com/NCI-GDC/gdcdatamodel
+- GDC Psqlgraph: https://github.com/NCI-GDC/psqlgraph
+
 # GDC Documentation Site
 
 ### Technology
@@ -66,3 +78,5 @@ sed -i -e 's/### /## /g' docs/Data_Portal/PDF/Data_portal_UG.pd
 sed -i -e 's/\/site\//\/docs\//g' docs/Data_Portal/PDF/Data_portal_UG.pd
 pandoc --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions -o docs/Data_Portal/PDF/Data_portal_UG.pdf docs/Data_Portal/PDF/Data_portal_UG.pd
 ```
+
+_
