@@ -110,7 +110,7 @@ Examples:
 files.data_type = "Raw microarray data" or files.data_type = "Raw sequencing data"
 ```
 
-*   Find all files where donors are male or vital status is alive: 
+*   Find all files where donors are male or vital status is alive:
 
 ```
 cases.demographic.gender = male or cases.diagnoses.vital_status = alive
