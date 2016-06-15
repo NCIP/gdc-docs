@@ -225,7 +225,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 *   In Case Entity Page, the "Download Clinical XML"button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 *   The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
 *   Removing a filter after paginating table results could cause no results to be displayed. User should press Clear on the filters and start again.
-*   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+*   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
