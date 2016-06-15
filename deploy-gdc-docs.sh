@@ -46,6 +46,16 @@ else
    exit;
 fi
 
+echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Veryfing if all MARKDOWN files are UTF-8 encoded"
+countWrongFiles=$(for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8" | wc -l)
+echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Number of incorrectly encoded files: ${countWrongFiles}"
+
+if [ "$countWrongFiles" -gt 0 ] ; then
+   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR the following files are not encoded in UTF-8"
+   for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8"
+   exit
+fi
+
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Looking for User Guides"
 userGuides=()
 for i in $( ls *_UG.yml ); do
