@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Projects view provides an overview of all the data contained in the GDC Data Portal, organized by Project.  Administratively, a _'Project'_ is a specific effort undertaken as part of an overarching Program. Many projects were set up to study one tumor type, so project names and disease names can often be the same, as is the case for TCGA data, but this is not always the case.
+The Projects view provides an overview of all the data contained in the GDC Data Portal, organized by Project. Administratively, a _'Project'_ is a specific effort undertaken as part of an overarching Program. Many projects were set up to study one tumor type, so project names and disease names can often be the same, as is the case for TCGA data, but this is not always the case.
 
 ## Projects Search
 

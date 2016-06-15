@@ -16,7 +16,7 @@ The following table provides definitions and explanations for terms and acronyms
 | HTTP | Hypertext Transfer Protocol |
 | IDE | Integrated Development Environment |
 | JSON | JavaScript Object Notation |
-| MAGE-TAB | Microarray Gene Expression - Tabular format  |
+| MAGE-TAB | Microarray Gene Expression - Tabular format |
 | NCI | National Cancer Institute |
 | NIH | National Institutes of Health |
 | Op | Operations |

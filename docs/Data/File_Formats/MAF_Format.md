@@ -15,12 +15,12 @@ Listed below are the columns in a protected MAF. Most columns are explained in e
 
 ### Important updates from TCGA v2.4
 
-1. Column #4 “NCBI_Build” is GRCh38 by default
-2. Column #60 VEP name "STRAND" is changed to "TRANSCRIPT_STRAND" to avoid confusion with Column#8 "Strand”
-3. Column #15 “dbSNP_Val_Status" is not implemented
-4. Column #26 “Mutation_Status”: multiallelic calls from MuSE are labeled in this column as  MuSEMulti
-5. Column #32 “Sequencer” includes sequencers used. If different sequencers were used to generate normal and tumor data, normal sequencer is listed first.
-6. Column #113-116 “vcf_info”, “vcf_format”, “vcf_tumor_gt” and “vcf_normal_gt” are the corresponding columns from VCF files. Including them facilitates parsing specific variant information.
+1. Column #4 "NCBI_Build" is GRCh38 by default
+2. Column #60 VEP name "STRAND" is changed to "TRANSCRIPT_STRAND" to avoid confusion with Column#8 "Strand"
+3. Column #15 "dbSNP_Val_Status" is not implemented
+4. Column #26 "Mutation_Status": multiallelic calls from MuSE are labeled in this column as  MuSEMulti
+5. Column #32 "Sequencer" includes sequencers used. If different sequencers were used to generate normal and tumor data, normal sequencer is listed first.
+6. Column #113-116 "vcf_info", "vcf_format", "vcf_tumor_gt" and "vcf_normal_gt" are the corresponding columns from VCF files. Including them facilitates parsing specific variant information.
 7. Column #109 "FILTER" entries are separated by both commas and semi-colons.
 8. Column #117 “GDC_Validation_Status”: GDC also collects TCGA validation sequences.  It compares these with variants derived from Next-Generation Sequencing data from the same sample and populates the comparison result in "GDC_Validation_Status".
     * "Valid", if Alternative allele(s) in the tumor validation sequence is(are) the same as GDC variant call

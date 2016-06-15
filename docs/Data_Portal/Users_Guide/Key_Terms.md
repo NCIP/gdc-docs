@@ -17,7 +17,7 @@ The following table provides definitions and explanations for terms and acronyms
 | HTTP | Hypertext Transfer Protocol |
 | ID | Identifier |
 | JSON | JavaScript Object Notation |
-| MAGE-TAB | Microarray Gene Expression - Tabular format  |
+| MAGE-TAB | Microarray Gene Expression - Tabular format |
 | miRNA | MicroRNA |
 | NCI | National Cancer Institute |
 | NIH | National Institutes of Health |
