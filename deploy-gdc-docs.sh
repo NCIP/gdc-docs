@@ -61,6 +61,10 @@ done
 
 if $hasEncodingError  ; then
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR: Some of the files have encoding errors, not building the site"
+   if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
+      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
+      cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
+   fi   
    exit
 fi
 
