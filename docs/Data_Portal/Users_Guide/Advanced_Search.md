@@ -259,7 +259,7 @@ The "IS" operator can only be used with "MISSING". That is, it is used to search
 
 Examples:
 
-*   Find all cases where gender is missing: 
+*   Find all cases where gender is missing: 
 
 ```
 cases.demographic.gender is MISSING
