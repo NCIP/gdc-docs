@@ -236,7 +236,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 
 ### New Features and Changes
 
-*   Renamed all references of High Performance Download Client (HPDC) to GDC Data Transfer Tool 
+*   Renamed all references of High Performance Download Client (HPDC) to GDC Data Transfer Tool
 *   Implemented more links between the Projects page and the Data page
 *   Improved usability and visual experience:
     *   Better handling of login failure
