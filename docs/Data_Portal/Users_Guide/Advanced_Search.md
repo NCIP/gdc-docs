@@ -265,7 +265,7 @@ Examples:
 cases.demographic.gender is MISSING
 ```
 
-### "NOT MISSING" Operator 
+### "NOT MISSING" Operator
 
 The "NOT" operator can only be used with "MISSING". That is, it is used to search for files where the specified field has a value.
 
