@@ -88,7 +88,7 @@ echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Deploying new version to /var
 
 if [ -f /tmp/buildlog.txt ]; then
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
-   cp /tmp/buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/
+   cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
 fi
 
 #echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Temporarily creating symlink"
