@@ -273,7 +273,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
     *   **Facet search**: Starting with all content available on the GDC, allow users to filter down their search by clicking on elements on the left of the screen. This feature is available in **Projects** and **Data** page. Range support was also added to facets in this release
     *   **Advanced Search**: Starting with all content available on the GDC, allow users to build a custom and complex query using all of GDC capabilities (any field with the parameter of their choice).
     *   **Quick Search**: When looking for specific portal element, allow users to launch the **Quick Search** by clicking the "?" or "CRTL+SPACE" and find high-level informations of some entities.
-*   Updated styling to align with NCI new visual identify
+*   Updated styling to align with NCI new visual identify
 *   Created a pie chart widget allowing user to easily switch between a pie chart and a table view. 
 *   Improved Usability and visual experience:
     *   Added tooltips to various sections of the portal
