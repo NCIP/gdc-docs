@@ -187,7 +187,7 @@ The ">=" operator is used to search for files where the value of the specified f
 
 Example:
 
-* Find all cases whose number of days to death is equal or greater than 60:
+* Find all cases whose number of days to death is equal or greater than 60:
 
 ```
 cases.diagnoses.days_to_death >= 60

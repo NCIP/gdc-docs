@@ -153,7 +153,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 * Facets are displayed above the results table when window is small
 * Table sorting icon does not include numbers
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.15-oicr4
 
