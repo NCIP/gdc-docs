@@ -69,7 +69,7 @@ __Note__: Without parentheses, the statement will be evaluated left-to-right.
 
 ## Keywords
 
-A GQL keyword is a word that joins two or more clauses together to form a complex GQL query.
+A GQL keyword is a word that joins two or more clauses together to form a complex GQL query.
 
 **List of Keywords:**
 

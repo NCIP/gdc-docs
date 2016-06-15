@@ -90,7 +90,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 ### Known Issues and Workarounds
 
 *   General
-    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
 *   Tables and Export
     *   Table sorting icon does not include numbers <!-- PGDC-35 -->
     *   Table export return correct content (XML, TSV) although file extension is incorrect (always JSON) <!-- PGDC-1986 -->
