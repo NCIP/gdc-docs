@@ -195,7 +195,7 @@ cases.diagnoses.days_to_death >= 60
 
 ### "<" operator - LESS THAN
 
-The "<" operator is used to search for files where the value of the specified field is less than the specified value.
+The "<" operator is used to search for files where the value of the specified field is less than the specified value.
 
 Example:
 
@@ -207,7 +207,7 @@ cases.diagnoses.age_at_diagnosis < 400
 
 ### "<=" operator - LESS THAN OR EQUALS
 
-The "<=" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
+The "<=" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
 
 Example:
 
@@ -218,7 +218,7 @@ cases.diagnoses.days_to_death <= 20
 ```
 ### "IN" Operator 
 
-The "IN" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
+The "IN" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
 
 Using "IN" is equivalent to using multiple 'EQUALS (=)' statements, but is shorter and more convenient. That is, typing 'project IN [ProjectA, ProjectB, ProjectC]' is the same as typing 'project = "ProjectA" OR project = "ProjectB" OR project = "ProjectC"'.
 
@@ -238,7 +238,7 @@ files.data_type IN ["Aligned reads", "Unaligned reads"]
 
 ### "EXCLUDE" Operator 
 
-The "EXCLUDE" operator is used to search for files where the value of the specified field is not one of multiple specified values.
+The "EXCLUDE" operator is used to search for files where the value of the specified field is not one of multiple specified values.
 
 Using "EXCLUDE" is equivalent to using multiple  'NOT_EQUALS (!=)'' statements, but is shorter and more convenient. That is, typing 'project EXCLUDE [ProjectA, ProjectB, ProjectC]' is the same as typing 'project != "ProjectA" OR project ! = "ProjectB" OR project ! = "ProjectC"'
 
