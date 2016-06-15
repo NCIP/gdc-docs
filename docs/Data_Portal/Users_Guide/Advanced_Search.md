@@ -46,7 +46,7 @@ The list of auto-complete suggestions includes __all__ the fields authorized in 
 
 ### Value Auto-complete
 
-The list of auto-complete suggestions includes top 100 values that match the user text input. The user has to scroll down to see more values in the dropdown.
+The list of auto-complete suggestions includes top 100 values that match the user text input. The user has to scroll down to see more values in the dropdown.
 
 The value auto-complete is not aware of the general context of the query, the system will display all available values in GDC for the selected field.
 It means the query could return 0 result depending of other filters.

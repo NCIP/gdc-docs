@@ -84,7 +84,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 
 *   Disease Type does not auto filter (Data Facet)
 *   When exporting the annotation table to a file, the create date field is not displayed in the same format than the UI
-*   This ticket is not applicable anymore: "In the Case Entity Page, the "Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.". The Case entity page has a standard download clinical feature.
+*   This ticket is not applicable anymore: "In the Case Entity Page, the "Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.". The Case entity page has a standard download clinical feature.
 
 
 ### Known Issues and Workarounds

@@ -58,7 +58,7 @@ Each project has its own entity page aimed at providing an overview of all cases
 
 Clicking on various numbers will link to the corresponding search page (data or annotations) with filters already applied.
 
-For example, if the cases link in the ‘Clinical’ row in the ‘Available Data’ Table is chosen, the user will see a case view with the appropriate filters already applied.
+For example, if the cases link in the "Clinical" row in the "Available Data" Table is chosen, the user will see a case view with the appropriate filters already applied.
 
 On the top right section of the screen, two download options are available:
 
