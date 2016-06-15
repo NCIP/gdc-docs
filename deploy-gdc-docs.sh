@@ -53,10 +53,10 @@ echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Number of incorrectly encoded
 if [ "$countWrongFiles" -gt 0 ] ; then
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR the following files are not encoded in UTF-8"
    for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8"
-   if [ -f /tmp/buildlog.txt ]; then
+   if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
       echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
       cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
-   fi   
+   fi
    exit
 fi
 
@@ -90,7 +90,7 @@ sudo rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/* -R
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Deploying new version to /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/"
 /usr/local/bin/mkdocs build -v --site-dir /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/
 
-if [ -f /tmp/buildlog.txt ]; then
+if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
    cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
 fi
