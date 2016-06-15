@@ -216,7 +216,7 @@ Example:
 ```
 cases.diagnoses.days_to_death <= 20
 ```
-### "IN" Operator 
+### "IN" Operator
 
 The "IN" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
 
