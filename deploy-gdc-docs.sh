@@ -46,19 +46,37 @@ else
    exit;
 fi
 
-echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Veryfing if all MARKDOWN files are UTF-8 encoded"
-countWrongFiles=$(for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8" | wc -l)
-echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Number of incorrectly encoded files: ${countWrongFiles}"
-
-if [ "$countWrongFiles" -gt 0 ] ; then
-   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR the following files are not encoded in UTF-8"
-   for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8"
-   if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
-      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
-      cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
+#iconv --verbose -f ascii -t utf-8 -o /tmp/test docs/Data_Portal/PDF/Data_Portal_UG.pd
+hasEncodingError=false
+echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Veryfing if all MARKDOWN have no encoding issue"
+for scanFile in $( find docs/ | grep md | egrep -v Eliminate ); do
+   iconv -f ascii -t utf-8 -o /tmp/test ${scanFile} >> /tmp/${ENVIRONMENT}-buildlog.txt
+   if [ "$?" -gt 0 ] ; then
+      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: NOK: ${scanFile} has an encoding error, to address open in vim and use :goto POSITION"
+      hasEncodingError=true
+   else
+      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: OK: ${scanFile} "
    fi
+done
+
+if $hasEncodingError  ; then
+   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR: Some of the files have encoding errors, not building the site"
    exit
 fi
+
+#echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Veryfing if all MARKDOWN files are UTF-8 encoded"
+#countWrongFiles=$(for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8" | wc -l)
+#echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Number of incorrectly encoded files: ${countWrongFiles}"
+
+#if [ "$countWrongFiles" -gt 0 ] ; then
+#   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR the following files are not encoded in UTF-8"
+#   for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8"
+#   if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
+#      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
+#      cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
+#   fi
+#   exit
+#fi
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Looking for User Guides"
 userGuides=()
