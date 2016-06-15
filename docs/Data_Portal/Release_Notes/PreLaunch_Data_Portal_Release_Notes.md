@@ -222,7 +222,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 *   Data download statistics report is not Section 508 compliant
 *   User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
 *   Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
-*   In Case Entity Page, the "Download Clinical XML"button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
+*   In Case Entity Page, the "Download Clinical XML"button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 *   The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
 *   Removing a filter after paginating table results could cause no results to be displayed. User should press Clear on the filters and start again.
 *   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
