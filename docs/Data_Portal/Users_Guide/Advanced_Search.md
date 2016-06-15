@@ -90,7 +90,7 @@ Examples:
 cases.project.primary_site = Breast and files.access = open
 ```
 
-* Find all open files in breast cancer and data type is copy number variation
+* Find all open files in breast cancer and data type is copy number variation
 
 ```
 cases.project.primary_site = Breast and files.access = open and files.data_type = "Copy number variation"
