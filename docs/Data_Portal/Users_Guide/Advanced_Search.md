@@ -253,7 +253,7 @@ files.experimental_strategy EXCLUDE [WXS, WGS, "Genotyping array"]
 ```
 
 
-### "IS MISSING" Operator 
+### "IS MISSING" Operator
 
 The "IS" operator can only be used with "MISSING". That is, it is used to search for files where the specified field has no value.
 
