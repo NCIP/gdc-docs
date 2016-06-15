@@ -34,7 +34,7 @@ More details about the submission process, data files and file formats can be fo
 
 #### Focus on Experiment Data
 
-The GDC has developed a submission unit called a “data bundle”, which is a set of files with associated metadata.
+The GDC has developed a submission unit called a "data bundle", which is a set of files with associated metadata.
 
 Data bundle types are defined by what files are expected and what introspection is done for validation or linking to other GDC entities. Each data bundle will be validated via a bundle type and project specific schema, including a JSON data dictionary, relationship check and molecular data quality check.
 
