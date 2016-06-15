@@ -220,7 +220,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 *   In the advanced search, adding a trailing space to the query causes the UI to display a syntax error although the query is valid
 *   Checksum missing for MAGE-TAB files
 *   Data download statistics report is not Section 508 compliant
-*   User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
+*   User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
 *   Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
 *   In Case Entity Page, the "Download Clinical XML"button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 *   The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
