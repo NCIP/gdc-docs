@@ -2,7 +2,7 @@
 
 ## Overview
 
-An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases. 
+An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases.
 
 [![Advanced Search View](images/gdc-data-portal-advanced-search.png)](images/gdc-data-portal-advanced-search.png "Click to see the full image.")
 
@@ -118,7 +118,7 @@ cases.demographic.gender = male or cases.diagnoses.vital_status = alive
 
 ## Operators
 
-An operator in GQL is one or more symbols or words comparing the value of a field on its left with one or more values on its right, such that only true results are retrieved by the clause. 
+An operator in GQL is one or more symbols or words comparing the value of a field on its left with one or more values on its right, such that only true results are retrieved by the clause. 
 
 ### List of Operators and Query format
 
@@ -138,7 +138,7 @@ An operator in GQL is one or more symbols or words comparing the value of a fie
 
 ### "=" operator - EQUAL
 
-The "`=`" operator is used to search for files where the value of the specified field exactly matches the specified value.
+The "=" operator is used to search for files where the value of the specified field exactly matches the specified value.
 
 Examples:
 
@@ -156,9 +156,9 @@ cases.demographic.gender = female
 
 ### "!=" operator - NOT EQUAL
 
-The "`!=`" operator is used to search for files where the value of the specified field does not match the specified value.
+The "!=" operator is used to search for files where the value of the specified field does not match the specified value.
 
-The "`!=`" operator will not match a field that has no value (i.e. a field that is empty). For example, `gender != male` will only match cases who have a gender and the gender is not male. To find cases other than male or with no gender populated, you would need to type gender != male or gender is missing.
+The "!=" operator will not match a field that has no value (i.e. a field that is empty). For example, 'gender != male' will only match cases who have a gender and the gender is not male. To find cases other than male or with no gender populated, you would need to type gender != male or gender is missing.
 
 Example:
 
@@ -170,7 +170,7 @@ files.experimental_strategy != "Genotyping array"
 
 ### ">" operator - GREATER THAN
 
-The "`>`" operator is used to search for files where the value of the specified field is greater than the specified value.
+The ">" operator is used to search for files where the value of the specified field is greater than the specified value.
 
 Example:
 
@@ -183,7 +183,7 @@ cases.diagnoses.days_to_death > 60
 
 ### ">=" operator - GREATER THAN OR EQUALS
 
-The "`>=`" operator is used to search for files where the value of the specified field is greater than or equal to the specified value.
+The ">=" operator is used to search for files where the value of the specified field is greater than or equal to the specified value.
 
 Example:
 
@@ -193,11 +193,9 @@ Example:
 cases.diagnoses.days_to_death >= 60
 ```
 
-
-
 ### "<" operator - LESS THAN
 
-The "`<`" operator is used to search for files where the value of the specified field is less than the specified value.
+The "<" operator is used to search for files where the value of the specified field is less than the specified value.
 
 Example:
 
@@ -207,10 +205,9 @@ Example:
 cases.diagnoses.age_at_diagnosis < 400
 ```
 
-
 ### "<=" operator - LESS THAN OR EQUALS
 
-The "`<=`" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
+The "<=" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
 
 Example:
 
@@ -219,13 +216,11 @@ Example:
 ```
 cases.diagnoses.days_to_death <= 20
 ```
-
-
 ### "IN" Operator 
 
-The "`IN`" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
+The "IN" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
 
-Using "`IN`" is equivalent to using multiple  `EQUALS  (=)`  statements, but is shorter and more convenient. That is, typing `project IN [ProjectA, ProjectB, ProjectC] `is the same as typing `project = "ProjectA" OR project = "ProjectB" OR project = "ProjectC"`.
+Using "IN" is equivalent to using multiple 'EQUALS (=)' statements, but is shorter and more convenient. That is, typing 'project IN [ProjectA, ProjectB, ProjectC]' is the same as typing 'project = "ProjectA" OR project = "ProjectB" OR project = "ProjectC"'.
 
 Examples:
 
@@ -243,11 +238,11 @@ files.data_type IN ["Aligned reads", "Unaligned reads"]
 
 ### "EXCLUDE" Operator 
 
-The " `EXCLUDE` " operator is used to search for files where the value of the specified field is not one of multiple specified values.
+The "EXCLUDE" operator is used to search for files where the value of the specified field is not one of multiple specified values.
 
-Using "`EXCLUDE`" is equivalent to using multiple  `NOT_EQUALS (!=)` statements, but is shorter and more convenient. That is, typing `project EXCLUDE [ProjectA, ProjectB, ProjectC] `is the same as typing `project != "ProjectA" OR project ! = "ProjectB" OR project ! = "ProjectC"`.`
+Using "EXCLUDE" is equivalent to using multiple  'NOT_EQUALS (!=)'' statements, but is shorter and more convenient. That is, typing 'project EXCLUDE [ProjectA, ProjectB, ProjectC]' is the same as typing 'project != "ProjectA" OR project ! = "ProjectB" OR project ! = "ProjectC"'
 
-The "`EXCLUDE`" operator will not match a field that has no value (i.e. a field that is empty). For example, `experimental strategy EXCLUDE ["WGS","WXS"]` will only match files that have an experimental strategy **and** the experimental strategy is not "WGS" or "WXS". To find files with an experimental strategy different from than "WGS" or "WXS" **or is not assigned**, you would need to type: files.experimental_strategy in ["WXS","WGS"] or files.experimental\_strategy is missing.
+The "EXCLUDE" operator will not match a field that has no value (i.e. a field that is empty). For example, 'experimental strategy EXCLUDE ["WGS","WXS"]'' will only match files that have an experimental strategy **and** the experimental strategy is not "WGS" or "WXS". To find files with an experimental strategy different from than "WGS" or "WXS" **or is not assigned**, you would need to type: files.experimental_strategy in ["WXS","WGS"] or files.experimental\_strategy is missing.
 
 Examples:
 
@@ -260,7 +255,7 @@ files.experimental_strategy EXCLUDE [WXS, WGS, "Genotyping array"]
 
 ### "IS MISSING" Operator 
 
-The "`IS`" operator can only be used with "`MISSING`". That is, it is used to search for files where the specified field has no value.
+The "IS" operator can only be used with "MISSING". That is, it is used to search for files where the specified field has no value.
 
 Examples:
 
@@ -272,7 +267,7 @@ cases.demographic.gender is MISSING
 
 ### "NOT MISSING" Operator 
 
-The " `NOT` " operator can only be used with "`MISSING`". That is, it is used to search for files where the specified field has a value.
+The "NOT" operator can only be used with "MISSING". That is, it is used to search for files where the specified field has a value.
 
 Examples:
 
