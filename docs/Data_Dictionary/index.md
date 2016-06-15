@@ -12,7 +12,7 @@ The GDC [Dictionary Viewer](viewer.md) provides a view of the latest version of 
 
 ## Configure the Data Dictionary
 
-The GDC data dictionaries are described in [YAML](http://yaml.org/). This allows the flexibility for adding new data elements to the dictionary for incorporating in GDC data submission templates.
+The GDC data dictionaries are described in [YAML](http://yaml.org/). This allows the flexibility for adding new data elements to the dictionary for incorporating in GDC data submission templates.
 
 ## Create Project Specific Data Dictionaries
 
