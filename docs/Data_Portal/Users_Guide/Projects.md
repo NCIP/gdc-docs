@@ -26,14 +26,14 @@ As mentioned previously in this documentation, the projects view offer the abili
 *   __Disease Type__: type of cancer studied in the project.
 *   __Data Category__: Kind of data contained in the file. Note that each of these data types may have subtypes, and that the numbers given in the table reflect the numbers of latest files for all subtypes of that data type. Data Subtypes can be explored in Facets contained in the "Files" tab in the "Data" view described below.
 
-    *   _Seq_ – Raw Sequencing Data
-    *   _Exp_ – Raw Microarray Data   
-    *   _SNV_ – Single Nucleotide Variation
-    *   _CNV_ – Copy Number Variation
-    *   _SV_ – Structural Rearrangement
-    *   _Meth_ – Methylation
-    *   _Clinical_ – Clinical Data about the case, as well as Biospecimen data about the sample and aliquots     
-    *   _Biospecimen_ – Clinical Data about the case, as well as Biospecimen data about the sample and aliquots
+    *   _Seq_ - Raw Sequencing Data
+    *   _Exp_ - Raw Microarray Data   
+    *   _SNV_ - Single Nucleotide Variation
+    *   _CNV_ - Copy Number Variation
+    *   _SV_ - Structural Rearrangement
+    *   _Meth_ - Methylation
+    *   _Clinical_ - Clinical Data about the case, as well as Biospecimen data about the sample and aliquots     
+    *   _Biospecimen_ - Clinical Data about the case, as well as Biospecimen data about the sample and aliquots
 *   __Experimental Strategy__: This describes NGS sequencing strategies or microarray technological platforms/array types and other experimental assays.
 
 ### Graph View
