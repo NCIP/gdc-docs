@@ -53,6 +53,10 @@ echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Number of incorrectly encoded
 if [ "$countWrongFiles" -gt 0 ] ; then
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR the following files are not encoded in UTF-8"
    for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8"
+   if [ -f /tmp/buildlog.txt ]; then
+      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
+      cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
+   fi   
    exit
 fi
 
