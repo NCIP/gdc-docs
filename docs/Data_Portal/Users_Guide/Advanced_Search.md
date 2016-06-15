@@ -271,7 +271,7 @@ The "NOT" operator can only be used with "MISSING". That is, it is used to searc
 
 Examples:
 
-*   Find all cases where race is not missing: 
+*   Find all cases where race is not missing:
 
 ```
 cases.demographic.race NOT MISSING
