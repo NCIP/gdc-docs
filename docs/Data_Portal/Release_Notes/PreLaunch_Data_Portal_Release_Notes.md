@@ -209,7 +209,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 *   The add to Cart button in File Entity Page changes its display value following a click. User can then click on "Remove from Cart"
 *   Total Case value in the Cart matches with the number of cases associated with the files in the Cart
 *   When User is authenticated, "My project flag" in Case table indicates that the Cases belongs to his projects
-*   In Projects table, if User clicks on the count on Files, it links to the Data page - File table
+*   In Projects table, if User clicks on the count on Files, it links to the Data page - File table
 *   In File Entity Page, if there are no associated cases, it will display the message "No Cases Found." instead of "No Participants Found."
 
 ### Known Issues and Workarounds
