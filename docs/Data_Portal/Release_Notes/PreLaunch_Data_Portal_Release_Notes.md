@@ -47,7 +47,7 @@
     *   Cart download spinner not showing at the proper place <!-- PGDC-2056 -->
     *   Not all facets are expanded by default when loading the app <!-- PGDC-2061 -->
 *   Non UI-related tickets
-    *   Investigations were done on this issue "Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message." was related  to ACL permissions (not UI related).
+    *   Investigations were done on this issue "Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message." was related  to ACL permissions (not UI related).
     *   Investigations were done on this issue "Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet" was related to Data not imported (not UI related).
     *   Associated entities is empty for some files (note: this is a data issue) <!-- PGDC-1887 -->
 

@@ -16,7 +16,7 @@ cases.project.primary_site = Brain
 
 [![Advanced Search Example](images/gdc-data-portal-advanced-search-example.png)](images/gdc-data-portal-advanced-search-example.png "Click to see the full image.")
 
-Be aware that it is not possible to compare two fields (e.g. disease_type = project.name).
+Be aware that it is not possible to compare two fields (e.g. disease_type = project.name).
 
 __Note__: GQL is not a database query language. For example, GQL does not have a `SELECT` statement.
 

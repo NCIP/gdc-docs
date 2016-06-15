@@ -22,7 +22,7 @@ As mentioned previously in this documentation, the projects view offer the abili
 
 *   __Project__: Projects are described above.
 *   __Primary Site__: Originating or primary anatomic site of the cancer under investigation or review.
-*   __Cancer Program__: Programs are overarching activities meant to fulfill a broad scientific objective.  As mentioned above, Projects fulfill more specific requirements within a Program.
+*   __Cancer Program__: Programs are overarching activities meant to fulfill a broad scientific objective. As mentioned above, Projects fulfill more specific requirements within a Program.
 *   __Disease Type__: type of cancer studied in the project.
 *   __Data Category__: Kind of data contained in the file. Note that each of these data types may have subtypes, and that the numbers given in the table reflect the numbers of latest files for all subtypes of that data type.  Data Subtypes can be explored in Facets contained in the "Files" tab in the "Data" view described below.
 
