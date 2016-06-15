@@ -188,7 +188,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 *   Facets are displayed above the results table when window is small
 *   Table sorting icon does not include numbers
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.15-oicr2
 
@@ -227,7 +227,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Removing a filter after paginating table results could cause no results to be displayed. User should press Clear on the filters and start again.
 *   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.15-oicr1
 
@@ -260,7 +260,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Checksum missing for MAGE-TAB files
 *   Data download statistics report is not Section 508 compliant
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.13
 
@@ -291,7 +291,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 *   Checksum missing for MAGE-TAB files
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.1.10
 
@@ -333,7 +333,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
     *   Missing checksum for magetab files in file entity page
 *   Project list table not sortable
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.1.8
 
@@ -364,4 +364,4 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 *   TARGET data is currently not available
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
