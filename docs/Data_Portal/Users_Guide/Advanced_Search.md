@@ -246,7 +246,7 @@ The "EXCLUDE" operator will not match a field that has no value (i.e. a field th
 
 Examples:
 
-*   Find all issues where experimental strategy is not WXS, WGS, Genotyping array:
+*   Find all issues where experimental strategy is not WXS, WGS, Genotyping array:
 
 ```
 files.experimental_strategy EXCLUDE [WXS, WGS, "Genotyping array"]
