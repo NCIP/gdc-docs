@@ -20,7 +20,7 @@ The following table provides definitions and explanations for terms and acronyms
 | NCI | National Cancer Institute |
 | NIH | National Institutes of Health |
 | Op | Operations |
-| REST | Representational State Transfer  |
+| REST | Representational State Transfer |
 | TARGET | Therapeutically Applicable Research to Generate Effective Treatments |
 | TCGA | The Cancer Genome Atlas |
 | TSV | Tab Seperated Values |

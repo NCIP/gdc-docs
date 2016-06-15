@@ -19,7 +19,7 @@ By default, the following __Cases__ facets are available:
 
 * __Case__: Search for cases using barcode or UUID.
 * __Primary Site__: Originating or primary anatomic site of the cancer under investigation or review.
-* __Cancer Program__: Programs are overarching activities meant to fulfill a broad scientific objective.  As mentioned above, Projects fulfill more specific requirements within a Program.
+* __Cancer Program__: Programs are overarching activities meant to fulfill a broad scientific objective. As mentioned above, Projects fulfill more specific requirements within a Program.
 * __Project__: See project section of the documentation.
 * __Disease Type__: Type of cancer studied in the project.
 * __Gender__: Female or Male.

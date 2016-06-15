@@ -16,7 +16,7 @@ Additional descriptions of key GDC Data Portal features are provided in the sect
 
 ## Accessing the GDC Data Portal
 
-The GDC Data Portal is accessible using a web browser such as Chrome, Internet Explorer, and Firefox at the following URL: [https://gdc-portal.nci.nih.gov](https://gdc-portal.nci.nih.gov).
+The GDC Data Portal is accessible using a web browser such as Chrome, Internet Explorer, and Firefox at the following URL: [https://gdc-portal.nci.nih.gov](https://gdc-portal.nci.nih.gov).
 When navigating to the site, the GDC Data Portal homepage is displayed.
 
 [![GDC Data Portal Homepage](images/gdc-data-portal-homepage.png "GDC Data Portal Homepage")](images/gdc-data-portal-homepage.png "Click to see the full image.")

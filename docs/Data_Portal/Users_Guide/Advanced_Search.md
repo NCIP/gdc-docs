@@ -2,7 +2,7 @@
 
 ## Overview
 
-An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases. 
+An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases. 
 
 [![Advanced Search View](images/gdc-data-portal-advanced-search.png)](images/gdc-data-portal-advanced-search.png "Click to see the full image.")
 
