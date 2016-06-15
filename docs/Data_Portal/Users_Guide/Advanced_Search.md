@@ -183,7 +183,7 @@ cases.diagnoses.days_to_death > 60
 
 ### ">=" operator - GREATER THAN OR EQUALS
 
-The ">=" operator is used to search for files where the value of the specified field is greater than or equal to the specified value.
+The ">=" operator is used to search for files where the value of the specified field is greater than or equal to the specified value.
 
 Example:
 
