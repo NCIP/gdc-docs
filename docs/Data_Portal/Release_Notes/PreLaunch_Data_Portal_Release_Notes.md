@@ -201,7 +201,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
     *   If a user tries to download a related file that is controlled from the File Entity Page, he will get a pop-up message with appropriate guidance ("Login" or "No access to the file")
     *   If a user tries to download a controlled clinical file from the Case page, he will get a pop-up message to indicate that he does not have access to the file
     *   If a user authenticates to the Portal with an eRa account without dbGap authorization, he will get a warning message. Then he will have the choice to logout or to continue browsing the Portal with his eRa account. If he continues browsing the Portal with his eRa account, "My projects" filter will be hidden (temporary solution).
-*   If User downloads large files (from the Cart or from the File table), the Portal displays a spinner to indicate the download is in progress
+*   If User downloads large files (from the Cart or from the File table), the Portal displays a spinner to indicate the download is in progress
 *   Data Download Report does not show the "Data Level" section anymore.
 
 ### Bugs Fixed Since Last Release

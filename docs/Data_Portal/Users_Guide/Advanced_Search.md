@@ -220,7 +220,7 @@ cases.diagnoses.days_to_death <= 20
 
 The "IN" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
 
-Using "IN" is equivalent to using multiple 'EQUALS (=)' statements, but is shorter and more convenient. That is, typing 'project IN [ProjectA, ProjectB, ProjectC]' is the same as typing 'project = "ProjectA" OR project = "ProjectB" OR project = "ProjectC"'.
+Using "IN" is equivalent to using multiple 'EQUALS (=)' statements, but is shorter and more convenient. That is, typing 'project IN [ProjectA, ProjectB, ProjectC]' is the same as typing 'project = "ProjectA" OR project = "ProjectB" OR project = "ProjectC"'.
 
 Examples:
 
@@ -240,7 +240,7 @@ files.data_type IN ["Aligned reads", "Unaligned reads"]
 
 The "EXCLUDE" operator is used to search for files where the value of the specified field is not one of multiple specified values.
 
-Using "EXCLUDE" is equivalent to using multiple  'NOT_EQUALS (!=)'' statements, but is shorter and more convenient. That is, typing 'project EXCLUDE [ProjectA, ProjectB, ProjectC]' is the same as typing 'project != "ProjectA" OR project ! = "ProjectB" OR project ! = "ProjectC"'
+Using "EXCLUDE" is equivalent to using multiple  'NOT_EQUALS (!=)'' statements, but is shorter and more convenient. That is, typing 'project EXCLUDE [ProjectA, ProjectB, ProjectC]' is the same as typing 'project != "ProjectA" OR project != "ProjectB" OR project ! = "ProjectC"'
 
 The "EXCLUDE" operator will not match a field that has no value (i.e. a field that is empty). For example, 'experimental strategy EXCLUDE ["WGS","WXS"]'' will only match files that have an experimental strategy **and** the experimental strategy is not "WGS" or "WXS". To find files with an experimental strategy different from than "WGS" or "WXS" **or is not assigned**, you would need to type: files.experimental_strategy in ["WXS","WGS"] or files.experimental\_strategy is missing.
 
