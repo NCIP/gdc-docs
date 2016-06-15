@@ -118,7 +118,7 @@ cases.demographic.gender = male or cases.diagnoses.vital_status = alive
 
 ## Operators
 
-An operator in GQL is one or more symbols or words comparing the value of a field on its left with one or more values on its right, such that only true results are retrieved by the clause. 
+An operator in GQL is one or more symbols or words comparing the value of a field on its left with one or more values on its right, such that only true results are retrieved by the clause. 
 
 ### List of Operators and Query format
 
