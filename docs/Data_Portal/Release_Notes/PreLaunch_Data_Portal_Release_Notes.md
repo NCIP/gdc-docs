@@ -269,7 +269,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 
 ### New Features and Changes
 
-*   Improved data portal searching. Three search mechanisms are available to the user:
+*   Improved data portal searching. Three search mechanisms are available to the user:
     *   **Facet search**: Starting with all content available on the GDC, allow users to filter down their search by clicking on elements on the left of the screen. This feature is available in **Projects** and **Data** page. Range support was also added to facets in this release
     *   **Advanced Search**: Starting with all content available on the GDC, allow users to build a custom and complex query using all of GDC capabilities (any field with the parameter of their choice).
     *   **Quick Search**: When looking for specific portal element, allow users to launch the **Quick Search** by clicking the "?" or "CRTL+SPACE" and find high-level informations of some entities.
