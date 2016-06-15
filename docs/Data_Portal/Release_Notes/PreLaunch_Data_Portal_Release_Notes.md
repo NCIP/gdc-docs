@@ -145,7 +145,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 * Checksum missing for MAGE-TAB files
 * User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
 * Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
-* In Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
+* In Case Entity Page, the "Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 * The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
 * If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
 * Sorting on size and removing files from cart does not work in IE 10
@@ -180,7 +180,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Checksum missing for MAGE-TAB files
 *   User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
 *   Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
-*   In Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
+*   In Case Entity Page, the "Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 *   The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
 *   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
 *   Sorting on size and removing files from cart does not work in IE 10
@@ -198,7 +198,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 ### New Features and Changes
 
 *   Authentication, Authorization & Pop-up messages:
-    *   If a user tries to download a related file that is controlled from the File Entity Page, he will get a pop-up message with appropriate guidance (“Login" or “No access to the file")
+    *   If a user tries to download a related file that is controlled from the File Entity Page, he will get a pop-up message with appropriate guidance ("Login" or "No access to the file")
     *   If a user tries to download a controlled clinical file from the Case page, he will get a pop-up message to indicate that he does not have access to the file
     *   If a user authenticates to the Portal with an eRa account without dbGap authorization, he will get a warning message. Then he will have the choice to logout or to continue browsing the Portal with his eRa account. If he continues browsing the Portal with his eRa account, "My projects" filter will be hidden (temporary solution).
 *   If User downloads large files (from the Cart or from the File table), the Portal displays a spinner to indicate the download is in progress
@@ -222,7 +222,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Data download statistics report is not Section 508 compliant
 *   User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
 *   Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
-*   In Case Entity Page, the “Download Clinical XML"button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
+*   In Case Entity Page, the "Download Clinical XML"button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 *   The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
 *   Removing a filter after paginating table results could cause no results to be displayed. User should press Clear on the filters and start again.
 *   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
@@ -272,7 +272,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Improved data portal searching. Three search mechanisms are available to the user:
     *   **Facet search**: Starting with all content available on the GDC, allow users to filter down their search by clicking on elements on the left of the screen. This feature is available in **Projects** and **Data** page. Range support was also added to facets in this release
     *   **Advanced Search**: Starting with all content available on the GDC, allow users to build a custom and complex query using all of GDC capabilities (any field with the parameter of their choice).
-    *   **Quick Search**: When looking for specific portal element, allow users to launch the **Quick Search** by clicking the “?” or “CRTL+SPACE” and find high-level informations of some entities.
+    *   **Quick Search**: When looking for specific portal element, allow users to launch the **Quick Search** by clicking the "?" or "CRTL+SPACE" and find high-level informations of some entities.
 *   Updated styling to align with NCI new visual identify
 *   Created a pie chart widget allowing user to easily switch between a pie chart and a table view. 
 *   Improved Usability and visual experience:
@@ -308,7 +308,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Reports
     *   Allow users to view a data download statistics report
 *   Improve usability and visual experience:
-    *   Allow users to view projects data using a new type of graph (“githut” style)
+    *   Allow users to view projects data using a new type of graph ("githut" style)
     *   Implement more features into the table widget (sort per column, hide/show columns, re-arrange columns, export to JSON, XML, CSV, TSV, maintain user preferences)
     *   Display UI and API version at the bottom of the page
 *   Search
@@ -329,7 +329,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 *   TARGET data is currently not available
 *   Data:
-    *   Absence of “real” download statistics for the data download statistics report
+    *   Absence of "real" download statistics for the data download statistics report
     *   Missing checksum for magetab files in file entity page
 *   Project list table not sortable
 
