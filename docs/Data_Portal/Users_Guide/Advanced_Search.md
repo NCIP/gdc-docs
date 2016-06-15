@@ -57,7 +57,7 @@ __Note__: Quotes are automatically added to the value if it contains spaces.
 
 ## Setting Precedence of Operators
 
-You can use parentheses in complex GQL statements to enforce the precedence of operators.
+You can use parentheses in complex GQL statements to enforce the precedence of operators.
 
 For example, if you want to find all the open files in TCGA program as well as the files in TARGET program, you can use parentheses to enforce the precedence of the boolean operators in your query, i.e.:
 
