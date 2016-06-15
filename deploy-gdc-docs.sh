@@ -86,7 +86,12 @@ sudo rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/* -R
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Deploying new version to /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/"
 /usr/local/bin/mkdocs build -v --site-dir /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/
 
-echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Temporarily creating symlink"
+if [ -f /tmp/buildlog.txt ]; then
+   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
+   cp /tmp/buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/
+fi
+
+#echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Temporarily creating symlink"
 #Temporary fix to address a link that would be broken otherwise in the submission portal due to a change of the dictionary name
-rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary/ -R
-ln -sfn /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Data_Dictionary /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary
+#rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary/ -R
+#ln -sfn /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Data_Dictionary /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary
