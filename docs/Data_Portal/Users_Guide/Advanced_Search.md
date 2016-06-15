@@ -158,7 +158,7 @@ cases.demographic.gender = female
 
 The "!=" operator is used to search for files where the value of the specified field does not match the specified value.
 
-The "!=" operator will not match a field that has no value (i.e. a field that is empty). For example, 'gender != male' will only match cases who have a gender and the gender is not male. To find cases other than male or with no gender populated, you would need to type gender != male or gender is missing.
+The "!=" operator will not match a field that has no value (i.e. a field that is empty). For example, 'gender != male' will only match cases who have a gender and the gender is not male. To find cases other than male or with no gender populated, you would need to type gender != male or gender is missing.
 
 Example:
 
