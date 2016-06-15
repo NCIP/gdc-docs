@@ -20,7 +20,7 @@ The left portion of this toolbar provides access to the following elements:
 * __Reports__: Statistics on downloaded data since the GDC Data Portal launch
 
 
-Each _'Projects'_, _'Data'_, and _'Annotations'_ view enables the user to set filters from within the view to either browse the data or select it for export or download. It provides different and independent ways of organizing GDC data and metadata.   
+Each _'Projects'_, _'Data'_, and _'Annotations'_ view enables the user to set filters from within the view to either browse the data or select it for export or download. It provides different and independent ways of organizing GDC data and metadata.   
 
 ### Right Section
 

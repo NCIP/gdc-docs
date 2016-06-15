@@ -96,4 +96,4 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
     *   Table sorting icon does not include numbers <!-- PGDC-35 -->    
 *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.nci.nih.gov/about-gdc/gdc-faqs).
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
