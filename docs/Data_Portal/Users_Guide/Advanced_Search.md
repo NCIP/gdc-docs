@@ -236,7 +236,7 @@ cases.project.primary_site IN [Brain, Breast,Lung]
 files.data_type IN ["Aligned reads", "Unaligned reads"]
 ```
 
-### "EXCLUDE" Operator 
+### "EXCLUDE" Operator
 
 The "EXCLUDE" operator is used to search for files where the value of the specified field is not one of multiple specified values.
 
