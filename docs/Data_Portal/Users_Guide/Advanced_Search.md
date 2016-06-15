@@ -18,7 +18,7 @@ cases.project.primary_site = Brain
 
 Be aware that it is not possible to compare two fields (e.g. disease_type = project.name).
 
-__Note__: GQL is not a database query language. For example, GQL does not have a `SELECT` statement.
+__Note__: GQL is not a database query language. For example, GQL does not have a "SELECT" statement.
 
 ### Switch between 'Advanced' and 'Faceted' Search
 

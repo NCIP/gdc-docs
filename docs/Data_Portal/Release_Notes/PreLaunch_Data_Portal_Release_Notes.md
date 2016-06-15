@@ -52,7 +52,7 @@
     *   Associated entities is empty for some files (note: this is a data issue) <!-- PGDC-1887 -->
 
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.3.24.2
 

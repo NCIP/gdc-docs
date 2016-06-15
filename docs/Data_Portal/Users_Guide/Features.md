@@ -46,7 +46,7 @@ The GDC Data Portal provide three different means to search and navigate through
 
 ### Faceted Navigation
 
-Available on the left side of _'Projects'_ & _'Data'_ views, _'Faceted Navigation'_ enable filtering by selecting relevant data. Facets are attributes of the data that are being searched. Faceted Navigation filters the overall data set based on the set of Facets chosen.
+Available on the left side of _'Projects'_ & _'Data'_ views, _'Faceted Navigation'_ enable filtering by selecting relevant data. Facets are attributes of the data that are being searched. Faceted Navigation filters the overall data set based on the set of Facets chosen.
 
 _'Faceted Navigation'_ is composed by three elements:
 
