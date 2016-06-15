@@ -6,7 +6,7 @@ The GDC miRNA quantification analysis makes use of a modified version of the pro
 For more information see [BCGSC's GitHub](https://github.com/bcgsc/mirna) or the [original publication](http://nar.oxfordjournals.org/content/early/2015/08/13/nar.gkv808.full).
 
 
-## GDC Analysis Steps
+## Data Processing Steps
 
 ### Alignment Workflow
 The miRNA pipeline begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow), which in the case of miRNA uses BWA-aln.  This outputs one BAM file for each read group in the input.
