@@ -205,7 +205,7 @@ Example:
 cases.diagnoses.age_at_diagnosis < 400
 ```
 
-### "<=" operator - LESS THAN OR EQUALS
+### "<=" operator - LESS THAN OR EQUALS
 
 The "<=" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
 
