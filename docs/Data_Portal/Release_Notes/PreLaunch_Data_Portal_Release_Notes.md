@@ -147,7 +147,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 * Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
 * In Case Entity Page, the "Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 * The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
-* If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+* If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
 * Sorting on size and removing files from cart does not work in IE 10
 * Annotations page not section 508 compliant
 * Facets are displayed above the results table when window is small
