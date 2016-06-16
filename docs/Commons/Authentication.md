@@ -14,7 +14,7 @@ By Clicking on "Login", users will be invited to authentication through eRA Comm
 
 ## GDC Authentication Token
 
-A Token is required to upload data to GDC, as well as to download controlled-access files, using the GDC Data Transfer Tool or the GDC Application Programming Interface (API).
+A Token is required to upload data to GDC, as well as to download controlled-access files, using the GDC Data Transfer Tool or the GDC Application Programming Interface (API). 
 
 The GDC Data Transfer Tool is optimized for large transfers with multi-part upload and integrity checking, making it the most efficient tool for molecular data submission.
 

@@ -20,7 +20,7 @@ The left portion of this toolbar provides access to the following elements:
 * __Reports__: Statistics on downloaded data since the GDC Data Portal launch
 
 
-Each _'Projects'_, _'Data'_, and _'Annotations'_ view enables the user to set filters from within the view to either browse the data or select it for export or download. It provides different and independent ways of organizing GDC data and metadata.   
+Each _'Projects'_, _'Data'_, and _'Annotations'_ view enables the user to set filters from within the view to either browse the data or select it for export or download. It provides different and independent ways of organizing GDC data and metadata.
 
 ### Right Section
 
@@ -46,7 +46,7 @@ The GDC Data Portal provide three different means to search and navigate through
 
 ### Faceted Navigation
 
-Available on the left side of _'Projects'_ & _'Data'_ views, _'Faceted Navigation'_ enable filtering by selecting relevant data. Facets are attributes of the data that are being searched. Faceted Navigation filters the overall data set based on the set of Facets chosen.
+Available on the left side of _'Projects'_ & _'Data'_ views, _'Faceted Navigation'_ enable filtering by selecting relevant data. Facets are attributes of the data that are being searched. Faceted Navigation filters the overall data set based on the set of Facets chosen.
 
 _'Faceted Navigation'_ is composed by three elements:
 

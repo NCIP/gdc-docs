@@ -2,13 +2,13 @@
 
 ## Overview
 
-An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases. 
+An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases.
 
 [![Advanced Search View](images/gdc-data-portal-advanced-search.png)](images/gdc-data-portal-advanced-search.png "Click to see the full image.")
 
 The advanced search provides more filters than the faceted search.
 
-A simple query in GQL (also known as a 'clause') consists of a __field__, followed by an __operator__, followed by one or more __values__. For example, the following simple query will find all files in the "TEST" project:
+A simple query in GQL (also known as a 'clause') consists of a __field__, followed by an __operator__, followed by one or more __values__. For example, the following simple query will find all files in the "TEST" project:
 
 ```
 cases.project.primary_site = Brain
@@ -16,9 +16,9 @@ cases.project.primary_site = Brain
 
 [![Advanced Search Example](images/gdc-data-portal-advanced-search-example.png)](images/gdc-data-portal-advanced-search-example.png "Click to see the full image.")
 
-Be aware that it is not possible to compare two fields (e.g. disease_type = project.name).
+Be aware that it is not possible to compare two fields (e.g. disease_type = project.name).
 
-__Note__: GQL is not a database query language. For example, GQL does not have a `SELECT` statement.
+__Note__: GQL is not a database query language. For example, GQL does not have a "SELECT" statement.
 
 ### Switch between 'Advanced' and 'Faceted' Search
 
@@ -46,7 +46,7 @@ The list of auto-complete suggestions includes __all__ the fields authorized in 
 
 ### Value Auto-complete
 
-The list of auto-complete suggestions includes top 100 values that match the user text input. The user has to scroll down to see more values in the dropdown.
+The list of auto-complete suggestions includes top 100 values that match the user text input. The user has to scroll down to see more values in the dropdown.
 
 The value auto-complete is not aware of the general context of the query, the system will display all available values in GDC for the selected field.
 It means the query could return 0 result depending of other filters.
@@ -57,7 +57,7 @@ __Note__: Quotes are automatically added to the value if it contains spaces.
 
 ## Setting Precedence of Operators
 
-You can use parentheses in complex GQL statements to enforce the precedence of operators.
+You can use parentheses in complex GQL statements to enforce the precedence of operators.
 
 For example, if you want to find all the open files in TCGA program as well as the files in TARGET program, you can use parentheses to enforce the precedence of the boolean operators in your query, i.e.:
 
@@ -69,7 +69,7 @@ __Note__: Without parentheses, the statement will be evaluated left-to-right.
 
 ## Keywords
 
-A GQL keyword is a word that joins two or more clauses together to form a complex GQL query.
+A GQL keyword is a word that joins two or more clauses together to form a complex GQL query.
 
 **List of Keywords:**
 
@@ -90,7 +90,7 @@ Examples:
 cases.project.primary_site = Breast and files.access = open
 ```
 
-* Find all open files in breast cancer and data type is copy number variation
+* Find all open files in breast cancer and data type is copy number variation
 
 ```
 cases.project.primary_site = Breast and files.access = open and files.data_type = "Copy number variation"
@@ -110,7 +110,7 @@ Examples:
 files.data_type = "Raw microarray data" or files.data_type = "Raw sequencing data"
 ```
 
-*   Find all files where donors are male or vital status is alive: 
+*   Find all files where donors are male or vital status is alive:
 
 ```
 cases.demographic.gender = male or cases.diagnoses.vital_status = alive
@@ -118,7 +118,7 @@ cases.demographic.gender = male or cases.diagnoses.vital_status = alive
 
 ## Operators
 
-An operator in GQL is one or more symbols or words comparing the value of a field on its left with one or more values on its right, such that only true results are retrieved by the clause. 
+An operator in GQL is one or more symbols or words comparing the value of a field on its left with one or more values on its right, such that only true results are retrieved by the clause.
 
 ### List of Operators and Query format
 
@@ -138,7 +138,7 @@ An operator in GQL is one or more symbols or words comparing the value of a fie
 
 ### "=" operator - EQUAL
 
-The "`=`" operator is used to search for files where the value of the specified field exactly matches the specified value.
+The "=" operator is used to search for files where the value of the specified field exactly matches the specified value.
 
 Examples:
 
@@ -156,9 +156,9 @@ cases.demographic.gender = female
 
 ### "!=" operator - NOT EQUAL
 
-The "`!=`" operator is used to search for files where the value of the specified field does not match the specified value.
+The "!=" operator is used to search for files where the value of the specified field does not match the specified value.
 
-The "`!=`" operator will not match a field that has no value (i.e. a field that is empty). For example, `gender != male` will only match cases who have a gender and the gender is not male. To find cases other than male or with no gender populated, you would need to type gender != male or gender is missing.
+The "!=" operator will not match a field that has no value (i.e. a field that is empty). For example, 'gender != male' will only match cases who have a gender and the gender is not male. To find cases other than male or with no gender populated, you would need to type gender != male or gender is missing.
 
 Example:
 
@@ -170,7 +170,7 @@ files.experimental_strategy != "Genotyping array"
 
 ### ">" operator - GREATER THAN
 
-The "`>`" operator is used to search for files where the value of the specified field is greater than the specified value.
+The ">" operator is used to search for files where the value of the specified field is greater than the specified value.
 
 Example:
 
@@ -183,21 +183,19 @@ cases.diagnoses.days_to_death > 60
 
 ### ">=" operator - GREATER THAN OR EQUALS
 
-The "`>=`" operator is used to search for files where the value of the specified field is greater than or equal to the specified value.
+The ">=" operator is used to search for files where the value of the specified field is greater than or equal to the specified value.
 
 Example:
 
-* Find all cases whose number of days to death is equal or greater than 60:
+* Find all cases whose number of days to death is equal or greater than 60:
 
 ```
 cases.diagnoses.days_to_death >= 60
 ```
 
-
-
 ### "<" operator - LESS THAN
 
-The "`<`" operator is used to search for files where the value of the specified field is less than the specified value.
+The "<" operator is used to search for files where the value of the specified field is less than the specified value.
 
 Example:
 
@@ -207,10 +205,9 @@ Example:
 cases.diagnoses.age_at_diagnosis < 400
 ```
 
+### "<=" operator - LESS THAN OR EQUALS
 
-### "<=" operator - LESS THAN OR EQUALS
-
-The "`<=`" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
+The "<=" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
 
 Example:
 
@@ -219,13 +216,11 @@ Example:
 ```
 cases.diagnoses.days_to_death <= 20
 ```
+### "IN" Operator
 
+The "IN" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
 
-### "IN" Operator 
-
-The "`IN`" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
-
-Using "`IN`" is equivalent to using multiple  `EQUALS  (=)`  statements, but is shorter and more convenient. That is, typing `project IN [ProjectA, ProjectB, ProjectC] `is the same as typing `project = "ProjectA" OR project = "ProjectB" OR project = "ProjectC"`.
+Using "IN" is equivalent to using multiple 'EQUALS (=)' statements, but is shorter and more convenient. That is, typing 'project IN [ProjectA, ProjectB, ProjectC]' is the same as typing 'project = "ProjectA" OR project = "ProjectB" OR project = "ProjectC"'.
 
 Examples:
 
@@ -241,42 +236,42 @@ cases.project.primary_site IN [Brain, Breast,Lung]
 files.data_type IN ["Aligned reads", "Unaligned reads"]
 ```
 
-### "EXCLUDE" Operator 
+### "EXCLUDE" Operator
 
-The " `EXCLUDE` " operator is used to search for files where the value of the specified field is not one of multiple specified values.
+The "EXCLUDE" operator is used to search for files where the value of the specified field is not one of multiple specified values.
 
-Using "`EXCLUDE`" is equivalent to using multiple  `NOT_EQUALS (!=)` statements, but is shorter and more convenient. That is, typing `project EXCLUDE [ProjectA, ProjectB, ProjectC] `is the same as typing `project != "ProjectA" OR project ! = "ProjectB" OR project ! = "ProjectC"`.`
+Using "EXCLUDE" is equivalent to using multiple 'NOT_EQUALS (!=)' statements, but is shorter and more convenient. That is, typing 'project EXCLUDE [ProjectA, ProjectB, ProjectC]' is the same as typing 'project != "ProjectA" OR project != "ProjectB" OR project != "ProjectC"'
 
-The "`EXCLUDE`" operator will not match a field that has no value (i.e. a field that is empty). For example, `experimental strategy EXCLUDE ["WGS","WXS"]` will only match files that have an experimental strategy **and** the experimental strategy is not "WGS" or "WXS". To find files with an experimental strategy different from than "WGS" or "WXS" **or is not assigned**, you would need to type: files.experimental_strategy in ["WXS","WGS"] or files.experimental\_strategy is missing.
+The "EXCLUDE" operator will not match a field that has no value (i.e. a field that is empty). For example, 'experimental strategy EXCLUDE ["WGS","WXS"]' will only match files that have an experimental strategy **and** the experimental strategy is not "WGS" or "WXS". To find files with an experimental strategy different from than "WGS" or "WXS" **or is not assigned**, you would need to type: files.experimental_strategy in ["WXS","WGS"] or files.experimental_strategy is missing.
 
 Examples:
 
-*   Find all issues where experimental strategy is not WXS, WGS, Genotyping array:
+*   Find all issues where experimental strategy is not WXS, WGS, Genotyping array:
 
 ```
 files.experimental_strategy EXCLUDE [WXS, WGS, "Genotyping array"]
 ```
 
 
-### "IS MISSING" Operator 
+### "IS MISSING" Operator
 
-The "`IS`" operator can only be used with "`MISSING`". That is, it is used to search for files where the specified field has no value.
+The "IS" operator can only be used with "MISSING". That is, it is used to search for files where the specified field has no value.
 
 Examples:
 
-*   Find all cases where gender is missing: 
+*   Find all cases where gender is missing: 
 
 ```
 cases.demographic.gender is MISSING
 ```
 
-### "NOT MISSING" Operator 
+### "NOT MISSING" Operator
 
-The " `NOT` " operator can only be used with "`MISSING`". That is, it is used to search for files where the specified field has a value.
+The "NOT" operator can only be used with "MISSING". That is, it is used to search for files where the specified field has a value.
 
 Examples:
 
-*   Find all cases where race is not missing: 
+*   Find all cases where race is not missing:
 
 ```
 cases.demographic.race NOT MISSING

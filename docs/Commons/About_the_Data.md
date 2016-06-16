@@ -27,4 +27,4 @@ The GDC Data Portal provides granular access to metadata that describes all data
 [![GDC Data Portal Main Page](images/gdc-data-portal-controlled-files.png)](images/gdc-data-portal-controlled-files.png "Click to see the full image.")
 
 
-**NOTE:** The "lock" icon does not indicate whether the user has access to the file.  Authenticated users can use the ‘Only My Projects’ checkbox to display only those files to which they have access.
+**NOTE:** The "lock" icon does not indicate whether the user has access to the file. Authenticated users can use the "Only My Projects" checkbox to display only those files to which they have access.

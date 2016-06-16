@@ -33,7 +33,7 @@
 ### Known Issues and Workarounds
 
 *   General
-    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
 *   Tables and Export
     *   Table sorting icon does not include numbers <!-- PGDC-35 -->
     *   Restore default table column arrangement does not restore to the default but it restores to the previous state <!-- PGDC-1769 -->
@@ -47,12 +47,12 @@
     *   Cart download spinner not showing at the proper place <!-- PGDC-2056 -->
     *   Not all facets are expanded by default when loading the app <!-- PGDC-2061 -->
 *   Non UI-related tickets
-    *   Investigations were done on this issue "Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message." was related  to ACL permissions (not UI related).
+    *   Investigations were done on this issue "Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message." was related  to ACL permissions (not UI related).
     *   Investigations were done on this issue "Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet" was related to Data not imported (not UI related).
     *   Associated entities is empty for some files (note: this is a data issue) <!-- PGDC-1887 -->
 
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.3.24.2
 
@@ -84,13 +84,13 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 *   Disease Type does not auto filter (Data Facet)
 *   When exporting the annotation table to a file, the create date field is not displayed in the same format than the UI
-*   This ticket is not applicable anymore: "In the Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.". The Case entity page has a standard download clinical feature.
+*   This ticket is not applicable anymore: "In the Case Entity Page, the "Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.". The Case entity page has a standard download clinical feature.
 
 
 ### Known Issues and Workarounds
 
 *   General
-    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+    *   If a user has previously logged into the Portal and left a session without logging out, if the user returns to the Portal after the user's sessionID expires, it looks as if the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
 *   Tables and Export
     *   Table sorting icon does not include numbers <!-- PGDC-35 -->
     *   Table export return correct content (XML, TSV) although file extension is incorrect (always JSON) <!-- PGDC-1986 -->
@@ -116,12 +116,12 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
     *   Layout issue when browser is reduced to a small window size <!-- PGDC-16 -->
     *   Layout issues when using the browser zoom in function on tables <!-- PGDC-116 -->
 *   Non UI-related tickets
-    *   Investigations were done on this issue "Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message." was related  to ACL permissions (not UI related).
+    *   Investigations were done on this issue "Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message." was related  to ACL permissions (not UI related).
     *   Investigations were done on this issue "Missing pathology files and slide images for some TCGA datasets since they are not connected to the biospecimen chain yet" was related to Data not imported (not UI related).
     *   Associated entities is empty for some files (note: this is a data issue) <!-- PGDC-1887 -->
 
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.18.3
 
@@ -143,17 +143,17 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 * When exporting the annotation table to a file, the create date field is not displayed in the same format than the UI
 * In the advanced search, adding a trailing space to the query causes the UI to display a syntax error although the query is valid
 * Checksum missing for MAGE-TAB files
-* User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
-* Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
-* In Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
+* User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
+* Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
+* In Case Entity Page, the "Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 * The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
-* If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+* If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out.
 * Sorting on size and removing files from cart does not work in IE 10
 * Annotations page not section 508 compliant
 * Facets are displayed above the results table when window is small
 * Table sorting icon does not include numbers
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.15-oicr4
 
@@ -178,17 +178,17 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   When exporting the annotation table to a file, the create date field is not displayed in the same format than the UI
 *   In the advanced search, adding a trailing space to the query causes the UI to display a syntax error although the query is valid
 *   Checksum missing for MAGE-TAB files
-*   User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
-*   Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
-*   In Case Entity Page, the “Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
+*   User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
+*   Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
+*   In Case Entity Page, the "Download Clinical XML" button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 *   The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
-*   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+*   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out.
 *   Sorting on size and removing files from cart does not work in IE 10
 *   Annotations page not section 508 compliant
 *   Facets are displayed above the results table when window is small
 *   Table sorting icon does not include numbers
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.15-oicr2
 
@@ -198,18 +198,18 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 ### New Features and Changes
 
 *   Authentication, Authorization & Pop-up messages:
-    *   If a user tries to download a related file that is controlled from the File Entity Page, he will get a pop-up message with appropriate guidance (“Login" or “No access to the file")
+    *   If a user tries to download a related file that is controlled from the File Entity Page, he will get a pop-up message with appropriate guidance ("Login" or "No access to the file")
     *   If a user tries to download a controlled clinical file from the Case page, he will get a pop-up message to indicate that he does not have access to the file
-    *   If a user authenticates to the Portal with an eRa account without dbGap authorization, he will get a warning message. Then he will have the choice to logout or to continue browsing the Portal with his eRa account. If he continues browsing the Portal with his eRa account, "My projects" filter will be hidden (temporary solution).
-*   If User downloads large files (from the Cart or from the File table), the Portal displays a spinner to indicate the download is in progress
+    *   If a user authenticates to the Portal with an eRa account without dbGap authorization, he will get a warning message. Then he will have the choice to logout or to continue browsing the Portal with his eRa account. If he continues browsing the Portal with his eRa account, "My projects" filter will be hidden (temporary solution).
+*   If User downloads large files (from the Cart or from the File table), the Portal displays a spinner to indicate the download is in progress
 *   Data Download Report does not show the "Data Level" section anymore.
 
 ### Bugs Fixed Since Last Release
 
-*   The add to Cart button in File Entity Page changes its display value following a click. User can then click on “Remove from Cart”
+*   The add to Cart button in File Entity Page changes its display value following a click. User can then click on "Remove from Cart"
 *   Total Case value in the Cart matches with the number of cases associated with the files in the Cart
 *   When User is authenticated, "My project flag" in Case table indicates that the Cases belongs to his projects
-*   In Projects table, if User clicks on the count on Files, it links to the Data page - File table
+*   In Projects table, if User clicks on the count on Files, it links to the Data page - File table
 *   In File Entity Page, if there are no associated cases, it will display the message "No Cases Found." instead of "No Participants Found."
 
 ### Known Issues and Workarounds
@@ -220,14 +220,14 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   In the advanced search, adding a trailing space to the query causes the UI to display a syntax error although the query is valid
 *   Checksum missing for MAGE-TAB files
 *   Data download statistics report is not Section 508 compliant
-*   User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
-*   Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
-*   In Case Entity Page, the “Download Clinical XML"button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
+*   User can download large files (> 1GB) from the Portal but it fails when extracting the tar.gz file. User should use the GDC Download Transfer Tool for large downloads
+*   Authenticated user with access to TARGET projects cannot download Target DCC files. They will get a pop-up message.
+*   In Case Entity Page, the "Download Clinical XML"button is not applicable to TARGET projects. The label is incorrect but the functionality is accurate.
 *   The advanced search suggests more fields than expected (e.g. "cases.aliquots" should not be displayed). User should remove the field from the query and use the long field name (e.g. "cases.samples.portions.analytes.aliquots")
-*   Removing a filter after paginating table results could cause no results to be displayed. User should press Clear on the filters and start again.
-*   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out. 
+*   Removing a filter after paginating table results could cause no results to be displayed. User should press Clear on the filters and start again.
+*   If a user has previously logged into the Portal and left a session without logging out, if he comes back to the Portal after his sessionID expires, it looks like the user is still authenticated. The user cannot download the token and gets an error message that would not close. The user should clear the cache to properly log out.
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.15-oicr1
 
@@ -236,7 +236,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 ### New Features and Changes
 
-*   Renamed all references of High Performance Download Client (HPDC) to GDC Data Transfer Tool 
+*   Renamed all references of High Performance Download Client (HPDC) to GDC Data Transfer Tool
 *   Implemented more links between the Projects page and the Data page
 *   Improved usability and visual experience:
     *   Better handling of login failure
@@ -260,7 +260,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Checksum missing for MAGE-TAB files
 *   Data download statistics report is not Section 508 compliant
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.13
 
@@ -269,12 +269,12 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 ### New Features and Changes
 
-*   Improved data portal searching. Three search mechanisms are available to the user:
+*   Improved data portal searching. Three search mechanisms are available to the user:
     *   **Facet search**: Starting with all content available on the GDC, allow users to filter down their search by clicking on elements on the left of the screen. This feature is available in **Projects** and **Data** page. Range support was also added to facets in this release
     *   **Advanced Search**: Starting with all content available on the GDC, allow users to build a custom and complex query using all of GDC capabilities (any field with the parameter of their choice).
-    *   **Quick Search**: When looking for specific portal element, allow users to launch the **Quick Search** by clicking the “?” or “CRTL+SPACE” and find high-level informations of some entities.
-*   Updated styling to align with NCI new visual identify
-*   Created a pie chart widget allowing user to easily switch between a pie chart and a table view. 
+    *   **Quick Search**: When looking for specific portal element, allow users to launch the **Quick Search** by clicking the "?" or "CRTL+SPACE" and find high-level informations of some entities.
+*   Updated styling to align with NCI new visual identify
+*   Created a pie chart widget allowing user to easily switch between a pie chart and a table view.
 *   Improved Usability and visual experience:
     *   Added tooltips to various sections of the portal
     *   Added a range facet with barchart
@@ -291,7 +291,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 *   Checksum missing for MAGE-TAB files
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.1.10
 
@@ -308,7 +308,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 *   Reports
     *   Allow users to view a data download statistics report
 *   Improve usability and visual experience:
-    *   Allow users to view projects data using a new type of graph (“githut” style)
+    *   Allow users to view projects data using a new type of graph ("githut" style)
     *   Implement more features into the table widget (sort per column, hide/show columns, re-arrange columns, export to JSON, XML, CSV, TSV, maintain user preferences)
     *   Display UI and API version at the bottom of the page
 *   Search
@@ -329,11 +329,11 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 *   TARGET data is currently not available
 *   Data:
-    *   Absence of “real” download statistics for the data download statistics report
+    *   Absence of "real" download statistics for the data download statistics report
     *   Missing checksum for magetab files in file entity page
 *   Project list table not sortable
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.1.8
 
@@ -364,4 +364,4 @@ Release details are maintained in the [GDC Data Portal Change Log](https://gith
 
 *   TARGET data is currently not available
 
-Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).

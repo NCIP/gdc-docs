@@ -25,7 +25,7 @@ The GDC Data Submission Portal offers the ability to download files in different
 ### File Type
 The GDC Data Submission Portal supports the following types of files for upload to the GDC:
 
-* __Clinical__: A case’s clinical data.
+* __Clinical__: A case's clinical data.
 * __Biospecimen__: Metadata describing a tissue specimen collected from a case and other material derived from samples for analysis.
 * __Experiment Data__: GDC's unit of submission (see below).
 * __Annotations__: Observations associated with any entity, which can be useful for interpreting the data.
@@ -34,7 +34,7 @@ More details about the submission process, data files and file formats can be fo
 
 #### Focus on Experiment Data
 
-The GDC has developed a submission unit called a “data bundle”, which is a set of files with associated metadata.
+The GDC has developed a submission unit called a "data bundle", which is a set of files with associated metadata.
 
 Data bundle types are defined by what files are expected and what introspection is done for validation or linking to other GDC entities. Each data bundle will be validated via a bundle type and project specific schema, including a JSON data dictionary, relationship check and molecular data quality check.
 

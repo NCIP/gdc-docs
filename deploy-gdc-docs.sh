@@ -46,6 +46,42 @@ else
    exit;
 fi
 
+#iconv --verbose -f ascii -t utf-8 -o /tmp/test docs/Data_Portal/PDF/Data_Portal_UG.pd
+hasEncodingError=false
+echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Veryfing if all MARKDOWN have no encoding issue"
+for scanFile in $( find docs/ | grep md | egrep -v Eliminate ); do
+   iconv -f ascii -t utf-8 -o /tmp/test ${scanFile} >> /tmp/${ENVIRONMENT}-buildlog.txt
+   if [ "$?" -gt 0 ] ; then
+      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: NOK: ${scanFile} has an encoding error, to address open in vim and use :goto POSITION"
+      hasEncodingError=true
+   else
+      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: OK: ${scanFile} "
+   fi
+done
+
+if $hasEncodingError  ; then
+   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR: Some of the files have encoding errors, not building the site"
+   if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
+      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
+      cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
+   fi
+   exit
+fi
+
+#echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Veryfing if all MARKDOWN files are UTF-8 encoded"
+#countWrongFiles=$(for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8" | wc -l)
+#echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Number of incorrectly encoded files: ${countWrongFiles}"
+
+#if [ "$countWrongFiles" -gt 0 ] ; then
+#   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR the following files are not encoded in UTF-8"
+#   for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8"
+#   if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
+#      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
+#      cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
+#   fi
+#   exit
+#fi
+
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Looking for User Guides"
 userGuides=()
 for i in $( ls *_UG.yml ); do
@@ -67,7 +103,7 @@ for userGuide in "${userGuides[@]}"; do
    /bin/sed -i -e 's/\/site\//\/docs\//g' docs/${userGuide}/PDF/${userGuide}_UG.pd
    /bin/sed -i -e "s/(images/(https:\/\/gdc-docs.nci.nih.gov\/"$userGuide"\/Users_Guide\/images/g" docs/${userGuide}/PDF/${userGuide}_UG.pd #To make images clickable in the PDF
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ${userGuide}: Building PDF from pandoc document "
-   /usr/bin/pandoc --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions docs/${userGuide}/PDF/${userGuide}_Title.txt -o docs/${userGuide}/PDF/${userGuide}_UG.pdf docs/${userGuide}/PDF/${userGuide}_UG.pd
+   /usr/bin/pandoc --listings -H theme/latex/listings-setup.tex --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions docs/${userGuide}/PDF/${userGuide}_Title.txt -o docs/${userGuide}/PDF/${userGuide}_UG.pdf docs/${userGuide}/PDF/${userGuide}_UG.pd
 done
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Cleaning previous website directory (rm)"
@@ -76,7 +112,12 @@ sudo rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/* -R
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Deploying new version to /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/"
 /usr/local/bin/mkdocs build -v --site-dir /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/
 
-echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Temporarily creating symlink"
+if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
+   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
+   cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
+fi
+
+#echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Temporarily creating symlink"
 #Temporary fix to address a link that would be broken otherwise in the submission portal due to a change of the dictionary name
-rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary/ -R
-ln -sfn /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Data_Dictionary /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary
+#rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary/ -R
+#ln -sfn /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Data_Dictionary /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary

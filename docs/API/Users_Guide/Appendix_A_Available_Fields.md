@@ -29,30 +29,34 @@ There are thousands of fields available in the GDC data model that are accessibl
 
 ## File Fields
 
-| Field Name |
-| --- |
 | access |
 | acl |
-| analysis.adapter_content |
 | analysis.analysis_id |
 | analysis.analysis_type |
-| analysis.basic_statistics |
 | analysis.created_datetime |
-| analysis.encoding |
-| analysis.fastq_name |
+| analysis.input_files.created_datetime |
 | analysis.input_files.data_category |
+| analysis.input_files.data_format |
 | analysis.input_files.data_type |
+| analysis.input_files.error_type |
+| analysis.input_files.experimental_strategy |
 | analysis.input_files.file_id |
 | analysis.input_files.file_name |
 | analysis.input_files.file_size |
-| analysis.kmer_content |
+| analysis.input_files.file_state |
+| analysis.input_files.md5sum |
+| analysis.input_files.platform |
+| analysis.input_files.revision |
+| analysis.input_files.state |
+| analysis.input_files.state_comment |
+| analysis.input_files.submitter_id |
+| analysis.input_files.updated_datetime |
 | analysis.metadata.read_groups.adapter_name |
 | analysis.metadata.read_groups.adapter_sequence |
 | analysis.metadata.read_groups.base_caller_name |
 | analysis.metadata.read_groups.base_caller_version |
 | analysis.metadata.read_groups.created_datetime |
 | analysis.metadata.read_groups.experiment_name |
-| analysis.metadata.read_groups.fastq_name |
 | analysis.metadata.read_groups.flow_cell_barcode |
 | analysis.metadata.read_groups.includes_spike_ins |
 | analysis.metadata.read_groups.instrument_model |
@@ -66,7 +70,6 @@ There are thousands of fields available in the GDC data model that are accessibl
 | analysis.metadata.read_groups.library_strand |
 | analysis.metadata.read_groups.library_strategy |
 | analysis.metadata.read_groups.platform |
-| analysis.metadata.read_groups.project_id |
 | analysis.metadata.read_groups.read_group_id |
 | analysis.metadata.read_groups.read_group_name |
 | analysis.metadata.read_groups.read_length |
@@ -85,23 +88,14 @@ There are thousands of fields available in the GDC data model that are accessibl
 | analysis.metadata.read_groups.target_capture_kit_version |
 | analysis.metadata.read_groups.to_trim_adapter_sequence |
 | analysis.metadata.read_groups.updated_datetime |
-| analysis.overrepresented_sequences |
-| analysis.per_base_n_content |
-| analysis.per_base_sequence_content |
-| analysis.per_base_sequence_quality |
-| analysis.per_sequence_gc_content |
-| analysis.per_sequence_quality_score |
-| analysis.per_tile_sequence_quality |
-| analysis.percent_gc_content |
-| analysis.project_id |
-| analysis.sequence_duplication_levels |
-| analysis.sequence_length_distribution |
 | analysis.state |
 | analysis.submitter_id |
-| analysis.total_sequences |
 | analysis.updated_datetime |
+| analysis.workflow_end_datetime |
 | analysis.workflow_link |
+| analysis.workflow_start_datetime |
 | analysis.workflow_type |
+| analysis.workflow_version |
 | annotations.annotation_id |
 | annotations.case_id |
 | annotations.case_submitter_id |
@@ -112,54 +106,33 @@ There are thousands of fields available in the GDC data model that are accessibl
 | annotations.entity_id |
 | annotations.entity_submitter_id |
 | annotations.entity_type |
+| annotations.legacy_created_datetime |
+| annotations.legacy_updated_datetime |
 | annotations.notes |
-| annotations.project_id |
 | annotations.state |
 | annotations.status |
 | annotations.submitter_id |
 | annotations.updated_datetime |
 | archive.archive_id |
 | archive.created_datetime |
-| archive.project_id |
+| archive.data_category |
+| archive.data_format |
+| archive.data_type |
+| archive.error_type |
+| archive.file_name |
+| archive.file_size |
+| archive.file_state |
+| archive.md5sum |
 | archive.revision |
+| archive.state |
+| archive.state_comment |
 | archive.submitter_id |
 | archive.updated_datetime |
 | associated_entities.case_id |
 | associated_entities.entity_id |
 | associated_entities.entity_submitter_id |
-| associated_entities.entity_type"
+| associated_entities.entity_type |
 | cases.aliquot_ids |
-| cases.aliquots.aliquot_id |
-| cases.aliquots.amount |
-| cases.aliquots.annotations.annotation_id |
-| cases.aliquots.annotations.case_id |
-| cases.aliquots.annotations.case_submitter_id |
-| cases.aliquots.annotations.category |
-| cases.aliquots.annotations.classification |
-| cases.aliquots.annotations.created_datetime |
-| cases.aliquots.annotations.creator |
-| cases.aliquots.annotations.entity_id |
-| cases.aliquots.annotations.entity_submitter_id |
-| cases.aliquots.annotations.entity_type |
-| cases.aliquots.annotations.notes |
-| cases.aliquots.annotations.project_id |
-| cases.aliquots.annotations.state |
-| cases.aliquots.annotations.status |
-| cases.aliquots.annotations.submitter_id |
-| cases.aliquots.annotations.updated_datetime |
-| cases.aliquots.center.center_id |
-| cases.aliquots.center.center_type |
-| cases.aliquots.center.code |
-| cases.aliquots.center.name |
-| cases.aliquots.center.namespace |
-| cases.aliquots.center.short_name |
-| cases.aliquots.concentration |
-| cases.aliquots.created_datetime |
-| cases.aliquots.project_id |
-| cases.aliquots.source_center |
-| cases.aliquots.state |
-| cases.aliquots.submitter_id |
-| cases.aliquots.updated_datetime |
 | cases.analyte_ids |
 | cases.annotations.annotation_id |
 | cases.annotations.case_id |
@@ -171,33 +144,20 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.annotations.entity_id |
 | cases.annotations.entity_submitter_id |
 | cases.annotations.entity_type |
+| cases.annotations.legacy_created_datetime |
+| cases.annotations.legacy_updated_datetime |
 | cases.annotations.notes |
-| cases.annotations.project_id |
 | cases.annotations.state |
 | cases.annotations.status |
 | cases.annotations.submitter_id |
 | cases.annotations.updated_datetime |
 | cases.case_id |
-| cases.clinical.age_at_diagnosis |
-| cases.clinical.clinical_id |
-| cases.clinical.created_datetime |
-| cases.clinical.days_to_death |
-| cases.clinical.ethnicity |
-| cases.clinical.gender |
-| cases.clinical.icd_10 |
-| cases.clinical.project_id |
-| cases.clinical.race |
-| cases.clinical.state |
-| cases.clinical.updated_datetime |
-| cases.clinical.vital_status |
-| cases.clinical.year_of_diagnosis |
 | cases.created_datetime |
 | cases.days_to_index |
 | cases.demographic.created_datetime |
 | cases.demographic.demographic_id |
 | cases.demographic.ethnicity |
 | cases.demographic.gender |
-| cases.demographic.project_id |
 | cases.demographic.race |
 | cases.demographic.state |
 | cases.demographic.submitter_id |
@@ -218,14 +178,12 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.diagnoses.primary_diagnosis |
 | cases.diagnoses.prior_malignancy |
 | cases.diagnoses.progression_or_recurrence |
-| cases.diagnoses.project_id |
 | cases.diagnoses.site_of_resection_or_biopsy |
 | cases.diagnoses.state |
 | cases.diagnoses.submitter_id |
 | cases.diagnoses.tissue_or_organ_of_origin |
 | cases.diagnoses.treatments.created_datetime |
 | cases.diagnoses.treatments.days_to_treatment |
-| cases.diagnoses.treatments.project_id |
 | cases.diagnoses.treatments.state |
 | cases.diagnoses.treatments.submitter_id |
 | cases.diagnoses.treatments.therapeutic_agents |
@@ -244,7 +202,6 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.exposures.created_datetime |
 | cases.exposures.exposure_id |
 | cases.exposures.height |
-| cases.exposures.project_id |
 | cases.exposures.state |
 | cases.exposures.submitter_id |
 | cases.exposures.updated_datetime |
@@ -252,7 +209,6 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.exposures.years_smoked |
 | cases.family_histories.created_datetime |
 | cases.family_histories.family_history_id |
-| cases.family_histories.project_id |
 | cases.family_histories.relationship_age_at_diagnosis |
 | cases.family_histories.relationship_gender |
 | cases.family_histories.relationship_primary_diagnosis |
@@ -268,28 +224,11 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.files.file_size |
 | cases.files.file_state |
 | cases.files.md5sum |
-| cases.files.project_id |
 | cases.files.state |
 | cases.files.state_comment |
 | cases.files.submitter_id |
 | cases.files.updated_datetime |
-| cases.metadata_files.acl |
-| cases.metadata_files.created_datetime |
-| cases.metadata_files.data_category |
-| cases.metadata_files.data_type |
-| cases.metadata_files.error_type |
-| cases.metadata_files.file_id |
-| cases.metadata_files.file_name |
-| cases.metadata_files.file_size |
-| cases.metadata_files.file_state |
-| cases.metadata_files.md5sum |
-| cases.metadata_files.project_id |
-| cases.metadata_files.state |
-| cases.metadata_files.state_comment |
-| cases.metadata_files.submitter_id |
-| cases.metadata_files.updated_datetime |
 | cases.portion_ids |
-| cases.project_id |
 | cases.project.dbgap_accession_number |
 | cases.project.disease_type |
 | cases.project.name |
@@ -301,37 +240,6 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.project.released |
 | cases.project.state |
 | cases.sample_ids |
-| cases.samples.aliquots.aliquot_id |
-| cases.samples.aliquots.amount |
-| cases.samples.aliquots.annotations.annotation_id |
-| cases.samples.aliquots.annotations.case_id |
-| cases.samples.aliquots.annotations.case_submitter_id |
-| cases.samples.aliquots.annotations.category |
-| cases.samples.aliquots.annotations.classification |
-| cases.samples.aliquots.annotations.created_datetime |
-| cases.samples.aliquots.annotations.creator |
-| cases.samples.aliquots.annotations.entity_id |
-| cases.samples.aliquots.annotations.entity_submitter_id |
-| cases.samples.aliquots.annotations.entity_type |
-| cases.samples.aliquots.annotations.notes |
-| cases.samples.aliquots.annotations.project_id |
-| cases.samples.aliquots.annotations.state |
-| cases.samples.aliquots.annotations.status |
-| cases.samples.aliquots.annotations.submitter_id |
-| cases.samples.aliquots.annotations.updated_datetime |
-| cases.samples.aliquots.center.center_id |
-| cases.samples.aliquots.center.center_type |
-| cases.samples.aliquots.center.code |
-| cases.samples.aliquots.center.name |
-| cases.samples.aliquots.center.namespace |
-| cases.samples.aliquots.center.short_name |
-| cases.samples.aliquots.concentration |
-| cases.samples.aliquots.created_datetime |
-| cases.samples.aliquots.project_id |
-| cases.samples.aliquots.source_center |
-| cases.samples.aliquots.state |
-| cases.samples.aliquots.submitter_id |
-| cases.samples.aliquots.updated_datetime |
 | cases.samples.annotations.annotation_id |
 | cases.samples.annotations.case_id |
 | cases.samples.annotations.case_submitter_id |
@@ -342,8 +250,9 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.annotations.entity_id |
 | cases.samples.annotations.entity_submitter_id |
 | cases.samples.annotations.entity_type |
+| cases.samples.annotations.legacy_created_datetime |
+| cases.samples.annotations.legacy_updated_datetime |
 | cases.samples.annotations.notes |
-| cases.samples.annotations.project_id |
 | cases.samples.annotations.state |
 | cases.samples.annotations.status |
 | cases.samples.annotations.submitter_id |
@@ -363,6 +272,8 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.portions.analytes.a260_a280_ratio |
 | cases.samples.portions.analytes.aliquots.aliquot_id |
 | cases.samples.portions.analytes.aliquots.amount |
+| cases.samples.portions.analytes.aliquots.analyte_type |
+| cases.samples.portions.analytes.aliquots.analyte_type_id |
 | cases.samples.portions.analytes.aliquots.annotations.annotation_id |
 | cases.samples.portions.analytes.aliquots.annotations.case_id |
 | cases.samples.portions.analytes.aliquots.annotations.case_submitter_id |
@@ -373,8 +284,9 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.portions.analytes.aliquots.annotations.entity_id |
 | cases.samples.portions.analytes.aliquots.annotations.entity_submitter_id |
 | cases.samples.portions.analytes.aliquots.annotations.entity_type |
+| cases.samples.portions.analytes.aliquots.annotations.legacy_created_datetime |
+| cases.samples.portions.analytes.aliquots.annotations.legacy_updated_datetime |
 | cases.samples.portions.analytes.aliquots.annotations.notes |
-| cases.samples.portions.analytes.aliquots.annotations.project_id |
 | cases.samples.portions.analytes.aliquots.annotations.state |
 | cases.samples.portions.analytes.aliquots.annotations.status |
 | cases.samples.portions.analytes.aliquots.annotations.submitter_id |
@@ -387,7 +299,6 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.portions.analytes.aliquots.center.short_name |
 | cases.samples.portions.analytes.aliquots.concentration |
 | cases.samples.portions.analytes.aliquots.created_datetime |
-| cases.samples.portions.analytes.aliquots.project_id |
 | cases.samples.portions.analytes.aliquots.source_center |
 | cases.samples.portions.analytes.aliquots.state |
 | cases.samples.portions.analytes.aliquots.submitter_id |
@@ -406,15 +317,15 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.portions.analytes.annotations.entity_id |
 | cases.samples.portions.analytes.annotations.entity_submitter_id |
 | cases.samples.portions.analytes.annotations.entity_type |
+| cases.samples.portions.analytes.annotations.legacy_created_datetime |
+| cases.samples.portions.analytes.annotations.legacy_updated_datetime |
 | cases.samples.portions.analytes.annotations.notes |
-| cases.samples.portions.analytes.annotations.project_id |
 | cases.samples.portions.analytes.annotations.state |
 | cases.samples.portions.analytes.annotations.status |
 | cases.samples.portions.analytes.annotations.submitter_id |
 | cases.samples.portions.analytes.annotations.updated_datetime |
 | cases.samples.portions.analytes.concentration |
 | cases.samples.portions.analytes.created_datetime |
-| cases.samples.portions.analytes.project_id |
 | cases.samples.portions.analytes.spectrophotometer_method |
 | cases.samples.portions.analytes.state |
 | cases.samples.portions.analytes.submitter_id |
@@ -430,8 +341,9 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.portions.annotations.entity_id |
 | cases.samples.portions.annotations.entity_submitter_id |
 | cases.samples.portions.annotations.entity_type |
+| cases.samples.portions.annotations.legacy_created_datetime |
+| cases.samples.portions.annotations.legacy_updated_datetime |
 | cases.samples.portions.annotations.notes |
-| cases.samples.portions.annotations.project_id |
 | cases.samples.portions.annotations.state |
 | cases.samples.portions.annotations.status |
 | cases.samples.portions.annotations.submitter_id |
@@ -447,7 +359,6 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.portions.is_ffpe |
 | cases.samples.portions.portion_id |
 | cases.samples.portions.portion_number |
-| cases.samples.portions.project_id |
 | cases.samples.portions.slides.annotations.annotation_id |
 | cases.samples.portions.slides.annotations.case_id |
 | cases.samples.portions.slides.annotations.case_submitter_id |
@@ -458,8 +369,9 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.portions.slides.annotations.entity_id |
 | cases.samples.portions.slides.annotations.entity_submitter_id |
 | cases.samples.portions.slides.annotations.entity_type |
+| cases.samples.portions.slides.annotations.legacy_created_datetime |
+| cases.samples.portions.slides.annotations.legacy_updated_datetime |
 | cases.samples.portions.slides.annotations.notes |
-| cases.samples.portions.slides.annotations.project_id |
 | cases.samples.portions.slides.annotations.state |
 | cases.samples.portions.slides.annotations.status |
 | cases.samples.portions.slides.annotations.submitter_id |
@@ -477,7 +389,6 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.portions.slides.percent_stromal_cells |
 | cases.samples.portions.slides.percent_tumor_cells |
 | cases.samples.portions.slides.percent_tumor_nuclei |
-| cases.samples.portions.slides.project_id |
 | cases.samples.portions.slides.section_location |
 | cases.samples.portions.slides.slide_id |
 | cases.samples.portions.slides.state |
@@ -488,7 +399,6 @@ There are thousands of fields available in the GDC data model that are accessibl
 | cases.samples.portions.updated_datetime |
 | cases.samples.portions.weight |
 | cases.samples.preservation_method |
-| cases.samples.project_id |
 | cases.samples.sample_id |
 | cases.samples.sample_type |
 | cases.samples.sample_type_id |
@@ -532,36 +442,34 @@ There are thousands of fields available in the GDC data model that are accessibl
 | data_category |
 | data_format |
 | data_type |
-| downstream_analysis.adapter_content |
-| downstream_analysis.analysis_id |
-| downstream_analysis.analysis_type |
-| downstream_analysis.basic_statistics |
-| downstream_analysis.created_datetime |
-| downstream_analysis.encoding |
-| downstream_analysis.fastq_name |
-| downstream_analysis.kmer_content |
-| downstream_analysis.output_files.data_category |
-| downstream_analysis.output_files.data_type |
-| downstream_analysis.output_files.file_id |
-| downstream_analysis.output_files.file_name |
-| downstream_analysis.output_files.file_size |
-| downstream_analysis.overrepresented_sequences |
-| downstream_analysis.per_base_n_content |
-| downstream_analysis.per_base_sequence_content |
-| downstream_analysis.per_base_sequence_quality |
-| downstream_analysis.per_sequence_gc_content |
-| downstream_analysis.per_sequence_quality_score |
-| downstream_analysis.per_tile_sequence_quality |
-| downstream_analysis.percent_gc_content |
-| downstream_analysis.project_id |
-| downstream_analysis.sequence_duplication_levels |
-| downstream_analysis.sequence_length_distribution |
-| downstream_analysis.state |
-| downstream_analysis.submitter_id |
-| downstream_analysis.total_sequences |
-| downstream_analysis.updated_datetime |
-| downstream_analysis.workflow_link |
-| downstream_analysis.workflow_type |
+| downstream_analyses.analysis_id |
+| downstream_analyses.analysis_type |
+| downstream_analyses.created_datetime |
+| downstream_analyses.output_files.created_datetime |
+| downstream_analyses.output_files.data_category |
+| downstream_analyses.output_files.data_format |
+| downstream_analyses.output_files.data_type |
+| downstream_analyses.output_files.error_type |
+| downstream_analyses.output_files.experimental_strategy |
+| downstream_analyses.output_files.file_id |
+| downstream_analyses.output_files.file_name |
+| downstream_analyses.output_files.file_size |
+| downstream_analyses.output_files.file_state |
+| downstream_analyses.output_files.md5sum |
+| downstream_analyses.output_files.platform |
+| downstream_analyses.output_files.revision |
+| downstream_analyses.output_files.state |
+| downstream_analyses.output_files.state_comment |
+| downstream_analyses.output_files.submitter_id |
+| downstream_analyses.output_files.updated_datetime |
+| downstream_analyses.state |
+| downstream_analyses.submitter_id |
+| downstream_analyses.updated_datetime |
+| downstream_analyses.workflow_end_datetime |
+| downstream_analyses.workflow_link |
+| downstream_analyses.workflow_start_datetime |
+| downstream_analyses.workflow_type |
+| downstream_analyses.workflow_version |
 | error_type |
 | experimental_strategy |
 | file_id |
@@ -569,24 +477,27 @@ There are thousands of fields available in the GDC data model that are accessibl
 | file_size |
 | file_state |
 | index_files.created_datetime |
+| index_files.data_category |
+| index_files.data_format |
+| index_files.data_type |
 | index_files.error_type |
-| index_files.file_format |
+| index_files.experimental_strategy |
 | index_files.file_id |
 | index_files.file_name |
 | index_files.file_size |
 | index_files.file_state |
 | index_files.md5sum |
-| index_files.project_id |
-| index_files.published_datetime |
+| index_files.platform |
+| index_files.revision |
 | index_files.state |
 | index_files.state_comment |
 | index_files.submitter_id |
 | index_files.updated_datetime |
-| index_files.uploaded_datetime |
 | md5sum |
 | metadata_files.access |
 | metadata_files.created_datetime |
 | metadata_files.data_category |
+| metadata_files.data_format |
 | metadata_files.data_type |
 | metadata_files.error_type |
 | metadata_files.file_id |
@@ -594,24 +505,20 @@ There are thousands of fields available in the GDC data model that are accessibl
 | metadata_files.file_size |
 | metadata_files.file_state |
 | metadata_files.md5sum |
-| metadata_files.project_id |
-| metadata_files.published_datetime |
 | metadata_files.state |
 | metadata_files.state_comment |
 | metadata_files.submitter_id |
 | metadata_files.type |
 | metadata_files.updated_datetime |
-| metadata_files.uploaded_datetime |
 | origin |
 | platform |
-| project_id |
-| published_datetime |
+| revision |
 | state |
 | state_comment |
 | submitter_id |
 | tags |
+| type |
 | updated_datetime |
-| uploaded_datetime |
 
 
 ## Case Fields
@@ -619,910 +526,764 @@ There are thousands of fields available in the GDC data model that are accessibl
 
 | Field Name |
 | --- |
-    | aliquot_ids |
-    | aliquots.aliquot_id |
-    | aliquots.amount |
-    | aliquots.annotations.annotation_id |
-    | aliquots.annotations.case_id |
-    | aliquots.annotations.case_submitter_id |
-    | aliquots.annotations.category |
-    | aliquots.annotations.classification |
-    | aliquots.annotations.created_datetime |
-    | aliquots.annotations.creator |
-    | aliquots.annotations.entity_id |
-    | aliquots.annotations.entity_submitter_id |
-    | aliquots.annotations.entity_type |
-    | aliquots.annotations.notes |
-    | aliquots.annotations.project_id |
-    | aliquots.annotations.state |
-    | aliquots.annotations.status |
-    | aliquots.annotations.submitter_id |
-    | aliquots.annotations.updated_datetime |
-    | aliquots.center.center_id |
-    | aliquots.center.center_type |
-    | aliquots.center.code |
-    | aliquots.center.name |
-    | aliquots.center.namespace |
-    | aliquots.center.short_name |
-    | aliquots.concentration |
-    | aliquots.created_datetime |
-    | aliquots.project_id |
-    | aliquots.source_center |
-    | aliquots.state |
-    | aliquots.submitter_id |
-    | aliquots.updated_datetime |
-    | analyte_ids |
-    | annotations.annotation_id |
-    | annotations.case_id |
-    | annotations.case_submitter_id |
-    | annotations.category |
-    | annotations.classification |
-    | annotations.created_datetime |
-    | annotations.creator |
-    | annotations.entity_id |
-    | annotations.entity_submitter_id |
-    | annotations.entity_type |
-    | annotations.notes |
-    | annotations.project_id |
-    | annotations.state |
-    | annotations.status |
-    | annotations.submitter_id |
-    | annotations.updated_datetime |
-    | case_id |
-    | clinical.age_at_diagnosis |
-    | clinical.clinical_id |
-    | clinical.created_datetime |
-    | clinical.days_to_death |
-    | clinical.ethnicity |
-    | clinical.gender |
-    | clinical.icd_10 |
-    | clinical.project_id |
-    | clinical.race |
-    | clinical.state |
-    | clinical.updated_datetime |
-    | clinical.vital_status |
-    | clinical.year_of_diagnosis |
-    | created_datetime |
-    | days_to_index |
-    | demographic.created_datetime |
-    | demographic.demographic_id |
-    | demographic.ethnicity |
-    | demographic.gender |
-    | demographic.project_id |
-    | demographic.race |
-    | demographic.state |
-    | demographic.submitter_id |
-    | demographic.updated_datetime |
-    | demographic.year_of_birth |
-    | demographic.year_of_death |
-    | diagnoses.age_at_diagnosis |
-    | diagnoses.classification_of_tumor |
-    | diagnoses.created_datetime |
-    | diagnoses.days_to_birth |
-    | diagnoses.days_to_death |
-    | diagnoses.days_to_last_follow_up |
-    | diagnoses.days_to_last_known_disease_status |
-    | diagnoses.days_to_recurrence |
-    | diagnoses.diagnosis_id |
-    | diagnoses.last_known_disease_status |
-    | diagnoses.morphology |
-    | diagnoses.primary_diagnosis |
-    | diagnoses.prior_malignancy |
-    | diagnoses.progression_or_recurrence |
-    | diagnoses.project_id |
-    | diagnoses.site_of_resection_or_biopsy |
-    | diagnoses.state |
-    | diagnoses.submitter_id |
-    | diagnoses.tissue_or_organ_of_origin |
-    | diagnoses.treatments.created_datetime |
-    | diagnoses.treatments.days_to_treatment |
-    | diagnoses.treatments.project_id |
-    | diagnoses.treatments.state |
-    | diagnoses.treatments.submitter_id |
-    | diagnoses.treatments.therapeutic_agents |
-    | diagnoses.treatments.treatment_id |
-    | diagnoses.treatments.treatment_intent_type |
-    | diagnoses.treatments.treatment_or_therapy |
-    | diagnoses.treatments.updated_datetime |
-    | diagnoses.tumor_grade |
-    | diagnoses.tumor_stage |
-    | diagnoses.updated_datetime |
-    | diagnoses.vital_status |
-    | exposures.alcohol_history |
-    | exposures.alcohol_intensity |
-    | exposures.bmi |
-    | exposures.cigarettes_per_day |
-    | exposures.created_datetime |
-    | exposures.exposure_id |
-    | exposures.height |
-    | exposures.project_id |
-    | exposures.state |
-    | exposures.submitter_id |
-    | exposures.updated_datetime |
-    | exposures.weight |
-    | exposures.years_smoked |
-    | family_histories.created_datetime |
-    | family_histories.family_history_id |
-    | family_histories.project_id |
-    | family_histories.relationship_age_at_diagnosis |
-    | family_histories.relationship_gender |
-    | family_histories.relationship_primary_diagnosis |
-    | family_histories.relationship_type |
-    | family_histories.relative_with_cancer_history |
-    | family_histories.state |
-    | family_histories.submitter_id |
-    | family_histories.updated_datetime |
-    | files.access |
-    | files.acl |
-    | files.analysis.adapter_content |
-    | files.analysis.analysis_id |
-    | files.analysis.analysis_type |
-    | files.analysis.basic_statistics |
-    | files.analysis.created_datetime |
-    | files.analysis.encoding |
-    | files.analysis.fastq_name |
-    | files.analysis.input_files.data_category |
-    | files.analysis.input_files.data_type |
-    | files.analysis.input_files.file_id |
-    | files.analysis.input_files.file_name |
-    | files.analysis.input_files.file_size |
-    | files.analysis.kmer_content |
-    | files.analysis.overrepresented_sequences |
-    | files.analysis.per_base_n_content |
-    | files.analysis.per_base_sequence_content |
-    | files.analysis.per_base_sequence_quality |
-    | files.analysis.per_sequence_gc_content |
-    | files.analysis.per_sequence_quality_score |
-    | files.analysis.per_tile_sequence_quality |
-    | files.analysis.percent_gc_content |
-    | files.analysis.project_id |
-    | files.analysis.sequence_duplication_levels |
-    | files.analysis.sequence_length_distribution |
-    | files.analysis.state |
-    | files.analysis.submitter_id |
-    | files.analysis.total_sequences |
-    | files.analysis.updated_datetime |
-    | files.analysis.workflow_link |
-    | files.analysis.workflow_type |
-    | files.archive.archive_id |
-    | files.archive.created_datetime |
-    | files.archive.project_id |
-    | files.archive.revision |
-    | files.archive.submitter_id |
-    | files.archive.updated_datetime |
-    | files.cases.aliquot_ids |
-    | files.cases.aliquots.aliquot_id |
-    | files.cases.aliquots.amount |
-    | files.cases.aliquots.annotations.annotation_id |
-    | files.cases.aliquots.annotations.case_id |
-    | files.cases.aliquots.annotations.case_submitter_id |
-    | files.cases.aliquots.annotations.category |
-    | files.cases.aliquots.annotations.classification |
-    | files.cases.aliquots.annotations.created_datetime |
-    | files.cases.aliquots.annotations.creator |
-    | files.cases.aliquots.annotations.entity_id |
-    | files.cases.aliquots.annotations.entity_submitter_id |
-    | files.cases.aliquots.annotations.entity_type |
-    | files.cases.aliquots.annotations.notes |
-    | files.cases.aliquots.annotations.project_id |
-    | files.cases.aliquots.annotations.state |
-    | files.cases.aliquots.annotations.status |
-    | files.cases.aliquots.annotations.submitter_id |
-    | files.cases.aliquots.annotations.updated_datetime |
-    | files.cases.aliquots.center.center_id |
-    | files.cases.aliquots.center.center_type |
-    | files.cases.aliquots.center.code |
-    | files.cases.aliquots.center.name |
-    | files.cases.aliquots.center.namespace |
-    | files.cases.aliquots.center.short_name |
-    | files.cases.aliquots.concentration |
-    | files.cases.aliquots.created_datetime |
-    | files.cases.aliquots.project_id |
-    | files.cases.aliquots.source_center |
-    | files.cases.aliquots.state |
-    | files.cases.aliquots.submitter_id |
-    | files.cases.aliquots.updated_datetime |
-    | files.cases.analyte_ids |
-    | files.cases.annotations.annotation_id |
-    | files.cases.annotations.case_id |
-    | files.cases.annotations.case_submitter_id |
-    | files.cases.annotations.category |
-    | files.cases.annotations.classification |
-    | files.cases.annotations.created_datetime |
-    | files.cases.annotations.creator |
-    | files.cases.annotations.entity_id |
-    | files.cases.annotations.entity_submitter_id |
-    | files.cases.annotations.entity_type |
-    | files.cases.annotations.notes |
-    | files.cases.annotations.project_id |
-    | files.cases.annotations.state |
-    | files.cases.annotations.status |
-    | files.cases.annotations.submitter_id |
-    | files.cases.annotations.updated_datetime |
-    | files.cases.case_id |
-    | files.cases.clinical.age_at_diagnosis |
-    | files.cases.clinical.clinical_id |
-    | files.cases.clinical.created_datetime |
-    | files.cases.clinical.days_to_death |
-    | files.cases.clinical.ethnicity |
-    | files.cases.clinical.gender |
-    | files.cases.clinical.icd_10 |
-    | files.cases.clinical.project_id |
-    | files.cases.clinical.race |
-    | files.cases.clinical.state |
-    | files.cases.clinical.updated_datetime |
-    | files.cases.clinical.vital_status |
-    | files.cases.clinical.year_of_diagnosis |
-    | files.cases.created_datetime |
-    | files.cases.days_to_index |
-    | files.cases.demographic.created_datetime |
-    | files.cases.demographic.demographic_id |
-    | files.cases.demographic.ethnicity |
-    | files.cases.demographic.gender |
-    | files.cases.demographic.project_id |
-    | files.cases.demographic.race |
-    | files.cases.demographic.state |
-    | files.cases.demographic.submitter_id |
-    | files.cases.demographic.updated_datetime |
-    | files.cases.demographic.year_of_birth |
-    | files.cases.demographic.year_of_death |
-    | files.cases.diagnoses.age_at_diagnosis |
-    | files.cases.diagnoses.classification_of_tumor |
-    | files.cases.diagnoses.created_datetime |
-    | files.cases.diagnoses.days_to_birth |
-    | files.cases.diagnoses.days_to_death |
-    | files.cases.diagnoses.days_to_last_follow_up |
-    | files.cases.diagnoses.days_to_last_known_disease_status |
-    | files.cases.diagnoses.days_to_recurrence |
-    | files.cases.diagnoses.diagnosis_id |
-    | files.cases.diagnoses.last_known_disease_status |
-    | files.cases.diagnoses.morphology |
-    | files.cases.diagnoses.primary_diagnosis |
-    | files.cases.diagnoses.prior_malignancy |
-    | files.cases.diagnoses.progression_or_recurrence |
-    | files.cases.diagnoses.project_id |
-    | files.cases.diagnoses.site_of_resection_or_biopsy |
-    | files.cases.diagnoses.state |
-    | files.cases.diagnoses.submitter_id |
-    | files.cases.diagnoses.tissue_or_organ_of_origin |
-    | files.cases.diagnoses.treatments.created_datetime |
-    | files.cases.diagnoses.treatments.days_to_treatment |
-    | files.cases.diagnoses.treatments.project_id |
-    | files.cases.diagnoses.treatments.state |
-    | files.cases.diagnoses.treatments.submitter_id |
-    | files.cases.diagnoses.treatments.therapeutic_agents |
-    | files.cases.diagnoses.treatments.treatment_id |
-    | files.cases.diagnoses.treatments.treatment_intent_type |
-    | files.cases.diagnoses.treatments.treatment_or_therapy |
-    | files.cases.diagnoses.treatments.updated_datetime |
-    | files.cases.diagnoses.tumor_grade |
-    | files.cases.diagnoses.tumor_stage |
-    | files.cases.diagnoses.updated_datetime |
-    | files.cases.diagnoses.vital_status |
-    | files.cases.exposures.alcohol_history |
-    | files.cases.exposures.alcohol_intensity |
-    | files.cases.exposures.bmi |
-    | files.cases.exposures.cigarettes_per_day |
-    | files.cases.exposures.created_datetime |
-    | files.cases.exposures.exposure_id |
-    | files.cases.exposures.height |
-    | files.cases.exposures.project_id |
-    | files.cases.exposures.state |
-    | files.cases.exposures.submitter_id |
-    | files.cases.exposures.updated_datetime |
-    | files.cases.exposures.weight |
-    | files.cases.exposures.years_smoked |
-    | files.cases.family_histories.created_datetime |
-    | files.cases.family_histories.family_history_id |
-    | files.cases.family_histories.project_id |
-    | files.cases.family_histories.relationship_age_at_diagnosis |
-    | files.cases.family_histories.relationship_gender |
-    | files.cases.family_histories.relationship_primary_diagnosis |
-    | files.cases.family_histories.relationship_type |
-    | files.cases.family_histories.relative_with_cancer_history |
-    | files.cases.family_histories.state |
-    | files.cases.family_histories.submitter_id |
-    | files.cases.family_histories.updated_datetime |
-    | files.cases.files.created_datetime |
-    | files.cases.files.error_type |
-    | files.cases.files.file_id |
-    | files.cases.files.file_name |
-    | files.cases.files.file_size |
-    | files.cases.files.file_state |
-    | files.cases.files.md5sum |
-    | files.cases.files.project_id |
-    | files.cases.files.state |
-    | files.cases.files.state_comment |
-    | files.cases.files.submitter_id |
-    | files.cases.files.updated_datetime |
-    | files.cases.metadata_files.acl |
-    | files.cases.metadata_files.created_datetime |
-    | files.cases.metadata_files.data_category |
-    | files.cases.metadata_files.data_type |
-    | files.cases.metadata_files.error_type |
-    | files.cases.metadata_files.file_id |
-    | files.cases.metadata_files.file_name |
-    | files.cases.metadata_files.file_size |
-    | files.cases.metadata_files.file_state |
-    | files.cases.metadata_files.md5sum |
-    | files.cases.metadata_files.project_id |
-    | files.cases.metadata_files.state |
-    | files.cases.metadata_files.state_comment |
-    | files.cases.metadata_files.submitter_id |
-    | files.cases.metadata_files.updated_datetime |
-    | files.cases.portion_ids |
-    | files.cases.project_id |
-    | files.cases.project.dbgap_accession_number |
-    | files.cases.project.disease_type |
-    | files.cases.project.name |
-    | files.cases.project.primary_site |
-    | files.cases.project.program.dbgap_accession_number |
-    | files.cases.project.program.name |
-    | files.cases.project.program.program_id |
-    | files.cases.project.project_id |
-    | files.cases.project.released |
-    | files.cases.project.state |
-    | files.cases.sample_ids |
-    | files.cases.samples.aliquots.aliquot_id |
-    | files.cases.samples.aliquots.amount |
-    | files.cases.samples.aliquots.annotations.annotation_id |
-    | files.cases.samples.aliquots.annotations.case_id |
-    | files.cases.samples.aliquots.annotations.case_submitter_id |
-    | files.cases.samples.aliquots.annotations.category |
-    | files.cases.samples.aliquots.annotations.classification |
-    | files.cases.samples.aliquots.annotations.created_datetime |
-    | files.cases.samples.aliquots.annotations.creator |
-    | files.cases.samples.aliquots.annotations.entity_id |
-    | files.cases.samples.aliquots.annotations.entity_submitter_id |
-    | files.cases.samples.aliquots.annotations.entity_type |
-    | files.cases.samples.aliquots.annotations.notes |
-    | files.cases.samples.aliquots.annotations.project_id |
-    | files.cases.samples.aliquots.annotations.state |
-    | files.cases.samples.aliquots.annotations.status |
-    | files.cases.samples.aliquots.annotations.submitter_id |
-    | files.cases.samples.aliquots.annotations.updated_datetime |
-    | files.cases.samples.aliquots.center.center_id |
-    | files.cases.samples.aliquots.center.center_type |
-    | files.cases.samples.aliquots.center.code |
-    | files.cases.samples.aliquots.center.name |
-    | files.cases.samples.aliquots.center.namespace |
-    | files.cases.samples.aliquots.center.short_name |
-    | files.cases.samples.aliquots.concentration |
-    | files.cases.samples.aliquots.created_datetime |
-    | files.cases.samples.aliquots.project_id |
-    | files.cases.samples.aliquots.source_center |
-    | files.cases.samples.aliquots.state |
-    | files.cases.samples.aliquots.submitter_id |
-    | files.cases.samples.aliquots.updated_datetime |
-    | files.cases.samples.annotations.annotation_id |
-    | files.cases.samples.annotations.case_id |
-    | files.cases.samples.annotations.case_submitter_id |
-    | files.cases.samples.annotations.category |
-    | files.cases.samples.annotations.classification |
-    | files.cases.samples.annotations.created_datetime |
-    | files.cases.samples.annotations.creator |
-    | files.cases.samples.annotations.entity_id |
-    | files.cases.samples.annotations.entity_submitter_id |
-    | files.cases.samples.annotations.entity_type |
-    | files.cases.samples.annotations.notes |
-    | files.cases.samples.annotations.project_id |
-    | files.cases.samples.annotations.state |
-    | files.cases.samples.annotations.status |
-    | files.cases.samples.annotations.submitter_id |
-    | files.cases.samples.annotations.updated_datetime |
-    | files.cases.samples.composition |
-    | files.cases.samples.created_datetime |
-    | files.cases.samples.current_weight |
-    | files.cases.samples.days_to_collection |
-    | files.cases.samples.days_to_sample_procurement |
-    | files.cases.samples.freezing_method |
-    | files.cases.samples.initial_weight |
-    | files.cases.samples.intermediate_dimension |
-    | files.cases.samples.is_ffpe |
-    | files.cases.samples.longest_dimension |
-    | files.cases.samples.oct_embedded |
-    | files.cases.samples.pathology_report_uuid |
-    | files.cases.samples.portions.analytes.a260_a280_ratio |
-    | files.cases.samples.portions.analytes.aliquots.aliquot_id |
-    | files.cases.samples.portions.analytes.aliquots.amount |
-    | files.cases.samples.portions.analytes.aliquots.annotations.annotation_id |
-    | files.cases.samples.portions.analytes.aliquots.annotations.case_id |
-    | files.cases.samples.portions.analytes.aliquots.annotations.case_submitter_id |
-    | files.cases.samples.portions.analytes.aliquots.annotations.category |
-    | files.cases.samples.portions.analytes.aliquots.annotations.classification |
-    | files.cases.samples.portions.analytes.aliquots.annotations.created_datetime |
-    | files.cases.samples.portions.analytes.aliquots.annotations.creator |
-    | files.cases.samples.portions.analytes.aliquots.annotations.entity_id |
-    | files.cases.samples.portions.analytes.aliquots.annotations.entity_submitter_id |
-    | files.cases.samples.portions.analytes.aliquots.annotations.entity_type |
-    | files.cases.samples.portions.analytes.aliquots.annotations.notes |
-    | files.cases.samples.portions.analytes.aliquots.annotations.project_id |
-    | files.cases.samples.portions.analytes.aliquots.annotations.state |
-    | files.cases.samples.portions.analytes.aliquots.annotations.status |
-    | files.cases.samples.portions.analytes.aliquots.annotations.submitter_id |
-    | files.cases.samples.portions.analytes.aliquots.annotations.updated_datetime |
-    | files.cases.samples.portions.analytes.aliquots.center.center_id |
-    | files.cases.samples.portions.analytes.aliquots.center.center_type |
-    | files.cases.samples.portions.analytes.aliquots.center.code |
-    | files.cases.samples.portions.analytes.aliquots.center.name |
-    | files.cases.samples.portions.analytes.aliquots.center.namespace |
-    | files.cases.samples.portions.analytes.aliquots.center.short_name |
-    | files.cases.samples.portions.analytes.aliquots.concentration |
-    | files.cases.samples.portions.analytes.aliquots.created_datetime |
-    | files.cases.samples.portions.analytes.aliquots.project_id |
-    | files.cases.samples.portions.analytes.aliquots.source_center |
-    | files.cases.samples.portions.analytes.aliquots.state |
-    | files.cases.samples.portions.analytes.aliquots.submitter_id |
-    | files.cases.samples.portions.analytes.aliquots.updated_datetime |
-    | files.cases.samples.portions.analytes.amount |
-    | files.cases.samples.portions.analytes.analyte_id |
-    | files.cases.samples.portions.analytes.analyte_type |
-    | files.cases.samples.portions.analytes.analyte_type_id |
-    | files.cases.samples.portions.analytes.annotations.annotation_id |
-    | files.cases.samples.portions.analytes.annotations.case_id |
-    | files.cases.samples.portions.analytes.annotations.case_submitter_id |
-    | files.cases.samples.portions.analytes.annotations.category |
-    | files.cases.samples.portions.analytes.annotations.classification |
-    | files.cases.samples.portions.analytes.annotations.created_datetime |
-    | files.cases.samples.portions.analytes.annotations.creator |
-    | files.cases.samples.portions.analytes.annotations.entity_id |
-    | files.cases.samples.portions.analytes.annotations.entity_submitter_id |
-    | files.cases.samples.portions.analytes.annotations.entity_type |
-    | files.cases.samples.portions.analytes.annotations.notes |
-    | files.cases.samples.portions.analytes.annotations.project_id |
-    | files.cases.samples.portions.analytes.annotations.state |
-    | files.cases.samples.portions.analytes.annotations.status |
-    | files.cases.samples.portions.analytes.annotations.submitter_id |
-    | files.cases.samples.portions.analytes.annotations.updated_datetime |
-    | files.cases.samples.portions.analytes.concentration |
-    | files.cases.samples.portions.analytes.created_datetime |
-    | files.cases.samples.portions.analytes.project_id |
-    | files.cases.samples.portions.analytes.spectrophotometer_method |
-    | files.cases.samples.portions.analytes.state |
-    | files.cases.samples.portions.analytes.submitter_id |
-    | files.cases.samples.portions.analytes.updated_datetime |
-    | files.cases.samples.portions.analytes.well_number |
-    | files.cases.samples.portions.annotations.annotation_id |
-    | files.cases.samples.portions.annotations.case_id |
-    | files.cases.samples.portions.annotations.case_submitter_id |
-    | files.cases.samples.portions.annotations.category |
-    | files.cases.samples.portions.annotations.classification |
-    | files.cases.samples.portions.annotations.created_datetime |
-    | files.cases.samples.portions.annotations.creator |
-    | files.cases.samples.portions.annotations.entity_id |
-    | files.cases.samples.portions.annotations.entity_submitter_id |
-    | files.cases.samples.portions.annotations.entity_type |
-    | files.cases.samples.portions.annotations.notes |
-    | files.cases.samples.portions.annotations.project_id |
-    | files.cases.samples.portions.annotations.state |
-    | files.cases.samples.portions.annotations.status |
-    | files.cases.samples.portions.annotations.submitter_id |
-    | files.cases.samples.portions.annotations.updated_datetime |
-    | files.cases.samples.portions.center.center_id |
-    | files.cases.samples.portions.center.center_type |
-    | files.cases.samples.portions.center.code |
-    | files.cases.samples.portions.center.name |
-    | files.cases.samples.portions.center.namespace |
-    | files.cases.samples.portions.center.short_name |
-    | files.cases.samples.portions.created_datetime |
-    | files.cases.samples.portions.creation_datetime |
-    | files.cases.samples.portions.is_ffpe |
-    | files.cases.samples.portions.portion_id |
-    | files.cases.samples.portions.portion_number |
-    | files.cases.samples.portions.project_id |
-    | files.cases.samples.portions.slides.annotations.annotation_id |
-    | files.cases.samples.portions.slides.annotations.case_id |
-    | files.cases.samples.portions.slides.annotations.case_submitter_id |
-    | files.cases.samples.portions.slides.annotations.category |
-    | files.cases.samples.portions.slides.annotations.classification |
-    | files.cases.samples.portions.slides.annotations.created_datetime |
-    | files.cases.samples.portions.slides.annotations.creator |
-    | files.cases.samples.portions.slides.annotations.entity_id |
-    | files.cases.samples.portions.slides.annotations.entity_submitter_id |
-    | files.cases.samples.portions.slides.annotations.entity_type |
-    | files.cases.samples.portions.slides.annotations.notes |
-    | files.cases.samples.portions.slides.annotations.project_id |
-    | files.cases.samples.portions.slides.annotations.state |
-    | files.cases.samples.portions.slides.annotations.status |
-    | files.cases.samples.portions.slides.annotations.submitter_id |
-    | files.cases.samples.portions.slides.annotations.updated_datetime |
-    | files.cases.samples.portions.slides.created_datetime |
-    | files.cases.samples.portions.slides.number_proliferating_cells |
-    | files.cases.samples.portions.slides.percent_eosinophil_infiltration |
-    | files.cases.samples.portions.slides.percent_granulocyte_infiltration |
-    | files.cases.samples.portions.slides.percent_inflam_infiltration |
-    | files.cases.samples.portions.slides.percent_lymphocyte_infiltration |
-    | files.cases.samples.portions.slides.percent_monocyte_infiltration |
-    | files.cases.samples.portions.slides.percent_necrosis |
-    | files.cases.samples.portions.slides.percent_neutrophil_infiltration |
-    | files.cases.samples.portions.slides.percent_normal_cells |
-    | files.cases.samples.portions.slides.percent_stromal_cells |
-    | files.cases.samples.portions.slides.percent_tumor_cells |
-    | files.cases.samples.portions.slides.percent_tumor_nuclei |
-    | files.cases.samples.portions.slides.project_id |
-    | files.cases.samples.portions.slides.section_location |
-    | files.cases.samples.portions.slides.slide_id |
-    | files.cases.samples.portions.slides.state |
-    | files.cases.samples.portions.slides.submitter_id |
-    | files.cases.samples.portions.slides.updated_datetime |
-    | files.cases.samples.portions.state |
-    | files.cases.samples.portions.submitter_id |
-    | files.cases.samples.portions.updated_datetime |
-    | files.cases.samples.portions.weight |
-    | files.cases.samples.preservation_method |
-    | files.cases.samples.project_id |
-    | files.cases.samples.sample_id |
-    | files.cases.samples.sample_type |
-    | files.cases.samples.sample_type_id |
-    | files.cases.samples.shortest_dimension |
-    | files.cases.samples.state |
-    | files.cases.samples.submitter_id |
-    | files.cases.samples.time_between_clamping_and_freezing |
-    | files.cases.samples.time_between_excision_and_freezing |
-    | files.cases.samples.tissue_type |
-    | files.cases.samples.tumor_code |
-    | files.cases.samples.tumor_code_id |
-    | files.cases.samples.tumor_descriptor |
-    | files.cases.samples.updated_datetime |
-    | files.cases.slide_ids |
-    | files.cases.state |
-    | files.cases.submitter_aliquot_ids |
-    | files.cases.submitter_analyte_ids |
-    | files.cases.submitter_id |
-    | files.cases.submitter_portion_ids |
-    | files.cases.submitter_sample_ids |
-    | files.cases.submitter_slide_ids |
-    | files.cases.summary.data_categories.data_category |
-    | files.cases.summary.data_categories.file_count |
-    | files.cases.summary.experimental_strategies.experimental_strategy |
-    | files.cases.summary.experimental_strategies.file_count |
-    | files.cases.summary.file_count |
-    | files.cases.summary.file_size |
-    | files.cases.tissue_source_site.bcr_id |
-    | files.cases.tissue_source_site.code |
-    | files.cases.tissue_source_site.name |
-    | files.cases.tissue_source_site.project |
-    | files.cases.tissue_source_site.tissue_source_site_id |
-    | files.cases.updated_datetime |
-    | files.center.center_id |
-    | files.center.center_type |
-    | files.center.code |
-    | files.center.name |
-    | files.center.namespace |
-    | files.center.short_name |
-    | files.created_datetime |
-    | files.data_category |
-    | files.data_format |
-    | files.data_type |
-    | files.downstream_analysis.adapter_content |
-    | files.downstream_analysis.analysis_id |
-    | files.downstream_analysis.analysis_type |
-    | files.downstream_analysis.basic_statistics |
-    | files.downstream_analysis.created_datetime |
-    | files.downstream_analysis.encoding |
-    | files.downstream_analysis.fastq_name |
-    | files.downstream_analysis.kmer_content |
-    | files.downstream_analysis.output_files.data_category |
-    | files.downstream_analysis.output_files.data_type |
-    | files.downstream_analysis.output_files.file_id |
-    | files.downstream_analysis.output_files.file_name |
-    | files.downstream_analysis.output_files.file_size |
-    | files.downstream_analysis.overrepresented_sequences |
-    | files.downstream_analysis.per_base_n_content |
-    | files.downstream_analysis.per_base_sequence_content |
-    | files.downstream_analysis.per_base_sequence_quality |
-    | files.downstream_analysis.per_sequence_gc_content |
-    | files.downstream_analysis.per_sequence_quality_score |
-    | files.downstream_analysis.per_tile_sequence_quality |
-    | files.downstream_analysis.percent_gc_content |
-    | files.downstream_analysis.project_id |
-    | files.downstream_analysis.sequence_duplication_levels |
-    | files.downstream_analysis.sequence_length_distribution |
-    | files.downstream_analysis.state |
-    | files.downstream_analysis.submitter_id |
-    | files.downstream_analysis.total_sequences |
-    | files.downstream_analysis.updated_datetime |
-    | files.downstream_analysis.workflow_link |
-    | files.downstream_analysis.workflow_type |
-    | files.error_type |
-    | files.experimental_strategy |
-    | files.file_id |
-    | files.file_name |
-    | files.file_size |
-    | files.file_state |
-    | files.index_files.created_datetime |
-    | files.index_files.error_type |
-    | files.index_files.file_format |
-    | files.index_files.file_id |
-    | files.index_files.file_name |
-    | files.index_files.file_size |
-    | files.index_files.file_state |
-    | files.index_files.md5sum |
-    | files.index_files.project_id |
-    | files.index_files.published_datetime |
-    | files.index_files.state |
-    | files.index_files.state_comment |
-    | files.index_files.submitter_id |
-    | files.index_files.updated_datetime |
-    | files.index_files.uploaded_datetime |
-    | files.md5sum |
-    | files.metadata_files.access |
-    | files.metadata_files.created_datetime |
-    | files.metadata_files.data_category |
-    | files.metadata_files.data_type |
-    | files.metadata_files.error_type |
-    | files.metadata_files.file_id |
-    | files.metadata_files.file_name |
-    | files.metadata_files.file_size |
-    | files.metadata_files.file_state |
-    | files.metadata_files.md5sum |
-    | files.metadata_files.project_id |
-    | files.metadata_files.published_datetime |
-    | files.metadata_files.state |
-    | files.metadata_files.state_comment |
-    | files.metadata_files.submitter_id |
-    | files.metadata_files.type |
-    | files.metadata_files.updated_datetime |
-    | files.metadata_files.uploaded_datetime |
-    | files.origin |
-    | files.platform |
-    | files.project_id |
-    | files.published_datetime |
-    | files.state |
-    | files.state_comment |
-    | files.submitter_id |
-    | files.tags |
-    | files.updated_datetime |
-    | files.uploaded_datetime |
-    | metadata_files.acl |
-    | metadata_files.created_datetime |
-    | metadata_files.data_category |
-    | metadata_files.data_type |
-    | metadata_files.error_type |
-    | metadata_files.file_id |
-    | metadata_files.file_name |
-    | metadata_files.file_size |
-    | metadata_files.file_state |
-    | metadata_files.md5sum |
-    | metadata_files.project_id |
-    | metadata_files.state |
-    | metadata_files.state_comment |
-    | metadata_files.submitter_id |
-    | metadata_files.updated_datetime |
-    | portion_ids |
-    | project_id |
-    | project.dbgap_accession_number |
-    | project.disease_type |
-    | project.name |
-    | project.primary_site |
-    | project.program.dbgap_accession_number |
-    | project.program.name |
-    | project.program.program_id |
-    | project.project_id |
-    | project.released |
-    | project.state |
-    | sample_ids |
-    | samples.aliquots.aliquot_id |
-    | samples.aliquots.amount |
-    | samples.aliquots.annotations.annotation_id |
-    | samples.aliquots.annotations.case_id |
-    | samples.aliquots.annotations.case_submitter_id |
-    | samples.aliquots.annotations.category |
-    | samples.aliquots.annotations.classification |
-    | samples.aliquots.annotations.created_datetime |
-    | samples.aliquots.annotations.creator |
-    | samples.aliquots.annotations.entity_id |
-    | samples.aliquots.annotations.entity_submitter_id |
-    | samples.aliquots.annotations.entity_type |
-    | samples.aliquots.annotations.notes |
-    | samples.aliquots.annotations.project_id |
-    | samples.aliquots.annotations.state |
-    | samples.aliquots.annotations.status |
-    | samples.aliquots.annotations.submitter_id |
-    | samples.aliquots.annotations.updated_datetime |
-    | samples.aliquots.center.center_id |
-    | samples.aliquots.center.center_type |
-    | samples.aliquots.center.code |
-    | samples.aliquots.center.name |
-    | samples.aliquots.center.namespace |
-    | samples.aliquots.center.short_name |
-    | samples.aliquots.concentration |
-    | samples.aliquots.created_datetime |
-    | samples.aliquots.project_id |
-    | samples.aliquots.source_center |
-    | samples.aliquots.state |
-    | samples.aliquots.submitter_id |
-    | samples.aliquots.updated_datetime |
-    | samples.annotations.annotation_id |
-    | samples.annotations.case_id |
-    | samples.annotations.case_submitter_id |
-    | samples.annotations.category |
-    | samples.annotations.classification |
-    | samples.annotations.created_datetime |
-    | samples.annotations.creator |
-    | samples.annotations.entity_id |
-    | samples.annotations.entity_submitter_id |
-    | samples.annotations.entity_type |
-    | samples.annotations.notes |
-    | samples.annotations.project_id |
-    | samples.annotations.state |
-    | samples.annotations.status |
-    | samples.annotations.submitter_id |
-    | samples.annotations.updated_datetime |
-    | samples.composition |
-    | samples.created_datetime |
-    | samples.current_weight |
-    | samples.days_to_collection |
-    | samples.days_to_sample_procurement |
-    | samples.freezing_method |
-    | samples.initial_weight |
-    | samples.intermediate_dimension |
-    | samples.is_ffpe |
-    | samples.longest_dimension |
-    | samples.oct_embedded |
-    | samples.pathology_report_uuid |
-    | samples.portions.analytes.a260_a280_ratio |
-    | samples.portions.analytes.aliquots.aliquot_id |
-    | samples.portions.analytes.aliquots.amount |
-    | samples.portions.analytes.aliquots.annotations.annotation_id |
-    | samples.portions.analytes.aliquots.annotations.case_id |
-    | samples.portions.analytes.aliquots.annotations.case_submitter_id |
-    | samples.portions.analytes.aliquots.annotations.category |
-    | samples.portions.analytes.aliquots.annotations.classification |
-    | samples.portions.analytes.aliquots.annotations.created_datetime |
-    | samples.portions.analytes.aliquots.annotations.creator |
-    | samples.portions.analytes.aliquots.annotations.entity_id |
-    | samples.portions.analytes.aliquots.annotations.entity_submitter_id |
-    | samples.portions.analytes.aliquots.annotations.entity_type |
-    | samples.portions.analytes.aliquots.annotations.notes |
-    | samples.portions.analytes.aliquots.annotations.project_id |
-    | samples.portions.analytes.aliquots.annotations.state |
-    | samples.portions.analytes.aliquots.annotations.status |
-    | samples.portions.analytes.aliquots.annotations.submitter_id |
-    | samples.portions.analytes.aliquots.annotations.updated_datetime |
-    | samples.portions.analytes.aliquots.center.center_id |
-    | samples.portions.analytes.aliquots.center.center_type |
-    | samples.portions.analytes.aliquots.center.code |
-    | samples.portions.analytes.aliquots.center.name |
-    | samples.portions.analytes.aliquots.center.namespace |
-    | samples.portions.analytes.aliquots.center.short_name |
-    | samples.portions.analytes.aliquots.concentration |
-    | samples.portions.analytes.aliquots.created_datetime |
-    | samples.portions.analytes.aliquots.project_id |
-    | samples.portions.analytes.aliquots.source_center |
-    | samples.portions.analytes.aliquots.state |
-    | samples.portions.analytes.aliquots.submitter_id |
-    | samples.portions.analytes.aliquots.updated_datetime |
-    | samples.portions.analytes.amount |
-    | samples.portions.analytes.analyte_id |
-    | samples.portions.analytes.analyte_type |
-    | samples.portions.analytes.analyte_type_id |
-    | samples.portions.analytes.annotations.annotation_id |
-    | samples.portions.analytes.annotations.case_id |
-    | samples.portions.analytes.annotations.case_submitter_id |
-    | samples.portions.analytes.annotations.category |
-    | samples.portions.analytes.annotations.classification |
-    | samples.portions.analytes.annotations.created_datetime |
-    | samples.portions.analytes.annotations.creator |
-    | samples.portions.analytes.annotations.entity_id |
-    | samples.portions.analytes.annotations.entity_submitter_id |
-    | samples.portions.analytes.annotations.entity_type |
-    | samples.portions.analytes.annotations.notes |
-    | samples.portions.analytes.annotations.project_id |
-    | samples.portions.analytes.annotations.state |
-    | samples.portions.analytes.annotations.status |
-    | samples.portions.analytes.annotations.submitter_id |
-    | samples.portions.analytes.annotations.updated_datetime |
-    | samples.portions.analytes.concentration |
-    | samples.portions.analytes.created_datetime |
-    | samples.portions.analytes.project_id |
-    | samples.portions.analytes.spectrophotometer_method |
-    | samples.portions.analytes.state |
-    | samples.portions.analytes.submitter_id |
-    | samples.portions.analytes.updated_datetime |
-    | samples.portions.analytes.well_number |
-    | samples.portions.annotations.annotation_id |
-    | samples.portions.annotations.case_id |
-    | samples.portions.annotations.case_submitter_id |
-    | samples.portions.annotations.category |
-    | samples.portions.annotations.classification |
-    | samples.portions.annotations.created_datetime |
-    | samples.portions.annotations.creator |
-    | samples.portions.annotations.entity_id |
-    | samples.portions.annotations.entity_submitter_id |
-    | samples.portions.annotations.entity_type |
-    | samples.portions.annotations.notes |
-    | samples.portions.annotations.project_id |
-    | samples.portions.annotations.state |
-    | samples.portions.annotations.status |
-    | samples.portions.annotations.submitter_id |
-    | samples.portions.annotations.updated_datetime |
-    | samples.portions.center.center_id |
-    | samples.portions.center.center_type |
-    | samples.portions.center.code |
-    | samples.portions.center.name |
-    | samples.portions.center.namespace |
-    | samples.portions.center.short_name |
-    | samples.portions.created_datetime |
-    | samples.portions.creation_datetime |
-    | samples.portions.is_ffpe |
-    | samples.portions.portion_id |
-    | samples.portions.portion_number |
-    | samples.portions.project_id |
-    | samples.portions.slides.annotations.annotation_id |
-    | samples.portions.slides.annotations.case_id |
-    | samples.portions.slides.annotations.case_submitter_id |
-    | samples.portions.slides.annotations.category |
-    | samples.portions.slides.annotations.classification |
-    | samples.portions.slides.annotations.created_datetime |
-    | samples.portions.slides.annotations.creator |
-    | samples.portions.slides.annotations.entity_id |
-    | samples.portions.slides.annotations.entity_submitter_id |
-    | samples.portions.slides.annotations.entity_type |
-    | samples.portions.slides.annotations.notes |
-    | samples.portions.slides.annotations.project_id |
-    | samples.portions.slides.annotations.state |
-    | samples.portions.slides.annotations.status |
-    | samples.portions.slides.annotations.submitter_id |
-    | samples.portions.slides.annotations.updated_datetime |
-    | samples.portions.slides.created_datetime |
-    | samples.portions.slides.number_proliferating_cells |
-    | samples.portions.slides.percent_eosinophil_infiltration |
-    | samples.portions.slides.percent_granulocyte_infiltration |
-    | samples.portions.slides.percent_inflam_infiltration |
-    | samples.portions.slides.percent_lymphocyte_infiltration |
-    | samples.portions.slides.percent_monocyte_infiltration |
-    | samples.portions.slides.percent_necrosis |
-    | samples.portions.slides.percent_neutrophil_infiltration |
-    | samples.portions.slides.percent_normal_cells |
-    | samples.portions.slides.percent_stromal_cells |
-    | samples.portions.slides.percent_tumor_cells |
-    | samples.portions.slides.percent_tumor_nuclei |
-    | samples.portions.slides.project_id |
-    | samples.portions.slides.section_location |
-    | samples.portions.slides.slide_id |
-    | samples.portions.slides.state |
-    | samples.portions.slides.submitter_id |
-    | samples.portions.slides.updated_datetime |
-    | samples.portions.state |
-    | samples.portions.submitter_id |
-    | samples.portions.updated_datetime |
-    | samples.portions.weight |
-    | samples.preservation_method |
-    | samples.project_id |
-    | samples.sample_id |
-    | samples.sample_type |
-    | samples.sample_type_id |
-    | samples.shortest_dimension |
-    | samples.state |
-    | samples.submitter_id |
-    | samples.time_between_clamping_and_freezing |
-    | samples.time_between_excision_and_freezing |
-    | samples.tissue_type |
-    | samples.tumor_code |
-    | samples.tumor_code_id |
-    | samples.tumor_descriptor |
-    | samples.updated_datetime |
-    | slide_ids |
-    | state |
-    | submitter_aliquot_ids |
-    | submitter_analyte_ids |
-    | submitter_id |
-    | submitter_portion_ids |
-    | submitter_sample_ids |
-    | submitter_slide_ids"
-    | summary.data_categories.data_category |
-    | summary.data_categories.file_count |
-    | summary.experimental_strategies.experimental_strategy |
-    | summary.experimental_strategies.file_count |
-    | summary.file_count |
-    | summary.file_size |
-    | tissue_source_site.bcr_id |
-    | tissue_source_site.code |
-    | tissue_source_site.name |
-    | tissue_source_site.project |
-    | tissue_source_site.tissue_source_site_id |
-    | updated_datetime |
+| aliquot_ids |
+| analyte_ids |
+| annotations.annotation_id |
+| annotations.case_id |
+| annotations.case_submitter_id |
+| annotations.category |
+| annotations.classification |
+| annotations.created_datetime |
+| annotations.creator |
+| annotations.entity_id |
+| annotations.entity_submitter_id |
+| annotations.entity_type |
+| annotations.legacy_created_datetime |
+| annotations.legacy_updated_datetime |
+| annotations.notes |
+| annotations.state |
+| annotations.status |
+| annotations.submitter_id |
+| annotations.updated_datetime |
+| case_id |
+| created_datetime |
+| days_to_index |
+| demographic.created_datetime |
+| demographic.demographic_id |
+| demographic.ethnicity |
+| demographic.gender |
+| demographic.race |
+| demographic.state |
+| demographic.submitter_id |
+| demographic.updated_datetime |
+| demographic.year_of_birth |
+| demographic.year_of_death |
+| diagnoses.age_at_diagnosis |
+| diagnoses.classification_of_tumor |
+| diagnoses.created_datetime |
+| diagnoses.days_to_birth |
+| diagnoses.days_to_death |
+| diagnoses.days_to_last_follow_up |
+| diagnoses.days_to_last_known_disease_status |
+| diagnoses.days_to_recurrence |
+| diagnoses.diagnosis_id |
+| diagnoses.last_known_disease_status |
+| diagnoses.morphology |
+| diagnoses.primary_diagnosis |
+| diagnoses.prior_malignancy |
+| diagnoses.progression_or_recurrence |
+| diagnoses.site_of_resection_or_biopsy |
+| diagnoses.state |
+| diagnoses.submitter_id |
+| diagnoses.tissue_or_organ_of_origin |
+| diagnoses.treatments.created_datetime |
+| diagnoses.treatments.days_to_treatment |
+| diagnoses.treatments.state |
+| diagnoses.treatments.submitter_id |
+| diagnoses.treatments.therapeutic_agents |
+| diagnoses.treatments.treatment_id |
+| diagnoses.treatments.treatment_intent_type |
+| diagnoses.treatments.treatment_or_therapy |
+| diagnoses.treatments.updated_datetime |
+| diagnoses.tumor_grade |
+| diagnoses.tumor_stage |
+| diagnoses.updated_datetime |
+| diagnoses.vital_status |
+| exposures.alcohol_history |
+| exposures.alcohol_intensity |
+| exposures.bmi |
+| exposures.cigarettes_per_day |
+| exposures.created_datetime |
+| exposures.exposure_id |
+| exposures.height |
+| exposures.state |
+| exposures.submitter_id |
+| exposures.updated_datetime |
+| exposures.weight |
+| exposures.years_smoked |
+| family_histories.created_datetime |
+| family_histories.family_history_id |
+| family_histories.relationship_age_at_diagnosis |
+| family_histories.relationship_gender |
+| family_histories.relationship_primary_diagnosis |
+| family_histories.relationship_type |
+| family_histories.relative_with_cancer_history |
+| family_histories.state |
+| family_histories.submitter_id |
+| family_histories.updated_datetime |
+| files.access |
+| files.acl |
+| files.analysis.analysis_id |
+| files.analysis.analysis_type |
+| files.analysis.created_datetime |
+| files.analysis.input_files.created_datetime |
+| files.analysis.input_files.data_category |
+| files.analysis.input_files.data_format |
+| files.analysis.input_files.data_type |
+| files.analysis.input_files.error_type |
+| files.analysis.input_files.experimental_strategy |
+| files.analysis.input_files.file_id |
+| files.analysis.input_files.file_name |
+| files.analysis.input_files.file_size |
+| files.analysis.input_files.file_state |
+| files.analysis.input_files.md5sum |
+| files.analysis.input_files.platform |
+| files.analysis.input_files.revision |
+| files.analysis.input_files.state |
+| files.analysis.input_files.state_comment |
+| files.analysis.input_files.submitter_id |
+| files.analysis.input_files.updated_datetime |
+| files.analysis.metadata.read_groups.adapter_name |
+| files.analysis.metadata.read_groups.adapter_sequence |
+| files.analysis.metadata.read_groups.base_caller_name |
+| files.analysis.metadata.read_groups.base_caller_version |
+| files.analysis.metadata.read_groups.created_datetime |
+| files.analysis.metadata.read_groups.experiment_name |
+| files.analysis.metadata.read_groups.flow_cell_barcode |
+| files.analysis.metadata.read_groups.includes_spike_ins |
+| files.analysis.metadata.read_groups.instrument_model |
+| files.analysis.metadata.read_groups.is_paired_end |
+| files.analysis.metadata.read_groups.library_name |
+| files.analysis.metadata.read_groups.library_preparation_kit_catalog_number |
+| files.analysis.metadata.read_groups.library_preparation_kit_name |
+| files.analysis.metadata.read_groups.library_preparation_kit_vendor |
+| files.analysis.metadata.read_groups.library_preparation_kit_version |
+| files.analysis.metadata.read_groups.library_selection |
+| files.analysis.metadata.read_groups.library_strand |
+| files.analysis.metadata.read_groups.library_strategy |
+| files.analysis.metadata.read_groups.platform |
+| files.analysis.metadata.read_groups.read_group_id |
+| files.analysis.metadata.read_groups.read_group_name |
+| files.analysis.metadata.read_groups.read_length |
+| files.analysis.metadata.read_groups.RIN |
+| files.analysis.metadata.read_groups.sequencing_center |
+| files.analysis.metadata.read_groups.sequencing_date |
+| files.analysis.metadata.read_groups.size_selection_range |
+| files.analysis.metadata.read_groups.spike_ins_concentration |
+| files.analysis.metadata.read_groups.spike_ins_fasta |
+| files.analysis.metadata.read_groups.state |
+| files.analysis.metadata.read_groups.submitter_id |
+| files.analysis.metadata.read_groups.target_capture_kit_catalog_number |
+| files.analysis.metadata.read_groups.target_capture_kit_name |
+| files.analysis.metadata.read_groups.target_capture_kit_target_region |
+| files.analysis.metadata.read_groups.target_capture_kit_vendor |
+| files.analysis.metadata.read_groups.target_capture_kit_version |
+| files.analysis.metadata.read_groups.to_trim_adapter_sequence |
+| files.analysis.metadata.read_groups.updated_datetime |
+| files.analysis.state |
+| files.analysis.submitter_id |
+| files.analysis.updated_datetime |
+| files.analysis.workflow_end_datetime |
+| files.analysis.workflow_link |
+| files.analysis.workflow_start_datetime |
+| files.analysis.workflow_type |
+| files.analysis.workflow_version |
+| files.archive.archive_id |
+| files.archive.created_datetime |
+| files.archive.data_category |
+| files.archive.data_format |
+| files.archive.data_type |
+| files.archive.error_type |
+| files.archive.file_name |
+| files.archive.file_size |
+| files.archive.file_state |
+| files.archive.md5sum |
+| files.archive.revision |
+| files.archive.state |
+| files.archive.state_comment |
+| files.archive.submitter_id |
+| files.archive.updated_datetime |
+| files.cases.aliquot_ids |
+| files.cases.analyte_ids |
+| files.cases.annotations.annotation_id |
+| files.cases.annotations.case_id |
+| files.cases.annotations.case_submitter_id |
+| files.cases.annotations.category |
+| files.cases.annotations.classification |
+| files.cases.annotations.created_datetime |
+| files.cases.annotations.creator |
+| files.cases.annotations.entity_id |
+| files.cases.annotations.entity_submitter_id |
+| files.cases.annotations.entity_type |
+| files.cases.annotations.legacy_created_datetime |
+| files.cases.annotations.legacy_updated_datetime |
+| files.cases.annotations.notes |
+| files.cases.annotations.state |
+| files.cases.annotations.status |
+| files.cases.annotations.submitter_id |
+| files.cases.annotations.updated_datetime |
+| files.cases.case_id |
+| files.cases.created_datetime |
+| files.cases.days_to_index |
+| files.cases.demographic.created_datetime |
+| files.cases.demographic.demographic_id |
+| files.cases.demographic.ethnicity |
+| files.cases.demographic.gender |
+| files.cases.demographic.race |
+| files.cases.demographic.state |
+| files.cases.demographic.submitter_id |
+| files.cases.demographic.updated_datetime |
+| files.cases.demographic.year_of_birth |
+| files.cases.demographic.year_of_death |
+| files.cases.diagnoses.age_at_diagnosis |
+| files.cases.diagnoses.classification_of_tumor |
+| files.cases.diagnoses.created_datetime |
+| files.cases.diagnoses.days_to_birth |
+| files.cases.diagnoses.days_to_death |
+| files.cases.diagnoses.days_to_last_follow_up |
+| files.cases.diagnoses.days_to_last_known_disease_status |
+| files.cases.diagnoses.days_to_recurrence |
+| files.cases.diagnoses.diagnosis_id |
+| files.cases.diagnoses.last_known_disease_status |
+| files.cases.diagnoses.morphology |
+| files.cases.diagnoses.primary_diagnosis |
+| files.cases.diagnoses.prior_malignancy |
+| files.cases.diagnoses.progression_or_recurrence |
+| files.cases.diagnoses.site_of_resection_or_biopsy |
+| files.cases.diagnoses.state |
+| files.cases.diagnoses.submitter_id |
+| files.cases.diagnoses.tissue_or_organ_of_origin |
+| files.cases.diagnoses.treatments.created_datetime |
+| files.cases.diagnoses.treatments.days_to_treatment |
+| files.cases.diagnoses.treatments.state |
+| files.cases.diagnoses.treatments.submitter_id |
+| files.cases.diagnoses.treatments.therapeutic_agents |
+| files.cases.diagnoses.treatments.treatment_id |
+| files.cases.diagnoses.treatments.treatment_intent_type |
+| files.cases.diagnoses.treatments.treatment_or_therapy |
+| files.cases.diagnoses.treatments.updated_datetime |
+| files.cases.diagnoses.tumor_grade |
+| files.cases.diagnoses.tumor_stage |
+| files.cases.diagnoses.updated_datetime |
+| files.cases.diagnoses.vital_status |
+| files.cases.exposures.alcohol_history |
+| files.cases.exposures.alcohol_intensity |
+| files.cases.exposures.bmi |
+| files.cases.exposures.cigarettes_per_day |
+| files.cases.exposures.created_datetime |
+| files.cases.exposures.exposure_id |
+| files.cases.exposures.height |
+| files.cases.exposures.state |
+| files.cases.exposures.submitter_id |
+| files.cases.exposures.updated_datetime |
+| files.cases.exposures.weight |
+| files.cases.exposures.years_smoked |
+| files.cases.family_histories.created_datetime |
+| files.cases.family_histories.family_history_id |
+| files.cases.family_histories.relationship_age_at_diagnosis |
+| files.cases.family_histories.relationship_gender |
+| files.cases.family_histories.relationship_primary_diagnosis |
+| files.cases.family_histories.relationship_type |
+| files.cases.family_histories.relative_with_cancer_history |
+| files.cases.family_histories.state |
+| files.cases.family_histories.submitter_id |
+| files.cases.family_histories.updated_datetime |
+| files.cases.files.created_datetime |
+| files.cases.files.error_type |
+| files.cases.files.file_id |
+| files.cases.files.file_name |
+| files.cases.files.file_size |
+| files.cases.files.file_state |
+| files.cases.files.md5sum |
+| files.cases.files.state |
+| files.cases.files.state_comment |
+| files.cases.files.submitter_id |
+| files.cases.files.updated_datetime |
+| files.cases.portion_ids |
+| files.cases.project.dbgap_accession_number |
+| files.cases.project.disease_type |
+| files.cases.project.name |
+| files.cases.project.primary_site |
+| files.cases.project.program.dbgap_accession_number |
+| files.cases.project.program.name |
+| files.cases.project.program.program_id |
+| files.cases.project.project_id |
+| files.cases.project.released |
+| files.cases.project.state |
+| files.cases.sample_ids |
+| files.cases.samples.annotations.annotation_id |
+| files.cases.samples.annotations.case_id |
+| files.cases.samples.annotations.case_submitter_id |
+| files.cases.samples.annotations.category |
+| files.cases.samples.annotations.classification |
+| files.cases.samples.annotations.created_datetime |
+| files.cases.samples.annotations.creator |
+| files.cases.samples.annotations.entity_id |
+| files.cases.samples.annotations.entity_submitter_id |
+| files.cases.samples.annotations.entity_type |
+| files.cases.samples.annotations.legacy_created_datetime |
+| files.cases.samples.annotations.legacy_updated_datetime |
+| files.cases.samples.annotations.notes |
+| files.cases.samples.annotations.state |
+| files.cases.samples.annotations.status |
+| files.cases.samples.annotations.submitter_id |
+| files.cases.samples.annotations.updated_datetime |
+| files.cases.samples.composition |
+| files.cases.samples.created_datetime |
+| files.cases.samples.current_weight |
+| files.cases.samples.days_to_collection |
+| files.cases.samples.days_to_sample_procurement |
+| files.cases.samples.freezing_method |
+| files.cases.samples.initial_weight |
+| files.cases.samples.intermediate_dimension |
+| files.cases.samples.is_ffpe |
+| files.cases.samples.longest_dimension |
+| files.cases.samples.oct_embedded |
+| files.cases.samples.pathology_report_uuid |
+| files.cases.samples.portions.analytes.a260_a280_ratio |
+| files.cases.samples.portions.analytes.aliquots.aliquot_id |
+| files.cases.samples.portions.analytes.aliquots.amount |
+| files.cases.samples.portions.analytes.aliquots.analyte_type |
+| files.cases.samples.portions.analytes.aliquots.analyte_type_id |
+| files.cases.samples.portions.analytes.aliquots.annotations.annotation_id |
+| files.cases.samples.portions.analytes.aliquots.annotations.case_id |
+| files.cases.samples.portions.analytes.aliquots.annotations.case_submitter_id |
+| files.cases.samples.portions.analytes.aliquots.annotations.category |
+| files.cases.samples.portions.analytes.aliquots.annotations.classification |
+| files.cases.samples.portions.analytes.aliquots.annotations.created_datetime |
+| files.cases.samples.portions.analytes.aliquots.annotations.creator |
+| files.cases.samples.portions.analytes.aliquots.annotations.entity_id |
+| files.cases.samples.portions.analytes.aliquots.annotations.entity_submitter_id |
+| files.cases.samples.portions.analytes.aliquots.annotations.entity_type |
+| files.cases.samples.portions.analytes.aliquots.annotations.legacy_created_datetime |
+| files.cases.samples.portions.analytes.aliquots.annotations.legacy_updated_datetime |
+| files.cases.samples.portions.analytes.aliquots.annotations.notes |
+| files.cases.samples.portions.analytes.aliquots.annotations.state |
+| files.cases.samples.portions.analytes.aliquots.annotations.status |
+| files.cases.samples.portions.analytes.aliquots.annotations.submitter_id |
+| files.cases.samples.portions.analytes.aliquots.annotations.updated_datetime |
+| files.cases.samples.portions.analytes.aliquots.center.center_id |
+| files.cases.samples.portions.analytes.aliquots.center.center_type |
+| files.cases.samples.portions.analytes.aliquots.center.code |
+| files.cases.samples.portions.analytes.aliquots.center.name |
+| files.cases.samples.portions.analytes.aliquots.center.namespace |
+| files.cases.samples.portions.analytes.aliquots.center.short_name |
+| files.cases.samples.portions.analytes.aliquots.concentration |
+| files.cases.samples.portions.analytes.aliquots.created_datetime |
+| files.cases.samples.portions.analytes.aliquots.source_center |
+| files.cases.samples.portions.analytes.aliquots.state |
+| files.cases.samples.portions.analytes.aliquots.submitter_id |
+| files.cases.samples.portions.analytes.aliquots.updated_datetime |
+| files.cases.samples.portions.analytes.amount |
+| files.cases.samples.portions.analytes.analyte_id |
+| files.cases.samples.portions.analytes.analyte_type |
+| files.cases.samples.portions.analytes.analyte_type_id |
+| files.cases.samples.portions.analytes.annotations.annotation_id |
+| files.cases.samples.portions.analytes.annotations.case_id |
+| files.cases.samples.portions.analytes.annotations.case_submitter_id |
+| files.cases.samples.portions.analytes.annotations.category |
+| files.cases.samples.portions.analytes.annotations.classification |
+| files.cases.samples.portions.analytes.annotations.created_datetime |
+| files.cases.samples.portions.analytes.annotations.creator |
+| files.cases.samples.portions.analytes.annotations.entity_id |
+| files.cases.samples.portions.analytes.annotations.entity_submitter_id |
+| files.cases.samples.portions.analytes.annotations.entity_type |
+| files.cases.samples.portions.analytes.annotations.legacy_created_datetime |
+| files.cases.samples.portions.analytes.annotations.legacy_updated_datetime |
+| files.cases.samples.portions.analytes.annotations.notes |
+| files.cases.samples.portions.analytes.annotations.state |
+| files.cases.samples.portions.analytes.annotations.status |
+| files.cases.samples.portions.analytes.annotations.submitter_id |
+| files.cases.samples.portions.analytes.annotations.updated_datetime |
+| files.cases.samples.portions.analytes.concentration |
+| files.cases.samples.portions.analytes.created_datetime |
+| files.cases.samples.portions.analytes.spectrophotometer_method |
+| files.cases.samples.portions.analytes.state |
+| files.cases.samples.portions.analytes.submitter_id |
+| files.cases.samples.portions.analytes.updated_datetime |
+| files.cases.samples.portions.analytes.well_number |
+| files.cases.samples.portions.annotations.annotation_id |
+| files.cases.samples.portions.annotations.case_id |
+| files.cases.samples.portions.annotations.case_submitter_id |
+| files.cases.samples.portions.annotations.category |
+| files.cases.samples.portions.annotations.classification |
+| files.cases.samples.portions.annotations.created_datetime |
+| files.cases.samples.portions.annotations.creator |
+| files.cases.samples.portions.annotations.entity_id |
+| files.cases.samples.portions.annotations.entity_submitter_id |
+| files.cases.samples.portions.annotations.entity_type |
+| files.cases.samples.portions.annotations.legacy_created_datetime |
+| files.cases.samples.portions.annotations.legacy_updated_datetime |
+| files.cases.samples.portions.annotations.notes |
+| files.cases.samples.portions.annotations.state |
+| files.cases.samples.portions.annotations.status |
+| files.cases.samples.portions.annotations.submitter_id |
+| files.cases.samples.portions.annotations.updated_datetime |
+| files.cases.samples.portions.center.center_id |
+| files.cases.samples.portions.center.center_type |
+| files.cases.samples.portions.center.code |
+| files.cases.samples.portions.center.name |
+| files.cases.samples.portions.center.namespace |
+| files.cases.samples.portions.center.short_name |
+| files.cases.samples.portions.created_datetime |
+| files.cases.samples.portions.creation_datetime |
+| files.cases.samples.portions.is_ffpe |
+| files.cases.samples.portions.portion_id |
+| files.cases.samples.portions.portion_number |
+| files.cases.samples.portions.slides.annotations.annotation_id |
+| files.cases.samples.portions.slides.annotations.case_id |
+| files.cases.samples.portions.slides.annotations.case_submitter_id |
+| files.cases.samples.portions.slides.annotations.category |
+| files.cases.samples.portions.slides.annotations.classification |
+| files.cases.samples.portions.slides.annotations.created_datetime |
+| files.cases.samples.portions.slides.annotations.creator |
+| files.cases.samples.portions.slides.annotations.entity_id |
+| files.cases.samples.portions.slides.annotations.entity_submitter_id |
+| files.cases.samples.portions.slides.annotations.entity_type |
+| files.cases.samples.portions.slides.annotations.legacy_created_datetime |
+| files.cases.samples.portions.slides.annotations.legacy_updated_datetime |
+| files.cases.samples.portions.slides.annotations.notes |
+| files.cases.samples.portions.slides.annotations.state |
+| files.cases.samples.portions.slides.annotations.status |
+| files.cases.samples.portions.slides.annotations.submitter_id |
+| files.cases.samples.portions.slides.annotations.updated_datetime |
+| files.cases.samples.portions.slides.created_datetime |
+| files.cases.samples.portions.slides.number_proliferating_cells |
+| files.cases.samples.portions.slides.percent_eosinophil_infiltration |
+| files.cases.samples.portions.slides.percent_granulocyte_infiltration |
+| files.cases.samples.portions.slides.percent_inflam_infiltration |
+| files.cases.samples.portions.slides.percent_lymphocyte_infiltration |
+| files.cases.samples.portions.slides.percent_monocyte_infiltration |
+| files.cases.samples.portions.slides.percent_necrosis |
+| files.cases.samples.portions.slides.percent_neutrophil_infiltration |
+| files.cases.samples.portions.slides.percent_normal_cells |
+| files.cases.samples.portions.slides.percent_stromal_cells |
+| files.cases.samples.portions.slides.percent_tumor_cells |
+| files.cases.samples.portions.slides.percent_tumor_nuclei |
+| files.cases.samples.portions.slides.section_location |
+| files.cases.samples.portions.slides.slide_id |
+| files.cases.samples.portions.slides.state |
+| files.cases.samples.portions.slides.submitter_id |
+| files.cases.samples.portions.slides.updated_datetime |
+| files.cases.samples.portions.state |
+| files.cases.samples.portions.submitter_id |
+| files.cases.samples.portions.updated_datetime |
+| files.cases.samples.portions.weight |
+| files.cases.samples.preservation_method |
+| files.cases.samples.sample_id |
+| files.cases.samples.sample_type |
+| files.cases.samples.sample_type_id |
+| files.cases.samples.shortest_dimension |
+| files.cases.samples.state |
+| files.cases.samples.submitter_id |
+| files.cases.samples.time_between_clamping_and_freezing |
+| files.cases.samples.time_between_excision_and_freezing |
+| files.cases.samples.tissue_type |
+| files.cases.samples.tumor_code |
+| files.cases.samples.tumor_code_id |
+| files.cases.samples.tumor_descriptor |
+| files.cases.samples.updated_datetime |
+| files.cases.slide_ids |
+| files.cases.state |
+| files.cases.submitter_aliquot_ids |
+| files.cases.submitter_analyte_ids |
+| files.cases.submitter_id |
+| files.cases.submitter_portion_ids |
+| files.cases.submitter_sample_ids |
+| files.cases.submitter_slide_ids |
+| files.cases.summary.data_categories.data_category |
+| files.cases.summary.data_categories.file_count |
+| files.cases.summary.experimental_strategies.experimental_strategy |
+| files.cases.summary.experimental_strategies.file_count |
+| files.cases.summary.file_count |
+| files.cases.summary.file_size |
+| files.cases.tissue_source_site.bcr_id |
+| files.cases.tissue_source_site.code |
+| files.cases.tissue_source_site.name |
+| files.cases.tissue_source_site.project |
+| files.cases.tissue_source_site.tissue_source_site_id |
+| files.cases.updated_datetime |
+| files.center.center_id |
+| files.center.center_type |
+| files.center.code |
+| files.center.name |
+| files.center.namespace |
+| files.center.short_name |
+| files.created_datetime |
+| files.data_category |
+| files.data_format |
+| files.data_type |
+| files.downstream_analyses.analysis_id |
+| files.downstream_analyses.analysis_type |
+| files.downstream_analyses.created_datetime |
+| files.downstream_analyses.output_files.created_datetime |
+| files.downstream_analyses.output_files.data_category |
+| files.downstream_analyses.output_files.data_format |
+| files.downstream_analyses.output_files.data_type |
+| files.downstream_analyses.output_files.error_type |
+| files.downstream_analyses.output_files.experimental_strategy |
+| files.downstream_analyses.output_files.file_id |
+| files.downstream_analyses.output_files.file_name |
+| files.downstream_analyses.output_files.file_size |
+| files.downstream_analyses.output_files.file_state |
+| files.downstream_analyses.output_files.md5sum |
+| files.downstream_analyses.output_files.platform |
+| files.downstream_analyses.output_files.revision |
+| files.downstream_analyses.output_files.state |
+| files.downstream_analyses.output_files.state_comment |
+| files.downstream_analyses.output_files.submitter_id |
+| files.downstream_analyses.output_files.updated_datetime |
+| files.downstream_analyses.state |
+| files.downstream_analyses.submitter_id |
+| files.downstream_analyses.updated_datetime |
+| files.downstream_analyses.workflow_end_datetime |
+| files.downstream_analyses.workflow_link |
+| files.downstream_analyses.workflow_start_datetime |
+| files.downstream_analyses.workflow_type |
+| files.downstream_analyses.workflow_version |
+| files.error_type |
+| files.experimental_strategy |
+| files.file_id |
+| files.file_name |
+| files.file_size |
+| files.file_state |
+| files.index_files.created_datetime |
+| files.index_files.data_category |
+| files.index_files.data_format |
+| files.index_files.data_type |
+| files.index_files.error_type |
+| files.index_files.experimental_strategy |
+| files.index_files.file_id |
+| files.index_files.file_name |
+| files.index_files.file_size |
+| files.index_files.file_state |
+| files.index_files.md5sum |
+| files.index_files.platform |
+| files.index_files.revision |
+| files.index_files.state |
+| files.index_files.state_comment |
+| files.index_files.submitter_id |
+| files.index_files.updated_datetime |
+| files.md5sum |
+| files.metadata_files.access |
+| files.metadata_files.created_datetime |
+| files.metadata_files.data_category |
+| files.metadata_files.data_format |
+| files.metadata_files.data_type |
+| files.metadata_files.error_type |
+| files.metadata_files.file_id |
+| files.metadata_files.file_name |
+| files.metadata_files.file_size |
+| files.metadata_files.file_state |
+| files.metadata_files.md5sum |
+| files.metadata_files.state |
+| files.metadata_files.state_comment |
+| files.metadata_files.submitter_id |
+| files.metadata_files.type |
+| files.metadata_files.updated_datetime |
+| files.origin |
+| files.platform |
+| files.revision |
+| files.state |
+| files.state_comment |
+| files.submitter_id |
+| files.tags |
+| files.type |
+| files.updated_datetime |
+| portion_ids |
+| project.dbgap_accession_number |
+| project.disease_type |
+| project.name |
+| project.primary_site |
+| project.program.dbgap_accession_number |
+| project.program.name |
+| project.program.program_id |
+| project.project_id |
+| project.released |
+| project.state |
+| sample_ids |
+| samples.annotations.annotation_id |
+| samples.annotations.case_id |
+| samples.annotations.case_submitter_id |
+| samples.annotations.category |
+| samples.annotations.classification |
+| samples.annotations.created_datetime |
+| samples.annotations.creator |
+| samples.annotations.entity_id |
+| samples.annotations.entity_submitter_id |
+| samples.annotations.entity_type |
+| samples.annotations.legacy_created_datetime |
+| samples.annotations.legacy_updated_datetime |
+| samples.annotations.notes |
+| samples.annotations.state |
+| samples.annotations.status |
+| samples.annotations.submitter_id |
+| samples.annotations.updated_datetime |
+| samples.composition |
+| samples.created_datetime |
+| samples.current_weight |
+| samples.days_to_collection |
+| samples.days_to_sample_procurement |
+| samples.freezing_method |
+| samples.initial_weight |
+| samples.intermediate_dimension |
+| samples.is_ffpe |
+| samples.longest_dimension |
+| samples.oct_embedded |
+| samples.pathology_report_uuid |
+| samples.portions.analytes.a260_a280_ratio |
+| samples.portions.analytes.aliquots.aliquot_id |
+| samples.portions.analytes.aliquots.amount |
+| samples.portions.analytes.aliquots.analyte_type |
+| samples.portions.analytes.aliquots.analyte_type_id |
+| samples.portions.analytes.aliquots.annotations.annotation_id |
+| samples.portions.analytes.aliquots.annotations.case_id |
+| samples.portions.analytes.aliquots.annotations.case_submitter_id |
+| samples.portions.analytes.aliquots.annotations.category |
+| samples.portions.analytes.aliquots.annotations.classification |
+| samples.portions.analytes.aliquots.annotations.created_datetime |
+| samples.portions.analytes.aliquots.annotations.creator |
+| samples.portions.analytes.aliquots.annotations.entity_id |
+| samples.portions.analytes.aliquots.annotations.entity_submitter_id |
+| samples.portions.analytes.aliquots.annotations.entity_type |
+| samples.portions.analytes.aliquots.annotations.legacy_created_datetime |
+| samples.portions.analytes.aliquots.annotations.legacy_updated_datetime |
+| samples.portions.analytes.aliquots.annotations.notes |
+| samples.portions.analytes.aliquots.annotations.state |
+| samples.portions.analytes.aliquots.annotations.status |
+| samples.portions.analytes.aliquots.annotations.submitter_id |
+| samples.portions.analytes.aliquots.annotations.updated_datetime |
+| samples.portions.analytes.aliquots.center.center_id |
+| samples.portions.analytes.aliquots.center.center_type |
+| samples.portions.analytes.aliquots.center.code |
+| samples.portions.analytes.aliquots.center.name |
+| samples.portions.analytes.aliquots.center.namespace |
+| samples.portions.analytes.aliquots.center.short_name |
+| samples.portions.analytes.aliquots.concentration |
+| samples.portions.analytes.aliquots.created_datetime |
+| samples.portions.analytes.aliquots.source_center |
+| samples.portions.analytes.aliquots.state |
+| samples.portions.analytes.aliquots.submitter_id |
+| samples.portions.analytes.aliquots.updated_datetime |
+| samples.portions.analytes.amount |
+| samples.portions.analytes.analyte_id |
+| samples.portions.analytes.analyte_type |
+| samples.portions.analytes.analyte_type_id |
+| samples.portions.analytes.annotations.annotation_id |
+| samples.portions.analytes.annotations.case_id |
+| samples.portions.analytes.annotations.case_submitter_id |
+| samples.portions.analytes.annotations.category |
+| samples.portions.analytes.annotations.classification |
+| samples.portions.analytes.annotations.created_datetime |
+| samples.portions.analytes.annotations.creator |
+| samples.portions.analytes.annotations.entity_id |
+| samples.portions.analytes.annotations.entity_submitter_id |
+| samples.portions.analytes.annotations.entity_type |
+| samples.portions.analytes.annotations.legacy_created_datetime |
+| samples.portions.analytes.annotations.legacy_updated_datetime |
+| samples.portions.analytes.annotations.notes |
+| samples.portions.analytes.annotations.state |
+| samples.portions.analytes.annotations.status |
+| samples.portions.analytes.annotations.submitter_id |
+| samples.portions.analytes.annotations.updated_datetime |
+| samples.portions.analytes.concentration |
+| samples.portions.analytes.created_datetime |
+| samples.portions.analytes.spectrophotometer_method |
+| samples.portions.analytes.state |
+| samples.portions.analytes.submitter_id |
+| samples.portions.analytes.updated_datetime |
+| samples.portions.analytes.well_number |
+| samples.portions.annotations.annotation_id |
+| samples.portions.annotations.case_id |
+| samples.portions.annotations.case_submitter_id |
+| samples.portions.annotations.category |
+| samples.portions.annotations.classification |
+| samples.portions.annotations.created_datetime |
+| samples.portions.annotations.creator |
+| samples.portions.annotations.entity_id |
+| samples.portions.annotations.entity_submitter_id |
+| samples.portions.annotations.entity_type |
+| samples.portions.annotations.legacy_created_datetime |
+| samples.portions.annotations.legacy_updated_datetime |
+| samples.portions.annotations.notes |
+| samples.portions.annotations.state |
+| samples.portions.annotations.status |
+| samples.portions.annotations.submitter_id |
+| samples.portions.annotations.updated_datetime |
+| samples.portions.center.center_id |
+| samples.portions.center.center_type |
+| samples.portions.center.code |
+| samples.portions.center.name |
+| samples.portions.center.namespace |
+| samples.portions.center.short_name |
+| samples.portions.created_datetime |
+| samples.portions.creation_datetime |
+| samples.portions.is_ffpe |
+| samples.portions.portion_id |
+| samples.portions.portion_number |
+| samples.portions.slides.annotations.annotation_id |
+| samples.portions.slides.annotations.case_id |
+| samples.portions.slides.annotations.case_submitter_id |
+| samples.portions.slides.annotations.category |
+| samples.portions.slides.annotations.classification |
+| samples.portions.slides.annotations.created_datetime |
+| samples.portions.slides.annotations.creator |
+| samples.portions.slides.annotations.entity_id |
+| samples.portions.slides.annotations.entity_submitter_id |
+| samples.portions.slides.annotations.entity_type |
+| samples.portions.slides.annotations.legacy_created_datetime |
+| samples.portions.slides.annotations.legacy_updated_datetime |
+| samples.portions.slides.annotations.notes |
+| samples.portions.slides.annotations.state |
+| samples.portions.slides.annotations.status |
+| samples.portions.slides.annotations.submitter_id |
+| samples.portions.slides.annotations.updated_datetime |
+| samples.portions.slides.created_datetime |
+| samples.portions.slides.number_proliferating_cells |
+| samples.portions.slides.percent_eosinophil_infiltration |
+| samples.portions.slides.percent_granulocyte_infiltration |
+| samples.portions.slides.percent_inflam_infiltration |
+| samples.portions.slides.percent_lymphocyte_infiltration |
+| samples.portions.slides.percent_monocyte_infiltration |
+| samples.portions.slides.percent_necrosis |
+| samples.portions.slides.percent_neutrophil_infiltration |
+| samples.portions.slides.percent_normal_cells |
+| samples.portions.slides.percent_stromal_cells |
+| samples.portions.slides.percent_tumor_cells |
+| samples.portions.slides.percent_tumor_nuclei |
+| samples.portions.slides.section_location |
+| samples.portions.slides.slide_id |
+| samples.portions.slides.state |
+| samples.portions.slides.submitter_id |
+| samples.portions.slides.updated_datetime |
+| samples.portions.state |
+| samples.portions.submitter_id |
+| samples.portions.updated_datetime |
+| samples.portions.weight |
+| samples.preservation_method |
+| samples.sample_id |
+| samples.sample_type |
+| samples.sample_type_id |
+| samples.shortest_dimension |
+| samples.state |
+| samples.submitter_id |
+| samples.time_between_clamping_and_freezing |
+| samples.time_between_excision_and_freezing |
+| samples.tissue_type |
+| samples.tumor_code |
+| samples.tumor_code_id |
+| samples.tumor_descriptor |
+| samples.updated_datetime |
+| slide_ids |
+| state |
+| submitter_aliquot_ids |
+| submitter_analyte_ids |
+| submitter_id |
+| submitter_portion_ids |
+| submitter_sample_ids |
+| submitter_slide_ids |
+| summary.data_categories.data_category |
+| summary.data_categories.file_count |
+| summary.experimental_strategies.experimental_strategy |
+| summary.experimental_strategies.file_count |
+| summary.file_count |
+| summary.file_size |
+| tissue_source_site.bcr_id |
+| tissue_source_site.code |
+| tissue_source_site.name |
+| tissue_source_site.project |
+| tissue_source_site.tissue_source_site_id |
+| updated_datetime |
 
 ## Annotation Fields
 
@@ -1531,16 +1292,16 @@ There are thousands of fields available in the GDC data model that are accessibl
 | --- |
 | annotation_id |
 | case_id |
-| case_submitter_id|
+| case_submitter_id |
 | category |
 | classification |
 | created_datetime |
-| creator |
 | entity_id |
 | entity_submitter_id |
 | entity_type |
+| legacy_created_datetime |
+| legacy_updated_datetime |
 | notes |
-| project_id |
 | project.code |
 | project.dbgap_accession_number |
 | project.disease_type |

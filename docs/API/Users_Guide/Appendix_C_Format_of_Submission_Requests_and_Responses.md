@@ -117,7 +117,7 @@ specific entity. Entity errors are of the form:
 
 API responses will contain a status for each entity specified in the request:
 
-**`success`**: The desired transaction was sucessful and the entity’s state was modified in the GDC.
+**`success`**: The desired transaction was sucessful and the entity's state was modified in the GDC.
 
 **`valid`**: The desired transaction was not sucessful, but the trasaction was not aborted because of this entity.
 

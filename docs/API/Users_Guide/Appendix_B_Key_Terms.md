@@ -16,11 +16,11 @@ The following table provides definitions and explanations for terms and acronyms
 | HTTP | Hypertext Transfer Protocol |
 | IDE | Integrated Development Environment |
 | JSON | JavaScript Object Notation |
-| MAGE-TAB | Microarray Gene Expression - Tabular format  |
+| MAGE-TAB | Microarray Gene Expression - Tabular format |
 | NCI | National Cancer Institute |
 | NIH | National Institutes of Health |
 | Op | Operations |
-| REST | Representational State Transfer  |
+| REST | Representational State Transfer |
 | TARGET | Therapeutically Applicable Research to Generate Effective Treatments |
 | TCGA | The Cancer Genome Atlas |
 | TSV | Tab Seperated Values |
