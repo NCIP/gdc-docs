@@ -156,6 +156,4 @@ Error Code | Description
 
 In the case that an error occurs during transfer of the resulting BAM, the BGZF EOF marker will not be present. This early truncation of the BAM file will cause errors if the file is used as input to other programs. For example, `samtools` will provide the error "EOF marker is absent".
 
-Early truncation can arise when:
-- Connection is interrupted
-- Slicing fails due to BAM corruption
+Early truncation can arise when connection is interrupted or when slicing fails due to BAM corruption.
