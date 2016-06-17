@@ -514,58 +514,189 @@ The GDC Annotation Endpoint `https://gdc-api.nci.nih.gov/annotations` enables se
 
 #### Example
 
-This example is a query for Annotations contained in the GDC. It uses the [from](#from), [size](#size), and [pretty](#pretty) parameters, and returns the first two annotations.
+This example is a query for any annotations **directly** associated with the following GDC entities:
 
+* the case with UUID e0d36cc0-652c-4224-bb10-09d15c7bd8f1
+* the sample with UUID 25ebc29a-7598-4ae4-ba7f-618d448882cc
+* the aliquot with UUID fe660d7c-2746-4b50-ab93-b2ed99960553
+
+The query uses the [filters](#filters) parameter to specify entity UUIDs. Code samples below include the bare and percent-encoded filter JSON.
+
+```Filter-JSON
+{
+   "op":"in",
+   "content":{
+      "field":"entity_id",
+      "value":[
+         "e0d36cc0-652c-4224-bb10-09d15c7bd8f1",
+         "25ebc29a-7598-4ae4-ba7f-618d448882cc",
+         "fe660d7c-2746-4b50-ab93-b2ed99960553"
+      ]
+   }
+}
+```
+```Filter-JSON-percent-encoded
+%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22entity_id%22%2C%22value%22%3A%5B%22e0d36cc0-652c-4224-bb10-09d15c7bd8f1%22%2C%2225ebc29a-7598-4ae4-ba7f-618d448882cc%22%2C%22fe660d7c-2746-4b50-ab93-b2ed99960553%22%5D%7D%7D
+```
 ```shell
-curl 'https://gdc-api.nci.nih.gov/annotations?from=1&size=2&pretty=true'
+curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22entity_id%22%2C%22value%22%3A%5B%22e0d36cc0-652c-4224-bb10-09d15c7bd8f1%22%2C%2225ebc29a-7598-4ae4-ba7f-618d448882cc%22%2C%22fe660d7c-2746-4b50-ab93-b2ed99960553%22%5D%7D%7D&pretty=true'
 ```
 ``` Output
-
-	{
-	  "data": {
-	    "hits": [
-	      {
-	        "category": "Item flagged DNU",
-	        "status": "Approved",
-	        "entity_id": "2b61b856-b988-43ca-8dc5-9f97600118ec",
-	        "classification": "CenterNotification",
-	        "entity_type": "aliquot",
-	        "created_datetime": 1294525038,
-	        "annotation_id": "7d01080f-e82d-5e58-98a6-910c041ee2b3",
-	        "notes": "SDRF in broad.mit.edu_READ.Genome_Wide_SNP_6.mage-tab.1.1003.0 flagged aliquot to be excluded for analysis based on file 'SCENA_p_TCGAb29and30_SNP_N_GenomeWideSNP_6_C04_569122.ismpolish.data.txt'.",
-	        "creator": "DCC",
-	        "submitter_id": "1099",
-	        "case_id": "e7503a51-6647-4cc2-80dd-645d0df4db43",
-	        "entity_submitter_id": "TCGA-AG-A008-10A-01D-A003-01"
-	      },
-	      {
-	        "category": "Item flagged DNU",
-	        "status": "Approved",
-	        "entity_id": "d1f35d46-c6c9-4cff-ad95-e86d88b38b51",
-	        "classification": "CenterNotification",
-	        "entity_type": "aliquot",
-	        "created_datetime": 1414794925,
-	        "annotation_id": "c6a9e076-bb56-5dd9-89e7-c340594fa8f7",
-	        "notes": "SDRF in broad.mit.edu_COAD.Genome_Wide_SNP_6.mage-tab.1.2010.0 flagged aliquot to be excluded for analysis based on file 'SNORT_p_TCGA_b89_SNP_N_GenomeWideSNP_6_E05_777376.birdseed.data.txt'.",
-	        "creator": "DCC",
-	        "submitter_id": "23507",
-	        "case_id": "57b0f89f-1b75-453e-922c-01cd4d44ca49",
-	        "entity_submitter_id": "TCGA-CK-5914-10A-01D-1649-01"
-	      }
-	    ],
-	    "pagination": {
-	      "count": 2,
-	      "sort": "",
-	      "from": 1,
-	      "pages": 12296,
-	      "total": 24592,
-	      "page": 1,
-	      "size": 2
-	    }
-	  },
-	  "warnings": {}
-	}
+{
+  "data": {
+    "hits": [
+      {
+        "status": "Approved",
+        "category": "Item flagged DNU",
+        "entity_id": "fe660d7c-2746-4b50-ab93-b2ed99960553",
+        "classification": "CenterNotification",
+        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
+        "created_datetime": "2015-09-28T13:39:13-04:00",
+        "annotation_id": "5ddadefe-8b57-5ce2-b8b2-918d63d99a59",
+        "notes": "The aliquot failed Broad pipeline QC and not all files are suitable for use. Consult the SDRF file to determine which files are usable.",
+        "entity_type": "aliquot",
+        "submitter_id": "29087",
+        "case_id": "41b59716-116f-4942-8b63-409870a87e26",
+        "entity_submitter_id": "TCGA-DK-A3IM-10A-01D-A20B-01",
+        "case_submitter_id": "TCGA-DK-A3IM"
+      },
+      {
+        "status": "Approved",
+        "category": "Item is noncanonical",
+        "entity_id": "25ebc29a-7598-4ae4-ba7f-618d448882cc",
+        "classification": "Notification",
+        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
+        "created_datetime": "2012-07-12T15:00:15-04:00",
+        "annotation_id": "d6500f94-618f-5334-a810-ade76b887ec9",
+        "notes": "No Matching Normal",
+        "entity_type": "sample",
+        "submitter_id": "8009",
+        "case_id": "bd114e05-5a97-41e2-a0d5-5d39a1e9d461",
+        "entity_submitter_id": "TCGA-08-0514-01A",
+        "case_submitter_id": "TCGA-08-0514"
+      },
+      {
+        "status": "Approved",
+        "category": "Prior malignancy",
+        "entity_id": "e0d36cc0-652c-4224-bb10-09d15c7bd8f1",
+        "classification": "Notification",
+        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
+        "created_datetime": "2013-03-12T10:05:14-04:00",
+        "annotation_id": "33336cdf-2cf0-5af2-bb52-fecd3427f180",
+        "notes": "Patient had a prior lymphoma. Unknown radiation or systemic chemotherapy.",
+        "entity_type": "case",
+        "submitter_id": "15630",
+        "case_id": "e0d36cc0-652c-4224-bb10-09d15c7bd8f1",
+        "entity_submitter_id": "TCGA-FS-A1ZF",
+        "case_submitter_id": "TCGA-FS-A1ZF"
+      }
+    ],
+    "pagination": {
+      "count": 3,
+      "sort": "",
+      "from": 1,
+      "page": 1,
+      "total": 3,
+      "pages": 1,
+      "size": 10
+    }
+  },
+  "warnings": {}
+}
 ```
+
+#### Example
+
+This example is a query for any annotations that are associated with the following *cases*, **directly or via a child entity**:
+
+* the case with UUID 513c5f34-dc6e-4caa-81cc-907fd6a825b1
+* the case with UUID 942c0088-c9a0-428c-a879-e16f8c5bfdb8
+
+The query uses the [filters](#filters) parameter to specify entity UUIDs. Code samples below include the bare and percent-encoded filter JSON.
+
+```Filter-JSON
+{
+   "op":"in",
+   "content":{
+      "field":"annotation.case_id",
+      "value":[
+         "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
+         "942c0088-c9a0-428c-a879-e16f8c5bfdb8"
+      ]
+   }
+}
+```
+```Filter-JSON-percent-encoded
+%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22annotation.case_id%22%2C%22value%22%3A%5B%22513c5f34-dc6e-4caa-81cc-907fd6a825b1%22%2C%22942c0088-c9a0-428c-a879-e16f8c5bfdb8%22%5D%7D%7D
+```
+```shell
+curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22annotation.case_id%22%2C%22value%22%3A%5B%22513c5f34-dc6e-4caa-81cc-907fd6a825b1%22%2C%22942c0088-c9a0-428c-a879-e16f8c5bfdb8%22%5D%7D%7D&pretty=true'
+```
+``` Output
+{
+  "data": {
+    "hits": [
+      {
+        "status": "Approved",
+        "category": "Item flagged DNU",
+        "entity_id": "fe660d7c-2746-4b50-ab93-b2ed99960553",
+        "classification": "CenterNotification",
+        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
+        "created_datetime": "2015-09-28T13:39:13-04:00",
+        "annotation_id": "5ddadefe-8b57-5ce2-b8b2-918d63d99a59",
+        "notes": "The aliquot failed Broad pipeline QC and not all files are suitable for use. Consult the SDRF file to determine which files are usable.",
+        "entity_type": "aliquot",
+        "submitter_id": "29087",
+        "case_id": "41b59716-116f-4942-8b63-409870a87e26",
+        "entity_submitter_id": "TCGA-DK-A3IM-10A-01D-A20B-01",
+        "case_submitter_id": "TCGA-DK-A3IM"
+      },
+      {
+        "status": "Approved",
+        "category": "Item is noncanonical",
+        "entity_id": "25ebc29a-7598-4ae4-ba7f-618d448882cc",
+        "classification": "Notification",
+        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
+        "created_datetime": "2012-07-12T15:00:15-04:00",
+        "annotation_id": "d6500f94-618f-5334-a810-ade76b887ec9",
+        "notes": "No Matching Normal",
+        "entity_type": "sample",
+        "submitter_id": "8009",
+        "case_id": "bd114e05-5a97-41e2-a0d5-5d39a1e9d461",
+        "entity_submitter_id": "TCGA-08-0514-01A",
+        "case_submitter_id": "TCGA-08-0514"
+      },
+      {
+        "status": "Approved",
+        "category": "Prior malignancy",
+        "entity_id": "e0d36cc0-652c-4224-bb10-09d15c7bd8f1",
+        "classification": "Notification",
+        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
+        "created_datetime": "2013-03-12T10:05:14-04:00",
+        "annotation_id": "33336cdf-2cf0-5af2-bb52-fecd3427f180",
+        "notes": "Patient had a prior lymphoma. Unknown radiation or systemic chemotherapy.",
+        "entity_type": "case",
+        "submitter_id": "15630",
+        "case_id": "e0d36cc0-652c-4224-bb10-09d15c7bd8f1",
+        "entity_submitter_id": "TCGA-FS-A1ZF",
+        "case_submitter_id": "TCGA-FS-A1ZF"
+      }
+    ],
+    "pagination": {
+      "count": 3,
+      "sort": "",
+      "from": 1,
+      "page": 1,
+      "total": 3,
+      "pages": 1,
+      "size": 10
+    }
+  },
+  "warnings": {}
+}
+```
+
+
 
 ### \_mapping Endpoint
 
@@ -1082,7 +1213,7 @@ Operators allow users to define query conditions.
 | or       | (operation1) or (operation2)                     | multiple           | {project_id != "TARGET-AML"} or {age at diagnosis < 90y}     |
 
 
-Users can get a list of available values for a specific field in the filter by making a call to the appropriate API endpoint using the `fields` parameter.
+Users can get a list of available values for a specific field in the filter by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://gdc-api.nci.nih.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`
 
 #### Nested Operations
 
