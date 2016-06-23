@@ -54,7 +54,7 @@ This part of a VCF file contains tab-delimited information, one line per record,
 
 ## GDC INFO fields
 
-The following variant annotation fields are currently included in Annotated Somatic Mutation VCF files.  Please refer to [GDC Somatic Mutation Annotation Pipeline](../Bioinformatics_Pipelines/Annotation_Pipeline.md) for details on how this information is generated.
+The following variant annotation fields are currently included in Annotated Somatic Mutation VCF files.  Please refer to [GDC Somatic Mutation Annotation Pipeline](../Bioinformatics_Pipelines/Annotation_Pipeline.md) for details on how this information is generated. [VEP Documentation](http://useast.ensembl.org/info/docs/tools/vep/vep_formats.html#output) provides additional information about some of these fields.
 
 |field|description|
 |--|--|
@@ -85,7 +85,7 @@ The following variant annotation fields are currently included in Annotated Soma
 |HGNC_ID|HGNC gene ID|
 |CANONICAL|a flag indicating if the transcript is denoted as the canonical transcript for this gene|
 |TSL|Transcript support level|
-|APPRIS||
+|APPRIS|APPRIS isoform annotation|
 |CCDS|the CCDS identifer for this transcript, where applicable|
 |ENSP|the Ensembl protein identifier of the affected transcript|
 |SWISSPROT|UniProtKB/Swiss-Prot identifier of protein product|
@@ -117,7 +117,7 @@ The following variant annotation fields are currently included in Annotated Soma
 |CLIN_SIG|Clinical significance of variant from dbSNP|
 |SOMATIC|Somatic status of existing variant(s)|
 |PHENO|Indicates if existing variant is associated with a phenotype, disease or trait|
-|PUBMED||
+|PUBMED|Pubmed ID(s) of publications that cite existing variant|
 |MOTIF_NAME|the source and identifier of a transcription factor binding profile aligned at this position|
 |MOTIF_POS|The relative position of the variation in the aligned TFBP|
 |HIGH_INF_POS|a flag indicating if the variant falls in a high information position of a transcription factor binding profile (TFBP)|

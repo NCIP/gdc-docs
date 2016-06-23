@@ -29,6 +29,8 @@ There are thousands of fields available in the GDC data model that are accessibl
 
 ## File Fields
 
+| Field Name |
+| --- |
 | access |
 | acl |
 | analysis.analysis_id |
