@@ -13,6 +13,7 @@ This view focuses on the number of data files available at GDC. Selecting items 
 ## Cases and Files Search
 
 ### Facets
+
 Two types of facets are available, _'Cases'_ and _'Files'_ facets.
 
 By default, the following __Cases__ facets are available:
@@ -42,6 +43,11 @@ By default, the following __Files__ facets are available:
 * __File Status__: Indicate status of data file, possible values: live, redacted etc.
 * __Tags__: Short keyword or phrase assigned to data file to describe any perspective of the data file to facilitate data search.
 
+#### Custom Facets
+
+The GDC Data Portal allows filtering cases and files using additional fields not exposed in the default view. To add a filter, click the link at the top of the tab:
+
+[![Image of Cases Tab with 'Add a Cases Filter' link at the top](images/gdc-data-portal-data-facets-custom.png)](images/gdc-data-portal-data-facets-custom.png "Click to see the full image.")
 
 ### Summary
 
@@ -111,7 +117,7 @@ More details about the file itself are provided in the upper section of the page
 
 In the lower section of the screen, the following tables provide more details about the file and its characteristics:
 
-* __Associated Cases / Biospecimen__: List of Cases or biospecimen the file is directly attached to. 
+* __Associated Cases / Biospecimen__: List of Cases or biospecimen the file is directly attached to.
 * __Workflow and Reference Genome__: Information on the workflow and reference genome used for the file generation
 * __Read Groups__: Information on the Read Groups used for the file generation
 * __Metadata Files__: Experiment metadata, run metadata and analysis metadata associated with the file
@@ -121,7 +127,4 @@ In the lower section of the screen, the following tables provide more details ab
 
 
 
-**Note**: *The Legacy Archive* will not display "Workflow, Reference Genome and Read Groups" sections (these sections are applicable to the GDC harmonization pipeline only). However it may provide information on Archives and MAGE-TABs. For more information, please refer to the section [Legacy Archive](Legacy_Archive.md). 
-
-
-
+**Note**: *The Legacy Archive* will not display "Workflow, Reference Genome and Read Groups" sections (these sections are applicable to the GDC harmonization pipeline only). However it may provide information on Archives and MAGE-TABs. For more information, please refer to the section [Legacy Archive](Legacy_Archive.md).
