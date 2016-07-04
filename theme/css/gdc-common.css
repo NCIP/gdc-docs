@@ -1682,3 +1682,75 @@ footer a:visited {
     display: none;
   }
 }
+
+/* GDC APPS MENU */
+
+.dropdown-menu.gdc-apps-menu-container {
+  padding: 0.5rem 0.5rem;
+  margin-top: 1rem;
+  z-index: 100000;
+}
+.dropdown-menu.gdc-apps-menu-container:before {
+  width: 0;
+  height: 0;
+  top: -10px;
+  right: 12px;
+  position: absolute;
+  content: ' ';
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ccc;
+}
+.dropdown-menu.gdc-apps-menu-container .gdc-apps-menu-grid {
+  text-align: center;
+  font-size: 1.2rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.dropdown-menu.gdc-apps-menu-container .gdc-apps-menu-grid .menu-column {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.dropdown-menu.gdc-apps-menu-container .gdc-apps-menu-grid:before {
+  width: 0;
+  height: 0;
+  top: -9px;
+  right: 12px;
+  position: absolute;
+  content: ' ';
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+}
+.dropdown-menu.gdc-apps-menu-container .gdc-apps-menu-grid .icon {
+  font-size: 2rem;
+}
+.dropdown-menu.gdc-apps-menu-container .gdc-apps-menu-grid .active {
+  background-color: #ccc;
+}
+.dropdown-menu.gdc-apps-menu-container .gdc-apps-menu-grid .menu-item {
+  padding: 0.5rem;
+  white-space: nowrap;
+  margin: 0.25rem;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.dropdown-menu.gdc-apps-menu-container .gdc-apps-menu-grid a {
+  display: block;
+  padding: 0.8rem 0.5rem 0.2rem 0.5rem;
+  color: inherit;
+  transition: background 0.25s ease-in-out;
+}
+.dropdown-menu.gdc-apps-menu-container .gdc-apps-menu-grid a:hover {
+  text-decoration: none;
+  background-color: #ededed;
+}
