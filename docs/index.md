@@ -11,7 +11,7 @@ The GDC documentation is divided into the following top-level sections:
 * GDC Data Submission Portal: [PDF](Data_Submission_Portal/PDF/Data_Submission_Portal_UG.pdf) - [HTML](Data_Submission_Portal/Users_Guide/Getting_Started.md)
 * GDC Data Transfer Tool: [PDF](Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf) - [HTML](Data_Transfer_Tool/Users_Guide/Getting_Started.md)
 * GDC Dictionary: [HTML](Data_Dictionary/index.md)
-* GDC Data: [PDF](Releases/PDF/Data_UG.pdf) - [HTML](Data/File_Formats/VCF_Format.md)
+* GDC Data: [PDF](Data/PDF/Data_UG.pdf) - [HTML](Data/File_Formats/VCF_Format.md)
 
 ## Learn More
 
