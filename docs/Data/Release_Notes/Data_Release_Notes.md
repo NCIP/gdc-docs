@@ -1,11 +1,31 @@
 # Data Release Notes
 
+## Data Release v2
+
+* __GDC Product__: Data
+* __Release Date__: July 18, 2016
+
+
+### New updates
+
+1.  Recent updates to CGHub and the TCGA DCC are now available in the GDC
+2.  Better linking between files and their associated projects and cases in the Legacy Archive
+3.  MAF files are now available with the GDC Data Portal
+
+### Known Issues and Workarounds
+
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* Public MAFs (those with germline variants removed) are only available for MuTect2 pipeline.  MAFs for other pipelines are forthcoming.  
+* MAF Column #109 "FILTER" entries are separated by both commas and semi-colons. <!-- PGDC-2589 -->
+* Public MAFs (those with germline variants removed) are only available for MuTect2 pipeline.  MAFs for other pipelines are forthcoming.  
+* TARGET-AML and TARGET-ALL projects are undergoing reorganization.  Pending reorganization, cases from these projects may not contain many clinical, biospecimen, or genomic data files.
+* No data from TARGET-PPTP is available.
 
 
 
+<br>
 
-
-## Initial Data Release
+## Initial Data Release (v1)
 
 * __GDC Product__: Data
 * __Release Date__: June 6, 2016
@@ -27,6 +47,7 @@
     * Expression quantification using BCCA miRNA Profiling Pipeline*
 * Genotyping Array
     * CNV segmentation data
+
 
 ### Known Issues and Workarounds
 
