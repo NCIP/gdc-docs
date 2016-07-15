@@ -1887,7 +1887,7 @@ The first step is to construct a JSON query object, including `filters`, `fields
 }
 ```
 ```Shell
-curl --request POST --header "Content-Type: application/json" -d @Payload.txt 'https://gdc-api.nci.nih.gov/files' > File_metadata.txt
+curl --request POST --header "Content-Type: application/json" --data @Payload.txt 'https://gdc-api.nci.nih.gov/files' > File_metadata.txt
 ```
 ```File_metadata_txt
 cases_0_submitter_id	cases_0_case_id	data_type	cases_0_samples_0_sample_type	cases_0_samples_0_tissue_type	file_name	cases_0_samples_0_submitter_id	cases_0_samples_0_tumor_descriptor	file_id	data_category	cases_0_samples_0_sample_id
