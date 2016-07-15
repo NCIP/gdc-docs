@@ -2,7 +2,9 @@
 
 The GDC API implements file download functionality using `data` and `manifest` endpoints. The `data` endpoint allows users to download files stored in the GDC by specifying file UUID(s). The `manifest` endpoint generates a download manifest file that can be used with the GDC Data Transfer Tool to transfer large volumes of data.
 
-**Note:** Downloading controlled access data requires the use of a token. See [Authentication and Authorization](Authentication_and_Authorization.md).
+**Note:** Downloading controlled access data requires the use of a token. See [Authentication and Authorization](Authentication_and_Authorization.md) for details.
+
+**Note:** Requests to download data from the GDC Legacy Archive must be directed to `legacy/data`. See [Getting Started](Getting_Started.md#gdc-legacy-archive) for details.
 
 ## Data endpoint
 
@@ -42,7 +44,9 @@ curl: Saved to filename 'gdc_download_064d1aa8cc8cbab33e93979bebbf7d6af2d6a802.t
 
 ### Downloading Multiple Files using POST
 
-The following two examples demonstrate downloading multiple files from the GDC using a POST request that contains a payload in one of two formats: percent-encoded form data or JSON. The GDC API returns a `.tar.gz` archive containing the downloaded files. As noted above, both the `data` and `legacy/data` endpoints accept POST requests.
+The following two examples demonstrate downloading multiple files from the GDC using a POST request that contains a payload in one of two formats: percent-encoded form data or JSON. The GDC API returns a `.tar.gz` archive containing the downloaded files.
+
+As noted above, both the `data` and `legacy/data` endpoints accept POST requests.
 
 #### POST request with form data payload
 

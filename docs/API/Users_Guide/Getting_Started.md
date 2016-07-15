@@ -50,7 +50,12 @@ The HTTP URL of an endpoint corresponding to a specific major version of the GDC
 
 For example, the address of the latest version of the `status` endpoint is `https://gdc-api.nci.nih.gov/status`, whereas the address of the `status` endpoint corresponding to version 0 of GDC API is `https://gdc-api.nci.nih.gov/v0/status`.
 
-To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL: `https://gdc-api.nci.nih.gov/<version>/<legacy>/<endpoint>`.
+### GDC Legacy Archive
+
+API functionality is generally the same for the GDC Data Portal and the GDC Legacy Archive. To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL:
+
+	https://gdc-api.nci.nih.gov/<version>/legacy/<endpoint>
+
 
 ## Entity UUIDs
 
@@ -64,16 +69,15 @@ The `status` endpoint provides information about the current status and version 
 
 
 ``` shell
-    curl https://gdc-api.nci.nih.gov/status
+curl https://gdc-api.nci.nih.gov/status
 ```
-
 ``` python
-	import requests
-	import json
+import requests
+import json
 
-	status_endpt = 'https://gdc-api.nci.nih.gov/status'
-	response = requests.get(status_endpt)
-	print json.dumps(response.json(), indent=2)
+status_endpt = 'https://gdc-api.nci.nih.gov/status'
+response = requests.get(status_endpt)
+print json.dumps(response.json(), indent=2)
 ```
 
 Either of the above two commands returns an output similar to this:
