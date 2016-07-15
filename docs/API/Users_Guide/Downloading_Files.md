@@ -42,7 +42,7 @@ curl: Saved to filename 'gdc_download_064d1aa8cc8cbab33e93979bebbf7d6af2d6a802.t
 
 ### Downloading Multiple Files using POST
 
-The following two examples demonstrate downloading multiple files from the GDC using a POST request that contains a payload in one of two formats: percent-encoded form data or JSON. The GDC API returns a `.tar.gz` archive containing the downloaded files.
+The following two examples demonstrate downloading multiple files from the GDC using a POST request that contains a payload in one of two formats: percent-encoded form data or JSON. The GDC API returns a `.tar.gz` archive containing the downloaded files. As noted above, both the `data` and `legacy/data` endpoints accept POST requests.
 
 #### POST request with form data payload
 
