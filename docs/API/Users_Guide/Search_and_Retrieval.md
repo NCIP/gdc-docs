@@ -6,6 +6,8 @@ API queries that search and retrieve information stored in the GDC are construct
 
 Queries can be executed using HTTP GET or HTTP POST. For simplicity, most examples in this section use GET, but for queries larger than a certain size POST is the only method that works, due to URL length limits. [This example](#example-http-post-request) explains how to construct POST API queries to search and retrieve information from the GDC.
 
+**Note:** Requests to search and retrieve information stored in the GDC Legacy Archive must be directed to `legacy/` endpoints. See [Getting Started](Getting_Started.md#gdc-legacy-archive) for details.
+
 **Note:** Queries described in this section work only on datasets that have been released to the GDC Data Portal. Data that is in the process of being submitted to GDC and is only available on the GDC Submission Portal cannot be queried using these methods. See [Submission](Submission.md) for information on how data submitters can query their unreleased data using GraphQL.
 
 ## Query Endpoints
