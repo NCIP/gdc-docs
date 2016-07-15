@@ -129,7 +129,7 @@ JSON error responses have the following structure:
 For example, when making a request for a protected BAM without supplying a GDC authentication token:
 
 ```Shell
-curl https://api-gdc.nci.nih.gov/v0/slicing/view/fd2386b3-32f5-4aea-a55c-af24f5d1e650
+curl https://gdc-api.nci.nih.gov/v0/slicing/view/15b0bf8e-ff20-41ab-8366-a495c11b30be
 ```
 ```Response
 HTTP/1.1 403 FORBIDDEN
