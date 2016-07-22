@@ -817,41 +817,23 @@
       return null;
     }
 
-    var dictDataList = _sanitizeDictionaryData(data),
-        dictionaryData = {dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {}};
-
-    var dictionaryKeys = _.keys(dictDataList);
-
-    for (var i = 0; i < dictionaryKeys.length; i++) {
-      var dictionaryKey = dictionaryKeys[i];
-
-      // Add special private data prefixed with '_' to the dictionary data object directly...
-      if (dictionaryKey[0] === '_') {
-        dictionaryData[dictionaryKey.substr(1)] = dictDataList[dictionaryKey];
-        delete dictDataList[dictionaryKey];
-      }
-
-    }
-
-    //console.log(dictionaryData);
+    var dictDataList = _sanitizeDictionaryData(data);
 
     // Build our data structures and corresponding caches
-    for (var dictionaryTitle in dictDataList) {
-      var dictionary = dictDataList[dictionaryTitle],
-        dictionaryCategory = dictionary.category || 'Unknown';
-
-      if (dictDataList.hasOwnProperty(dictionaryTitle)) {
-        dictionaryData.dictionaries.push(dictionary);
+    return Object.keys(dictDataList).reduce(function (acc, dictionaryTitle) {
+      var dictionary = dictDataList[dictionaryTitle];
+      if (dictionaryTitle[0] === '_') {
+        // Add special private data prefixed with '_' to the dictionary data object top level
+        acc[dictionaryTitle.substr(1)] = dictionary;
+      } else if (dictionary.category) {
+        // otherwise add it to dictionaries array
+        if (dictDataList.hasOwnProperty(dictionaryTitle)) {
+          acc.dictionaries = acc.dictionaries.concat(dictionary);
+        }
+        acc.dictionaryMapByCategory[dictionary.category] = (acc.dictionaryMapByCategory[dictionary.category] || []).concat(dictionary);
       }
-
-      if (! _.isArray(dictionaryData.dictionaryMapByCategory[dictionaryCategory]) ) {
-        dictionaryData.dictionaryMapByCategory[dictionaryCategory] = [];
-      }
-
-      dictionaryData.dictionaryMapByCategory[dictionaryCategory].push(dictionary);
-    }
-
-    return dictionaryData;
+      return acc;
+    }, {dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {}});
   }
   /////////////////////////////////////////////////////////
 
