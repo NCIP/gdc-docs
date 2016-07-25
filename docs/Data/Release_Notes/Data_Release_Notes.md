@@ -10,7 +10,7 @@
 
 1.  Recent updates to CGHub and the TCGA DCC are now available in the GDC
 2.  Better linking between files and their associated projects and cases in the Legacy Archive
-3.  MAF files are now available with the GDC Data Portal
+3.  MAF files are now available in the GDC Data Portal
 
 ### Known Issues and Workarounds
 
