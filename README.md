@@ -13,7 +13,7 @@ GDC is Open Source, Github Repositories containing source code of GDC Applicatio
 
 # Support
 
-Please direct technical questions to [GDC Support](https://gdc.nci.nih.gov/support)
+Please direct technical questions to [GDC Support](https://gdc.nci.nih.gov/support).
 
 # GDC Documentation Site
 
