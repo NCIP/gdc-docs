@@ -1,6 +1,6 @@
 # Data Release Notes
 
-## Data Release v2
+<!--## Data Release v2
 
 * __GDC Product__: Data
 * __Release Date__: August 1, 2016
@@ -20,8 +20,7 @@
 * TARGET-AML and TARGET-ALL projects are undergoing reorganization.  Pending reorganization, cases from these projects may not contain many clinical, biospecimen, or genomic data files.
 * No data from TARGET-PPTP is available.
 
-Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_notes_manifest.txt)
-
+Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_notes_manifest.txt)-->
 <br>
 
 ## Initial Data Release (v1)
