@@ -1,6 +1,6 @@
 # Data Release Notes
 
-<!--## Data Release v2
+## Data Release v2
 
 * __GDC Product__: Data
 * __Release Date__: August 1, 2016
@@ -19,10 +19,14 @@
 * MAF Column #109 "FILTER" entries are separated by both commas and semi-colons. <!-- PGDC-2589 -->
 * TARGET-AML and TARGET-ALL projects are undergoing reorganization.  Pending reorganization, cases from these projects may not contain many clinical, biospecimen, or genomic data files.
 * No data from TARGET-PPTP is available.
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* There are 200 cases from TCGA-LAML that do not appear in the Legacy Archive <!--SV-327-->
+* Biotab files are not linked to Project or Case in the Legacy Archive <!--SV-303-->
+* SDRF files are not linked to Projet or Case in the Legacy Archive <!--SV-288-->
 
-Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_notes_manifest.txt)-->
+
+Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_notes_manifest.txt)
 <br>
-
 ## Initial Data Release (v1)
 
 * __GDC Product__: Data
