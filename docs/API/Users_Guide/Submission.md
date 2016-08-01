@@ -164,6 +164,59 @@ curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-
 }
 ```
 
+### Asynchronous Transactions
+
+The `submission` endpoint provides a `async=true` mode that returns immediately and executes submission transactions in the background. This mode is activated by appending `?async=true` to the end of a submission endpoint.  The API will return with the `transaction_id` which can be used to lookup the result of the transaction at a later time via the [GraphQL](#querying-submitted-data-and-metadata-using-graphql) endpoint.  If the server has too many asynchronous jobs scheduled already, your request to schedule a transaction may fail.
+
+The following is an example of a PUT request, that creates a case asynchronously:
+
+```Request
+{
+  "project_id": "TCGA-ALCH",
+  "type": "case",
+  "submitter_id": "TCGA-ALCH-000001",
+  "projects": {
+    "code": "ALCH"
+  }
+}
+```
+```Command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH?async=true
+```
+```Response
+{
+  "code": 200,
+  "message": "Transaction submitted.",
+  "transaction_id": 467,
+}
+```
+
+```GraphQL Request
+query {
+  transaction_log(id: 467) {
+    is_dry_run
+    committed_by
+    state
+  }
+}
+```
+
+```GraphQL Response
+{
+  "data": {
+    "transaction_log": [
+      {
+        "committed_by": null,
+        "is_dry_run": false,
+        "state": "FAILED"
+      }
+    ]
+  }
+}
+```
+
 
 ### Example: Creating and Updating a Case Entities
 
@@ -783,7 +836,7 @@ GDC data submitters can access the GDC Submission API GraphQL endpoint at:
 When sending GraphQL requests to the API directly, the bare GraphQL query must be wrapped in a "query" JSON object as shown below:
 
 <pre>
-{  
+{
 	"query": "<b>{Bare_GraphQL_Query}</b>",
 	"variables": null
 }
