@@ -736,7 +736,9 @@ curl --header "X-Auth-Token: $token" --request DELETE https://gdc-api.nci.nih.go
 }
 ```
 
-## Uploading Data Files
+## Working With Files
+
+### Uploading Data Files
 
 Experimental data files like BAM and FASTQ can be uploaded directly to the API using the `files` endpoint, by specifying the UUID of the corresponding `data_file` entity.  Uploading files may be more efficiently performed using the [GDC Data Transfer Tool](/Data_Transfer_Tool/Users_Guide/Getting_Started.md).
 
@@ -744,13 +746,19 @@ Experimental data files like BAM and FASTQ can be uploaded directly to the API u
 
 	curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@data.fastq
 
-### Upload Manifest
+#### Upload Manifest
 
-The `manifest` endpoint can be used to generate a manifest for uploading files using the GDC Data Transfer Tool, for example:
+The `manifest` endpoint generates a manifest for uploading files using the GDC Data Transfer Tool. It requires a comma-separated list of file UUIDs to generate a manifest.
 
-	https://gdc-api.nci.nih.gov/v0/submission/PROGRAM/PROJECT/manifest?ids=79638863-959f-4027-9e43-4e8775b0c49f
+	https://gdc-api.nci.nih.gov/v0/submission/PROGRAM/PROJECT/manifest?ids=bf0751ca-fc3b-4760-b876-0fefce040be5,90163202-cfd7-4f6a-8214-e7e4e924d3a6
 
-The endpoint requires a list of file UUIDs to generate a manifest.
+### Downloading Files
+
+Unreleased files that have been uploaded to the GDC can be downloaded by submitters using the `data` endpoint and an appropriate authentication token. See [Downloading Files](Downloading_Files.md) for details.
+
+### Deleting Files
+
+Uploaded files can be deleted by deleting the entity that corresponds to the file. See [Deleting Entities](#deleting-entities) for details.
 
 ## Querying Submitted Data Using GraphQL
 
