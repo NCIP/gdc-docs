@@ -1,11 +1,33 @@
 # Data Release Notes
 
+## Data Release v2
+
+* __GDC Product__: Data
+* __Release Date__: August 1, 2016
 
 
+### New updates
+
+1.  Recent updates to CGHub and the TCGA DCC are now available in the GDC
+2.  Better linking between files and their associated projects and cases in the Legacy Archive
+3.  MAF files are now available in the GDC Data Portal
+
+### Known Issues and Workarounds
+
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* Public MAFs (those with germline variants removed) are only available for MuTect2 pipeline.  MAFs for other pipelines are forthcoming.  
+* MAF Column #109 "FILTER" entries are separated by both commas and semi-colons. <!-- PGDC-2589 -->
+* TARGET-AML and TARGET-ALL projects are undergoing reorganization.  Pending reorganization, cases from these projects may not contain many clinical, biospecimen, or genomic data files.
+* No data from TARGET-PPTP is available.
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* There are 200 cases from TCGA-LAML that do not appear in the Legacy Archive <!--SV-327-->
+* Biotab files are not linked to Project or Case in the Legacy Archive <!--SV-303-->
+* SDRF files are not linked to Projet or Case in the Legacy Archive <!--SV-288-->
 
 
-
-## Initial Data Release
+Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_notes_manifest.txt)
+<br>
+## Initial Data Release (v1)
 
 * __GDC Product__: Data
 * __Release Date__: June 6, 2016
@@ -27,6 +49,7 @@
     * Expression quantification using BCCA miRNA Profiling Pipeline*
 * Genotyping Array
     * CNV segmentation data
+
 
 ### Known Issues and Workarounds
 

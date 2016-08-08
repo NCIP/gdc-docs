@@ -1,5 +1,51 @@
 # Data Portal Release Notes
 
+### New Features and Changes
+
+## Release 1.2.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: August 8th, 2016
+
+### New Features and Changes
+
+*   Added a retry (1x) mechanism for API calls <!-- PGDC-2393 -->
+*   Added support for ID fields in custom facets <!-- PGDC-1222 -->
+*   Added Case Submitter ID to the Annotation entity page <!-- PGDC-747 -->
+*   Added a link to Biospeciment in the Case entity page <!-- PGDC-2346 -->
+
+### Bugs Fixed Since Last Release
+
+*   General.
+    *   Not possible to use the browser's back button after hitting a 404 page <!-- PGDC-2429 -->
+    *   404 page missing from Legacy Archive Portal <!-- PGDC-2477 -->
+    *   Table widget icon and export JSON icon should be different <!-- PGDC-2446 -->    
+    *   Download SRA XML files from the legacy archive portal might not be possible in some context <!-- PGDC-2457 --> <!-- PGDC-2469 -->
+*   Data and facets
+    *   Default values for age at diagnosis is showing 0 to 89 instead of 0 to 90 <!-- PGDC-2478 -->
+    *   Biospecimen search in the case entity page does not highlight (but does bold and filter) results in yellow when title case is not followed <!-- PGDC-2451 -->
+    *   Table sorting icon does not include numbers <!-- PGDC-35 -->   
+    *   '--' symbol is missing on empty fields (blank instead), additional missing fields identified since last release.  <!-- PGDC-2447 -->    
+### Known Issues and Workarounds
+
+*   General.
+    *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". This only impact users at the NIH. Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status.
+    *   When user login from the advanced search page, the login popup does not automatically close <!-- PRTL-88 -->
+*   Cart
+    *   When removing a file from the cart and clicking undo, GDC looses track of permission status of the user towards this file and will ask for the user to log-in again. <!-- PGDC-2496 -->     
+    *   Counts displayed in the top right of the screen, next to the Cart icon, might get inconsistent if files are removed from the server. <!-- PGDC-2403 -->
+*   Annotations
+    *   Annotations notes do not wrap to the next line at the beginning or the end of a word, some words might be split in two lines <!-- PGDC-2474 -->
+    *   Sorting annotations by Case UUID causes error <!-- PRTL-95 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.nci.nih.gov/about-gdc/gdc-faqs).
+    *   Internet Explorer users are not able to use the "Only show fields with no values" when adding custom facets <!-- PGDC-2467 -->
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibilty mode <!-- PGDC-2480 -->    
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
+
 ## Release 1.1.0
 
 * __GDC Product__: GDC Data Portal
@@ -37,7 +83,6 @@
     *   Not possible to use the browser's back button after hitting a 404 page <!-- PGDC-2429 -->
     *   404 page missing from Legacy Archive Portal <!-- PGDC-2477 -->
     *   Table widget icon and export JSON icon should be different <!-- PGDC-2446 -->     
-    *   In GDC Legacy Archive Portal, downloading the manifest for the entire content will time out due to the number of files, workaround is to filter down the results by using facets. <!-- PGDC-2411 -->
 *   Data and facets
     *   Default values for age at diagnosis is showing 0 to 89 instead of 0 to 90 <!-- PGDC-2478 -->
     *   Biospecimen search in the case entity page does not highlight (but does bold and filter) results in yellow when title case is not followed <!-- PGDC-2451 -->
@@ -46,7 +91,6 @@
 *   Cart
     *   When removing a file from the cart and clicking undo, GDC looses track of permission status of the user towards this file and will ask for the user to log-in again. <!-- PGDC-2496 -->     
     *   Counts displayed in the top right of the screen, next to the Cart icon, might get inconsistent if files are removed from the server. <!-- PGDC-2403 -->
-    *   Tarballs, or tar.gz files, are created in the GDC Data Portal when a user downloads multiple files through the cart.  When combining many or large files this process will occasionally create a prematurely truncated tar.gz file.  For large downloads the Data Transfer Tool is the recommended method and does not create tar.gz files. <!-- SV-221 -->
 *   Annotations
     *   Annotations notes do not wrap to the next line at the beginning or the end of a word, some words might be split in two lines <!-- PGDC-2474 -->
 *   Web Browsers
