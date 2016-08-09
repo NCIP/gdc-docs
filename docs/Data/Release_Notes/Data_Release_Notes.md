@@ -3,7 +3,7 @@
 ## Data Release v2
 
 * __GDC Product__: Data
-* __Release Date__: August 8, 2016
+* __Release Date__: August 9, 2016
 
 
 ### New updates
