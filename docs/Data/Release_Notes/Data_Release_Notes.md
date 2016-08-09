@@ -8,7 +8,7 @@
 
 ### New updates
 
-1.  Recent updates to CGHub and the TCGA DCC are now available in the GDC
+1.  Additional data, previously available via CGHub and the TCGA DCC, is now available in the GDC
 2.  Better linking between files and their associated projects and cases in the Legacy Archive
 3.  MAF files are now available in the GDC Data Portal
 
@@ -28,6 +28,7 @@
 
 Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_notes_manifest.txt)
 <br>
+
 ## Initial Data Release (v1)
 
 * __GDC Product__: Data
