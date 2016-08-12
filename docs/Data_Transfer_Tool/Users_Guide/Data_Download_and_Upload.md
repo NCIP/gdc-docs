@@ -126,3 +126,9 @@ Re-uploading a file may return the following error:
 		  }
 
 To resolve this issue, delete the file using the **--delete** switch before re-uploading.
+
+### Microsoft Windows Executable Error
+
+Attempting to run gdc-client.exe by double-clicking it in the Windows Explorer will produce a window that blinks once and disappears.
+
+This is normal, the executable must be run using the command prompt. Click 'Start', followed by 'Run' and type 'cmd' into the text bar.  Then navigate to the path containing the executable using the 'cd' command.     
