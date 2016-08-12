@@ -9,7 +9,7 @@ The GDC mRNA quantification analysis pipeline measures gene and exon level expre
 ### RNA Alignment Workflow
 The mRNA Analysis pipeline begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow), which is performed using a 2-pass method with [STAR](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf). STAR aligns each [read group](/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) separately and then merges the resulting alignments into one. Following the methods used by the International Cancer Genome Consortium [ICGC](https://icgc.org/) ([github](https://github.com/akahles/icgc_rnaseq_align)), the 2-pass method includes a splice junction detection step, which is used to generate the final alignment. This workflow outputs a BAM file, which contains both aligned and unaligned reads. Quality assessment is performed pre-alignment with [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and post-alignment with [RNA-SeQC](https://www.broadinstitute.org/cancer/cga/rna-seqc) and [Picard Tools](http://broadinstitute.github.io/picard/).
 
-[![RNA Alignment Pipeline](/Data/Bioinformatics_Pipelines/images/rna-alignment-pipeline-resized.png)](/Data/Bioinformatics_Pipelines/images/gene-expression-quantification-pipeline.png "Click to see the full image.")
+[![RNA Alignment Pipeline](images/rna-alignment-pipeline-resized.png)](images/gene-expression-quantification-pipeline.png "Click to see the full image.")
 
 <!--<img src="/Data/Bioinformatics_Pipelines/images/rna-alignment-pipeline.png" width=500 alt="A flowchart of the steps used to align RNA reads">-->
 
@@ -24,7 +24,7 @@ Following alignment, BAM files are processed through the [RNA Expression Workflo
 
 First the BAM files are filtered for reads that were aligned to protein-coding genes using the [samtools](http://samtools.sourceforge.net) view function. The reads mapped to each protein-coding gene are enumerated using HT-Seq count. The number of reads mapped to each gene (raw count), gene length and the total number of reads mapped to protein-coding genes are then used to calculate normalized expression levels using FPKM and FPKM-UQ (upper quartile normalization). Expression values are provided in a tab-delimited format. [GENCODE v22](http://www.gencodegenes.org/releases/22.html) was used for gene annotation.
 
-[![Gene Expression Pipeline](/Data/Bioinformatics_Pipelines/images/gene-expression-quantification-pipeline.png)](/Data/Bioinformatics_Pipelines/images/gene-expression-quantification-pipeline.png "Click to see the full image.")
+[![Gene Expression Pipeline](images/gene-expression-quantification-pipeline.png)](images/gene-expression-quantification-pipeline.png "Click to see the full image.")
 <!--<img src="/Data/Bioinformatics_Pipelines/images/gene-expression-quantification-pipeline.png" width=650 alt="A flowchart of the steps used to quantify RNA reads for gene expression"> -->
 
 | I/O | Entity | Format |
