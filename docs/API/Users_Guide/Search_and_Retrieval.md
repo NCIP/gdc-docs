@@ -1605,7 +1605,7 @@ print json.dumps(response.json(), indent=2)
 
 ### Filters
 
-The `filters` parameter enables passing of complex search queries to the GDC API. The parameter carries a percent-encoded JSON object that contains a query.
+The `filters` parameter enables passing of complex search queries to the GDC API. The parameter carries a query in the form of a JSON object.
 
 
 #### Filtering Operators
@@ -1642,7 +1642,7 @@ The JSON object to be passed to the GDC API looks like:
 
 	{"op": "=",
 		  "content": {
-			  "field": "cases.clinical.gender",
+			  "field": "cases.demographic.gender",
 			  "value": ["male"]
 		  }
 	}
@@ -1654,7 +1654,7 @@ URL-encoding the above JSON object using [Percent-(URL)-encoding tool](http://te
 The above string can now be passed to the GDC API using the `filters` parameter:
 
 ```shell
- curl  'https://gdc-api.nci.nih.gov/cases?filters=%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.clinical.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d&pretty=true'
+ curl  'https://gdc-api.nci.nih.gov/cases?filters=%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.demographic.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d&pretty=true'
 ```
 ```python
 import requests
@@ -1662,11 +1662,11 @@ import json
 cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
 filt = {"op":"=",
         "content":{
-            "field": "cases.clinical.gender",
+            "field": "cases.demographic.gender",
             "value": ["male"]
         }
 }
-params = {'filters':json.dumps(filt), 'sort':'clinical.gender:asc'}
+params = {'filters':json.dumps(filt), 'sort':'demographic.gender:asc'}
 # requests URL-encodes automatically
 response = requests.get(cases_endpt, params = params)
 print json.dumps(response.json(), indent=2)
@@ -1676,164 +1676,680 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "sample_ids": "4cea843f-80ae-4284-b70f-8989717eee7c",
-        "portion_ids": "eda1ff5e-a9e4-472a-8231-1a39ac2d2157",
-        "submitter_portion_ids": "TCGA-KL-8344-01A-11",
-        "submitter_aliquot_ids": "TCGA-KL-8344-01A-11W-2331-10",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-KL-8344-01A-11R",
-        "analyte_ids": "f18fe926-0fb3-465b-98a5-40734ad550f9",
-        "submitter_id": "TCGA-KL-8344",
-        "case_id": "a5af1391-89d3-4f41-930e-7e8272afec98",
-        "slide_ids": "58b31314-ca6e-450f-9fb2-f43e9fb27fc8",
-        "submitter_sample_ids": "TCGA-KL-8344-01A",
-        "project_id": "TCGA-KICH",
-        "aliquot_ids": "3820fe10-c8a9-4250-b88d-07a511cf2751",
-        "submitter_slide_ids": "TCGA-KL-8344-01A-01-TS1"
+        "sample_ids": [
+          "1d014bf1-95ae-42e3-ae39-97ff4841d8ca",
+          "6b685bfc-651b-48d1-8e68-32c8096ea205"
+        ],
+        "portion_ids": [
+          "c061217a-266a-496d-8a96-3489191afa87",
+          "0d3a6a58-0e00-4889-bc73-5ddb5a387738",
+          "e858ee92-0438-48e9-a70d-80ef2c0ad539"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-66-2770-01A-21-2193-20",
+          "TCGA-66-2770-01A-01",
+          "TCGA-66-2770-11A-01"
+        ],
+        "created_datetime": null,
+        "submitter_aliquot_ids": [
+          "TCGA-66-2770-01A-01D-1522-08",
+          "TCGA-66-2770-01A-01D-0848-05",
+          "TCGA-66-2770-01A-01W-0879-09",
+          "TCGA-66-2770-11A-01W-0878-08",
+          "TCGA-66-2770-01A-01R-0849-01",
+          "TCGA-66-2770-01A-01W-0877-08",
+          "TCGA-66-2770-01A-01D-0846-06",
+          "TCGA-66-2770-11A-01W-0880-09",
+          "TCGA-66-2770-01A-01D-0964-09",
+          "TCGA-66-2770-11A-01D-0846-06",
+          "TCGA-66-2770-01A-01D-0845-04",
+          "TCGA-66-2770-01A-01W-0881-10",
+          "TCGA-66-2770-11A-01D-0963-08",
+          "TCGA-66-2770-11A-01D-0844-01",
+          "TCGA-66-2770-01A-01R-0851-07",
+          "TCGA-66-2770-11A-01W-0882-10",
+          "TCGA-66-2770-11A-01D-1522-08",
+          "TCGA-66-2770-01A-01T-1557-13",
+          "TCGA-66-2770-01A-01D-0847-02",
+          "TCGA-66-2770-01A-01D-0844-01",
+          "TCGA-66-2770-11A-01D-0847-02",
+          "TCGA-66-2770-11A-01D-0964-09",
+          "TCGA-66-2770-01A-01D-0963-08",
+          "TCGA-66-2770-01A-01R-0850-03",
+          "TCGA-66-2770-11A-01D-0845-04",
+          "TCGA-66-2770-01A-01T-0852-07"
+        ],
+        "updated_datetime": "2016-05-02T15:57:03.730994-05:00",
+        "submitter_analyte_ids": [
+          "TCGA-66-2770-01A-01D",
+          "TCGA-66-2770-11A-01W",
+          "TCGA-66-2770-01A-01T",
+          "TCGA-66-2770-01A-01W",
+          "TCGA-66-2770-01A-01R",
+          "TCGA-66-2770-11A-01D"
+        ],
+        "analyte_ids": [
+          "385807d3-78de-4558-8d93-702d93fc835a",
+          "247acc7a-b4f5-47e9-86da-5ea9b04ad444",
+          "151b8cb9-6b0a-4db9-9b0e-62aa501b35d9",
+          "e549aebd-4dda-4ea8-8ccf-56c03bc8b2be",
+          "631ad4eb-845a-4e70-96ad-4b40157218a8",
+          "9a75640e-09d4-42b7-8cb4-75d62b39e98a"
+        ],
+        "submitter_id": "TCGA-66-2770",
+        "case_id": "f1b357e4-d67a-42c9-b0b7-12f69fa3da58",
+        "state": null,
+        "aliquot_ids": [
+          "a2d10f8e-6b27-4df0-bd25-ac24992d0bb4",
+          "8c1c733a-abed-468f-b4d0-d1ac34ba6d8b",
+          "cad8d384-3b7a-4f70-89c2-5584ae75c5eb",
+          "42e774cf-3c4a-4efd-9665-378cb6b4afac",
+          "3755168b-f5da-422d-847a-566cb112a8d7",
+          "cae4d249-ba67-4316-8761-7e71e3813182",
+          "aa6e700c-ce01-4cc9-87de-8bf615a8aa1a",
+          "ad5c4069-e616-4ab4-9b03-b196f9189b20",
+          "07c26ea4-0584-4cb0-8e5a-d057b8fe6c14",
+          "f95c2cb5-d20a-4f1f-8f2a-95a2d37fbdc4",
+          "817bf327-e583-4704-b294-c3645dcc4adf",
+          "2246cb75-38bd-491f-b6ee-99f4781f2564",
+          "a81b9090-626d-492d-9baf-7fa3ef70111c",
+          "5cd6f026-894e-45f6-bc59-d6f056e63846",
+          "e417903d-ab76-44f0-aae9-3a91fa9a8d3c",
+          "1d809a56-31ca-49d8-a57b-e773236b24de",
+          "df60a743-ef4b-43ea-bc5a-4d75e8befb8a",
+          "871350e2-958f-401c-ae86-6bc880a01942",
+          "3dc4207d-5671-4c3d-b75a-d39ef69b564c",
+          "69b77cc0-d00a-4ea3-9b39-3e3019d9e292",
+          "3d035ee8-9523-4771-8738-c8a5a2f91403",
+          "775e46bd-e56f-40fa-9891-aaedc1d49395",
+          "d1c60049-922a-42d4-bd7e-8cf4ace47f05",
+          "5220a53f-f3fc-476c-aa72-65a038eb2fd8",
+          "b7e44e6e-ccf9-4b75-a258-159912ab51ca",
+          "42750622-28d7-4d32-9262-b139fe77bc01"
+        ],
+        "slide_ids": [
+          "a10196d2-7a81-4e1e-a9a7-62d123c30875",
+          "72edc1ba-916d-42a2-9f22-6254c6e54c5c",
+          "ff15eeb9-550e-4c78-90cc-a6cce8ccc3df",
+          "71ccfb52-169d-4176-94d6-fff5b75f853d"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-66-2770-11A",
+          "TCGA-66-2770-01A"
+        ]
       },
       {
-        "sample_ids": "70e1edd0-29a3-493a-8e03-107a5b00a4d7",
-        "portion_ids": "a0e13920-f019-44b1-83c6-e8a2e508b315",
-        "submitter_portion_ids": "TCGA-FA-A4XK-10A-01",
-        "submitter_aliquot_ids": "TCGA-FA-A4XK-10A-01D-A31H-26",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-FA-A4XK-10A-01D",
-        "analyte_ids": "521d5cb7-a976-4805-9855-4fc63378ee49",
-        "submitter_id": "TCGA-FA-A4XK",
-        "case_id": "a5b188f0-a6d3-4d4a-b04f-36d47ec05338",
-        "slide_ids": "2b0fc256-4d70-4eb6-97e0-152ab7f6039e",
-        "submitter_sample_ids": "TCGA-FA-A4XK-10A",
-        "project_id": "TCGA-DLBC",
-        "aliquot_ids": "8e020cb7-dab9-42b8-8ffe-c01fe58e0151",
-        "submitter_slide_ids": "TCGA-FA-A4XK-01A-01-TSA"
+        "sample_ids": [
+          "06889714-2a40-4248-98ee-f690b301e36a",
+          "9f43a0c6-ea19-4021-b0ed-026f33ce1c33"
+        ],
+        "portion_ids": [
+          "3a001d28-7cf9-4c61-b155-73938aebaa25",
+          "79554cfd-e853-481e-8e37-1e296034094e"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-02-0075-01A-01",
+          "TCGA-02-0075-10A-01"
+        ],
+        "created_datetime": null,
+        "submitter_aliquot_ids": [
+          "TCGA-02-0075-01A-01W-0204-02",
+          "TCGA-02-0075-01A-01R-0194-03",
+          "TCGA-02-0075-01A-01D-0198-02",
+          "TCGA-02-0075-01A-01R-0202-01",
+          "TCGA-02-0075-10A-01W-0207-09",
+          "TCGA-02-0075-01A-01R-0676-04",
+          "TCGA-02-0075-10A-01D-0198-02",
+          "TCGA-02-0075-10A-01D-0197-06",
+          "TCGA-02-0075-10A-01D-0193-01",
+          "TCGA-02-0075-01A-01W-0207-09",
+          "TCGA-02-0075-01A-01W-0206-08",
+          "TCGA-02-0075-01A-01D-0193-01",
+          "TCGA-02-0075-10A-01W-0205-10",
+          "TCGA-02-0075-01A-01R-0201-02",
+          "TCGA-02-0075-10A-01W-0204-02",
+          "TCGA-02-0075-01A-01D-0199-05",
+          "TCGA-02-0075-10A-01W-0206-08",
+          "TCGA-02-0075-01A-01D-0196-04",
+          "TCGA-02-0075-01A-01T-0195-07",
+          "TCGA-02-0075-10A-01D-0196-04",
+          "TCGA-02-0075-01A-01D-0197-06",
+          "TCGA-02-0075-01A-01D-0888-01",
+          "TCGA-02-0075-01A-01R-0195-07",
+          "TCGA-02-0075-01A-01W-0205-10"
+        ],
+        "updated_datetime": "2016-05-02T15:00:01.972331-05:00",
+        "submitter_analyte_ids": [
+          "TCGA-02-0075-01A-01R",
+          "TCGA-02-0075-10A-01D",
+          "TCGA-02-0075-01A-01W",
+          "TCGA-02-0075-01A-01T",
+          "TCGA-02-0075-01A-01D",
+          "TCGA-02-0075-10A-01W"
+        ],
+        "analyte_ids": [
+          "fec22de0-a2b9-45df-9854-1ebe76cee84e",
+          "b4d11c50-61f1-4d4a-815f-1c0413018d7f",
+          "c48673d0-a38d-44e1-8cfd-e91cb23ea2d5",
+          "24f1852c-999a-4ea8-917c-fcfd683e2aca",
+          "aa431260-a0fc-4924-80ce-61cab8b5e83e",
+          "11f21140-d761-44ca-a9b2-b24099df3b15"
+        ],
+        "submitter_id": "TCGA-02-0075",
+        "case_id": "b196f82b-ef3f-4e05-99f7-da5df65e691e",
+        "state": null,
+        "aliquot_ids": [
+          "75531fe0-101e-4220-bd47-98892c90ee70",
+          "e5ea38d4-f47c-4c8a-8bab-13631e0a9a7b",
+          "d48b7c2c-daac-4496-af8f-1f45ca43f627",
+          "bbba08fc-2514-4e15-afb7-41eecc7e876f",
+          "0685b37f-a47c-4222-a846-bf9f3c000de3",
+          "683986da-3cee-446d-9b7a-83bef25815c9",
+          "e6ffdb20-a1be-4664-bcd3-cc7a4de6f40b",
+          "5d1f25c0-9e1a-41ad-9735-134f39dbf70e",
+          "528b40b9-246f-4ba3-8209-777136638e62",
+          "33131479-5d69-4262-a549-ba8864320f3b",
+          "5c7822fc-cf4f-4f62-8482-7c0ce1b7ab9a",
+          "b95e7659-e3a4-4e96-b98c-f67d26b85322",
+          "30c84aca-f9db-4e07-ac34-1a92b1652ca1",
+          "d5e3b5cc-06e0-4294-9d3c-8f3b63acae3d",
+          "b14b3d09-3a7f-41a6-81df-2757efa67906",
+          "513040e2-dc29-4e2c-86fb-57371eede17a",
+          "21c3be1b-7c1e-4864-99d1-486cfe5d8f1d",
+          "5e28e5dc-6dfa-44a9-8793-9134cb4cdda5",
+          "b8c25892-4773-428f-a02c-f930931268e8",
+          "266d5260-08e4-4cec-87f3-ca415bd98575",
+          "8859a3ae-f85d-4ef2-830b-80f42f98d53e",
+          "ac018a8c-a6e2-4291-a4bf-a330ae9c441e",
+          "4b022f7f-7549-4d97-9d41-4e5f2e9ec74c",
+          "caad3dfa-74a9-4ecc-95c1-86f6fbfd4ab5"
+        ],
+        "slide_ids": [
+          "39f547cd-5dc3-4bf4-99ea-073bb161c23c",
+          "5f096267-0cc2-4cc5-a206-7357159633d7"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-02-0075-10A",
+          "TCGA-02-0075-01A"
+        ]
       },
       {
-        "sample_ids": "815ffaae-31a8-4064-b51a-17123a21e9e6",
-        "portion_ids": "8c066e1f-1ed8-4ccb-8348-2a991ebe896b",
-        "submitter_portion_ids": "TCGA-EF-5830-01A-21-1934-20",
-        "submitter_aliquot_ids": "TCGA-EF-5830-01A-01D-1657-10",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-EF-5830-01A-01R",
-        "analyte_ids": "bc9064c9-5af2-44ca-ab25-c01ffe03142c",
-        "submitter_id": "TCGA-EF-5830",
-        "case_id": "0b6b1937-4024-4f2c-aeca-46387277755f",
-        "slide_ids": "b237171d-d2c7-413a-8c56-6ec374de9149",
-        "submitter_sample_ids": "TCGA-EF-5830-01A",
-        "project_id": "TCGA-READ",
-        "aliquot_ids": "61fe838a-d218-407a-922a-7cb9b4fc8aa8",
-        "submitter_slide_ids": "TCGA-EF-5830-01A-01-BS1"
+        "sample_ids": [
+          "ba08195b-31cf-4bb1-a470-23740225c99d",
+          "929889c4-e474-4104-b69b-fac7e414a59e"
+        ],
+        "portion_ids": [
+          "48a36eb4-79fb-45e7-8bb1-0fa1d5fcda2c",
+          "1de5e67a-ac3f-4c18-92c4-27ba1868c7ac",
+          "e09fc5e7-e8d2-4bf9-b12b-17b22e0387e4"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-EJ-A8FU-10A-01",
+          "TCGA-EJ-A8FU-01A-21-A43L-20",
+          "TCGA-EJ-A8FU-01A-11"
+        ],
+        "created_datetime": null,
+        "submitter_aliquot_ids": [
+          "TCGA-EJ-A8FU-01A-11R-A36B-13",
+          "TCGA-EJ-A8FU-01A-11R-A36G-07",
+          "TCGA-EJ-A8FU-01A-11D-A363-01",
+          "TCGA-EJ-A8FU-10A-01D-A361-01",
+          "TCGA-EJ-A8FU-10A-01D-A362-08",
+          "TCGA-EJ-A8FU-01A-11W-A447-08",
+          "TCGA-EJ-A8FU-01A-11D-A365-05",
+          "TCGA-EJ-A8FU-01A-11D-A364-08",
+          "TCGA-EJ-A8FU-10A-01W-A446-08"
+        ],
+        "updated_datetime": "2016-05-02T15:57:04.948573-05:00",
+        "submitter_analyte_ids": [
+          "TCGA-EJ-A8FU-01A-11W",
+          "TCGA-EJ-A8FU-01A-11D",
+          "TCGA-EJ-A8FU-01A-11R",
+          "TCGA-EJ-A8FU-10A-01W",
+          "TCGA-EJ-A8FU-10A-01D"
+        ],
+        "analyte_ids": [
+          "2d4e4925-6ac8-498f-882b-4bbf319f6b7b",
+          "8d09b982-1256-4674-b383-d6ca4b4bb3c8",
+          "c74495d9-63bf-4ac0-b10e-04b3b06103c1",
+          "b9884d98-af57-4901-8b9d-4fdbf73d2c5a",
+          "2f16ac02-13bf-44fd-bbd7-658c1c384928"
+        ],
+        "submitter_id": "TCGA-EJ-A8FU",
+        "case_id": "23e56e08-e11d-4e83-88a8-1254675b3af8",
+        "state": null,
+        "aliquot_ids": [
+          "e77da017-5dc6-4e32-9568-755e4ee9b533",
+          "c9b286d1-d500-4bb3-bb3d-5bf40b1b1265",
+          "b7867d52-7987-46d4-a595-0ff5b5375a58",
+          "5586ad35-94b7-459e-8982-8e7fb25697a1",
+          "162a63f7-594f-4669-a06d-b4899c7fe86a",
+          "b8b1ab44-ee6e-4ac5-9efd-d5bd07e67b9c",
+          "7adcdf73-3ad3-4da7-ab27-2888f1d4f53a",
+          "eb498e52-3eae-402f-8cac-ec930f8d938d",
+          "293f781c-c2c7-479b-b1a6-5f951a2c5e5a"
+        ],
+        "slide_ids": [
+          "454a95d5-d084-4f36-b1f1-32c6c23ab46e"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-EJ-A8FU-01A",
+          "TCGA-EJ-A8FU-10A"
+        ]
       },
       {
-        "sample_ids": "077bda39-7c8c-4b20-9036-53487f512299",
-        "portion_ids": "adf04f1f-ad12-431e-9b7e-0afa49c3400c",
-        "submitter_portion_ids": "TCGA-A3-A6NN-10A-01",
-        "submitter_aliquot_ids": "TCGA-A3-A6NN-10A-01D-A33K-10",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-A3-A6NN-10A-01D",
-        "analyte_ids": "f8a21ea5-10af-4a0b-809b-52c6053e842e",
-        "submitter_id": "TCGA-A3-A6NN",
-        "case_id": "060b2104-a015-400e-86c6-6febfb02bbd3",
-        "slide_ids": "6a83abea-7ace-4df3-83a6-cf4f0dd05850",
-        "submitter_sample_ids": "TCGA-A3-A6NN-10A",
-        "project_id": "TCGA-KIRC",
-        "aliquot_ids": "56cad354-34c7-417f-b806-391caa999cb8",
-        "submitter_slide_ids": "TCGA-A3-A6NN-01A-01-TS1"
+        "sample_ids": [
+          "d43f0112-fe59-4842-9fda-1189e5fb7248",
+          "213cbbe5-c382-47a1-b936-bf40c2c99091"
+        ],
+        "portion_ids": [
+          "26441aae-22e5-4e69-b3f5-34ccde356c93",
+          "60d7a93c-0634-438e-a72a-ce63630bb890",
+          "246a8f01-7ef2-4737-a984-49aa0b41c089"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-F2-6879-10A-01",
+          "TCGA-F2-6879-01A-21-A39M-20",
+          "TCGA-F2-6879-01A-11"
+        ],
+        "created_datetime": "2016-05-02T16:23:44.347995-05:00",
+        "submitter_aliquot_ids": [
+          "TCGA-F2-6879-01A-11R-2155-13",
+          "TCGA-F2-6879-10A-01D-2153-01",
+          "TCGA-F2-6879-10A-01D-2152-26",
+          "TCGA-F2-6879-01A-11D-2157-05",
+          "TCGA-F2-6879-10A-01D-2154-08",
+          "TCGA-F2-6879-01A-11D-A45X-08",
+          "TCGA-F2-6879-01A-11D-2154-08",
+          "TCGA-F2-6879-01A-11W-2179-08",
+          "TCGA-F2-6879-01A-11D-2153-01",
+          "TCGA-F2-6879-01A-11R-2156-07",
+          "TCGA-F2-6879-01A-11D-2152-26",
+          "TCGA-F2-6879-10A-01D-A45X-08",
+          "TCGA-F2-6879-10A-01W-2179-08",
+          "TCGA-F2-6879-01A-01D-YYYY-23"
+        ],
+        "updated_datetime": "2016-05-02T16:23:44.347995-05:00",
+        "submitter_analyte_ids": [
+          "TCGA-F2-6879-10A-01D",
+          "TCGA-F2-6879-01A-11R",
+          "TCGA-F2-6879-10A-01W",
+          "TCGA-F2-6879-01A-11W",
+          "TCGA-F2-6879-01A-11D"
+        ],
+        "analyte_ids": [
+          "e87dde8d-3bf5-42d8-9a77-620d5c4943e0",
+          "30ade77d-996b-4031-93ab-6b341d49eb0a",
+          "1d94bd70-6621-4a94-8102-d673663e6665",
+          "ea65d92e-1597-410d-84d8-abb2a6235b3e",
+          "79697034-1cec-4d92-8195-8a35258ab477"
+        ],
+        "submitter_id": "TCGA-F2-6879",
+        "case_id": "8d9bd437-8b4b-4da5-87ba-6b5790f05022",
+        "state": null,
+        "aliquot_ids": [
+          "e7533585-b062-4d74-b511-05dc806a1357",
+          "e107952a-cc2b-4410-b0f9-62e7115430a0",
+          "61f1c8b1-986a-485a-9d96-4e4285b6425a",
+          "c043e276-fece-4cb9-a848-a0b16e6099b6",
+          "e5d110e1-63ad-49ce-b9b7-22bbd7ef8a88",
+          "7accb08d-acdb-46bc-bf7f-b9f678193115",
+          "a52cd04b-41d6-40db-b050-00ef3a143f7e",
+          "207fcf5e-c422-4333-9ec2-5dab38d240c7",
+          "5ddd3f83-28a8-4b7f-9aec-203a3c2efbe5",
+          "ccd4dd70-c0e4-42cf-870e-33d1013b201a",
+          "e12314fe-f16a-4d85-95b4-e712ede450f6",
+          "695461e3-283c-4b5b-9325-6b2588b67fd8",
+          "8481be1e-0993-487d-8d73-b0eb72b304ee",
+          "d7200791-4f1c-418f-8744-91b793486d9f"
+        ],
+        "slide_ids": [
+          "bcbcc947-cab1-4400-aebc-1d9e251a3ce8",
+          "cae8d0b9-3605-40af-bf99-7c23df8110a9"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-F2-6879-10A",
+          "TCGA-F2-6879-01A"
+        ]
       },
       {
-        "sample_ids": "45c9117d-f512-46d5-b330-9c9b12627c31",
-        "portion_ids": "b16079d1-d585-48da-acb2-5c398e78400c",
-        "submitter_portion_ids": "TCGA-2Z-A9JD-10A-01",
-        "submitter_aliquot_ids": "TCGA-2Z-A9JD-10A-01D-A42L-01",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-2Z-A9JD-10A-01D",
-        "analyte_ids": "4b4d1bd0-a299-4093-8da8-8c008dfb6ff6",
-        "submitter_id": "TCGA-2Z-A9JD",
-        "case_id": "cff68090-09df-492b-874c-0caeb29f9361",
-        "slide_ids": "4acf7a4c-ce0e-40d3-841e-84b1ea3e55aa",
-        "submitter_sample_ids": "TCGA-2Z-A9JD-10A",
-        "project_id": "TCGA-KIRP",
-        "aliquot_ids": "1a98795b-767e-45ac-9e0f-f50ab97a76df",
-        "submitter_slide_ids": "TCGA-2Z-A9JD-01A-01-TS1"
+        "sample_ids": [
+          "3a66b5bd-7037-463c-9f8d-2ba3de9d5571",
+          "84f603d6-9f71-48fb-b2e3-190424407452"
+        ],
+        "portion_ids": [
+          "fe90de9f-8ee3-4d55-834f-a90538958cb7",
+          "7a0042fd-07f0-4894-adb0-03cebce8aa02"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-VQ-A922-01A-11",
+          "TCGA-VQ-A922-10A-01"
+        ],
+        "created_datetime": "2016-05-02T16:26:23.121974-05:00",
+        "submitter_aliquot_ids": [
+          "TCGA-VQ-A922-10A-01D-A412-01",
+          "TCGA-VQ-A922-01A-11D-A40Z-01",
+          "TCGA-VQ-A922-10A-01D-A413-08",
+          "TCGA-VQ-A922-01A-01D-YYYY-23",
+          "TCGA-VQ-A922-01A-11R-A414-31",
+          "TCGA-VQ-A922-01A-11D-A410-08",
+          "TCGA-VQ-A922-01A-11R-A415-13",
+          "TCGA-VQ-A922-01A-11D-A411-05"
+        ],
+        "updated_datetime": "2016-05-02T16:26:23.121974-05:00",
+        "submitter_analyte_ids": [
+          "TCGA-VQ-A922-01A-11R",
+          "TCGA-VQ-A922-10A-01D",
+          "TCGA-VQ-A922-01A-11D"
+        ],
+        "analyte_ids": [
+          "15bec495-04c7-412b-ad69-26b1f9274ccf",
+          "26a24673-04a1-4837-b888-702b0578aef2",
+          "2c0ecd67-b9ff-4e60-8d2f-7744c79a13aa"
+        ],
+        "submitter_id": "TCGA-VQ-A922",
+        "case_id": "8bd783a3-d6c9-4c87-a2a1-09f903b9c7ca",
+        "state": null,
+        "aliquot_ids": [
+          "58a121b4-265c-44ae-b6a9-79d087ee8b34",
+          "76fbba49-0123-4524-89aa-a1818c5507cb",
+          "0b0805bb-edaa-400f-ae9f-effed3dbb605",
+          "3370d626-d572-4d13-9cd3-1823a5df3d34",
+          "60934993-a9df-4389-b64d-da6844ef22df",
+          "243f24ba-bb0f-44e0-bcb1-69a97b395981",
+          "6cae9f2a-1c6c-4645-98b6-20719aec1413",
+          "44d020d1-c516-4a15-94e8-bcf0cb9c2683"
+        ],
+        "slide_ids": [
+          "0ff02899-57f8-419e-8872-c6ede53f4d3c"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-VQ-A922-10A",
+          "TCGA-VQ-A922-01A"
+        ]
       },
       {
-        "sample_ids": "a3e7242d-47a7-44a3-9cf0-357d398a9735",
-        "portion_ids": "1a7c879c-1486-4e86-883f-d25ba8c699f7",
-        "submitter_portion_ids": "TCGA-EB-A5VU-01A-21",
-        "submitter_aliquot_ids": "TCGA-EB-A5VU-01A-21R-A32K-13",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-EB-A5VU-01A-21R",
-        "analyte_ids": "230b97aa-76d2-479a-be09-5910c0a10f92",
-        "submitter_id": "TCGA-EB-A5VU",
-        "case_id": "b6ee9305-c935-4692-81f3-956956d5b4c4",
-        "slide_ids": "ed27865d-f0b4-46e8-ae93-a85ae6c6b7c3",
-        "submitter_sample_ids": "TCGA-EB-A5VU-01A",
-        "project_id": "TCGA-SKCM",
-        "aliquot_ids": "d4d3ac8a-9d06-489f-a644-db77770e6dfb",
-        "submitter_slide_ids": "TCGA-EB-A5VU-01A-02-TSB"
+        "sample_ids": [
+          "5bb5bd60-cf47-413b-88fa-f14977e24035",
+          "82fcf670-1646-4a28-9578-f7e5b2f426e5",
+          "3b87fed0-cfbd-4ee3-b71d-ab595853e836"
+        ],
+        "portion_ids": [
+          "18bf160e-702a-464a-9920-f115024b5484",
+          "10a9c093-009d-4bc0-a344-2afd3f0f9b9f",
+          "8ebd06e1-5eda-47ec-8888-61965ecf005e"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-HU-8243-11A-01",
+          "TCGA-HU-8243-01A-11",
+          "TCGA-HU-8243-10A-01"
+        ],
+        "created_datetime": "2016-05-02T16:17:09.754748-05:00",
+        "submitter_aliquot_ids": [
+          "TCGA-HU-8243-01A-01D-YYYY-23",
+          "TCGA-HU-8243-01A-11D-2340-08",
+          "TCGA-HU-8243-01A-11D-2338-01",
+          "TCGA-HU-8243-01A-11D-2342-05",
+          "TCGA-HU-8243-11A-01D-2338-01",
+          "TCGA-HU-8243-11A-01D-2340-08",
+          "TCGA-HU-8243-10A-01D-2339-01",
+          "TCGA-HU-8243-01A-11R-2343-13",
+          "TCGA-HU-8243-10A-01D-2341-08"
+        ],
+        "updated_datetime": "2016-05-02T16:17:09.754748-05:00",
+        "submitter_analyte_ids": [
+          "TCGA-HU-8243-11A-01D",
+          "TCGA-HU-8243-10A-01D",
+          "TCGA-HU-8243-01A-11R",
+          "TCGA-HU-8243-01A-11D"
+        ],
+        "analyte_ids": [
+          "89c9094d-5cf6-4c7d-ad24-41b7ad9427cc",
+          "2c413e60-0122-426b-afb3-ae94810e2513",
+          "57d41760-0fed-49d2-8606-48231cb244ea",
+          "37ed51fd-b540-408e-8bd6-4447ae4aa84a"
+        ],
+        "submitter_id": "TCGA-HU-8243",
+        "case_id": "77a8eab6-f6a1-4739-9031-75ead40d68cb",
+        "state": null,
+        "aliquot_ids": [
+          "ace3edd6-14a9-42cc-84f3-6127237f2913",
+          "a711abd1-f1c2-4e42-8b66-79b4514ac1c4",
+          "6af7ba34-58f7-4472-8c7e-89fc91ad5ac1",
+          "558ff67a-a584-46f8-9089-8f4a08015294",
+          "71c0a224-5953-4b59-a49c-b7aa1e959f1e",
+          "a460c222-bcac-4959-961f-4dbd73e1ce13",
+          "6e5789d7-4988-457a-86eb-e618c7ab06eb",
+          "ff31f56b-398c-45ee-b122-f10027774527",
+          "9635cfd4-3d26-4fc6-846c-fd74d5b60098"
+        ],
+        "slide_ids": [
+          "60b7c6b8-594a-40c3-9341-a0902e4e6938",
+          "e55e00a0-2048-404a-b83a-f34106468694"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-HU-8243-10A",
+          "TCGA-HU-8243-01A",
+          "TCGA-HU-8243-11A"
+        ]
       },
       {
-        "sample_ids": "30f43a40-040f-4c42-a84e-0ba7ec9c8945",
-        "portion_ids": "28feac7b-f5ef-4a20-9b46-ca42e51fac15",
-        "submitter_portion_ids": "TCGA-KR-A7K8-01A-11",
-        "submitter_aliquot_ids": "TCGA-KR-A7K8-01A-11D-A33K-10",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-KR-A7K8-01A-11D",
-        "analyte_ids": "32ab0de2-a816-44be-b9e9-f81f83e07dda",
-        "submitter_id": "TCGA-KR-A7K8",
-        "case_id": "4b0e544c-4090-4ebb-b3e5-2623aa91356c",
-        "slide_ids": "c1708f35-0cce-4ac5-9af1-48682b756b24",
-        "submitter_sample_ids": "TCGA-KR-A7K8-01A",
-        "project_id": "TCGA-LIHC",
-        "aliquot_ids": "a4fc5ba8-74ba-4047-8857-5d6d6cbc978b",
-        "submitter_slide_ids": "TCGA-KR-A7K8-01A-01-TS1"
+        "sample_ids": [
+          "2f5cc9c9-31a9-5eb3-952a-b21e7cef50ca",
+          "4f3f4fc8-4465-5230-83ec-c0ef6aceb2ea"
+        ],
+        "updated_datetime": "2016-05-25T19:12:45.610324-05:00",
+        "submitter_aliquot_ids": [
+          "TARGET-30-PAUXFZ-01A-01D",
+          "TARGET-30-PAUXFZ-10A-01D"
+        ],
+        "submitter_id": "TARGET-30-PAUXFZ",
+        "case_id": "a7ccef7c-14c0-5232-b647-58b4a54fb343",
+        "aliquot_ids": [
+          "9e1e30a8-7607-5b7e-b33c-9a6c5828d5fb",
+          "c56898f9-c394-516a-bdbb-bf32a5af9d3f"
+        ],
+        "submitter_sample_ids": [
+          "TARGET-30-PAUXFZ-01A",
+          "TARGET-30-PAUXFZ-10A"
+        ]
       },
       {
-        "sample_ids": "3eae6b68-d333-4b36-9e70-d2bed19c1dfa",
-        "portion_ids": "25222281-b9bd-49b2-a66e-a1ab930ef2d0",
-        "submitter_portion_ids": "TCGA-EJ-5510-01A-01",
-        "submitter_aliquot_ids": "TCGA-EJ-5510-01A-01R-1579-13",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-EJ-5510-01A-01R",
-        "analyte_ids": "b252b7eb-c317-417d-99c3-c21f19a5512a",
-        "submitter_id": "TCGA-EJ-5510",
-        "case_id": "4a3d9efe-f24e-4135-8a70-e202651e7a81",
-        "slide_ids": "a01a6b12-1019-4b95-8a1e-d2ad1848c9af",
-        "submitter_sample_ids": "TCGA-EJ-5510-01A",
-        "project_id": "TCGA-PRAD",
-        "aliquot_ids": "7c0db1d7-66a9-4e71-8c97-005d9a15cb76",
-        "submitter_slide_ids": "TCGA-EJ-5510-01A-01-TS1"
+        "sample_ids": [
+          "c1bcb8d1-e13d-4af4-93f4-02d5f7f616a2",
+          "52fcf737-cdcc-43ea-b33c-4018039b42dd"
+        ],
+        "portion_ids": [
+          "e0e97a05-656a-468e-8418-0d08c38e76ab",
+          "3e2a0eab-7d89-4f3c-9c0e-8942e53d3c45"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-KK-A8I9-01A-11",
+          "TCGA-KK-A8I9-11A-11"
+        ],
+        "created_datetime": null,
+        "submitter_aliquot_ids": [
+          "TCGA-KK-A8I9-11A-11D-A361-01",
+          "TCGA-KK-A8I9-11A-11D-A362-08",
+          "TCGA-KK-A8I9-11A-11W-A446-08",
+          "TCGA-KK-A8I9-01A-11R-A36G-07",
+          "TCGA-KK-A8I9-11A-11D-A40C-01",
+          "TCGA-KK-A8I9-01A-11D-A363-01",
+          "TCGA-KK-A8I9-01A-11W-A447-08",
+          "TCGA-KK-A8I9-01A-11D-A365-05",
+          "TCGA-KK-A8I9-01A-11D-A364-08",
+          "TCGA-KK-A8I9-01A-11R-A36B-13"
+        ],
+        "updated_datetime": "2016-05-02T15:57:29.451686-05:00",
+        "submitter_analyte_ids": [
+          "TCGA-KK-A8I9-11A-11W",
+          "TCGA-KK-A8I9-01A-11R",
+          "TCGA-KK-A8I9-11A-11D",
+          "TCGA-KK-A8I9-01A-11W",
+          "TCGA-KK-A8I9-01A-11D"
+        ],
+        "analyte_ids": [
+          "ddec19cb-5e4c-4151-8b6d-741044abff1e",
+          "96c5b539-8eb7-4156-81d0-7b7fecd68900",
+          "ced38a45-7610-49d4-8bf9-d53a1fc2d489",
+          "476f5deb-1b3f-4a35-8a31-f27763ba8d8a",
+          "c284f2af-1e9b-40cc-8936-b61cfd251d62"
+        ],
+        "submitter_id": "TCGA-KK-A8I9",
+        "case_id": "261c3d74-706e-4751-bd15-8f3c1a402ff0",
+        "state": null,
+        "aliquot_ids": [
+          "4f76de2d-e07a-402b-9818-7f04d3704a43",
+          "96802a73-b1db-47d7-8f5f-4504f3ece5ad",
+          "f376fc45-370a-4d96-833b-9a1322e32a42",
+          "d3e88dd3-66d7-40d4-978a-4ddab868373a",
+          "06f1d087-75c9-4da8-8339-80aff3bfaa12",
+          "50b1e243-b45a-42a1-8692-b7ae5d51250f",
+          "0f1c00d3-f3dc-4d2b-bd8a-ecc31e4f4089",
+          "986a3ed6-ba56-4025-a2bd-9909648e703a",
+          "bebc84b6-9179-420b-8207-858b999e8c0c",
+          "239d5e7e-5fb5-4df3-ae6b-a5a06ee296ae"
+        ],
+        "slide_ids": [
+          "1e174ca5-9298-41b6-a705-728f111a3e7b",
+          "a3e31324-9e06-4799-85b4-4f6236848009"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-KK-A8I9-11A",
+          "TCGA-KK-A8I9-01A"
+        ]
       },
       {
-        "sample_ids": "4b13bcc0-d9ff-4616-b6cf-543a86881828",
-        "portion_ids": "fc4e2d10-6b8e-447d-9757-0d125bd78b02",
-        "submitter_portion_ids": "TCGA-AA-3979-01A-01",
-        "submitter_aliquot_ids": "TCGA-AA-3979-01A-01D-1637-02",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-AA-3979-01A-01X",
-        "analyte_ids": "d77c659b-5d0e-4ee7-ab70-ab938a271438",
-        "submitter_id": "TCGA-AA-3979",
-        "case_id": "af17788e-a562-43aa-bd36-fd3e031f483c",
-        "slide_ids": "93a2c329-a9fe-44de-9115-82b433434b54",
-        "submitter_sample_ids": "TCGA-AA-3979-01A",
-        "project_id": "TCGA-COAD",
-        "aliquot_ids": "5e52933c-840a-4feb-adbe-9d0cfe69e939",
-        "submitter_slide_ids": "TCGA-AA-3979-01A-01-TS1"
+        "sample_ids": [
+          "d43f727a-96d6-40b8-86ae-7a3e0aa46853",
+          "b8329a6d-a87b-47f4-ad00-9e979e62647b"
+        ],
+        "portion_ids": [
+          "8960ddcc-0950-4d6e-a557-8727b652c93b",
+          "e36bfd07-c911-4a98-8424-e58e5e9aaa68"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-QR-A70H-10A-01",
+          "TCGA-QR-A70H-01A-12"
+        ],
+        "created_datetime": null,
+        "submitter_aliquot_ids": [
+          "TCGA-QR-A70H-01A-12R-A35K-07",
+          "TCGA-QR-A70H-01A-12R-A35M-13",
+          "TCGA-QR-A70H-01A-12D-A35E-05",
+          "TCGA-QR-A70H-10A-01D-A35A-01",
+          "TCGA-QR-A70H-01A-12D-A35C-01",
+          "TCGA-QR-A70H-01A-12W-A43Z-08",
+          "TCGA-QR-A70H-10A-01D-A35B-08",
+          "TCGA-QR-A70H-10A-01W-A441-08",
+          "TCGA-QR-A70H-01A-12D-A35D-08"
+        ],
+        "updated_datetime": "2016-05-02T15:37:31.996088-05:00",
+        "submitter_analyte_ids": [
+          "TCGA-QR-A70H-10A-01D",
+          "TCGA-QR-A70H-10A-01W",
+          "TCGA-QR-A70H-01A-12D",
+          "TCGA-QR-A70H-01A-12W",
+          "TCGA-QR-A70H-01A-12R"
+        ],
+        "analyte_ids": [
+          "c4a41555-dd45-4e10-a3be-50d49a1121a3",
+          "957e01f6-eb3f-446e-9f45-b50c66337e2d",
+          "1acde950-2e0c-4586-852b-b4ac4e1ea4a4",
+          "67c033c0-9fe8-4004-967e-c605e1890f4d",
+          "b0873010-5d60-4691-b700-e172950f1d7c"
+        ],
+        "submitter_id": "TCGA-QR-A70H",
+        "case_id": "13b41b15-a785-4ab7-b864-ffff6d35dd45",
+        "state": null,
+        "aliquot_ids": [
+          "d9120f00-7f10-49d5-ae84-6177e9424c7c",
+          "31c6fa50-200a-46c1-a546-61b52592fd8f",
+          "ab50f38c-2e7d-4d75-a216-27aeaa4d9305",
+          "382d5e31-6c66-4df3-a695-6b8c29cfc681",
+          "51d1fb14-c918-4439-b816-ef6cd3253c64",
+          "f586d8d5-d0c6-4979-aaa7-10217a88fa4c",
+          "2f9a60eb-602e-44bb-bc57-87e20d946f76",
+          "fbafc85e-deff-46cd-a40f-479b9dc92a60",
+          "cacbc8a6-0eb0-4277-931f-d0075c9b1de9"
+        ],
+        "slide_ids": [
+          "2310e34c-0ea5-4876-9f87-bad0b7a44513"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-QR-A70H-01A",
+          "TCGA-QR-A70H-10A"
+        ]
       },
       {
-        "sample_ids": "ef1ab6b8-af5e-4d24-a035-9e4e636e6be7",
-        "portion_ids": "253a641f-1814-4b56-8f48-491ad508f770",
-        "submitter_portion_ids": "TCGA-BQ-5877-11A-01",
-        "submitter_aliquot_ids": "TCGA-BQ-5877-11A-01R-1591-13",
-        "days_to_index": 0,
-        "submitter_analyte_ids": "TCGA-BQ-5877-11A-01W",
-        "analyte_ids": "4797d59e-1d9b-48b8-9e91-779d374f941f",
-        "submitter_id": "TCGA-BQ-5877",
-        "case_id": "53d40ba3-c33b-4139-967d-5110884237a3",
-        "slide_ids": "e769ffb2-da9b-4f8a-abb3-4c84d9c71bd8",
-        "submitter_sample_ids": "TCGA-BQ-5877-11A",
-        "project_id": "TCGA-KIRP",
-        "aliquot_ids": "97f70a79-624f-495c-adb5-723399d2249b",
-        "submitter_slide_ids": "TCGA-BQ-5877-11A-01-TS1"
+        "sample_ids": [
+          "19dee039-9c98-4d4a-8baf-eea1b6dda8eb",
+          "fdf1e501-f34f-450c-9a5c-611157079a86"
+        ],
+        "portion_ids": [
+          "10b6ccb4-3637-4769-8988-417c0306eaef",
+          "92f8cd48-451d-4ed6-8e60-b15aa93d2c09",
+          "d0d55efa-c91d-45de-92bf-cf6f0d263b21"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-BJ-A18Z-01A-21",
+          "TCGA-BJ-A18Z-01A-11-A21L-20",
+          "TCGA-BJ-A18Z-10A-01"
+        ],
+        "created_datetime": null,
+        "submitter_aliquot_ids": [
+          "TCGA-BJ-A18Z-01A-21D-A13U-02",
+          "TCGA-BJ-A18Z-10A-01D-A13V-01",
+          "TCGA-BJ-A18Z-01A-21R-A13Y-07",
+          "TCGA-BJ-A18Z-01A-21W-A14T-08",
+          "TCGA-BJ-A18Z-01A-21D-A13Z-05",
+          "TCGA-BJ-A18Z-01A-21D-A37T-08",
+          "TCGA-BJ-A18Z-10A-01D-A13W-08",
+          "TCGA-BJ-A18Z-01A-21R-A13X-13",
+          "TCGA-BJ-A18Z-01A-21D-A13W-08",
+          "TCGA-BJ-A18Z-10A-01D-A13U-02",
+          "TCGA-BJ-A18Z-10A-01W-A14T-08",
+          "TCGA-BJ-A18Z-01A-21D-A13V-01"
+        ],
+        "updated_datetime": "2016-05-02T16:18:19.199189-05:00",
+        "submitter_analyte_ids": [
+          "TCGA-BJ-A18Z-01A-21W",
+          "TCGA-BJ-A18Z-01A-21D",
+          "TCGA-BJ-A18Z-01A-21R",
+          "TCGA-BJ-A18Z-10A-01D",
+          "TCGA-BJ-A18Z-10A-01W"
+        ],
+        "analyte_ids": [
+          "119ebfa1-75b2-4f24-816a-4e9a5061f6b5",
+          "f86759fd-ecc5-4f42-b5fe-b9f079d23968",
+          "39691042-bd28-40ed-b66b-26414ecf1ba0",
+          "76ea5056-d7fa-49fb-94bf-11171ca7c100",
+          "71a822c9-b510-4a4c-8c30-18b8083acc2d"
+        ],
+        "submitter_id": "TCGA-BJ-A18Z",
+        "case_id": "0d497faf-2c1c-4173-a5fe-770cca73323c",
+        "state": null,
+        "aliquot_ids": [
+          "fa580596-e70f-4ed0-85a2-6fb594ca679a",
+          "776cb4b1-8efd-4ea2-b53f-9dff7dd94b10",
+          "85a7922f-0327-437c-bdf5-1bb67a1e932f",
+          "6d532180-0175-4610-8bfa-cca3a7c3697a",
+          "b5977e73-49d8-4e99-9e97-993cc44dad17",
+          "918793fa-b35e-4745-ac75-4d1c868089f8",
+          "ba9479a1-929f-4e4e-8bf5-e23cb280dfcf",
+          "e9776ff5-69b9-4669-ab33-e4bb030461ec",
+          "8ba98907-ab03-4c9e-a900-e31aa16ff810",
+          "35e18649-183e-4223-b2f6-d812bdd9becd",
+          "4aa17671-4420-4989-a6dd-379250f4aeda",
+          "815c53c3-8add-4612-b93c-3ed4bfa530aa"
+        ],
+        "slide_ids": [
+          "7c5b5c77-9fbc-4b48-81f5-48b5ede7c436"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-BJ-A18Z-01A",
+          "TCGA-BJ-A18Z-10A"
+        ]
       }
     ],
     "pagination": {
@@ -1841,8 +2357,8 @@ print json.dumps(response.json(), indent=2)
       "sort": "",
       "from": 1,
       "page": 1,
-      "total": 6303,
-      "pages": 631,
+      "total": 6340,
+      "pages": 634,
       "size": 10
     }
   },
