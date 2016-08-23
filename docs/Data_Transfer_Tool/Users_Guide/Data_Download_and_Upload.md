@@ -28,7 +28,7 @@ The GDC Data Transfer Tool supports resumption of interrupted downloads. To resu
 
 ### Downloading Controlled Data
 
-A user authentication token is required for downloading controlled data from GDC. Tokens can be obtained from the GDC Data Portal (see instructions in [Section 4](Preparing_for_Data_Download_and_Upload.md). Once downloaded, the token *file* can be passed to the GDC Data Transfer Tool using the **-t** or **--token-file** option:
+A user authentication token is required for downloading controlled data from GDC. Tokens can be obtained from the GDC Data Portal (see instructions in [Preparing for Data Download and Upload](Preparing_for_Data_Download_and_Upload.md). Once downloaded, the token *file* can be passed to the GDC Data Transfer Tool using the **-t** or **--token-file** option:
 
 	gdc-client download -m gdc_manifest_e24fac38d3b19f67facb74d3efa746e08b0c82c2.txt -t gdc-user-token.2015-06-17T09-10-02-04-00.txt
 
