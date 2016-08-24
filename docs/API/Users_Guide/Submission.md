@@ -217,6 +217,21 @@ query {
 }
 ```
 
+In addition to the `commit` action, the GDC provides a `close` action on `_dry_run` transactions. This `close` action is allowed on dry_run transactions that have not been previously closed. Closing a dry_run transaction prevents it from being `committed` in the future.
+
+```Command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/close
+```
+```Response
+{
+    "code": 200,
+    "message": "Closed transaction.",
+    "transaction_id": <transaction_id>,
+}
+```
+
 For convenience, the GDC provides a `commit` action on `_dry_run` transactions. This `commit` action is allowed on transactions that (1) have not been previously committed and (2) were successful `dry_run` transactions. The `commit` action can be taken asynchronously.
 
 ```Command
@@ -231,6 +246,7 @@ curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/
   "transaction_id": 468,
 }
 ```
+
 
 
 ### Example: Creating and Updating Case Entities
