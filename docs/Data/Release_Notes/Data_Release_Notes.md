@@ -20,6 +20,7 @@
 * MAF Column #109 "FILTER" entries are separated by both commas and semi-colons. <!-- PGDC-2589 -->
 * TARGET-AML and TARGET-ALL projects are undergoing reorganization.  Pending reorganization, cases from these projects may not contain many clinical, biospecimen, or genomic data files.
 * No data from TARGET-PPTP is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 --> 
 * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
 * There are 200 cases from TCGA-LAML that do not appear in the Legacy Archive <!--SV-327-->
 * Biotab files are not linked to Project or Case in the Legacy Archive <!--SV-303-->
