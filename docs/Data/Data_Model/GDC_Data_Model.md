@@ -25,12 +25,6 @@ Functionally similar entity types are grouped under the same **category**. For e
 
 When an entity is created, it is assigned a unique identifier in the form of a [version 4 universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). The UUID uniquely identifies the entity in the GDC, and is stored in the entity's `id` property.
 
-### Submitter ID
-
-In addition to `id`, many entities also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the entity. This can be used to identify a corresponding entry in the submitter's records. The GDC requires that `submitter_id` be unique for each entity within a project.
-
-**Note:** The `submitter_id` of a `case` entity corresponds to the `submitted_subject_id` of the study participant in dbGaP records for the project.
-
 ### Program Name, Project Code, and Project ID
 
 Programs are the highest level of organization of GDC datasets. Each program is assigned a unique `program.name` property. Datasets within a program are organized into projects, and each project is assigned a `project.code` property.
@@ -41,6 +35,12 @@ The `project_id` property is associated with most entities in the GDC data model
 	(e.g. TCGA-LAML)
 
 Note that `program.name` never contains hyphens.
+
+### Submitter ID
+
+In addition to UUIDs stored in the `id` property, many entities also have a `submitter_id` property. This property can contain any string that the submitter wishes to use to identify the entity (e.g. a "barcode"). This can be used to identify a corresponding entry in the submitter's records. The GDC requires that `submitter_id` be unique for each entity within a project: the tuple (combination) of `[ project_id, submitter_id ]` is a unique key.
+
+**Note:** The `submitter_id` of a `case` entity corresponds to the `submitted_subject_id` of the study participant in dbGaP records for the project.
 
 
 ## Working with the GDC Data Model
