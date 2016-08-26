@@ -19,9 +19,7 @@ If the `related_files=true` parameter is specified, the following related files,
 * BAM index files (BAI files)
 * Metadata files (such as SRA XML or MAGE-TAB files)
 
-#### Example
-
-For example, this request will download a Legacy copy number segmentation file and its associated MAGE-TAB metadata file:
+For example, this request will download a legacy copy number segmentation file and its associated MAGE-TAB metadata file:
 
 	https://gdc-api.nci.nih.gov/legacy/data/7efc039a-fde3-4bc1-9433-2fc6b5e3ffa5?related_files=true
 
