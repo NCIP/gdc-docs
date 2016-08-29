@@ -32,7 +32,6 @@ A user authentication token is required for downloading controlled data from GDC
 
 	gdc-client download -m gdc_manifest_e24fac38d3b19f67facb74d3efa746e08b0c82c2.txt -t gdc-user-token.2015-06-17T09-10-02-04-00.txt
 
-Alternatively, the full token can be supplied in plain text using the **--token** or **-T** option.
 
 ## Uploads
 
