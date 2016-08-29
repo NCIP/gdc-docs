@@ -84,7 +84,7 @@ When creating or updating entities in the GDC, the request must specify the enti
 
 ## Submission Transactions
 
-Submission involves a series of transactions initiated by the submitter, that create and link entities according to the [GDC Data Model](../Data/Data_Model/GDC_Data_Model.md). With the exception of `program`, which is an administrative entity created by the GDC, all new entities must be linked, at creation, to existing entities or to new entities being created in the same transaction. For example, a submitter cannot create a `portion` entity unless the submitter either (1) has previously created the corresponding `case` and `sample` entities, or (2) is creating those entities in the same transaction. This also means that entities cannot be deleted if they have "child" entities attached to them.
+Submission involves a series of transactions initiated by the submitter, that create and link entities according to the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). With the exception of `program`, which is an administrative entity created by the GDC, all new entities must be linked, at creation, to existing entities or to new entities being created in the same transaction. For example, a submitter cannot create a `portion` entity unless the submitter either (1) has previously created the corresponding `case` and `sample` entities, or (2) is creating those entities in the same transaction. This also means that entities cannot be deleted if they have "child" entities attached to them.
 
 If multiple entities are being created and/or updated in a transaction, and an error is encountered for one of the entities, then the transaction will fail and no changes will be made to the GDC.
 
