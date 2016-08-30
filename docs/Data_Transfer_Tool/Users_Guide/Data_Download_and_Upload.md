@@ -22,7 +22,7 @@ Multiple UUIDs can be specified, separated by a space:
 
 ### Resuming a Failed Download
 
-The GDC Data Transfer Tool supports resumption of interrupted downloads. To resume an incomplete download, repeat the download of the manifest or UUID(s) in the same folder as the initial download.  Failed downloads will appear in the destination folder with a .parital extension. This feature allows users the ability to identify quickly where the download stopped.   For retrying very long manifests it may be helpful to create a new manifest with just those failed files present, which will accelerate the download process. 
+The GDC Data Transfer Tool supports resumption of interrupted downloads. To resume an incomplete download, repeat the download of the manifest or UUID(s) in the same folder as the initial download.  Failed downloads will appear in the destination folder with a .parital extension. This feature allows users the ability to identify quickly where the download stopped.  For large downloads this feature can let the user identify where the download was interrupted  and edit the manifest accordingly. 
 
 	gdc-client download f80ec672-d00f-42d5-b5ae-c7e06bc39da1
 
