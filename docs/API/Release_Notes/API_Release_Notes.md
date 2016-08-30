@@ -2,6 +2,31 @@
 
 
 
+## v1.3.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: August 29, 2016
+
+### New Features and Changes
+
+* Successful `_dry_run` submission transactions can be committed to the GDC data model without having to re-upload metadata. The transactions can also be closed to prevent them from being committed in the future.
+* Submission transactions can be submitted in asynchronous mode. In this mode, the GDC API will issue an immediate acknowledgement of the transaction, along with the `transaction_id`. The status of the transaction can be verified by the user at a later time by specifying the `transaction_id`. Users submitting large transactions may find this mode helpful.
+* GraphQL queries support transaction metadata fields associated with new asynchronous submission and `_dry_run` commit / close functionality.
+* Category of Slide entities in the GDC Data Model has changed from `data_bundle` to `biospecimen`.
+
+### Bugs Fixed Since Last Release
+
+* Incorrect BMI calculation in the import of BCR XML files.
+
+### Known Issues and Workarounds
+
+* API search & retrieval queries that do not include a `sort` parameter may return results in different order each time they are executed. This is a particular problem for paginated responses (i.e. responses to queries for which the number of results is greater than the `size` parameter). <!-- FEAT-120 -->
+    * **Workaround:** Include a `sort` parameter in API search & retrieval queries.
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
+
+
 
 ## v1.2.0
 
