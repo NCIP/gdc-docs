@@ -84,25 +84,11 @@ When creating or updating entities in the GDC, the request must specify the enti
 
 ## Submission Transactions
 
-Submission involves a series of transactions initiated by the submitter, that create and link entities according to the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). With the exception of `program`, which is an administrative entity created by the GDC, all new entities must be linked, at creation, to existing entities or to new entities being created in the same transaction. For example, a submitter cannot create a `portion` entity unless the submitter either (1) has previously created the corresponding `case` and `sample` entities, or (2) is creating those entities in the same transaction. This also means that entities cannot be deleted if they have "child" entities attached to them.
+Submission of data to the GDC involves a series of transactions initiated by the submitter, that create and link entities according to the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). With the exception of `program`, which is an administrative entity created by the GDC, all new entities must be linked, at creation, to existing entities or to new entities being created in the same transaction. For example, a submitter cannot create a `portion` entity unless the submitter either (1) has previously created the corresponding `case` and `sample` entities, or (2) is creating those entities in the same transaction. This also means that entities cannot be deleted if they have "child" entities attached to them.
 
 If multiple entities are being created and/or updated in a transaction, and an error is encountered for one of the entities, then the transaction will fail and no changes will be made to the GDC.
 
-
-
-## Creating and Updating Entities
-
-### POST and PUT Requests
-
-The GDC Submission API provides two methods for creating entities: HTTP POST requests and HTTP PUT requests:
-
-* The **POST** method will create entities that do not exist, and will fail if any of the entities in the transaction already exist in the GDC.
-
-* The **PUT** method will create new entities and update existing entities, and identify which entities were created or updated in the API response.
-
-The GDC suggests using POST for creating new entities, and using PUT only for updating entities. This helps to avoid inadvertent entity updates that can occur when using PUT for creating entities.
-
-### Dry Run Mode
+### Dry Run Transactions
 
 The `submission` endpoint provides a `_dry_run` mode that simulates submission transactions without making changes to the GDC. This mode is activated by appending `/_dry_run` to the end of a submission endpoint.
 
@@ -157,9 +143,54 @@ curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-
 }
 ```
 
+#### Dry Run Commit
+
+For convenience, the GDC enables users to commit earlier `_dry_run` transactions instead of uploading the same data again to execute the changes. This `commit` action is allowed on transactions that (1) have not been previously committed and (2) were successful `dry_run` transactions.
+
+Note that the `commit` action is a separate transaction with its own transaction id, and it can be executed [asynchronously](#asynchronous-transactions). If the state of the submission project has changed in a way that would make the original `_dry_run` transaction invalid if it were run again (e.g. entities with the same `submitter_id` have since been created in another transaction), then then `commit` action will fail.
+
+```Command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
+```
+```Response
+{
+  "code": 200,
+  "message": "Transaction submitted.",
+  "transaction_id": 468,
+}
+```
+
+
+
+#### Dry Run Close
+
+The GDC Submission API also provides a `close` action on `_dry_run` transactions. This `close` action is allowed on `_dry_run` transactions that have not been previously closed. Closing a `_dry_run` transaction prevents it from being committed in the future.
+
+Note that the `close` action is a separate transaction with its own transaction id.
+
+```Command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/close
+```
+```Response
+{
+    "code": 200,
+    "message": "Closed transaction.",
+    "transaction_id": <transaction_id>
+}
+```
+
+
+
+
 ### Asynchronous Transactions
 
-The `submission` endpoint provides a `async=true` mode that returns immediately and executes submission transactions in the background. This mode is activated by appending `?async=true` to the end of a submission endpoint.  The API will return with the `transaction_id` which can be used to lookup the result of the transaction at a later time via the [GraphQL](#querying-submitted-data-and-metadata-using-graphql) endpoint.  If the server has too many asynchronous jobs scheduled already, your request to schedule a transaction may fail.
+The `submission` endpoint provides an asynchronous mode that provides immediate response and executes submission transactions in the background. This mode is activated by appending `?async=true` to the end of a submission endpoint.  The API will respond with the `transaction_id` which can be used to look up the result of the transaction at a later time via the [GraphQL](#querying-submitted-data-and-metadata-using-graphql) endpoint.  If the server has too many asynchronous jobs scheduled already, your request to schedule a transaction may fail.
+
+#### Example
 
 The following is an example of a PUT request, that creates a case asynchronously:
 
@@ -186,7 +217,9 @@ curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-
 }
 ```
 
-```GraphQL Request
+The following is a [GraphQL](#querying-submitted-data-and-metadata-using-graphql) request that looks up the state of the above transaction:
+
+```GraphQL_Request
 query {
   transaction_log(id: 467) {
     is_dry_run
@@ -195,8 +228,7 @@ query {
   }
 }
 ```
-
-```GraphQL Response
+```GraphQL_Response
 {
   "data": {
     "transaction_log": [
@@ -210,35 +242,19 @@ query {
 }
 ```
 
-In addition to the `commit` action, the GDC provides a `close` action on `_dry_run` transactions. This `close` action is allowed on dry_run transactions that have not been previously closed. Closing a dry_run transaction prevents it from being `committed` in the future.
 
-```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
 
-curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/close
-```
-```Response
-{
-    "code": 200,
-    "message": "Closed transaction.",
-    "transaction_id": <transaction_id>,
-}
-```
+## Creating and Updating Entities
 
-For convenience, the GDC provides a `commit` action on `_dry_run` transactions. This `commit` action is allowed on transactions that (1) have not been previously committed and (2) were successful `dry_run` transactions. The `commit` action can be taken asynchronously.
+### POST and PUT Requests
 
-```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+The GDC Submission API provides two methods for creating entities: HTTP POST requests and HTTP PUT requests:
 
-curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
-```
-```Response
-{
-  "code": 200,
-  "message": "Transaction submitted.",
-  "transaction_id": 468,
-}
-```
+* The **POST** method will create entities that do not exist, and will fail if any of the entities in the transaction already exist in the GDC.
+
+* The **PUT** method will create new entities and update existing entities, and identify which entities were created or updated in the API response.
+
+The GDC suggests using POST for creating new entities, and using PUT only for updating entities. This helps to avoid inadvertent entity updates that can occur when using PUT for creating entities.
 
 
 
