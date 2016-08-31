@@ -41,7 +41,7 @@ All alignments are performed using the human reference genome GRCh38.d1.vd1. Dec
 
 ### Co-cleaning Workflow
 
-The alignment is further improved in the [Co-cleaning workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_cocleaning_workflow). Co-cleaning is performed as a separate pipeline as it uses multiple BAM files (i.e. the tumor BAM and normal tissue BAM) associated with the same patient. Both steps of this process are implemented using [GATK](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/).  
+The alignment is further improved in the [Co-cleaning workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_cocleaning_workflow). Co-cleaning is performed as a separate pipeline as it uses multiple BAM files (i.e. the tumor BAM and normal tissue BAM) associated with the same patient. Both steps of this process are implemented using [GATK](https://software.broadinstitute.org/gatk/).  
 
 #### Indel Local Realignment
 
@@ -58,7 +58,7 @@ A base quality score recalibration (BQSR) step is then performed using  [BaseRec
 | Output | Harmonized Aligned Reads | BAM |
 
 ### Somatic Variant Calling Workflow
-Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Before variant calling is performed, the GDC realigns paired tumor-normal BAMs and recalibrates base quality scores. Variant calling is performed using four separate pipelines: [MuSE](http://bioinformatics.mdanderson.org/main/MuSE) [[2]](http://www.biorxiv.org/content/early/2016/05/25/055467.abstract), [MuTect2](https://www.broadinstitute.org/cancer/cga/mutect) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html),  [VarScan2](http://dkoboldt.github.io/varscan/) [[4]](http://genome.cshlp.org/content/22/3/568.short), and [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short). Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](/File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
+Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Before variant calling is performed, the GDC realigns paired tumor-normal BAMs and recalibrates base quality scores. Variant calling is performed using four separate pipelines: [MuSE](http://bioinformatics.mdanderson.org/main/MuSE) [[2]](http://www.biorxiv.org/content/early/2016/05/25/055467.abstract), [MuTect2](https://www.broadinstitute.org/cancer/cga/mutect) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html),  [VarScan2](http://dkoboldt.github.io/varscan/) [[4]](http://genome.cshlp.org/content/22/3/568.short), and [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short). Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](/File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
 
 #### Pipeline Descriptions
 Four separate variant calling pipelines are implemented for GDC data harmonization. There is currently no scientific consensus on the best variant calling pipeline so the investigator is responsible for choosing the pipeline(s) most appropriate for the data. Some details about the pipelines are indicated below.
@@ -79,13 +79,13 @@ At this time, germline variants are deliberately excluded as harmonized data. Th
 | I/O | Entity | Format |
 |---|---|---|
 | Input | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) |  BAM |
-| Output | [Raw Simple Somatic Mutation](Data_Dictionary/viewer/#?view=table-definition-view&id=simple_somatic_mutation) | VCF  |
+| Output | [Raw Simple Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=simple_somatic_mutation) | VCF  |
 
 ### Variant Call Annotation Workflow
 
-Raw VCF files are then annotated in the [Somatic Annotation Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_annotation_workflow) with the [Variant Effect Predictor (VEP)](http://useast.ensembl.org/info/docs/tools/vep/index.html) v84 ([[6]](http://dx.doi.org/10.1093/bioinformatics/btq330)) along with VEP GDC plugins.   
+Raw VCF files are then annotated in the [Somatic Annotation Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_annotation_workflow) with the [Variant Effect Predictor (VEP)](http://useast.ensembl.org/info/docs/tools/vep/index.html) v84 [[6]](http://dx.doi.org/10.1093/bioinformatics/btq330) along with VEP GDC plugins.   
 
-The VEP uses the coordinates and nucleotides in the VCF file to infer biological context for each variant including the location of each mutation, its biological consequence (frameshift/ silent mutation), and the affected genes. See the documentation on the [GDC VCF Format](/Data/File_Formats/VCF_Format/#gdc-info-fields) for more details. Variants in the VCF files are also matched to known variants from external mutation databases. The following databases are used for VCF annotation:  
+The VEP uses the coordinates and nucleotides in the VCF file to infer biological context for each variant including the location of each mutation, its biological consequence (frameshift/ silent mutation), and the affected genes. See the documentation on the [GDC VCF Format](/Data/File_Formats/VCF_Format/) for more details. Variants in the VCF files are also matched to known variants from external mutation databases. The following databases are used for VCF annotation:  
 
 *   GENCODE v.22
 *   sift v.5.2.2
@@ -103,8 +103,8 @@ In addition to annotation, [False Positive Filter](https://github.com/ucscCancer
 
 | I/O | Entity | Format |
 |---|---|---|
-| Input | [Simple Somatic Mutation](Data_Dictionary/viewer/#?view=table-definition-view&id=simple_somatic_mutation) | VCF  |
-| Output | [Annotated Somatic Mutation](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | VCF  |
+| Input | [Simple Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=simple_somatic_mutation) | VCF  |
+| Output | [Annotated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | VCF  |
 
 ### Somatic Aggregation Workflow
 
@@ -113,8 +113,8 @@ The Somatic Aggregation Workflow generates one MAF file from multiple VCF files,
 
 | I/O | Entity | Format |
 |---|---|---|
-| Input | Multiple [Annotated Somatic Mutation](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | VCF  |
-| Output | [Aggregated Somatic Mutation](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | MAF  |
+| Input | Multiple [Annotated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | VCF  |
+| Output | [Aggregated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | MAF  |
 
 ### Masked Somatic Aggregation Workflow
 
