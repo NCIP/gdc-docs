@@ -14,8 +14,8 @@
 * New submission transaction properties can be queried with GraphQL
 * GDC Data Dictionary changes:
     * Clinical Supplement entities can have `data_format` set to OMF.
-    * GDC Data Dictionary: Biospecimen Supplement entities can have `data_format` set to SSF or PPS.
-    * GDC Data Dictionary: Read group `instrument_model` can be set to "Illumina HiSeq 4000".
+    * Biospecimen Supplement entities can have `data_format` set to SSF or PPS.
+    * Read group `instrument_model` can be set to "Illumina HiSeq 4000".
     * Category of Slide entities in the GDC Data Model has changed from `data_bundle` to `biospecimen`.
 
 ### Bugs Fixed Since Last Release
