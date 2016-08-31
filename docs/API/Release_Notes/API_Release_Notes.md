@@ -12,6 +12,9 @@
 * Successful `_dry_run` submission transactions can be committed to the GDC data model without having to re-upload metadata. The transactions can also be closed to prevent them from being committed in the future.
 * Submission transactions can be submitted in asynchronous mode. In this mode, the GDC API will issue an immediate acknowledgement of the transaction, along with the `transaction_id`. The status of the transaction can be verified by the user at a later time by specifying the `transaction_id`. Users submitting large transactions may find this mode helpful.
 * GraphQL queries support transaction metadata fields associated with new asynchronous submission and `_dry_run` commit / close functionality.
+* Clinical Supplement entities can have `data_format` set to OMF.
+* Biospecimen Supplement entities can have `data_format` set to SSF or PPS.
+* Read group `instrument_model` can be set to "Illumina HiSeq 4000".
 * Category of Slide entities in the GDC Data Model has changed from `data_bundle` to `biospecimen`.
 
 ### Bugs Fixed Since Last Release
