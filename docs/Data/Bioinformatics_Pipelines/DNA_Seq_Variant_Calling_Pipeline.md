@@ -114,7 +114,7 @@ The Somatic Aggregation Workflow generates one MAF file from multiple VCF files,
 | I/O | Entity | Format |
 |---|---|---|
 | Input | Multiple [Annotated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | VCF  |
-| Output | [Aggregated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | MAF  |
+| Output | Aggregated Somatic Mutation | MAF  |
 
 ### Masked Somatic Aggregation Workflow
 
