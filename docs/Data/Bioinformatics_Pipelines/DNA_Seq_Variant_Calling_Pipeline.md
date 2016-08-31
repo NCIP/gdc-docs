@@ -15,7 +15,7 @@ DNA-Seq analysis is implemented across six main procedures:
 ## Data Processing Steps
 
 ### Pre-Alignment
-Prior to alignment, reads that failed Illumina chastity test are removed. Note that this filtering step is distinct from quality trimming reads using base quality-scores.  
+Prior to alignment, reads that failed the Illumina chastity test are removed. Note that this filtering step is distinct from quality trimming reads using base quality-scores.  
 
 ### Alignment Workflow
 DNA-Seq analysis begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow). Read groups are aligned to the reference genome using one of two [BWA](http://bio-bwa.sourceforge.net) algorithms [[1]](http://www.ncbi.nlm.nih.gov/pubmed/19451168). BWA-MEM is used if mean read length is greater than 70 bp, or otherwise BWA-aln is used.
@@ -23,7 +23,9 @@ Each read group is aligned to the reference genome separately and all read group
 
 #### Quality Control
 
-Quality control metrics are collected before and after the alignment workflow and reviewed to identify potential low-quality data files.  Basic metrics such as GC content and mean read length as well as quality score metrics are collected from unaligned reads using [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Quality metrics collected by the GDC for aligned reads include idxstat and flagstat. Coverage information is collected using Picard [CollectHsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectHsMetrics). Quality control metrics for each file endpoint can be accessed through the API using the 'expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs' parameter. Click [here](https://gdc-api.nci.nih.gov/files/40e311a4-67aa-468a-8e09-1c7daa2d10bb?pretty=true&expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs) for an example query.  
+Quality control metrics are collected before and after the alignment workflow and reviewed to identify potential low-quality data files.  Basic metrics such as GC content and mean read length as well as quality score metrics are collected from unaligned reads using [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Quality metrics collected by the GDC for aligned reads include idxstat and flagstat. Coverage information is collected using Picard [CollectHsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectHsMetrics).
+
+Quality control metrics for each file endpoint can be accessed through the API using the 'expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs' parameter. Click [here](https://gdc-api.nci.nih.gov/files/40e311a4-67aa-468a-8e09-1c7daa2d10bb?pretty=true&expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs) for an example query.  
 
 #### Reference Genome
 
