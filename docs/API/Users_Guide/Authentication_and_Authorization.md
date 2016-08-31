@@ -42,6 +42,6 @@ curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.t
 
 ### Token Expiration
 
-Tokens are valid for 30 days from the time of download.
+Tokens are valid for 30 days from the time of issue and have to be renewed every 30 days their after.   
 
 Any request to the GDC API that uses an expired token will fail and receive an HTTP error response.
