@@ -75,6 +75,16 @@ pages:
   - "Bioinformatics Pipeline: DNA-Seq Analysis": 'Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md'
   - "Release Notes": 'Data/Release_Notes/Data_Release_Notes.md'
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: 'Data/PDF/index.md'
+- Legacy Data:
+  - "TCGA Code Tables" : 'Data/TCGA_Data/TCGA_Code_Tables.md'
+  - "BCR Batch": 'Data/TCGA_Data/TCGA_Code_Tables/bcrBatchCode.md'
+  - "Center": 'Data/TCGA_Data/TCGA_Code_Tables/centerCode.md'
+  - "Data Level": 'Data/TCGA_Data/TCGA_Code_Tables/dataLevel.md'
+  - "Project (Study)": 'Data/TCGA_Data/TCGA_Code_Tables/diseaseStudy.md'
+  - Platform: 'Data/TCGA_Data/TCGA_Code_Tables/platformCode.md'
+  - "Portion/Analyte": 'Data/TCGA_Data/TCGA_Code_Tables/portionAnalyte.md'
+  - "Sample Type": 'Data/TCGA_Data/TCGA_Code_Tables/sampleType.md'
+  - "Tissue Source Site": 'Data/TCGA_Data/TCGA_Code_Tables/tissueSourceSite.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
