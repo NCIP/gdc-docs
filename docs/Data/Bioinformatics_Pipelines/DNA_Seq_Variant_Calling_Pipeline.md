@@ -141,7 +141,7 @@ Files from this pipeline are available in the [GDC Data Portal](https://gdc-port
 | Protected Aggregated Mutations | A tab-delimited file derived from multiple VCF files. Contains information from all available cases in a project.  | MAF |
 | Somatic Aggregated Mutations | A modified version of the original MAF file with sensitive or potentially erroneous data removed. | MAF |
 
-[1]. Li, Heng, and Richard Durbin. "Fast and accurate short read alignment with Burrows–Wheeler transform." Bioinformatics 25, no. 14 (2009): 1754-1760.
+[1]. Li, Heng, and Richard Durbin. "Fast and accurate short read alignment with Burrows-Wheeler transform." Bioinformatics 25, no. 14 (2009): 1754-1760.
 
 [2]. Fan, Yu, Liu Xi, Daniel ST Hughes, Jianjun Zhang, Jianhua Zhang, P. Andrew Futreal, David A. Wheeler, and Wenyi Wang. "Accounting for tumor heterogeneity using a sample-specific error model improves sensitivity and specificity in mutation calling for sequencing data." bioRxiv (2016): 055467.
 
