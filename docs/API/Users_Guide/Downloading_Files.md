@@ -12,6 +12,17 @@ To download a file, users can pass UUID(s) to the `data` endpoint.  If a single 
 
 The `data` endpoint supports GET and POST requests as demonstrated in the following examples.
 
+### Related Files
+
+If the `related_files=true` parameter is specified, the following related files, if available, will be included in the download package by the GDC API:
+
+* BAM index files (BAI files)
+* Metadata files (such as SRA XML or MAGE-TAB files)
+
+For example, this request will download a legacy copy number segmentation file and its associated MAGE-TAB metadata file:
+
+	https://gdc-api.nci.nih.gov/legacy/data/7efc039a-fde3-4bc1-9433-2fc6b5e3ffa5?related_files=true
+
 ### Downloading a Single File using GET
 
 This example demonstrates downloading a single file from the GDC. Here we pass the file's UUID to the `data` endpoint with a GET request.

@@ -22,17 +22,16 @@ Multiple UUIDs can be specified, separated by a space:
 
 ### Resuming a Failed Download
 
-The GDC Data Transfer Tool supports resumption of interrupted downloads. To resume an incomplete download, repeat the download of the manifest or UUID(s) in the same folder as the initial download.
+The GDC Data Transfer Tool supports resumption of interrupted downloads. To resume an incomplete download, repeat the download of the manifest or UUID(s) in the same folder as the initial download.  Failed downloads will appear in the destination folder with a .parital extension. This feature allows users the ability to identify quickly where the download stopped.  For large downloads this feature can let the user identify where the download was interrupted  and edit the manifest accordingly. 
 
 	gdc-client download f80ec672-d00f-42d5-b5ae-c7e06bc39da1
 
 ### Downloading Controlled Data
 
-A user authentication token is required for downloading controlled data from GDC. Tokens can be obtained from the GDC Data Portal (see instructions in [Section 4](Preparing_for_Data_Download_and_Upload.md). Once downloaded, the token *file* can be passed to the GDC Data Transfer Tool using the **-t** or **--token-file** option:
+A user authentication token is required for downloading controlled data from GDC. Tokens can be obtained from the GDC Data Portal (see instructions in [Obtaining an Authentication Token](Preparing_for_Data_Download_and_Upload.md#obtaining-an-authentication-token)). Once downloaded, the token *file* can be passed to the GDC Data Transfer Tool using the **-t** or **--token-file** option:
 
 	gdc-client download -m gdc_manifest_e24fac38d3b19f67facb74d3efa746e08b0c82c2.txt -t gdc-user-token.2015-06-17T09-10-02-04-00.txt
 
-Alternatively, the full token can be supplied in plain text using the **--token** or **-T** option.
 
 ## Uploads
 
@@ -126,3 +125,9 @@ Re-uploading a file may return the following error:
 		  }
 
 To resolve this issue, delete the file using the **--delete** switch before re-uploading.
+
+### Microsoft Windows Executable Error
+
+Attempting to run gdc-client.exe by double-clicking it in the Windows Explorer will produce a window that blinks once and disappears.
+
+This is normal, the executable must be run using the command prompt. Click 'Start', followed by 'Run' and type 'cmd' into the text bar.  Then navigate to the path containing the executable using the 'cd' command.     
