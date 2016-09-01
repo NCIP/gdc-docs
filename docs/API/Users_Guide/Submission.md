@@ -911,6 +911,8 @@ In its simplest form, a GraphQL query is a **selection set** (curly brackets) th
 
 In GDC GraphQL IDE, a root field (field within the outermost/umbrella selection set) typically corresponds to an entity, whereas fields inside nested selection sets are typically a combination of entities and entity properties.
 
+The "Docs" panel on the right-hand side of the GDC GraphQL IDE allows users to discover the fields that can be queried with GraphQL. Note that the panel contains a lot of information and users may experience a delay before it is displayed.
+
 A simple GraphQL query looks like this:
 
 	{
