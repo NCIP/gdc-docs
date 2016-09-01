@@ -125,8 +125,8 @@ While these criteria cause the pipeline to over-filter some of the true positive
 
 | I/O | Entity | Format |
 |---|---|---|
-| Input | [Aggregated Somatic Mutation](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | Protected MAF |
-| Output | [Masked Somatic Mutation](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | Somatic MAF |
+| Input | Aggregated Somatic Mutation | Protected MAF |
+| Output | Masked Somatic Mutation | Somatic MAF |
 
 ## File Access and Availability
 
