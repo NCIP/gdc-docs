@@ -52,7 +52,7 @@ For example, the address of the latest version of the `status` endpoint is `http
 
 ### GDC Legacy Archive
 
-API functionality is generally the same for the GDC Data Portal and the GDC Legacy Archive. To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL:
+To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL:
 
 	https://gdc-api.nci.nih.gov/<version>/legacy/<endpoint>
 
