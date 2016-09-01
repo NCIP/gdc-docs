@@ -242,7 +242,20 @@ query {
 }
 ```
 
+#### Transaction Status
 
+The following transaction fields can be queried using [GraphQL](#querying-submitted-data-and-metadata-using-graphql) and are helpful in determining the status of a transaction:
+
+|Field|Type|Description|
+|---|---|---|
+|`id`|ID|Transaction identifier|
+|`is_dry_run`|Boolean|Indicates whether the transaction is a dry run|
+|`closed`|Boolean|For dry run transactions, indicates whether the transaction has been closed to prevent it from being committed in the future.|
+|`committable`|Boolean|Indicates whether the transaction can be committed (i.e. it is a successful dry run transaction that has not been committed previously and has not been closed)|
+|`state`|String|Indicates the state of the transaction: `PENDING`, `SUCCEEDED`, `FAILED` (due to user error), or `ERRORED` (due to system error)|
+|`committed_by`|ID|The ID of the transaction that committed this transaction|
+
+**Note:** To check whether a dry run transaction was committed successfully, check the `state` of the transaction that executed the commit. The `state` of the dry run transaction itself does not represent the status of a subsequent commit.
 
 ## Creating and Updating Entities
 
