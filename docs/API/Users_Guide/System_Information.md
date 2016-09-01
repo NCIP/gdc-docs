@@ -50,8 +50,9 @@ curl --request GET https://gdc-api.nci.nih.gov/v0/notifications
 
 ## API Status Endpoint
 
-The `status` endpoint provides information about the current status and version of the GDC API. The following are two examples of calling the status endpoint:
+The `status` endpoint provides information about the current status and version of the GDC API.
 
+### Sample Request
 
 ``` shell
 curl https://gdc-api.nci.nih.gov/status

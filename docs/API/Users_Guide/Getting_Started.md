@@ -63,7 +63,7 @@ All objects (*entities*) in the GDC are assigned a unique identifier in the form
 
 UUIDs are frequently used in GDC API requests and responses to identify specific entities like files, cases, and samples.
 
-See the GDC Data User's Guide for details.
+See [GDC Data Model](../Data/Data_Model/GDC_Data_Model.md) for details.
 
 ## Sample Request
 
