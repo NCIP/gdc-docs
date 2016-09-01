@@ -18,7 +18,7 @@ GDC notifications have a corresponding `level` with the following meanings:
 | ERROR   | Important system information, e.g. regarding a GDC component         |
 | DEBUG   | Unimportant system information, e.g. testing the notification system |
 
-Notifications will indicate the GDC component(s) to which they apply:
+Notifications will indicate the GDC `components` to which they apply:
 
 | Component   | Description                                                              |
 |---------|----------------------------------------------------------------------|
