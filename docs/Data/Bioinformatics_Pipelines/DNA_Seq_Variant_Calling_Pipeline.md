@@ -118,7 +118,7 @@ The Somatic Aggregation Workflow generates one MAF file from multiple VCF files,
 
 ### Masked Somatic Aggregation Workflow
 
-The original MAF files are controlled-access due to the presence of germline mutations. Open-access MAF files are modified for public release by removing 1)called variants with FILTER values that are not 'PASS'; 2) variants that are not flagged as somatic; 3) variants that do not affect protein coding, unless they are experimentally validated by an orthogonal platform; 4) variants that are annotated as anything other than somatic in [dbSNP](http://www.ncbi.nlm.nih.gov/SNP/), [COSMIC](http://cancer.sanger.ac.uk/cosmic) or [OMIM](http://www.ncbi.nlm.nih.gov/omim).
+The original MAF files are controlled-access due to the presence of germline mutations. Open-access MAF files are modified for public release by removing 1) called variants with FILTER values that are not 'PASS'; 2) variants that are not flagged as somatic; 3) variants that do not affect protein coding, unless they are experimentally validated by an orthogonal platform; 4) variants that are annotated as anything other than somatic in [dbSNP](http://www.ncbi.nlm.nih.gov/SNP/), [COSMIC](http://cancer.sanger.ac.uk/cosmic) or [OMIM](http://www.ncbi.nlm.nih.gov/omim).
 
 While these criteria cause the pipeline to over-filter some of the true positive somatic variants in open-access MAF files, they prevent personally identifiable germline mutation information from becoming openly available. The GDC recommends that investigators explore both controlled and open-access MAF files if potential omission of certain somatic mutations is a concern.  
 
