@@ -2,7 +2,31 @@
 
 ## Help Menus
 
-The GDC Data Transfer Tool comes with built-in help menus. These menus are displayed when the GDC Data Transfer Tool is run with flags -h or --help for any command. Running the GDC Data Transfer Tool without commands will present a list of available commands. The available menus are provided below.
+The GDC Data Transfer Tool comes with built-in help menus. These menus are displayed when the GDC Data Transfer Tool is run with flags -h or --help for any of the main arguments to the tool. Running the GDC Data Transfer Tool without argument or flag will present a list of available command options.
+
+
+
+```Shell
+./gdc-client --help
+```
+``` Output
+usage: gdc-client [-h] [--version] {download,upload,interactive} ...
+
+The Genomic Data Commons Command Line Client
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+
+commands:
+  {download,upload,interactive}
+                        for more information, specify -h after a command
+    download            download data from the GDC
+    upload              upload data to the GDC
+    interactive         run in interactive mode
+```
+
+ The available menus are provided below.
 
 ### Root menu
 
