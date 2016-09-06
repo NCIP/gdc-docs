@@ -28,7 +28,7 @@ The meta-information section of a VCF file comprises lines that begin with `##`.
 *   **reference:** the reference genome used to generate the VCF file
 *   **contig:** contigs included in the VCF files
 	*  NOTE: Annotated VCFs include contig information for autosomes, sex chromosomes, and mitochondrial DNA. Unplaced, unlocalized, human decoy, and viral genome sequences are not included.
-*   **VEP:** the VEP command used by the [GDC Somatic Mutation Annotation Pipeline](../Bioinformatics_Pipelines/Annotation_Pipeline.md) to generate the annotated VCF file.
+*   **VEP:** the VEP command used by the [Somatic Annotation Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_annotation_workflow) to generate the annotated VCF file.
 
 ### Part 2: Column Header Line
 
@@ -54,7 +54,7 @@ This part of a VCF file contains tab-delimited information, one line per record,
 
 ## GDC INFO fields
 
-The following variant annotation fields are currently included in Annotated Somatic Mutation VCF files.  Please refer to [GDC Somatic Mutation Annotation Pipeline](../Bioinformatics_Pipelines/Annotation_Pipeline.md) for details on how this information is generated. [VEP Documentation](http://useast.ensembl.org/info/docs/tools/vep/vep_formats.html#output) provides additional information about some of these fields.
+The following variant annotation fields are currently included in Annotated Somatic Mutation VCF files.  Please refer to [DNA-Seq Analysis Pipeline](../Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md) for details on how this information is generated. [VEP Documentation](http://useast.ensembl.org/info/docs/tools/vep/vep_formats.html#output) provides additional information about some of these fields.
 
 |field|description|
 |--|--|
