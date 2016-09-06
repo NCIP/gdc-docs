@@ -54,7 +54,7 @@ This part of a VCF file contains tab-delimited information, one line per record,
 
 ## GDC INFO fields
 
-The following variant annotation fields are currently included in Annotated Somatic Mutation VCF files.  Please refer to [DNA-Seq Analysis Pipeline](../Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md) for details on how this information is generated. [VEP Documentation](http://useast.ensembl.org/info/docs/tools/vep/vep_formats.html#output) provides additional information about some of these fields.
+The following variant annotation fields are currently included in Annotated Somatic Mutation VCF files.  Please refer to the [DNA-Seq Analysis Pipeline](../Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md) documentation for details on how this information is generated. [VEP Documentation](http://useast.ensembl.org/info/docs/tools/vep/vep_formats.html#output) provides additional information about some of these fields.
 
 |field|description|
 |--|--|
