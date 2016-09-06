@@ -8,7 +8,7 @@ The GDC Data Transfer Tool comes with built-in help menus. These menus are displ
 
 The GDC Data Transfer Tool displays the following help menu when executed without any arguments.
 
-```Shell
+```Shel l
 ./gdc-client
 ```
 ```Output
