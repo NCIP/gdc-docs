@@ -7,7 +7,7 @@
 
 ### New Features and Changes
 
-*   In the Cart, merged clinical, biospecimen and file metadata into one JSON file <!-- PRTL-177 -->
+*   In the Cart, merged clinical, biospecimen and file metadata into one JSON file. Returning users may need to refresh the cart page to see the change. <!-- PRTL-177 -->
 *   Added a banner on the Data Portal to help users find data <!-- PRTL-237 -->
 *   Added support for "Enter" key on login button <!-- PRTL-136 -->
 *   On the Data page, the browser will remember which facet tab was selected when hitting the "Back" button <!-- PRTL-147 -->
