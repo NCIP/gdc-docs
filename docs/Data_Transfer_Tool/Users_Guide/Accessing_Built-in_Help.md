@@ -2,7 +2,7 @@
 
 ## Help Menus
 
-The GDC Data Transfer Tool comes with built-in help menus. These menus are displayed when the GDC Data Transfer Tool is run with the flag -h or --help for any command. Running the GDC Data Transfer Tool without commands will present a list of available commands. The available menus are provided below.
+The GDC Data Transfer Tool comes with built-in help menus. These menus are displayed when the GDC Data Transfer Tool is run with flags -h or --help for any command. Running the GDC Data Transfer Tool without commands will present a list of available commands. The available menus are provided below.
 
 ### Root menu
 
