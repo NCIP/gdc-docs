@@ -3,7 +3,7 @@
 ## v1.1.0
 
 * __GDC Product__: Data Transfer Tool
-* __Release Date__: Aug 29, 2016
+* __Release Date__: September 7, 2016
 
 
 ### New Features and Changes
