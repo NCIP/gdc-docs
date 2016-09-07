@@ -42,6 +42,14 @@ curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.t
 
 ### Token Expiration
 
-Tokens are valid for 30 days from the time of issue and have to be renewed every 30 days their after.
+Tokens are valid for 30 days from the time of issue. Any request to the GDC API that uses an expired token will fail.
 
-Any request to the GDC API that uses an expired token will fail and receive an HTTP error response.
+#### Replacing a Token
+
+Upon token expiration, a new token can be downloaded from the GDC Data Portal or the GDC Data Submission Portal. Alternatively, a token can be replaced before it expires by performing the following steps (all in the same browser window):
+
+0. Log into the [GDC Data Portal](https://gdc-portal.nci.nih.gov) or the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission) using eRA Commons.
+0. Open the URL `https://gdc-portal.nci.nih.gov/auth/token/refresh` to trigger token expiration.
+0. Go back to the GDC Data Portal or the GDC Data Submission Portal.
+0. Refresh the page.
+0. Download the new token from the portal.
