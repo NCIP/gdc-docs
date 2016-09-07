@@ -15,6 +15,7 @@ pages:
   - Downloading Files: 'API/Users_Guide/Downloading_Files.md'
   - BAM Slicing: 'API/Users_Guide/BAM_Slicing.md'
   - Submission: 'API/Users_Guide/Submission.md'
+  - System Information: 'API/Users_Guide/System_Information.md'
   - Additional Examples: 'API/Users_Guide/Additional_Examples.md'
   - "Appendix A: Available Fields": 'API/Users_Guide/Appendix_A_Available_Fields.md'
   - "Appendix B: Key Terms": 'API/Users_Guide/Appendix_B_Key_Terms.md'

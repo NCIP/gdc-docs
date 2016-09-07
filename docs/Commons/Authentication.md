@@ -14,7 +14,7 @@ By Clicking on "Login", users will be invited to authentication through eRA Comm
 
 ## GDC Authentication Token
 
-A Token is required to upload data to GDC, as well as to download controlled-access files, using the GDC Data Transfer Tool or the GDC Application Programming Interface (API). 
+A Token is required to upload data to GDC, as well as to download controlled-access files, using the GDC Data Transfer Tool or the GDC Application Programming Interface (API).
 
 The GDC Data Transfer Tool is optimized for large transfers with multi-part upload and integrity checking, making it the most efficient tool for molecular data submission.
 
@@ -47,7 +47,7 @@ In the example above, replace YOUR_TOKEN with the contents of token file downloa
 
 ### Token Expiration
 
-Tokens are valid for thirty days from the time of download. Using an expired token will result in a 401 HTTP error code:
+Tokens are valid for 30 days from the time of issue and have to be renewed every 30 days their after.  Using an expired token will result in a 401 HTTP error code:
 
 ```http
 HTTP/1.1 403 FORBIDDEN{

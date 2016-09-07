@@ -14,11 +14,11 @@ The endpoint for submitting data to a specific project in the GDC is constructed
 <pre>https://gdc-api.nci.nih.gov/<b>[&#x3C;API_version&#x3E;/]</b>submission/<b>&#x3C;Program.name&#x3E;</b>/<b>&#x3C;Project.code&#x3E;</b></pre>
 where `[<API_version>/]` is the optional API version component (see [Getting Started](Getting_Started.md)).
 
-#### Program.name and Project.code
-
 The values of `Program.name` and `Project.code` can be obtained from the project URL on the GDC Data Submission Portal:
 
 <pre>https://gdc-portal.nci.nih.gov/submission/<b>&#x3C;Program.name&#x3E;</b>/<b>&#x3C;Project.code&#x3E;</b>/dashboard</pre>
+
+For more information about program name and project code see [The GDC Data Model  section](../../Data/Data_Model/GDC_Data_Model/#program-name-project-code-and-project-id).
 
 #### Example
 
@@ -37,79 +37,58 @@ and an unversioned submission endpoint at
 
 ## GDC Data Model
 
-### Entities, Properties, Links, and Schemas
+Submitters should review the [GDC Data Model documentation](../../Data/Data_Model/GDC_Data_Model.md) and the [GDC Data Dictionary](../../Data_Dictionary/index.md) before initiating submission.
 
-The GDC Data Model is a representation of data stored in the GDC. It is used to retrieve, submit, update, and delete data. Although the GDC Data Model may contain some cyclic elements, it can be helpful to think of it as a [Directed Acyclic Graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) composed of interconnected **entities**. Each entity in the GDC has a set of properties and links.
+### UUIDs
 
-* **Properties** are key-value pairs associated with an entity. Properties cannot be nested, which means that the value must be numerical, boolean, or a string, and cannot be another key-value set. Properties can be either required or optional. The following properties are of particular importance in constructing the GDC Data Model:
-    * **Type** is a required property for all entities. Entity types include `project`, `case`, `demographic`, `sample`, `read_group` and others.
-    * **System properties** are properties used in GDC system operation and maintenance, that cannot be modified except under special circumstances.
-    * **Unique keys** are properties, or combinations of properties, that can be used to uniquely identify the entity in the GDC. For example, the tuple (combination) of `[ project_id, submitter_id ]` is a unique key for most entities, which means that although `submitter_id` does not need to be unique in GDC, it must be unique within a project.
-* **Links** define relationships between entities, and the multiplicity of those relationships (e.g. one-to-one, one-to-many, many-to-many).
+Submitters can assign UUIDs to all submittable entities other than those that correspond to user-downloadable files. If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the submission transaction. See [Appendix C](Appendix_C_Format_of_Submission_Requests_and_Responses.md) for details of the API response format. To learn more about UUIDs see the [GDC Data Model documentation](../../Data/Data_Model/GDC_Data_Model.md#uuids).
 
-The properties and links that an entity can have are defined by the **JSON schema** corresponding to the entity's `type`. Entity JSON schemas are stored in the [GDC Data Dictionary](#gdc-data-dictionary).
-
-Functionally similar entity types are grouped under the same **category**. For example, entity types `slide_image` and `submitted_unaligned_reads` belong to `data_file` category, which comprises entities that correspond to files downloadable from the GDC Object Store.
-
-
-### Unique Keys
-
-When an entity is created, it must be assigned a unique identifier in the form of a [version 4 universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). The UUID uniquely identifies the entity in the GDC, and is stored in the entity's `id` property. For most submittable entities, the UUID can be assigned by the submitter. If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the transaction. See [Appendix C](Appendix_C_Format_of_Submission_Requests_and_Responses.md) for details of the API response format.
+### Submitter IDs
 
 In addition to `id`, many entities also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the entity. Typically this string identifies a corresponding entry in submitter's records. The GDC's only requirement with respect to `submitter_id` is that it be a string that is unique for all entities within a project. The GDC Submission API requires a `submitter_id` for most entities.
 
 **Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
-### GDC Data Dictionary
+### GDC Data Dictionary Endpoints
 
-The [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) provides a user-friendly overview of entity schemas, grouped by category. It also provides templates in JSON and TSV formats, that can be used for creating or updating entities. Information in the GDC Data Dictionary can also be accessed programmatically using `dictionary` and `template` endpoints.
+Information in the [GDC Data Dictionary](../../Data_Dictionary/index.md) can be accessed programmatically as described below.
 
-#### Dictionary Endpoint
+#### Submission Templates
 
-The entire collection of GDC entity schemas can be downloaded at the following GDC Data Dictionary endpoint:
+Submission templates are accessible programmatically at the `templates` endpoint. Template format (`json`, `tsv` or `csv`) is specified using the `format` parameter.
+
+For example, the JSON template for `case` entities can be obtained from:
+
+	https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json
+
+A set of templates for all entities in the GDC Data Model can be downloaded from:
+
+	https://gdc-api.nci.nih.gov/v0/submission/template/?format=json
+
+#### Entity JSON Schemas
+
+The entire collection of GDC entity schemas can be downloaded from the `dictionary` endpoint:
 
 <pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>_all</b></pre>
 
 [//]: # (this is just a comment ignore me I beg of you_)
 
-Individual schemas can be downloaded at the endpoint that corresponds to the entity type. For example, the JSON schema for `case` entities can be found at:
+Individual schemas can be downloaded by specifying entity type. For example, the JSON schema for `case` entities can be found at:
 
 <pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>case</b></pre>
-
-#### Template Endpoint
-
-Submission templates are accessible programmatically at the `templates` endpoint. For example, the JSON template for `case` entities can be obtained from:
-
-	https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json
-
-and the entire collection of GDC Submission Templates can be obtained from:
-
-	https://gdc-api.nci.nih.gov/v0/submission/template/?format=json
 
 
 ## Format of Submission API Requests and Responses
 
-When creating or updating entities in the GDC, the request must specify the entity `type`, the entity `id` or `submitter_id`, relationships (links) that the entity has to existing entities, and entity properties as defined by the entity JSON schema. To delete entities, only the `id` property is required. The general format of GDC API submission requests and responses is provided in [Appendix C](Appendix_C_Format_of_Submission_Requests_and_Responses.md).
+When creating or updating entities in the GDC, the request must specify the entity `type`, the entity `id` or `submitter_id`, relationships (links) that the entity has to existing entities, and entity properties as defined by the [GDC Data Dictionary](../../Data_Dictionary/index.md). To delete entities, only the `id` property is required. The general format of GDC API submission requests and responses is provided in [Appendix C](Appendix_C_Format_of_Submission_Requests_and_Responses.md).
 
 ## Submission Transactions
 
-Submission involves a series of transactions initiated by the submitter, that create and link enities according to their [schemas](#entities-properties-links-and-schemas), constructing a graph that can be represented by the diagram provided [here](https://gdc.nci.nih.gov/developers/gdc-data-model/gdc-data-model-components). With the exception of `program` and `project`, which are administrative entities created by the GDC, all new entities must be linked, at creation, to existing entities or to new entities being created in the same transaction. For example, a submitter cannot create a `portion` entity unless the submitter either (1) has previously created the corresponding `case` and `sample` entities, or (2) is creating those entities in the same transaction. This also means that entities cannot be deleted if they have "child" entities attached to them.
+Submission of data to the GDC involves a series of transactions initiated by the submitter, that create and link entities according to the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). With the exception of `program`, which is an administrative entity created by the GDC, all new entities must be linked, at creation, to existing entities or to new entities being created in the same transaction. For example, a submitter cannot create a `portion` entity unless the submitter either (1) has previously created the corresponding `case` and `sample` entities, or (2) is creating those entities in the same transaction. This also means that entities cannot be deleted if they have "child" entities attached to them.
 
 If multiple entities are being created and/or updated in a transaction, and an error is encountered for one of the entities, then the transaction will fail and no changes will be made to the GDC.
 
-## Creating and Updating Entities
-
-### POST and PUT Requests
-
-The GDC Submission API provides two methods for creating entities: HTTP POST requests and HTTP PUT requests:
-
-* The **POST** method will create entities that do not exist, and will fail if any of the entities in the transaction already exist in the GDC.
-
-* The **PUT** method will create new entities and update existing entities, and identify which entities were created or updated in the API response.
-
-The GDC suggests using POST for creating new entities, and using PUT only for updating entities. This helps to avoid inadvertent entity updates that can occur when using PUT for creating entities.
-
-### Dry Run Mode
+### Dry Run Transactions
 
 The `submission` endpoint provides a `_dry_run` mode that simulates submission transactions without making changes to the GDC. This mode is activated by appending `/_dry_run` to the end of a submission endpoint.
 
@@ -164,8 +143,135 @@ curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-
 }
 ```
 
+#### Dry Run Commit
 
-### Example: Creating and Updating a Case Entities
+For convenience, the GDC enables users to commit earlier `_dry_run` transactions instead of uploading the same data again to execute the changes. This `commit` action is allowed on transactions that (1) have not been previously committed and (2) were successful `dry_run` transactions.
+
+Note that the `commit` action is a separate transaction with its own transaction id, and it can be executed [asynchronously](#asynchronous-transactions). If the state of the submission project has changed in a way that would make the original `_dry_run` transaction invalid if it were run again (e.g. entities with the same `submitter_id` have since been created in another transaction), then then `commit` action will fail.
+
+```Command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
+```
+```Response
+{
+  "code": 200,
+  "message": "Transaction submitted.",
+  "transaction_id": 468,
+}
+```
+
+
+
+#### Dry Run Close
+
+The GDC Submission API also provides a `close` action on `_dry_run` transactions. This `close` action is allowed on `_dry_run` transactions that have not been previously closed. Closing a `_dry_run` transaction prevents it from being committed in the future.
+
+Note that the `close` action is a separate transaction with its own transaction id.
+
+```Command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/close
+```
+```Response
+{
+    "code": 200,
+    "message": "Closed transaction.",
+    "transaction_id": <transaction_id>
+}
+```
+
+
+
+
+### Asynchronous Transactions
+
+The `submission` endpoint provides an asynchronous mode that provides immediate response and executes submission transactions in the background. This mode is activated by appending `?async=true` to the end of a submission endpoint.  The API will respond with the `transaction_id` which can be used to look up the result of the transaction at a later time via the [GraphQL](#querying-submitted-data-and-metadata-using-graphql) endpoint.  If the server has too many asynchronous jobs scheduled already, your request to schedule a transaction may fail.
+
+#### Example
+
+The following is an example of a PUT request, that creates a case asynchronously:
+
+```Request
+{
+  "project_id": "TCGA-ALCH",
+  "type": "case",
+  "submitter_id": "TCGA-ALCH-000001",
+  "projects": {
+    "code": "ALCH"
+  }
+}
+```
+```Command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+curl --header "X-Auth-Token: $token" --request POST --data @Request https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH?async=true
+```
+```Response
+{
+  "code": 200,
+  "message": "Transaction submitted.",
+  "transaction_id": 467,
+}
+```
+
+The following is a [GraphQL](#querying-submitted-data-and-metadata-using-graphql) request that looks up the state of the above transaction:
+
+```GraphQL_Request
+query {
+  transaction_log(id: 467) {
+    is_dry_run
+    committed_by
+    state
+  }
+}
+```
+```GraphQL_Response
+{
+  "data": {
+    "transaction_log": [
+      {
+        "committed_by": null,
+        "is_dry_run": false,
+        "state": "FAILED"
+      }
+    ]
+  }
+}
+```
+
+#### Transaction Status
+
+The following transaction fields can be queried using [GraphQL](#querying-submitted-data-and-metadata-using-graphql) and are helpful in determining the status of a transaction:
+
+|Field|Type|Description|
+|---|---|---|
+|`id`|ID|Transaction identifier|
+|`is_dry_run`|Boolean|Indicates whether the transaction is a dry run|
+|`closed`|Boolean|For dry run transactions, indicates whether the transaction has been closed to prevent it from being committed in the future.|
+|`committable`|Boolean|Indicates whether the transaction can be committed (i.e. it is a successful dry run transaction that has not been committed previously and has not been closed)|
+|`state`|String|Indicates the state of the transaction: `PENDING`, `SUCCEEDED`, `FAILED` (due to user error), or `ERRORED` (due to system error)|
+|`committed_by`|ID|The ID of the transaction that committed this transaction|
+
+**Note:** To check whether a dry run transaction was committed successfully, check the `state` of the transaction that executed the commit. The `state` of the dry run transaction itself does not represent the status of a subsequent commit.
+
+## Creating and Updating Entities
+
+### POST and PUT Requests
+
+The GDC Submission API provides two methods for creating entities: HTTP POST requests and HTTP PUT requests:
+
+* The **POST** method will create entities that do not exist, and will fail if any of the entities in the transaction already exist in the GDC.
+
+* The **PUT** method will create new entities and update existing entities, and identify which entities were created or updated in the API response.
+
+The GDC suggests using POST for creating new entities, and using PUT only for updating entities. This helps to avoid inadvertent entity updates that can occur when using PUT for creating entities.
+
+
+
+### Example: Creating and Updating Case Entities
 
 In this example, a case entity is created using POST. Then an attempt is made to create the same entity again using POST, resulting in an error. Then the originally created entity is updated (with the same information) using PUT.
 
@@ -791,7 +897,7 @@ GDC data submitters can access the GDC Submission API GraphQL endpoint at:
 When sending GraphQL requests to the API directly, the bare GraphQL query must be wrapped in a "query" JSON object as shown below:
 
 <pre>
-{  
+{
 	"query": "<b>{Bare_GraphQL_Query}</b>",
 	"variables": null
 }
@@ -804,6 +910,8 @@ When using the GDC GraphQL IDE, the bare JSON query must be used without a JSON 
 In its simplest form, a GraphQL query is a **selection set** (curly brackets) that encloses a set of **fields**. The selection set defines the set of information that is to be retrieved. Furthermore, in GraphQL fields are conceptually equivalent to functions that retrieve additional fields and, in some cases, can take arguments. So each field in a selection set can have its own selection set, thereby creating a nested query structure that can navigate complex data relationships. See [GraphQL Specification](https://facebook.github.io/graphql/) for further details.
 
 In GDC GraphQL IDE, a root field (field within the outermost/umbrella selection set) typically corresponds to an entity, whereas fields inside nested selection sets are typically a combination of entities and entity properties.
+
+The "Docs" panel on the right-hand side of the GDC GraphQL IDE allows users to discover the fields that can be queried with GraphQL. Note that the panel contains a lot of information and users may experience a delay before it is displayed.
 
 A simple GraphQL query looks like this:
 

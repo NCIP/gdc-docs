@@ -1,4 +1,4 @@
-# Data Download and Upload
+
 
 ## Downloads
 
@@ -22,7 +22,7 @@ Multiple UUIDs can be specified, separated by a space:
 
 ### Resuming a Failed Download
 
-The GDC Data Transfer Tool supports resumption of interrupted downloads. To resume an incomplete download, repeat the download of the manifest or UUID(s) in the same folder as the initial download.
+The GDC Data Transfer Tool supports resumption of interrupted downloads. To resume an incomplete download, repeat the download of the manifest or UUID(s) in the same folder as the initial download.  Failed downloads will appear in the destination folder with a .parital extension. This feature allows users the ability to identify quickly where the download stopped.  For large downloads this feature can let the user identify where the download was interrupted  and edit the manifest accordingly.
 
 	gdc-client download f80ec672-d00f-42d5-b5ae-c7e06bc39da1
 
@@ -32,13 +32,12 @@ A user authentication token is required for downloading controlled data from GDC
 
 	gdc-client download -m gdc_manifest_e24fac38d3b19f67facb74d3efa746e08b0c82c2.txt -t gdc-user-token.2015-06-17T09-10-02-04-00.txt
 
-Alternatively, the full token can be supplied in plain text using the **--token** or **-T** option.
 
 ## Uploads
 
 ### Uploading Data Using a Manifest File
 
-GDC Data Transfer Tool supports uploading molecular data using a manifest file. The manifest file for a data bundle can be retrieved from the GDC Data Submission Portal, or directly from the GDC Submission API given a data bundle UUID. The user authentication token file needs to be specified using the **-t** or **--token** option.
+GDC Data Transfer Tool supports uploading molecular data using a manifest file. The manifest file for a data bundle can be retrieved from the GDC Data Submission Portal, or directly from the GDC Submission API given a data bundle UUID. The user authentication token file needs to be specified using the **-t** or **--token-files** option.
 
 First, generate an upload manifest, either using the GDC Data Submission Portal, or [using a call](/API/Users_Guide/Submission.md#upload-manifest) to the GDC Submission API `manifest` endpoint (as in the following example):
 
@@ -63,7 +62,7 @@ By default, GDC Data Transfer Tool uses multipart transfer to upload files. If a
 
 	gdc-client upload -m manifest.yml -t token
 
-### Replacing Previously Uploaded Data
+### Deleting Previously Uploaded Data
 
 Previously uploaded data can be replaced with new data by deleting it first using the **--delete** switch:
 

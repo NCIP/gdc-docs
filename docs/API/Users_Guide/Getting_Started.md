@@ -52,7 +52,7 @@ For example, the address of the latest version of the `status` endpoint is `http
 
 ### GDC Legacy Archive
 
-API functionality is generally the same for the GDC Data Portal and the GDC Legacy Archive. To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL:
+To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL:
 
 	https://gdc-api.nci.nih.gov/<version>/legacy/<endpoint>
 
@@ -63,56 +63,48 @@ All objects (*entities*) in the GDC are assigned a unique identifier in the form
 
 UUIDs are frequently used in GDC API requests and responses to identify specific entities like files, cases, and samples.
 
-## Making a request to the GDC API
+See [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md) for details.
 
-The `status` endpoint provides information about the current status and version of the GDC API. The following are two examples of calling the status endpoint:
+## Sample Request
 
+The following is an example of a request to the `files` endpoint, which retrieves information about a BAM file stored in the GDC.
 
 ``` shell
-curl https://gdc-api.nci.nih.gov/status
+curl https://gdc-api.nci.nih.gov/files/d853e541-f16a-4345-9f00-88e03c2dc0bc?pretty=true
 ```
 ``` python
 import requests
 import json
 
-status_endpt = 'https://gdc-api.nci.nih.gov/status'
-response = requests.get(status_endpt)
+file_endpt = 'https://gdc-api.nci.nih.gov/files/'
+file_uuid = 'd853e541-f16a-4345-9f00-88e03c2dc0bc'
+response = requests.get(file_endpt + file_uuid)
 print json.dumps(response.json(), indent=2)
+``` Response
+{
+  "data": {
+    "data_type": "Aligned Reads",
+    "updated_datetime": "2016-05-26T17:06:40.003624-05:00",
+    "created_datetime": "2016-05-26T17:06:40.003624-05:00",
+    "file_name": "0017ba4c33a07ba807b29140b0662cb1_gdc_realn.bam",
+    "md5sum": "a08304b120c5df76b6532da0e9a35ced",
+    "data_format": "BAM",
+    "acl": [
+      "phs000178"
+    ],
+    "access": "controlled",
+    "platform": "Illumina",
+    "state": "submitted",
+    "file_id": "d853e541-f16a-4345-9f00-88e03c2dc0bc",
+    "data_category": "Raw Sequencing Data",
+    "file_size": 23650901931,
+    "submitter_id": "c30188d7-be1a-4b43-9a17-e19ccd71792e",
+    "type": "aligned_reads",
+    "file_state": "processed",
+    "experimental_strategy": "WXS"
+  },
+  "warnings": {}
+}
 ```
 
-Either of the above two commands returns an output similar to this:
-
-	{
-	      "status": "OK",
-	      "tag": "0.2.13-spr4",
-	      "version": 1
-	}
-
-
-## Request Headers
-The GDC API supports the following request headers:
-
-| Request Header | Description |
-| --- | --- |
-| Content-Type | Format of the request that the user is providing to the GDC API: `application/json` or `application/xml`. |
-| Accept | Format of the response that the user expects from the GDC API: `application/json` or `application/xml`. |
-| X-Auth-Token | The authentication token as provided by the GDC. See [Authorization and Authentication](Authentication_and_Authorization.md). |
-
-
-## Response Headers
-The API provides the following response headers
-
-| Response Header | Description |
-| --- | --- |
-| Content-Type | `application/json` or `application/xml`; determined by Accept header of the corresponding request. |
-
-
-## Status Codes
-The GDC API can respond with the following HTTP codes:
-
-| Status Code | Description |
-| --- | --- |
-| 200 OK | Success |
-| 400 Bad Request | An entity or element of the query was not valid |
-| 403 Forbidden | Unauthorized request |
-| 404 Not Found | Requested element not found |
+The rest of this guide will provide information on how to construct and execute API requests and interpret API responses.

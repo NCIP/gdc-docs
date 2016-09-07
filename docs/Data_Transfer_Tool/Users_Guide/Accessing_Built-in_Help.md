@@ -1,8 +1,8 @@
-# Accessing Built-in Help
+
 
 ## Help Menus
 
-The GDC Data Transfer Tool comes with built-in help menus. These menus are displayed when the GDC Data Transfer Tool is run without commands or when -h / --help flag is specified for any command. Running the GDC Data Transfer Tool without commands will present a list of available commands. The available menus are provided below.
+The GDC Data Transfer Tool comes with built-in help menus. These menus are displayed when the GDC Data Transfer Tool is run with flags -h or --help for any command. Running the GDC Data Transfer Tool without commands will present a list of available commands. The available menus are provided below.
 
 ### Root menu
 
@@ -42,8 +42,6 @@ optional arguments:
   --debug               enable debug logging
   -v, --verbose         enable verbose logging
   --log-file LOG_FILE   log file [stderr]
-  -T TOKEN, --token TOKEN
-                        GDC API auth token string
   -t TOKEN, --token-file TOKEN
                         GDC API auth token file
   -H HOST, --host HOST  GDC API host [gdc-api.nci.nih.gov]
@@ -91,8 +89,6 @@ optional arguments:
   --debug               enable debug logging
   -v, --verbose         enable verbose logging
   --log-file LOG_FILE   log file [stderr]
-  -T TOKEN, --token TOKEN
-                        GDC API auth token string
   -t TOKEN, --token-file TOKEN
                         GDC API auth token file
   -H HOST, --host HOST  GDC API host [gdc-api.nci.nih.gov]

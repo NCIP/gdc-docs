@@ -16,6 +16,7 @@ pages:
   - Downloading Files: 'API/Users_Guide/Downloading_Files.md'
   - BAM Slicing: 'API/Users_Guide/BAM_Slicing.md'
   - Submission: 'API/Users_Guide/Submission.md'
+  - System Information: 'API/Users_Guide/System_Information.md'
   - Additional Examples: 'API/Users_Guide/Additional_Examples.md'
   - "Appendix A: Available Fields": 'API/Users_Guide/Appendix_A_Available_Fields.md'
   - "Appendix B: Key Terms": 'API/Users_Guide/Appendix_B_Key_Terms.md'
@@ -66,13 +67,13 @@ pages:
   - Viewer: 'Data_Dictionary/viewer.md'
 - Data:
   - Introduction: 'Data/Introduction.md'
+  - "GDC Data Model": 'Data/Data_Model/GDC_Data_Model.md'
   - "File Format: MAF": 'Data/File_Formats/MAF_Format.md'
   - "File Format: VCF": 'Data/File_Formats/VCF_Format.md'
-  - "Bioinformatics Pipeline: Variant Annotation": 'Data/Bioinformatics_Pipelines/Annotation_Pipeline.md'
   - "Bioinformatics Pipeline: miRNA Analysis": 'Data/Bioinformatics_Pipelines/miRNA_Pipeline.md'
   - "Bioinformatics Pipeline: mRNA Analysis": 'Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline.md'
-
-  - Release Notes: 'Data/Release_Notes/Data_Release_Notes.md'
+  - "Bioinformatics Pipeline: DNA-Seq Analysis": 'Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md'
+  - "Release Notes": 'Data/Release_Notes/Data_Release_Notes.md'
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: 'Data/PDF/index.md'
 extra:
   project_root_dir: '/'

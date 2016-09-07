@@ -20,11 +20,12 @@
 * MAF Column #109 "FILTER" entries are separated by both commas and semi-colons. <!-- PGDC-2589 -->
 * TARGET-AML and TARGET-ALL projects are undergoing reorganization.  Pending reorganization, cases from these projects may not contain many clinical, biospecimen, or genomic data files.
 * No data from TARGET-PPTP is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
 * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
 * There are 200 cases from TCGA-LAML that do not appear in the Legacy Archive <!--SV-327-->
 * Biotab files are not linked to Project or Case in the Legacy Archive <!--SV-303-->
 * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
-
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391--> 
 
 Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_notes_manifest.txt)
 <br>
