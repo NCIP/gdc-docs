@@ -37,7 +37,7 @@ All alignments are performed using the human reference genome GRCh38.d1.vd1. Dec
 | Input | [Submitted Unaligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) or [Submitted Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads) | FASTQ or BAM |
 | Output | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) | BAM |
 
-![DNA-Seq Alignment Pipeline](https://gdc.nci.nih.gov/files/public/image/dna-alignment-pipeline_0.png)
+![DNA-Seq Alignment Pipeline](images/dna-alignment-pipeline_0.png)
 
 ### Co-cleaning Workflow
 
