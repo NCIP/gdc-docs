@@ -3,7 +3,7 @@
 ## Release 1.3.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: August 30th, 2016
+* __Release Date__: September 7, 2016
 
 ### New Features and Changes
 

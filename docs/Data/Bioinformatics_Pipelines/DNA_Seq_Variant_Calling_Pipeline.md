@@ -114,7 +114,7 @@ The Somatic Aggregation Workflow generates one MAF file from multiple VCF files,
 | I/O | Entity | Format |
 |---|---|---|
 | Input | Multiple [Annotated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | VCF  |
-| Output | Aggregated Somatic Mutation | MAF  |
+| Output | [Aggregated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=aggregated_somatic_mutation) | MAF  |
 
 ### Masked Somatic Aggregation Workflow
 
@@ -125,8 +125,8 @@ While these criteria cause the pipeline to over-filter some of the true positive
 
 | I/O | Entity | Format |
 |---|---|---|
-| Input | Aggregated Somatic Mutation | Protected MAF |
-| Output | Masked Somatic Mutation | Somatic MAF |
+| Input | [Aggregated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=aggregated_somatic_mutation) | Protected MAF |
+| Output | [Masked Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) | Somatic MAF |
 
 ## File Access and Availability
 
