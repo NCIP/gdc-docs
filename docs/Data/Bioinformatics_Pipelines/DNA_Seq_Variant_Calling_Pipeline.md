@@ -1,7 +1,8 @@
 # DNA-Seq Analysis Pipeline
 
 ## Introduction
-The GDC DNA-Seq analysis pipeline identifies somatic variants by comparing allele frequencies in normal and tumor sample reads, annotating each mutation, and aggregating mutations from multiple cases into one project file. The first pipeline starts with a reference alignment step followed by co-cleaning to increase the alignment quality. Four different variant calling pipelines are then implemented separately to identify somatic mutations. Somatic-called-identified variants are further filtered and then annotated. An aggregation pipeline incorporates variants from multiple cases from one project into a MAF file for each pipeline. DNA-Seq analysis is currently used by the GDC to characterize mutations within whole exome sequencing (WXS) data.
+
+The GDC DNA-Seq analysis pipeline characterizes mutations within whole exome sequencing (WXS) and whole genome sequencing (WGS) data. It identifies somatic variants by comparing allele frequencies in normal and tumor sample reads, annotating each mutation, and aggregating mutations from multiple cases into one project file. The first pipeline starts with a reference alignment step followed by co-cleaning to increase the alignment quality. Four different variant calling pipelines are then implemented separately to identify somatic mutations. Somatic-caller-identified variants are further filtered and then annotated. An aggregation pipeline incorporates variants from multiple cases from one project into a MAF file for each pipeline.
 
 DNA-Seq analysis is implemented across six main procedures:
 
@@ -15,7 +16,7 @@ DNA-Seq analysis is implemented across six main procedures:
 ## Data Processing Steps
 
 ### Pre-Alignment
-Prior to alignment, reads that failed the Illumina chastity test are removed. Note that this filtering step is distinct from quality trimming reads using base quality-scores.  
+Prior to alignment, reads that failed the Illumina chastity test are removed. Note that this filtering step is distinct from soft-clipping reads using base quality scores.  
 
 ### Alignment Workflow
 DNA-Seq analysis begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow). Read groups are aligned to the reference genome using one of two [BWA](http://bio-bwa.sourceforge.net) algorithms [[1]](http://www.ncbi.nlm.nih.gov/pubmed/19451168). BWA-MEM is used if mean read length is greater than 70 bp, or otherwise BWA-aln is used.
@@ -25,7 +26,7 @@ Each read group is aligned to the reference genome separately and all read group
 
 Quality control metrics are collected before and after the alignment workflow and reviewed to identify potential low-quality data files.  Basic metrics such as GC content and mean read length as well as quality score metrics are collected from unaligned reads using [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Quality metrics collected by the GDC for aligned reads include idxstat and flagstat. Coverage information is collected using Picard [CollectHsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectHsMetrics).
 
-Quality control metrics for each file endpoint can be accessed through the API using the 'expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs' parameter. Click [here](https://gdc-api.nci.nih.gov/files/40e311a4-67aa-468a-8e09-1c7daa2d10bb?pretty=true&expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs) for an example query.  
+Quality control metrics for each file endpoint can be accessed through the API using the `expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs` parameter. Click [here](https://gdc-api.nci.nih.gov/files/40e311a4-67aa-468a-8e09-1c7daa2d10bb?pretty=true&expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs) for an example query.  
 
 #### Reference Genome
 
@@ -49,7 +50,7 @@ First, insertion and deletion local realignment is performed using [IndelRealign
 
 #### Base Quality Score Recalibration
 
-A base quality score recalibration (BQSR) step is then performed using  [BaseRecalibrator](https://software.broadinstitute.org/gatk/gatkdocs/org_broadinstitute_gatk_tools_walkers_bqsr_BaseRecalibrator.php). This step adjusts base quality scores based on detectable and systematic errors. This step also increases the accuracy of downstream variant calling algorithms. Note that the original quality scores are kept in the OQ field of co-cleaned BAM files. These scores should be used if conversion from BAM files to FASTQ format is desired.
+A base quality score recalibration (BQSR) step is then performed using  [BaseRecalibrator](https://software.broadinstitute.org/gatk/gatkdocs/org_broadinstitute_gatk_tools_walkers_bqsr_BaseRecalibrator.php). This step adjusts base quality scores based on detectable and systematic errors. This step also increases the accuracy of downstream variant calling algorithms. Note that the original quality scores are kept in the OQ field of co-cleaned BAM files. These scores should be used if conversion of BAM files to FASTQ format is desired.
 
 
 | I/O | Entity | Format |
@@ -58,7 +59,14 @@ A base quality score recalibration (BQSR) step is then performed using  [BaseRec
 | Output | Harmonized Aligned Reads | BAM |
 
 ### Somatic Variant Calling Workflow
-Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Before variant calling is performed, the GDC realigns paired tumor-normal BAMs and recalibrates base quality scores. Variant calling is performed using four separate pipelines: [MuSE](http://bioinformatics.mdanderson.org/main/MuSE) [[2]](http://www.biorxiv.org/content/early/2016/05/25/055467.abstract), [MuTect2](https://www.broadinstitute.org/cancer/cga/mutect) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html),  [VarScan2](http://dkoboldt.github.io/varscan/) [[4]](http://genome.cshlp.org/content/22/3/568.short), and [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short). Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](/File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
+Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using four separate pipelines:
+
+- [MuSE](http://bioinformatics.mdanderson.org/main/MuSE) [[2]](http://www.biorxiv.org/content/early/2016/05/25/055467.abstract),
+- [MuTect2](https://www.broadinstitute.org/cancer/cga/mutect) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html),  
+- [VarScan2](http://dkoboldt.github.io/varscan/) [[4]](http://genome.cshlp.org/content/22/3/568.short), and
+- [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short).
+
+Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](/File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
 
 #### Pipeline Descriptions
 Four separate variant calling pipelines are implemented for GDC data harmonization. There is currently no scientific consensus on the best variant calling pipeline so the investigator is responsible for choosing the pipeline(s) most appropriate for the data. Some details about the pipelines are indicated below.
@@ -66,9 +74,10 @@ Four separate variant calling pipelines are implemented for GDC data harmonizati
 The [MuTect2 pipeline](https://gdc.nci.nih.gov/files/public/image/Broad_MuTect_0.png) employs a "Panel of Normals" to identify additional germline mutations. This panel is generated using genomes from TCGA blood normal samples from thousands of individuals that were curated and confidently assessed to be cancer-free. This method allows for a higher level of confidence to be assigned to somatic variants that were called by the MuTect2 pipeline.
 
 Basic outlines for the other three pipelines can be found here:
+
 - [VarScan2 pipeline](https://gdc.nci.nih.gov/files/public/image/varscan-somatic-variant-calling-pipeline.png)
 - [MuSE pipeline](https://gdc.nci.nih.gov/files/public/image/muse-somatic-variant-calling-pipeline.png)  
-- [SomaticSniper pipeline](https://gdc.nci.nih.gov/files/public/image/somaticsniper-variant-calling-pipeline.png) .
+- [SomaticSniper pipeline](https://gdc.nci.nih.gov/files/public/image/somaticsniper-variant-calling-pipeline.png).
 
 #### Indels
 Indel mutations that were generated with the MuTect2 pipeline are detected and reported in GDC VCF files. Indels detected with the VarScan pipeline are currently removed from the VCF output.
@@ -96,6 +105,7 @@ The VEP uses the coordinates and nucleotides in the VCF file to infer biological
 *   Ensembl regbuild v.13.0
 *   HGMD public v.20154
 *   ClinVar v.201601
+
 Due to licensing constraints COSMIC is not utilized for annotation in the GDC VEP workflow.
 
 
@@ -108,7 +118,7 @@ In addition to annotation, [False Positive Filter](https://github.com/ucscCancer
 
 ### Somatic Aggregation Workflow
 
-The Somatic Aggregation Workflow generates one MAF file from multiple VCF files, see the [GDC MAF Format](/Data/File_Formats/MAF_Format/) guide for details on file structure.  One MAF file can be generated per variant calling pipeline for each project and contains all available cases within this project.  
+The Somatic Aggregation Workflow generates one MAF file from multiple VCF files; see the [GDC MAF Format](/Data/File_Formats/MAF_Format/) guide for details on file structure.  One MAF file is generated per variant calling pipeline for each project, and contains all available cases within this project.  
 
 
 | I/O | Entity | Format |
@@ -118,10 +128,9 @@ The Somatic Aggregation Workflow generates one MAF file from multiple VCF files,
 
 ### Masked Somatic Aggregation Workflow
 
-The original MAF files are controlled-access due to the presence of germline mutations. Open-access MAF files are modified for public release by removing 1) called variants with FILTER values that are not 'PASS'; 2) variants that are not flagged as somatic; 3) variants that do not affect protein coding, unless they are experimentally validated by an orthogonal platform; 4) variants that are annotated as anything other than somatic in [dbSNP](http://www.ncbi.nlm.nih.gov/SNP/), [COSMIC](http://cancer.sanger.ac.uk/cosmic) or [OMIM](http://www.ncbi.nlm.nih.gov/omim).
+The MAF files generated by Somatic Aggregation Workflow are controlled-access due to the presence of germline mutations. Open-access MAF files are modified for public release by removing 1) called variants with `FILTER` values that are not `PASS`; 2) variants that are not flagged as somatic; 3) variants that do not affect protein coding, unless they are experimentally validated by an orthogonal platform; 4) variants that are annotated as anything other than somatic in [dbSNP](http://www.ncbi.nlm.nih.gov/SNP/), [COSMIC](http://cancer.sanger.ac.uk/cosmic) or [OMIM](http://www.ncbi.nlm.nih.gov/omim).
 
 While these criteria cause the pipeline to over-filter some of the true positive somatic variants in open-access MAF files, they prevent personally identifiable germline mutation information from becoming openly available. The GDC recommends that investigators explore both controlled and open-access MAF files if potential omission of certain somatic mutations is a concern.  
-
 
 | I/O | Entity | Format |
 |---|---|---|
@@ -130,16 +139,19 @@ While these criteria cause the pipeline to over-filter some of the true positive
 
 ## File Access and Availability
 
-Files from this pipeline are available in the [GDC Data Portal](https://gdc-portal.nci.nih.gov) as aligned reads, VCFs or MAFs.  Below is a description for all available file types and their respective subtypes.
+Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Portal](https://gdc-portal.nci.nih.gov) as BAMs, VCFs, and MAFs.  Below is a description for all available data types and their respective file formats.
 
 
-| Type | Description | Format |
+| Data Type | Description | File Format |
 |---|---|---|
-| DNA-Seq Alignment | WXS reads that have been aligned to the GRCh38 reference and co-cleaned. Unaligned reads and reads that map to decoy sequences are also included in the BAM files.  | BAM |
+| Aligned Reads | Reads that have been aligned to the GRCh38 reference and co-cleaned. Unaligned reads and reads that map to decoy sequences are also included in the BAM files.  | BAM |
 | Raw Simple Somatic Mutation | A tab-delimited file with genotypic information related to genomic positions. Genomic variants are first identified here.  | VCF |
 | Annotated Somatic Mutation  | An annotated version of a raw simple somatic mutation file. Annotated files include biological context about each observed mutation. |  VCF |
-| Protected Aggregated Mutations | A tab-delimited file derived from multiple VCF files. Contains information from all available cases in a project.  | MAF |
-| Somatic Aggregated Mutations | A modified version of the original MAF file with sensitive or potentially erroneous data removed. | MAF |
+| Aggregated Somatic Mutations | A tab-delimited file derived from multiple VCF files. Contains information from all available cases in a project.  | MAF |
+| Masked Somatic Mutation | A modified version of the Aggregated Somatic Mutation MAF file with sensitive or potentially erroneous data removed. | MAF |
+
+- - -
+
 
 [1]. Li, Heng, and Richard Durbin. "Fast and accurate short read alignment with Burrows-Wheeler transform." Bioinformatics 25, no. 14 (2009): 1754-1760.
 
