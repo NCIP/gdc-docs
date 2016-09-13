@@ -1,6 +1,41 @@
 # Data Release Notes
 
-## Data Release v2
+## Data Release 3.0
+
+* __GDC Product__: Data
+* __Release Date__: September 16, 2016
+
+### New updates
+
+1.  CCLE data now available in the Legacy Archive
+2.  BMI calculation is corrected
+3.  Slide is now categorized as a Biospecimen entity
+4.  Additional harmonized CNV data is available
+
+### Bugs Fixed Since Last Release
+
+* BMI calculation is corrected
+
+### Known Issues and Workarounds
+
+* Insertions called for tumor samples that underwent whole genome amplification may be of lower quality.  These are present in VCF and MAF files produced by the MuTect2 variant calling pipeline.  This information can be found in the analyte_type property within analyte and aliquot. TCGA analyte type can be also identified in the 20th character of TCGA barcode, at which "W" corresponds to WGA.<!--BINF-6-->
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* Public MAFs (those with germline variants removed) are only available for MuTect2 pipeline.  MAFs for other pipelines are forthcoming.  
+* MAF Column #109 "FILTER" entries are separated by both commas and semi-colons. <!-- PGDC-2589 -->
+* TARGET-AML and TARGET-ALL projects are undergoing reorganization.  Pending reorganization, cases from these projects may not contain many clinical, biospecimen, or genomic data files.
+* No data from TARGET-PPTP is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* There are 200 cases from TCGA-LAML that do not appear in the Legacy Archive <!--SV-327-->
+* Biotab files are not linked to Project or Case in the Legacy Archive <!--SV-303-->
+* SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+
+Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_notes_manifest.txt)
+<br>
+
+
+## Data Release 2.0
 
 * __GDC Product__: Data
 * __Release Date__: August 9, 2016
@@ -25,12 +60,12 @@
 * There are 200 cases from TCGA-LAML that do not appear in the Legacy Archive <!--SV-327-->
 * Biotab files are not linked to Project or Case in the Legacy Archive <!--SV-303-->
 * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
-* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391--> 
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 
 Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_notes_manifest.txt)
 <br>
 
-## Initial Data Release (v1)
+## Initial Data Release (1.0)
 
 * __GDC Product__: Data
 * __Release Date__: June 6, 2016
