@@ -2,7 +2,8 @@
 
 ## Introduction
 
-The GDC DNA-Seq analysis pipeline characterizes mutations within whole exome sequencing (WXS) and whole genome sequencing (WGS) data. It identifies somatic variants by comparing allele frequencies in normal and tumor sample reads, annotating each mutation, and aggregating mutations from multiple cases into one project file. The first pipeline starts with a reference alignment step followed by co-cleaning to increase the alignment quality. Four different variant calling pipelines are then implemented separately to identify somatic mutations. Somatic-caller-identified variants are further filtered and then annotated. An aggregation pipeline incorporates variants from multiple cases from one project into a MAF file for each pipeline.
+The GDC DNA-Seq analysis pipeline identifies somatic variants within whole exome sequencing (WXS) and whole genome sequencing (WGS) data. It identifies somatic variants by comparing allele frequencies in normal and tumor sample reads, annotating each mutation, and aggregating mutations from multiple cases into one project file. The first pipeline starts with a reference alignment step followed by co-cleaning to increase the alignment quality. Four different variant calling pipelines are then implemented separately to identify somatic mutations. Somatic-caller-identified variants are further filtered and then annotated. An aggregation pipeline incorporates variants from multiple cases from one project into a MAF file for each pipeline.
+
 
 DNA-Seq analysis is implemented across six main procedures:
 
@@ -16,7 +17,7 @@ DNA-Seq analysis is implemented across six main procedures:
 ## Data Processing Steps
 
 ### Pre-Alignment
-Prior to alignment, reads that failed the Illumina chastity test are removed. Note that this filtering step is distinct from soft-clipping reads using base quality scores.  
+Prior to alignment, reads that failed the Illumina chastity test are removed. Note that this filtering step is distinct from trimming reads using base quality scores.  
 
 ### Alignment Workflow
 DNA-Seq analysis begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow). Read groups are aligned to the reference genome using one of two [BWA](http://bio-bwa.sourceforge.net) algorithms [[1]](http://www.ncbi.nlm.nih.gov/pubmed/19451168). BWA-MEM is used if mean read length is greater than 70 bp, or otherwise BWA-aln is used.
@@ -118,7 +119,7 @@ In addition to annotation, [False Positive Filter](https://github.com/ucscCancer
 
 ### Somatic Aggregation Workflow
 
-The Somatic Aggregation Workflow generates one MAF file from multiple VCF files; see the [GDC MAF Format](/Data/File_Formats/MAF_Format/) guide for details on file structure.  One MAF file is generated per variant calling pipeline for each project, and contains all available cases within this project.  
+The Somatic Aggregation Workflow generates one MAF file from multiple VCF files; see the [GDC MAF Format](/Data/File_Formats/MAF_Format/) guide for details on file structure.  In this step, one MAF file is generated per variant calling pipeline for each project, and contains all available cases within this project.  
 
 
 | I/O | Entity | Format |
