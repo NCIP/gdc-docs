@@ -141,7 +141,10 @@
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
             <script src="/js/jquery.scrollUp.min.js"></script>
+            <script src="{{ config.extra.dictionary_app_root }}/vendor-deps/d3/d3.min.js"></script>
+            <script src="{{ config.extra.dictionary_app_root }}/vendor-deps/fetch/fetch.min.js"></script>
             <script src="/js/gdc-common.js"></script>
+            <script src="/js/gdc-notifications.js"></script>
             <script>var base_url = '{{ base_url }}';</script>
             {%- for path in extra_javascript %}
             <script src="{{ path }}"></script>
