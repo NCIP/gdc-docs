@@ -7,10 +7,9 @@
 
 ### New updates
 
-1.  CCLE data now available in the Legacy Archive
+1.  CCLE data now available (in the Legacy Archive only)
 2.  BMI calculation is corrected
 3.  Slide is now categorized as a Biospecimen entity
-4.  Additional harmonized CNV data is available
 
 ### Bugs Fixed Since Last Release
 
