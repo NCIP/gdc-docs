@@ -8,8 +8,7 @@ The GDC Data Transfer Tool supports downloading multiple files listed in a GDC m
 
 First, select the data files of interest. Click the *Cart* button in the row corresponding to the file desired. The button will turn green to indicate that the file has been selected.
 
-**GDC Data Portal: Selecting Files of Interest**
-![GDC Data Portal: Selecting Files of Interest](images/09-15_Data-Portal-File-Selection.png "Files Added to Cart")
+![GDC Data Portal: Selecting Files of Interest](images/09-15_Data-Portal-File-Selection.png "Selecting Files of Interest")
 [](   TESTING Comments!!!!
 **GDC Data Portal: Selecting Files of Interest**
 )
