@@ -6,11 +6,12 @@ The GDC Data Transfer Tool is intended to be used in conjunction with the [GDC D
 
 The GDC Data Transfer Tool supports downloading multiple files listed in a GDC manifest file. Manifest files can be generated and downloaded directly from the GDC Data Portal:
 
-First, select the data files of interest. Click the *Cart* button in the row corresponding to the file of interest. The button will turn green to indicate that the file has been selected.
-
-![GDC Data Portal: Selecting Files of Interest](images/09-15_Data-Portal-File-Selection.png "Files Added to Cart")
+First, select the data files of interest. Click the *Cart* button in the row corresponding to the file desired. The button will turn green to indicate that the file has been selected.
 **GDC Data Portal: Selecting Files of Interest**
-
+![GDC Data Portal: Selecting Files of Interest](images/09-15_Data-Portal-File-Selection.png "Files Added to Cart")
+[](
+**GDC Data Portal: Selecting Files of Interest**
+)
 Once all files of interest have been selected, click on the *Cart* button in the upper right-hand corner. This will bring up the cart page, which provides an overview of all currently selected files. This list of files can be downloaded as a manifest file by clicking on the blue *Download Manifest* button.
 
 ![GDC Data Portal: Cart Page](images/04-02-Data-Portal-Cart-Page.png)
