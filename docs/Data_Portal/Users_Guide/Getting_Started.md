@@ -21,7 +21,7 @@ When navigating to the site, the GDC Data Portal homepage is displayed.
 
 [![GDC Data Portal Homepage](images/gdc-data-portal-homepage.png "GDC Data Portal Homepage")](images/gdc-data-portal-homepage.png "Click to see the full image.")
 
-The GDC Data Portal allows download of open access data without requiring a user login. To retrieve controlled access data, users must have access to the controlled access data set through dbGaP and use the [Login](../../Commons/Authentication.md) functionality on the top-right corner of the screen.
+The GDC Data Portal allows download of open access data without requiring user login. To retrieve controlled access data, users must have access to the controlled access data set through dbGaP and use the [Login](Authentication.md) functionality on the top-right corner of the screen.
 
 ## Key Features
 
