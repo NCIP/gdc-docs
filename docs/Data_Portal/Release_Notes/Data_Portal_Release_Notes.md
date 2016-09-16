@@ -32,6 +32,7 @@
     *   BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
     *   After first applying facet filters, if a user clicks on advanced search they will encounter the error "Invalid Query".  The error can be removed by adding additional filters in the advanced search box or by clicking somewhere in the search box and pressing the down arrow on your keyboard. <!-- SV-394 -->
     *   Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files.  To produce a list of source files an API call can be used with the search parameter "fields=analysis.input_files.file_name". <!-- SV-396 -->
+    *   On the Legacy Archive, searches for "Case Submitter ID Prefix" containing special characters are not displayed correctly above the result list. The result list is correct, however. <!--SV-412-->
 
 Example
 
