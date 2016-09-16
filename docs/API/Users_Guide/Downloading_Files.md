@@ -179,6 +179,9 @@ curl --remote-name --remote-header-name 'https://gdc-api.nci.nih.gov/v0/manifest
 curl: Saved to filename 'gdc_manifest_20160428_234614.txt'
 ```
 
+The `manifest` endpoint also supports HTTP POST requests in the same format as the `data` endpoint; see [above](#post-request-with-json-payload) for details.
+
+
 ### Using return_type=manifest
 
 Alternatively, users can create a manifest by appending `&return_type=manifest` to a [Search and Retrieval](Search_and_Retrieval.md) query. In this example, we generate a download manifest for RNA-seq data files from solid tissue normal samples, that are part of the TCGA-KIRC project:

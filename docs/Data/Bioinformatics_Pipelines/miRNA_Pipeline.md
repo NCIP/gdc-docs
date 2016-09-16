@@ -9,7 +9,7 @@ For more information see [BCGSC's GitHub](https://github.com/bcgsc/mirna) or the
 ## Data Processing Steps
 
 ### Alignment Workflow
-The miRNA pipeline begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow), which in the case of miRNA uses BWA-aln.  This outputs one BAM file for each read group in the input.
+The miRNA pipeline begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow), which in the case of miRNA uses BWA-aln. This outputs one BAM file for each read group in the input.
 
 | I/O | Entity | Format |
 |---|---|---|
