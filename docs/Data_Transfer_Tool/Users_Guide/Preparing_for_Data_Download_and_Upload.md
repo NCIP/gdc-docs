@@ -39,16 +39,8 @@ Select a type of Data Bundle on the left; here we selected the *Lane Level Seque
 
 ## Obtaining an Authentication Token
 
-The GDC Data Transfer Tool requires an authentication token to upload data to GDC and to download controlled data. Tokens can be generated and downloaded directly from the GDC Data Portal.
+Authentication is required for downloading controlled-access data, and for all data uploads to the GDC. The GDC Data Transfer Tool uses tokens for authentication.
 
-To generate a token, first log in to the GDC Data Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user John Doe&nbsp;is logged in to the GDC Data Portal, indicated by the username JOHNDOE:
+Users can obtain authentication tokens from the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) for instructions.
 
-![GDC Data Portal Home Screen after Login](images/04-06_gdc-data-portal-home-screen-after-login.png)
-**GDC Data Portal Home Screen after Login**
-
-Clicking the username will open a drop-down menu. Select *Download Token* from the menu to generate an authentication token.
-
-![GDC Data Portal User Dropdown Menu](images/04-07-data-portal-user-dropdown-menu.png)
-**GDC Data Portal User Dropdown Menu**
-
-**NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user.
+**NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
