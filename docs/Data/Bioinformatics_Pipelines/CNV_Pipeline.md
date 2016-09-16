@@ -20,4 +20,4 @@ Masked copy number segments are generated with the same method except that a fil
 | Input | [Submitted Tangent Copy Number](Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_tangent_copy_number) |  TXT |
 | Output | [Copy Number Segment](Data_Dictionary/viewer/#?view=table-definition-view&id=copy_number_segment) or Masked Copy Number Segment | TXT  |
 
-[1] Olshen, Adam B., E. S. Venkatraman, Robert Lucito, and Michael Wigler. "Circular binary segmentation for the analysis of array‐based DNA copy number data." Biostatistics 5, no. 4 (2004): 557-572.
+[1] Olshen, Adam B., E. S. Venkatraman, Robert Lucito, and Michael Wigler. "Circular binary segmentation for the analysis of array-based DNA copy number data." Biostatistics 5, no. 4 (2004): 557-572.
