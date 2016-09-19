@@ -1,36 +1,35 @@
-# Features
+# Features THIS WHOLE PAGE NEEDS TO BE CHANGED.
 
 ## Sitemap
 
-[![GDC Data Submission Portal Sitemap](images/GDC_Submission_Sitemap.png)](images/GDC_Submission_Sitemap.png "Click to see the full image.")
+****[![GDC Data Submission Portal Sitemap](images/GDC_Submission_Sitemap.png)](images/GDC_Submission_Sitemap.png "Click to see the full image.")
 
 The above image illustrates the GDC Data Submission Portal sitemap. Submitters access the homepage after logging into the portal and perform data submission through the dashboard.
 
 ## Homepage
 
-[![GDC Data Submission Portal Homepage](images/GDC_Submission_Homepage.png)](images/GDC_Submission_Homepage.png "Click to see the full image.")
+****[![GDC Data Submission Portal Homepage](images/GDC_Submission_Homepage.png)](images/GDC_Submission_Homepage.png "Click to see the full image.")
 
-Once the submitter logs into the GDC Data Submission Portal, the homepage is displayed. The homepage provides access to project reports on previously submitted data, provides a list of projects that the submitter is authorized to submit data into, and lists the latest transactions performed on these projects. Links to documentation are also provided. 
+Once the submitter logs into the GDC Data Submission Portal, the homepage is displayed. The homepage provides access to project reports on previously submitted data, provides a list of projects that the submitter is authorized to submit data into, and lists the latest transactions performed on these projects. Links to documentation are also provided.
 
-To submit data into a project, the submitter selects the project from the list of projects and a dashboard for the project is displayed. 
+To submit data into a project, the submitter selects the project from the list of projects and a dashboard for the project is displayed.
 
 ## Dashboard
 
-[![GDC Data Submission Portal Toolbar](images/GDC_Submission_Dashboard.png)](images/GDC_Submission_Dashboard.png "Click to see the full image.")
+****[![GDC Data Submission Portal Toolbar](images/GDC_Submission_Dashboard.png)](images/GDC_Submission_Dashboard.png "Click to see the full image.")
 
 The dashboard provides quick access to all the actions a submitter or project owner can perform:
 
 * __Charts__: Provides information on the content of project data (e.g. 28 registered cases in this project have clinical data).
-* __Actions__: Provides the list of actions that the user can perform as part of the submission process such as upload and validate the data, review and submit the data, and release the data. This list varies depending on the user's privileges.
-* __Latest Transactions__: Displays the latest data submission transactions that have occurred on the project.
-* __Reports__: Provides links to reports on the project (e.g. Case Overview Report, Data Validation Report).
+* __Actions__: Provides the list of actions that the user can perform as part of the submission process such as upload and validate the data, review, and submit the data. This list varies depending on the user's privileges.
+* __Transactions__: Displays all data submission transactions that have occurred on the project.
 * __Browse__: Provides a link to browse submitted data as described in the Browse section below.
 
 ## Browse
 
 ### Layout
 
-[![GDC Data Submission Portal Layout](images/GDC_Submission_Portal_Layout.png)](images/GDC_Submission_Portal_Layout.png "Click to see the full image.")
+****[![GDC Data Submission Portal Layout](images/GDC_Submission_Portal_Layout.png)](images/GDC_Submission_Portal_Layout.png "Click to see the full image.")
 
 The GDC Data Submission Portal browse menu consists of three separate panels:
 
@@ -44,7 +43,6 @@ The GDC Data Submission Portal browse menu consists of three separate panels:
 
 The navigation panel provides access to the following elements:
 
-* __Upload__: Provides access to the upload wizard. 
 * __Entity List__: Includes filters for the cases, clinical, biospecimen, and experiment data uploaded to the project workspace.
 * __Transactions__: Provides access to the list all actions that occurred on a project.
 * __Annotations__: Provides access to a List of annotations submitted on an entity such as a case or aliquot.

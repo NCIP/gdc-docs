@@ -2,7 +2,7 @@
 
 ## Overview
 
-The _"Browse"_ menu provides access to all of a project's content. Most content is driven by the GDC Data Dictionary and the interface is dynamically generated to accomodate the content.
+The _"Browse"_ menu provides access to all of a project's content. Most content is driven by the GDC Data Dictionary and the interface is dynamically generated to accommodate the content.
 
 Please refer to the [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md) for more details about dictionary-generated fields, columns and filters.
 
@@ -11,12 +11,6 @@ All static components are detailed in this User Guide.
 [![GDC Submission Cases Default View](images/GDC_Submission_Cases_Default.png)](images/GDC_Submission_Cases_Default.png "Click to see the full image.")
 
 ## Main Interface Elements
-
-### Upload
-
-An __Upload__ button is available at the top-left section of the left panel. Depending on the project state, this will allow data to be [uploaded](Upload_Data.md) to the GDC. 
-
-__Note__: This button is disabled if the project is in "REVIEW" state.
 
 ### Filters
 
@@ -37,7 +31,7 @@ Current filters are:
 
 ### List View
 
-The list view is a paginated list of all entities corresponding to the selected filter. 
+The list view is a paginated list of all entities corresponding to the selected filter.
 
 On the top-left section of the screen, the user can download data about all entities associated with the selected filter.
 
@@ -93,6 +87,3 @@ The hierarchy shows:
 [![GDC Submission Cases Details Hierarchy](images/GDC_Submission_Cases_Summary_Hierarchy.png)](images/GDC_Submission_Cases_Summary_Hierarchy.png "Click to see the full image.")
 
 Using the hierarchy, the user can navigate through the entities by clicking on the links.
-
-
-

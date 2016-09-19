@@ -2,7 +2,7 @@
 
 ## Overview
 
-The transactions view lists all transactions which have happened on the project since its creation.
+The transactions tab lists all transactions which have happened on the project since its creation.
 
 [![GDC Submission Transactions](images/GDC_Submission_Transactions.png)](images/GDC_Submission_Transactions.png "Click to see the full image.")
 
@@ -22,10 +22,16 @@ The transactions list view displays the following information:
 | --- | --- |
 | ID | Identifier of the transaction |
 | Type | Type of the transaction (see list transaction types in the previous section)|
-| Cases Affected | Number of cases affected by the transaction. Note: during data upload, any entity created or updated is associated with a case. |
-| Entities Created | Entities created during the transaction |
-| Entities Updated | Entities updated during the transaction |
-| Date Created | Date the transaction was initiated |
+| Step | XXXXXXXXXXXXXXX |
+| DateTime | Date the transaction was initiated |
+| User | XXXXXXXXXXXXXXX |
+| Status | XXXXXXXXXXXXXXX |
+| Commit/Discard | Two buttons that appear when data has been uploaded using the 'dry run' feature.  This allows for validated data to be incorporated into the project or discarded. |
+
+## Transaction Filters
+
+Choosing the radio buttons at the top of the table allows the transactions to be filtered by those that are in progress, to be committed, succeeded, failed, or discarded. The drop-down menu also allows for the transactions to be filtered by type.  
+
 
 ## Transactions Details
 
@@ -56,6 +62,6 @@ The Types section lists the type of files submitted and the number of affected c
 ### Documents
 
 The Documents section lists the files submitted during the transaction.
-The user can __download the original files from the transaction__.
+The user can __download the original files from the transaction__ or a report detailing the original files in tab-delimited format.
 
 [![GDC Submission Transactions Documents](images/GDC_Submission_Transactions_Details_Documents.png)](images/GDC_Submission_Transactions_Details_Documents.png "Click to see the full image.")
