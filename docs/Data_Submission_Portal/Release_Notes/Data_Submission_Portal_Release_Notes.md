@@ -1,5 +1,41 @@
 # Data Submission Portal Release Notes
 
+## Release 1.2.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: September 22nd, 2016
+
+### New Features and Changes
+
+This version contains major improvements to the GDC Data Submission Portal in both usability, performance and reliability.
+
+Some known issues and workaround listed in previous release notes have been made redundant due to this refactoring effort, thus are not listed anymore.
+
+Please refer to the GDC Data Submission Portal user guide for more details about the features.
+ 
+* Submission-related actions have been made Asynchronous.
+* Fully revamped the dashboard layout and features to clarify the submission process and give easier access to key features.
+* Created a transactions list page with options to take actions on transactions
+* Improved performance of the Browse tab.
+* Added GDC Apps to the header section.
+
+### Bugs Fixed Since Last Release
+
+* Data submitted to the project can be downloaded from each project page by clicking on "PROJECT DATA" from the project page.<!--PGDC-774-->.
+* When uploading multiple files at once, validation will fail if a child entity is listed before its parent. A workaround is to ensure parent entities are listed before their children in the Upload wizard<!--PGDC-861-->.
+* In Browse > Case > Details, Experimental Data (renamed to Data Files) are not listed in "Related Entities" section <!--PGDC-850-->.
+* In the upload report, the number of affected cases is incorrect (show 0) when entities are created<!--PGDC-838-->.
+* In Browse > Diagnosis/Treatment > Details, the hierarchy section is missing elements<!--PGDC-1023-->.
+
+
+### Known Issues and Workarounds
+
+*   Reports are currently not available in the Data Submission Portal and will be added back in an upcoming version:
+    *   Data Validation Report: The rows in the report are sometimes duplicated and #Files in error are not showing up in the report. The user should go to Project > Browse > Submitted Files to see the files in error and the error type<!--PGDC-1025 and PGDC-997-->.
+    *   The Scientific Pre-alignment QC Report is not available.
+
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
 ## Release 0.3.24.1
 
 * __GDC Product__: GDC Data Submission Portal
@@ -105,3 +141,4 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 *   The projects dropdown show legacy projects, it should only show projects active for submission.
 
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+0Looking
