@@ -8,7 +8,7 @@ The above image illustrates the GDC Data Submission Portal sitemap. Submitters a
 
 ## Homepage
 
-****[![GDC Data Submission Portal Homepage](images/GDC_Submission_Homepage.png)](images/GDC_Submission_Homepage.png "Click to see the full image.")
+[![GDC Data Submission Portal Homepage](images/GDC_Submission_Homepage.png)](images/GDC_Submission_Homepage.png "Click to see the full image.")
 
 Once the submitter logs into the GDC Data Submission Portal, the homepage is displayed. The homepage provides access to project reports on previously submitted data, provides a list of projects that the submitter is authorized to submit data into, and lists the latest transactions performed on these projects. Links to documentation are also provided.
 
@@ -16,7 +16,7 @@ To submit data into a project, the submitter selects the project from the list o
 
 ## Dashboard
 
-****[![GDC Data Submission Portal Toolbar](images/GDC_Submission_Dashboard.png)](images/GDC_Submission_Dashboard.png "Click to see the full image.")
+[![GDC Data Submission Portal Toolbar](images/GDC_Submission_Dashboard.png)](images/GDC_Submission_Dashboard.png "Click to see the full image.")
 
 The dashboard provides quick access to all the actions a submitter or project owner can perform:
 
@@ -29,7 +29,7 @@ The dashboard provides quick access to all the actions a submitter or project ow
 
 ### Layout
 
-****[![GDC Data Submission Portal Layout](images/GDC_Submission_Portal_Layout.png)](images/GDC_Submission_Portal_Layout.png "Click to see the full image.")
+[![GDC Data Submission Portal Layout](images/GDC_Submission_Portal_Layout.png)](images/GDC_Submission_Portal_Layout.png "Click to see the full image.")
 
 The GDC Data Submission Portal browse menu consists of three separate panels:
 

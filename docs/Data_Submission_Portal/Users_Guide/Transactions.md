@@ -62,6 +62,6 @@ The Types section lists the type of files submitted and the number of affected c
 ### Documents
 
 The Documents section lists the files submitted during the transaction.
-The user can __download the original files from the transaction__ or a report detailing the original files in tab-delimited format.
+The user can __download the original files from the transaction__ or a report detailing the transaction in tab-delimited format.
 
 [![GDC Submission Transactions Documents](images/GDC_Submission_Transactions_Details_Documents.png)](images/GDC_Submission_Transactions_Details_Documents.png "Click to see the full image.")

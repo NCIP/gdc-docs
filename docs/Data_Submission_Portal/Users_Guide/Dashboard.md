@@ -22,9 +22,6 @@ The remaining part of the top section of the dashboard is broken down into four 
 
 These charts are constantly updated to reflect the current state of the selected project.
 
-
-
-
 [![GDC Submission Dashboard Details Widget](images/GDC_Submission_Dashboard_Details.png)](images/GDC_Submission_Dashboard_Details.png "Click to see the full image.")
 
 ## Action Panels
