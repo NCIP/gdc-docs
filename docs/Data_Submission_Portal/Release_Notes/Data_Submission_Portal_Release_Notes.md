@@ -15,17 +15,16 @@ Please refer to the GDC Data Submission Portal user guide for more details about
  
 * Submission-related actions have been made Asynchronous.
 * Fully revamped the dashboard layout and features to clarify the submission process and give easier access to key features.
-* Created a transactions list page with options to take actions on transactions
+* Created a transactions list page with options to take actions on transactions (in particular committing an upload)
 * Improved performance of the Browse tab.
 * Added GDC Apps to the header section.
 
 ### Bugs Fixed Since Last Release
 
-* Data submitted to the project can be downloaded from each project page by clicking on "PROJECT DATA" from the project page.<!--PGDC-774-->.
-* When uploading multiple files at once, validation will fail if a child entity is listed before its parent. A workaround is to ensure parent entities are listed before their children in the Upload wizard<!--PGDC-861-->.
-* In Browse > Case > Details, Experimental Data (renamed to Data Files) are not listed in "Related Entities" section <!--PGDC-850-->.
-* In the upload report, the number of affected cases is incorrect (show 0) when entities are created<!--PGDC-838-->.
-* In Browse > Diagnosis/Treatment > Details, the hierarchy section is missing elements<!--PGDC-1023-->.
+* Data submitted to the project can be downloaded from each project page by clicking on "PROJECT DATA" from the project page.<!--PGDC-774-->
+* When uploading multiple files at once, validation will fail if a child entity is listed before its parent. <!--PGDC-861-->
+* In Browse > Case > Details, Experimental Data (renamed to Submittable Data Files) are not listed in "Related Entities" section. <!--PGDC-850-->
+* In the upload report, the number of affected cases is incorrect (show 0) when entities are created. <!--PGDC-838-->
 
 
 ### Known Issues and Workarounds
