@@ -29,7 +29,8 @@ Please refer to the GDC Data Submission Portal user guide for more details about
 
 ### Known Issues and Workarounds
 
-*   Reports are currently not available in the Data Submission Portal and will be added back in an upcoming version:
+*	Project submission and release is currently disabled. <!--SUBP-201-->
+*  Reports are currently not available in the Data Submission Portal and will be added back in an upcoming version:
     *   Data Validation Report: The rows in the report are sometimes duplicated and #Files in error are not showing up in the report. The user should go to Project > Browse > Submitted Files to see the files in error and the error type<!--PGDC-1025 and PGDC-997-->.
     *   The Scientific Pre-alignment QC Report is not available.
 
@@ -140,4 +141,4 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 *   The projects dropdown show legacy projects, it should only show projects active for submission.
 
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
-0Looking
+
