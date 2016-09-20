@@ -34,7 +34,7 @@ Please refer to the GDC Data Submission Portal user guide for more details about
 *	Download Manifest button is still available while page is loading, clickling on Download will return a file with an error message. <!--SUBP-206-->
 *	In Internet Explorer, GDC APPs and File dropdown are incorrectly aligned, making some elements only partially visible. <!--SUBP-212--><!--SUBP-214-->
 *	Submitter ID is missing in the Details -> Hierarchy view. This information is still available in the left side of the screen for the selected entity. <!--SUBP-227-->
-*	File status column should not be displayed for any clinical or biospeciment entities but only for submittable data files. <!--SUBP-226-->
+*	File status column should not be displayed for any clinical or biospecimen entities but only for submittable data files. <!--SUBP-226-->
 *  Reports are currently not available in the Data Submission Portal and will be added back in an upcoming version:
     *   Data Validation Report: The rows in the report are sometimes duplicated and #Files in error are not showing up in the report. The user should go to Project > Browse > Submitted Files to see the files in error and the error type<!--PGDC-1025 and PGDC-997-->.
     *   The Scientific Pre-alignment QC Report is not available.
