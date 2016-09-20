@@ -16,15 +16,17 @@ First, select the data files of interest. Click the *Cart* button in the row cor
 Once all files of interest have been selected, click on the *Cart* button in the upper right-hand corner. This will bring up the cart page, which provides an overview of all currently selected files. This list of files can be downloaded as a manifest file by clicking on the blue *Download Manifest* button.
 
 ![GDC Data Portal: Cart Page](images/09-15-v2_Data-Portal-Cart-Page.png)
+[](
 **GDC Data Portal: Cart Page**
-
+)
 ## Obtaining UUIDs for Data Download
 
 A manifest file is not required to download files from GDC. The GDC Data Transfer Tool will accept file UUID(s) instead of a manifest file for downloading individual data files. To obtain a data file's UUID from the GDC Data Portal, click the file name to find its detail page including its GDC UUID.
 
 ![GDC Data Portal: Detailed File Page](images/04-03-data-portal-file-detail-page.png)
+[](
 **GDC Data Portal: Detailed File Page**
-
+)
 ## Obtaining a Manifest File for Data Upload
 
 The GDC Data Transfer Tool supports uploading multiple files listed in a GDC manifest file. A manifest file for a data bundle can be generated using the GDC Data Submission Portal.
@@ -32,8 +34,9 @@ The GDC Data Transfer Tool supports uploading multiple files listed in a GDC man
 To obtain a manifest file, first select a project from the dropdown menu in the top left corner of the GDC Data Submission Portal:
 
 ![GDC Data Submission Portal: Select Project of Interest](images/04-04_Submission-Portal-select-project.png)
+[](
 **GDC Data Submission Portal: Select Project of Interest**
-
+)
 Select a type of Data Bundle on the left; here we selected the *Lane Level Sequence* bundle type. In the middle pane you will see a list of data bundles in the project. Select a data bundle to be uploaded, and download the corresponding manifest file by clicking the link on the right:
 
 ![GDC Data Submission Portal: Detailed bundle page](images/04-05_submission-portal-download-manifest.png)
