@@ -37,6 +37,7 @@ Please refer to the GDC Data Submission Portal user guide for more details about
 *	File status column should not be displayed for any clinical or biospecimen entities but only for submittable data files. <!--SUBP-226-->
 *	In some situtations tooltip entries remain on-screen. Workaround is to refresh the page. <!--SUBP-229-->
 *	In Browse, with clicking on "Download All" should return all files corresponding to that filter. It currently only returns one file. Workaround is to download all files one by one from the details panel. <!--SUBP-230-->
+*	In Dashboard, the donut chart for number of cases with submittable data files is always empty. A workaround is to visit the Browse, detailed case view section to see, case by case, if it has submittable data files.<!--SUBP-231--> 
 *	In Transactions, after clicking on Commit or Discard, status is not automatically refreshed. Workaround is to refresh the page after clicking on Commit or Discard. This does not affect the project dashboard. <!--SUBP-232-->
 *  Reports are currently not available in the Data Submission Portal and will be added back in an upcoming version:
     *   Data Validation Report: The rows in the report are sometimes duplicated and #Files in error are not showing up in the report. The user should go to Project > Browse > Submitted Files to see the files in error and the error type<!--PGDC-1025 and PGDC-997-->.
