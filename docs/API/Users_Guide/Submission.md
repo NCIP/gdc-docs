@@ -887,7 +887,7 @@ Before interacting directly with the GDC Submission API's GraphQL endpoint, user
 
 GDC data submitters can access the GDC Submission API GraphQL endpoint at:
 
-<pre>https://gdc-api.nci.nih.gov/[&#x3C;API_version&#x3E;/]submission/&#x3C;Program.name&#x3E;/&#x3C;Project.code&#x3E;<b>/graphql</b></pre>
+<pre>https://gdc-api.nci.nih.gov/[&#x3C;API_version&#x3E;/]submission<b>/graphql</b></pre>
 
 **NOTE:** An authentication token is required for all requests to the `graphql` endpoint. Queries are restricted to those projects for which the submitter has obtained authorization.
 

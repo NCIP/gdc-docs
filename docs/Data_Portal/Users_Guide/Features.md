@@ -1,41 +1,5 @@
 # Features
 
-## Sitemap
-
-[![GDC Data Portal Sitemap](images/gdc-data-portal-sitemap.png)](images/gdc-data-portal-sitemap.png "Click to see the full image.")
-
-
-
-## Toolbar
-
-### Left Section
-
-[![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-left.png)](images/gdc-data-portal-top-menu-bar-left.png "Click to see the full image.")
-
-The left portion of this toolbar provides access to the following elements:
-
-* __Projects__: High-level overview of all data broken down by project
-* __Data__: Search through all cases and files
-* __Annotations__: Search through all annotations
-* __Reports__: Statistics on downloaded data since the GDC Data Portal launch
-
-
-Each _'Projects'_, _'Data'_, and _'Annotations'_ view enables the user to set filters from within the view to either browse the data or select it for export or download. It provides different and independent ways of organizing GDC data and metadata.
-
-### Right Section
-
-[![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-right.png)](images/gdc-data-portal-top-menu-bar-right.png "Click to see the full image.")
-
-The right portion of this toolbar provides access to the following elements:
-
-* __Quick Search__: ID Search for a specific entity 
-* __Login__: Log into the GDC Data Portal through eRA Commons
-* __Cart__: Access to user populated cart mechanism
-* __GDC Apps__: Dropdown menu used to navigate between GDC Systems.
-
-[![GDC Apps](images/gdc-data-portal-gdc-apps.png)](images/gdc-data-portal-gdc-apps.png "Click to see the full image.")
-
-
 ## Filtering and Searching
 
 The GDC Data Portal provide three different means to search and navigate throughout available data:
@@ -149,7 +113,7 @@ Most Pie charts in the GDC Data Portal are interactive. Users are also offered t
 
 [![Pie Charts Widget](images/gdc-pie-chart-view.png)](images/gdc-pie-chart-view.png "Click to see the full image.")
 
-Mousing over a slice of the pie chart display detailed about the slice. 
+Mousing over a slice of the pie chart display detailed about the slice.
 
 [![Mouseover a Slice](images/gdc-pie-chart-mouse-over.png)](images/gdc-pie-chart-mouse-over.png "Click to see the full image.")
 

@@ -11,7 +11,6 @@ pages:
 - Home: 'index.md'
 - API:
   - Getting Started: 'API/Users_Guide/Getting_Started.md'
-  - Authorization and Authentication: 'API/Users_Guide/Authentication_and_Authorization.md'
   - Search and Retrieval: 'API/Users_Guide/Search_and_Retrieval.md'
   - Downloading Files: 'API/Users_Guide/Downloading_Files.md'
   - BAM Slicing: 'API/Users_Guide/BAM_Slicing.md'
@@ -25,8 +24,7 @@ pages:
   - fa-file-text Download PDF /API/PDF/API_UG.pdf: 'API/PDF/index.md'
 - Data Portal:
   - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
-  - About the Data: 'Commons/About_the_Data.md'
-  - Authentication: 'Commons/Authentication.md'
+  - Authentication: 'Data_Portal/Users_Guide/Authentication.md'
   - Features: 'Data_Portal/Users_Guide/Features.md'
   - Projects: 'Data_Portal/Users_Guide/Projects.md'
   - Data: 'Data_Portal/Users_Guide/Data.md'
@@ -42,9 +40,8 @@ pages:
 - Data Submission Portal:
   - Getting Started: 'Data_Submission_Portal/Users_Guide/Getting_Started.md'
   - Submission Workflow: 'Data_Submission_Portal/Users_Guide/Submission_Workflow.md'
-  - Authentication: 'Commons/Authentication.md'
+  - Authentication: 'Data_Submission_Portal/Users_Guide/Authentication.md'
   - Features: 'Data_Submission_Portal/Users_Guide/Features.md'
-  - User Access: 'Data_Submission_Portal/Users_Guide/Login.md'
   - Homepage: 'Data_Submission_Portal/Users_Guide/Homepage.md'
   - Dashboard: 'Data_Submission_Portal/Users_Guide/Dashboard.md'
   - Upload and Validate Data: 'Data_Submission_Portal/Users_Guide/Upload_Data.md'
@@ -67,12 +64,14 @@ pages:
   - Viewer: 'Data_Dictionary/viewer.md'
 - Data:
   - Introduction: 'Data/Introduction.md'
-  - "GDC Data Model": 'Data/Data_Model/GDC_Data_Model.md'
+  - GDC Data Model: 'Data/Data_Model/GDC_Data_Model.md'
+  - Data Security: 'Data/Data_Security/Data_Security.md'
   - "File Format: MAF": 'Data/File_Formats/MAF_Format.md'
   - "File Format: VCF": 'Data/File_Formats/VCF_Format.md'
   - "Bioinformatics Pipeline: miRNA Analysis": 'Data/Bioinformatics_Pipelines/miRNA_Pipeline.md'
   - "Bioinformatics Pipeline: mRNA Analysis": 'Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline.md'
   - "Bioinformatics Pipeline: DNA-Seq Analysis": 'Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md'
+  - "Bioinformatics Pipeline: Copy Number Variation Analysis": 'Data/Bioinformatics_Pipelines/CNV_Pipeline.md'
   - "Release Notes": 'Data/Release_Notes/Data_Release_Notes.md'
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: 'Data/PDF/index.md'
 extra:
