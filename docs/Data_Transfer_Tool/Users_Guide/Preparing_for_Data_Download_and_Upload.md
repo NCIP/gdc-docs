@@ -13,7 +13,7 @@ First, select the data files of interest. Click the *Cart* button in the row cor
 **GDC Data Portal: Selecting Files of Interest**
 )
 
-Once all files of interest have been selected, click on the *Cart* button in the upper right-hand corner. This will bring up the cart page, which provides an overview of all currently selected files. This list of files can be downloaded as a manifest file by clicking on the blue *Download Manifest* button.
+Once all files of interest have been selected, click on the *Cart* button in the upper right-hand corner. This will bring up the cart page, which provides an overview of all currently selected files. This list of files can be downloaded as a manifest file by clicking on the green *Download* button and select Manifest from the drop down.
 
 ![GDC Data Portal: Cart Page](images/09-15-v2_Data-Portal-Cart-Page.png)
 [](
