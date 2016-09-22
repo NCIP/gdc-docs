@@ -8,7 +8,7 @@ A convenient way to download multiple files from the GDC is to use a manifest fi
 
 The following is an example of a command for downloading files from GDC using a manifest file:
 
-	gdc-client download -m gdc_manifest_6746fe840d924cf623b4634b5ec6c630bd4c06b5.txt
+	gdc-client download -m /User/JohnDoe/Downloads/gdc_manifest_6746fe840d924cf623b4634b5ec6c630bd4c06b5.txt
 
 ### Downloading Data Using GDC File UUIDs
 
@@ -37,7 +37,7 @@ A user authentication token is required for downloading controlled data from GDC
 
 ### Uploading Data Using a Manifest File
 
-GDC Data Transfer Tool supports uploading molecular data using a manifest file. The manifest file for a data bundle can be retrieved from the GDC Data Submission Portal, or directly from the GDC Submission API given a data bundle UUID. The user authentication token file needs to be specified using the **-t** or **--token-files** option.
+GDC Data Transfer Tool supports uploading molecular data using a manifest file to the Data Submission Portal. The manifest file for a data bundle can be retrieved from the GDC Data Submission Portal, or directly from the GDC Submission API given a data bundle UUID. The user authentication token file needs to be specified using the **-t** or **--token-file** option.
 
 First, generate an upload manifest, either using the GDC Data Submission Portal, or [using a call](/API/Users_Guide/Submission.md#upload-manifest) to the GDC Submission API `manifest` endpoint (as in the following example):
 
