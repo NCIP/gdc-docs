@@ -23,7 +23,7 @@ A manifest file is not required to download files from GDC. The GDC Data Transfe
 ![GDC Data Portal: Detailed File Page](images/04-03-data-portal-file-detail-page.png)
 **GDC Data Portal: Detailed File Page**
 
-## Obtaining a Manifest File for Data Upload
+<!--## Obtaining a Manifest File for Data Upload
 
 The GDC Data Transfer Tool supports uploading multiple files listed in a GDC manifest file. A manifest file for a data bundle can be generated using the GDC Data Submission Portal.
 
@@ -35,7 +35,7 @@ To obtain a manifest file, first select a project from the dropdown menu in the 
 Select a type of Data Bundle on the left; here we selected the *Lane Level Sequence* bundle type. In the middle pane you will see a list of data bundles in the project. Select a data bundle to be uploaded, and download the corresponding manifest file by clicking the link on the right:
 
 ![GDC Data Submission Portal: Detailed bundle page](images/04-05_submission-portal-download-manifest.png)
-**GDC Data Submission Portal: Detailed bundle page**
+**GDC Data Submission Portal: Detailed bundle page**-->
 
 ## Obtaining an Authentication Token
 
