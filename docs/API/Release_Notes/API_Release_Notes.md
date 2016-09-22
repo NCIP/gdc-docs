@@ -8,7 +8,7 @@
 
 ### New Features and Changes
 
-* Submission transaction log now includes the username of the user who initiated the transaction. <!-- API-40 -->
+* Submission transaction log includes additional information to assist in tracking. <!-- API-40 -->
 * Submission project state transitions are disabled temporarily while project release features are being improved. <!-- API-56 -->
 * GDC data dictionary changes:
     * The `submittable` property was added to all entity types in the GDC data model. It indicates whether the entity type can be submitted by users. <!-- DM-16 -->
