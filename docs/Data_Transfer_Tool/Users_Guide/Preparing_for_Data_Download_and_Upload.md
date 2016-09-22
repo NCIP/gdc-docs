@@ -24,7 +24,7 @@ Once all files of interest have been selected, click on the *Cart* button in the
 
 A manifest file is not required to download files from GDC. The GDC Data Transfer Tool will accept file UUID(s) instead of a manifest file for downloading individual data files. To obtain a data file's UUID from the GDC Data Portal, click the file name to find its detail page including its GDC UUID.
 
-![GDC Data Portal: Detailed File Page](images/04-03-data-portal-file-detail-page.png)
+![GDC Data Portal: Detailed File Page](images/09-22_Data-portal-file-detail-pagev2.png)
 [](
 **GDC Data Portal: Detailed File Page**
 )
