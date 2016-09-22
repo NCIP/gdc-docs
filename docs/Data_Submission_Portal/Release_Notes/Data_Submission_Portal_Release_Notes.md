@@ -12,7 +12,7 @@ This version contains major improvements to the GDC Data Submission Portal in bo
 Some known issues and workaround listed in previous release notes have been made redundant due to this refactoring effort, thus are not listed anymore.
 
 Please refer to the GDC Data Submission Portal user guide for more details about the features.
- 
+
 * Submission-related actions have been made Asynchronous.
 * Fully revamped the dashboard layout and features to clarify the submission process and give easier access to key features.
 * Created a transactions list page with options to take actions on transactions (in particular committing an upload)
@@ -33,11 +33,11 @@ Please refer to the GDC Data Submission Portal user guide for more details about
 *	If case has no clinical data, the "Download Clinical" button is not disabled, the downloaded TSV will not contain Clinical Data. <!--SUBP-173-->
 *	Download Manifest button is still available while page is loading, clickling on Download will return a file with an error message. <!--SUBP-206-->
 *	In Internet Explorer, GDC APPs and File dropdown are incorrectly aligned, making some elements only partially visible. <!--SUBP-212--><!--SUBP-214-->
-*	Diagnosis / Treatment detail: Submitter ID (of the child / parent) is missing in the Details -> Hierarchy view. <!--SUBP-227—>
-*	File status column should not be displayed for any clinical or biospecimen entities but only for submittable data files. <!--SUBP-226-->
+*	Diagnosis / Treatment detail: Submitter ID (of the child / parent) is missing in the Details -> Hierarchy view. <!--SUBP-227-->
+* File status column should not be displayed for any clinical or biospecimen entities but only for submittable data files. <!--SUBP-226-->
 *	In some situtations tooltip entries remain on-screen. Workaround is to refresh the page. <!--SUBP-229-->
 *	In Browse tab, "Submittable Data Files" filter, clicking on "Download All" currently returns case and clinical informations instead of returning file informations. Workaround is to download information from the file the details panel. <!--SUBP-230-->
-*	In Dashboard, the donut chart for number of cases with submittable data files is always empty. A workaround is to visit the Browse, detailed case view section to see, case by case, if it has submittable data files.<!--SUBP-231--> 
+*	In Dashboard, the donut chart for number of cases with submittable data files is always empty. A workaround is to visit the Browse, detailed case view section to see, case by case, if it has submittable data files.<!--SUBP-231-->
 *	In Transactions tab, after clicking on Commit or Discard, status is not automatically refreshed. Workaround is to refresh the page after clicking on Commit or Discard. This does not affect the transaction section of the project dashboard. <!--SUBP-232-->
 *  Reports are currently not available in the Data Submission Portal and will be added back in an upcoming version:
     *   Data Validation Report: The rows in the report are sometimes duplicated and #Files in error are not showing up in the report. The user should go to Project > Browse > Submitted Files to see the files in error and the error type<!--PGDC-1025 and PGDC-997-->.
@@ -150,4 +150,3 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 *   The projects dropdown show legacy projects, it should only show projects active for submission.
 
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
-
