@@ -9,7 +9,7 @@
 
 This version contains major improvements to the GDC Data Submission Portal in both usability, performance and reliability.
 
-Some known issues and workaround listed in previous release notes have been made redundant due to this refactoring effort, thus are not listed anymore.
+Some known issues and workarounds listed in previous release notes have been made redundant due to this refactoring effort, thus are not listed anymore.
 
 Please refer to the GDC Data Submission Portal user guide for more details about the features.
 
