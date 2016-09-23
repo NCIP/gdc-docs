@@ -10,9 +10,9 @@ The types of transactions are the following:
 
 * __Upload__: The user uploads data to the project workspace. Note that data files uploaded using the GDC Data Transfer tool do not appear as transactions. These can be viewed in the [Browse](Browse_Data.md) tab.
 * __Review__: The user reviews the project before submitting data to the GDC.
-* __Open__: The user re-opens the project if it was under review. This will allow the upload of new data to the project workspace.
-* __Submit__: The user submits data to the GDC. This trigger the data harmonization process.
-* __Release__: The user releases data to the GDC Data Portal and other GDC data access tools.
+* __Open__: The user re-opens the project if it was under review. This allows the upload of new data to the project workspace.
+* __Submit__: The user submits uploaded data to the GDC. This triggers the data harmonization process.
+* __Release__: The user releases harmonized data to the GDC Data Portal and other GDC data access tools.
 
 ## Transactions List View
 
@@ -22,16 +22,15 @@ The transactions list view displays the following information:
 | --- | --- |
 | ID | Identifier of the transaction |
 | Type | Type of the transaction (see list transaction types in the previous section)|
-| Step | The step of the submission process that each file is currently in. This can be Validate, Commit, XXXXXXXXXX    |
+| Step | The step of the submission process that each file is currently in. This can be Validate or Commit. "Validate" represents files that have not yet been committed but have been submitted using the _dry_run endpoint. |
 | DateTime | Date the transaction was initiated |
 | User | The name of the user that performed the transaction |
-| Status | XXXXXXXXXXXXXXX |
+| Status | 	Indicates the status of the transaction: SUCCEEDED or FAILED |
 | Commit/Discard | Two buttons that appear when data has been uploaded using the _dry_run endpoint of the API.  This allows for validated data to be incorporated into the project or discarded. |
 
 ## Transaction Filters
 
 Choosing the radio buttons at the top of the table allows the transactions to be filtered by those that are in progress, to be committed, succeeded, failed, or discarded. The drop-down menu also allows for the transactions to be filtered by type.  
-
 
 ## Transactions Details
 

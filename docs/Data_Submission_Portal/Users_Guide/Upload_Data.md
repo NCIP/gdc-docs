@@ -13,14 +13,14 @@ This chapter will focus on the upload and validation of data to the project work
 
 ### File Format
 
-The GDC Data Submission Portal supports the following file formats for submission:
+The GDC Data Submission Portal supports upload for the following file formats:
 
 * JSON
 * TSV
 
 During the upload and validation process, files are converted by the GDC API into entities and inserted into the database, maintaining a file-agnostic back end.
 
-The GDC Data Submission Portal offers the ability to download files in different formats. To do so the system converts database entities back to the requested file format.
+The GDC Data Submission Portal offers the ability to download files in different formats. The system converts database entities back to the requested file format.
 
 ### File Type
 The GDC Data Submission Portal supports the following types of files for upload to the GDC:
@@ -81,7 +81,7 @@ demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	fe
 
 #### Read Group and File
 
-An example of a __Read Group__ upload, which needs two TSV files to describe metadata, is detailed below.
+An example of a __Read Group__ upload, which requires two TSV files to describe metadata, is detailed below.
 
 File 1: read_group.tsv
 
@@ -98,7 +98,7 @@ submitted_unaligned_reads	TCGA-DEV3	fileID1_CASE-000-AL1	read_group_ID1	fileID88
 ```
 
 
-Once the user has prepared their files (in TSV or JSON format), they can move on to the next step and upload data with the Upload Data Wizard.
+Once the files have been prepared (in TSV or JSON format), these files can be uploaded with the Upload Data Wizard.
 
 **Note:** Before you can upload clinical, biospecimen or experiment data, associated cases must be registered in the GDC. If the cases are not displayed in your project dashboard, download the case template from the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). Complete it with the Case Submitter IDs and upload the Cases with the Upload Data Wizard.
 
@@ -134,7 +134,7 @@ If the upload contains invalid files, the user will not be able to submit the da
 
 [![Invalid Files in a Submission](images/GDC_Submission_Wizard_Invalid_Files.png)](images/GDC_Submission_Wizard_Invalid_Files.png "Click to see the full image.")
 
-Files can be removed from the submission by clicking on the _'garbage'_ icon related to the file.
+Files can be removed from the submission by clicking on the _'garbage can'_ icon related to the file.
 
 Click on _'View Report'_ to see the error report which provides details about why files failed validation. This report is detailed in the [Data Submission Reports](Reports.md) section of the documentation.
 
@@ -144,7 +144,7 @@ Click on _'View Report'_ to see the error report which provides details about wh
 
 Once all files are valid for upload, clicking on _'Confirm Upload'_ will upload your files to the GDC project workspace.
 
-**Note:** Uploaded files are not released immediately. The user must submit the data to the GDC and release the project to make data available on the GDC Data Portal.
+**Note:** Uploaded files are not released immediately. The user must submit the data to the GDC for harmonization and release the project to make data available on the GDC Data Portal.
 
 [![Successful Submission](images/GDC_Submission_wizard_successful_submission.png)](images/GDC_Submission_wizard_successful_submission.png "Click to see the full image.")
 
@@ -154,13 +154,13 @@ You can then click on _'CLICK HERE TO VIEW THE TRANSACTION'_ to be redirected to
 
 The GDC Data Transfer Tool is used to upload the actual file.
 
-Once the user has uploaded the metadata through the Upload Data Wizard (e.g., read_group and submitted file metadata), they will be able to download the manifest from the transaction report.
+Once the user has uploaded metadata through the Upload Data Wizard (e.g., read_group and submitted file metadata),  the manifest will be available for download from the transaction report.
 
 **Note:** You can also download the manifest from the "Submittable Data Files" section of the Browse menu.
 
 [![Transaction Manifest](images/GDC_Submission_Transactions_Get_Manifest_2.png)](images/GDC_Submission_Transactions_Get_Manifest_2.png "Click to see the full image.")
 
-Users can use this manifest to upload their actual files to the GDC Data Transfer Tool. Please refer to the [GDC Data Transfer Tool's User Guide](../Data_Transfer_Tool/Users_Guide/Getting_Started.md) for more information.
+Users can use this manifest to upload their actual files with the GDC Data Transfer Tool. Please refer to the [GDC Data Transfer Tool's User Guide](../Data_Transfer_Tool/Users_Guide/Getting_Started.md) for more information.
 
 ## Download Previously Uploaded Files
 

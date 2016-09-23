@@ -4,7 +4,7 @@
 
 The _"Browse"_ menu provides access to all of a project's content. Most content is driven by the GDC Data Dictionary and the interface is dynamically generated to accommodate the content.
 
-Please refer to the [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md) for more details about dictionary-generated fields, columns, and filters.
+Please refer to the [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md) for specific details about dictionary-generated fields, columns, and filters.
 
 [![GDC Submission Cases Default View](images/GDC_Submission_Cases_Default_2.png)](images/GDC_Submission_Cases_Default_2.png "Click to see the full image.")
 
@@ -42,12 +42,12 @@ On the top-right section of the screen, the user can download data about all ent
 
 Clicking on a case will open the details panel. Data in this panel is broken down into multiple sections depending on the entity type. The main sections are:
 
-* Actions: XXXXXXXXXX.
+* Actions: actions that can be performed relating the entity. Includes downloading the metadata (JSON or TSV) or experiment file pertaining to the entity.  
 * Summary: IDs and system properties associated with the entity.
-* Detail: properties of the entity.
+* Details: properties of the entity (not associated with cases).
 * Hierarchy or Related Entities: list of associated entities.
 * Annotations: annotations on the entity.
-* Transactions: transactions that affected the entity.
+* Transactions: transactions that affect the entity.
 
 [![GDC Submission Case Details](images/GDC_Submission_Cases_Details_2.png)](images/GDC_Submission_Cases_Details_2.png "Click to see the full image.")
 
@@ -63,9 +63,9 @@ This section is available only at the case level.
 
 This table contains the following columns:
 
-* Category: Category of the Entity (Clinical, Biospecimen, Experiment Data).
-* Type: Type of entity (based on Data Dictionary).
-* Count: Number of occurrences of an entity associated with the case. Clicking on the count will open a list listing those entities within the Browse page.
+* Category: category of the entity (clinical, biospecimen, experiment Data).
+* Type: type of entity (based on Data Dictionary).
+* Count: number of occurrences of an entity associated with the case. Clicking on the count will open a window listing those entities within the Browse page.
 
 #### Hierarchy
 
