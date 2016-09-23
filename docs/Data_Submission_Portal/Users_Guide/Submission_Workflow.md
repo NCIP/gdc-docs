@@ -39,7 +39,7 @@ To summarize the project lifecycle and transitions to the various states of the 
 Note: "Submit to the GDC" and "Release" actions can be performed only if the user has release privileges.
 
 ### Project State
-The diagram below demonstrates the transition of a project through the various states. Initially the project is OPEN for data upload and validation. When the data is ready for review, the project state changes to REVIEW. During the REVIEW state, the project is locked so that additional data cannot be uploaded. When review has been completed and the submitter submits the data for GDC processing, the project state changes to SUBMITTED. If additional data changes are needed during the review period, the project can be re-opened and the state changes back to OPEN. When the data has been processed, the submitter can release the data and the project state changes to RELEASE. Once the data is released to the GDC for access through GDC data access tools, the project state changes back to OPEN for new data to be submitted to the project.
+The diagram below demonstrates the transition of a project through the various states. Initially the project is OPEN for data upload and validation. When the data is uploaded and ready for review, the project state changes to REVIEW. During the REVIEW state, the project is locked so that additional data cannot be uploaded. When review has been completed and the submitter submits the data for GDC processing and the project state changes to SUBMITTED. If additional data changes are needed during the review period, the project can be re-opened and the state changes back to OPEN. When the data has been processed, the submitter can release the data and the project state changes to RELEASE. Once the data is released to the GDC for access through GDC data access tools, the project state changes back to OPEN for new data to be submitted to the project.
 
 [![GDC Data Submission Portal Project State](images/gdc-submission-portal-project-states.png)](images/gdc-submission-portal-project-states.png "Click to see the full image.")
 
@@ -49,14 +49,5 @@ When a submitter selects to release the data, the project state changes to RELEA
 ## File Status Lifecycle
 
 This section describes states pertaining to experimental data files throughout the data submission process. An experimental data file could be genomic sequence file (such as a BAM or FASTQ) or a pathology slide image file. The file lifecycle starts when a submitter uploads metadata for a file to the Submission Portal. The act of uploading the file metadata registers a description of the file in the GDC. The submitter can then use the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool), a high performance client-based tool, to upload the actual file. Throughout the lifecycle, the file status transitions through various states from when the file is initially registered through file processing and release.
-
-To summarize the file status lifecycle and transition to various states, the following operations can be performed:
-
-* The submitter uploads the file metadata to the Submission Portal which sets the file status to REGISTERED.
-* The submitter uploads the actual file through the GDC Data Transfer Tool which sets the file status to UPLOADING and UPLOADED when the file upload has completed. The Submission Portal displays "__# Files Uploaded__" in the last chart on the dashboard which represents the number of files that the user uploaded through the GDC Data Transfer Tool.
-* The GDC validates the uploaded data which sets the file status to VALIDATING and VALIDATED once complete.
-* The submitter submits the validated file to the GDC which sets the file status to SUBMITTED.
-* The GDC processes the file which sets the file status to PROCESSING and PROCESSED once complete.
-* An error occurs during file validation or processing. The GDC sets the file status to ERROR.
 
 [![GDC Data Submission Portal File Status](images/gdc-submission-portal-file-state-vs-state.png)](images/gdc-submission-portal-file-state-vs-state.png "Click to see the full image.")
