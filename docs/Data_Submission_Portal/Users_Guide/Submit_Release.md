@@ -21,8 +21,6 @@ If the project is not ready for processing, the submitter or project owner can r
 
 Submitters are requested to submit their data to the GDC within six months from the first upload to the project workspace.
 
-[![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
-
 ### Review
 
 To review and submit data to the GDC, the user must have release privileges. The user will be able to view the section below on the dashboard.
@@ -61,7 +59,6 @@ The project owner should release data when the harmonization process is complete
 
 As soon as the project owner releases the project, any harmonized (updated or added to the project) data will be released to the [GDC Data Portal](https://gdc-portal.nci.nih.gov/projects/t).
 
-[![GDC Data Submission Portal Workflow Release](images/GDC_Submission_Portal_Workflow_Release.png)](images/GDC_Submission_Portal_Workflow_Release.png "Click to see the full image.")
 
 To release data to the GDC Data Portal, the user must have release privileges. The release button will activate on the submission homepage in the project list.
 
