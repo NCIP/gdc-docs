@@ -8,7 +8,7 @@ A convenient way to download multiple files from the GDC is to use a manifest fi
 
 The following is an example of a command for downloading files from GDC using a manifest file:
 
-	gdc-client download -m  /Users/JohnDoe/Downloads/gdc_manifest_6746fe840d924cf623b4634b5ec6c630bd4c06b5.txt
+	gdc-client download -m  /JohnDoe/Downloads/gdc_manifest_6746fe840d924cf623b4634b5ec6c630bd4c06b5.txt
 
 ### Downloading Data Using GDC File UUIDs
 
