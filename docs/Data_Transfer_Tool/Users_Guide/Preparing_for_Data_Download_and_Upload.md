@@ -43,11 +43,11 @@ The GDC Data Transfer Tool requires an authentication token to upload data to GD
 To generate a token, first log in to the GDC Data Portal or the GDC Submission Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user John Doe&nbsp;is logged in to the GDC Data Portal, indicated by the username JOHNDOE:
 
 ![GDC Data Portal Home Screen after Login](images/04-06_gdc-data-portal-home-screen-after-login.png)
-**GDC Data Portal Home Screen after Login**
+<!---**GDC Data Portal Home Screen after Login**--->
 
 Clicking the username will open a drop-down menu. Select *Download Token* from the menu to generate an authentication token.
 
 ![GDC Data Portal User Dropdown Menu](images/04-07-data-portal-user-dropdown-menu.png)
-**GDC Data Portal User Dropdown Menu**
+<!---**GDC Data Portal User Dropdown Menu**--->
 
 **NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user.
