@@ -35,7 +35,10 @@ If the project is ready for processing, data can be submitted to the GDC. If the
 
 ### Release Data
 
-To ensure that the GDC always releases high-quality data, harmonized data is not automatically released. The  harmonized data can be reviewed and a decision can be made about releasing the data to the public. Confirmation of release will initiate data indexing and will release the data to the [GDC Data Portal](https://gdc-portal.nci.nih.gov/projects/t) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
+The GDC will release data according to [GDC data sharing policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data may be released after six months from the date of upload, or the submitter may request earlier release using the "Release Project" function.
+
+Upon release, harmonized data will be available to GDC users through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
+
 
 ### Redaction
 

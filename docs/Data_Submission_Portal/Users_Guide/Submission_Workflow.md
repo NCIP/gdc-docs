@@ -20,7 +20,7 @@ When all necessary data and files have been uploaded, the submitter reviews the 
 
 ### Release Data
 
-The GDC will release data according to [GDC data sharing policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data may be released automatically, or the submitter may accelerate the release using the "Release Project" function. This function can be performed at any point in the project submission process.
+The GDC will release data according to [GDC data sharing policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data may be released after six months from the date of upload, or the submitter may request earlier release using the "Release Project" function.
 
 Harmonized data will be released to GDC users through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
 

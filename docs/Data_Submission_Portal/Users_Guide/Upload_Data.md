@@ -6,7 +6,7 @@ The GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nc
 
 This chapter will focus on the upload and validation of data to the project workspace.
 
-[![GDC Data Submission Portal Workflow Upload](images/GDC_Submission_Portal_Workflow_Upload.png)](images/GDC_Submission_Portal_Workflow_Upload.png "Click to see the full image.")
+[![GDC Data Submission Portal Workflow Upload](images/gdc-submission-portal-data-upload-workflow.png)](images/gdc-submission-portal-data-upload-workflow.png "Click to see the full image.")
 
 
 ## Introduction to Files
@@ -136,9 +136,6 @@ If the upload contains invalid files, the user will not be able to submit the da
 
 Files can be removed from the submission by clicking on the _'garbage can'_ icon related to the file.
 
-Click on _'View Report'_ to see the error report which provides details about why files failed validation. This report is detailed in the [Data Submission Reports](Reports.md) section of the documentation.
-
-
 
 ### Confirm Upload
 
@@ -160,7 +157,7 @@ Once the user has uploaded metadata through the Upload Data Wizard (e.g., read_g
 
 [![Transaction Manifest](images/GDC_Submission_Transactions_Get_Manifest_2.png)](images/GDC_Submission_Transactions_Get_Manifest_2.png "Click to see the full image.")
 
-Users can use this manifest to upload their actual files with the GDC Data Transfer Tool. Please refer to the [GDC Data Transfer Tool's User Guide](../Data_Transfer_Tool/Users_Guide/Getting_Started.md) for more information.
+Users can use this manifest to upload their actual files with the GDC Data Transfer Tool. Please refer to the [GDC Data Transfer Tool's User Guide](../../Data_Transfer_Tool/Users_Guide/Getting_Started.md) for more information.
 
 ## Download Previously Uploaded Files
 
