@@ -2,13 +2,13 @@
 
 ## Overview
 
-The transactions tab lists all transactions which have happened on the project since its creation.
+The transactions page lists all of the project's transactions. The transactions page can be accessed by choosing the "Transactions" tab at the top of the dashboard or by choosing "View All Data Upload Transactions" in the first panel of the dashboard.
 
-[![GDC Submission Transactions](images/GDC_Submission_Transactions.png)](images/GDC_Submission_Transactions.png "Click to see the full image.")
+[![GDC Submission Transactions](images/GDC_Submission_Transactions_2.png)](images/GDC_Submission_Transactions_2.png "Click to see the full image.")
 
 The types of transactions are the following:
 
-* __Upload__: The user uploads data to the project workspace.
+* __Upload__: The user uploads data to the project workspace. Note that data files uploaded using the GDC Data Transfer tool do not appear as transactions. These can be viewed in the [Browse](Browse_Data.md) tab.
 * __Review__: The user reviews the project before submitting data to the GDC.
 * __Open__: The user re-opens the project if it was under review. This will allow the upload of new data to the project workspace.
 * __Submit__: The user submits data to the GDC. This trigger the data harmonization process.
@@ -22,11 +22,11 @@ The transactions list view displays the following information:
 | --- | --- |
 | ID | Identifier of the transaction |
 | Type | Type of the transaction (see list transaction types in the previous section)|
-| Step | XXXXXXXXXXXXXXX |
+| Step | The step of the submission process that each file is currently in. This can be Validate, Commit, XXXXXXXXXX    |
 | DateTime | Date the transaction was initiated |
-| User | XXXXXXXXXXXXXXX |
+| User | The name of the user that performed the transaction |
 | Status | XXXXXXXXXXXXXXX |
-| Commit/Discard | Two buttons that appear when data has been uploaded using the 'dry run' feature.  This allows for validated data to be incorporated into the project or discarded. |
+| Commit/Discard | Two buttons that appear when data has been uploaded using the _dry_run endpoint of the API.  This allows for validated data to be incorporated into the project or discarded. |
 
 ## Transaction Filters
 
@@ -37,7 +37,7 @@ Choosing the radio buttons at the top of the table allows the transactions to be
 
 Clicking on a transaction will open the details panel. Data in this panel is organized into multiple sections including actions, details, types, and documents as described below.
 
-[![GDC Submission Transactions](images/GDC_Submission_Transactions_Details.png)](images/GDC_Submission_Transactions_Details.png "Click to see the full image.")
+[![GDC Submission Transactions](images/GDC_Submission_Transactions_Details_2.png)](images/GDC_Submission_Transactions_Details_2.png "Click to see the full image.")
 
 Navigation between the sections can be performed by either scrolling down or by clicking on the section icon displayed on the left side of the details panel.
 
@@ -45,23 +45,23 @@ Navigation between the sections can be performed by either scrolling down or by 
 
 The Actions section allows a user to perform an action for transactions that provide actions. For example, if a user uploads read groups and file metadata, a corresponding manifest file will be available for download from the transaction. This manifest is used to upload the actual files through the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool).
 
-[![GDC Submission Transactions Details Action](images/GDC_Submission_Transactions_Details_Action.png)](images/GDC_Submission_Transactions_Details_Action.png "Click to see the full image.")
+[![GDC Submission Transactions Details Action](images/GDC_Submission_Transactions_Details_Action_2.png)](images/GDC_Submission_Transactions_Details_Action_2.png "Click to see the full image.")
 
 ### Details
 
 The Details section provides details about the transaction itself, such as its project, type, and number of affected cases.
 
-[![GDC Submission Transactions Details](images/GDC_Submission_Transactions_Details_Details.png)](images/GDC_Submission_Transactions_Details.png "Click to see the full image.")
+[![GDC Submission Transactions Details](images/GDC_Submission_Transactions_Details_Details_2.png)](images/GDC_Submission_Transactions_Details_Details_2.png "Click to see the full image.")
 
 ### Types
 
 The Types section lists the type of files submitted and the number of affected cases and entities.
 
-[![GDC Submission Transactions Types](images/GDC_Submission_Transactions_Details_Types.png)](images/GDC_Submission_Transactions_Details_Types.png "Click to see the full image.")
+[![GDC Submission Transactions Types](images/GDC_Submission_Transactions_Details_Types_2.png)](images/GDC_Submission_Transactions_Details_Types_2.png "Click to see the full image.")
 
 ### Documents
 
 The Documents section lists the files submitted during the transaction.
-The user can __download the original files from the transaction__ or a report detailing the transaction in tab-delimited format.
+The user can __download the original files from the transaction__, a report detailing the transaction, or the errors that originated from the transaction.
 
-[![GDC Submission Transactions Documents](images/GDC_Submission_Transactions_Details_Documents.png)](images/GDC_Submission_Transactions_Details_Documents.png "Click to see the full image.")
+[![GDC Submission Transactions Documents](images/GDC_Submission_Transactions_Details_Documents_2.png)](images/GDC_Submission_Transactions_Details_Documents_2.png "Click to see the full image.")

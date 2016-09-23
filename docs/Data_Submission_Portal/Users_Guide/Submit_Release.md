@@ -19,7 +19,7 @@ If the project is ready for processing, the submitter or project owner will subm
 
 If the project is not ready for processing, the submitter or project owner can re-open it. Then the submitter will be able to upload more data to the project workspace.
 
-In general, submitters are requested to submit their data to the GDC within six months from the first upload to the project workspace.
+Submitters are requested to submit their data to the GDC within six months from the first upload to the project workspace.
 
 [![GDC Data Submission Portal Workflow Submit](images/GDC_Submission_Portal_Workflow_Submit.png)](images/GDC_Submission_Portal_Workflow_Submit.png "Click to see the full image.")
 
@@ -29,13 +29,13 @@ To review and submit data to the GDC, the user should have release privileges. T
 
 The "Review" button is available only if the project is in "OPEN" state.
 
-****[![GDC Submission Review Tab](images/GDC_Submission_Submit_Release_Review_tab.png)](images/GDC_Submission_Submit_Release_Review_tab.png "Click to see the full image.")
+[![GDC Submission Review Tab](images/GDC_Submission_Submit_Release_Review_tab_2.png)](images/GDC_Submission_Submit_Release_Review_tab_2.png "Click to see the full image.")
 
 Reviewing the project will prevent other users from uploading data to the project. Once the review is complete, the user can submit data to the GDC.
 
 Once the user clicks on "Review", the project state will change to "REVIEW":
 
-****[![GDC Submission Review State](images/GDC_Submission_Submit_Release_Project_State_Review.png)](images/GDC_Submission_Submit_Release_Project_State_Review.png "Click to see the full image.")
+[![GDC Submission Review State](images/GDC_Submission_Submit_Release_Project_State_Review_2.png)](images/GDC_Submission_Submit_Release_Project_State_Review_2.png "Click to see the full image.")
 
 
 
@@ -47,7 +47,7 @@ Once the user submits data to the GDC, they __cannot upload additional data unti
 
 ****[![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab.png)](images/GDC_Submission_Submit_Release_Submit_tab.png "Click to see the full image.")
 
-When the user clicks on the action "Submit", the following Submit popup is displayed:
+When the user clicks on the action "SUBMIT TO GDC" in panel 2 of the dashboard, the following Submit popup is displayed:
 
 [![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup.png)](images/GDC_Submission_Submit_Release_Submit_Popup.png "Click to see the full image.")
 
