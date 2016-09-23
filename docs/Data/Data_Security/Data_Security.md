@@ -37,15 +37,18 @@ The GDC Data Transfer Tool and the GDC API use tokens for authentication. GDC au
 
 Users can obtain authentication tokens from the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) for instructions.
 
+
 #### Token Expiration
 
 Tokens are valid for 30 days from the time of issue. Any request to the GDC API that uses an expired token will result in an error.
 
 #### Replacing a Token
 
+Downloading an authentication token multiple times does not generate a new token each time. The GDC Data Portal and the GDC Data Submission Portal will continue to issue the same token to the user until the token expires. The token is refreshed only upon the previous token's expiration.
+
 Upon token expiration, a new token can be downloaded from the GDC Data Portal or the GDC Data Submission Portal.
 
-Alternatively, a token can be replaced before it expires by performing the following steps (all in the same browser window):
+Alternatively, a token can be replaced before its scheduled expiration date by performing the following steps (all in the same browser window):
 
 0. Log into the [GDC Data Portal](https://gdc-portal.nci.nih.gov) or the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission) using your eRA Commons account.
 0. Open the URL `https://gdc-portal.nci.nih.gov/auth/token/refresh` to trigger token expiration.
