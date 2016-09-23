@@ -9,26 +9,19 @@ The GDC Data Transfer Tool supports downloading multiple files listed in a GDC m
 First, select the data files of interest. Click the *Cart* button in the row corresponding to the file desired. The button will turn green to indicate that the file has been selected.
 
 ![GDC Data Portal: Selecting Files of Interest](images/09-15_Data-Portal-File-Selection.png "Selecting Files of Interest")
-[](   TESTING Comments!!!!
-**GDC Data Portal: Selecting Files of Interest**
-This is a test
-)
+
 
 Once all files of interest have been selected, click on the *Cart* button in the upper right-hand corner. This will bring up the cart page, which provides an overview of all currently selected files. This list of files can be downloaded as a manifest file by clicking on the green *Download* button and selecting *Manifest* from the drop down.
 
 ![GDC Data Portal: Cart Page](images/09-15-v2_Data-Portal-Cart-Page.png)
-[](
-**GDC Data Portal: Cart Page**
-)
+
 ## Obtaining UUIDs for Data Download
 
 A manifest file is not required to download files from GDC. The GDC Data Transfer Tool will accept file UUID(s) instead of a manifest file for downloading individual data files. To obtain a data file's UUID from the GDC Data Portal, click the file name to find its detail page including its GDC UUID.
 
 ![GDC Data Portal: Detailed File Page](images/09-22_Data-portal-file-detail-pagev2.png)
-[](
-**GDC Data Portal: Detailed File Page**
-)
-## Obtaining a Manifest File for Data Upload
+
+<!--- ## Obtaining a Manifest File for Data Upload
 
 The GDC Data Transfer Tool supports uploading multiple files listed in a GDC manifest file. A manifest file for a data bundle can be generated using the GDC Data Submission Portal.
 
@@ -42,7 +35,7 @@ Select a type of Data Bundle on the left; here we selected the *Lane Level Seque
 
 ![GDC Data Submission Portal: Detailed bundle page](images/04-05_submission-portal-download-manifest.png)
 **GDC Data Submission Portal: Detailed bundle page**
-
+--->
 ## Obtaining an Authentication Token
 
 The GDC Data Transfer Tool requires an authentication token to upload data to GDC and to download controlled data. Tokens can be generated and downloaded directly from the GDC Data Portal and the GDC Submission Portal.
