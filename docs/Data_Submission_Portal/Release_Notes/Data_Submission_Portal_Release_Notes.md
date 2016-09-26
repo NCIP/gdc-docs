@@ -45,6 +45,25 @@ Please refer to the GDC Data Submission Portal user guide for more details about
 
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
+## Release 1.1.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: May 20th, 2016
+
+### New Features and Changes
+
+* Updated login text
+
+### Bugs Fixed Since Last Release
+
+* Improved 508 compliance of the landing page
+
+### Known Issues and Workarounds
+
+*	Some actions on the data submission portal are resource intensive and might result in timeout or errors. The team is currently working on a major update to the data submission portal expected to be available towards the end of the summer. This version will address performance issues and improve overall user experience.
+
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
 ## Release 0.3.24.1
 
 * __GDC Product__: GDC Data Submission Portal
