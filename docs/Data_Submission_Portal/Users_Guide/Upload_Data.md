@@ -92,6 +92,51 @@ type	project_id	submitter_id	aliquots.submitter_id	experiment_name	is_paired_end
 read_group	TCGA-DEV3	read_group_ID1	TCGA-DEV-3-CASE-000-S1-AL1	Text for Experiment	TRUE	lib_1	WXS	Illumina	35	101	test								FALSE																	FALSE
 ```
 
+OR
+
+```json
+{  
+   "type":"read_group",
+   "project_id":"TCGA-DEV3",
+   "submitter_id":"read_group_ID1",
+   "aliquots.submitter_id":"TCGA-DEV-3-CASE-000-S1-AL1",
+   "experiment_name":"Text for Experiment",
+   "is_paired_end":"TRUE",
+   "library_name":"lib_1",
+   "library_strategy":"WXS",
+   "platform":"Illumina",
+   "read_group_name":35,
+   "read_length":101,
+   "sequencing_center":"test",
+   "RIN":null,
+   "adapter_name":null,
+   "adapter_sequence":null,
+   "base_caller_name":null,
+   "base_caller_version":null,
+   "fastq_name":null,
+   "flow_cell_barcode":null,
+   "includes_spike_ins":"FALSE",
+   "instrument_model":null,
+   "library_preparation_kit_catalog_number":null,
+   "library_preparation_kit_name":null,
+   "library_preparation_kit_vendor":null,
+   "library_preparation_kit_version":null,
+   "library_selection":null,
+   "library_strand":null,
+   "sequencing_date":null,
+   "size_selection_range":null,
+   "spike_ins_concentration":null,
+   "spike_ins_fasta":null,
+   "target_capture_kit_catalog_number":null,
+   "target_capture_kit_name":null,
+   "target_capture_kit_target_region":null,
+   "target_capture_kit_vendor":null,
+   "target_capture_kit_version":null,
+   "to_trim_adapter_sequence":"FALSE"
+}
+```
+
+
 The second describes the submitted_unaligned_reads.  This contains information about the file itself such as the file name, md5, and the data format.   
 
 File 2: submitted\_unaligned_reads.tsv
@@ -100,6 +145,25 @@ File 2: submitted\_unaligned_reads.tsv
 type	project_id	submitter_id	read_groups.submitter_id	file_name	file_size	md5sum	data_category	data_type	data_format	experimental_strategy
 submitted_unaligned_reads	TCGA-DEV3	fileID1_CASE-000-AL1	read_group_ID1	fileID88_CASE-000.fastq	61004	311253B0CA93B396A41C0A88F01557AE	Sequencing Data	Unaligned Reads	FASTQ	WGS
 ```
+
+OR
+
+```json
+{  
+   "type":"submitted_unaligned_reads",
+   "project_id":"TCGA-DEV3",
+   "submitter_id":"fileID1_CASE-000-AL1",
+   "read_groups.submitter_id":"read_group_ID1",
+   "file_name":"fileID88_CASE-000.fastq",
+   "file_size":61004,
+   "md5sum":"311253B0CA93B396A41C0A88F01557AE",
+   "data_category":"Sequencing Data",
+   "data_type":"Unaligned Reads",
+   "data_format":"FASTQ",
+   "experimental_strategy":"WGS"
+}
+```
+
 
 
 When the files have been prepared (in TSV or JSON format), they can be uploaded with the Upload Data Wizard.
