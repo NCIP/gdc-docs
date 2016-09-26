@@ -35,9 +35,8 @@ A user authentication token is required for downloading controlled data from GDC
 
 ### Download Directory Structure
 
-The directory in which the files are download to will include folders named by UUID.  Inside these downloaded folders, along with the the data and zipped metadata will exist a logs folder.  These folders contains state files that insure that downloads are accurate and allow for resumption of failed or prematurely stopped downloads.
-If a download is
-    
+The directory in which the files are download to will include folders named by UUID.  Inside these downloaded folders, along with the the data and zipped metadata or index files will exist a logs folder.  These folders contains state files that insure that downloads are accurate and allow for resumption of failed or prematurely stopped downloads.  If a download is halted in the process of a download session a .parcial will be appended to the downloaded file.  This designates that the file is incomplete and will finish it's download after the download has been restarted.  
+
 ## Uploads
 
 ### Uploading Data Using a Manifest File
