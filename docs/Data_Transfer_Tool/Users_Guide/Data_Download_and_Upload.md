@@ -33,6 +33,11 @@ A user authentication token is required for downloading controlled data from GDC
 	gdc-client download -m gdc_manifest_e24fac38d3b19f67facb74d3efa746e08b0c82c2.txt -t gdc-user-token.2015-06-17T09-10-02-04-00.txt
 
 
+### Download Directory Structure
+
+The directory in which the files are download to will include folders named by UUID.  Inside these downloaded folders, along with the the data and zipped metadata will exist a logs folder.  These folders contains state files that insure that downloads are accurate and allow for resumption of failed or prematurely stopped downloads.
+If a download is
+    
 ## Uploads
 
 ### Uploading Data Using a Manifest File
