@@ -79,9 +79,11 @@ demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	fe
 ```
 
 
-#### Read Group and File
+#### Read Group Upload Example
 
-An example of a __Read Group__ upload, which requires two TSV files to describe metadata, is detailed below.
+An example of a __Read Group__ upload is detailed below. Uploading a read group requires two TSV files to describe metadata.
+
+The first file describes the read_group, which associates the submittable read file with information about the sequencing and library preparation.
 
 File 1: read_group.tsv
 
@@ -89,6 +91,8 @@ File 1: read_group.tsv
 type	project_id	submitter_id	aliquots.submitter_id	experiment_name	is_paired_end	library_name	library_strategy	platform	read_group_name	read_length	sequencing_center	RIN	adapter_name	adapter_sequence	base_caller_name	base_caller_version	fastq_name	flow_cell_barcode	includes_spike_ins	instrument_model	library_preparation_kit_catalog_number	library_preparation_kit_name	library_preparation_kit_vendor	library_preparation_kit_version	library_selection	library_strand	sequencing_date	size_selection_range	spike_ins_concentration	spike_ins_fasta	target_capture_kit_catalog_number	target_capture_kit_name	target_capture_kit_target_region	target_capture_kit_vendor	target_capture_kit_version	to_trim_adapter_sequence
 read_group	TCGA-DEV3	read_group_ID1	TCGA-DEV-3-CASE-000-S1-AL1	Text for Experiment	TRUE	lib_1	WXS	Illumina	35	101	test								FALSE																	FALSE
 ```
+
+The second describes the submitted_unaligned_reads.  This contains information about the file itself such as the file name, md5, and the data format.   
 
 File 2: submitted\_unaligned_reads.tsv
 
@@ -98,7 +102,7 @@ submitted_unaligned_reads	TCGA-DEV3	fileID1_CASE-000-AL1	read_group_ID1	fileID88
 ```
 
 
-Once the files have been prepared (in TSV or JSON format), these files can be uploaded with the Upload Data Wizard.
+When the files have been prepared (in TSV or JSON format), they can be uploaded with the Upload Data Wizard.
 
 **Note:** Before you can upload clinical, biospecimen or experiment data, associated cases must be registered in the GDC. If the cases are not displayed in your project dashboard, download the case template from the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). Complete it with the Case Submitter IDs and upload the Cases with the Upload Data Wizard.
 
