@@ -31,7 +31,7 @@ Please refer to the GDC Data Submission Portal user guide for more details about
 
 *	Project submission and release is currently disabled. <!--SUBP-201-->
 *	If case has no clinical data, the "Download Clinical" button is not disabled, the downloaded TSV will not contain Clinical Data. <!--SUBP-173-->
-*	Download Manifest button is still available while page is loading, clickling on Download will return a file with an error message. <!--SUBP-206-->
+*	Download Manifest button is available while page is loading or when no files are in "registered" state, clickling on Download will return a file with an error message. <!--SUBP-206-->
 *	In Internet Explorer, GDC APPs and File dropdown are incorrectly aligned, making some elements only partially visible. <!--SUBP-212--><!--SUBP-214-->
 *	Diagnosis / Treatment detail: Submitter ID (of the child / parent) is missing in the Details -> Hierarchy view. <!--SUBP-227-->
 * File status column should not be displayed for any clinical or biospecimen entities but only for submittable data files. <!--SUBP-226-->
