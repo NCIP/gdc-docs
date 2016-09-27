@@ -27,7 +27,7 @@ These charts are constantly updated to reflect the current state of the selected
 
 There are two action panels available below the Project Overview.
 
-* [Upload & Validate](Upload_Data.md): Allows a submitter to upload project data to the GDC project workspace. The GDC will validate the uploaded data against the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/). This panel also displays a table that displays details about the five latest transactions. Clicking the IDs in the first column will bring up a window with details about the transaction. These details are documented in the [transactions](Transactions.md) page.  
+* [Upload & Validate](Upload_Data.md): Allows a submitter to upload project data to the GDC project workspace. The GDC will validate the uploaded data against the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/). This panel also displays a table that displays details about the five latest transactions. Clicking the IDs in the first column will bring up a window with details about the transaction. These details are documented in the [transactions](Transactions.md) page. This panel will also allow the user to commit file submissions to the project.
 * [Review & Submit](Submit_Release.md#review-and-submit): Allows a submitter to review project data which will lock the project to ensure that additional data cannot be uploaded while in review. Once the review is complete, the data can be submitted to the GDC for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization).
 
 These actions and associated features are further detailed in their respective sections of the documentation.

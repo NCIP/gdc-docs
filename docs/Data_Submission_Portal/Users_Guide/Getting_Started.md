@@ -12,7 +12,7 @@ The GDC Data Submission Portal is a platform that allows researchers to submit a
 * __Download Data__: Download data that has been uploaded into the project workspace for review or update. Data can then be re-uploaded before it is released for access through [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
 * __Browse Data__: Browse data that has been uploaded to the project workspace to ensure that the project is ready for processing.
 * __Status and Alerts__: Obtain visual cues to easily identify incomplete submissions.
-* __Reports__: Access and download submission-related reports to gain better insight into the status of submitted data.
+
 
 ## Key Features
 

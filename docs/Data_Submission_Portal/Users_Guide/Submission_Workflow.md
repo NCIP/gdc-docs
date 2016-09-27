@@ -10,7 +10,7 @@ The workflow diagram below represents the data submission process that is implem
 
 The submitter uploads clinical and biospecimen data to the project workspace using GDC templates that are available in the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/). The GDC will validate the uploaded data against the GDC Data Dictionary.
 
-To upload data files such as BAM or FASTQ, the submitter registers file metadata with the GDC in a manner similar to uploading clinical and biospecimen data. After registering the files, the submitter downloads a manifest from the GDC Data Submission Portal and uses it with the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) to upload the files. Alternatively, registered files can be uploaded directly to the [GDC API](https://gdc.cancer.gov/developers/gdc-application-programming-interface-api) without the use of the Data Transfer Tool.
+To upload submittable data files, such as sequence data in BAM or FASTQ format, the submitter must register file metadata with the GDC using a method similar to uploading clinical and biospecimen data. When files are registered, the submitter downloads a manifest from the GDC Data Submission Portal and uses it with the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) to upload the files.
 
 [![GDC Data Submission Portal Workflow Upload](images/gdc-submission-portal-data-upload-workflow.png)](images/gdc-submission-portal-data-upload-workflow.png "Click to see the full image.")
 

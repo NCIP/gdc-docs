@@ -22,11 +22,11 @@ The transactions list view displays the following information:
 | --- | --- |
 | ID | Identifier of the transaction |
 | Type | Type of the transaction (see list transaction types in the previous section)|
-| Step | The step of the submission process that each file is currently in. This can be Validate or Commit. "Validate" represents files that have not yet been committed but have been submitted using the _dry_run endpoint. |
+| Step | The step of the submission process that each file is currently in. This can be Validate or Commit. "Validate" represents files that have not yet been committed but have been submitted using the submission portal or the API _dry_run endpoint. |
 | DateTime | Date the transaction was initiated |
 | User | The name of the user that performed the transaction |
 | Status | 	Indicates the status of the transaction: SUCCEEDED or FAILED |
-| Commit/Discard | Two buttons that appear when data has been uploaded using the _dry_run endpoint of the API.  This allows for validated data to be incorporated into the project or discarded. |
+| Commit/Discard | Two buttons that appear when data has been uploaded using the _dry_run endpoint of the API or the submission portal.  This allows for validated data to be incorporated into the project or discarded. |
 
 ## Transaction Filters
 

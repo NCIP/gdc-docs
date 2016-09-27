@@ -24,4 +24,4 @@ For more information about authentication tokens, see [Data Security](../../Data
 
 ## Logging Out
 
-To log out of the GDC, click the username in the top right corner of the screen, and select the Logout option. Users will be automatically logged out after 30 minutes of inactivity.
+To log out of the GDC, click the username in the top right corner of the screen, and select the Logout option. Users will be automatically logged out after 15 minutes of inactivity.

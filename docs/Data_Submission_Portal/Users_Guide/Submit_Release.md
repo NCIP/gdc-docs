@@ -6,14 +6,14 @@ The GDC Data Submission process is detailed on the [GDC Website]( https://gdc.nc
 
 This chapter will focus on the following features:
 
-* The review and submission of data to the GDC.
+* The review and submission of data to the GDC
 * The release of data to the GDC Data Portal
 
 ## Review and Submit
 
-Once data is uploaded to the project workspace (see previous section: [Upload Data](Upload_Data.md), the submitter  should review it to ensure that data is ready for processing by the GDC ([Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization)).
+When data is uploaded to the project workspace (see previous section: [Upload Data](Upload_Data.md), the submitter should review the data to ensure that it is ready for processing by the GDC ([Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization)).
 
-The review will lock the project and ensure no user can upload more data. During this period, the submitter or project owner can browse the data in the Submission Portal or download it.
+The review will lock the project and prevent users from uploading more data. During this period, the submitter or project owner can browse the data in the Submission Portal or download it.
 
 If the project is ready for processing, the submitter or project owner will submit data to the GDC.
 
