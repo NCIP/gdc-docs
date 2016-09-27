@@ -1,6 +1,6 @@
 # Data Submission Portal Release Notes
 
-## Release 1.2.0
+## Release 1.2.2
 
 * __GDC Product__: GDC Data Submission Portal
 * __Release Date__: September 23, 2016
@@ -31,7 +31,7 @@ Please refer to the GDC Data Submission Portal user guide for more details about
 
 *	Project submission and release is currently disabled. <!--SUBP-201-->
 *	If case has no clinical data, the "Download Clinical" button is not disabled, the downloaded TSV will not contain Clinical Data. <!--SUBP-173-->
-*	Download Manifest button is still available while page is loading, clickling on Download will return a file with an error message. <!--SUBP-206-->
+*	Download Manifest button is available while page is loading or when no files are in "registered" state, clickling on Download will return a file with an error message. <!--SUBP-206-->
 *	In Internet Explorer, GDC APPs and File dropdown are incorrectly aligned, making some elements only partially visible. <!--SUBP-212--><!--SUBP-214-->
 *	Diagnosis / Treatment detail: Submitter ID (of the child / parent) is missing in the Details -> Hierarchy view. <!--SUBP-227-->
 * File status column should not be displayed for any clinical or biospecimen entities but only for submittable data files. <!--SUBP-226-->
@@ -42,6 +42,25 @@ Please refer to the GDC Data Submission Portal user guide for more details about
 *  Reports are currently not available in the Data Submission Portal and will be added back in an upcoming version:
     *   Data Validation Report: The rows in the report are sometimes duplicated and #Files in error are not showing up in the report. The user should go to Project > Browse > Submitted Files to see the files in error and the error type<!--PGDC-1025 and PGDC-997-->.
     *   The Scientific Pre-alignment QC Report is not available.
+
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
+## Release 1.1.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: May 20th, 2016
+
+### New Features and Changes
+
+* Updated login text
+
+### Bugs Fixed Since Last Release
+
+* Improved 508 compliance of the landing page
+
+### Known Issues and Workarounds
+
+*	Some actions on the data submission portal are resource intensive and might result in timeout or errors. The team is currently working on a major update to the data submission portal expected to be available towards the end of the summer. This version will address performance issues and improve overall user experience.
 
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 

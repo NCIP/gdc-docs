@@ -25,6 +25,8 @@ The front page displays an overview of all available datasets:
 
 ## Navigation
 
+### Views
+
 The GDC Data Portal provides three sections (*Views*) for browsing available harmonized datasets:
 
 * __Projects View__: Provides project-level information
@@ -51,3 +53,12 @@ The right portion of this toolbar provides access to quick search, [authenticati
 The GDC Apps menu provides links to all resources provided by the GDC, including the [GDC Legacy Archive](Legacy_Archive.md).
 
 [![GDC Apps](images/gdc-data-portal-gdc-apps.png)](images/gdc-data-portal-gdc-apps.png "Click to see the full image.")
+
+
+## Filtering and Searching
+
+The GDC Data Portal offers three different means of searching and filtering the available data:
+
+* __Faceted Navigation__: Facets on the left of _'Projects'_ & _'Data'_ views allow users to apply filters based on various properties of the data, such as project name, disease name and stage, age, and various data formats and categories. Custom facets can be added by the user to expand the GDC Data Portal's filtering capabilities.
+* __Advanced Search__: Allows users to construct complex queries using a custom query language and auto-complete suggestions.
+* __Quick Search__: Search by UUID or submitter ID for quick access to specific records.

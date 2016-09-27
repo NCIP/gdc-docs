@@ -28,7 +28,7 @@ However, a query created using 'Advanced Search' is not translated to 'Faceted S
 
 ## Use the Advanced Search
 
-When opening the advanced search page (via the Data view), the search field will be automatically populated with facets fileters already applied (if any).
+When opening the advanced search page (via the Data view), the search field will be automatically populated with facets filters already applied (if any).
 
 This default query can be removed by pressing "Reset".
 
