@@ -23,7 +23,7 @@ The main categories of data that can be uploaded include:
 
 * Clinical Data: Elements such as gender, age, diagnosis, etc. as defined in the GDC Data Dictionary.
 * Biospecimen Data: Information about entities such as samples, aliquots, etc. as defined in the GDC Data Dictionary.
-* Experiment Data: Sequencing data such as BAM and FASTQ files, pathology slide images, and other experiment data collected by the study.
+* Submittable Data Files: Sequencing data such as BAM and FASTQ files, pathology slide images, and other experimental data collected by the study.
 
 By using the [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md), the minimum field requirements can be identified for each of the three categories listed above.
 

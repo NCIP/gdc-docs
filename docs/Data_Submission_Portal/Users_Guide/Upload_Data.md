@@ -37,10 +37,10 @@ The table below is an example of files used to upload a read group to the GDC. T
 
 |# | File name | Description | GDC Tool |
 | --- | --- | --- | --- |
-|1a | read_group.tsv |Read Group Metadata|Upload this file to the Submission Portal. It describes the experiment metadata.|
-|1b | submitted\_unaligned_reads.tsv|Submitted File Metadata|Upload this file to the Submission Portal. It describes the file metadata.|
-|2 | manifest.yml|Manifest|Download this file from the Submission Portal. This manifest is used by the GDC Data Transfer Tool for the actual file upload.|
-|3 | ExperimentFile.fastq|FASTQ File|Upload this file to the GDC Data Transfer Tool using the manifest (2).|
+|1a | read_group.tsv |Read Group Metadata|This file is uploaded to the Submission Portal by the submitter. It describes the experimental metadata.|
+|1b | submitted\_unaligned_reads.tsv|Submitted File Metadata|UThis file is uploaded to the Submission Portal by the submitter. It describes the file metadata.|
+|2 | manifest.yml|Manifest| This file can be downloaded from the Submission Portal. The manifest is used by the GDC Data Transfer Tool for the actual file upload.|
+|3 | ExperimentFile.fastq|FASTQ File| This file is uploaded with the GDC Data Transfer Tool using the manifest (2).|
 
 
 
@@ -168,7 +168,7 @@ OR
 
 When the files have been prepared (in TSV or JSON format), they can be uploaded with the Upload Data Wizard.
 
-**Note:** Before you can upload clinical, biospecimen or experiment data, associated cases must be registered in the GDC. If the cases are not displayed in your project dashboard, download the case template from the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). Complete it with the Case Submitter IDs and upload the Cases with the Upload Data Wizard.
+**Note:** Before you can upload clinical, biospecimen or submittable data files, associated cases must be registered in the GDC. If the cases are not displayed in your project dashboard, download the case template from the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). Complete it with the Case Submitter IDs and upload the Cases with the Upload Data Wizard.
 
 ## Step 2: Upload Data Wizard
 

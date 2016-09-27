@@ -17,7 +17,7 @@ The remaining part of the top section of the dashboard is broken down into four 
 
 * __Cases with Clinical__: Details the number of cases for which clinical data has been uploaded.
 * __Cases with Biospecimen__: Details the number of cases for which biospecimen data has been uploaded.
-* __Cases with Submittable Data Files__: Details the number of cases for which experiment data has been uploaded.
+* __Cases with Submittable Data Files__: Details the number of cases for which experimental data has been uploaded.
 * __Submittable Data Files__: Details the number of files uploaded through the GDC Data Transfer Tool. For more information on this chart, please refer to [File Status Lifecycle](Submission_Workflow.md#file-status-life-cycle).
 The "DOWNLOAD MANIFEST" button below this chart allows the users to download a manifest for registered files in this project that have not yet been uploaded.
 

@@ -42,7 +42,7 @@ On the top-right section of the screen, the user can download data about all ent
 
 Clicking on a case will open the details panel. Data in this panel is broken down into multiple sections depending on the entity type. The main sections are:
 
-* Actions: actions that can be performed relating the entity. Includes downloading the metadata (JSON or TSV) or experiment file pertaining to the entity.  
+* Actions: actions that can be performed relating the entity. This includes downloading the metadata (JSON or TSV) or submittable data file pertaining to the entity.  
 * Summary: IDs and system properties associated with the entity.
 * Details: properties of the entity (not associated with cases).
 * Hierarchy or Related Entities: list of associated entities.
@@ -63,7 +63,7 @@ This section is available only at the case level.
 
 This table contains the following columns:
 
-* Category: category of the entity (clinical, biospecimen, experiment Data).
+* Category: category of the entity (clinical, biospecimen, submittable data file).
 * Type: type of entity (based on Data Dictionary).
 * Count: number of occurrences of an entity associated with the case. Clicking on the count will open a window listing those entities within the Browse page.
 
