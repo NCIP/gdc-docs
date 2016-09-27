@@ -4,7 +4,8 @@
 
 The GDC Data Submission Portal dashboard provides details about a specific project.
 
-[![GDC Submission Dashboard Page](images/GDC_Submission_Dashboard.png)](images/GDC_Submission_Dashboard.png "Click to see the full image.")
+[![GDC Submission Dashboard Page](images/GDC_Submission_Dashboard_2.png)](images/GDC_Submission_Dashboard_2.png "Click to see the full image.")
+[![GDC Submission Dashboard Page-2](images/GDC_Submission_Dashboard_3.png)](images/GDC_Submission_Dashboard_3.png "Click to see the full image.")
 
 The dashboard contains various visual elements to guide the user through all stages of submission, from viewing the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/) in support of data upload and validation to releasing a project.
 
@@ -19,7 +20,7 @@ The remaining part of the top section of the dashboard is broken down into four 
 * __Cases with Biospecimen__: Details the number of cases for which biospecimen data has been uploaded.
 * __Cases with Submittable Data Files__: Details the number of cases for which experimental data has been uploaded.
 * __Submittable Data Files__: Details the number of files uploaded through the GDC Data Transfer Tool. For more information on this chart, please refer to [File Status Lifecycle](Submission_Workflow.md#file-status-life-cycle).
-The "DOWNLOAD MANIFEST" button below this chart allows the users to download a manifest for registered files in this project that have not yet been uploaded.
+The "DOWNLOAD MANIFEST" button below this chart allows the user to download a manifest for registered files in this project that have not yet been uploaded.
 
 These charts are constantly updated to reflect the current state of the selected project.
 

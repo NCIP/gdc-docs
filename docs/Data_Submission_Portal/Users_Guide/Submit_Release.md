@@ -11,13 +11,9 @@ This chapter will focus on the following features:
 
 ## Review and Submit
 
-When data is uploaded to the project workspace (see previous section: [Upload Data](Upload_Data.md), the submitter should review the data to ensure that it is ready for processing by the GDC ([Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization)).
+When data is uploaded to the project workspace (see previous section: [Upload Data](Upload_Data.md), the submitter should review the data to ensure that it is ready for processing by the GDC ([Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization)). The review will lock the project and prevent users from uploading more data. During this period, the submitter or project owner can browse the data in the Submission Portal or download it.
 
-The review will lock the project and prevent users from uploading more data. During this period, the submitter or project owner can browse the data in the Submission Portal or download it.
-
-If the project is ready for processing, the submitter or project owner will submit data to the GDC.
-
-If the project is not ready for processing, the submitter or project owner can re-open it. Then the submitter will be able to upload more data to the project workspace.
+If the project is ready for processing, the submitter or project owner will submit data to the GDC. If the project is not ready for processing, the submitter or project owner can re-open it. Then the submitter will be able to upload more data to the project workspace.
 
 Submitters are requested to submit their data to the GDC within six months from the first upload to the project workspace.
 
@@ -39,11 +35,15 @@ Once the user clicks on "Review", the project state will change to "REVIEW":
 
 ### Submit to the GDC
 
-The "Submit" button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to submit data to the GDC.
+The "Submit" button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to submit data to the GDC. When the project is in "REVIEW" the following panel appears on the dashboard:
+
+
+
+[![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab_2.png)](images/GDC_Submission_Submit_Release_Submit_tab_2.png "Click to see the full image.")
 
 Once the user submits data to the GDC, they __cannot upload additional data until the harmonization process is complete__.
 
-[![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab.png)](images/GDC_Submission_Submit_Release_Submit_tab.png "Click to see the full image.")
+[![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC.png)](images/GDC_SUBMIT_TO_GDC.png "Click to see the full image.")
 
 When the user clicks on the action "SUBMIT TO GDC" in panel 2 of the dashboard, the following Submit popup is displayed:
 
@@ -61,7 +61,7 @@ Upon release, harmonized data will be available to GDC users through the [GDC Da
 
 **Note:** To release data to the GDC Data Portal, the user must have release privileges.
 
-[![GDC Submission Release Tab](images/GDC_Submission_Submit_Release_Release_tab.png)](images/GDC_Submission_Submit_Release_Release_tab.png "Click to see the full image.")
+[![GDC Submission Release Tab](images/GDC_Submission_Landing_Submitter_3.png)](images/GDC_Submission_Landing_Submitter_3.png "Click to see the full image.")
 
 When the user clicks on the action "Release", the following Release popup is displayed:
 

@@ -6,12 +6,12 @@ The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission P
 
 The GDC Data Submission Portal is a platform that allows researchers to submit and release data into the GDC. The key features of the GDC Data Submission Portal are:
 
-* __Upload and Validate Data__: Upload project data to the GDC project workspace. The GDC will validate the data against the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/).
-* __Review and Submit Data__: Review project data, which will lock the project to ensure that additional data cannot be uploaded while in review. Once the review is complete, the data can be submitted to the GDC for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization).
-* __Release Data__: Release data to the research community for access through [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
-* __Download Data__: Download data that has been uploaded into the project workspace for review or update. Data can then be re-uploaded before it is released for access through [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
-* __Browse Data__: Browse data that has been uploaded to the project workspace to ensure that the project is ready for processing.
-* __Status and Alerts__: Obtain visual cues to easily identify incomplete submissions.
+* __Upload and Validate Data__: Project data can be uploaded to the GDC project workspace. The GDC will validate the data against the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/).
+* __Review and Submit Data__: Prior to submission, data can be reviewed to check for accuracy. Once the review is complete, the data can be submitted to the GDC for processing through [Data Harmonization](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization).
+* __Release Data__: After harmonization, data can be released to the research community for access through [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
+* __Download Data__: Data that has been uploaded into the project workspace can be downloaded for review or update. Data can then be re-uploaded before it is released for access through [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
+* __Browse Data__: Data that has been uploaded to the project workspace can be browsed to ensure that the project is ready for processing.
+* __Status and Alerts__: Visual cues are implemented to easily identify incomplete submissions.
 
 
 ## Key Features
@@ -21,15 +21,15 @@ To submit data to the GDC, the user will prepare the data and upload it to the p
 
 The main categories of data that can be uploaded include:
 
-* Clinical Data: Elements such as gender, age, diagnosis, etc. as defined in the GDC Data Dictionary.
-* Biospecimen Data: Information about entities such as samples, aliquots, etc. as defined in the GDC Data Dictionary.
-* Submittable Data Files: Sequencing data such as BAM and FASTQ files, pathology slide images, and other experimental data collected by the study.
+* __Clinical Data__: Elements such as gender, age, diagnosis, etc. as defined in the GDC Data Dictionary.
+* __Biospecimen Data__: Information about entities such as samples, aliquots, etc. as defined in the GDC Data Dictionary.
+* __Submittable Data Files__: Sequencing data such as BAM and FASTQ files, pathology slide images, and other experimental data collected by the study.
 
-By using the [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md), the minimum field requirements can be identified for each of the three categories listed above.
+The [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md) outlines the minimum field requirements for each of the three categories listed above.
 
 ### Review and Submit Data
 
-Once data is uploaded to the project workspace, it should be reviewed to ensure that the data is ready for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). The review will lock the project to ensure that additional data cannot be uploaded while in review. During this period the data can be browsed or downloaded in the Data Submission Portal.
+Once data is uploaded to the project workspace, it can be reviewed to ensure that the data is ready for processing through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). The review will lock the project to ensure that additional data cannot be uploaded while in review. During this period the data can be browsed or downloaded in the Data Submission Portal.
 
 If the project is ready for processing, data can be submitted to the GDC. If the project is not ready for processing, the project can be re-opened. This will allow for additional data to be uploaded to the project workspace.
 
