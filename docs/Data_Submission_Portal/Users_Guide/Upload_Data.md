@@ -34,7 +34,7 @@ All submitted entities must be linked to existing entities in the [GDC Data Mode
 
 For example, a Demographic entity describes a Case entity. The user is required to provide the case submitter ID or UUID in the Demographic metadata.
 
-For a new submission project, cases are the first entities to be created, and linked to the project. Other metadata entities are then created according to the [GDC Data Model](../../Data/Data_Model/Data_Model.md).
+For a new submission project, cases are the first entities to be created, and linked to the project. Other entities are then created according to the [GDC Data Model](../../Data/Data_Model/Data_Model.md).
 
 ### Examples
 
