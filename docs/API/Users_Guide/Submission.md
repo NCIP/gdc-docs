@@ -14,7 +14,7 @@ The endpoint for submitting data to a specific project in the GDC is constructed
 
 	https://gdc-api.nci.nih.gov/[API_version/]submission/Program.name/Project.code
 
-where `[API_version/]` is the optional API version component (see [Getting Started](Getting_Started.md)).
+where *\[API_version/\]* is the optional API version component (see [Getting Started](Getting_Started.md)).
 
 The values of `Program.name` and `Project.code` can be obtained from the project URL on the GDC Data Submission Portal:
 
@@ -24,17 +24,11 @@ For more information about program name and project code see [The GDC Data Model
 
 #### Example
 
-For example, a project with GDC Data Submission Portal URL
+The following are URL examples for a project with `Program.name` "TCGA" and `Project.code` "ALCH":
 
-<pre>https://gdc-portal.nci.nih.gov/submission/<b>TCGA</b>/<b>ALCH</b>/dashboard</pre>
-
-would have a versioned submission endpoint at
-
-<pre>https://gdc-api.nci.nih.gov/<b>v0/</b>submission/<b>TCGA</b>/<b>ALCH</b></pre>
-
-and an unversioned submission endpoint at
-
-<pre>https://gdc-api.nci.nih.gov/submission/<b>TCGA</b>/<b>ALCH</b></pre>
+* Submission Portal URL: `https://gdc-portal.nci.nih.gov/submission/TCGA/ALCH/dashboard`
+* API submission endpoint (versioned): `https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH`
+* API submission endpoint (unversioned): `https://gdc-api.nci.nih.gov/submission/TCGA/ALCH`
 
 ## Submission Formats
 
@@ -50,10 +44,12 @@ While JSON and TSV are the recommended formats for submitting metadata, the GDC 
 
 To submit BCR XML:
 
-0. Submit biospecimen XML metadata to `[SUBMISSION_ENDPOINT_URL]/xml/biospecimen/bcr/`
-0. Submit clinical XML metadata to `[SUBMISSION_ENDPOINT_URL]/xml/clinical/bcr/`.
+0. Submit biospecimen XML metadata to `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/biospecimen/bcr/`
+0. Submit clinical XML metadata to `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/clinical/bcr/`.
 
-The `[SUBMISSION_ENDPOINT_URL]` is constructed according to instructions provided in [Submission Endpoint](#submission_endpoint). XML files can be submitted in [dry run mode](#dry-run-transactions) by appending `_dry_run` to the above URL.
+Substitute Program.name and Project.code in the URLs above with the program name and project code associated with your submission project; see [Submission Endpoint](#submission_endpoint) (above) for instructions.
+
+BCR XML files can be submitted in [dry run mode](#dry-run-transactions) by appending `_dry_run` to the above URLs.
 
 The following is a sample shell command for submitting an XML file:
 
