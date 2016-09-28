@@ -51,9 +51,9 @@ The structure of the file is as follows:
 * Properties = ethnicity, gender, etc.
 
 ```tsv
-type	project_id	submitter_id	cases.submitter_id	ethnicity	gender	race	year_of_birth	year_of_death
-demographic	TCGA-DEV3	TCGA-DEV-3-CASE-000-D1	TCGA-DEV-3-CASE-000	hispanic or latino	male	white	1950	0
-demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	female	white	1956	0
+type	project_id	submitter_id	cases.submitter_id	ethnicity	gender	race	year_of_birth
+demographic	TCGA-DEV3	TCGA-DEV-3-CASE-000-D1	TCGA-DEV-3-CASE-000	hispanic or latino	male	white	1950
+demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	female	white	1956
 ```
 
 ```json
@@ -85,8 +85,7 @@ demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	fe
       "ethnicity":"not reported",
       "gender":"female",
       "race":"white",
-      "year_of_birth":1956,
-      "year_of_death":0
+      "year_of_birth":1956
    }
 ]
 ```
