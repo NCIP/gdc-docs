@@ -2,7 +2,7 @@
 
 ## Overview
 
-The workflow diagram below represents the data submission process that is implemented by the GDC Data Submission Portal. The submitter logs into the GDC Data Submission Portal, uploads data into the project workspace, and validates the data. When the data is ready for processing, the submitter reviews the data and submits it to the GDC. The GDC processes the data through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). Processed data is released to the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools) according to [GDC data sharing policies](https://gdc.cancer.gov/submit-data/data-submission-policies).
+The workflow diagram below represents the data submission process implemented by the GDC Data Submission Portal. The submitter logs into the GDC Data Submission Portal, uploads data into the project workspace, and validates the data. When the data is ready for processing, the submitter reviews the data and submits it to the GDC. The GDC processes the data through the [GDC Harmonization Process](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization). Processed data is released to the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools) according to [GDC data sharing policies](https://gdc.cancer.gov/submit-data/data-submission-policies).
 
 [![GDC Data Submission Portal Workflow](images/gdc-submission-portal-submission-workflow.png)](images/gdc-submission-portal-submission-workflow.png "Click to see the full image.")
 
@@ -28,10 +28,6 @@ Harmonized data will be released to GDC users through the [GDC Data Portal](http
 
 The lifecycle of a project in the GDC describes the workflow throughout the data submission process. The project lifecycle starts with the upload and validation of data into the project and ends with the release of the harmonized data to the GDC Data Portal and other GDC data access tools. Throughout the lifecycle, the project transitions through various states in which the project is open for uploading data, in review, and processing. This lifecycle is continuous as new project data becomes available.
 
-To summarize the project lifecycle and transitions to the various states of the project, the following operations can be performed by the submitter:
-
-*Note:* "Submit to the GDC" and "Release" actions can be performed only if the user has release privileges.
-
 ### Project State
 The diagram below demonstrates the transition of a project through the various states. Initially the project is OPEN for data upload and validation. When the data is uploaded and ready for review, the submitter changes the project state to REVIEW. During the REVIEW state, the project is locked so that additional data cannot be uploaded. If data changes are needed during the review period, the project can be re-opened and the state changes back to OPEN. When review has been completed and the submitter submits the data for GDC processing, the project state changes to SUBMITTED. When the data has been processed, the project state changes back to OPEN for new data to be submitted to the project.
 
@@ -40,6 +36,6 @@ The diagram below demonstrates the transition of a project through the various s
 
 ## File Status Lifecycle
 
-This section describes states pertaining to submittable data files throughout the data submission process. A submittable data file could contain genomic sequences (such as a BAM or FASTQ) or pathology slide images. The file lifecycle starts when a submitter uploads metadata for a file to the GDC Data Submission Portal. Upload of file metadata registers a description of the file in the GDC. The submitter can then use the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool) to upload the actual file. Throughout the lifecycle, the file status transitions through various states from when the file is initially registered through file submission and processing.
+This section describes states pertaining to submittable data files throughout the data submission process. A submittable data file could contain genomic sequences (such as a BAM or FASTQ) or pathology slide images. The file lifecycle starts when a submitter uploads metadata for a file to the GDC Data Submission Portal. Upload of file metadata registers a description of the file in the GDC. The submitter can then use the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool) to upload the actual file. Throughout the lifecycle, the file status transitions through various states from when the file is initially registered through file submission and processing. The diagram below details these status transitions.   
 
 [![GDC Data Submission Portal File Status](images/gdc-submission-portal-file-state-vs-state.png)](images/gdc-submission-portal-file-state-vs-state.png "Click to see the full image.")

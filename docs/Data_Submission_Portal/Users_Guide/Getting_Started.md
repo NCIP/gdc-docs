@@ -4,7 +4,7 @@
 
 The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission Portal User's Guide is the companion documentation for the [GDC Data Submission Portal](https://gdc.nci.nih.gov/submit-data/gdc-data-submission-portal) and provides detailed information and instructions for its use.
 
-The GDC Data Submission Portal is a platform that allows researchers to submit and release data into the GDC. The key features of the GDC Data Submission Portal are:
+The GDC Data Submission Portal is a platform that allows researchers to submit and release data to the GDC. The key features of the GDC Data Submission Portal are:
 
 * __Upload and Validate Data__: Project data can be uploaded to the GDC project workspace. The GDC will validate the data against the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/).
 * __Review and Submit Data__: Prior to submission, data can be reviewed to check for accuracy. Once the review is complete, the data can be submitted to the GDC for processing through [Data Harmonization](https://gdc.nci.nih.gov/submit-data/gdc-data-harmonization).
@@ -46,7 +46,7 @@ Data uploaded to the GDC can be deleted and updated before it is submitted for p
 
 ### Browse and Download Data
 
-GDC Data Submission Portal allows authorized submitters to browse and retrieve data submitted to their project.
+Authorized submitters can browse and retrieve data submitted to their project using the Data Submission Portal.
 
 ### Status and Alerts
 
@@ -54,7 +54,7 @@ The GDC Data Submission Portal dashboard and navigation panel displays a summary
 
 ### Transactions
 
-Submitters can access a list of all actions performed in a project by clicking on transactions in the Browse menu. This will display a list of all past transactions for the selected project. By clicking on a transaction, users can access details about it.
+Submitters can access a list of all actions performed in a project by clicking on transactions in the Browse menu. This will display a list of all past transactions for the selected project. Users can access details about each transaction.
 
 Transactions are also displayed on the dashboard highlighting the most recent transactions.
 
