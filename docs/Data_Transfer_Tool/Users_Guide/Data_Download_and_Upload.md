@@ -1,4 +1,4 @@
-
+#Data Downloads and Uploads
 
 ## Downloads
 
@@ -43,7 +43,7 @@ The directory in which the files are downloaded will include folders named by th
 
 ### Uploading Data Using a Manifest File
 
-GDC Data Transfer Tool supports uploading molecular data using a manifest file to the Data Submission Portal. The manifest file for a data bundle can be retrieved from the GDC Data Submission Portal, or directly from the GDC Submission API given a data bundle UUID. The user authentication token file needs to be specified using the **-t** or **--token-file** option.
+GDC Data Transfer Tool supports uploading molecular data using a manifest file to the Data Submission Portal. The manifest file for submittable data files can be retrieved from the GDC Data Submission Portal, or directly from the GDC Submission API given a submittable data file UUID. The user authentication token file needs to be specified using the **-t** or **--token-file** option.
 
 First, generate an upload manifest, either using the GDC Data Submission Portal, or [using a call](/API/Users_Guide/Submission.md#upload-manifest) to the GDC Submission API `manifest` endpoint (as in the following example):
 
