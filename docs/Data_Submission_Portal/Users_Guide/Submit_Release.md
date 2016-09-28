@@ -35,7 +35,7 @@ Once the user clicks on "Review", the project state will change to "REVIEW":
 
 ### Submit to the GDC
 
-The "Submit" button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to submit data to the GDC. When the project is in "REVIEW" the following panel appears on the dashboard:
+The "Submit" button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to submit the data to the GDC. When the project is in "REVIEW" the following panel appears on the dashboard:
 
 
 
@@ -45,7 +45,7 @@ Once the user submits data to the GDC, they __cannot upload additional data unti
 
 [![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC.png)](images/GDC_SUBMIT_TO_GDC.png "Click to see the full image.")
 
-When the user clicks on the action "SUBMIT TO GDC" in panel 2 of the dashboard, the following Submit popup is displayed:
+When the user clicks on the action "SUBMIT TO GDC" in panel 2 of the dashboard, the following submission popup is displayed:
 
 [![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup.png)](images/GDC_Submission_Submit_Release_Submit_Popup.png "Click to see the full image.")
 

@@ -75,22 +75,34 @@ demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	fe
 ```json
 [  
    {  
-      "type":"demographic TCGA-DEV3",
-      "project_id":"TCGA-DEV-3-CASE-000-D1",
-      "submitter_id":"TCGA-DEV-3-CASE-000 hispanic or latino",
-      "cases.submitter_id":"male",
-      "ethnicity":"white",
-      "gender":1950,
-      "race":0
+      "type":"demographic",
+      "project_id":"TCGA-DEV3",
+      "submitter_id":"TCGA-DEV-3-CASE-000-D1",
+      "cases":[
+        {
+      "submitter_id":"TCGA-DEV-3-CASE-000"
+        }
+      ],
+      "ethnicity":"hispanic or latino",
+      "gender":"male",
+      "race":"white",
+      "year_of_birth":1950,
+      "year_of_death":0
    },
    {  
-      "type":"demographic TCGA-DEV3",
-      "project_id":"TCGA-DEV-3-CASE-001-D1",
-      "submitter_id":"TCGA-DEV-3-CASE-001 not reported",
-      "cases.submitter_id":"female",
-      "ethnicity":"white",
-      "gender":1956,
-      "race":0
+      "type":"demographic",
+      "project_id":"TCGA-DEV3",
+      "submitter_id":"TCGA-DEV-3-CASE-001-D1",
+      "cases":[
+        {
+      "submitter_id":"TCGA-DEV-3-CASE-001"
+        }
+      ],
+      "ethnicity":"not reported",
+      "gender":"female",
+      "race":"white",
+      "year_of_birth":1956,
+      "year_of_death":0
    }
 ]
 ```
@@ -104,50 +116,33 @@ The first file describes the read_group, which associates the submittable read f
 File 1: read_group.tsv/json
 
 ```tsv
-type	project_id	submitter_id	aliquots.submitter_id	experiment_name	is_paired_end	library_name	library_strategy	platform	read_group_name	read_length	sequencing_center	RIN	adapter_name	adapter_sequence	base_caller_name	base_caller_version	fastq_name	flow_cell_barcode	includes_spike_ins	instrument_model	library_preparation_kit_catalog_number	library_preparation_kit_name	library_preparation_kit_vendor	library_preparation_kit_version	library_selection	library_strand	sequencing_date	size_selection_range	spike_ins_concentration	spike_ins_fasta	target_capture_kit_catalog_number	target_capture_kit_name	target_capture_kit_target_region	target_capture_kit_vendor	target_capture_kit_version	to_trim_adapter_sequence
-read_group	TCGA-DEV3	read_group_ID1	TCGA-DEV-3-CASE-000-S1-AL1	Text for Experiment	TRUE	lib_1	WXS	Illumina	35	101	test								FALSE																	FALSE
+submitter_id	type	experiment_name	sequencing_center	sequencing_date	platform	instrument_model	library_strategy	flow_cell_barcode	library_selection	library_name	is_paired_end	read_length	read_group_name	aliquots.submitter_id
+Blood-00001-aliquot_lane1_barcode	read_group	Resequencing	BI	2010-08-04	Illumina	Illumina HiSeq 2000	WXS	205DDABXX	Hybrid_Selection	Solexa-34688	true	75	205DD.3-2	Blood-00021-aliquot64
+
 ```
 
 
 ```json
-{  
-   "type":"read_group",
-   "project_id":"TCGA-DEV3",
-   "submitter_id":"read_group_ID1",
-   "aliquots.submitter_id":"TCGA-DEV-3-CASE-000-S1-AL1",
-   "experiment_name":"Text for Experiment",
-   "is_paired_end":"TRUE",
-   "library_name":"lib_1",
-   "library_strategy":"WXS",
-   "platform":"Illumina",
-   "read_group_name":35,
-   "read_length":101,
-   "sequencing_center":"test",
-   "RIN":null,
-   "adapter_name":null,
-   "adapter_sequence":null,
-   "base_caller_name":null,
-   "base_caller_version":null,
-   "fastq_name":null,
-   "flow_cell_barcode":null,
-   "includes_spike_ins":"FALSE",
-   "instrument_model":null,
-   "library_preparation_kit_catalog_number":null,
-   "library_preparation_kit_name":null,
-   "library_preparation_kit_vendor":null,
-   "library_preparation_kit_version":null,
-   "library_selection":null,
-   "library_strand":null,
-   "sequencing_date":null,
-   "size_selection_range":null,
-   "spike_ins_concentration":null,
-   "spike_ins_fasta":null,
-   "target_capture_kit_catalog_number":null,
-   "target_capture_kit_name":null,
-   "target_capture_kit_target_region":null,
-   "target_capture_kit_vendor":null,
-   "target_capture_kit_version":null,
-   "to_trim_adapter_sequence":"FALSE"
+{
+    "submitter_id": "Blood-00001-aliquot_lane1_barcode",
+    "type": "read_group",
+    "experiment_name": "Resequencing",
+    "sequencing_center": "BI",
+    "sequencing_date": "2010-08-04",
+    "platform": "Illumina",
+    "instrument_model": "Illumina HiSeq 2000",
+    "library_strategy": "WXS",
+    "flow_cell_barcode": "205DDABXX",
+    "library_selection": "Hybrid_Selection",
+    "library_name": "Solexa-34688",
+    "is_paired_end": true,
+    "read_length": 75,
+    "read_group_name": "205DD.3-2",
+    "aliquots": [
+        {
+            "submitter_id": "Blood-00021-aliquot64"
+        }
+    ]   
 }
 ```
 
@@ -157,24 +152,27 @@ The second describes the submitted_unaligned_reads.  This contains information a
 File 2: submitted\_unaligned_reads.tsv/json
 
 ```tsv
-type	project_id	submitter_id	read_groups.submitter_id	file_name	file_size	md5sum	data_category	data_type	data_format	experimental_strategy
-submitted_unaligned_reads	TCGA-DEV3	fileID1_CASE-000-AL1	read_group_ID1	fileID88_CASE-000.fastq	61004	311253B0CA93B396A41C0A88F01557AE	Sequencing Data	Unaligned Reads	FASTQ	WGS
+type	submitter_id	file_name	data_format	data_category	data_type	experimental_strategy	file_size	md5sum	read_groups.submitter_id
+submitted_unaligned_reads	Blood-00001-aliquot_lane1_barcode.fastq	TestFile.fastq	FASTQ	Raw Sequencing Data	Unaligned Reads	WGS	61004	aa6e82d11ccd8452f813a15a6d84faf1	Blood-00001-aliquot_lane1_barcode
 ```
 
 
 ```json
-{  
-   "type":"submitted_unaligned_reads",
-   "project_id":"TCGA-DEV3",
-   "submitter_id":"fileID1_CASE-000-AL1",
-   "read_groups.submitter_id":"read_group_ID1",
-   "file_name":"fileID88_CASE-000.fastq",
-   "file_size":61004,
-   "md5sum":"311253B0CA93B396A41C0A88F01557AE",
-   "data_category":"Sequencing Data",
-   "data_type":"Unaligned Reads",
-   "data_format":"FASTQ",
-   "experimental_strategy":"WGS"
+{
+    "type": "submitted_unaligned_reads",
+    "submitter_id": "Blood-00001-aliquot_lane1_barcode.fastq",
+    "file_name": "TestFile.fastq",
+    "data_format": "FASTQ",
+    "data_category": "Raw Sequencing Data",
+    "data_type": "Unaligned Reads",
+    "experimental_strategy": "WGS",
+    "file_size": 61004,
+    "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1",
+    "read_groups": [
+	{
+            "submitter_id": "Blood-00001-aliquot_lane1_barcode"
+	}
+    ]
 }
 ```
 

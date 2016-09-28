@@ -18,11 +18,11 @@ Current filters are:
 
 |Filter|Description|
 | --- | --- |
-| Cases | Display all cases associated with the project. |
-| Clinical Entities | Display all clinical data uploaded to the project workspace. This is divided into subgroups including demographics, diagnoses, exposures, family histories, and treatments. |
-| Biospecimen Data | Display all biospecimen data uploaded to the project workspace. This is divided into subgroups including samples, portions, analytes, aliquots, and read-groups. |
-| Submittable Data Files | Displays all data files that have been registered with the project. This includes files that have and have not been uploaded. This category is divided into groups by file type. |
-| Annotations | Lists all annotations associated with the project. An annotation provides an explanatory comment associated with data in the project. |
+| __Cases__ | Display all cases associated with the project. |
+| __Clinical Entities__ | Display all clinical data uploaded to the project workspace. This is divided into subgroups including demographics, diagnoses, exposures, family histories, and treatments. |
+| __Biospecimen Data__ | Display all biospecimen data uploaded to the project workspace. This is divided into subgroups including samples, portions, analytes, aliquots, and read-groups. |
+| __Submittable Data Files__ | Displays all data files that have been registered with the project. This includes files that have and have not been uploaded. This category is divided into groups by file type. |
+| __Annotations__ | Lists all annotations associated with the project. An annotation provides an explanatory comment associated with data in the project. |
 
 
 ### List View
@@ -32,7 +32,7 @@ The list view is a paginated list of all entities corresponding to the selected 
 On the top-right section of the screen, the user can download data about all entities associated with the selected filter.
 
 * For the case filter, it will download all clinical data.
-* For the filter of the other entities, it will download the corresponding metadata (e.g., for the demographic filter, it will download all demographic data).
+* For all other filters, it will download the corresponding metadata (e.g., for the demographic filter, it will download all demographic data).
 
 [![GDC Submission Case Summary Download](images/GDC_Submission_Cases_Summary_Download_2.png)](images/GDC_Submission_Cases_Summary_Download_2.png "Click to see the full image.")
 
@@ -80,4 +80,4 @@ The hierarchy shows:
 
 [![GDC Submission Cases Details Hierarchy](images/GDC_Submission_Cases_Summary_Hierarchy_2.png)](images/GDC_Submission_Cases_Summary_Hierarchy_2.png "Click to see the full image.")
 
-Using the hierarchy, the user can navigate through entities by choosing the links.
+Using the hierarchy, the user can navigate through entities.
