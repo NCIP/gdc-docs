@@ -7,7 +7,7 @@ The GDC Data Transfer Tool comes with built-in help menus. These menus are displ
 
 
 ```Shell
-./gdc-client --help
+gdc-client --help
 ```
 ``` Output
 usage: gdc-client [-h] [--version] {download,upload,interactive} ...
@@ -33,7 +33,7 @@ commands:
 The GDC Data Transfer Tool displays the following help menu when executed without any arguments.
 
 ```Shell
-./gdc-client
+gdc-client
 ```
 ```Output
 usage: gdc-client [-h] [--version] {download,upload,interactive} ...
@@ -46,7 +46,7 @@ gdc-client: error: too few arguments
 The GDC Data Transfer Tool displays the following help menu for its download functionality.
 
 ```Shell
-./gdc-client download --help
+gdc-client download --help
 ```
 ```Output
 usage: gdc-client download [-h] [--debug] [-v] [--log-file LOG_FILE]
@@ -97,7 +97,7 @@ The GDC Data Transfer Tool displays the following help menu for its upload funct
 
 
 ```Shell
-./gdc-client upload --help
+gdc-client upload --help
 ```
 ```Output
 usage: gdc-client upload [-h] [--debug] [-v] [--log-file LOG_FILE]

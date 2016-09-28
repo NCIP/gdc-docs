@@ -8,7 +8,7 @@ A convenient way to download multiple files from the GDC is to use a manifest fi
 
 The following is an example of a command for downloading files from GDC using a manifest file:
 
-	gdc-client download -m  ./JohnDoe/Downloads/gdc_manifest_6746fe840d924cf623b4634b5ec6c630bd4c06b5.txt
+	gdc-client download -m  /Users/JohnDoe/Downloads/gdc_manifest_6746fe840d924cf623b4634b5ec6c630bd4c06b5.txt
 
 ### Downloading Data Using GDC File UUIDs
 
@@ -33,9 +33,9 @@ A user authentication token is required for downloading controlled data from GDC
 	gdc-client download -m gdc_manifest_e24fac38d3b19f67facb74d3efa746e08b0c82c2.txt -t gdc-user-token.2015-06-17T09-10-02-04-00.txt
 
 
-### Download Directory Structure
+### Directory structure of downloaded files
 
-The directory in which the files are download to will include folders named by UUID.  Inside these downloaded folders, along with the the data and zipped metadata or index files will exist a logs folder.  These folders contains state files that insure that downloads are accurate and allow for resumption of failed or prematurely stopped downloads.  If a download is halted in the process of a download session a .partial will be appended to the downloaded file.  This designates that the file is incomplete and will finish it's download after the download has been restarted.  
+The directory in which the files are downloaded will include folders named by the file UUID. Inside these folders, along with the the data and zipped metadata or index files, will exist a logs folder. The logs folder contains state files that insure that downloads are accurate and allow for resumption of failed or prematurely stopped downloads.  While a download is in progress a file will have a .partial extension.  This will also remain if a download failed.  Once a file is finished downloading the extension will be removed.  If an identical manifest is retried another attempt will be made to download files containing a .partial extension.  
 
 	C501.TCGA-BI-A0VR-10A-01D-A10S-08.5_gdc_realn.bam.partial  logs 	 
 
