@@ -11,28 +11,56 @@ This section describes the GDC API's submission functionality, including methods
 ### Constructing the endpoint URL
 
 The endpoint for submitting data to a specific project in the GDC is constructed as follows:
-<pre>https://gdc-api.nci.nih.gov/<b>[&#x3C;API_version&#x3E;/]</b>submission/<b>&#x3C;Program.name&#x3E;</b>/<b>&#x3C;Project.code&#x3E;</b></pre>
-where `[<API_version>/]` is the optional API version component (see [Getting Started](Getting_Started.md)).
+
+	https://gdc-api.nci.nih.gov/[API_version/]submission/Program.name/Project.code
+
+where *\[API_version/\]* is the optional API version component (see [Getting Started](Getting_Started.md)).
 
 The values of `Program.name` and `Project.code` can be obtained from the project URL on the GDC Data Submission Portal:
 
-<pre>https://gdc-portal.nci.nih.gov/submission/<b>&#x3C;Program.name&#x3E;</b>/<b>&#x3C;Project.code&#x3E;</b>/dashboard</pre>
+	https://gdc-portal.nci.nih.gov/submission/Program.name/Project.code/dashboard
 
 For more information about program name and project code see [The GDC Data Model  section](../../Data/Data_Model/GDC_Data_Model/#program-name-project-code-and-project-id).
 
 #### Example
 
-For example, a project with GDC Data Submission Portal URL
+The following are URL examples for a project with `Program.name` "TCGA" and `Project.code` "ALCH":
 
-<pre>https://gdc-portal.nci.nih.gov/submission/<b>TCGA</b>/<b>ALCH</b>/dashboard</pre>
+* Submission Portal URL: `https://gdc-portal.nci.nih.gov/submission/TCGA/ALCH/dashboard`
+* API submission endpoint (versioned): `https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH`
+* API submission endpoint (unversioned): `https://gdc-api.nci.nih.gov/submission/TCGA/ALCH`
 
-would have a versioned submission endpoint at
+## Submission Formats
 
-<pre>https://gdc-api.nci.nih.gov/<b>v0/</b>submission/<b>TCGA</b>/<b>ALCH</b></pre>
+### Metadata Submission Formats
 
-and an unversioned submission endpoint at
+#### JSON and TSV Submission
 
-<pre>https://gdc-api.nci.nih.gov/submission/<b>TCGA</b>/<b>ALCH</b></pre>
+The GDC API accepts project metadata in JSON and TSV formats for the purpose of creating entities in the GDC Data Model. This includes clinical and biospecimen metadata such as disease name and stage, patient age, sample type, and certain details about the types of data collected. Upon successful data submission and project release, this metadata is indexed and becomes available for queries by data users via the GDC Data Portal and the GDC API. See [GDC Data Model](#gdc-data-model) (below) for information on accepted metadata elements and instructions for obtaining templates for metadata submission.
+
+#### BCR XML Submission
+
+While JSON and TSV are the recommended formats for submitting metadata, the GDC API can also extract metadata elements from BCR XML files. Users wishing to submit metadata as BCR XML must contact GDC User Services and ensure that appropriate element mapping is in place before initiating XML submission.
+
+To submit BCR XML:
+
+0. Submit biospecimen XML metadata to `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/biospecimen/bcr/`
+0. Submit clinical XML metadata to `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/clinical/bcr/`.
+
+Substitute Program.name and Project.code in the URLs above with the program name and project code associated with your submission project; see [Submission Endpoint](#submission_endpoint) (above) for instructions.
+
+BCR XML files can be submitted in [dry run mode](#dry-run-transactions) by appending `_dry_run` to the above URLs.
+
+The following is a sample shell command for submitting an XML file:
+
+	curl --request PUT --header "X-Auth-Token: $token"  --header "Content-Type: application/xml" -d@biospecimen.xml 'https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/xml/biospecimen/bcr/_dry_run'
+
+**NOTE:** A typical BCR XML file contains more information than what is extracted and indexed by the GDC. XML files submitted to the above endpoints are not retained or distributed to GDC data users, so the same files should also be submitted as data files (i.e. as clinical or biospecimen supplements).
+
+### Data File Submission Formats
+
+The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, clinical and biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [GDC website](https://gdc.cancer.gov/node/266/).
+
 
 
 ## GDC Data Model
