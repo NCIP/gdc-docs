@@ -30,7 +30,7 @@ commands:
 
 ### Root menu
 
-The GDC Data Transfer Tool displays the following help menu when executed without any arguments.
+The GDC Data Transfer Tool displays the following output when executed without any arguments.
 
 ```Shell
 gdc-client
