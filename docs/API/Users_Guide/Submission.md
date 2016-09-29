@@ -34,24 +34,22 @@ The following are URL examples for a project with `Program.name` "TCGA" and `Pro
 
 ### Metadata Formats
 
-#### JSON and TSV Submission
+#### JSON and TSV
 
 The GDC API accepts project metadata in JSON and TSV formats for the purpose of creating entities in the GDC Data Model. This includes clinical and biospecimen metadata such as disease name and stage, patient age, sample type, and certain details about the types of data collected. Upon successful data submission and project release, this metadata is indexed and becomes available for queries by data users via the GDC Data Portal and the GDC API. See [GDC Data Model](#gdc-data-model) (below) for information on accepted metadata elements and instructions for obtaining templates for metadata submission.
 
-#### BCR XML Submission
+#### BCR XML
 
 While JSON and TSV are the recommended formats for submitting metadata, the GDC API can also extract metadata elements from BCR XML files. Users wishing to submit metadata as BCR XML must contact GDC User Services and ensure that appropriate element mapping is in place before initiating XML submission.
 
-To submit BCR XML:
+To submit BCR XML, make `PUT` requests with the `Content-Type: application/xml` header to the following URLs, replacing Program.name and Project.code as desribed in [Submission Endpoint](#submission_endpoint) (above):
 
-0. Submit biospecimen XML metadata to `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/biospecimen/bcr/`
-0. Submit clinical XML metadata to `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/clinical/bcr/`.
-
-Program.name and Project.code in the URLs above must be replaced with the program name and project code associated with the specific submission project; see [Submission Endpoint](#submission_endpoint) (above) for instructions.
+0. For Biospecimen BCR XML: `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/biospecimen/bcr/`
+0. For Clinical BCR XML: `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/clinical/bcr/`.
 
 Biospecimen BCR XML creates Case entities in the GDC Data Model, whereas Clinical BCR XML does not. Unless the associated cases already exist in the GDC, Biospecimen BCR XML must be uploaded before Clinical BCR XML.
 
-BCR XML files can be submitted in [dry run mode](#dry-run-transactions) by appending `_dry_run` to the above URLs.
+BCR XML files can be submitted in dry run mode, described [below](#dry-run-transactions), by appending `_dry_run` to the above URLs.
 
 The following is a sample shell command for submitting an XML file:
 
@@ -62,8 +60,6 @@ The following is a sample shell command for submitting an XML file:
 ### Data File Formats
 
 The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, clinical and biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [GDC website](https://gdc.cancer.gov/node/266/).
-
-
 
 ## GDC Data Model
 
@@ -99,13 +95,11 @@ A set of templates for all entities in the GDC Data Model can be downloaded from
 
 The entire collection of GDC entity schemas can be downloaded from the `dictionary` endpoint:
 
-<pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>_all</b></pre>
-
-[//]: # (this is just a comment ignore me I beg of you_)
+	https://gdc-api.nci.nih.gov/v0/submission/_dictionary/_all
 
 Individual schemas can be downloaded by specifying entity type. For example, the JSON schema for `case` entities can be found at:
 
-<pre>https://gdc-api.nci.nih.gov/v0/submission/_dictionary/<b>case</b></pre>
+	https://gdc-api.nci.nih.gov/v0/submission/_dictionary/case
 
 
 ## Format of Submission API Requests and Responses
@@ -917,7 +911,9 @@ Before interacting directly with the GDC Submission API's GraphQL endpoint, user
 
 GDC data submitters can access the GDC Submission API GraphQL endpoint at:
 
-<pre>https://gdc-api.nci.nih.gov/[&#x3C;API_version&#x3E;/]submission<b>/graphql</b></pre>
+	https://gdc-api.nci.nih.gov/[API_version/]submission/graphql
+
+where *\[API_version/\]* is the optional API version component (see [Getting Started](Getting_Started.md)).
 
 **NOTE:** An authentication token is required for all requests to the `graphql` endpoint. Queries are restricted to those projects for which the submitter has obtained authorization.
 
