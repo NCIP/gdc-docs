@@ -32,7 +32,7 @@ The following are URL examples for a project with `Program.name` "TCGA" and `Pro
 
 ## Submission Formats
 
-### Metadata Submission Formats
+### Metadata Formats
 
 #### JSON and TSV Submission
 
@@ -47,7 +47,9 @@ To submit BCR XML:
 0. Submit biospecimen XML metadata to `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/biospecimen/bcr/`
 0. Submit clinical XML metadata to `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/clinical/bcr/`.
 
-Substitute Program.name and Project.code in the URLs above with the program name and project code associated with your submission project; see [Submission Endpoint](#submission_endpoint) (above) for instructions.
+Program.name and Project.code in the URLs above must be replaced with the program name and project code associated with the specific submission project; see [Submission Endpoint](#submission_endpoint) (above) for instructions.
+
+Biospecimen BCR XML creates Case entities in the GDC Data Model, whereas Clinical BCR XML does not. Unless the associated cases already exist in the GDC, Biospecimen BCR XML must be uploaded before Clinical BCR XML.
 
 BCR XML files can be submitted in [dry run mode](#dry-run-transactions) by appending `_dry_run` to the above URLs.
 
@@ -57,7 +59,7 @@ The following is a sample shell command for submitting an XML file:
 
 **NOTE:** A typical BCR XML file contains more information than what is extracted and indexed by the GDC. XML files submitted to the above endpoints are not retained or distributed to GDC data users, so the same files should also be submitted as data files (i.e. as clinical or biospecimen supplements).
 
-### Data File Submission Formats
+### Data File Formats
 
 The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, clinical and biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [GDC website](https://gdc.cancer.gov/node/266/).
 
