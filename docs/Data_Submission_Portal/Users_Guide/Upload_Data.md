@@ -13,7 +13,7 @@ GDC Data Submission Portal users upload and validate clinical, biospecimen and f
 
 The GDC API accepts project metadata in JSON and TSV formats for the purpose of creating entities in the GDC Data Model. This includes clinical and biospecimen metadata such as tumor classification, age at diagnosis, sample type, and details about the available data files. Upon successful data submission and project release, this metadata is indexed and becomes available for queries by data users via the GDC Data Portal and the GDC API. Before submitting metadata files:
 
-* Review the [GDC Data Model](../../Data/Data_Model/Data_Model.md) and the [GDC Data Dictionary](/Data_Dictionary/) to understand accepted metadata elements.
+* Review the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md) and the [GDC Data Dictionary](/Data_Dictionary/) to understand accepted metadata elements.
 * Download metadata submission templates from the [GDC Data Dictionary](/Data_Dictionary/).
 
 
@@ -24,17 +24,17 @@ The GDC API accepts a variety of data files after their metadata has been regist
 
 ## Step 1: Prepare Metadata Files
 
-The [GDC Data Model](../../Data/Data_Model/Data_Model.md) and the [GDC Data Dictionary](../../Data_Dictionary/viewer.md) describe the types of entities that can be uploaded to the GDC.
+The [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md) and the [GDC Data Dictionary](../../Data_Dictionary/viewer.md) describe the types of entities that can be uploaded to the GDC.
 
 The user can go to the GDC Data Dictionary to __download the template metadata files__. The templates can be populated with data by the user and uploaded to the GDC Data Submission Portal. See each individual Data Dictionary entry for required properties and acceptable values.
 
 ### Data Relationships
 
-All submitted entities must be linked to existing entities in the [GDC Data Model](../../Data/Data_Model/Data_Model.md). In order to create the relationship, the user must include a reference to the related entity using its Submitter ID or UUID.
+All submitted entities must be linked to existing entities in the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). In order to create the relationship, the user must include a reference to the related entity using its Submitter ID or UUID.
 
 For example, a Demographic entity describes a Case entity. The user is required to provide the case submitter ID or UUID in the Demographic metadata.
 
-For a new submission project, cases are the first entities to be created, and linked to the project. Other entities are then created according to the [GDC Data Model](../../Data/Data_Model/Data_Model.md).
+For a new submission project, cases are the first entities to be created, and linked to the project. Other entities are then created according to the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md).
 
 ### Examples
 
