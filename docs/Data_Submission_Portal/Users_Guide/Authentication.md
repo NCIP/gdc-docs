@@ -12,9 +12,9 @@ Users can log into the GDC Data Submission Portal with eRA Commons credentials b
 
 The GDC Data Submission Portal provides authentication tokens for use with the GDC Data Transfer Tool or GDC API. To download a token:
 
-0. Log into the GDC using your eRA Commons credentials,
-0. Click the username in the top right corner of the screen,
-0. Select the "Download Token" option.
+1. Log into the GDC using your eRA Commons credentials,
+1. Click the username in the top right corner of the screen,
+1. Select the "Download Token" option.
 
 ![Token Download Link](images/GDC_Submission_Portal_Token_Download.png)
 
