@@ -1001,7 +1001,6 @@
                       // https://jira.opensciencedatacloud.org/browse/PGDC-2328
                       // 'file' is not inside categoryMap returned from the api
                       .concat('file')
-                      
                   : exclusions
               })
             );

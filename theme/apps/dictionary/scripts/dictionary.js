@@ -354,7 +354,6 @@
 
     _dictionary._currentView.show().render(renderParams);
 
-
     return _dictionary;
   };
 
