@@ -14,7 +14,7 @@ The endpoint for submitting data to a specific project in the GDC is constructed
 
 	https://gdc-api.nci.nih.gov/[API_version/]submission/Program.name/Project.code
 
-where *\[API_version/\]* is the optional API version component (see [Getting Started](Getting_Started.md)).
+where __[API_version/]__ is the optional API version component (see [Getting Started](Getting_Started.md)).
 
 The values of `Program.name` and `Project.code` can be obtained from the project URL on the GDC Data Submission Portal:
 
