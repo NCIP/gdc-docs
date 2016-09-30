@@ -933,7 +933,13 @@ When using the GDC GraphQL IDE, the bare JSON query must be used without a JSON 
 
 #### Bare GraphQL query
 
+In its simplest form, a GraphQL query is a **selection set** (curly brackets) that encloses a set of **fields**. The selection set defines the set of information that is to be retrieved. Furthermore, in GraphQL fields are conceptually equivalent to functions that retrieve additional fields and, in some cases, can take arguments. So each field in a selection set can have its own selection set, thereby creating a nested query structure that can navigate complex data relationships. See [GraphQL Specification](https://facebook.github.io/graphql/) for further details.
 
+In GDC GraphQL IDE, a root field (field within the outermost/umbrella selection set) typically corresponds to an entity, whereas fields inside nested selection sets are typically a combination of entities and entity properties.
+
+The "Docs" panel on the right-hand side of the GDC GraphQL IDE allows users to discover the fields that can be queried with GraphQL. Note that the panel contains a lot of information and users may experience a delay before it is displayed.
+
+A simple GraphQL query looks like this:
 
 	{
 	  case (project_id: "TCGA-ALCH", first: 0) {
