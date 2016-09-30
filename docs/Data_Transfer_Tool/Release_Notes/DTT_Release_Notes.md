@@ -20,7 +20,7 @@
 * Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
 	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
-* Use of a manifest file for uploads to the Submission Portal will produce an error message "ERROR: global name 'read_manifest' is not defined".
+* Use of a manifest file for uploads to the Submission Portal will produce an error message "ERROR: global name 'read_manifest' is not defined". <!--SV-457-->
 	* *Workaround:* Upload files via UUID instead or use the API/Submission Portal.
 
 
