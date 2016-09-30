@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Accessing the GDC Data Submission Portal requires eRA Commons credentials with appropriate dbGaP authorization. To learn more about obtaining the required credentials and authorization, see [Obtaining Access to Submit Data]( https://gdc.nci.nih.gov/submit-data/obtaining-access-submit-data).
+Accessing the GDC Data Submission Portal requires eRA Commons credentials with appropriate dbGaP authorization. To learn more about obtaining the required credentials and authorization, see [Obtaining Access to Submit Data]( https://gdc.cancer.gov/submit-data/obtaining-access-submit-data).
 
 ## Authentication via eRA Commons
 
@@ -18,7 +18,7 @@ The GDC Data Submission Portal provides authentication tokens for use with the G
 
 ![Token Download Link](images/GDC_Submission_Portal_Token_Download.png)
 
-For more information about authentication tokens, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
+For more information about authentication tokens, see [Data Security](../../Data/Data_Security/Data_Security/#authentication-tokens).
 
 **NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
 

@@ -1,8 +1,8 @@
-# Upload and Validate Data
+# Upload Data to Your Workspace
 
 ## Overview
 
-GDC Data Submission Portal users upload and validate clinical, biospecimen and file metadata using the portal, and then submit data files via the GDC Data Transfer Tool or the GDC API. The following diagram provides an overview of the process:
+The GDC Data Submission Portal allows users to upload and validate Clinical, Biospecimen and file metadata using the portal, register the Submittable Data Files and, then submit the data files using the GDC Data Transfer Tool or API. The following diagram provides an overview of the process:
 
 [![GDC Data Submission Portal Workflow Upload](images/gdc-submission-portal-data-upload-workflow.png)](images/gdc-submission-portal-data-upload-workflow.png "Click to see the full image.")
 
@@ -11,15 +11,15 @@ GDC Data Submission Portal users upload and validate clinical, biospecimen and f
 
 ### Metadata Files
 
-The GDC API accepts project metadata in JSON and TSV formats for the purpose of creating entities in the GDC Data Model. This includes clinical and biospecimen metadata such as tumor classification, age at diagnosis, sample type, and details about the available data files. Upon successful data submission and project release, this metadata is indexed and becomes available for queries by data users via the GDC Data Portal and the GDC API. Before submitting metadata files:
+The GDC API accepts project metadata in JSON and TSV formats for the purpose of creating entities in the GDC Data Model. This includes Clinical and Biospecimen metadata such as tumor classification, age at diagnosis, sample type, and details about the available data files. Upon successful data submission and project release, this metadata is indexed and becomes available for queries by data users via the GDC Data Portal and the GDC API. Before submitting metadata files:
 
-* Review the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md) and the [GDC Data Dictionary](/Data_Dictionary/) to understand accepted metadata elements.
+* Review the [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model) and the [GDC Data Dictionary](/Data_Dictionary/) to understand accepted metadata elements.
 * Download metadata submission templates from the [GDC Data Dictionary](/Data_Dictionary/).
 
 
 ### Data Files
 
-The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, clinical and biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [GDC website](https://gdc.cancer.gov/node/266/).
+The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, Clinical and Biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [Submitted Data Types and File Formats](https://gdc.cancer.gov/node/266/) website.
 
 
 ## Step 1: Prepare Metadata Files
@@ -30,15 +30,15 @@ The user can go to the GDC Data Dictionary to __download the template metadata f
 
 ### Data Relationships
 
-All submitted entities must be linked to existing entities in the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). In order to create the relationship, the user must include a reference to the related entity using its Submitter ID or UUID.
+All submitted entities must be linked to existing entities in the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). In order to create the relationship, the user must include a reference to the related entity using its Submitter ID or Universally Unique Identifier (UUID).
 
-For example, a Demographic entity describes a Case entity. The user is required to provide the case submitter ID or UUID in the Demographic metadata.
+For example, a Demographic entity describes a Case entity. The user is required to provide the case Submitter ID or UUID in the Demographic metadata.
 
 For a new submission project, cases are the first entities to be created, and linked to the project. Other entities are then created according to the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md).
 
 ### Examples
 
-#### Demographic
+#### Demographic Upload Example
 
 
 An example of a __demographic file__ that can be uploaded in TSV format is detailed below.
@@ -70,8 +70,8 @@ demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	fe
       "ethnicity":"hispanic or latino",
       "gender":"male",
       "race":"white",
-      "year_of_birth":1950,
-      "year_of_death":0
+      "year_of_birth":1950
+
    },
    {  
       "type":"demographic",
@@ -94,7 +94,7 @@ demographic	TCGA-DEV3	TCGA-DEV-3-CASE-001-D1	TCGA-DEV-3-CASE-001	not reported	fe
 
 An example of a __Read Group__ upload is detailed below. Uploading a read group requires two distinct types of metadata, which are divided into two files in this example.
 
-The first file describes the read_group, which associates the submittable read file with information about the sequencing and library preparation.
+The first file describes the read group, which associates the submittable read file with information about the sequencing and library preparation.
 
 File 1: read_group.tsv/json
 
@@ -161,17 +161,16 @@ When the metadata files have been prepared (in TSV or JSON format), they can be 
 
 ## Step 2: Upload Data Wizard
 
-The GDC Data Submission Portal is equipped with a wizard window to guide you through the upload and validation of metadata files. There are three stages:
+The GDC Data Submission Portal is equipped with a wizard window to guide you through the upload and validation of metadata files. The Upload Data Wizard comprises two stages:
 
 * __Upload Files__: Upload a file into the user's browser, at this point nothing is submitted to the project workspace.
 * __Validate Files__: Send a file to the GDC backend to validate its content (see below).
-* __Commit Upload__: Submit a validated file to the project workspace.
 
-The _'File Validation'_ stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of uploaded metadata files against the Data Dictionary to detect potential errors. Invalid metadata files will not be processed and must be corrected by the user and re-uploaded before being accepted. A validation error report provided by the system can be used to isolate and correct errors.
+The 'File Validation' stage acts as a safeguard against submitting incorrect files to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of uploaded metadata files against the Data Dictionary to detect potential errors. Invalid metadata files will not be processed and must be corrected by the user and re-uploaded before being accepted. A validation error report provided by the system can be used to isolate and correct errors.
 
 ### Upload Files
 
-Choosing _'UPLOAD'_ from the project dashboard (panel 1) will open the submission wizard.
+Choosing _'UPLOAD'_ from the project dashboard will open the Upload Data Wizard.
 
 [![GDC Submission Wizard Upload Files](images/GDC_Submission_Wizard_Upload_2.png)](images/GDC_Submission_Wizard_Upload_2.png "Click to see the full image.")
 
@@ -185,21 +184,21 @@ When the first file is added, the wizard will move to the _'VALIDATE'_ section a
 
 When all files have been added, clicking on _'VALIDATE'_ will check if the files are valid for submission.
 
-If the upload contains valid files, a message will pop up when it is finished validating.  The upload then appears in the latest transactions panel with the option to "COMMIT" or "DISCARD" the data.  
+If the upload contains valid files, a new transaction will appear in the latest transactions panel with the option to _'COMMIT'_ or _'DISCARD'_ the data.  
 
-If the upload contains invalid files, a message will pop up and the user will not be able to submit the data. Invalid files will need to be either corrected and re-uploaded or removed from the submission.
+If the upload contains invalid files, a transaction will appear with a FAILED status. Invalid files will need to be either corrected and re-uploaded or removed from the submission. If more than one file is uploaded and at least one is not valid, the validation step will fail for all files.  
 
-Files can be removed from the submission by clicking on the _'garbage can'_ icon next to the file.
+Files can be removed from the Upload Data Wizard by clicking on the _'garbage can'_ icon next to the file.
 
-### Asynchronous Transactions
+## Step 3: Asynchronous Transactions
 
-Biospecimen or clinical metadata files that were uploaded through the Submission Portal are first validated without making changes to the project. See the entry in the [API Submission Guide](../../API/Users_Guide/Submission/#asynchronous-transactions) for more details. Validated files that not been committed yet can be seen in the [Transactions](Transactions.md) tab. Metadata contained in these files can be committed (applied) to the project or discarded using the two buttons on the right side of each transaction.
+Biospecimen or Clinical metadata files that were uploaded through the Submission Portal are first validated without making changes to the project. See the entry in the [API Submission Guide](../../API/Users_Guide/Submission/#asynchronous-transactions) for more details. Validated files that not been committed yet can be seen in the [Transactions](Transactions.md) tab. Metadata contained in these files can be committed (applied) to the project or discarded using the two buttons on the right side of each transaction.
 
 [![Commit_Discard](images/GDC_Submission_CommitDiscard.png)](images/GDC_Submission_CommitDiscard.png "Click to see the full image.")
 
-## Step 3: GDC Data Transfer Tool
+## Step 4: GDC Data Transfer Tool
 
-The GDC Data Transfer Tool is used to upload submittable data files such as BAM and FASTQ files, slide images, and clinical and biospecimen supplement files.
+The GDC Data Transfer Tool is used to upload submittable data files such as BAM and FASTQ files, slide images, and Clinical and Biospecimen supplement files.
 
 After the user uploads metadata through the Upload Data Wizard (e.g., read_group and submitted file metadata), the manifest will be available for download from the transaction report.
 
@@ -212,5 +211,7 @@ Users can use this manifest to upload their data files with the GDC Data Transfe
 ## Download Previously Uploaded Files
 
 The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
+
+__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.  
 
 [![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files_2.png)](images/GDC_Submission_Transactions_Original_Files_2.png "Click to see the full image.")
