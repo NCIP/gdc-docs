@@ -35,7 +35,7 @@ To generate a token, first log in to the GDC Data Portal or the GDC Submission P
 
 Clicking the username will open a drop-down menu. Select *Download Token* from the menu to generate an authentication token.
 
-![GDC Data Portal User Dropdown Menu](images/auth_example_download_token.png)
+![GDC Data Portal User Dropdown Menu](images/auth_example_download_token-1.png)
 <!---**GDC Data Portal User Dropdown Menu**--->
 
 **NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user.
