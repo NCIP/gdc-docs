@@ -1178,16 +1178,30 @@ curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%
 
 ### \_mapping Endpoint
 
-Each Search and Retrieval endpoint is equipped with a ```_mapping``` endpoint that provides information about elements that can be used to query the Search and Retrieval endpoint.
+Each search and retrieval endpoint is equipped with a ```_mapping``` endpoint that provides information about available fields. For example, `files/_mapping` endpoint provides information about fields and field groups available at the `files` endpoint: `https://gdc-api.nci.nih.gov/files/_mapping`.
 
-The API response to a `_mapping` query is a list of objects, containing fields available through the API. The high-level structure of the response is as follows:
+The high-level structure of a response to a `_mapping` query is as follows:
 
-	"\_mapping": {}
+	"_mapping": {}
 	, "defaults": []
 	, "expand": []
 	, "fields": []
 	, "multi": []
 	, "nested": []
+
+[//]: # (_)
+
+Each part of the response is described below:
+
+| Part | Description |
+|------|-------------|
+| `_mapping` | All available fields and their descriptions. The endpoint-agnostic field names provided here are compatible with the `filters` parameter but are not always compatible with the `fields` parameter |
+| `defaults` | The default set of fields included in the API response when the `fields` parameter is not used in the request |
+| `expand` | Field group names for use with the `expand` parameter |
+| `fields` | All available fields in an endpoint-specific format that is compatible with both the `filters` and `fields` parameters |
+| `multi` | GDC internal use |
+| `nested` | Nested fields |
+
 
 #### Example
 
@@ -1260,7 +1274,7 @@ The following `filters` query operators are supported by the GDC API:
 | and      | (operation1) and (operation2)                    | multiple           | {primary_site in [Brain, Lung]} and {gender = "female"}      |
 | or       | (operation1) or (operation2)                     | multiple           | {project_id != "TARGET-AML"} or {age at diagnosis < 90y}     |
 
-The `field` operand specifies a property from the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). A list of supported fields is available from the `_mapping` endpoint and in [Appendix A](Appendix_A_Available_Fields.md)
+The `field` operand specifies a field that corresponds to a property defined in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). A list of supported fields is provided in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint).
 
 The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://gdc-api.nci.nih.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`
 
@@ -2359,6 +2373,76 @@ print json.dumps(response.json(), indent=2)
 }
 ```
 
+### Expand
+
+The `expand` parameter provides a shortcut to request multiple related fields (field groups) in the response. Instead of specifying each field using the `fields` parameter, users can specify a field group name using the `expand` parameter to request all fields in the group. Available field groups are listed in [Appendix A](Appendix_A_Available_Fields.md#field-group-listing-by-endpoint); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint). The `fields` and `expand` parameters can be used together to request custom combinations of field groups and individual fields.
+
+#### Example
+
+```Shell
+curl 'https://gdc-api.nci.nih.gov/files/ac2ddebd-5e5e-4aea-a430-5a87c6d9c878?expand=cases.samples&pretty=true'
+```
+```
+{
+  "data": {
+    "data_type": "Aligned Reads",
+    "updated_datetime": "2016-09-18T04:25:13.163601-05:00",
+    "created_datetime": "2016-05-26T18:55:53.506549-05:00",
+    "file_name": "000aa811c15656604161e8f0e3a0aae4_gdc_realn.bam",
+    "md5sum": "200475f5f6e42520204e5f6aadfe954f",
+    "data_format": "BAM",
+    "acl": [
+      "phs000178"
+    ],
+    "access": "controlled",
+    "platform": "Illumina",
+    "state": "submitted",
+    "file_id": "ac2ddebd-5e5e-4aea-a430-5a87c6d9c878",
+    "data_category": "Raw Sequencing Data",
+    "file_size": 12667634731,
+    "cases": [
+      {
+        "samples": [
+          {
+            "sample_type_id": "11",
+            "updated_datetime": "2016-09-08T11:00:45.021005-05:00",
+            "time_between_excision_and_freezing": null,
+            "oct_embedded": "false",
+            "tumor_code_id": null,
+            "submitter_id": "TCGA-QQ-A5VA-11A",
+            "intermediate_dimension": null,
+            "sample_id": "b4e7558d-898e-4d68-a897-381edde0bbcc",
+            "is_ffpe": false,
+            "pathology_report_uuid": null,
+            "created_datetime": null,
+            "tumor_descriptor": null,
+            "sample_type": "Solid Tissue Normal",
+            "state": null,
+            "current_weight": null,
+            "composition": null,
+            "time_between_clamping_and_freezing": null,
+            "shortest_dimension": null,
+            "tumor_code": null,
+            "tissue_type": null,
+            "days_to_sample_procurement": null,
+            "freezing_method": null,
+            "preservation_method": null,
+            "days_to_collection": 5980,
+            "initial_weight": 810.0,
+            "longest_dimension": null
+          }
+        ]
+      }
+    ],
+    "submitter_id": "32872121-d38a-4128-b96a-698a6f18f29d",
+    "type": "aligned_reads",
+    "file_state": "processed",
+    "experimental_strategy": "WXS"
+  },
+  "warnings": {}
+}
+```
+
 ### Size and From
 
 GDC API provides a pagination feature that limits the number of results returned by the API. It is implemented using `size` and `from` query parameters.
@@ -2458,7 +2542,7 @@ print json.dumps(response.json(), indent=2)
 
 ### Sort
 
-The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:desc` (descending) prefix, e.g. `sort=field:desc`. A list of all valid _field_ names that can be used as facets is available in [Appendix A](Appendix_A_Available_Fields.md).
+The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:desc` (descending) prefix, e.g. `sort=field:desc`. A list of all valid _field_ names is available in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint).
 
 #### Example
 
