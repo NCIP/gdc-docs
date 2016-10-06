@@ -215,3 +215,7 @@ The [transaction](Transactions.md) page lists all previous transactions in the p
 __Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.  
 
 [![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files_2.png)](images/GDC_Submission_Transactions_Original_Files_2.png "Click to see the full image.")
+
+## Deleting Previously Uploaded Files
+
+The GDC Data Submission Portal does not support deleting entities at this time. However, deleting files can be performed using the API.  See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions. 
