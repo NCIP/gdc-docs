@@ -1239,14 +1239,14 @@ The GDC API supports the following search & retrieval request parameters:
 
 Parameter | Default | Description
 --------- | ------- | -----------
-filters| null | Query option filters specify criteria for the returned response
+filters| null | Specifies search parameters
 format | JSON | Specifies the API response format: JSON, XML, or TSV
 pretty | false | Returns response with indentations and line breaks in a human-readable format
-fields | null | Query option to specify which fields to include in the response
+fields | null | Specifies which fields to include in the response
 size | 10 | Specifies the number of results to return
-from   | 1 | Specifies the first record to return from the set resulting of a query
-sort | null | Specifies sorting algorithm for the results in the API response
-facets | null | Provides a list of number of files available given current filters facet
+from   | 1 | Specifies the first record to return from a set of search results
+sort | null | Specifies sorting for the search results
+facets | null | Provides all existing values for a given field and the number of records having this value.
 
 
 ### Filters: Specifying the Query
@@ -1276,7 +1276,7 @@ The following `filters` query operators are supported by the GDC API:
 
 The `field` operand specifies a field that corresponds to a property defined in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). A list of supported fields is provided in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint).
 
-The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://gdc-api.nci.nih.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`
+The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://gdc-api.nci.nih.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`. See [Facets](#facets) for details.
 
 A simple query with a single operator looks like this:
 
@@ -2612,9 +2612,16 @@ print json.dumps(response.json(), indent=2)
 ```
 
 ### Facets
-The `facets` query parameter provides aggregated data based on a search query. The primary intended use of this parameter is for displaying aggregate information in the GDC Data Portal. For example, to get a count of projects in each program, `facets=program.name` can be passed to the `projects` endpoint.
+The `facets` parameter provides aggregate information for a specified field. It provides all values that exist for that field, and the number of entities (cases, projects, files, or annotations) that this value. The primary intended use of this parameter is for displaying aggregate information in the GDC Data Portal.
+
+The `facets` parameter can be used in conjunction with the `filters` parameter to get aggregate information for a set of search results. The following limitations apply when using `facets` and `filters` together:
+
+1. The `filters` object's top level operator must be `and`, and the internal filters must be limited to: `=`, `!=`, `in`, `exclude`, `is`, and `not`.
+2. The information provided by `facets` for a given field will disregard any filters applied to that same field.
 
 #### Example
+
+This is an example of a request for a count of projects in each program.
 
 ```shell
 curl  'https://gdc-api.nci.nih.gov/projects?facets=program.name&from=1&size=0&sort=program.name:asc&pretty=true'
@@ -2662,6 +2669,168 @@ print json.dumps(response.json(), indent=2)
 	  "warnings": {}
 	}
 ```
+
+#### Example
+
+In this sample POST request, both `filters` and `facets` parameters are used. Note that `facets` ignores the `primary_site` filter.
+
+```Payload
+{
+    "filters":{
+        "op":"and",
+        "content":[
+            {
+                "op":"=",
+                "content":{
+                    "field":"cases.project.primary_site",
+                    "value":"Kidney"
+                }
+            },
+            {
+                "op":"=",
+                "content":{
+                    "field":"project.program.name",
+                    "value":"TCGA"
+                }
+            }
+        ]
+    },
+    "size":"0",
+    "facets":"project.primary_site",
+    "pretty":"true"
+}
+```
+```Shell
+curl --request POST --header "Content-Type: application/json" --data @Payload 'https://gdc-api.nci.nih.gov/v0/cases'
+```
+``` Response
+{
+  "data": {
+    "pagination": {
+      "count": 0,
+      "sort": "",
+      "from": 1,
+      "page": 1,
+      "total": 941,
+      "pages": 941,
+      "size": 0
+    },
+    "hits": [],
+    "aggregations": {
+      "project.primary_site": {
+        "buckets": [
+          {
+            "key": "Brain",
+            "doc_count": 1133
+          },
+          {
+            "key": "Breast",
+            "doc_count": 1098
+          },
+          {
+            "key": "Lung",
+            "doc_count": 1089
+          },
+          {
+            "key": "Kidney",
+            "doc_count": 941
+          },
+          {
+            "key": "Colorectal",
+            "doc_count": 635
+          },
+          {
+            "key": "Uterus",
+            "doc_count": 617
+          },
+          {
+            "key": "Ovary",
+            "doc_count": 608
+          },
+          {
+            "key": "Head and Neck",
+            "doc_count": 528
+          },
+          {
+            "key": "Thyroid",
+            "doc_count": 507
+          },
+          {
+            "key": "Prostate",
+            "doc_count": 500
+          },
+          {
+            "key": "Stomach",
+            "doc_count": 478
+          },
+          {
+            "key": "Skin",
+            "doc_count": 470
+          },
+          {
+            "key": "Bladder",
+            "doc_count": 412
+          },
+          {
+            "key": "Liver",
+            "doc_count": 377
+          },
+          {
+            "key": "Cervix",
+            "doc_count": 308
+          },
+          {
+            "key": "Adrenal Gland",
+            "doc_count": 271
+          },
+          {
+            "key": "Soft Tissue",
+            "doc_count": 261
+          },
+          {
+            "key": "Bone Marrow",
+            "doc_count": 200
+          },
+          {
+            "key": "Esophagus",
+            "doc_count": 185
+          },
+          {
+            "key": "Pancreas",
+            "doc_count": 185
+          },
+          {
+            "key": "Testis",
+            "doc_count": 150
+          },
+          {
+            "key": "Thymus",
+            "doc_count": 124
+          },
+          {
+            "key": "Pleura",
+            "doc_count": 87
+          },
+          {
+            "key": "Eye",
+            "doc_count": 80
+          },
+          {
+            "key": "Lymph Nodes",
+            "doc_count": 58
+          },
+          {
+            "key": "Bile Duct",
+            "doc_count": 51
+          }
+        ]
+      }
+    }
+  },
+  "warnings": {}
+}
+```
+
 
 ## Alternative Request Format
 
