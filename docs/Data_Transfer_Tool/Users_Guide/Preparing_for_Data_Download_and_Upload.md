@@ -43,4 +43,4 @@ Clicking the username will open a drop-down menu. Select *Download Token* from t
 
 #Uploads
 ## Obtaining a Manifest File for Data Uploads
-The GDC Data Transfer Tool supports uploading multiple files listed in a GDC manifest file. Manifest files can be generated and downloaded directly from the GDC Submission Portal:
+Multiple data file uploads are supported by the GDC Data Transfer Tool via manifest file. Manifest files can be generated and downloaded directly from the GDC Submission Portal:
