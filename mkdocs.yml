@@ -44,9 +44,10 @@ pages:
   - Homepage: 'Data_Submission_Portal/Users_Guide/Homepage.md'
   - Dashboard: 'Data_Submission_Portal/Users_Guide/Dashboard.md'
   - Upload and Validate Data: 'Data_Submission_Portal/Users_Guide/Upload_Data.md'
-  - Submit and Release Data: 'Data_Submission_Portal/Users_Guide/Submit_Release.md'
-  - Browse Data: 'Data_Submission_Portal/Users_Guide/Browse_Data.md'
+  - Submit Data: 'Data_Submission_Portal/Users_Guide/Submit_Data.md'
+  - Release Data: 'Data_Submission_Portal/Users_Guide/Release_Data.md'
   - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
+  - Browse Data: 'Data_Submission_Portal/Users_Guide/Browse_Data.md'
   - Release Notes: 'Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md'
   - fa-file-text Download PDF /Data_Submission_Portal/PDF/Data_Submission_Portal_UG.pdf: 'Data_Submission_Portal/PDF/index.md'
 - Data Transfer Tool:

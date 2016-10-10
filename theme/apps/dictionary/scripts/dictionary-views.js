@@ -94,15 +94,6 @@
           .on('focus', updateHREFFunction)
           .attr('title', 'Download the ' + _tableDefinitionView.getPrettyName() + ' template.')
           .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
-          /*.on('click', function () {
-
-            _tableDefinitionView._callbackFn.call(
-              null, new Dictionary._ViewUpdateObject(_tableDefinitionView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
-                id: _tableDefinitionView._dictionaryData.id
-              })
-            );
-
-          })*/
           .html('<span aria-hidden="true" class="fa fa-cloud-download"></span> &nbsp;Download Template');
 
 
@@ -987,21 +978,18 @@
               return;
             }
 
-            var exclusions = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES[category];
+            var exclusions = category === 'submittable_data_file' ?
+              _tableEntityListView._dictionaryData.dictionaryMapByCategory.data_file.map(function(f) { return f.id; }) :
+              _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES[category];
             var inclusions = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[category];
 
             _tableEntityListView._callbackFn(new Dictionary._ViewUpdateObject(
               _tableEntityListView,
               _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED,
               {
-                id: category === 'data_bundle' ? 'data_bundle,data_file' : category,
+                id: category === 'submittable_data_file' ? 'data_file,metadata_file' : category,
                 excludes: inclusions
-                  ? _.difference(categoryData.map(function(x) { return x.id; }), inclusions)
-
-                      // https://jira.opensciencedatacloud.org/browse/PGDC-2328
-                      // 'file' is not inside categoryMap returned from the api
-                      .concat('file')
-                  : exclusions
+                  ? _.difference(categoryData.map(function(x) { return x.id; }), inclusions) : exclusions
               })
             );
           })
@@ -1014,7 +1002,7 @@
             return _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category]
               ? _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category].indexOf(entity.id) > -1
               : true;
-          })
+          }).filter(function(d) { return _DICTIONARY_CONSTANTS.LINK_EXCLUDES.indexOf(d.id) === -1; })
           .sort(function (a, b) {
             return _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[a.category]
               ? _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[a.category].indexOf(a.id) -
