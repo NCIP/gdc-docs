@@ -295,6 +295,9 @@ The GDC Submission API supports HTTP POST and HTTP PUT methods for creating enti
 
 The GDC suggests using POST for creating new entities, and using PUT only for updating entities. This helps to avoid inadvertent entity updates that can occur when using PUT for creating entities.
 
+**Note:** Once a relationship has been created between two entities, it cannot be removed by updating an entity. To remove a relationship, the child entity must be [deleted](#deleting-entities).
+
+
 ### Example: Creating and Updating Case Entities
 
 In this example, a case entity is created using POST. Then an attempt is made to create the same entity again using POST, resulting in an error. Then the originally created entity is updated (with the same information) using PUT.
