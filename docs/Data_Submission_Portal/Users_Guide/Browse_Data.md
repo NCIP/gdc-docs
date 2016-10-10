@@ -19,9 +19,9 @@ Current filters are:
 |Filter|Description|
 | --- | --- |
 | __Cases__ | Display all cases associated with the project. |
-| __Clinical Entities__ | Display all Clinical data uploaded to the project workspace. This is divided into subgroups including demographics, diagnoses, exposures, family histories, and treatments. |
-| __Biospecimen Data__ | Display all Biospecimen data uploaded to the project workspace. This is divided into subgroups including samples, portions, analytes, aliquots, and read groups. |
-| __Submittable Data Files__ | Displays all data files that have been registered with the project. This includes files that have been uploaded and those that have been registered but not uploaded yet. This category is divided into groups by file type. |
+| __Clinical Entities__ | Display all clinical data uploaded to the project workspace. This is divided into subgroups including demographics, diagnoses, exposures, family histories, and treatments. |
+| __Biospecimen Data__ | Display all biospecimen data uploaded to the project workspace. This is divided into subgroups including samples, portions, analytes, aliquots, and read-groups. |
+| __Submittable Data Files__ | Displays all data files that have been registered with the project. This includes files that have and have not been uploaded. This category is divided into groups by file type. |
 | __Annotations__ | Lists all annotations associated with the project. An annotation provides an explanatory comment associated with data in the project. |
 
 
@@ -31,7 +31,7 @@ The list view is a paginated list of all entities corresponding to the selected 
 
 On the top-right section of the screen, the user can download data about all entities associated with the selected filter.
 
-* For the case filter, it will download all Clinical data.
+* For the case filter, it will download all clinical data.
 * For all other filters, it will download the corresponding metadata (e.g., for the demographic filter, it will download all demographic data).
 
 [![GDC Submission Case Summary Download](images/GDC_Submission_Cases_Summary_Download_2.png)](images/GDC_Submission_Cases_Summary_Download_2.png "Click to see the full image.")
@@ -40,35 +40,36 @@ On the top-right section of the screen, the user can download data about all ent
 
 ### Details Panel
 
-Clicking on an entity will open the details panel. Data in this panel is broken down into multiple sections depending on the entity type. The main sections are:
+Clicking on a case will open the details panel. Data in this panel is broken down into multiple sections depending on the entity type. The main sections are:
 
-* __Actions__: Actions that can be performed relating the entity. This includes downloading the metadata (JSON or TSV) or submittable data file pertaining to the entity.  
-* __Summary__: A list of IDs and system properties associated with the entity.
-* __Details__: Properties of the entity (not associated with cases).
-* __Hierarchy__ or __Related Entities__: A list of associated entities.
-* __Annotations__: A list of annotations associated with the entity.
-* __Transactions__: A list of previous transactions that affect the entity.
+* Actions: actions that can be performed relating the entity. This includes downloading the metadata (JSON or TSV) or submittable data file pertaining to the entity.  
+* Summary: IDs and system properties associated with the entity.
+* Details: properties of the entity (not associated with cases).
+* Hierarchy or Related Entities: list of associated entities.
+* Annotations: annotations on the entity.
+* Transactions: transactions that affect the entity.
 
 [![GDC Submission Case Details](images/GDC_Submission_Cases_Details_2.png)](images/GDC_Submission_Cases_Details_2.png "Click to see the full image.")
 
-The sections listed above can be navigated either by scrolling down or by clicking on the section icon on the left side of the details panel.
+Navigation between those sections can be done either by scrolling down or by clicking on the section icon on the left side of the details panel.
 
 #### Related Entities
 
-The Related Entities table lists all entities, grouped by type, related to the selected case. This section is only available at the case level.
+Table listing all entities, grouped by type, related to the selected case.
+This section is available only at the case level.
 
 [![GDC Submission Cases Related Entities](images/GDC_Submission_Cases_Summary_Related_Entities_2.png)](images/GDC_Submission_Cases_Summary_Related_Entities_2.png "Click to see the full image.")
 
 
 This table contains the following columns:
 
-* __Category__: category of the entity (Clinical, Biospecimen, submittable data file).
-* __Type__: type of entity (based on Data Dictionary).
-* __Count:__ number of occurrences of an entity associated with the case. Clicking on the count will open a window listing those entities within the Browse page.
+* Category: category of the entity (clinical, biospecimen, submittable data file).
+* Type: type of entity (based on Data Dictionary).
+* Count: number of occurrences of an entity associated with the case. Clicking on the count will open a window listing those entities within the Browse page.
 
 #### Hierarchy
 
-The hierarchy section is available for entities at any level (e.g., Clinical, Biospecimen, etc.), except for Case. The user can use the hierarchy section to navigate through entities.
+The hierarchy section is available for entities at any level (e.g., Clinical, Biospecimen, etc.), except for Case.
 
 The hierarchy shows:
 
@@ -78,3 +79,5 @@ The hierarchy shows:
 
 
 [![GDC Submission Cases Details Hierarchy](images/GDC_Submission_Cases_Summary_Hierarchy_2.png)](images/GDC_Submission_Cases_Summary_Hierarchy_2.png "Click to see the full image.")
+
+Using the hierarchy, the user can navigate through entities.
