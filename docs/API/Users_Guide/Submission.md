@@ -71,7 +71,7 @@ Submitters should review the [GDC Data Model documentation](../../Data/Data_Mode
 
 ### UUIDs
 
-Submitters can assign UUIDs to all submittable entities other than those that correspond to user-downloadable files. If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the submission transaction. See [Appendix C](Appendix_C_Format_of_Submission_Requests_and_Responses.md) for details of the API response format. To learn more about UUIDs see the [GDC Data Model documentation](../../Data/Data_Model/GDC_Data_Model.md#uuids).
+Submitters can assign UUIDs to all submittable entities other than those that correspond to files (entities in categories `data_file` or `metadata_file`). If the submitter does not provide a UUID, it will be assigned by the GDC and returned in the API response upon successful completion of the submission transaction. See [Appendix C](Appendix_C_Format_of_Submission_Requests_and_Responses.md) for details of the API response format. To learn more about UUIDs see the [GDC Data Model documentation](../../Data/Data_Model/GDC_Data_Model.md#uuids).
 
 ### Submitter IDs
 
