@@ -3,17 +3,17 @@ This guide will detail step-by-step procedures for data submission and how they 
 
 ## Submitting a BAM Alignment: Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap the user can follow for submission. The nodes that make up the completed portion of the submission process are highlighted in __green__ and the current target node for submission is highlighted in __red__. Because BAM files are aligned, they fall into the "Submitted Aligned Reads" category of the GDC.  Before submission can begin, the Program and Project must be approved and set by the GDC, which is why they are highlighted from the start.
+Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The nodes that make up the completed portion of the submission process are highlighted in __green__ and the current target node for submission is highlighted in __red__. Because BAM files are made up of aligned reads, they fall into the "Submitted Aligned Reads" category of the GDC. Before submission can begin, the Program and Project must be approved and set by the GDC, which is why they are highlighted from the start.
 
 [![GDC Data Model 1](images/DataModel-1.jpg)](images/DataModel-1.jpg "Click to see the full image.")
 
 ### Case Submission
 
-The next step in the Data Model is the `case`, which must be registered beforehand with the GDC. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Although it is not explicitly stated in the Dictionary entry, each and every entity requires a connection to another entity and a `submitter_id`.
+The next step in the Data Model is the `case` entity, which must be registered beforehand with the GDC. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Although it is not explicitly stated in the Dictionary entry, each and every entity requires a connection to another entity and a `submitter_id`.
 
 [![Dictionary Case](images/Dictionary_Case.png)](images/Dictionary_Case.png "Click to see the full image.")
 
-Submitting a [__Case__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=case) etity requires:
+Submitting a [__Case__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=case) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `case`
 * __`projects.code`:__ A link to the `project`
@@ -44,14 +44,14 @@ __Note:__ JSON and TSV formats handle links between entities (`case` and `projec
 
 The file detailed above can be uploaded in one of two ways:
 
-__Data Submission Portal:__ Each file can be uploaded using the Data Submission Portal Upload Data Wizard. Log into the Submission Portal, choose a project, and choose UPLOAD on the [Dashboard](Dashboard.md).  The Wizard will then pop up, allowing the user to drag-and-drop each file into the window, or browse to retrieve the file.  Next, choose VALIDATE and the system will determine if the file is valid for submission.  When the file has been validated, two buttons will appear:  COMMIT and DISCARD.  Choose COMMIT to upload the file to its project or DISCARD to remove the file. See the [Data Wizard Upload Guide](Upload_Data/#step-2-upload-data-wizard) for more details.   
+__Data Submission Portal:__ Each file can be uploaded using the Data Submission Portal Upload Data Wizard. First the submitter logs into the Submission Portal, chooses a project, and chooses UPLOAD on the [Dashboard](Dashboard.md). The Wizard will then pop up, allowing the submitter to drag-and-drop each file into the window, or browse to retrieve the file.  Next, choose VALIDATE and the system will determine if the file is valid for submission.  When the file has been validated, two buttons will appear:  COMMIT and DISCARD.  Choose COMMIT to upload the file to its project or DISCARD to remove the file. If the file is invalid, the transaction will appear as FAILED and will not be applied to the project. See the [Data Wizard Upload Guide](Upload_Data/#step-2-upload-data-wizard) for more details.   
 
-__API:__ The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. Generally uploading a file through the API will look like:
+__API:__ The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. Generally data upload through the API can be performed using the following command:
 
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
 ```
-__CASE.json:__ the JSON-formatted `case` file above.  
+CASE.json: the JSON-formatted `case` file above.  
 
 Next, the file can either be committed through the Data Submission Portal like before, or another API query can be performed that will upload the file to the project.
 
@@ -60,8 +60,6 @@ curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/
 ```
 
 See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-updating-entities) for details on submission and the rest of the functionalities of the API.
-
-
 
 ### Sample Submission
 
@@ -157,7 +155,7 @@ type	submitter_id	analytes.submitter_id
 aliquot	Blood-00021-aliquot55	Blood-analyte-000055
 ```
 
-__Note:__ Aliquot entities can be directly linked to Sample entities.
+__Note:__ `aliquot` entities can be directly linked to `sample` entities.
 
 [![GDC Data Model 4](images/DataModel-4.jpg)](images/DataModel-4.jpg "Click to see the full image.")
 
@@ -219,6 +217,7 @@ Submitting a [__Submitted Aligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dic
 * __`file_size`:__ The size of the file in bytes
 * __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number
 
+
 ```JSON
 {
     "type": "submitted_aligned_reads",
@@ -246,7 +245,7 @@ __Note:__ Because there can be many `read_groups` included in one `submitted_ali
 
 ### Uploading the BAM File to the GDC
 
-The BAM file can be uploaded now that the GDC has information about it.  This can be performed using either the GDC Data Transfer Tool or the API.  
+The BAM file can be uploaded now that it is registered with the GDC. Uploading the BAM file can be performed with either the GDC Data Transfer Tool or the API.  
 
 __GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the portal or API) once it is registered. The following command can be used to upload the file:
 
