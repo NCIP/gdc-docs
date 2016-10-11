@@ -11,7 +11,7 @@ This version contains major improvements to the GDC Data Submission Portal in bo
 
 Some known issues and workarounds listed in previous release notes have been made redundant due to this refactoring effort, thus are not listed anymore.
 
-Please refer to the GDC Data Submission Portal user guide for more details about the features.
+Please refer to the GDC Data Submission Portal User's Guide for more details about the features.
 
 * Submission-related actions have been made Asynchronous.
 * Fully revamped the dashboard layout and features to clarify the submission process and give easier access to key features.
@@ -30,12 +30,12 @@ Please refer to the GDC Data Submission Portal user guide for more details about
 ### Known Issues and Workarounds
 
 *	Project submission and release is currently disabled. <!--SUBP-201-->
-*	If case has no clinical data, the "Download Clinical" button is not disabled, the downloaded TSV will not contain Clinical Data. <!--SUBP-173-->
-*	Download Manifest button is available while page is loading or when no files are in "registered" state, clickling on Download will return a file with an error message. <!--SUBP-206-->
+*	If case has no clinical data, the "Download Clinical" button is not disabled. The downloaded TSV will not contain Clinical Data. <!--SUBP-173-->
+*	Download Manifest button is available while page is loading or when no files are in "registered" state. Clicking on Download will return a file with an error message. <!--SUBP-206-->
 *	In Internet Explorer, GDC APPs and File dropdown are incorrectly aligned, making some elements only partially visible. <!--SUBP-212--><!--SUBP-214-->
 *	Diagnosis / Treatment detail: Submitter ID (of the child / parent) is missing in the Details -> Hierarchy view. <!--SUBP-227-->
 * File status column should not be displayed for any clinical or biospecimen entities but only for submittable data files. <!--SUBP-226-->
-*	In some situtations tooltip entries remain on-screen. Workaround is to refresh the page. <!--SUBP-229-->
+*	In some situations tooltip entries remain on-screen. Workaround is to refresh the page. <!--SUBP-229-->
 *	In Browse tab, "Submittable Data Files" filter, clicking on "Download All" currently returns case and clinical informations instead of returning file informations. Workaround is to download information from the file the details panel. <!--SUBP-230-->
 *	In Dashboard, the donut chart for number of cases with submittable data files is always empty. A workaround is to visit the Browse, detailed case view section to see, case by case, if it has submittable data files.<!--SUBP-231-->
 *	In Transactions tab, after clicking on Commit or Discard, status is not automatically refreshed. Workaround is to refresh the page after clicking on Commit or Discard. This does not affect the transaction section of the project dashboard. <!--SUBP-232-->
