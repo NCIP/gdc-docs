@@ -218,4 +218,4 @@ __Note:__ When submittable data files are uploaded through the Data Transfer Too
 
 ## Deleting Previously Uploaded Files
 
-The GDC Data Submission Portal does not support deleting entities at this time. However, deleting files can be performed using the API.  See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions. 
+The GDC Data Submission Portal does not support the deletion of entities at this time. This can be performed using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.

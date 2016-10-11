@@ -1,0 +1,101 @@
+type	submitter_id	cases.submitter_id	sample_type
+sample	Blood-00001_api1	GDC-INTERNAL-1	Blood Derived Normal
+sample	Blood-00001_api2	GDC-INTERNAL-2	Blood Derived Normal
+sample	Blood-00001_api3	GDC-INTERNAL-3	Primary Tumor
+sample	Blood-00001_api4	GDC-INTERNAL-4	Blood Derived Normal
+sample	Blood-00001_api5	GDC-INTERNAL-5	Blood Derived Normal
+sample	Blood-00001_api6	GDC-INTERNAL-6	Blood Derived Normal
+sample	Blood-00001_api7	GDC-INTERNAL-7	Primary Tumor
+sample	Blood-00001_api8	GDC-INTERNAL-8	Blood Derived Normal
+sample	Blood-00001_api9	GDC-INTERNAL-9	Blood Derived Normal
+sample	Blood-00001_api10	GDC-INTERNAL-10	Blood Derived Normal
+sample	Blood-00001_api11	GDC-INTERNAL-11	Blood Derived Normal
+sample	Blood-00001_api12	GDC-INTERNAL-12	Blood Derived Normal
+sample	Blood-00001_api13	GDC-INTERNAL-13	Primary Tumor
+sample	Blood-00001_api14	GDC-INTERNAL-14	Blood Derived Normal
+sample	Blood-00001_api15	GDC-INTERNAL-15	Blood Derived Normal
+sample	Blood-00001_api16	GDC-INTERNAL-16	Primary Tumor
+sample	Blood-00001_api17	GDC-INTERNAL-17	Blood Derived Normal
+sample	Blood-00001_api18	GDC-INTERNAL-18	Blood Derived Normal
+sample	Blood-00001_api19	GDC-INTERNAL-19	Primary Tumor
+sample	Blood-00001_api20	GDC-INTERNAL-20	Blood Derived Normal
+sample	Blood-00001_api21	GDC-INTERNAL-21	Blood Derived Normal
+sample	Blood-00001_api22	GDC-INTERNAL-22	Blood Derived Normal
+sample	Blood-00001_api23	GDC-INTERNAL-23	Blood Derived Normal
+sample	Blood-00001_api24	GDC-INTERNAL-24	Blood Derived Normal
+sample	Blood-00001_api25	GDC-INTERNAL-25	Primary Tumor
+sample	Blood-00001_api26	GDC-INTERNAL-26	Blood Derived Normal
+sample	Blood-00001_api27	GDC-INTERNAL-27	Blood Derived Normal
+sample	Blood-00001_api28	GDC-INTERNAL-28	Blood Derived Normal
+sample	Blood-00001_api29	GDC-INTERNAL-29	Primary Tumor
+sample	Blood-00001_api30	GDC-INTERNAL-30	Primary Tumor
+sample	Blood-00001_api31	GDC-INTERNAL-31	Primary Tumor
+sample	Blood-00001_api32	GDC-INTERNAL-32	Blood Derived Normal
+sample	Blood-00001_api33	GDC-INTERNAL-33	Blood Derived Normal
+sample	Blood-00001_api34	GDC-INTERNAL-34	Blood Derived Normal
+sample	Blood-00001_api35	GDC-INTERNAL-35	Blood Derived Normal
+sample	Blood-00001_api36	GDC-INTERNAL-36	Primary Tumor
+sample	Blood-00001_api37	GDC-INTERNAL-37	Blood Derived Normal
+sample	Blood-00001_api38	GDC-INTERNAL-38	Blood Derived Normal
+sample	Blood-00001_api39	GDC-INTERNAL-39	Primary Tumor
+sample	Blood-00001_api40	GDC-INTERNAL-40	Blood Derived Normal
+sample	Blood-00001_api41	GDC-INTERNAL-41	Blood Derived Normal
+sample	Blood-00001_api42	GDC-INTERNAL-42	Blood Derived Normal
+sample	Blood-00001_api43	GDC-INTERNAL-43	Blood Derived Normal
+sample	Blood-00001_api44	GDC-INTERNAL-44	Blood Derived Normal
+sample	Blood-00001_api45	GDC-INTERNAL-45	Primary Tumor
+sample	Blood-00001_api46	GDC-INTERNAL-46	Blood Derived Normal
+sample	Blood-00001_api47	GDC-INTERNAL-47	Primary Tumor
+sample	Blood-00001_api48	GDC-INTERNAL-48	Blood Derived Normal
+sample	Blood-00001_api49	GDC-INTERNAL-49	Primary Tumor
+sample	Blood-00001_api50	GDC-INTERNAL-50	Blood Derived Normal
+sample	Blood-00001_api51	GDC-INTERNAL-51	Primary Tumor
+sample	Blood-00001_api52	GDC-INTERNAL-52	Blood Derived Normal
+sample	Blood-00001_api53	GDC-INTERNAL-53	Blood Derived Normal
+sample	Blood-00001_api54	GDC-INTERNAL-54	Primary Tumor
+sample	Blood-00001_api55	GDC-INTERNAL-55	Primary Tumor
+sample	Blood-00001_api56	GDC-INTERNAL-56	Blood Derived Normal
+sample	Blood-00001_api57	GDC-INTERNAL-57	Blood Derived Normal
+sample	Blood-00001_api58	GDC-INTERNAL-58	Primary Tumor
+sample	Blood-00001_api59	GDC-INTERNAL-59	Blood Derived Normal
+sample	Blood-00001_api60	GDC-INTERNAL-60	Blood Derived Normal
+sample	Blood-00001_api61	GDC-INTERNAL-61	Primary Tumor
+sample	Blood-00001_api62	GDC-INTERNAL-62	Blood Derived Normal
+sample	Blood-00001_api63	GDC-INTERNAL-63	Blood Derived Normal
+sample	Blood-00001_api64	GDC-INTERNAL-64	Blood Derived Normal
+sample	Blood-00001_api65	GDC-INTERNAL-65	Primary Tumor
+sample	Blood-00001_api66	GDC-INTERNAL-66	Blood Derived Normal
+sample	Blood-00001_api67	GDC-INTERNAL-67	Blood Derived Normal
+sample	Blood-00001_api68	GDC-INTERNAL-68	Primary Tumor
+sample	Blood-00001_api69	GDC-INTERNAL-69	Primary Tumor
+sample	Blood-00001_api70	GDC-INTERNAL-70	Primary Tumor
+sample	Blood-00001_api71	GDC-INTERNAL-71	Blood Derived Normal
+sample	Blood-00001_api72	GDC-INTERNAL-72	Primary Tumor
+sample	Blood-00001_api73	GDC-INTERNAL-73	Blood Derived Normal
+sample	Blood-00001_api74	GDC-INTERNAL-74	Blood Derived Normal
+sample	Blood-00001_api75	GDC-INTERNAL-75	Blood Derived Normal
+sample	Blood-00001_api76	GDC-INTERNAL-76	Primary Tumor
+sample	Blood-00001_api77	GDC-INTERNAL-77	Primary Tumor
+sample	Blood-00001_api78	GDC-INTERNAL-78	Blood Derived Normal
+sample	Blood-00001_api79	GDC-INTERNAL-79	Primary Tumor
+sample	Blood-00001_api80	GDC-INTERNAL-80	Blood Derived Normal
+sample	Blood-00001_api81	GDC-INTERNAL-81	Blood Derived Normal
+sample	Blood-00001_api82	GDC-INTERNAL-82	Blood Derived Normal
+sample	Blood-00001_api83	GDC-INTERNAL-83	Primary Tumor
+sample	Blood-00001_api84	GDC-INTERNAL-84	Blood Derived Normal
+sample	Blood-00001_api85	GDC-INTERNAL-85	Blood Derived Normal
+sample	Blood-00001_api86	GDC-INTERNAL-86	Blood Derived Normal
+sample	Blood-00001_api87	GDC-INTERNAL-87	Blood Derived Normal
+sample	Blood-00001_api88	GDC-INTERNAL-88	Primary Tumor
+sample	Blood-00001_api89	GDC-INTERNAL-89	Blood Derived Normal
+sample	Blood-00001_api90	GDC-INTERNAL-90	Blood Derived Normal
+sample	Blood-00001_api91	GDC-INTERNAL-91	Primary Tumor
+sample	Blood-00001_api92	GDC-INTERNAL-92	Blood Derived Normal
+sample	Blood-00001_api93	GDC-INTERNAL-93	Blood Derived Normal
+sample	Blood-00001_api94	GDC-INTERNAL-94	Primary Tumor
+sample	Blood-00001_api95	GDC-INTERNAL-95	Blood Derived Normal
+sample	Blood-00001_api96	GDC-INTERNAL-96	Blood Derived Normal
+sample	Blood-00001_api97	GDC-INTERNAL-97	Blood Derived Normal
+sample	Blood-00001_api98	GDC-INTERNAL-98	Primary Tumor
+sample	Blood-00001_api99	GDC-INTERNAL-99	Blood Derived Normal
+sample	Blood-00001_api100	GDC-INTERNAL-100	Blood Derived Normal
