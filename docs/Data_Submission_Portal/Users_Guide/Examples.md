@@ -1,15 +1,15 @@
-# Examples
-This guide will detail step-by-step procedures for data submission and how they relate to the GDC Data Model and structure.    
+# Submission Examples
+This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first two sections of this guide break down the submission process and associate each step with the Data Model.  See the sections below for strategies on expediting data submission.   
 
 ## Submitting a BAM Alignment: Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The nodes that make up the completed portion of the submission process are highlighted in __green__ and the current target node for submission is highlighted in __red__. Because BAM files are made up of aligned reads, they fall into the "Submitted Aligned Reads" category of the GDC. Before submission can begin, the Program and Project must be approved and set by the GDC, which is why they are highlighted from the start.
+Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The nodes that make up the completed portion of the submission process are highlighted in __green__ and the current target node for submission is highlighted in __red__. Because BAM files are made up of aligned reads, they fall into the "Submitted Aligned Reads" category of the GDC. Before submission can begin, the Program and Project must be approved and set by the GDC, which is why they are highlighted in green from the start.
 
 [![GDC Data Model 1](images/DataModel-1.jpg)](images/DataModel-1.jpg "Click to see the full image.")
 
 ### Case Submission
 
-The next step in the Data Model is the `case` entity, which must be registered beforehand with the GDC. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Although it is not explicitly stated in the Dictionary entry, each and every entity requires a connection to another entity and a `submitter_id`.
+The main entity of the GDC Data Model is the `case`, which must be registered beforehand with the GDC. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Although it is not explicitly stated in the Dictionary entry, each and every entity requires a connection to another entity and a `submitter_id`.
 
 [![Dictionary Case](images/Dictionary_Case.png)](images/Dictionary_Case.png "Click to see the full image.")
 
@@ -36,7 +36,7 @@ type  submitter_id  projects.code
 case  GDC-INTERNAL-000055 INTERNAL   
 ```
 
-__Note:__ JSON and TSV formats handle links between entities (`case` and `project`) differently.  JSON includes the `code` field nested within `projects` while TSV appends `code` with a period.  
+__Note:__ JSON and TSV formats handle links between entities (`case` and `project`) differently.  JSON includes the `code` field nested within `projects` while TSV appends `code` to `projects` with a period.  
 
 [![GDC Data Model 2](images/DataModel-2.jpg)](images/DataModel-2.jpg "Click to see the full image.")
 
@@ -51,9 +51,9 @@ __API:__ The API has a much broader range of functionality than the Data Wizard.
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
 ```
-CASE.json: the JSON-formatted `case` file above.  
+CASE.json: The JSON-formatted `case` file above.  
 
-Next, the file can either be committed through the Data Submission Portal like before, or another API query can be performed that will upload the file to the project.
+Next, the file can either be committed (applied to the project) through the Data Submission Portal like before, or another API query can be performed that will upload the file to the project.
 
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
@@ -63,7 +63,7 @@ See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-upd
 
 ### Sample Submission
 
-A `sample` submission has the same general structure as `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require one additional value:  `sample_type`. This peripheral data is required because it is necessary for any data to be interpreted. For example, we would need to know whether the `sample` came from tumor or normal tissue.  
+A `sample` submission has the same general structure as `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require one additional value:  `sample_type`. This peripheral data is required because it is necessary for the data to be interpreted. For example, an investigator using this data would need to know whether the `sample` came from tumor or normal tissue.  
 
 
 [![Dictionary Sample](images/Dictionary_Sample.png)](images/Dictionary_Sample.png "Click to see the full image.")
@@ -160,14 +160,14 @@ __Note:__ `aliquot` entities can be directly linked to `sample` entities.
 [![GDC Data Model 4](images/DataModel-4.jpg)](images/DataModel-4.jpg "Click to see the full image.")
 
 ### Read Group Submission
-Because information about genomic reads is necessary for downstream analysis, the `read_group` entity requires more fields than the other Biospecimen entities (`sample`, `portion`, `analyte`, `aliquot`).
+Because information about sequencing reads is necessary for downstream analysis, the `read_group` entity requires more fields than the other Biospecimen entities (`sample`, `portion`, `analyte`, `aliquot`).
 
 Submitting a [__Read Group__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `read_group`
 * __`aliquot.submitter_id`:__ The unique key that was used for the `aliquot`, links the `read_group` to the `aliquot`
 * __`experiment_name`:__ The name of the experiment
-* __`is_paired_end`:__ If the reads are paired-end (Boolean value: true/false)
+* __`is_paired_end`:__ If the reads are paired-end (Boolean value: `true` or `false`)
 * __`library_name`:__ The name of the library  
 * __`library_strategy`:__ The experimental strategy of the library
 * __`platform`:__ Name of the platform used to sequence the data
@@ -214,7 +214,7 @@ Submitting a [__Submitted Aligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dic
 * __`data_type`:__ The specific contents of the data file (must be "Aligned Reads")
 * __`experimental_strategy`:__ The sequencing strategy used to generate the file  
 * __`file_name`:__ The name of the file
-* __`file_size`:__ The size of the file in bytes
+* __`file_size`:__ The size of the file in bytes (integer)
 * __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number
 
 
@@ -276,7 +276,7 @@ Typically a submission project will include additional information about a `case
 
 ### Submitting a Demographic Entity to a Case
 
-The `demographic` entity contains information that characterizes the `case` entity, which is the patient in most instances.  
+The `demographic` entity contains information that characterizes the `case` entity, which refers to a  patient in most instances.  
 
 Submitting a `demographic` entity requires:
 
@@ -470,4 +470,4 @@ See the following example TSV files:
 * [Portions.tsv](Portions.tsv)
 * [Analytes.tsv](Analytes.tsv)
 * [Aliquots.tsv](Aliquots.tsv)
-* [Readgroups.tsv](Readgroups.tsv)
+* [Read-Groups.tsv](Readgroups.tsv)
