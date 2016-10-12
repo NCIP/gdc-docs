@@ -50,6 +50,6 @@ Multiple data file uploads are supported by the GDC Data Transfer Tool via a man
 
 **NOTE:** To download the full manifest click on the Download Manifest button on the home page of the project.
 
-
+A manifest can also be download from the transaction tab page of the submission project. More detailed information on the process can be found on the submission portal documentation page   the home page of the submitors project.   
 ![GDC Submission Portal Transaction Manifest Download]()
 <!---**GDC Submission Portal Transaction Manifest Download**--->
