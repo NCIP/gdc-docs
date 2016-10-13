@@ -14,15 +14,15 @@ To better understand the information displayed on the dashboard and the availabl
 ## Project Overview
 The Project Overview sections of the dashboard displays the project state (open / review / submitted / processing) and the GDC Release, which is the date in which the project was released to the GDC.
 
-The remaining part of the top section of the dashboard is broken down into four primary charts:
+The remaining part of the top section of the dashboard is broken down into four status charts:
 
 * __Cases with Clinical__: The number of cases for which Clinical data has been uploaded.
 * __Cases with Biospecimen__: The number of cases for which Biospecimen data has been uploaded.
 * __Cases with Submittable Data Files__: The number of cases for which experimental data has been uploaded.
-* __Submittable Data Files__: The number of files uploaded through the GDC Data Transfer Tool. For more information on this chart, please refer to [File Status Lifecycle](Submission_Workflow/#file-status-lifecycle).
-The _'DOWNLOAD MANIFEST'_ button below this chart allows the user to download a manifest for registered files in this project that have not yet been uploaded.
+* __Submittable Data Files__: The number of files uploaded through the GDC Data Transfer Tool. For more information on this status chart, please refer to [File Status Lifecycle](Submission_Workflow/#file-status-lifecycle).
+The _'DOWNLOAD MANIFEST'_ button below this status chart allows the user to download a manifest for registered files in this project that have not yet been uploaded.
 
-These charts are constantly updated to reflect the current state of the selected project.
+Status charts are constantly updated to reflect the current state of the selected project.
 
 ## Action Panels
 
