@@ -51,5 +51,7 @@ Multiple data file uploads are supported by the GDC Data Transfer Tool via a man
 **NOTE:** To download the full manifest click on the Download Manifest button on the home page of the project located just below the four status charts.
 
 A manifest for individual files can also be downloaded from the transaction tab page of the submission project. More detailed information on the process can be found under the Submission Portal's documentation section entitled [Step 4: GDC Data Transfer Tool](https://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Upload_Data/#step-4-gdc-data-transfer-tool).   
-
 <!---**GDC Submission Portal Transaction Manifest Download**--->
+A manifest file can also be generated from the Browse tab
+
+![GDC Submission Portal Manifest Browse Page Manifest Download](images/10-13_Submission-portal-browse_page_manifest.png)
