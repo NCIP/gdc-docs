@@ -1,5 +1,5 @@
 # Submission Examples
-This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first two sections of this guide break down the submission process and associate each step with the Data Model.  See the sections below for strategies on expediting data submission.   
+This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first two sections of this guide break down the submission process and associate each step with the Data Model. See the sections below for strategies on expediting data submission.   
 
 ## Submitting a BAM Alignment: Data Model Basics
 
@@ -20,7 +20,7 @@ Submitting a [__Case__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?vi
 
 The submitter ID is different from the universally unique identifier (UUID), which can be accessed under the `<entity_type>_id` field for each entity. The UUID is either assigned to each entity automatically or can be submitted by the user.  See the [Data Model Users Guide](https://gdc-docs.nci.nih.gov/Data/Data_Model/GDC_Data_Model/#gdc-identifiers) for more details about GDC identifiers.
 
-The `projects.code` field is what connects the `case` entity to the `project` entity.  The rest of the entity connections use the `submitter_id` instead.  
+The `projects.code` field is what connects the `case` entity to the `project` entity.  The rest of the entity connections use the `submitter_id` field instead.  
 
 
 
@@ -471,7 +471,7 @@ __Note:__ For this type of submission, a tab-delimited format is not recommended
 
 The GDC understands that submitters will have projects that comprise more entities than would be reasonable to individually parse into JSON formatted files. Additionally, many investigators store large amounts of data in a tab-delimited format (TSV).  For instances like this, we recommend parsing all entities of the same type into separate TSVs and submitting them on a type-basis.  
 
-For example, a user may want to submit 100 Cases associated with 100 `samples`, 100 `portions`, 100 `analytes`, 100 `aliquots`, and 100 `read_groups`. Constructing and submitting 100 JSON files would be tedious and difficult to organize. Submitting one `case` TSV, one `sample` TSV, and the rest would not only require six TSVs and can be formatted in programs such as Microsoft Excel or Google Spreadsheets.  
+For example, a user may want to submit 100 Cases associated with 100 `samples`, 100 `portions`, 100 `analytes`, 100 `aliquots`, and 100 `read_groups`. Constructing and submitting 100 JSON files would be tedious and difficult to organize. Submitting one `case` TSV, one `sample` TSV, and the rest would require six TSVs and can be formatted in programs such as Microsoft Excel or Google Spreadsheets.  
 
 See the following example TSV files:
 
