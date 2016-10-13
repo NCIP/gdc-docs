@@ -3,13 +3,13 @@ This guide details step-by-step procedures for different aspects of GDC data sub
 
 ## Submitting a BAM Alignment: Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The nodes that make up the completed portion of the submission process are highlighted in __green__ and the current target node for submission is highlighted in __red__. Because BAM files are made up of aligned reads, they fall into the "Submitted Aligned Reads" category of the GDC. Before submission can begin, the Program and Project must be approved and set by the GDC, which is why they are highlighted in green from the start.
+Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The entities that make up the completed portion of the submission process are highlighted in __green__ and the current target entities for submission is highlighted in __red__. Because BAM files are made up of aligned reads, they fall into the "Submitted Aligned Reads" category of the GDC. Before submission can begin, the Program and Project must be approved and set by the GDC, which is why they are highlighted in green from the start.
 
 [![GDC Data Model 1](images/DataModel-1.jpg)](images/DataModel-1.jpg "Click to see the full image.")
 
 ### Case Submission
 
-The main entity of the GDC Data Model is the `case`, which must be registered beforehand with the GDC. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Although it is not explicitly stated in the Dictionary entry, each and every entity requires a connection to another entity and a `submitter_id`.
+The main entity of the GDC Data Model is the `case`, which must be registered beforehand with dbGaP. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Each and every entity requires a connection to another entity and a `submitter_id`.
 
 [![Dictionary Case](images/Dictionary_Case.png)](images/Dictionary_Case.png "Click to see the full image.")
 
@@ -18,9 +18,13 @@ Submitting a [__Case__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?vi
 * __`submitter_id`:__ A unique key to identify the `case`
 * __`projects.code`:__ A link to the `project`
 
-__Note:__ The submitter ID is different from the UUID, which is assigned to each entity automatically.
+The submitter ID is different from the universally unique identifier (UUID), which can be accessed under the `<entity_type>_id` field for each entity. The UUID is either assigned to each entity automatically or can be submitted by the user.  See the [Data Model Users Guide](https://gdc-docs.nci.nih.gov/Data/Data_Model/GDC_Data_Model/#gdc-identifiers) for more details about GDC identifiers.
 
-The `case` entity can be added in JSON or TSV format. A template for any entity in either of these formats can be found in the Data Dictionary at the top of each page.  
+The `projects.code` field is what connects the `case` entity to the `project` entity.  The rest of the entity connections use the `submitter_id` instead.  
+
+
+
+The `case` entity can be added in JSON or TSV format. A template for any entity in either of these formats can be found in the Data Dictionary at the top of each page. Templates populated with `case` metadata in both formats are displayed below.  
 
 ```JSON
 {
@@ -53,7 +57,7 @@ curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gd
 ```
 CASE.json: The JSON-formatted `case` file above.  
 
-Next, the file can either be committed (applied to the project) through the Data Submission Portal like before, or another API query can be performed that will upload the file to the project.
+Next, the file can either be committed (applied to the project) through the Data Submission Portal like before, or another API query can be performed that will commit the file to the project.
 
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
@@ -241,11 +245,11 @@ type	submitter_id	data_category	data_format	data_type	experimental_strategy	file
 submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Sequencing Data	BAM	Aligned Reads	WGS	test.bam	38	aa6e82d11ccd8452f813a15a6d84faf1	Blood-00001-aliquot_lane1_barcodeACGTAC_55
 ```
 
-__Note:__ Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV.  This relationship can be expressed with a list object (square brackets) in a JSON formatted file.   
+__Note:__ Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV.  This relationship can be expressed with a JSON-formatted list object (comma-separated in square brackets).   
 
 ### Uploading the BAM File to the GDC
 
-The BAM file can be uploaded now that it is registered with the GDC. Uploading the BAM file can be performed with either the GDC Data Transfer Tool or the API.  
+The BAM file can be uploaded now that it is registered with the GDC. Uploading the BAM file can be performed with either the GDC Data Transfer Tool or the API. Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way.   
 
 __GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the portal or API) once it is registered. The following command can be used to upload the file:
 
@@ -258,7 +262,7 @@ Additionally a manifest can be downloaded from the Submission Portal and passed 
 ```Shell
 gdc-client upload -m manifest.yml -t $token
 ```
-__API Upload:__  `submittable_data_files` can be uploaded through the API by using the `/submission/program/project/files` endpoint.  The following command would be a typical file upload:  
+__API Upload:__  A `submittable_data_file` can be uploaded through the API by using the `/submission/program/project/files` endpoint.  The following command would be typically used to upload a file:  
 
 ```Shell
 curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@test.bam
@@ -307,15 +311,15 @@ demographic	GDC-INTERNAL-000055	not hispanic or latino	male	asian	1946
 
 ### Submitting an Exposure Entity to a Case
 
-Submitting an [Exposure](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  This entity contains information such as:  
+Submitting an [Exposure](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  The following fields are optionally included:  
 
 * __`alcohol_history`:__ If the individual has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime
 * __`alcohol_intensity`:__ An individual's self-reported level of alcohol use
-* __`bmi`:__ Body mass divided by body height squared
-* __`cigarettes_per_day`:__ The average number of cigarettes smoked per day
-* __`height`:__ The height of the individual in cm  
-* __`weight`:__ The weight of the individual in kg
-* __`years_smoked`:__ The number of years an individual has been smoking
+* __`bmi`:__ Body mass divided by body height squared (number)
+* __`cigarettes_per_day`:__ The average number of cigarettes smoked per day (number)
+* __`height`:__ The height of the individual in cm (number)
+* __`weight`:__ The weight of the individual in kg (number)
+* __`years_smoked`:__ The number of years an individual has been smoking (number)
 
 ```JSON
 {
@@ -346,10 +350,10 @@ Submitting an __Experiment Metadata__ entity requires:
 * __`submitter_id`:__ A unique key to identify the `experiment_metadata` entity
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group`, links the`experiment_metadata` entity to the `read_group`
 * __`data_category`:__ Broad categorization of the data file
-* __`data_format`:__ Format of the data file (must be SRA XML)
-* __`data_type`:__ Specific contents of the data file
+* __`data_format`:__ Format of the data file (must be "SRA XML")
+* __`data_type`:__ Specific contents of the data file (must be "Experiment Metadata")
 * __`file_name`:__ The name of the file  
-* __`file_size`:__ The size of the file  
+* __`file_size`:__ The size of the file (number)
 * __`md5sum`:__ 128-bit hash value expressed as a 32 digit hexadecimal number   
 
 ```JSON
@@ -367,6 +371,12 @@ Submitting an __Experiment Metadata__ entity requires:
     "md5sum": "d79997e4de03b5a0311f0f2fe608c11d",
 }
 ```
+
+```TSV
+type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
+experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
+```
+
 
 ## Strategies for Submitting in Bulk
 
@@ -461,7 +471,7 @@ __Note:__ For this type of submission, a tab-delimited format is not recommended
 
 The GDC understands that submitters will have projects that comprise more entities than would be reasonable to individually parse into JSON formatted files. Additionally, many investigators store large amounts of data in a tab-delimited format (TSV).  For instances like this, we recommend parsing all entities of the same type into separate TSVs and submitting them on a type-basis.  
 
-For example, a user may want to submit 100 Cases associated with 100 `samples`, 100 `portions`, 100 `analytes`, 100 `aliquots`, and 100 `read_groups`. Constructing and submitting 100 JSON files would be tedious and difficult to organize. Submitting one `case` TSV, one `sample` TSV, and the rest would not only require six TSVs but can easily be formatted in programs such as Microsoft Excel or Google Spreadsheets.  
+For example, a user may want to submit 100 Cases associated with 100 `samples`, 100 `portions`, 100 `analytes`, 100 `aliquots`, and 100 `read_groups`. Constructing and submitting 100 JSON files would be tedious and difficult to organize. Submitting one `case` TSV, one `sample` TSV, and the rest would not only require six TSVs and can be formatted in programs such as Microsoft Excel or Google Spreadsheets.  
 
 See the following example TSV files:
 

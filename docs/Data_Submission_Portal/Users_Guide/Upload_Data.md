@@ -192,7 +192,7 @@ Files can be removed from the Upload Data Wizard by clicking on the _'garbage ca
 
 ## Step 3: Asynchronous Transactions
 
-Biospecimen or Clinical metadata files that were uploaded through the Submission Portal are first validated without making changes to the project. See the entry in the [API Submission Guide](../../API/Users_Guide/Submission/#asynchronous-transactions) for more details. Validated files that not been committed yet can be seen in the [Transactions](Transactions.md) tab. Metadata contained in these files can be committed (applied) to the project or discarded using the two buttons on the right side of each transaction.
+Biospecimen or Clinical metadata files that were uploaded through the Submission Portal are first validated without making changes to the project. See the entry in the [API Submission Guide](../../API/Users_Guide/Submission/#asynchronous-transactions) for more details. Validated files that have not yet been committed can be seen in the [Transactions](Transactions.md) tab. Metadata contained in these files can be committed (applied) to the project or discarded using the two buttons on the right side of each transaction.
 
 [![Commit_Discard](images/GDC_Submission_CommitDiscard.png)](images/GDC_Submission_CommitDiscard.png "Click to see the full image.")
 
