@@ -979,7 +979,7 @@
             }
 
             var exclusions = category === 'submittable_data_file' ?
-              _tableEntityListView._dictionaryData.dictionaryMapByCategory.data_file.map(function(f) { return f.id; }) :
+              _tableEntityListView._dictionaryData.dictionaryMapByCategory.generated_data_file.map(function(f) { return f.id; }) :
               _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES[category];
             var inclusions = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[category];
 
