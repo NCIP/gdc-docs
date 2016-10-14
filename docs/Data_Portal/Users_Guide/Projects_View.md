@@ -1,14 +1,14 @@
-# Projects
+# Projects View
 
 ## Overview
 
-The Projects view provides an overview of all the data contained in the GDC Data Portal, organized by Project. Administratively, a _'Project'_ is a specific effort undertaken as part of an overarching Program. Many projects were set up to study one tumor type, so project names and disease names can often be the same, as is the case for TCGA data, but this is not always the case.
+The Projects View provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. Typically, a project is a specific effort undertaken as part of a larger cancer research program. Many projects were set up to study a specific type of cancer, but this is not always the case.
 
 ## Projects Search
 
 ### Overview
 
-When accessing the Projects view, the initial screen will display a table summarizing the information about the cases (i.e. sample donors) and data types for which data is available for each project. This table displays for each project, the number of cases, number of files of each data type contained in the GDC for that project, and total file size of all the files in the project. With no Facets selected, this view includes all GDC Data Portal data.
+The Projects View landing page displays a table with summary information about each project: the number of cases, the number of files of each data type, and total file size.
 
 This view focuses on the number of cases available at GDC within each program and project. Each case will have multiple types of data associated with it. Selections in the facets allows filtering of the number of cases in each project to those that have associated data files relevant to any of the selected data types or selected experimental strategies.
 
@@ -64,3 +64,18 @@ On the top right section of the screen, two download options are available:
 
 * __Download Clinical JSON__: Downloads a list of all Cases associated with this project.
 * __Download Biospecimen JSON__: Downloads Biospecimen data from all cases associated with this project.
+
+
+### Pie Charts
+
+Most Pie charts in the GDC Data Portal are interactive. Users are also offered the option to switch to a table view for more details.
+
+[![Pie Charts Widget](images/gdc-pie-chart-view.png)](images/gdc-pie-chart-view.png "Click to see the full image.")
+
+Mousing over a slice of the pie chart display detailed about the slice.
+
+[![Mouseover a Slice](images/gdc-pie-chart-mouse-over.png)](images/gdc-pie-chart-mouse-over.png "Click to see the full image.")
+
+The pie chart can also be converted to a table by clicking on an small table icon available on the top right corner of the widget.
+
+[![Convert Pie Chart to Table](images/gdc-pie-chart-table.png)](images/gdc-pie-chart-table.png "Click to see the full image.")

@@ -19,7 +19,7 @@ The GDC Legacy Archive contains a limited set of features of the GDC Data Portal
 
 ### File Page
 
-The file page of the GDC Legacy Archive is similar to the [file page of the GDC Data Portal](Data.md#file-entity-page), and may include additional information as described below.
+The file page of the GDC Legacy Archive is similar to the [file page of the GDC Data Portal](Data_View.md#file-entity-page), and may include additional information as described below.
 
 [![Files Entity Page](images/gdc-data-portal-files-entity-page-Archive-MagTab.png)](images/gdc-data-portal-files-entity-page-Archive-MagTab.png "Click to see the full image.")
 

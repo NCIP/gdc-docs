@@ -17,10 +17,12 @@ The cart page shows a summary of all files currently in the cart:
 * Number of cases associated with the files
 * Total file size
 
-The Cart page also displays two charts: 
+The Cart page also displays two charts:
 
-* File count by project 
+* File count by project
 * File count by authorization level to those files: this number takes into account the user authorization to download a file upon his authentication to the GDC Data Portal.
+
+The charts can be converted to tables by clicking the table button in the top right corner of each chart.
 
 ### Cart table
 

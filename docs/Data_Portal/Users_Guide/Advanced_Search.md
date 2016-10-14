@@ -1,5 +1,10 @@
 # Advanced Search
 
+Only available in the _'Data'_ view, the Advanced Search page offers complex query building capabilities to  identify specific set of cases and files.
+
+[![Access to Advanced Search from Data View](images/gdc-data-portal-access-advanced-search-data-view.png)](images/gdc-data-portal-access-advanced-search-data-view.png "Click to see the full image.")
+
+
 ## Overview
 
 An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases.
@@ -259,7 +264,7 @@ The "IS" operator can only be used with "MISSING". That is, it is used to search
 
 Examples:
 
-*   Find all cases where gender is missing: 
+*   Find all cases where gender is missing:
 
 ```
 cases.demographic.gender is MISSING

@@ -12,6 +12,56 @@ This view focuses on the number of data files available at GDC. Selecting items 
 
 ## Cases and Files Search
 
+### Faceted Navigation
+
+Available on the left side of _'Projects'_ & _'Data'_ views, _'Faceted Navigation'_ enable filtering by selecting relevant data. Facets are attributes of the data that are being searched. Faceted Navigation filters the overall data set based on the set of Facets chosen.
+
+_'Faceted Navigation'_ is composed by three elements:
+
+* __Query facets__: used to select relevant data
+* __Query Field__: showing filters currently being applied
+* __Results__: showing filtered results corresponding to the query
+
+[![Primary Site Facet](images/gdc-data-portal-primary-site-facet.png)](images/gdc-data-portal-primary-site-facet.png "Click to see the full image.")
+
+__Note__: In facets, the end of each filter line contains a number. This number corresponds to the number of entities corresponding to this filter.
+
+By clicking on an element, a filter is automatically applied. If the user clicks on multiple elements, an __OR__ filter will be applied and the query will be displayed at the top of the page.
+
+The count (in grey cell) next to each Facet, indicates the number of results corresponding to the field.
+
+[![Faceted Navigation Query](images/gdc-data-portal-facet-query.png)](images/gdc-data-portal-facet-query.png "Click to see the full image.")
+
+By clicking on a query term will automatically remove the corresponding filter.
+
+The above query could be translated to:
+
+```
+Return all projects where primary site is Kidney OR Brain and containing Data Type Clinical OR Gene Expression
+```
+
+The resulting set is displayed below the query.
+
+[![Faceted Navigation resulting Set](images/gdc-data-portal-faceted-navigation-resulting-set.png)](images/gdc-data-portal-faceted-navigation-resulting-set.png "Click to see the full image.")
+
+
+#### Add Facets
+
+In the Data section of the GDC Data Portal, users can add Cases or Files facets by clicking the "Add" button on top right section of the component.
+
+[![Add a Facet](images/gdc-data-portal-data-add-facet.png)](images/gdc-data-portal-data-add-facet.png "Click to see the full image.")
+
+This will open a search window allowing the user to search for the field using its name or description.
+
+[![Search for a Facet](images/gdc-data-portal-data-facet-search.png)](images/gdc-data-portal-data-facet-search.png "Click to see the full image.")
+
+Newly added facets will show up on the top of the facet section and can be removed individually by clicking on the red cross, or globally by clicking on "Reset".
+
+[![Customize Facet](images/gdc-data-portal-data-facet-ffpe.png)](images/gdc-data-portal-data-facet-ffpe.png "Click to see the full image.")
+
+Added facets have the same behavior than default facets. Customized facets are stored in the browser's local storage and remain available between visits to the GDC Data Portal.
+
+
 ### Facets
 
 Two types of facets are available, _'Cases'_ and _'Files'_ facets.
@@ -91,7 +141,7 @@ Alternatively, for each row user can:
 
 ## Advanced
 
-The _'Advanced'_ button redirects to the advanced query page; this feature is detailed in the [Advanced Search](Advanced_Search.md) section of the documentation.
+The _'Advanced'_ button redirects to the advanced query page; this feature is detailed in the [Advanced Search](Advanced_Search.md#advanced-search) section of the documentation.
 
 ## Case Entity Page
 
