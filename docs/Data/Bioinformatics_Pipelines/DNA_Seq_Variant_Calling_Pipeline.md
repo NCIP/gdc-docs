@@ -133,6 +133,47 @@ A base quality score recalibration (BQSR) step is then performed using  [BaseRec
 
 ### DNA-Seq Co-Cleaning Command Line Parameters
 
+#### __Step 1:__ RealignTargetCreator
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T RealignerTargetCreator \
+-R <reference>
+-known <known_indels.vcf>
+[ -I <input.bam> ]
+-o <realign_target.intervals>
+```
+
+#### __Step 2:__ IndelRealigner
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T IndelRealigner \
+-R <reference> \
+-known <known_indels.vcf> \
+-targetIntervals <realign_target.intervals> \
+--noOriginalAlignmentTags \
+[ -I <input.bam> ] \
+-nWayOut <output.map>
+```
+
+#### __Step 3:__ BaseRecalibrator
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T BaseRecalibrator \
+-R <reference> \
+-I <input.bam> \
+-knownSites <dbsnp.vcf>
+-o <bqsr.grp>
+```
+
+#### __Step 4:__ PrintReads
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T PrintReads \
+-R <reference> \
+-I <input.bam> \
+--BQSR <bqsr.grp> \
+-o <output.bam>
+```
 
 
 ### Somatic Variant Calling Workflow
@@ -166,6 +207,118 @@ At this time, germline variants are deliberately excluded as harmonized data. Th
 |---|---|---|
 | Input | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) |  BAM |
 | Output | [Raw Simple Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=simple_somatic_mutation) | VCF  |
+
+### Variant Call Command-Line Parameters
+
+#### MuSE
+
+MuSEv1.0rc_submission_c039ffa
+
+__Step 1:__ MuSE call
+
+```Shell
+MuSE call \
+-f <reference> \
+-r <block> \                               	
+<tumor.bam> \
+<normal.bam> \
+-O <intermediate_muse_call.txt>
+```
+
+__Step 2:__ MuSE sump
+```Shell
+MuSE sump \
+-I <intermediate_muse_call.txt> \                        	
+-E \                          		
+-D <dbsnp_known_snp_sites.vcf> \
+-O <muse_variants.vcf>  
+```
+__Note:__ -E is used for WXS data and -G can be used for WGS data.  
+
+
+
+#### MuTect2
+
+GATK nightly-2016-02-25-gf39d340
+
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T MuTect2 \
+-R <reference> \
+-I:tumor <tumor.bam> \
+-I:normal <normal.bam> \
+--normal_panel <pon.vcf> \                        
+--cosmic <cosmic.vcff> \
+--dbsnp <dbsnp.vcf> \
+--contamination_fraction_to_filter 0.02 \                   
+-o <mutect_variants.vcf> \
+--output_mode EMIT_VARIANTS_ONLY \
+--disable_auto_index_creation_and_locking_when_reading_rods
+```
+
+
+
+#### SomaticSniper
+Somatic-sniper v1.0.5.0
+
+```Shell
+bam-somaticsniper \
+-q 0 \
+-Q 15 \
+-s 0.01 \
+-T 0.85 \
+-N 2 \
+-r 0.001 \
+-n NORMAL \
+-t TUMOR \
+-F vcf \
+-f ref.fa \
+<tumor.bam> \
+<normal.bam> \
+<somaticsniper_variants.vcf>
+```
+
+#### VarScan
+
+
+__Step 1:__ Mpileup; Samtools 1.1
+```Shell
+samtools mpileup \
+-f <reference> \
+-q 1 \
+-B \
+<normal.bam> \
+<tumor.bam> >
+<intermediate_mpileup.pileup>
+```
+
+__Step 2:__ Varscan Somatic; Varscan.v2.3.9
+```Shell
+java -jar VarScan.jar somatic \
+<intermediate_mpileup.pileup> \
+<output_path> \
+--mpileup      1 \
+--min-coverage 8 \
+--min-coverage-normal 8 \
+--min-coverage-tumor 6 \
+--min-var-freq 0.10 \
+--min-freq-for-hom 0.75 \
+--normal-purity 1.0 \
+--tumor-purity 1.00 \
+--p-value 0.99 \
+--somatic-p-value 0.05 \
+--strand-filter 0 \
+--output-vcf
+```
+
+__Step 3:__ Varscan ProcessSomatic; Varscan.v2.3.9
+```Shell
+java -jar VarScan.jar processSomatic \
+<intermediate_varscan_somatic.vcf> \
+--min-tumor-freq 0.10 \
+--max-normal-freq 0.05 \
+--p-value 0.07
+```
 
 ### Variant Call Annotation Workflow
 
@@ -221,11 +374,11 @@ Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Port
 
 | Data Type | Description | File Format |
 |---|---|---|
-| Aligned Reads | Reads that have been aligned to the GRCh38 reference and co-cleaned. Unaligned reads and reads that map to decoy sequences are also included in the BAM files.  | BAM |
-| Raw Simple Somatic Mutation | A tab-delimited file with genotypic information related to genomic positions. Genomic variants are first identified here.  | VCF |
-| Annotated Somatic Mutation  | An annotated version of a raw simple somatic mutation file. Annotated files include biological context about each observed mutation. |  VCF |
-| Aggregated Somatic Mutations | A tab-delimited file derived from multiple VCF files. Contains information from all available cases in a project.  | MAF |
-| Masked Somatic Mutation | A modified version of the Aggregated Somatic Mutation MAF file with sensitive or potentially erroneous data removed. | MAF |
+| [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) | Reads that have been aligned to the GRCh38 reference and co-cleaned. Unaligned reads and reads that map to decoy sequences are also included in the BAM files.  | BAM |
+| [Raw Simple Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=simple_somatic_mutation)| A tab-delimited file with genotypic information related to genomic positions. Genomic variants are first identified here.  | VCF |
+| [Annotated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation)  | An annotated version of a raw simple somatic mutation file. Annotated files include biological context about each observed mutation. |  VCF |
+| [Aggregated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=aggregated_somatic_mutation) | A tab-delimited file derived from multiple VCF files. Contains information from all available cases in a project.  | MAF |
+| [Masked Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) | A modified version of the Aggregated Somatic Mutation MAF file with sensitive or potentially erroneous data removed. | MAF |
 
 - - -
 
