@@ -78,6 +78,8 @@ Submitting a [__Sample__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?
 * __`cases.submitter_id`:__ The unique key that was used for the `case`, links the `sample` to the `case`
 * __`sample_type`:__ The source or cellular type of the `sample`
 
+__Note:__ The `case` must be "committed" to the project before it can be linked to the `sample`.  This also applies to all other links between entities.
+
 ```JSON
 {
     "type": "sample",
