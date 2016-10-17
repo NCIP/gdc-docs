@@ -27,11 +27,11 @@ Before submission can begin, the Program and Project must be approved and set by
 
 ### Program and Project Approval
 
-Each submitter must first obtain an eRA Commons account and apply for data submitter access through dbGaP. The submitter must also register each study in dbGaP before a program and project can be designated for each in the GDC.  When data submission privileges and study approval is obtained by dbGaP, the submitter contacts the [GDC Help Desk](https://gdc.cancer.gov/support) to set up a submission project. See the [Obtaining Access to Submit Data](https://gdc.cancer.gov/submit-data/obtaining-access-submit-data) guide for more details.  
+Each new project must [request submission access](https://gdc.cancer.gov/node/633/) from the GDC.  Before submission can commence the project must be registered at dbGaP along with the eRA commons IDs for all those users who will be uploading data.  All cases (i.e. patients) must also be registered in dbGaP for that particular project.  Once these steps are complete the GDC will grant submission access and create program and project names in consultation with the user based on the rules outlined below.  
 
 ### Program and Project Naming Conventions
 
-The program is assigned a `program.name`, which uniquely identifies that program. The projects that make up programs and assigned a `project.code`, which uniquely identify each project. The `project_id` is the main identifier for the project in the GDC system and comprises the `program.name` with the `project.code` appended to it with a dash.  For example:
+The program is assigned a `program.name`, which uniquely identifies that program. Each program may have multiple projects and will be assigned a `project.code`, which uniquely identifies each project. The `project_id` is the main identifier for the project in the GDC system and comprises the `program.name` with the `project.code` appended to it with a dash.  For example:
 
 ```
 program.name = TCGA
