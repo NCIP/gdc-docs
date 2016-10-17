@@ -53,4 +53,4 @@ Multiple data file uploads are supported by the GDC Data Transfer Tool via a man
 A manifest for individual files can also be downloaded from the transaction tab and browse tab pages of the submission portal's project.  More information on the process can be found under the Submission Portal's documentation section entitled [Step 4: GDC Data Transfer Tool](https://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Upload_Data/#step-4-gdc-data-transfer-tool).
 
 ## Obtaining UUIDs for Data Uploads
-A UUID can be used for data submission with the Data Transfer Tool.  Obtaining a       
+A UUID can be used for data submission with the Data Transfer Tool. A UUID for data uploads can be obtained from the Submission Portal or from the API GraphQL endpoint.  In the Submission Portal the UUID for the data files are found in the Manifest file under the IDs column or in the browse tab page under Submittable Data Files section.  Opening up the files details page by clicking on the Submitter ID  will display a Summary of the file.  
