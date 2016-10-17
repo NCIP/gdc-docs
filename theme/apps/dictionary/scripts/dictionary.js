@@ -421,7 +421,7 @@
       submittable_data_file: 'Submittable Data Files',
     },
     ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'submittable_data_file', 'generated_data_file', 'annotation', 'administrative', 'analysis', 'notation'],
-    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative', 'index_file', 'analysis', 'notation'],
+    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative', 'index_file', 'analysis', 'notation', 'generated_data_file'],
     CATEGORY_EXCLUDES: ['TBD'],
     CATEGORY_TEMPLATE_EXCLUDES: {
       clinical: ['clinical'],
@@ -817,10 +817,14 @@
         }
         // categorize by 'category' field except for data_file and metadata_file
         // furthur break those down into 'Submittable Data Files' (submittable) and 'Generated Data Files' (!submittable)
+        // and add a ui_category key to reflect this (affects download template button display)
+        dictionary.ui_category = dictionary.category;
         if (dictionary.category === 'data_file' || dictionary.category === 'metadata_file') {
           if (dictionary.submittable) {
+            dictionary.ui_category = "sumbittable_data_file";
             acc.dictionaryMapByCategory.submittable_data_file = acc.dictionaryMapByCategory.submittable_data_file.concat(dictionary);
           } else {
+            dictionary.ui_category = 'generated_data_file';
             acc.dictionaryMapByCategory.generated_data_file = acc.dictionaryMapByCategory.generated_data_file.concat(dictionary);
           }
         } else {
