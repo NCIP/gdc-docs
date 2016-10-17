@@ -1,11 +1,25 @@
 # Submission Examples
 This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first two sections of this guide break down the submission process and associate each step with the Data Model. See the sections below for strategies on expediting data submission.   
 
-## Data Model Basics
+## GDC Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The entities that make up the completed portion of the submission process are highlighted in __green__ and the current target entities for submission is highlighted in __red__. Because BAM files are made up of aligned reads, they fall into the "Submitted Aligned Reads" category of the GDC.
+Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The entities that make up the completed portion of the submission process are highlighted in __green__.
 
 [![GDC Data Model 1](images/DataModel-1.jpg)](images/DataModel-1.jpg "Click to see the full image.")
+
+Each entity type is represented with an oval in the above graphic. Any submitted entity requires a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier.
+
+### The Case Entity and Clinical Data
+
+The `case` is the center of the GDC Data Model and usually describes a specific patient. Each `case` is connected to a `project`.  Different types of clinical data, such as `diagnoses` and `exposures`, are connected to the `case` to describe the case's attributes and medical information.   
+
+### Biospecimen Data
+
+One of the main features of the GDC is genomic data harmonization. Genomic data is connected the the case through biospecimen entities.  The `sample` entity describes a biological piece of matter that originated from a `case`.  Subsets of the `sample` such as `portions` and `analytes` can optionally be described.  The `aliquot` originates from a `sample` or `analyte` and describes the nucleic acid extract that was sequenced. The `read_group` entity describes the resulting set of reads from one sequencing lane.
+
+### Experiment Data
+
+Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with `read_group` entity. While the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these types of files are described in their respective entity submission and are uploaded separately using the API or the GDC Data Transfer Tool.  
 
 ## Program and Project Registration
 
@@ -28,7 +42,7 @@ project.project_id = TCGA-BRCA
 
 ## Case Submission
 
-The main entity of the GDC Data Model is the `case`, each of which must be registered beforehand with dbGaP under a unique `submitter_id`. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Each and every entity requires a connection to another entity and a `submitter_id`.
+The main entity of the GDC Data Model is the `case`, each of which must be registered beforehand with dbGaP under a unique `submitter_id`. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field.
 
 [![Dictionary Case](images/Dictionary_Case.png)](images/Dictionary_Case.png "Click to see the full image.")
 
@@ -37,7 +51,7 @@ Submitting a [__Case__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?vi
 * __`submitter_id`:__ A unique key to identify the `case`
 * __`projects.code`:__ A link to the `project`
 
-The submitter ID is different from the universally unique identifier (UUID), which can be accessed under the `<entity_type>_id` field for each entity. The UUID is either assigned to each entity automatically or can be submitted by the user.  See the [Data Model Users Guide](https://gdc-docs.nci.nih.gov/Data/Data_Model/GDC_Data_Model/#gdc-identifiers) for more details about GDC identifiers.
+The submitter ID is different from the universally unique identifier (UUID), which is based on the [UUID Version 4 Naming Convention](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29). The UUID can be accessed under the `<entity_type>_id` field for each entity. For example, the `case` UUID would be accessed under the `case_id` field. The UUID is either assigned to each entity automatically or can be submitted by the user.  See the [Data Model Users Guide](https://gdc-docs.nci.nih.gov/Data/Data_Model/GDC_Data_Model/#gdc-identifiers) for more details about GDC identifiers.
 
 The `projects.code` field is what connects the `case` entity to the `project` entity.  The rest of the entity connections use the `submitter_id` field instead.  
 
@@ -46,7 +60,7 @@ The `case` entity can be added in JSON or TSV format. A template for any entity 
 ```JSON
 {
     "type": "case",
-    "submitter_id": "GDC-INTERNAL-000055",
+    "submitter_id": "PROJECT-INTERNAL-000055",
     "projects": {
         "code": "INTERNAL"
     }
@@ -54,16 +68,16 @@ The `case` entity can be added in JSON or TSV format. A template for any entity 
 ```
 ```TSV
 type  submitter_id  projects.code
-case  GDC-INTERNAL-000055 INTERNAL   
+case  PROJECT-INTERNAL-000055 INTERNAL   
 ```
 
 __Note:__ JSON and TSV formats handle links between entities (`case` and `project`) differently.  JSON includes the `code` field nested within `projects` while TSV appends `code` to `projects` with a period.  
 
 [![GDC Data Model 2](images/DataModel-2.jpg)](images/DataModel-2.jpg "Click to see the full image.")
 
-### Uploading the Case Submission
+### Uploading the Case Submission File
 
-The file detailed above can be uploaded in one of two ways:
+The file detailed above can be uploaded using the Data Submission Portal and the API as described below:
 
 __Data Submission Portal:__ Each file can be uploaded using the Data Submission Portal Upload Data Wizard. First the submitter logs into the Submission Portal, chooses a project, and chooses UPLOAD on the [Dashboard](Dashboard.md). The Wizard will then pop up, allowing the submitter to drag-and-drop each file into the window, or browse to retrieve the file.  Next, choose VALIDATE and the system will determine if the file is valid for submission.  When the file has been validated, two buttons will appear:  COMMIT and DISCARD.  Choose COMMIT to upload the file to its project or DISCARD to remove the file. If the file is invalid, the transaction will appear as FAILED and will not be applied to the project. See the [Data Wizard Upload Guide](Upload_Data/#step-2-upload-data-wizard) for more details.   
 
@@ -72,7 +86,7 @@ __API:__ The API has a much broader range of functionality than the Data Wizard.
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
 ```
-CASE.json: The JSON-formatted `case` file above.  
+Where CASE.json is The JSON-formatted `case` file above.  
 
 Next, the file can either be committed (applied to the project) through the Data Submission Portal like before, or another API query can be performed that will commit the file to the project.
 
@@ -95,7 +109,7 @@ The `demographic` entity contains information that characterizes the `case` enti
 Submitting a `demographic` entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `demographic` entity
-* __`cases.submitter_id`:__ The unique key that was used for the `case`, links the `demographic` entity to the `case`
+* __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `demographic` entity to the `case`
 * __`ethnicity`:__ An individual's self-described identity as Hispanic or Latino
 * __`gender`:__ The gender of the individual
 * __`race`:__ The race of the individual based on values used by the U.S. Census Bureau
@@ -104,9 +118,9 @@ Submitting a `demographic` entity requires:
 ```JSON
 {
     "type": "demographic",
-    "submitter_id": "GDC-INTERNAL-000055-DEMOGRAPHIC-1",
+    "submitter_id": "PROJECT-INTERNAL-000055-DEMOGRAPHIC-1",
     "cases": {
-        "submitter_id": "GDC-INTERNAL-000055"
+        "submitter_id": "PROJECT-INTERNAL-000055"
     },
     "ethnicity": "not hispanic or latino",
     "gender": "male",
@@ -116,7 +130,7 @@ Submitting a `demographic` entity requires:
 ```
 ```TSV
 type	cases.submitter_id	ethnicity	gender	race	year_of_birth
-demographic	GDC-INTERNAL-000055	not hispanic or latino	male	asian	1946
+demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian	1946
 ```
 
 ### Submitting an Exposure Entity to a Case
@@ -134,9 +148,9 @@ Submitting an [Exposure](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?v
 ```JSON
 {
     "type": "exposure",
-    "submitter_id": "GDC-INTERNAL-000055-EXPOSURE-1",
+    "submitter_id": "PROJECT-INTERNAL-000055-EXPOSURE-1",
     "cases": {
-        "submitter_id": "GDC-INTERNAL-000055"
+        "submitter_id": "PROJECT-INTERNAL-000055"
     },
     "alcohol_history": "yes",
     "bmi": 27.5,
@@ -148,7 +162,7 @@ Submitting an [Exposure](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?v
 ```
 ```TSV
 type	submitter_id	cases.submitter_id	alcohol_history	bmi	cigarettes_per_day	height	weight	years_smoked
-exposure	GDC-INTERNAL-000055-EXPOSURE-1	GDC-INTERNAL-000055	yes	27.5	20	190	100	5
+exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes	27.5	20	190	100	5
 ```
 
 
@@ -165,7 +179,7 @@ A `sample` submission has the same general structure as `case` submission as it 
 Submitting a [__Sample__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=sample) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `sample`
-* __`cases.submitter_id`:__ The unique key that was used for the `case`, links the `sample` to the `case`
+* __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `sample` to the `case`
 * __`sample_type`:__ The source or cellular type of the `sample`
 
 __Note:__ The `case` must be "committed" to the project before it can be linked to the `sample`.  This also applies to all other links between entities.
@@ -174,15 +188,15 @@ __Note:__ The `case` must be "committed" to the project before it can be linked 
 {
     "type": "sample",
     "cases": {
-        "submitter_id": "GDC-INTERNAL-000055"
+        "submitter_id": "PROJECT-INTERNAL-000055"
     },
     "sample_type": "Blood Derived Normal",
-    "submitter_id": "Blood-00001_api55"
+    "submitter_id": "Blood-00001_55"
 }
 ```
 ```TSV
 type	cases.submitter_id	submitter_id	sample_type
-sample	GDC-INTERNAL-000055	Blood-00001_api55	Blood Derived Normal  
+sample	PROJECT-INTERNAL-000055	Blood-00001_55	Blood Derived Normal  
 ```
 
 [![GDC Data Model 3](images/DataModel-3.jpg)](images/DataModel-3.jpg "Click to see the full image.")
@@ -192,27 +206,27 @@ sample	GDC-INTERNAL-000055	Blood-00001_api55	Blood Derived Normal
 Submitting a [__Portion__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=portion) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `portion`
-* __`samples.submitter_id`:__ The unique key that was used for the `sample`, links the `portion` to the `sample`
+* __`samples.submitter_id`:__ The unique key that was used for the `sample` that links the `portion` to the `sample`
 
 ```JSON
 {
     "type": "portion",
     "submitter_id": "Blood-portion-000055",
     "samples": {
-        "submitter_id": "Blood-00001_api55"
+        "submitter_id": "Blood-00001_55"
     }
 }
 
 ```
 ```TSV
 type	submitter_id	samples.submitter_id
-portion	Blood-portion-000055	Blood-00001_api55
+portion	Blood-portion-000055	Blood-00001_55
 ```
 
 Submitting an [__Analyte__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=analyte) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `analyte`
-* __`portions.submitter_id`:__ The unique key that was used for the `portion`, links the `analyte` to the `portion`
+* __`portions.submitter_id`:__ The unique key that was used for the `portion` that links the `analyte` to the `portion`
 * __`analyte_type`:__ The protocol-specific molecular type of the `analyte`
 
 ```JSON
@@ -234,7 +248,7 @@ analyte	Blood-portion-000055	DNA	Blood-analyte-000055
 Submitting an [__Aliquot__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aliquot) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `aliquot`
-* __`analytes.submitter_id`:__ The unique key that was used for the `analyte`, links the `aliquot` to the `analyte`
+* __`analytes.submitter_id`:__ The unique key that was used for the `analyte` that links the `aliquot` to the `analyte`
 
 ```JSON
 {
@@ -251,7 +265,7 @@ type	submitter_id	analytes.submitter_id
 aliquot	Blood-00021-aliquot55	Blood-analyte-000055
 ```
 
-__Note:__ `aliquot` entities can be directly linked to `sample` entities.
+__Note:__ `aliquot` entities can be directly linked to `sample` entities. The `portion` and `analyte` entities are not required for submission.
 
 [![GDC Data Model 4](images/DataModel-4.jpg)](images/DataModel-4.jpg "Click to see the full image.")
 
@@ -261,7 +275,7 @@ Because information about sequencing reads is necessary for downstream analysis,
 Submitting a [__Read Group__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `read_group`
-* __`aliquot.submitter_id`:__ The unique key that was used for the `aliquot`, links the `read_group` to the `aliquot`
+* __`aliquot.submitter_id`:__ The unique key that was used for the `aliquot` that links the `read_group` to the `aliquot`
 * __`experiment_name`:__ The name of the experiment
 * __`is_paired_end`:__ If the reads are paired-end (Boolean value: `true` or `false`)
 * __`library_name`:__ The name of the library  
@@ -304,7 +318,7 @@ Before the BAM file can be submitted, the GDC requires that the user provides in
 Submitting a [__Submitted Aligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `submitted_aligned_reads`
-* __`read_groups.submitter_id`:__ The unique key that was used for the `read_group`, links the `submitted_aligned_reads` to the `read_group`
+* __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `submitted_aligned_reads` to the `read_group`
 * __`data_category`:__ A broad categorization of the data file contents
 * __`data_format`:__ The data file format
 * __`data_type`:__ The specific contents of the data file (must be "Aligned Reads")
@@ -341,12 +355,12 @@ __Note:__ Because there can be many `read_groups` included in one `submitted_ali
 
 ### Uploading the BAM File to the GDC
 
-The BAM file can be uploaded now that it is registered with the GDC. Uploading the BAM file can be performed with either the GDC Data Transfer Tool or the API. Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way.   
+The BAM file can be uploaded when it is registered with the GDC. An experiment data file is registered when the `submitted_aligned_reads` file is uploaded and committed. Uploading the BAM file can be performed with either the GDC Data Transfer Tool or the API. Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way.   
 
 __GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the portal or API) once it is registered. The following command can be used to upload the file:
 
 ```Shell
-gdc-client upload --project-id GDC-INTERNAL --identifier a053fad1-adc9-4f2d-8632-923579128985 -t $token -f $path_to_file
+gdc-client upload --project-id PROJECT-INTERNAL --identifier a053fad1-adc9-4f2d-8632-923579128985 -t $token -f $path_to_file
 ```   
 
 Additionally a manifest can be downloaded from the Submission Portal and passed to the Data Transfer Tool, this will allow for the upload of more than one `submittable_data_file`:
@@ -357,7 +371,7 @@ gdc-client upload -m manifest.yml -t $token
 __API Upload:__  A `submittable_data_file` can be uploaded through the API by using the `/submission/program/project/files` endpoint.  The following command would be typically used to upload a file:  
 
 ```Shell
-curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@test.bam
+curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/PROJECT/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@test.bam
 
 ```
 
@@ -366,17 +380,17 @@ For more details on how to upload a `submittable_data_file` to a project see the
 
 ## Metadata File Submission
 
-The `experiment_metadata` entity contains information about the experiment that was performed to produce each `read_group`. Unlike the previous two entities outlined, only information about the `experiment_metadata` file itself (SRA XML) is indexed and the `experiment_metadata` file is submitted in the same way that a BAM file would be submitted.
+The `experiment_metadata` entity contains information about the experiment that was performed to produce each `read_group`. Unlike the previous two entities outlined, only information about the `experiment_metadata` file itself (SRA XML) is applied to the entity (indexed) and the `experiment_metadata` file is submitted in the same way that a BAM file would be submitted.
 
 Submitting an __Experiment Metadata__ entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `experiment_metadata` entity
-* __`read_groups.submitter_id`:__ The unique key that was used for the `read_group`, links the`experiment_metadata` entity to the `read_group`
+* __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `experiment_metadata` entity to the `read_group`
 * __`data_category`:__ Broad categorization of the data file
 * __`data_format`:__ Format of the data file (must be "SRA XML")
 * __`data_type`:__ Specific contents of the data file (must be "Experiment Metadata")
 * __`file_name`:__ The name of the file  
-* __`file_size`:__ The size of the file (number)
+* __`file_size`:__ The size of the file in bytes (number)
 * __`md5sum`:__ 128-bit hash value expressed as a 32 digit hexadecimal number   
 
 ```JSON
@@ -403,7 +417,7 @@ experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Bloo
 ## Strategies for Submitting in Bulk
 
 
-Each submission in the previous two sections was broken down by component to demonstrate the GDC Data Model structure.
+Each submission in the previous sections was broken down by component to demonstrate the GDC Data Model structure. However, the submission of multiple entities at once is supported and encouraged. Here two strategies for submitting data in an efficient manner are discussed.   
 
 ### Registering a BAM File: One Step
 
@@ -412,7 +426,7 @@ Registering a BAM file (or any other type) can be performed in one step by inclu
 ```JSON
 [{
     "type": "case",
-    "submitter_id": "GDC-INTERNAL-000055",
+    "submitter_id": "PROJECT-INTERNAL-000055",
     "projects": {
         "code": "INTERNAL"
     }
@@ -420,16 +434,16 @@ Registering a BAM file (or any other type) can be performed in one step by inclu
 {
     "type": "sample",
     "cases": {
-        "submitter_id": "GDC-INTERNAL-000055"
+        "submitter_id": "PROJECT-INTERNAL-000055"
     },
     "sample_type": "Blood Derived Normal",
-    "submitter_id": "Blood-00001_api55"
+    "submitter_id": "Blood-00001_55"
 },
 {
     "type": "portion",
     "submitter_id": "Blood-portion-000055",
     "samples": {
-        "submitter_id": "Blood-00001_api55"
+        "submitter_id": "Blood-00001_55"
     }
 },
 {
@@ -483,7 +497,7 @@ Registering a BAM file (or any other type) can be performed in one step by inclu
 
 All of the entities are placed into a JSON list object:
 
-`[entity-1, entity-2, entity-3]`
+`[{"type": "case","submitter_id": "PROJECT-INTERNAL-000055","projects": {"code": "INTERNAL"}}}, entity-2, entity-3]`
 
 The entities need not be in any particular order as they are validated together.
 
@@ -493,7 +507,7 @@ __Note:__ For this type of submission, a tab-delimited format is not recommended
 
 The GDC understands that submitters will have projects that comprise more entities than would be reasonable to individually parse into JSON formatted files. Additionally, many investigators store large amounts of data in a tab-delimited format (TSV).  For instances like this, we recommend parsing all entities of the same type into separate TSVs and submitting them on a type-basis.  
 
-For example, a user may want to submit 100 Cases associated with 100 `samples`, 100 `portions`, 100 `analytes`, 100 `aliquots`, and 100 `read_groups`. Constructing and submitting 100 JSON files would be tedious and difficult to organize. Submitting one `case` TSV, one `sample` TSV, and the rest would require six TSVs and can be formatted in programs such as Microsoft Excel or Google Spreadsheets.  
+For example, a user may want to submit 100 Cases associated with 100 `samples`, 100 `portions`, 100 `analytes`, 100 `aliquots`, and 100 `read_groups`. Constructing and submitting 100 JSON files would be tedious and difficult to organize. Submitting one `case` TSV containing 100 `cases`, one `sample` TSV containing 100 `samples`, and the rest would require six TSVs and can be formatted in programs such as Microsoft Excel or Google Spreadsheets.  
 
 See the following example TSV files:
 
