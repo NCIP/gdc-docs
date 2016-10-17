@@ -7,10 +7,11 @@
 
 ### New updates
 
-1. TARGET ALL P1 and P2 are now available in the Data Portal and Legacy Archive <!-- Dat-185, Dat-194-->
+1.  TARGET ALL P1 and P2 biospecimen and molecular data are now available in the Legacy Archive.  Clinical data will be available in a later release. <!-- Dat-185, Dat-194-->
 2.  Methylation data from 27k/450k Arrays has been lifted over to hg38 and is now available in the GDC Data Portal <!-- Dat-109 -->
-3.  Tissue source site node has been removed from Data Model <!-- Dat-160-->
-4.  New VCFs and MAF files for the Mutect2 pipelines are available.  See additional information on that change [here](https://gdc.cancer.gov/about-gdc/scientific-reports/known-mutect2-variant-artifacts).  <!-- Dat-145, Dat-260 -->
+3.  Public MAFs are now available for SomaticSniper, VarScan2, and MuSE <!--DAT-235-->
+4.  New VCFs and MAF files for the MuTect2 pipelines are available.  See additional information on that change [here](https://gdc.cancer.gov/about-gdc/scientific-reports/known-mutect2-variant-artifacts).  <!-- Dat-145, Dat-260 -->
+5.  Added submitter_id for Pathology Reports in Legacy Archive <!--DAT-81-->
 
 ### Bugs Fixed Since Last Release
 
