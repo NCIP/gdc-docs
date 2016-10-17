@@ -1,15 +1,34 @@
 # Submission Examples
 This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first two sections of this guide break down the submission process and associate each step with the Data Model. See the sections below for strategies on expediting data submission.   
 
-## Submitting a BAM Alignment: Data Model Basics
+## Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The entities that make up the completed portion of the submission process are highlighted in __green__ and the current target entities for submission is highlighted in __red__. Because BAM files are made up of aligned reads, they fall into the "Submitted Aligned Reads" category of the GDC. Before submission can begin, the Program and Project must be approved and set by the GDC, which is why they are highlighted in green from the start.
+Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The entities that make up the completed portion of the submission process are highlighted in __green__ and the current target entities for submission is highlighted in __red__. Because BAM files are made up of aligned reads, they fall into the "Submitted Aligned Reads" category of the GDC.
 
 [![GDC Data Model 1](images/DataModel-1.jpg)](images/DataModel-1.jpg "Click to see the full image.")
 
-### Case Submission
+## Program and Project Registration
 
-The main entity of the GDC Data Model is the `case`, which must be registered beforehand with dbGaP. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Each and every entity requires a connection to another entity and a `submitter_id`.
+Before submission can begin, the Program and Project must be approved and set by the GDC.
+
+### Program and Project Approval
+
+Each submitter must first obtain an eRA Commons account and apply for data submitter access through dbGaP. The submitter must also register each study in dbGaP before a program and project can be designated for each in the GDC.  When data submission privileges and study approval is obtained by dbGaP, the submitter contacts the [GDC Help Desk](https://gdc.cancer.gov/support) to set up a submission project. See the [Obtaining Access to Submit Data](https://gdc.cancer.gov/submit-data/obtaining-access-submit-data) guide for more details.  
+
+### Program and Project Naming Conventions
+
+The program is assigned a `program.name`, which uniquely identifies that program. The projects that make up programs and assigned a `project.code`, which uniquely identify each project. The `project_id` is the main identifier for the project in the GDC system and comprises the `program.name` with the `project.code` appended to it with a dash.  For example:
+
+```
+program.name = TCGA
+project.code = BRCA
+project.project_id = TCGA-BRCA
+```  
+
+
+## Case Submission
+
+The main entity of the GDC Data Model is the `case`, each of which must be registered beforehand with dbGaP under a unique `submitter_id`. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Each and every entity requires a connection to another entity and a `submitter_id`.
 
 [![Dictionary Case](images/Dictionary_Case.png)](images/Dictionary_Case.png "Click to see the full image.")
 
@@ -21,8 +40,6 @@ Submitting a [__Case__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?vi
 The submitter ID is different from the universally unique identifier (UUID), which can be accessed under the `<entity_type>_id` field for each entity. The UUID is either assigned to each entity automatically or can be submitted by the user.  See the [Data Model Users Guide](https://gdc-docs.nci.nih.gov/Data/Data_Model/GDC_Data_Model/#gdc-identifiers) for more details about GDC identifiers.
 
 The `projects.code` field is what connects the `case` entity to the `project` entity.  The rest of the entity connections use the `submitter_id` field instead.  
-
-
 
 The `case` entity can be added in JSON or TSV format. A template for any entity in either of these formats can be found in the Data Dictionary at the top of each page. Templates populated with `case` metadata in both formats are displayed below.  
 
@@ -64,6 +81,79 @@ curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/
 ```
 
 See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-updating-entities) for details on submission and the rest of the functionalities of the API.
+
+## Clinical Submission
+
+Typically a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data. The project also may include additional information about the experimental procedures used to produce the data.  The clinical data will be associated with the `case` entity and metadata can be associated with the `read_group` and `submitted_aligned_reads` entities.  See the diagram below for how these data types can be associated with each entity.
+
+[![GDC Data Model Meta](images/Data_Model_Meta.jpg)](images/Data_Model_Meta.jpg "Click to see the full image.")
+
+### Submitting a Demographic Entity to a Case
+
+The `demographic` entity contains information that characterizes the `case` entity, which refers to a  patient in most instances.  
+
+Submitting a `demographic` entity requires:
+
+* __`submitter_id`:__ A unique key to identify the `demographic` entity
+* __`cases.submitter_id`:__ The unique key that was used for the `case`, links the `demographic` entity to the `case`
+* __`ethnicity`:__ An individual's self-described identity as Hispanic or Latino
+* __`gender`:__ The gender of the individual
+* __`race`:__ The race of the individual based on values used by the U.S. Census Bureau
+* __`year_of_birth`:__ The calendar year in which an individual was born.  
+
+```JSON
+{
+    "type": "demographic",
+    "submitter_id": "GDC-INTERNAL-000055-DEMOGRAPHIC-1",
+    "cases": {
+        "submitter_id": "GDC-INTERNAL-000055"
+    },
+    "ethnicity": "not hispanic or latino",
+    "gender": "male",
+    "race": "asian",
+    "year_of_birth": "1946"
+}
+```
+```TSV
+type	cases.submitter_id	ethnicity	gender	race	year_of_birth
+demographic	GDC-INTERNAL-000055	not hispanic or latino	male	asian	1946
+```
+
+### Submitting an Exposure Entity to a Case
+
+Submitting an [Exposure](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  The following fields are optionally included:  
+
+* __`alcohol_history`:__ If the individual has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime
+* __`alcohol_intensity`:__ An individual's self-reported level of alcohol use
+* __`bmi`:__ Body mass divided by body height squared (number)
+* __`cigarettes_per_day`:__ The average number of cigarettes smoked per day (number)
+* __`height`:__ The height of the individual in cm (number)
+* __`weight`:__ The weight of the individual in kg (number)
+* __`years_smoked`:__ The number of years an individual has been smoking (number)
+
+```JSON
+{
+    "type": "exposure",
+    "submitter_id": "GDC-INTERNAL-000055-EXPOSURE-1",
+    "cases": {
+        "submitter_id": "GDC-INTERNAL-000055"
+    },
+    "alcohol_history": "yes",
+    "bmi": 27.5,
+    "cigarettes_per_day": 20,
+    "height": 190,
+    "weight": 100,
+    "years_smoked": 5
+}
+```
+```TSV
+type	submitter_id	cases.submitter_id	alcohol_history	bmi	cigarettes_per_day	height	weight	years_smoked
+exposure	GDC-INTERNAL-000055-EXPOSURE-1	GDC-INTERNAL-000055	yes	27.5	20	190	100	5
+```
+
+
+
+## Biospecimen Submission
 
 ### Sample Submission
 
@@ -207,7 +297,7 @@ read_group	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Resequencing	true	Solexa-3
 
 [![GDC Data Model 5](images/DataModel-5.jpg)](images/DataModel-5.jpg "Click to see the full image.")
 
-### Submitted Aligned-Reads Submission
+## Experiment Data Submission
 
 Before the BAM file can be submitted, the GDC requires that the user provides information about the `submittable_data_file` (in this case, the BAM file itself).  This includes file-specific data needed to validate the file and assess which analyses should be performed.  
 
@@ -274,76 +364,7 @@ curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v
 For more details on how to upload a `submittable_data_file` to a project see the [API Users Guide](API/Users_Guide/Submission/) and the [Data Transfer Tool Users Guide](Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/).  
 
 
-## Adding Clinical or Metadata Files to an Entity.
-
-Typically a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data. The project also may include additional information about the experimental procedures used to produce the data.  The clinical data will be associated with the `case` entity and metadata can be associated with the `read_group` and `submitted_aligned_reads` entities.  See the diagram below for how these data types can be associated with each entity.
-
-[![GDC Data Model Meta](images/Data_Model_Meta.jpg)](images/Data_Model_Meta.jpg "Click to see the full image.")
-
-### Submitting a Demographic Entity to a Case
-
-The `demographic` entity contains information that characterizes the `case` entity, which refers to a  patient in most instances.  
-
-Submitting a `demographic` entity requires:
-
-* __`submitter_id`:__ A unique key to identify the `demographic` entity
-* __`cases.submitter_id`:__ The unique key that was used for the `case`, links the `demographic` entity to the `case`
-* __`ethnicity`:__ An individual's self-described identity as Hispanic or Latino
-* __`gender`:__ The gender of the individual
-* __`race`:__ The race of the individual based on values used by the U.S. Census Bureau
-* __`year_of_birth`:__ The calendar year in which an individual was born.  
-
-```JSON
-{
-    "type": "demographic",
-    "submitter_id": "GDC-INTERNAL-000055-DEMOGRAPHIC-1",
-    "cases": {
-        "submitter_id": "GDC-INTERNAL-000055"
-    },
-    "ethnicity": "not hispanic or latino",
-    "gender": "male",
-    "race": "asian",
-    "year_of_birth": "1946"
-}
-```
-```TSV
-type	cases.submitter_id	ethnicity	gender	race	year_of_birth
-demographic	GDC-INTERNAL-000055	not hispanic or latino	male	asian	1946
-```
-
-### Submitting an Exposure Entity to a Case
-
-Submitting an [Exposure](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  The following fields are optionally included:  
-
-* __`alcohol_history`:__ If the individual has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime
-* __`alcohol_intensity`:__ An individual's self-reported level of alcohol use
-* __`bmi`:__ Body mass divided by body height squared (number)
-* __`cigarettes_per_day`:__ The average number of cigarettes smoked per day (number)
-* __`height`:__ The height of the individual in cm (number)
-* __`weight`:__ The weight of the individual in kg (number)
-* __`years_smoked`:__ The number of years an individual has been smoking (number)
-
-```JSON
-{
-    "type": "exposure",
-    "submitter_id": "GDC-INTERNAL-000055-EXPOSURE-1",
-    "cases": {
-        "submitter_id": "GDC-INTERNAL-000055"
-    },
-    "alcohol_history": "yes",
-    "bmi": 27.5,
-    "cigarettes_per_day": 20,
-    "height": 190,
-    "weight": 100,
-    "years_smoked": 5
-}
-```
-```TSV
-type	submitter_id	cases.submitter_id	alcohol_history	bmi	cigarettes_per_day	height	weight	years_smoked
-exposure	GDC-INTERNAL-000055-EXPOSURE-1	GDC-INTERNAL-000055	yes	27.5	20	190	100	5
-```
-
-### Submitting an Experiment Metadata Entity to a Read Group
+## Metadata File Submission
 
 The `experiment_metadata` entity contains information about the experiment that was performed to produce each `read_group`. Unlike the previous two entities outlined, only information about the `experiment_metadata` file itself (SRA XML) is indexed and the `experiment_metadata` file is submitted in the same way that a BAM file would be submitted.
 
@@ -378,7 +399,6 @@ Submitting an __Experiment Metadata__ entity requires:
 type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
 experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
 ```
-
 
 ## Strategies for Submitting in Bulk
 
