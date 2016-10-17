@@ -80,7 +80,7 @@
       // Exclude the below from download
       var excludeCategories = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST;
 
-      if (excludeCategories.indexOf(_tableDefinitionView._dictionaryData.category.toLowerCase()) < 0) {
+      if (excludeCategories.indexOf(_tableDefinitionView._dictionaryData.ui_category.toLowerCase()) < 0) {
 
         var updateHREFFunction = function() {
           d3.select(this)
@@ -478,7 +478,6 @@
 
     function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData,
-        category = _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
         uniqueKeys = _.get(dictionaryData, 'uniqueKeys', [_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL]);
 
       tableContainerSelection.append('h2')
@@ -495,7 +494,7 @@
 
       var dataRows = [
         {id: 'type', title: 'Type', value: dictionaryData.id},
-        {id: 'category', title: 'Category', value: category},
+        {id: 'category', title: 'Category', value: dictionaryData.category},
         {id: 'description', title: 'Description', value: dictionaryData.description},
         {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
       ];
@@ -979,7 +978,7 @@
             }
 
             var exclusions = category === 'submittable_data_file' ?
-              _tableEntityListView._dictionaryData.dictionaryMapByCategory.data_file.map(function(f) { return f.id; }) :
+              _tableEntityListView._dictionaryData.dictionaryMapByCategory.generated_data_file.map(function(f) { return f.id; }) :
               _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES[category];
             var inclusions = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[category];
 

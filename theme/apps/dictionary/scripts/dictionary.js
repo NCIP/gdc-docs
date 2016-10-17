@@ -411,15 +411,17 @@
       clinical: 'Clinical',
       biospecimen: 'Biospecimen',
       annotation: 'Annotations',
-      data_file: 'Generated Data Files',
+      data_file: 'Data Files',
+      generated_data_file: 'Generated Data Files',
       references: 'References',
       administrative: 'Administrative',
+      metadata_file: 'Metadata Files',
       tbd: 'References',
       index_file: 'Index',
       submittable_data_file: 'Submittable Data Files',
     },
-    ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'submittable_data_file', 'data_file', 'annotation', 'administrative', 'analysis', 'notation'],
-    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative', 'index_file', 'analysis', 'notation', 'data_file'],
+    ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'submittable_data_file', 'generated_data_file', 'annotation', 'administrative', 'analysis', 'notation'],
+    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative', 'index_file', 'analysis', 'notation', 'generated_data_file'],
     CATEGORY_EXCLUDES: ['TBD'],
     CATEGORY_TEMPLATE_EXCLUDES: {
       clinical: ['clinical'],
@@ -814,19 +816,23 @@
           acc.dictionaries = acc.dictionaries.concat(dictionary);
         }
         // categorize by 'category' field except for data_file and metadata_file
-        // furthur break those down into 'Submittable Data Files' (submittable) and 'Data Files' (!submittable)
+        // furthur break those down into 'Submittable Data Files' (submittable) and 'Generated Data Files' (!submittable)
+        // and add a ui_category key to reflect this (affects download template button display)
+        dictionary.ui_category = dictionary.category;
         if (dictionary.category === 'data_file' || dictionary.category === 'metadata_file') {
           if (dictionary.submittable) {
+            dictionary.ui_category = "sumbittable_data_file";
             acc.dictionaryMapByCategory.submittable_data_file = acc.dictionaryMapByCategory.submittable_data_file.concat(dictionary);
           } else {
-            acc.dictionaryMapByCategory.data_file = acc.dictionaryMapByCategory.data_file.concat(dictionary);
+            dictionary.ui_category = 'generated_data_file';
+            acc.dictionaryMapByCategory.generated_data_file = acc.dictionaryMapByCategory.generated_data_file.concat(dictionary);
           }
         } else {
           acc.dictionaryMapByCategory[dictionary.category] = (acc.dictionaryMapByCategory[dictionary.category] || []).concat(dictionary);
         }
       }
       return acc;
-    }, {dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {'submittable_data_file': [], 'data_file': []}});
+    }, {dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {'submittable_data_file': [], 'generated_data_file': []}});
     return r;
   }
   /////////////////////////////////////////////////////////
