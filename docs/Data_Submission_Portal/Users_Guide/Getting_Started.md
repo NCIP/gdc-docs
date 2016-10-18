@@ -58,7 +58,7 @@ Submitters can access a list of all actions performed in a project by clicking o
 
 ### Submission Project Examples
 
-Step-by-step instructions on GDC data submission and their relationship to the GDC Data Model are detailed in the [Submission Examples](Examples.md) guide.
+Step-by-step instructions on GDC data submission and their relationship to the GDC Data Model are detailed in the [Data Upload Users Guide](Data_Upload_UG.md) guide.
 
 ## Release Notes
 

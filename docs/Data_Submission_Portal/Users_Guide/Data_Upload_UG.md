@@ -1,11 +1,11 @@
-# Submission Examples
+# Data Submission and Upload User Guide
 This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first two sections of this guide break down the submission process and associate each step with the Data Model. See the sections below for strategies on expediting data submission.   
 
 ## GDC Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model.  This will work as a roadmap for GDC data submission. The entities that make up the completed portion of the submission process are highlighted in __green__.
+Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. The entities that make up the completed portion of the submission process are highlighted in __blue__.
 
-[![GDC Data Model 1](images/DataModel-1.jpg)](images/DataModel-1.jpg "Click to see the full image.")
+[![GDC Data Model 1](images/GDC-Data-Model-None.png)](images/GDC-Data-Model-None.png "Click to see the full image.")
 
 Each entity type is represented with an oval in the above graphic. Any submitted entity requires a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier.
 
@@ -42,6 +42,8 @@ project.project_id = TCGA-BRCA
 
 ## Case Submission
 
+[![GDC Data Model 2](images/GDC-Data-Model-Case.png)](images/GDC-Data-Model-Case.png "Click to see the full image.")
+
 The main entity of the GDC Data Model is the `case`, each of which must be registered beforehand with dbGaP under a unique `submitter_id`. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field.
 
 [![Dictionary Case](images/Dictionary_Case.png)](images/Dictionary_Case.png "Click to see the full image.")
@@ -73,28 +75,67 @@ case  PROJECT-INTERNAL-000055 INTERNAL
 
 __Note:__ JSON and TSV formats handle links between entities (`case` and `project`) differently.  JSON includes the `code` field nested within `projects` while TSV appends `code` to `projects` with a period.  
 
-[![GDC Data Model 2](images/DataModel-2.jpg)](images/DataModel-2.jpg "Click to see the full image.")
 
-### Uploading the Case Submission File
+## Uploading the Case Submission File
 
 The file detailed above can be uploaded using the Data Submission Portal and the API as described below:
 
-__Data Submission Portal:__ Each file can be uploaded using the Data Submission Portal Upload Data Wizard. First the submitter logs into the Submission Portal, chooses a project, and chooses UPLOAD on the [Dashboard](Dashboard.md). The Wizard will then pop up, allowing the submitter to drag-and-drop each file into the window, or browse to retrieve the file.  Next, choose VALIDATE and the system will determine if the file is valid for submission.  When the file has been validated, two buttons will appear:  COMMIT and DISCARD.  Choose COMMIT to upload the file to its project or DISCARD to remove the file. If the file is invalid, the transaction will appear as FAILED and will not be applied to the project. See the [Data Wizard Upload Guide](Upload_Data/#step-2-upload-data-wizard) for more details.   
+### Upload - Data Submission Portal
 
-__API:__ The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. Generally data upload through the API can be performed using the following command:
+#### 1. Upload Files
+
+An example of a `case` upload is detailed below. The GDC Data Submission Portal is equipped with a wizard window to facilitate the upload and validation of entities. The Upload Data Wizard comprises two stages:
+
+* __Upload Entities__: Upload an entity into the user's browser, at this point nothing is submitted to the project workspace.
+* __Validate Entities__: Send an entity to the GDC backend to validate its content (see below).
+
+The 'Entity Validation' stage acts as a safeguard against submitting incorrectly formatted entities to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of uploaded entities against the Data Dictionary to detect potential errors. Invalid entities will not be processed and must be corrected by the user and re-uploaded before being accepted. A validation error report provided by the system can be used to isolate and correct errors.
+
+Choosing _'UPLOAD'_ from the project dashboard will open the Upload Data Wizard.
+
+[![GDC Submission Wizard Upload Files](images/GDC_Submission_Wizard_Upload_2.png)](images/GDC_Submission_Wizard_Upload_2.png "Click to see the full image.")
+
+Files containing one or more entities can be added either by clicking on _'CHOOSE FILE(S)'_ or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the _'garbage can'_ icon next to the file.
+
+#### 2. Validate Entities
+
+When the first file is added, the wizard will move to the _'VALIDATE'_ section and the user can continue to add files.
+
+[![GDC Submission Wizard Validate Files](images/GDC_Submission_Portal_Validate.png)](images/GDC_Submission_Portal_Validate.png "Click to see the full image.")
+
+When all files have been added, choosing _'VALIDATE'_ will run a test to check if the entities are valid for submission.
+
+#### 3. Commit or Discard Files
+If the upload contains valid entities, a new transaction will appear in the latest transactions panel with the option to _'COMMIT'_ or _'DISCARD'_ the data. Entities contained in these files can be committed (applied) to the project or discarded using these two buttons.
+
+If the upload contains invalid files, a transaction will appear with a FAILED status. Invalid files will need to be either corrected and re-uploaded or removed from the submission. If more than one file is uploaded and at least one is not valid, the validation step will fail for all files.  
+
+[![Commit_Discard](images/GDC_Submission_CommitDiscard.png)](images/GDC_Submission_CommitDiscard.png "Click to see the full image.")
+
+
+### Upload - API
+
+The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-updating-entities) for a more detailed explanation and a for the rest of the functionalities of the API. Generally data upload through the API can be performed using the following command:
 
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
 ```
-Where CASE.json is The JSON-formatted `case` file above.  
 
-Next, the file can either be committed (applied to the project) through the Data Submission Portal like before, or another API query can be performed that will commit the file to the project.
+```CASE.json
+{
+    "type": "case",
+    "submitter_id": "PROJECT-INTERNAL-000055",
+    "projects": {
+        "code": "INTERNAL"
+    }
+}
+```
+
+Next, the file can either be committed (applied to the project) through the Data Submission Portal as before, or another API query can be performed that will commit the file to the project. The transaction number in the URL (467) is printed to the console during the first step of API submission and can also be retrieved from the 'Transactions' tab in the Data Submission Portal.
 
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
 ```
-
-See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-updating-entities) for details on submission and the rest of the functionalities of the API.
 
 ## Clinical Submission
 
@@ -165,11 +206,13 @@ type	submitter_id	cases.submitter_id	alcohol_history	bmi	cigarettes_per_day	heig
 exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes	27.5	20	190	100	5
 ```
 
-
+__Note:__ Submitting a clinical entity uses the same conventions as submitting a `case` entity (detailed above).
 
 ## Biospecimen Submission
 
 ### Sample Submission
+
+[![GDC Data Model 3](images/GDC-Data-Model-Sample.png)](images/GDC-Data-Model-Sample.png "Click to see the full image.")
 
 A `sample` submission has the same general structure as `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require one additional value:  `sample_type`. This peripheral data is required because it is necessary for the data to be interpreted. For example, an investigator using this data would need to know whether the `sample` came from tumor or normal tissue.  
 
@@ -199,9 +242,12 @@ type	cases.submitter_id	submitter_id	sample_type
 sample	PROJECT-INTERNAL-000055	Blood-00001_55	Blood Derived Normal  
 ```
 
-[![GDC Data Model 3](images/DataModel-3.jpg)](images/DataModel-3.jpg "Click to see the full image.")
+
 
 ### Portion, Analyte, and Aliquot Submission
+
+[![GDC Data Model 4](images/GDC-Data-Model-Aliquot.png)](images/GDC-Data-Model-Aliquot.png "Click to see the full image.")
+
 
 Submitting a [__Portion__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=portion) entity requires:
 
@@ -267,9 +313,11 @@ aliquot	Blood-00021-aliquot55	Blood-analyte-000055
 
 __Note:__ `aliquot` entities can be directly linked to `sample` entities. The `portion` and `analyte` entities are not required for submission.
 
-[![GDC Data Model 4](images/DataModel-4.jpg)](images/DataModel-4.jpg "Click to see the full image.")
 
 ### Read Group Submission
+
+[![GDC Data Model 5](images/GDC-Data-Model-RG.png)](images/GDC-Data-Model-RG.png "Click to see the full image.")
+
 Because information about sequencing reads is necessary for downstream analysis, the `read_group` entity requires more fields than the other Biospecimen entities (`sample`, `portion`, `analyte`, `aliquot`).
 
 Submitting a [__Read Group__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) entity requires:
@@ -309,11 +357,13 @@ type	submitter_id	experiment_name	is_paired_end	library_name	library_strategy	pl
 read_group	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Resequencing	true	Solexa-34688	WXS	Illumina	205DD.3-2	75	BI	Blood-00021-aliquot55
 ```
 
-[![GDC Data Model 5](images/DataModel-5.jpg)](images/DataModel-5.jpg "Click to see the full image.")
+__Note:__ Submitting a biospecimen entity uses the same conventions as submitting a `case` entity (detailed above).
 
 ## Experiment Data Submission
 
-Before the BAM file can be submitted, the GDC requires that the user provides information about the `submittable_data_file` (in this case, the BAM file itself).  This includes file-specific data needed to validate the file and assess which analyses should be performed.  
+[![GDC Data Model 5](images/GDC-Data-Model-Reads.png)](images/GDC-Data-Model-Reads.png "Click to see the full image.")
+
+Before the experiment data file can be submitted, the GDC requires that the user provides information about the file as a `submittable_data_file` entity. This includes file-specific data needed to validate the file and assess which analyses should be performed. Sequencing data files can be submitted as `submitted_aligned_reads` or `submitted_unaligned_reads`.
 
 Submitting a [__Submitted Aligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads) entity requires:
 
@@ -353,9 +403,47 @@ submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Seque
 
 __Note:__ Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV.  This relationship can be expressed with a JSON-formatted list object (comma-separated in square brackets).   
 
-### Uploading the BAM File to the GDC
+Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) entity requires:
 
-The BAM file can be uploaded when it is registered with the GDC. An experiment data file is registered when the `submitted_aligned_reads` file is uploaded and committed. Uploading the BAM file can be performed with either the GDC Data Transfer Tool or the API. Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way.   
+* __`submitter_id`:__ A unique key to identify the `submitted_unaligned_reads`
+* __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `submitted_unaligned_reads` to the `read_group`
+* __`data_category`:__ A broad categorization of the data file contents
+* __`data_format`:__ The data file format
+* __`data_type`:__ The specific contents of the data file (must be "Unaligned Reads")
+* __`experimental_strategy`:__ The sequencing strategy used to generate the file  
+* __`file_name`:__ The name of the file
+* __`file_size`:__ The size of the file in bytes (integer)
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number
+
+
+```JSON
+{
+    "type": "submitted_unaligned_reads",
+    "submitter_id": "Blood-00001-aliquot_lane2_barcodeACGTAC_55.fastq",
+    "data_category": "Raw Sequencing Data",
+    "data_format": "FASTQ",
+    "data_type": "Unaligned Reads",
+    "experimental_strategy": "WGS",
+    "file_name": "test.fastq",
+    "file_size": 38,
+    "md5sum": "901d48b862ea5c2bcdf376da82f2d22f",
+    "read_groups": [
+        {
+            "submitter_id": "Blood-00001-aliquot_lane2_barcodeACGTAC_55"
+        }
+    ]
+}
+```
+```TSV
+type	submitter_id	data_category	data_format	data_type	experimental_strategy	file_name	file_size	md5sum	read_groups.submitter_id#1
+submitted_unaligned_reads	Blood-00001-aliquot_lane2_barcodeACGTAC_55.fastq	Raw Sequencing Data	FASTQ	Unaligned Reads	WGS	test.fastq	38	901d48b862ea5c2bcdf376da82f2d22f	Blood-00001-aliquot_lane2_barcodeACGTAC_55
+```
+
+__Note:__ Submitting an experiment data entity uses the same conventions as submitting a `case` entity (detailed above).
+
+### Uploading the Submittable Data File to the GDC
+
+The submittable data file can be uploaded when it is registered with the GDC. An submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. Uploading the file can be performed with either the GDC Data Transfer Tool or the API. Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the GDC [Submitted Data Types and File Formats](https://gdc.cancer.gov/about-data/data-types-and-file-formats/submitted-data-types-and-file-formats) website.
 
 __GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the portal or API) once it is registered. The following command can be used to upload the file:
 
@@ -371,7 +459,7 @@ gdc-client upload -m manifest.yml -t $token
 __API Upload:__  A `submittable_data_file` can be uploaded through the API by using the `/submission/program/project/files` endpoint.  The following command would be typically used to upload a file:  
 
 ```Shell
-curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/PROJECT/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@test.bam
+curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/PROJECT/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@$path_to_file
 
 ```
 
@@ -503,7 +591,7 @@ The entities need not be in any particular order as they are validated together.
 
 __Note:__ For this type of submission, a tab-delimited format is not recommended due to the inability of this format to accommodate multiple 'types' in one row.  
 
-### Registering Numerous Cases
+### Submitting Numerous Cases
 
 The GDC understands that submitters will have projects that comprise more entities than would be reasonable to individually parse into JSON formatted files. Additionally, many investigators store large amounts of data in a tab-delimited format (TSV).  For instances like this, we recommend parsing all entities of the same type into separate TSVs and submitting them on a type-basis.  
 
@@ -517,3 +605,15 @@ See the following example TSV files:
 * [Analytes.tsv](Analytes.tsv)
 * [Aliquots.tsv](Aliquots.tsv)
 * [Read-Groups.tsv](Readgroups.tsv)
+
+## Download Previously Uploaded Files
+
+The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
+
+__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.  
+
+[![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files_2.png)](images/GDC_Submission_Transactions_Original_Files_2.png "Click to see the full image.")
+
+## Deleting Previously Uploaded Files
+
+The GDC Data Submission Portal does not support the deletion of entities at this time. This can be performed using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.
