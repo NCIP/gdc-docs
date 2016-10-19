@@ -14,6 +14,8 @@ To better understand the information displayed on the dashboard and the availabl
 ## Project Overview
 The Project Overview sections of the dashboard displays the project state (open / review / submitted / processing) and the GDC Release, which is the date in which the project was released to the GDC.
 
+The search field at the top of the dashboard allows for submitted entities to be searched by partial or whole `submitter_id`.  When a search term is entered into the field, a list of entities matching the term is updated in real time.  Selecting one of these entities links to its details in the [Browse Tab](Browse_Data.md)
+
 The remaining part of the top section of the dashboard is broken down into four status charts:
 
 * __Cases with Clinical__: The number of cases for which Clinical data has been uploaded.

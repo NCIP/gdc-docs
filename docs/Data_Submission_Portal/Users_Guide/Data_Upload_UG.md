@@ -1,13 +1,13 @@
-# Data Submission and Upload User Guide
-This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first two sections of this guide break down the submission process and associate each step with the Data Model. See the sections below for strategies on expediting data submission.   
+# Data Upload Tutorial
+This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first two sections of this guide break down the submission process and associate each step with the Data Model. Additional sections are detailed below for strategies on expediting data submission.
 
 ## GDC Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. The entities that make up the completed portion of the submission process are highlighted in __blue__.
+Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. The entities that make up the completed portion of the submission process will be highlighted in __blue__.
 
 [![GDC Data Model 1](images/GDC-Data-Model-None.png)](images/GDC-Data-Model-None.png "Click to see the full image.")
 
-Each entity type is represented with an oval in the above graphic. Any submitted entity requires a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier.
+Each entity type is represented with an oval in the above graphic. All submitted entities require a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier.
 
 ### The Case Entity and Clinical Data
 
@@ -15,11 +15,11 @@ The `case` is the center of the GDC Data Model and usually describes a specific 
 
 ### Biospecimen Data
 
-One of the main features of the GDC is genomic data harmonization. Genomic data is connected the the case through biospecimen entities.  The `sample` entity describes a biological piece of matter that originated from a `case`.  Subsets of the `sample` such as `portions` and `analytes` can optionally be described.  The `aliquot` originates from a `sample` or `analyte` and describes the nucleic acid extract that was sequenced. The `read_group` entity describes the resulting set of reads from one sequencing lane.
+One of the main features of the GDC is the genomic data harmonization workflow. Genomic data is connected the the case through biospecimen entities.  The `sample` entity describes a biological piece of matter that originated from a `case`.  Subsets of the `sample` such as `portions` and `analytes` can optionally be described.  The `aliquot` originates from a `sample` or `analyte` and describes the nucleic acid extract that was sequenced. The `read_group` entity describes the resulting set of reads from one sequencing lane.
 
 ### Experiment Data
 
-Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with `read_group` entity. While the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these types of files are described in their respective entity submission and are uploaded separately using the API or the GDC Data Transfer Tool.  
+Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with the `read_group` entity. While the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these file types are described in their respective entity submission and are uploaded separately using the API or the GDC Data Transfer Tool.  
 
 ## Program and Project Registration
 
@@ -33,7 +33,7 @@ Each new project must [request submission access](https://gdc.cancer.gov/node/63
 
 The program is assigned a `program.name`, which uniquely identifies that program. Each program may have multiple projects and will be assigned a `project.code`, which uniquely identifies each project. The `project_id` is the main identifier for the project in the GDC system and comprises the `program.name` with the `project.code` appended to it with a dash.  For example:
 
-```
+```Example
 program.name = TCGA
 project.code = BRCA
 project.project_id = TCGA-BRCA
@@ -53,9 +53,9 @@ Submitting a [__Case__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?vi
 * __`submitter_id`:__ A unique key to identify the `case`
 * __`projects.code`:__ A link to the `project`
 
-The submitter ID is different from the universally unique identifier (UUID), which is based on the [UUID Version 4 Naming Convention](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29). The UUID can be accessed under the `<entity_type>_id` field for each entity. For example, the `case` UUID would be accessed under the `case_id` field. The UUID is either assigned to each entity automatically or can be submitted by the user.  See the [Data Model Users Guide](https://gdc-docs.nci.nih.gov/Data/Data_Model/GDC_Data_Model/#gdc-identifiers) for more details about GDC identifiers.
+The submitter ID is different from the universally unique identifier (UUID), which is based on the [UUID Version 4 Naming Convention](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29). The UUID can be accessed under the `<entity_type>_id` field for each entity. For example, the `case` UUID can be accessed under the `case_id` field. The UUID is either assigned to each entity automatically or can be submitted by the user.  See the [Data Model Users Guide](https://gdc-docs.nci.nih.gov/Data/Data_Model/GDC_Data_Model/#gdc-identifiers) for more details about GDC identifiers.
 
-The `projects.code` field is what connects the `case` entity to the `project` entity.  The rest of the entity connections use the `submitter_id` field instead.  
+The `projects.code` field connects the `case` entity to the `project` entity.  The rest of the entity connections use the `submitter_id` field instead.  
 
 The `case` entity can be added in JSON or TSV format. A template for any entity in either of these formats can be found in the Data Dictionary at the top of each page. Templates populated with `case` metadata in both formats are displayed below.  
 
@@ -120,8 +120,8 @@ The API has a much broader range of functionality than the Data Wizard. Entities
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
 ```
-
-```CASE.json
+CASE.json is detailed below.
+```json
 {
     "type": "case",
     "submitter_id": "PROJECT-INTERNAL-000055",
@@ -131,6 +131,8 @@ curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gd
 }
 ```
 
+__Note:__ Submission of TSV files is also supported by the GDC API.
+
 Next, the file can either be committed (applied to the project) through the Data Submission Portal as before, or another API query can be performed that will commit the file to the project. The transaction number in the URL (467) is printed to the console during the first step of API submission and can also be retrieved from the 'Transactions' tab in the Data Submission Portal.
 
 ```Shell
@@ -139,22 +141,22 @@ curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/
 
 ## Clinical Submission
 
-Typically a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data. The project also may include additional information about the experimental procedures used to produce the data.  The clinical data will be associated with the `case` entity and metadata can be associated with the `read_group` and `submitted_aligned_reads` entities.  See the diagram below for how these data types can be associated with each entity.
+[![GDC Data Model Clinical](images/GDC-Data-Model-Clinical.png)](images/GDC-Data-Model-Clinical.png "Click to see the full image.")
 
-[![GDC Data Model Meta](images/Data_Model_Meta.jpg)](images/Data_Model_Meta.jpg "Click to see the full image.")
+Typically a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data.
 
 ### Submitting a Demographic Entity to a Case
 
-The `demographic` entity contains information that characterizes the `case` entity, which refers to a  patient in most instances.  
+The `demographic` entity contains information that characterizes the `case` entity, which refers to a patient in most instances.  
 
 Submitting a `demographic` entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `demographic` entity
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `demographic` entity to the `case`
-* __`ethnicity`:__ An individual's self-described identity as Hispanic or Latino
-* __`gender`:__ The gender of the individual
-* __`race`:__ The race of the individual based on values used by the U.S. Census Bureau
-* __`year_of_birth`:__ The calendar year in which an individual was born.  
+* __`ethnicity`:__ An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
+* __`gender`:__ Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.
+* __`race`:__ An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
+* __`year_of_birth`:__ Numeric value to represent the calendar year in which an individual was born.  
 
 ```JSON
 {
@@ -174,17 +176,66 @@ type	cases.submitter_id	ethnicity	gender	race	year_of_birth
 demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian	1946
 ```
 
+### Submitting a Diagnosis Entity to a Case
+
+Submitting a `diagnosis` entity requires:
+
+* __`submitter_id`:__ A unique key to identify the `diagnosis` entity
+* __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `diagnosis` entity to the `case`
+* __`age_at_diagnosis`:__ Age at the time of diagnosis expressed in number of days since birth.
+* __`classification_of_tumor`:__ Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint.
+* __`days_to_last_follow_up`:__  Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
+* __`days_to_last_known_disease_status`:__ Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
+* __`days_to_recurrence`:__ Time interval from the date of new tumor event including progression, recurrence and new primary malignancies to the date of initial pathologic diagnosis, represented as a calculated number of days.
+* __`last_known_disease_status`:__  The state or condition of an individual's neoplasm at a particular point in time.
+* __`morphology`:__  The third edition of the International Classification of Diseases for Oncology, published in 2000 used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The study of the structure of the cells and their arrangement to constitute tissues and, finally, the association among these to form organs. In pathology, the microscopic process of identifying normal and abnormal morphologic characteristics in tissues, by employing various cytochemical and immunocytochemical stains. A system of numbered categories for representation of data
+* __`primary_diagnosis`:__  Text term for the structural pattern of cancer cells used to define a microscopic diagnosis.
+* __`progression_or_recurrence`:__ Yes/No/Unknown indicator to identify whether a patient has had a new tumor event after initial treatment.
+* __`site_of_resection_or_biopsy`:__ The third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The description of an anatomical region or of a body part. Named locations of, or within, the body. A system of numbered categories for representation of data.
+* __`tissue_or_organ_of_origin`:__ Text term that describes the anatomic site of the tumor or disease.
+* __`tumor_grade`:__ Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness.
+* __`tumor_stage`:__ The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body. The accepted values for tumor_stage depend on the tumor site, type, and accepted staging system. These items should accompany the tumor_stage value as associated metadata.
+* __`vital_status`:__ The survival state of the person registered on the protocol.
+
+```JSON
+{
+    "type": "diagnosis",
+    "submitter_id": "PROJECT-INTERNAL-000055-DIAGNOSIS-1",
+    "cases": {
+        "submitter_id": "PROJECT-INTERNAL-000055"
+    },
+    "age_at_diagnosis": 10256,
+    "classification_of_tumor": "not reported",
+    "days_to_last_follow_up": 34,
+    "days_to_last_known_disease_status": 34,
+    "days_to_recurrence": "45",
+    "last_known_disease_status": "Tumor free",
+    "morphology": "8260/3",
+    "primary_diagnosis": "c64.9",
+    "progression_or_recurrence": "no",
+    "site_of_resection_or_biopsy": "lung",
+    "tissue_or_organ_of_origin": "lung",
+    "tumor_grade": "not reported",
+    "tumor_stage": "stage i",                        
+    "vital_status": "alive"
+}
+```
+```TSV
+type	submitter_id	cases.submitter_id	age_at_diagnosis	classification_of_tumor	days_to_last_follow_up	days_to_last_known_disease_status	days_to_recurrence	last_known_disease_status	morphology	primary_diagnosis	progression_or_recurrence	site_of_resection_or_biopsy	tissue_or_organ_of_origin	tumor_grade	tumor_stage	vital_status
+diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	PROJECT-INTERNAL-000055	10256	not reported	34	34	45	Tumor free	8260/3	c64.9	no	lung	lung	not reported	stage i	alive
+```
+
 ### Submitting an Exposure Entity to a Case
 
 Submitting an [Exposure](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  The following fields are optionally included:  
 
-* __`alcohol_history`:__ If the individual has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime
-* __`alcohol_intensity`:__ An individual's self-reported level of alcohol use
-* __`bmi`:__ Body mass divided by body height squared (number)
+* __`alcohol_history`:__ A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.
+* __`alcohol_intensity`:__ Category to describe the patient's current level of alcohol use as self-reported by the patient.
+* __`bmi`:__ The body mass divided by the square of the body height expressed in units of kg/m^2.
 * __`cigarettes_per_day`:__ The average number of cigarettes smoked per day (number)
 * __`height`:__ The height of the individual in cm (number)
 * __`weight`:__ The weight of the individual in kg (number)
-* __`years_smoked`:__ The number of years an individual has been smoking (number)
+* __`years_smoked`:__ Numeric value (or unknown) to represent the number of years a person has been smoking.
 
 ```JSON
 {
@@ -223,7 +274,7 @@ Submitting a [__Sample__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?
 
 * __`submitter_id`:__ A unique key to identify the `sample`
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `sample` to the `case`
-* __`sample_type`:__ The source or cellular type of the `sample`
+* __`sample_type`:__ Type of the sample. Named for its cellular source, molecular composition, and/or therapeutic treatment.
 
 __Note:__ The `case` must be "committed" to the project before it can be linked to the `sample`.  This also applies to all other links between entities.
 
@@ -234,20 +285,42 @@ __Note:__ The `case` must be "committed" to the project before it can be linked 
         "submitter_id": "PROJECT-INTERNAL-000055"
     },
     "sample_type": "Blood Derived Normal",
-    "submitter_id": "Blood-00001_55"
+    "submitter_id": "Blood-00001SAMPLE_55"
 }
 ```
 ```TSV
 type	cases.submitter_id	submitter_id	sample_type
-sample	PROJECT-INTERNAL-000055	Blood-00001_55	Blood Derived Normal  
+sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Blood Derived Normal  
 ```
 
 
 
-### Portion, Analyte, and Aliquot Submission
+### Aliquot, Portion, and Analyte Submission
 
 [![GDC Data Model 4](images/GDC-Data-Model-Aliquot.png)](images/GDC-Data-Model-Aliquot.png "Click to see the full image.")
 
+
+Submitting an [__Aliquot__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aliquot) entity requires:
+
+* __`submitter_id`:__ A unique key to identify the `aliquot`
+* __`analytes.submitter_id`:__ The unique key that was used for the `analyte` that links the `aliquot` to the `analyte`
+
+```JSON
+{
+    "type": "aliquot",
+    "submitter_id": "Blood-00021-aliquot55",
+    "samples": {
+        "submitter_id": "Blood-00001SAMPLE_55"
+    }
+}
+
+```
+```TSV
+type	submitter_id	analytes.submitter_id
+aliquot	Blood-00021-aliquot55	Blood-00001SAMPLE_55
+```
+
+__Note:__ `aliquot` entities can be directly linked to `sample` entities. The `portion` and `analyte` entities are not required for submission.
 
 Submitting a [__Portion__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=portion) entity requires:
 
@@ -259,21 +332,21 @@ Submitting a [__Portion__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#
     "type": "portion",
     "submitter_id": "Blood-portion-000055",
     "samples": {
-        "submitter_id": "Blood-00001_55"
+        "submitter_id": "Blood-00001SAMPLE_55"
     }
 }
 
 ```
 ```TSV
 type	submitter_id	samples.submitter_id
-portion	Blood-portion-000055	Blood-00001_55
+portion	Blood-portion-000055	Blood-00001SAMPLE_55
 ```
 
 Submitting an [__Analyte__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=analyte) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `analyte`
 * __`portions.submitter_id`:__ The unique key that was used for the `portion` that links the `analyte` to the `portion`
-* __`analyte_type`:__ The protocol-specific molecular type of the `analyte`
+* __`analyte_type`:__ Protocol-specific molecular type of the specimen.
 
 ```JSON
 {
@@ -291,29 +364,6 @@ type	portions.submitter_id	analyte_type	submitter_id
 analyte	Blood-portion-000055	DNA	Blood-analyte-000055
 ```
 
-Submitting an [__Aliquot__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aliquot) entity requires:
-
-* __`submitter_id`:__ A unique key to identify the `aliquot`
-* __`analytes.submitter_id`:__ The unique key that was used for the `analyte` that links the `aliquot` to the `analyte`
-
-```JSON
-{
-    "type": "aliquot",
-    "submitter_id": "Blood-00021-aliquot55",
-    "analytes": {
-        "submitter_id": "Blood-analyte-000055"
-    }
-}
-
-```
-```TSV
-type	submitter_id	analytes.submitter_id
-aliquot	Blood-00021-aliquot55	Blood-analyte-000055
-```
-
-__Note:__ `aliquot` entities can be directly linked to `sample` entities. The `portion` and `analyte` entities are not required for submission.
-
-
 ### Read Group Submission
 
 [![GDC Data Model 5](images/GDC-Data-Model-RG.png)](images/GDC-Data-Model-RG.png "Click to see the full image.")
@@ -324,14 +374,14 @@ Submitting a [__Read Group__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewe
 
 * __`submitter_id`:__ A unique key to identify the `read_group`
 * __`aliquot.submitter_id`:__ The unique key that was used for the `aliquot` that links the `read_group` to the `aliquot`
-* __`experiment_name`:__ The name of the experiment
-* __`is_paired_end`:__ If the reads are paired-end (Boolean value: `true` or `false`)
-* __`library_name`:__ The name of the library  
-* __`library_strategy`:__ The experimental strategy of the library
-* __`platform`:__ Name of the platform used to sequence the data
-* __`read_group_name`:__ The name of the `read_group`
+* __`experiment_name`:__ Submitter-defined name for the experiment.
+* __`is_paired_end`:__ Are the reads paired end? (Boolean value: `true` or `false`)
+* __`library_name`:__ Name of the library  
+* __`library_strategy`:__ Library strategy.
+* __`platform`:__ Name of the platform used to obtain data.
+* __`read_group_name`:__ The name of the read group.
 * __`read_length`:__ The length of the reads (integer)
-* __`sequencing_center`:__ The name of the center in which the sequencing was performed  
+* __`sequencing_center`:__ Name of the center that provided the sequence files.  
 
 ```JSON
 {
@@ -369,13 +419,13 @@ Submitting a [__Submitted Aligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dic
 
 * __`submitter_id`:__ A unique key to identify the `submitted_aligned_reads`
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `submitted_aligned_reads` to the `read_group`
-* __`data_category`:__ A broad categorization of the data file contents
-* __`data_format`:__ The data file format
-* __`data_type`:__ The specific contents of the data file (must be "Aligned Reads")
-* __`experimental_strategy`:__ The sequencing strategy used to generate the file  
-* __`file_name`:__ The name of the file
-* __`file_size`:__ The size of the file in bytes (integer)
-* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number
+* __`data_category`:__ Broad categorization of the contents of the data file.
+* __`data_format`:__ Format of the data files.
+* __`data_type`:__ Specific content type of the data file. (must be "Aligned Reads")
+* __`experimental_strategy`:__ The sequencing strategy used to generate the data file.
+* __`file_name`:__ The name (or part of a name) of a file (of any type).
+* __`file_size`:__ The size of the data file (object) in bytes.
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
 
 
 ```JSON
@@ -401,19 +451,19 @@ type	submitter_id	data_category	data_format	data_type	experimental_strategy	file
 submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Sequencing Data	BAM	Aligned Reads	WGS	test.bam	38	aa6e82d11ccd8452f813a15a6d84faf1	Blood-00001-aliquot_lane1_barcodeACGTAC_55
 ```
 
-__Note:__ Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV.  This relationship can be expressed with a JSON-formatted list object (comma-separated in square brackets).   
+__Note:__ Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV. An additional associated `read_group` would use a column named `read_groups.submitter_id#2`. This relationship can be expressed with a JSON-formatted list object (comma-separated in square brackets).   
 
 Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `submitted_unaligned_reads`
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `submitted_unaligned_reads` to the `read_group`
-* __`data_category`:__ A broad categorization of the data file contents
-* __`data_format`:__ The data file format
-* __`data_type`:__ The specific contents of the data file (must be "Unaligned Reads")
-* __`experimental_strategy`:__ The sequencing strategy used to generate the file  
-* __`file_name`:__ The name of the file
-* __`file_size`:__ The size of the file in bytes (integer)
-* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number
+* __`data_category`:__ Broad categorization of the contents of the data file.
+* __`data_format`:__ Format of the data files.
+* __`data_type`:__ Specific content type of the data file. (must be "Unaligned Reads")
+* __`experimental_strategy`:__ The sequencing strategy used to generate the data file.
+* __`file_name`:__ The name (or part of a name) of a file (of any type).
+* __`file_size`:__ The size of the data file (object) in bytes.
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
 
 
 ```JSON
@@ -435,7 +485,7 @@ Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_D
 }
 ```
 ```TSV
-type	submitter_id	data_category	data_format	data_type	experimental_strategy	file_name	file_size	md5sum	read_groups.submitter_id#1
+type	submitter_id	data_category	data_format	data_type	experimental_strategy	file_name	file_size	md5sum	read_groups.submitter_id
 submitted_unaligned_reads	Blood-00001-aliquot_lane2_barcodeACGTAC_55.fastq	Raw Sequencing Data	FASTQ	Unaligned Reads	WGS	test.fastq	38	901d48b862ea5c2bcdf376da82f2d22f	Blood-00001-aliquot_lane2_barcodeACGTAC_55
 ```
 
@@ -468,18 +518,21 @@ For more details on how to upload a `submittable_data_file` to a project see the
 
 ## Metadata File Submission
 
+[![GDC Data Model Metadata](images/GDC-Data-Model-Metadata.png)](images/GDC-Data-Model-Metadata.png "Click to see the full image.")
+
+
 The `experiment_metadata` entity contains information about the experiment that was performed to produce each `read_group`. Unlike the previous two entities outlined, only information about the `experiment_metadata` file itself (SRA XML) is applied to the entity (indexed) and the `experiment_metadata` file is submitted in the same way that a BAM file would be submitted.
 
 Submitting an __Experiment Metadata__ entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `experiment_metadata` entity
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `experiment_metadata` entity to the `read_group`
-* __`data_category`:__ Broad categorization of the data file
-* __`data_format`:__ Format of the data file (must be "SRA XML")
-* __`data_type`:__ Specific contents of the data file (must be "Experiment Metadata")
-* __`file_name`:__ The name of the file  
-* __`file_size`:__ The size of the file in bytes (number)
-* __`md5sum`:__ 128-bit hash value expressed as a 32 digit hexadecimal number   
+* __`data_category`:__ Broad categorization of the contents of the data file.
+* __`data_format`:__ Format of the data files. (must be "SRA XML")
+* __`data_type`:__ Specific contents of the data file. (must be "Experiment Metadata")
+* __`file_name`:__ The name (or part of a name) of a file (of any type).  
+* __`file_size`:__ The size of the data file (object) in bytes.
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.  
 
 ```JSON
 {

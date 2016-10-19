@@ -43,7 +43,7 @@ pages:
   - Authentication: 'Data_Submission_Portal/Users_Guide/Authentication.md'
   - Homepage: 'Data_Submission_Portal/Users_Guide/Homepage.md'
   - Dashboard: 'Data_Submission_Portal/Users_Guide/Dashboard.md'
-  - Data Upload User Guide: 'Data_Submission_Portal/Users_Guide/Data_Upload_UG.md'
+  - Data Upload Tutorial: 'Data_Submission_Portal/Users_Guide/Data_Upload_UG.md'
   - Submit Data: 'Data_Submission_Portal/Users_Guide/Submit_Data.md'
   - Release Data: 'Data_Submission_Portal/Users_Guide/Release_Data.md'
   - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
