@@ -7,33 +7,29 @@
 
 ### New Features and Changes
 
-*	Added search feature to some facets to facilitate finding fields in facets with a large number of fields. <!-- PRTL-21 -->
-* 	Added support for Annotation ID in quick search <!-- PRTL-29 -->
-*  Display a warning if users enters a value greater than 90 in the age at diagnosis facet. <!-- PRTL-77 -->
-*  Removed the "My Project" feature. <!-- PRTL-174 -->
-*  Due to confusion it can create, removed "Created" and "Updated" dates from Clinical and Biospecimen. Those dates corresponded to database events <!-- PRTL-3 -->
-*  Added a Sample Type column in the file entity page <!-- PRTL-42 --> 
-*	Added a header banner to facilitates the display of GDC Messages <!-- PRTL-119 -->
-* 	Prevented users from clicking on buttons when an action is already taking place. <!-- PRTL-270 -->
-*  Removed State/Status from File and Case entity pages <!-- PRTL-292 -->
-*  Improved visibility of the selection border on the homepage chart <!-- PRTL-2 -->
+* Added a search feature to help users select values of interest in certain facets that have many values. <!-- PRTL-21 -->
+* Added support for annotation ID queries in quick search. <!-- PRTL-29 -->
+* Added a warning when a value greater than 90 is entered in the "Age at Diagnosis" facet. <!-- PRTL-77 -->
+* Added Sample Type column to file entity page. <!-- PRTL-42 -->
+* Authentication tokens are refreshed every time they are downloaded from the GDC Data Portal. <!-- PRTL-278 -->
+* Buttons are inactive when an action is in progress. <!-- PRTL-270 -->
+* Improved navigation features in the overview chart on portal homepage. <!-- PRTL-2 -->
+* Removed State/Status from File and Case entity pages <!-- PRTL-292 -->
+* Removed the "My Projects" feature. <!-- PRTL-174 -->
+* Removed "Created" and "Updated" dates from clinical and biospecimen entities. <!-- PRTL-3 -->
 
 ### Bugs Fixed Since Last Release
 
-*	Added a call to the backend to ensure a refreshed token is being downloaded when user clicks on "Download Token". <!-- PRTL-278 -->
-* 	Addressed a spelling error in the HTML title. <!-- PRTL-276 -->
-*  Added support for negative values for integer fields in the advanced search. <!-- PRTL-283 -->
-*  Fixed an issue where moving from facet search to advanced search resulted in an incorrect advanced search query. <!-- PRTL-284 -->
-*  Fixed an issues where some facets were cut off in Internet Explorer and Firefox <!-- PRTL-290 -->
+*  Advanced search did not accept negative values for integer fields. <!-- PRTL-283 -->
+*  Moving from facet search to advanced search resulted in an incorrect advanced search query. <!-- PRTL-284 -->
+*  Some facets were cut off in Internet Explorer and Firefox. <!-- PRTL-290 -->
 
 ### Known Issues and Workarounds
 
 *   General
-    *   When no filters are engaged in the Legacy Archive or Data Portal, clicking the Download Manifest button may produce a 500 error and the message "We are currently experiencing issues. Please try again later.".  To avoid this error the user can first filter by files or cases to reduce the number files added to the manifest.
     *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status. <!-- PGDC-2403 / PRTL-133 -->
     *   BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
     *   Due to preceding issue, If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
-    *   After first applying facet filters, if a user clicks on advanced search they will encounter the error "Invalid Query".  The error can be removed by adding additional filters in the advanced search box or by clicking somewhere in the search box and pressing the down arrow on your keyboard. <!-- SV-394 -->
     *   Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files.  To produce a list of source files an API call can be used with the search parameter "fields=analysis.input_files.file_name". <!-- SV-396 / PRTL-342-->
 
 Example
