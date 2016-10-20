@@ -56,6 +56,10 @@ The GDC Data Submission Portal dashboard and navigation panel displays a summary
 
 Submitters can access a list of all actions performed in a project by clicking on the Transactions tab on the dashboard. This will display a list of all past transactions for the selected project. Users can access details about each transaction. The most recent transactions are also displayed on the dashboard.
 
+### Submission Project Examples
+
+Step-by-step instructions on GDC data submission and their relationship to the GDC Data Model are detailed in the [Data Upload Users Guide](Data_Upload_UG.md) guide.
+
 ## Release Notes
 
 The [Release Notes](../../Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md) section of this User's Guide contains details about new features, bug fixes, and known issues.

@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GDC Data Portal enables users to browse granular metadata that describes all data released to the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC Data Portal also allows users to download open-access files without logging in, but downloading of controlled-access files is restricted to authorized users and requires authentication.
+The GDC Data Portal provides granular metadata for all datasets available in the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC Data Portal also allows users to download open-access files without logging in, but downloading of controlled-access files is restricted to authorized users and requires authentication.
 
 Controlled-access files are identified using a "lock" icon:
 

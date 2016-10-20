@@ -80,7 +80,7 @@
       // Exclude the below from download
       var excludeCategories = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST;
 
-      if (excludeCategories.indexOf(_tableDefinitionView._dictionaryData.category.toLowerCase()) < 0) {
+      if (excludeCategories.indexOf(_tableDefinitionView._dictionaryData.ui_category.toLowerCase()) < 0) {
 
         var updateHREFFunction = function() {
           d3.select(this)
@@ -94,15 +94,6 @@
           .on('focus', updateHREFFunction)
           .attr('title', 'Download the ' + _tableDefinitionView.getPrettyName() + ' template.')
           .classed('dictionary-control-bttn dictionary-template-download-bttn', true)
-          /*.on('click', function () {
-
-            _tableDefinitionView._callbackFn.call(
-              null, new Dictionary._ViewUpdateObject(_tableDefinitionView, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_REQUESTED, {
-                id: _tableDefinitionView._dictionaryData.id
-              })
-            );
-
-          })*/
           .html('<span aria-hidden="true" class="fa fa-cloud-download"></span> &nbsp;Download Template');
 
 
@@ -487,7 +478,6 @@
 
     function _renderSummaryTable(_tableDefinitionView, tableContainerSelection) {
       var dictionaryData = _tableDefinitionView._dictionaryData,
-        category = _.get(_DICTIONARY_CONSTANTS.DICTIONARY_ENTITY_MAP, dictionaryData.category.toLowerCase(), dictionaryData.category),
         uniqueKeys = _.get(dictionaryData, 'uniqueKeys', [_DICTIONARY_CONSTANTS.DATA_FORMATS.MISSING_VAL]);
 
       tableContainerSelection.append('h2')
@@ -504,7 +494,7 @@
 
       var dataRows = [
         {id: 'type', title: 'Type', value: dictionaryData.id},
-        {id: 'category', title: 'Category', value: category},
+        {id: 'category', title: 'Category', value: dictionaryData.category},
         {id: 'description', title: 'Description', value: dictionaryData.description},
         {id: 'keys', title: 'Unique Keys', value: uniqueKeys}
       ];
@@ -987,21 +977,18 @@
               return;
             }
 
-            var exclusions = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES[category];
+            var exclusions = category === 'submittable_data_file' ?
+              _tableEntityListView._dictionaryData.dictionaryMapByCategory.generated_data_file.map(function(f) { return f.id; }) :
+              _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_EXCLUDES[category];
             var inclusions = _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[category];
 
             _tableEntityListView._callbackFn(new Dictionary._ViewUpdateObject(
               _tableEntityListView,
               _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.TEMPLATE_DOWNLOAD_BY_CATEGORY_REQUESTED,
               {
-                id: category === 'data_bundle' ? 'data_bundle,data_file' : category,
+                id: category === 'submittable_data_file' ? 'data_file,metadata_file' : category,
                 excludes: inclusions
-                  ? _.difference(categoryData.map(function(x) { return x.id; }), inclusions)
-
-                      // https://jira.opensciencedatacloud.org/browse/PGDC-2328
-                      // 'file' is not inside categoryMap returned from the api
-                      .concat('file')
-                  : exclusions
+                  ? _.difference(categoryData.map(function(x) { return x.id; }), inclusions) : exclusions
               })
             );
           })
@@ -1014,7 +1001,7 @@
             return _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category]
               ? _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[entity.category].indexOf(entity.id) > -1
               : true;
-          })
+          }).filter(function(d) { return _DICTIONARY_CONSTANTS.LINK_EXCLUDES.indexOf(d.id) === -1; })
           .sort(function (a, b) {
             return _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[a.category]
               ? _DICTIONARY_CONSTANTS.CATEGORY_TEMPLATE_INCLUDES[a.category].indexOf(a.id) -

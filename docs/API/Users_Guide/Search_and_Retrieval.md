@@ -1178,16 +1178,30 @@ curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%
 
 ### \_mapping Endpoint
 
-Each Search and Retrieval endpoint is equipped with a ```_mapping``` endpoint that provides information about elements that can be used to query the Search and Retrieval endpoint.
+Each search and retrieval endpoint is equipped with a ```_mapping``` endpoint that provides information about available fields. For example, `files/_mapping` endpoint provides information about fields and field groups available at the `files` endpoint: `https://gdc-api.nci.nih.gov/files/_mapping`.
 
-The API response to a `_mapping` query is a list of objects, containing fields available through the API. The high-level structure of the response is as follows:
+The high-level structure of a response to a `_mapping` query is as follows:
 
-	"\_mapping": {}
+	"_mapping": {}
 	, "defaults": []
 	, "expand": []
 	, "fields": []
 	, "multi": []
 	, "nested": []
+
+[//]: # (_)
+
+Each part of the response is described below:
+
+| Part | Description |
+|------|-------------|
+| `_mapping` | All available fields and their descriptions. The endpoint-agnostic field names provided here are compatible with the `filters` parameter but are not always compatible with the `fields` parameter |
+| `defaults` | The default set of fields included in the API response when the `fields` parameter is not used in the request |
+| `expand` | Field group names for use with the `expand` parameter |
+| `fields` | All available fields in an endpoint-specific format that is compatible with both the `filters` and `fields` parameters |
+| `multi` | GDC internal use |
+| `nested` | Nested fields |
+
 
 #### Example
 
@@ -1225,14 +1239,14 @@ The GDC API supports the following search & retrieval request parameters:
 
 Parameter | Default | Description
 --------- | ------- | -----------
-filters| null | Query option filters specify criteria for the returned response
+filters| null | Specifies search parameters
 format | JSON | Specifies the API response format: JSON, XML, or TSV
 pretty | false | Returns response with indentations and line breaks in a human-readable format
-fields | null | Query option to specify which fields to include in the response
+fields | null | Specifies which fields to include in the response
 size | 10 | Specifies the number of results to return
-from   | 1 | Specifies the first record to return from the set resulting of a query
-sort | null | Specifies sorting algorithm for the results in the API response
-facets | null | Provides a list of number of files available given current filters facet
+from   | 1 | Specifies the first record to return from a set of search results
+sort | null | Specifies sorting for the search results
+facets | null | Provides all existing values for a given field and the number of records having this value.
 
 
 ### Filters: Specifying the Query
@@ -1260,9 +1274,9 @@ The following `filters` query operators are supported by the GDC API:
 | and      | (operation1) and (operation2)                    | multiple           | {primary_site in [Brain, Lung]} and {gender = "female"}      |
 | or       | (operation1) or (operation2)                     | multiple           | {project_id != "TARGET-AML"} or {age at diagnosis < 90y}     |
 
-The `field` operand specifies a property from the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). A list of supported fields is available from the `_mapping` endpoint and in [Appendix A](Appendix_A_Available_Fields.md)
+The `field` operand specifies a field that corresponds to a property defined in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). A list of supported fields is provided in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint).
 
-The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://gdc-api.nci.nih.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`
+The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://gdc-api.nci.nih.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`. See [Facets](#facets) for details.
 
 A simple query with a single operator looks like this:
 
@@ -2359,6 +2373,76 @@ print json.dumps(response.json(), indent=2)
 }
 ```
 
+### Expand
+
+The `expand` parameter provides a shortcut to request multiple related fields (field groups) in the response. Instead of specifying each field using the `fields` parameter, users can specify a field group name using the `expand` parameter to request all fields in the group. Available field groups are listed in [Appendix A](Appendix_A_Available_Fields.md#field-group-listing-by-endpoint); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint). The `fields` and `expand` parameters can be used together to request custom combinations of field groups and individual fields.
+
+#### Example
+
+```Shell
+curl 'https://gdc-api.nci.nih.gov/files/ac2ddebd-5e5e-4aea-a430-5a87c6d9c878?expand=cases.samples&pretty=true'
+```
+```
+{
+  "data": {
+    "data_type": "Aligned Reads",
+    "updated_datetime": "2016-09-18T04:25:13.163601-05:00",
+    "created_datetime": "2016-05-26T18:55:53.506549-05:00",
+    "file_name": "000aa811c15656604161e8f0e3a0aae4_gdc_realn.bam",
+    "md5sum": "200475f5f6e42520204e5f6aadfe954f",
+    "data_format": "BAM",
+    "acl": [
+      "phs000178"
+    ],
+    "access": "controlled",
+    "platform": "Illumina",
+    "state": "submitted",
+    "file_id": "ac2ddebd-5e5e-4aea-a430-5a87c6d9c878",
+    "data_category": "Raw Sequencing Data",
+    "file_size": 12667634731,
+    "cases": [
+      {
+        "samples": [
+          {
+            "sample_type_id": "11",
+            "updated_datetime": "2016-09-08T11:00:45.021005-05:00",
+            "time_between_excision_and_freezing": null,
+            "oct_embedded": "false",
+            "tumor_code_id": null,
+            "submitter_id": "TCGA-QQ-A5VA-11A",
+            "intermediate_dimension": null,
+            "sample_id": "b4e7558d-898e-4d68-a897-381edde0bbcc",
+            "is_ffpe": false,
+            "pathology_report_uuid": null,
+            "created_datetime": null,
+            "tumor_descriptor": null,
+            "sample_type": "Solid Tissue Normal",
+            "state": null,
+            "current_weight": null,
+            "composition": null,
+            "time_between_clamping_and_freezing": null,
+            "shortest_dimension": null,
+            "tumor_code": null,
+            "tissue_type": null,
+            "days_to_sample_procurement": null,
+            "freezing_method": null,
+            "preservation_method": null,
+            "days_to_collection": 5980,
+            "initial_weight": 810.0,
+            "longest_dimension": null
+          }
+        ]
+      }
+    ],
+    "submitter_id": "32872121-d38a-4128-b96a-698a6f18f29d",
+    "type": "aligned_reads",
+    "file_state": "processed",
+    "experimental_strategy": "WXS"
+  },
+  "warnings": {}
+}
+```
+
 ### Size and From
 
 GDC API provides a pagination feature that limits the number of results returned by the API. It is implemented using `size` and `from` query parameters.
@@ -2458,7 +2542,7 @@ print json.dumps(response.json(), indent=2)
 
 ### Sort
 
-The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:desc` (descending) prefix, e.g. `sort=field:desc`. A list of all valid _field_ names that can be used as facets is available in [Appendix A](Appendix_A_Available_Fields.md).
+The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:desc` (descending) prefix, e.g. `sort=field:desc`. A list of all valid _field_ names is available in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint).
 
 #### Example
 
@@ -2528,9 +2612,16 @@ print json.dumps(response.json(), indent=2)
 ```
 
 ### Facets
-The `facets` query parameter provides aggregated data based on a search query. The primary intended use of this parameter is for displaying aggregate information in the GDC Data Portal. For example, to get a count of projects in each program, `facets=program.name` can be passed to the `projects` endpoint.
+The `facets` parameter provides aggregate information for a specified field. It provides all values that exist for that field, and the number of entities (cases, projects, files, or annotations) that this value. The primary intended use of this parameter is for displaying aggregate information in the GDC Data Portal.
+
+The `facets` parameter can be used in conjunction with the `filters` parameter to get aggregate information for a set of search results. The following limitations apply when using `facets` and `filters` together:
+
+1. The `filters` object's top level operator must be `and`, and the internal filters must be limited to: `=`, `!=`, `in`, `exclude`, `is`, and `not`.
+2. The information provided by `facets` for a given field will disregard any filters applied to that same field.
 
 #### Example
+
+This is an example of a request for a count of projects in each program.
 
 ```shell
 curl  'https://gdc-api.nci.nih.gov/projects?facets=program.name&from=1&size=0&sort=program.name:asc&pretty=true'
@@ -2578,6 +2669,168 @@ print json.dumps(response.json(), indent=2)
 	  "warnings": {}
 	}
 ```
+
+#### Example
+
+In this sample POST request, both `filters` and `facets` parameters are used. Note that `facets` ignores the `primary_site` filter.
+
+```Payload
+{
+    "filters":{
+        "op":"and",
+        "content":[
+            {
+                "op":"=",
+                "content":{
+                    "field":"cases.project.primary_site",
+                    "value":"Kidney"
+                }
+            },
+            {
+                "op":"=",
+                "content":{
+                    "field":"project.program.name",
+                    "value":"TCGA"
+                }
+            }
+        ]
+    },
+    "size":"0",
+    "facets":"project.primary_site",
+    "pretty":"true"
+}
+```
+```Shell
+curl --request POST --header "Content-Type: application/json" --data @Payload 'https://gdc-api.nci.nih.gov/v0/cases'
+```
+``` Response
+{
+  "data": {
+    "pagination": {
+      "count": 0,
+      "sort": "",
+      "from": 1,
+      "page": 1,
+      "total": 941,
+      "pages": 941,
+      "size": 0
+    },
+    "hits": [],
+    "aggregations": {
+      "project.primary_site": {
+        "buckets": [
+          {
+            "key": "Brain",
+            "doc_count": 1133
+          },
+          {
+            "key": "Breast",
+            "doc_count": 1098
+          },
+          {
+            "key": "Lung",
+            "doc_count": 1089
+          },
+          {
+            "key": "Kidney",
+            "doc_count": 941
+          },
+          {
+            "key": "Colorectal",
+            "doc_count": 635
+          },
+          {
+            "key": "Uterus",
+            "doc_count": 617
+          },
+          {
+            "key": "Ovary",
+            "doc_count": 608
+          },
+          {
+            "key": "Head and Neck",
+            "doc_count": 528
+          },
+          {
+            "key": "Thyroid",
+            "doc_count": 507
+          },
+          {
+            "key": "Prostate",
+            "doc_count": 500
+          },
+          {
+            "key": "Stomach",
+            "doc_count": 478
+          },
+          {
+            "key": "Skin",
+            "doc_count": 470
+          },
+          {
+            "key": "Bladder",
+            "doc_count": 412
+          },
+          {
+            "key": "Liver",
+            "doc_count": 377
+          },
+          {
+            "key": "Cervix",
+            "doc_count": 308
+          },
+          {
+            "key": "Adrenal Gland",
+            "doc_count": 271
+          },
+          {
+            "key": "Soft Tissue",
+            "doc_count": 261
+          },
+          {
+            "key": "Bone Marrow",
+            "doc_count": 200
+          },
+          {
+            "key": "Esophagus",
+            "doc_count": 185
+          },
+          {
+            "key": "Pancreas",
+            "doc_count": 185
+          },
+          {
+            "key": "Testis",
+            "doc_count": 150
+          },
+          {
+            "key": "Thymus",
+            "doc_count": 124
+          },
+          {
+            "key": "Pleura",
+            "doc_count": 87
+          },
+          {
+            "key": "Eye",
+            "doc_count": 80
+          },
+          {
+            "key": "Lymph Nodes",
+            "doc_count": 58
+          },
+          {
+            "key": "Bile Duct",
+            "doc_count": 51
+          }
+        ]
+      }
+    }
+  },
+  "warnings": {}
+}
+```
+
 
 ## Alternative Request Format
 
