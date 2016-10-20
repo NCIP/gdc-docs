@@ -1,6 +1,5 @@
 # Data Submission Portal Release Notes
 
-
 ## Release 1.3.0
 
 * __GDC Product__: GDC Data Submission Portal
@@ -8,7 +7,7 @@
 
 ### New Features and Changes
 
-
+Not Applicable
 
 ### Bugs Fixed Since Last Release
 
