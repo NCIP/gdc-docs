@@ -1,9 +1,10 @@
-# Data Upload Tutorial
-This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first two sections of this guide break down the submission process and associate each step with the Data Model. Additional sections are detailed below for strategies on expediting data submission.
+# Upload Data
+
+This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first sections of this guide break down the submission process and associate each step with the Data Model. Additional sections are detailed below for strategies on expediting data submission and using upload features of the Submission Portal.
 
 ## GDC Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. The entities that make up the completed portion of the submission process will be highlighted in __blue__.
+Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. The entities that make up the completed (submitted) portion of the submission process will be highlighted in __blue__.
 
 [![GDC Data Model 1](images/GDC-Data-Model-None.png)](images/GDC-Data-Model-None.png "Click to see the full image.")
 
@@ -27,7 +28,7 @@ Before submission can begin, the Program and Project must be approved and set by
 
 ### Program and Project Approval
 
-Each new project must [request submission access](https://gdc.cancer.gov/node/633/) from the GDC.  Before submission can commence the project must be registered at dbGaP along with the eRA commons IDs for all those users who will be uploading data.  All cases (i.e. patients) must also be registered in dbGaP for that particular project.  Once these steps are complete the GDC will grant submission access and create program and project names in consultation with the user based on the rules outlined below.  
+Each new project must [request submission access](https://gdc.cancer.gov/node/633/) from the GDC.  Before submission can commence the project must be registered at dbGaP along with the eRA commons IDs for all those users who will be uploading data. All cases (i.e. patients) must also be registered in dbGaP for that particular project.  Once these steps are complete the GDC will grant submission access and create program and project names in consultation with the user based on the rules outlined below.  
 
 ### Program and Project Naming Conventions
 
@@ -39,12 +40,11 @@ project.code = BRCA
 project.project_id = TCGA-BRCA
 ```  
 
-
 ## Case Submission
 
 [![GDC Data Model 2](images/GDC-Data-Model-Case.png)](images/GDC-Data-Model-Case.png "Click to see the full image.")
 
-The main entity of the GDC Data Model is the `case`, each of which must be registered beforehand with dbGaP under a unique `submitter_id`. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field.
+The main entity of the GDC Data Model is the `case`, each of which must be registered beforehand with dbGaP under a unique `submitter_id`. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Dictionary entries are available for all entities in the GDC Data Model.
 
 [![Dictionary Case](images/Dictionary_Case.png)](images/Dictionary_Case.png "Click to see the full image.")
 
@@ -89,13 +89,13 @@ An example of a `case` upload is detailed below. The GDC Data Submission Portal 
 * __Upload Entities__: Upload an entity into the user's browser, at this point nothing is submitted to the project workspace.
 * __Validate Entities__: Send an entity to the GDC backend to validate its content (see below).
 
-The 'Entity Validation' stage acts as a safeguard against submitting incorrectly formatted entities to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of uploaded entities against the Data Dictionary to detect potential errors. Invalid entities will not be processed and must be corrected by the user and re-uploaded before being accepted. A validation error report provided by the system can be used to isolate and correct errors.
+The __Validate Entities__ stage acts as a safeguard against submitting incorrectly formatted data to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of uploaded entities against the Data Dictionary to detect potential errors. Invalid entities will not be processed and must be corrected by the user and re-uploaded before being accepted. A validation error report provided by the system can be used to isolate and correct errors.
 
 Choosing _'UPLOAD'_ from the project dashboard will open the Upload Data Wizard.
 
 [![GDC Submission Wizard Upload Files](images/GDC_Submission_Wizard_Upload_2.png)](images/GDC_Submission_Wizard_Upload_2.png "Click to see the full image.")
 
-Files containing one or more entities can be added either by clicking on _'CHOOSE FILE(S)'_ or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the _'garbage can'_ icon next to the file.
+Files containing one or more entities can be added either by clicking on _'CHOOSE FILE(S)'_ or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the garbage can icon next to the file.
 
 #### 2. Validate Entities
 
@@ -115,7 +115,7 @@ If the upload contains invalid files, a transaction will appear with a FAILED st
 
 ### Upload - API
 
-The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-updating-entities) for a more detailed explanation and a for the rest of the functionalities of the API. Generally data upload through the API can be performed using the following command:
+The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-updating-entities) for a more detailed explanation and a for the rest of the functionalities of the API. Generally uploading an entity through the API can be performed using a command similar to the following:
 
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
@@ -149,7 +149,7 @@ Typically a submission project will include additional information about a `case
 
 The `demographic` entity contains information that characterizes the `case` entity, which refers to a patient in most instances.  
 
-Submitting a `demographic` entity requires:
+Submitting a [__Demographic__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=demographic) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `demographic` entity
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `demographic` entity to the `case`
@@ -178,7 +178,7 @@ demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian	1946
 
 ### Submitting a Diagnosis Entity to a Case
 
-Submitting a `diagnosis` entity requires:
+Submitting a [__Diagnosis__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=diagnosis) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `diagnosis` entity
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `diagnosis` entity to the `case`
@@ -227,7 +227,7 @@ diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	PROJECT-INTERNAL-000055	10256	not 
 
 ### Submitting an Exposure Entity to a Case
 
-Submitting an [Exposure](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  The following fields are optionally included:  
+Submitting an [__Exposure__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  The following fields are optionally included:  
 
 * __`alcohol_history`:__ A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.
 * __`alcohol_intensity`:__ Category to describe the patient's current level of alcohol use as self-reported by the patient.
@@ -265,7 +265,7 @@ __Note:__ Submitting a clinical entity uses the same conventions as submitting a
 
 [![GDC Data Model 3](images/GDC-Data-Model-Sample.png)](images/GDC-Data-Model-Sample.png "Click to see the full image.")
 
-A `sample` submission has the same general structure as `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require one additional value:  `sample_type`. This peripheral data is required because it is necessary for the data to be interpreted. For example, an investigator using this data would need to know whether the `sample` came from tumor or normal tissue.  
+A `sample` submission has the same general structure as a `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require one additional value:  `sample_type`. This peripheral data is required because it is necessary for the data to be interpreted. For example, an investigator using this data would need to know whether the `sample` came from tumor or normal tissue.  
 
 
 [![Dictionary Sample](images/Dictionary_Sample.png)](images/Dictionary_Sample.png "Click to see the full image.")
@@ -274,9 +274,9 @@ Submitting a [__Sample__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?
 
 * __`submitter_id`:__ A unique key to identify the `sample`
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `sample` to the `case`
-* __`sample_type`:__ Type of the sample. Named for its cellular source, molecular composition, and/or therapeutic treatment.
+* __`sample_type`:__ Type of the `sample`. Named for its cellular source, molecular composition, and/or therapeutic treatment.
 
-__Note:__ The `case` must be "committed" to the project before it can be linked to the `sample`.  This also applies to all other links between entities.
+__Note:__ The `case` must be "committed" to the project before a `sample` can be linked to it.  This also applies to all other links between entities.
 
 ```JSON
 {
@@ -379,7 +379,7 @@ Submitting a [__Read Group__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewe
 * __`library_name`:__ Name of the library  
 * __`library_strategy`:__ Library strategy.
 * __`platform`:__ Name of the platform used to obtain data.
-* __`read_group_name`:__ The name of the read group.
+* __`read_group_name`:__ The name of the `read_group`.
 * __`read_length`:__ The length of the reads (integer)
 * __`sequencing_center`:__ Name of the center that provided the sequence files.  
 
@@ -523,7 +523,7 @@ For more details on how to upload a `submittable_data_file` to a project see the
 
 The `experiment_metadata` entity contains information about the experiment that was performed to produce each `read_group`. Unlike the previous two entities outlined, only information about the `experiment_metadata` file itself (SRA XML) is applied to the entity (indexed) and the `experiment_metadata` file is submitted in the same way that a BAM file would be submitted.
 
-Submitting an __Experiment Metadata__ entity requires:
+Submitting an [__Experiment Metadata__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=experiment_metadata) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `experiment_metadata` entity
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `experiment_metadata` entity to the `read_group`
