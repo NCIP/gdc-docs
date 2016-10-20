@@ -3,7 +3,7 @@
 ## Data Release 4.0
 
 * __GDC Product__: Data
-* __Release Date__: October 12, 2016
+* __Release Date__: October 27, 2016
 
 ### New updates
 
@@ -20,10 +20,9 @@
 ### Known Issues and Workarounds
 
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
-* Public MAFs (those with germline variants removed) are only available for MuTect2 pipeline.  MAFs for other pipelines are forthcoming.  
 * MAF Column #109 "FILTER" entries are separated by both commas and semi-colons. <!-- PGDC-2589 -->
-* TARGET-AML and TARGET-ALL projects are undergoing reorganization.  Pending reorganization, cases from these projects may not contain many clinical, biospecimen, or genomic data files.
-* No data from TARGET-PPTP is available.
+* TARGET-AML is undergoing reorganization.  Pending reorganization, cases from this projects may not contain many clinical, biospecimen, or genomic data files.
+* No data from TARGET-MLDS is available.
 * Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
 * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
 * There are 200 cases from TCGA-LAML that do not appear in the Legacy Archive <!--SV-327-->
