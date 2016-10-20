@@ -1,5 +1,58 @@
 # Data Portal Release Notes
 
+## Release 1.4.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: October 27, 2016
+
+### New Features and Changes
+
+*	Added search feature to some facets to facilitate finding fields in facets with a large number of fields. <!-- PRTL-21 -->
+* 	Added support for Annotation ID in quick search <!-- PRTL-29 -->
+*  Display a warning if users enters a value greater than 90 in the age at diagnosis facet. <!-- PRTL-77 -->
+*  Removed the "My Project" feature. <!-- PRTL-174 -->
+*  Due to confusion it can create, removed "Created" and "Updated" dates from Clinical and Biospecimen. Those dates corresponded to database events <!-- PRTL-3 -->
+*  Added a Sample Type column in the file entity page <!-- PRTL-42 --> 
+*	Added a header banner to facilitates the display of GDC Messages <!-- PRTL-119 -->
+* 	Prevented users from clicking on buttons when an action is already taking place. <!-- PRTL-270 -->
+*  Removed State/Status from File and Case entity pages <!-- PRTL-292 -->
+*  Improved visibility of the selection border on the homepage chart <!-- PRTL-2 -->
+
+### Bugs Fixed Since Last Release
+
+*	Added a call to the backend to ensure a refreshed token is being downloaded when user clicks on "Download Token". <!-- PRTL-278 -->
+* 	Addressed a spelling error in the HTML title. <!-- PRTL-276 -->
+*  Added support for negative values for integer fields in the advanced search. <!-- PRTL-283 -->
+*  Fixed an issue where moving from facet search to advanced search resulted in an incorrect advanced search query. <!-- PRTL-284 -->
+*  Fixed an issues where some facets were cut off in Internet Explorer and Firefox <!-- PRTL-290 -->
+
+### Known Issues and Workarounds
+
+*   General
+    *   When no filters are engaged in the Legacy Archive or Data Portal, clicking the Download Manifest button may produce a 500 error and the message "We are currently experiencing issues. Please try again later.".  To avoid this error the user can first filter by files or cases to reduce the number files added to the manifest.
+    *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status. <!-- PGDC-2403 / PRTL-133 -->
+    *   BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
+    *   Due to preceding issue, If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
+    *   After first applying facet filters, if a user clicks on advanced search they will encounter the error "Invalid Query".  The error can be removed by adding additional filters in the advanced search box or by clicking somewhere in the search box and pressing the down arrow on your keyboard. <!-- SV-394 -->
+    *   Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files.  To produce a list of source files an API call can be used with the search parameter "fields=analysis.input_files.file_name". <!-- SV-396 / PRTL-342-->
+
+Example
+
+    https://gdc-api.nci.nih.gov/files/455e26f7-03f2-46f7-9e7a-9c51ac322461?pretty=true&fields=analysis.input_files.file_name
+
+
+
+
+*   Cart
+    *   Counts displayed in the top right of the screen, next to the Cart icon, may become inconsistent if files are removed from the server. <!-- PGDC-2403 / PRTL-133 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.nci.nih.gov/about-gdc/gdc-faqs).
+    *   Internet Explorer users are not able to use the "Only show fields with no values" when adding custom facets <!-- PGDC-2467 / PRTL-109 -->
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
 ## Release 1.3.0
 
 * __GDC Product__: GDC Data Portal
@@ -31,9 +84,8 @@
     *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status. <!-- PGDC-2403 / PRTL-133 -->
     *   BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
     *   Due to preceding issue, If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
-    *   After first applying facet filters, if a user clicks on advanced search they will encounter the error "Invalid Query".  The error can be removed by adding additional filters in the advanced search box or by clicking somewhere in the search box and pressing the down arrow on your keyboard. <!-- SV-394 -->
     *   Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files.  To produce a list of source files an API call can be used with the search parameter "fields=analysis.input_files.file_name". <!-- SV-396 -->
-    *   On the Legacy Archive, searches for "Case Submitter ID Prefix" containing special characters are not displayed correctly above the result list. The result list is correct, however. <!--SV-412-->
+    *   On the Legacy Archive, searches for "Case Submitter ID Prefix" containing special characters are not displayed correctly above the result list. The result list is correct, however. <!--SV-412 / LGCY-33-->
 
 Example
 
