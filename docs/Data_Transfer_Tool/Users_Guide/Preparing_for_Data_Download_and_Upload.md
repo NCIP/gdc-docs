@@ -68,7 +68,7 @@ A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL
 
 The following example will query the endpoint to produce a UUID along with submitter_id, file_name, and project_id
 
- ```
+```
  {
 
    submitted_unaligned_reads (project_id: "GDC-INTERNAL", submitter_id: "Blood-00001-aliquot_lane1_barcode23.fastq") {
