@@ -61,3 +61,19 @@ A UUID can be used for data submission with the Data Transfer Tool.  The UUID fo
  A second location to obtain a UUID in the Submission Portal is on the Browse Tab page. Under the Submittable Data Files section a UUID can be found by opening up the file's detail page. By clicking on the Submitter ID of the upload file a new window will display a Summary of the file's details, which contains the UUID.
 
 ![Submission Portal Browse Page Details](images/submission_portal_browse_page_UUID.png)  
+
+#GraphQL
+
+A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL is and it's uses is located on the API documentation page section titled ![Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
+
+The following example will query the endpoint to produce a UUID along with submitter_id, file_name, and project_id
+
+ {
+
+   submitted_unaligned_reads (project_id: "GDC-INTERNAL", submitter_id: "Blood-00001-aliquot_lane1_barcode23.fastq") {
+     id
+     submitter_id
+     file_name
+     project_id
+ }
+ }
