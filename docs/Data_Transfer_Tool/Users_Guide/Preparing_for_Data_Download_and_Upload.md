@@ -64,18 +64,44 @@ A UUID can be used for data submission with the Data Transfer Tool.  The UUID fo
 
 #GraphQL
 
-A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL is and it's uses is located on the API documentation page section titled [Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
+A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL is and it's uses is located on the API documentation page section [Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
 
 The following example will query the endpoint to produce a UUID along with submitter_id, file_name, and project_id
-
+Example
+```GraphQl_Bare
+{
+  submitted_unaligned_reads (project_id: "GDC-INTERNAL", submitter_id: "Blood-00001-aliquot_lane1_barcode23.fastq") {
+   id
+   submitter_id
+   file_name
+   project_id
+}
+}
+```Escaped Json
+{\n  submitted_unaligned_reads (project_id: \"GDC-INTERNAL\", submitter_id: \"Blood-00001-aliquot_lane1_barcode23.fastq\") {\n   id\n   submitter_id\n   file_name\n   project_id\n}\n}\n
+\\
 ```
- {
 
-   submitted_unaligned_reads (project_id: "GDC-INTERNAL", submitter_id: "Blood-00001-aliquot_lane1_barcode23.fastq") {
-     id
-     submitter_id
-     file_name
-     project_id
- }
- }
+```Query_json
+{
+        "query": "{\n \n  submitted_unaligned_reads (project_id: \"GDC-INTERNAL\", submitter_id: \"Blood-00001-aliquot_lane1_barcode23.fastq\") {\n    id\n    submitter_id\n    file_name\n    project_id\n}\n}",
+        "variables": null
+}
+```
+```Shell_command
+export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+$ curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/v0/submission/graphql' -d@test2.json
+
+```Api_response
+{
+  "data": {
+    "submitted_unaligned_reads": [
+      {
+        "file_name": "dummy.fastq",
+        "id": "616eab2f-791a-4641-8cd6-ee195a10a201",
+        "project_id": "GDC-INTERNAL",
+        "submitter_id": "Blood-00001-aliquot_lane1_barcode23.fastq"
+      }
+    ]
+  }
 ```
