@@ -109,7 +109,7 @@ STAR
 --sjdbScore 2
 --alignSJDBoverhangMin 1
 --genomeLoad NoSharedMemory
---limitBAMsortRAM 70000000000
+--limitBAMsortRAM 0
 --readFilesCommand <bzcat|cat|zcat>
 --outFilterMatchNminOverLread 0.33
 --outFilterScoreMinOverLread 0.33
