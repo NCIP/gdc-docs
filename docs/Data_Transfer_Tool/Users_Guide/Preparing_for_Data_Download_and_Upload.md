@@ -64,7 +64,7 @@ A UUID can be used for data submission with the Data Transfer Tool.  The UUID fo
 
 #GraphQL
 
-A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL is and it's uses is located on the API documentation page section titled ![Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
+A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL is and it's uses is located on the API documentation page section titled [Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
 
 The following example will query the endpoint to produce a UUID along with submitter_id, file_name, and project_id
 
