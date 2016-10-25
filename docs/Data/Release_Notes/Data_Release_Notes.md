@@ -9,8 +9,8 @@
 
 1.  TARGET ALL P1 and P2 biospecimen and molecular data are now available in the Legacy Archive.  Clinical data will be available in a later release. <!-- Dat-185, Dat-194-->
 2.  Methylation data from 27k/450k Arrays has been lifted over to hg38 and is now available in the GDC Data Portal <!-- Dat-109 -->
-3.  Public MAFs are now available for SomaticSniper, VarScan2, and MuSE <!--DAT-235-->
-4.  New VCFs and MAF files for the MuTect2 pipelines are available.  See additional information on that change [here](https://gdc.cancer.gov/about-gdc/scientific-reports/known-mutect2-variant-artifacts).  <!-- Dat-145, Dat-260 -->
+3.  Public MAF files are now available for VarScan2, MuSE, and Somatic.  MuTect2 MAFs were made available in a previous release. <!--DAT-235-->
+4.  Updated VCFs and MAF files are available for MuTect2 pipeline to compensate for WGA-related false positive indels.  See additional information on that change [here](https://gdc.cancer.gov/about-gdc/scientific-reports/known-mutect2-variant-artifacts).  <!-- Dat-145, Dat-260 -->
 5.  Added submitter_id for Pathology Reports in Legacy Archive <!--DAT-81-->
 
 ### Bugs Fixed Since Last Release
@@ -19,6 +19,7 @@
 
 ### Known Issues and Workarounds
 
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * MAF Column #109 "FILTER" entries are separated by both commas and semi-colons. <!-- PGDC-2589 -->
 * TARGET-AML is undergoing reorganization.  Pending reorganization, cases from this projects may not contain many clinical, biospecimen, or genomic data files.
