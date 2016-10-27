@@ -25,11 +25,11 @@ A manifest file is not required to download files from GDC. The GDC Data Transfe
 ![GDC Data Portal: Detailed File Page](images/09-22_Data-portal-file-detail-pagev2.png)
 
 
-## Obtaining an Authentication Token
+## Obtaining an Authentication Token for Data Downloads
 
-The GDC Data Transfer Tool requires an authentication token to upload data to GDC and to download controlled data. Tokens can be generated and downloaded directly from the GDC Data Portal and the GDC Submission Portal.
+The GDC Data Transfer Tool requires an authentication token to download from GDC data portal to download controlled data. Tokens can be generated and downloaded directly from the GDC Data Portal.
 
-To generate a token, first log in to the GDC Data Portal or the GDC Submission Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Data Portal, indicated by the username IANMILLER:
+To generate a token, first log in to the GDC Data Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Data Portal, indicated by the username IANMILLER:
 
 ![GDC Data Portal Home Screen after Login](images/09-30_gdc-data-portal-home-screen-after-login.png)
 <!---**GDC Data Portal Home Screen after Login**--->
@@ -105,3 +105,7 @@ $ curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.g
     ]
   }
 ```
+## Obtaining an Authentication Token for Data Uploads
+All GDC submission portal data uploads using the Data Transfer Tool require an authentication token.  The GDC Data Submission portal can general and download a token directly from the site.
+
+To generate a token, first log in to the GDC Data Submission Portal by clicking the *Login* button in the top right corner of the page.  This will create a popup window that will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Data Portal, indicated by the username IANMILLER:
