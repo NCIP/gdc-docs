@@ -108,4 +108,6 @@ $ curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.g
 ## Obtaining an Authentication Token for Data Uploads
 All GDC submission portal data uploads using the Data Transfer Tool require an authentication token.  The GDC Data Submission portal can general and download a token directly from the site.
 
-To generate a token, first log in to the GDC Data Submission Portal by clicking the *Login* button in the top right corner of the page.  This will create a popup window that will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Data Portal, indicated by the username IANMILLER:
+To generate a token, first log in to the GDC Data Submission Portal by clicking the *Login* button in the top right corner of the page.  This will create a popup window that will redirect to the eRA Commons login page. After successful authentication, the GDC Submission Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Submission Portal, indicated by the username IANMILLER:
+![GDC Submission Portal Home Screen after Login](images/10-27-Submission_Portal_Auth.png)
+<!---**GDC Submission Portal Home Screen after Login**--->
