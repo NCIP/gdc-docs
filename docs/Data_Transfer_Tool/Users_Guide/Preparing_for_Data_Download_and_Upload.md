@@ -111,3 +111,8 @@ All GDC submission portal data uploads using the Data Transfer Tool require an a
 To generate a token, first log in to the GDC Data Submission Portal by clicking the *Login* button in the top right corner of the page.  This will create a popup window that will redirect to the eRA Commons login page. After successful authentication, the GDC Submission Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Submission Portal, indicated by the username IANMILLER:
 ![GDC Submission Portal Home Screen after Login](images/10-27-Submission_Portal_Auth.png)
 <!---**GDC Submission Portal Home Screen after Login**--->
+
+Clicking the username will open a drop-down menu. Select *Download Token* from the menu to generate an authentication token.
+
+![GDC Data Portal User Dropdown Menu](images/10-27_Submission_Portal_Auth_Download_Tab.png)
+<!---**GDC Submission Portal User Dropdown Menu**--->
