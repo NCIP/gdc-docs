@@ -60,7 +60,7 @@ gdc-client upload --manifest manifest.yml --token-file token.txt
 
 The GDC Data Transfer Tool also supports uploading molecular data using a file UUID. The tool will first make a request to get the filename and project id from GDC API, and then upload the corresponding file from the current directory.
 
-	gdc-client upload -i cd939bdd-b607-4dd4-87a6-fad12893932d -t token.txt
+	gdc-client upload cd939bdd-b607-4dd4-87a6-fad12893932d -t token.txt
 
 ### Resuming a Failed Upload
 
