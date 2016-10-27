@@ -114,5 +114,5 @@ To generate a token, first log in to the GDC Data Submission Portal by clicking 
 
 Clicking the username will open a drop-down menu. Select *Download Token* from the menu to generate an authentication token.
 
-![GDC Data Portal User Dropdown Menu](images/10-27_Submission_Portal_Auth_Download_Tab.png)
+![GDC Submission Portal User Dropdown Menu](images/10-27_Submission_Portal_Auth_Download_Tab.png)
 <!---**GDC Submission Portal User Dropdown Menu**--->
