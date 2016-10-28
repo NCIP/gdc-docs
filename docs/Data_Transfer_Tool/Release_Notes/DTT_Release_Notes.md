@@ -1,9 +1,30 @@
 # Data Transfer Tool Release Notes
 
+## v1.2.0
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: October 27, 2016
+
+
+### New Features and Changes
+* Better handling of connectivity interruptions
+
+### Bugs Fixed Since Last Release
+* Uploads via manifest file has been fixed.
+* Legacy -i/--identifier flag removed.
+* Improved error messaging when uploading without a token.
+
+### Known Issues and Workarounds
+* Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* When any files mentioned in the upload manifest are not present in the upload directory the submission will hang at the missing file.
+  * *Workaround:* Edit the manifest to specify only the the files that are present in the upload directory for submission or copy the missing files into the upload directory.  
+
+
 ## v1.1.0
 
 * __GDC Product__: Data Transfer Tool
-* __Release Date__: Aug 29, 2016
+* __Release Date__: September 7, 2016
 
 
 ### New Features and Changes
@@ -20,8 +41,8 @@
 * Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
 	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
-
-
+* Use of a manifest file for uploads to the Submission Portal will produce an error message "ERROR: global name 'read_manifest' is not defined". <!--SV-457-->
+	* *Workaround:* Upload files via UUID instead or use the API/Submission Portal.
 
 
 
