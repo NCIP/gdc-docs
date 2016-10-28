@@ -23,7 +23,7 @@ Descriptions for fields present in GDC Harmonized Methylation Beta Values Table 
 | Transcript ID |  Ensembl transcript IDs for each transcript associated with the genes detailed above |
 | Position to TSS | Distance in base pairs from the CpG site to each associated transcript's start site  |
 | CGI Coordinate | The start and end coordinates of the CpG island associated with the CpG site |
-| Feature Type | The position of the CpG site in reference to the island: Island, N_Shore or S_Shore (0-2 kb upstream or downstream from CGI), or N_Shelf or S_Shelf (2-4 kb upstream or downstream from CGI) |
+| Feature Type | The position of the CpG site in reference to the island: Island, N_Shore or S_Shore (0-2 kb upstream or downstream from CGI), or N_Shelf or S_Shelf (2-4 kbp upstream or downstream from CGI) |
 
 ---
 | I/O | Entity | Format |
