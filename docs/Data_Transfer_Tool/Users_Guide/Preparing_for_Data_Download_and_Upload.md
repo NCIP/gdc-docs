@@ -20,7 +20,6 @@ Once all files of interest have been selected, click on the *Cart* button in the
 
 ### Obtaining UUIDs for Data Download
 
-<<<<<<< HEAD
 A manifest file is not required to download files from GDC. The GDC Data Transfer Tool will accept file UUID(s) instead of a manifest file for downloading individual data files. To obtain a data file's UUID from the GDC Data Portal, click the file name to find its detail page including its GDC UUID.
 
 ![GDC Data Portal: Detailed File Page](images/09-22_Data-portal-file-detail-pagev2.png)
@@ -112,12 +111,3 @@ Clicking the username will open a drop-down menu. Select *Download Token* from t
 
 ![GDC Submission Portal User Dropdown Menu](images/10-27_Submission_Portal_Auth_Download_Tab.png)
 <!---**GDC Submission Portal User Dropdown Menu**--->
-=======
-## Obtaining an Authentication Token
-
-Authentication is required for downloading controlled-access data, and for all data uploads to the GDC. The GDC Data Transfer Tool uses tokens for authentication.
-
-Users can obtain authentication tokens from the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) for instructions.
-
-**NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
->>>>>>> develop
