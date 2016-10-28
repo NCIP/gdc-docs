@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GDC Data Transfer Tool is intended to be used in conjunction with the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission/) to transfer data to or from the GDC. First, the GDC Data Portal&#39;s interface is used to generate a manifest file or obtain UUID(s) and (for controlled data) an authentication token. The GDC Data Transfer Tool is then used to transfer the data files listed in the manifest file or identified by UUID(s).
+The GDC Data Transfer Tool is intended to be used in conjunction with the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission/) to transfer data to or from the GDC. First, the GDC Data Portal&#39;s interface is used to generate a manifest file or obtain UUID(s) and (for Controlled-Access Data) an authentication token. The GDC Data Transfer Tool is then used to transfer the data files listed in the manifest file or identified by UUID(s).
 
 #Downloads
 ## Obtaining a Manifest File for Data Download
@@ -27,7 +27,7 @@ A manifest file is not required to download files from GDC. The GDC Data Transfe
 
 ## Obtaining an Authentication Token for Data Downloads
 
-The GDC Data Transfer Tool requires an authentication token to download from GDC data portal to download controlled data. Tokens can be generated and downloaded directly from the GDC Data Portal.
+The GDC Data Transfer Tool requires an authentication token to download from GDC data portal to download Controlled-Access Data. Tokens can be generated and downloaded directly from the GDC Data Portal.
 
 To generate a token, first log in to the GDC Data Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Data Portal, indicated by the username IANMILLER:
 
@@ -64,10 +64,10 @@ A UUID can be used for data submission with the Data Transfer Tool.  The UUID fo
 
 #GraphQL
 
-A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL is and it's uses is located on the API documentation page section [Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
+A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL and its uses is located on the API documentation page section [Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
 
-The following example will query the endpoint to produce a UUID along with submitter_id, file_name, and project_id
-Example
+The following example will query the endpoint to produce a UUID along with submitter_id, file_name, and project_id.
+
 ```GraphQl_Bare
 {
   submitted_unaligned_reads (project_id: "GDC-INTERNAL", submitter_id: "Blood-00001-aliquot_lane1_barcode23.fastq") {
