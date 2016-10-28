@@ -4,8 +4,8 @@
 
 The GDC Data Transfer Tool is intended to be used in conjunction with the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission/) to transfer data to or from the GDC. First, the GDC Data Portal&#39;s interface is used to generate a manifest file or obtain UUID(s) and (for Controlled-Access Data) an authentication token. The GDC Data Transfer Tool is then used to transfer the data files listed in the manifest file or identified by UUID(s).
 
-#Downloads
-## Obtaining a Manifest File for Data Download
+##Downloads
+### Obtaining a Manifest File for Data Download
 
 The GDC Data Transfer Tool supports downloading multiple files listed in a GDC manifest file. Manifest files can be generated and downloaded directly from the GDC Data Portal:
 
@@ -41,8 +41,8 @@ Clicking the username will open a drop-down menu. Select *Download Token* from t
 
 **NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user.
 
-#Uploads
-## Obtaining a Manifest File for Data Uploads
+##Uploads
+### Obtaining a Manifest File for Data Uploads
 Multiple data file uploads are supported by the GDC Data Transfer Tool via a manifest file. Manifest files can be generated and downloaded directly from the GDC Submission Portal.  A project's manifest file can be downloaded from the projects's dashboard.  
 
 ![GDC Submission Portal Manifest Download](images/10-10-16_manifest_upload.png)
@@ -62,7 +62,7 @@ A UUID can be used for data submission with the Data Transfer Tool.  The UUID fo
 
 ![Submission Portal Browse Page Details](images/submission_portal_browse_page_UUID.png)  
 
-#GraphQL
+##GraphQL
 
 A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL and its uses is located on the API documentation page section [Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
 

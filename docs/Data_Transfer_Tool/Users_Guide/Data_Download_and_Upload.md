@@ -26,9 +26,9 @@ The GDC Data Transfer Tool supports resumption of interrupted downloads. To resu
 
 	gdc-client download f80ec672-d00f-42d5-b5ae-c7e06bc39da1
 
-### Downloading Controlled Access Data
+### Downloading Controlled-Access Data
 
-A user authentication token is required for downloading controlled access data from GDC. Tokens can be obtained from the GDC Data Portal (see instructions in [Obtaining an Authentication Token](Preparing_for_Data_Download_and_Upload.md#obtaining-an-authentication-token)). Once downloaded, the token *file* can be passed to the GDC Data Transfer Tool using the **-t** or **--token-file** option:
+A user authentication token is required for downloading Controlled-Access Data from GDC. Tokens can be obtained from the GDC Data Portal (see instructions in [Obtaining an Authentication Token](Preparing_for_Data_Download_and_Upload.md#obtaining-an-authentication-token)). Once downloaded, the token *file* can be passed to the GDC Data Transfer Tool using the **-t** or **--token-file** option:
 
 	gdc-client download -m gdc_manifest_e24fac38d3b19f67facb74d3efa746e08b0c82c2.txt -t gdc-user-token.2015-06-17T09-10-02-04-00.txt
 
@@ -100,7 +100,7 @@ Users may see the following error message when attempting to download a file fro
 		  }
 
 
-This error message means that the user does not have dbGaP access to the project that the file belongs to. Instructions for requesting access from dbGaP can be found [here](https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data/registering-and-working-era-commons-and-dbgap).
+This error message indicates that the user does not have dbGaP access to the project to which the file belongs. Instructions for requesting access from dbGaP can be found [here](https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data/registering-and-working-era-commons-and-dbgap).
 
 ### File Availability Error
 
@@ -120,7 +120,7 @@ Users may see the following error message when attempting to upload a file:
 		 "message": "You don't have access to the data: You don't have create role to do 'upload'"
 	     }
 
-This means that the user has dbGaP read access to the data, but does not have GDC upload privileges. Users can contact [GDC User Support](https://gdc.cancer.gov/contact-us) to request upload privileges.
+This means that the user has dbGaP read access to the data, but does not have GDC upload privileges. Users can contact [The database of Genotypes and Phenotypes (dbGaP) ](https://www.ncbi.nlm.nih.gov/gap) to request upload privileges.
 
 ### File in Uploaded State Error
 
