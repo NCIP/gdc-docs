@@ -14,7 +14,7 @@ Although the GDC Data Model may contain some cyclic elements, it can be helpful 
     * **Unique keys** are properties, or combinations of properties, that can be used to uniquely identify the entity in the GDC. For example, the tuple (combination) of `[ project_id, submitter_id ]` is a unique key for most entities, which means that although `submitter_id` does not need to be unique in GDC, it must be unique within a project. See [GDC Identifiers](#gdc-identifiers) below for details.
 * **Links** define relationships between entities, and the multiplicity of those relationships (e.g. one-to-one, one-to-many, many-to-many).
 
-The [GDC Data Dictionary](/Data_Dictionary/) determines which properties and links an entity can have according to entity `type`.
+The [GDC Data Dictionary](#gdc-data-dictionary) determines which properties and links an entity can have according to entity `type`.
 
 Functionally similar entity types are grouped under the same **category**. For example, entity types `slide_image` and `submitted_unaligned_reads` belong to `data_file` category, which comprises entities that represent downloadable files.
 

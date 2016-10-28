@@ -8,7 +8,7 @@ The _"Clinical"_ section lists all the clinical data entities available in a pro
 
 ## Clinical Data Filters
 
-Clinical data entities can be accessed from the menu through multiple filters automatically created based on the [GDC Data Dictionary](../../Dictionary/index.md).
+Clinical data entities can be accessed from the menu through multiple filters automatically created based on the [GDC Data Dictionary](../../Dictionary/index.md). 
 
 The number of entities corresponding to those filters is displayed on the right side of the filter.
 

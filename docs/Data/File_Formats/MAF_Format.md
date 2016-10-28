@@ -151,16 +151,17 @@ Listed below are the columns in a protected MAF. Most columns are explained in e
 
 ## Somatic MAF file structure
 
-This is very similar to the protected MAF format, but with some important additional filters.  The process for modifying a protected MAF into a somatic MAF are the following:
+This is very similar to the public MAF format, but with some important additional filters.  The process for modifying a Protected MAF into a Somatic MAF are the following:
 
 1. Aliquot Selection: only one tumor-normal pair are selected for each tumor sample based on the plate number, sample_type, analyte_type and other features extracted from tumor TCGA aliquot barcode.
-2. Low quality variants filtering: currently variants with FILTER="PASS" are kept and n_depth < 8 are removed.
+2. Low quality variants filtering: currently only FILTER="PASS" are kept.
+Also removed: n_depth < 8
 3. Germline Masking
     * Remove variants with Mutation_Status does not equal "Somatic"
     * Keep variants if any of the follow three criteria applies, but dbSNP sites that are not annotated as "Somatic" in VEP are also removed
         * GDC_Valid_Somatic is TRUE
-        * VEP "Somatic" field is not empty
-        * The variant affects transcript sequences. This criterion will be met if Variant_Classification is not 3'UTR, 3'Flank, 5'UTR, 5'Flank, IGR, or Intron and Variant_Classification is Frame_Shift_Del, Frame_Shift_Ins, In_Frame_Del, In_Frame_Ins, Missense_Mutation, Nonsense_Mutation, Silent, Splice_Site, Translation_Start_Site, Nonstop_Mutation, RNA, Targeted_Region, De_novo_Start_InFrame, or De_novo_Start_OutOfFrame.
+        * VEP "Somatic" field is not empty (currently not implemented)
+        * The variant affects transcript sequences.  Variant_Classification cannot be 3'UTR, 3'Flank, 5'UTR, 5'Flank, IGR, or Intron. Variant_Classification can only be Frame_Shift_Del, Frame_Shift_Ins, In_Frame_Del, In_Frame_Ins, Missense_Mutation, Nonsense_Mutation, Silent, Splice_Site, Translation_Start_Site, Nonstop_Mutation, RNA, Targeted_Region, De_novo_Start_InFrame, or De_novo_Start_OutOfFrame.
 4. Removal of the following columns:
     * vcf_info
     * vcf_format
@@ -172,5 +173,3 @@ This is very similar to the protected MAF format, but with some important additi
     * Match_Norm_Validation_Allele2
     * n_ref_count
     * n_alt_count
-
-Note: the criteria for allowing mutations into open-access are purposefully implemented to overcompensate and filter out any germline mutations. If omission of true-positive somatic mutations is a concern, the GDC recommends using protected MAFs.    

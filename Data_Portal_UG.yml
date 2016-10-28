@@ -10,7 +10,8 @@ theme_dir: theme
 pages:
 - Data Portal:
   - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
-  - Authentication: 'Data_Portal/Users_Guide/Authentication.md'
+  - About the Data: 'Commons/About_the_Data.md'
+  - Authentication: 'Commons/Authentication.md'
   - Features: 'Data_Portal/Users_Guide/Features.md'
   - Projects: 'Data_Portal/Users_Guide/Projects.md'
   - Data: 'Data_Portal/Users_Guide/Data.md'

@@ -1,16 +1,15 @@
 # Getting Started
 
 ## The GDC Application Programming Interface (API): An Overview
+The GDC API drives the GDC Data and Submission Portals. It is made available to external users for programmatic access to the functionality provided by the portals. This includes searching for, downloading, and submitting data and metadata.
 
-The GDC API drives the GDC Data and Submission Portals and provides programmatic access to GDC functionality. This includes searching for, downloading, and submitting data and metadata. The GDC API uses JSON as its communication format, and standard HTTP methods like `GET`, `PUT`, `POST` and `DELETE`.
-
-This guide explains how to construct and execute API requests and interpret API responses.
+The GDC API uses JSON as its communication format, and standard HTTP methods like `GET`, `PUT`, `POST` and `DELETE`.
 
 ## Tools for communicating with the GDC API
 
-Many third-party tools can be used for communicating with the GDC API and for preparing and visualizing API calls.
+Many third-party tools can be used for communicating with the GDC API and for preparing and visualizing API calls. The following is a non-exhaustive list.
 
-Examples of tools for communicating with the GDC API:
+Tools for communicating with the GDC API:
 
 | Tool        | Type     |
 | ------------- |-------------|
@@ -20,12 +19,11 @@ Examples of tools for communicating with the GDC API:
 | [DHC REST Client](http://restlet.com/products/dhc/)           | Google Chrome extension |
 | [Google Chrome](http://www.google.com/chrome/) 	  | Google Chrome web browser |
 
-Examples of tools that can help build GDC API calls:
+Tools that can help build GDC API calls:
 
 | Tool        | Description     |
 | ------------- |-------------|
-| [JSONLint](http://jsonlint.com/)| Validate JSON |
-| [JSON Formatter](http://jsonformatter.org/) | Format, validate, and convert JSON to other formats |
+| [JSONLint](http://jsonlint.com/)| Validate JSON strings |
 | [Percent-(URL)-encoding tool](http://text-rescue.com/string-escape/percent-url-encoding-tool.html)| Tool for percent-encoding strings |
 | [JSON escape tool](http://text-rescue.com/string-escape/json-escape-tool.html)| Tool for escaping strings using JSON string rules |
 
@@ -57,6 +55,7 @@ For example, the address of the latest version of the `status` endpoint is `http
 To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL:
 
 	https://gdc-api.nci.nih.gov/<version>/legacy/<endpoint>
+
 
 ## Entity UUIDs
 
@@ -108,30 +107,4 @@ print json.dumps(response.json(), indent=2)
 }
 ```
 
-## Authentication
-
-Authentication is required for downloading controlled-access data, and for all data submission functionality. The GDC API uses tokens for authentication.
-
-Users can obtain authentication tokens from the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) for instructions.
-
-### Using Authentication Tokens
-
-All API requests that require authentication must include a token as an `X-Auth-Token` custom HTTP header.
-
-In the following example, an authentication token is saved as an environment variable and passed to `curl` to download a controlled-access file:
-
-``` shell
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
-
-curl -O -J -H "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/data/a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
-```
-```Output
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 31.4M  100 31.4M    0     0   290k      0  0:01:50  0:01:50 --:--:--  172k
-curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.tangent.copynumber.data.txt'
-```
-
-For more information about authentication tokens, including token expiration and rotation, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
-
-**NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
+The rest of this guide will provide information on how to construct and execute API requests and interpret API responses.

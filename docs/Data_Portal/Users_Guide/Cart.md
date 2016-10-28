@@ -35,7 +35,7 @@ The user can click on the links to get more information on each file, it will li
 
 ## Download Options
 
-From the cart, the following download options are available to the end user:
+From the cart, the fowllowing download options are available to the end user:
 
 * __Manifest__: Manifest used by the GDC Data Transfer Tool to download the files.
 * __Cart__: All the files in the Cart downloaded directly through the browser. Users have to be cautious of the amount of data in the cart since this option will not optimize bandwidth neither provide resume capabilities.

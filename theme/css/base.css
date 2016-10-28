@@ -35,10 +35,6 @@ div.col-md-9 img {
   max-width: 100%;
 }
 
-#docs-container {
-  transition: all 0.25s ease;
-}
-
 /* Search */
 
 .searchbox-container {

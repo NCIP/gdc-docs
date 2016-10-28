@@ -8,7 +8,7 @@ An advanced search allows, via Genomic Query Language (GQL), to use structured q
 
 The advanced search provides more filters than the faceted search.
 
-A simple query in GQL (also known as a 'clause') consists of a __field__, followed by an __operator__, followed by one or more __values__. For example, the following simple query will find all cases for projects in which the primary site is Brain:
+A simple query in GQL (also known as a 'clause') consists of a __field__, followed by an __operator__, followed by one or more __values__. For example, the following simple query will find all files in the "TEST" project:
 
 ```
 cases.project.primary_site = Brain
@@ -28,7 +28,7 @@ However, a query created using 'Advanced Search' is not translated to 'Faceted S
 
 ## Use the Advanced Search
 
-When opening the advanced search page (via the Data view), the search field will be automatically populated with facets filters already applied (if any).
+When opening the advanced search page (via the Data view), the search field will be automatically populated with facets fileters already applied (if any).
 
 This default query can be removed by pressing "Reset".
 
@@ -246,7 +246,7 @@ The "EXCLUDE" operator will not match a field that has no value (i.e. a field th
 
 Examples:
 
-*   Find all files where experimental strategy is not WXS, WGS, Genotyping array:
+*   Find all issues where experimental strategy is not WXS, WGS, Genotyping array:
 
 ```
 files.experimental_strategy EXCLUDE [WXS, WGS, "Genotyping array"]

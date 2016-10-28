@@ -2,9 +2,9 @@
 
 The GDC API implements file download functionality using `data` and `manifest` endpoints. The `data` endpoint allows users to download files stored in the GDC by specifying file UUID(s). The `manifest` endpoint generates a download manifest file that can be used with the GDC Data Transfer Tool to transfer large volumes of data.
 
-**Note:** Downloading controlled access data requires the use of an authentication token. See [Getting Started: Authentication](Getting_Started.md#authentication) for details.
+**Note:** Downloading controlled access data requires the use of a token. See [Authentication and Authorization](Authentication_and_Authorization.md) for details.
 
-**Note:** Requests to download data from the GDC Legacy Archive must be directed to `legacy/data`. See [Getting Started: Legacy Archive](Getting_Started.md#gdc-legacy-archive) for details.
+**Note:** Requests to download data from the GDC Legacy Archive must be directed to `legacy/data`. See [Getting Started](Getting_Started.md#gdc-legacy-archive) for details.
 
 ## Data endpoint
 
@@ -178,9 +178,6 @@ curl --remote-name --remote-header-name 'https://gdc-api.nci.nih.gov/v0/manifest
 100   274  100   274    0     0   1042      0 --:--:-- --:--:-- --:--:--  1041
 curl: Saved to filename 'gdc_manifest_20160428_234614.txt'
 ```
-
-The `manifest` endpoint also supports HTTP POST requests in the same format as the `data` endpoint; see [above](#post-request-with-json-payload) for details.
-
 
 ### Using return_type=manifest
 
