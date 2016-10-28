@@ -29,7 +29,7 @@ A manifest file is not required to download files from GDC. The GDC Data Transfe
 
 The GDC Data Transfer Tool requires an authentication token to download from GDC data portal to download Controlled-Access Data. Tokens can be generated and downloaded directly from the GDC Data Portal.
 
-To generate a token, first log in to the GDC Data Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Data Portal, indicated by the username IANMILLER:
+To generate a token, first log in to the GDC Data Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Data Portal, indicated by the username IANMILLER.
 
 ![GDC Data Portal Home Screen after Login](images/09-30_gdc-data-portal-home-screen-after-login.png)
 <!---**GDC Data Portal Home Screen after Login**--->
@@ -43,7 +43,7 @@ Clicking the username will open a drop-down menu. Select *Download Token* from t
 
 #Uploads
 ## Obtaining a Manifest File for Data Uploads
-Multiple data file uploads are supported by the GDC Data Transfer Tool via a manifest file. Manifest files can be generated and downloaded directly from the GDC Submission Portal.  A project's manifest file can be downloaded from the projects's dashboard home page.  
+Multiple data file uploads are supported by the GDC Data Transfer Tool via a manifest file. Manifest files can be generated and downloaded directly from the GDC Submission Portal.  A project's manifest file can be downloaded from the projects's dashboard.  
 
 ![GDC Submission Portal Manifest Download](images/10-10-16_manifest_upload.png)
 <!---**GDC Submission Portal Manifest Download**--->
@@ -106,7 +106,7 @@ $ curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.g
   }
 ```
 ## Obtaining an Authentication Token for Data Uploads
-All GDC submission portal data uploads using the Data Transfer Tool require an authentication token.  The GDC Data Submission portal can general and download a token directly from the site.
+While biospecimen and clinical metadata may be uploaded via the GDC Data Submission Portal, file upload must be done using the Data Transfer Tool or API.  An authentication token is required for data upload and can be generated on the GDC Data Submission Portal.
 
 To generate a token, first log in to the GDC Data Submission Portal by clicking the *Login* button in the top right corner of the page.  This will create a popup window that will redirect to the eRA Commons login page. After successful authentication, the GDC Submission Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Submission Portal, indicated by the username IANMILLER:
 ![GDC Submission Portal Home Screen after Login](images/10-27-Submission_Portal_Auth.png)
