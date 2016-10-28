@@ -5,7 +5,7 @@
 The GDC Data Transfer Tool is intended to be used in conjunction with the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission/) to transfer data to or from the GDC. First, the GDC Data Portal&#39;s interface is used to generate a manifest file or obtain UUID(s) and (for Controlled-Access Data) an authentication token. The GDC Data Transfer Tool is then used to transfer the data files listed in the manifest file or identified by UUID(s).
 
 ##Downloads
-## Obtaining a Manifest File for Data Download
+### Obtaining a Manifest File for Data Download
 
 The GDC Data Transfer Tool supports downloading multiple files listed in a GDC manifest file. Manifest files can be generated and downloaded directly from the GDC Data Portal:
 
@@ -18,14 +18,14 @@ Once all files of interest have been selected, click on the *Cart* button in the
 
 ![GDC Data Portal: Cart Page](images/09-15-v2_Data-Portal-Cart-Page.png)
 
-## Obtaining UUIDs for Data Download
+### Obtaining UUIDs for Data Download
 
 A manifest file is not required to download files from GDC. The GDC Data Transfer Tool will accept file UUID(s) instead of a manifest file for downloading individual data files. To obtain a data file's UUID from the GDC Data Portal, click the file name to find its detail page including its GDC UUID.
 
 ![GDC Data Portal: Detailed File Page](images/09-22_Data-portal-file-detail-pagev2.png)
 
 
-## Obtaining an Authentication Token for Data Downloads
+### Obtaining an Authentication Token for Data Downloads
 
 The GDC Data Transfer Tool requires an authentication token to download from GDC data portal to download Controlled-Access Data. Tokens can be generated and downloaded directly from the GDC Data Portal.
 
@@ -39,7 +39,7 @@ Clicking the username will open a drop-down menu. Select *Download Token* from t
 **NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user.
 
 ##Uploads
-## Obtaining a Manifest File for Data Uploads
+### Obtaining a Manifest File for Data Uploads
 Multiple data file uploads are supported by the GDC Data Transfer Tool via a manifest file. Manifest files can be generated and downloaded directly from the GDC Submission Portal.  A project's manifest file can be downloaded from the projects's dashboard.  
 
 ![GDC Submission Portal Manifest Download](images/10-10-16_manifest_upload.png)
@@ -49,7 +49,7 @@ Multiple data file uploads are supported by the GDC Data Transfer Tool via a man
 
 A manifest for individual files can also be downloaded from the transaction tab and browse tab pages of the submission portal's project.  More information on the process can be found under the Submission Portal's documentation section entitled [Step 4: GDC Data Transfer Tool](https://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Upload_Data/#step-4-gdc-data-transfer-tool).
 
-## Obtaining UUIDs for Data Uploads
+### Obtaining UUIDs for Data Uploads
 A UUID can be used for data submission with the Data Transfer Tool.  The UUID for submittable data uploads can be obtained from the Submission Portal or from the API GraphQL endpoint.  In the Submission Portal the UUID for a data file can be found in the Manifest YAML file located in the _id:_ row located under the file size entry.   
 
 ![Submission Manifest yaml file](images/10-18_yaml_submission_UUID.png)
@@ -59,7 +59,7 @@ A UUID can be used for data submission with the Data Transfer Tool.  The UUID fo
 
 ![Submission Portal Browse Page Details](images/submission_portal_browse_page_UUID.png)  
 
-##GraphQL
+###GraphQL
 
 A UUID can be obtain from the API GraphQL endpoint.  An overview of what GraphQL and its uses is located on the API documentation page section [Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
 
@@ -102,7 +102,7 @@ $ curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.g
     ]
   }
 ```
-## Obtaining an Authentication Token for Data Uploads
+### Obtaining an Authentication Token for Data Uploads
 While biospecimen and clinical metadata may be uploaded via the GDC Data Submission Portal, file upload must be done using the Data Transfer Tool or API.  An authentication token is required for data upload and can be generated on the GDC Data Submission Portal.
 
 To generate a token, first log in to the GDC Data Submission Portal by clicking the *Login* button in the top right corner of the page.  This will create a popup window that will redirect to the eRA Commons login page. After successful authentication, the GDC Submission Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Submission Portal, indicated by the username IANMILLER.
