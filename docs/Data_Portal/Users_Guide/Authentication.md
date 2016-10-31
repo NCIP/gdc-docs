@@ -36,7 +36,7 @@ For more information about authentication tokens, see [Data Security](../../Data
 
 ## Display Only Authorized Datasets
 
-The "Only My Projects" checkbox, available in [Data view](Data_View.md) to authenticated users, limits data file listings to only those files to which the user has access.
+The "Only My Projects" checkbox, available in [Data view](Cases_and_Files.md#data-view) to authenticated users, limits data file listings to only those files to which the user has access.
 
 [![Only My Projects checkbox](images/gdc-data-portal-only-my-projects.png)](images/gdc-data-portal-only-my-projects.png "Click to see the full image.")
 
@@ -45,7 +45,7 @@ The "Only My Projects" checkbox, available in [Data view](Data_View.md) to authe
 
 The GDC Data Portal displays the following file authorization information for authenticated users:
 
-- Authorization status of individual files in the "My Projects" column, available in [Data view](Data_View.md) and [cart](Cart.md) file listings.
+- Authorization status of individual files in the "My Projects" column, available in [Data view](Cases_and_Files.md#data-view) and [cart](Cart.md) file listings.
 - Summary of file authorization status in the user's cart.
 
 [![File Authorization Summary in GDC Cart](images/gdc-portal-cart-authorization-summary.png)](images/gdc-portal-cart-authorization-summary.png "Click to see the full image.")

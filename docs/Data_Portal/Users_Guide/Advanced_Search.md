@@ -1,37 +1,31 @@
 # Advanced Search
 
-Only available in the _'Data'_ view, the Advanced Search page offers complex query building capabilities to  identify specific set of cases and files.
+Only available in the Data view, the Advanced Search page offers complex query building capabilities to identify specific set of cases and files.
 
 [![Access to Advanced Search from Data View](images/gdc-data-portal-access-advanced-search-data-view.png)](images/gdc-data-portal-access-advanced-search-data-view.png "Click to see the full image.")
 
 
-## Overview
+## Overview: GQL
 
-An advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases.
+Advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases.
 
 [![Advanced Search View](images/gdc-data-portal-advanced-search.png)](images/gdc-data-portal-advanced-search.png "Click to see the full image.")
 
-The advanced search provides more filters than the faceted search.
-
-A simple query in GQL (also known as a 'clause') consists of a __field__, followed by an __operator__, followed by one or more __values__. For example, the following simple query will find all cases for projects in which the primary site is Brain:
-
-```
-cases.project.primary_site = Brain
-```
+A simple query in GQL (also known as a 'clause') consists of a __field__, followed by an __operator__, followed by one or more __values__. For example, the simple query `cases.project.primary_site = Brain` will find all cases for projects in which the primary site is Brain:
 
 [![Advanced Search Example](images/gdc-data-portal-advanced-search-example.png)](images/gdc-data-portal-advanced-search-example.png "Click to see the full image.")
 
-Be aware that it is not possible to compare two fields (e.g. disease_type = project.name).
+Note that it is not possible to compare two fields (e.g. disease_type = project.name).
 
 __Note__: GQL is not a database query language. For example, GQL does not have a "SELECT" statement.
 
-### Switch between 'Advanced' and 'Faceted' Search
+### Switching between Advanced Search and Facet Filters
 
-A query created using 'Faceted Search' will be automatically translated to 'Advanced Search' (i.e. GQL) when clicking on the "Advanced" button.
+When accessing Advanced Search from Data View, a query created using facet filters in Data View will be automatically translated to an Advanced Search GQL Query.
 
-However, a query created using 'Advanced Search' is not translated to 'Faceted Search'. From the advanced search, click on Basic and you will be redirected to a reset faceted search.
+A query created in Advanced Search is not translated back to facet filters. Clicking on "Back to Facet Search" will return the user to Data View and reset the filters.
 
-## Use the Advanced Search
+## Using the Advanced Search
 
 When opening the advanced search page (via the Data view), the search field will be automatically populated with facets filters already applied (if any).
 
@@ -39,13 +33,13 @@ This default query can be removed by pressing "Reset".
 
 Once the query has been entered and is identified as a "Valid Query", click on "Search" to run your query.
 
-## Auto-complete
+### Auto-complete
 
-As a query is being written, the GDC Data Portal will analyse the context and offer a list of "auto-complete".
+As a query is being written, the GDC Data Portal will analyse the context and offer a list of auto-complete suggestions. Auto-complete suggests both fields and values as described below.
 
-### Field Auto-complete
+#### Field Auto-complete
 
-The list of auto-complete suggestions includes __all__ the fields authorized in the advanced search matching the user text input. The user has to scroll down to see more fields in the dropdown.
+The list of auto-complete suggestions includes __all__ available fields matching the user text input. The user has to scroll down to see more fields in the dropdown:
 
 [![Field Auto-complete](images/gdc-data-portal-advanced-search-project.png)](images/gdc-data-portal-advanced-search-project.png "Click to see the full image.")
 
@@ -53,8 +47,7 @@ The list of auto-complete suggestions includes __all__ the fields authorized in 
 
 The list of auto-complete suggestions includes top 100 values that match the user text input. The user has to scroll down to see more values in the dropdown.
 
-The value auto-complete is not aware of the general context of the query, the system will display all available values in GDC for the selected field.
-It means the query could return 0 result depending of other filters.
+The value auto-complete is not aware of the general context of the query, the system will display all available values in GDC for the selected field. It means the query could return 0 results depending of other filters.
 
 [![Value Auto-complete](images/gdc-data-portal-advanced-search-value.png)](images/gdc-data-portal-advanced-search-value.png "Click to see the full image.")
 
@@ -66,9 +59,7 @@ You can use parentheses in complex GQL statements to enforce the precedence of o
 
 For example, if you want to find all the open files in TCGA program as well as the files in TARGET program, you can use parentheses to enforce the precedence of the boolean operators in your query, i.e.:
 
-```
-(files.access = open and cases.project.program.name = TCGA) or cases.project.program.name = TARGET
-```
+	(files.access = open and cases.project.program.name = TCGA) or cases.project.program.name = TARGET
 
 __Note__: Without parentheses, the statement will be evaluated left-to-right.
 
@@ -91,15 +82,13 @@ Examples:
 
 * Find all open files in breast cancer
 
-```
-cases.project.primary_site = Breast and files.access = open
-```
+	cases.project.primary_site = Breast and files.access = open
+
 
 * Find all open files in breast cancer and data type is copy number variation
 
-```
-cases.project.primary_site = Breast and files.access = open and files.data_type = "Copy number variation"
-```
+	cases.project.primary_site = Breast and files.access = open and files.data_type = "Copy number variation"
+
 
 ### OR Keyword
 
@@ -111,15 +100,12 @@ Examples:
 
 *   Find all files that are raw sequencing data or raw microarray data:
 
-```
-files.data_type = "Raw microarray data" or files.data_type = "Raw sequencing data"
-```
+	files.data_type = "Raw microarray data" or files.data_type = "Raw sequencing data"
 
 *   Find all files where donors are male or vital status is alive:
 
-```
-cases.demographic.gender = male or cases.diagnoses.vital_status = alive
-```
+	cases.demographic.gender = male or cases.diagnoses.vital_status = alive
+
 
 ## Operators
 
@@ -149,15 +135,11 @@ Examples:
 
 *   Find all files that are gene expression:
 
-```
-files.data_type = "Gene expression"
-```
+	files.data_type = "Gene expression"
 
 *   Find all cases whose gender is female:
 
-```
-cases.demographic.gender = female
-```
+	cases.demographic.gender = female
 
 ### "!=" operator - NOT EQUAL
 
@@ -169,9 +151,8 @@ Example:
 
 *   Find all files with an experimental different from genotyping array:
 
-```
-files.experimental_strategy != "Genotyping array"
-```
+	files.experimental_strategy != "Genotyping array"
+
 
 ### ">" operator - GREATER THAN
 
@@ -181,9 +162,7 @@ Example:
 
 * Find all cases whose number of days to death is greater than 60:
 
-```
-cases.diagnoses.days_to_death > 60
-```
+	cases.diagnoses.days_to_death > 60
 
 
 ### ">=" operator - GREATER THAN OR EQUALS
@@ -194,9 +173,7 @@ Example:
 
 * Find all cases whose number of days to death is equal or greater than 60:
 
-```
-cases.diagnoses.days_to_death >= 60
-```
+	cases.diagnoses.days_to_death >= 60
 
 ### "<" operator - LESS THAN
 
@@ -206,9 +183,8 @@ Example:
 
 *   Find all cases whose age at diagnosis is less than 400 days:
 
-```
-cases.diagnoses.age_at_diagnosis < 400
-```
+	cases.diagnoses.age_at_diagnosis < 400
+
 
 ### "<=" operator - LESS THAN OR EQUALS
 
@@ -218,9 +194,9 @@ Example:
 
 *   Find all cases with a number of days to death less than or equal to 20:
 
-```
-cases.diagnoses.days_to_death <= 20
-```
+	cases.diagnoses.days_to_death <= 20
+
+
 ### "IN" Operator
 
 The "IN" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
@@ -231,15 +207,12 @@ Examples:
 
 *   Find all files in breast, breast and lung and cancer:
 
-```
-cases.project.primary_site IN [Brain, Breast,Lung]
-```
+	cases.project.primary_site IN [Brain, Breast,Lung]
 
 *   Find all files tagged with exon or junction or hg19:
 
-```
-files.data_type IN ["Aligned reads", "Unaligned reads"]
-```
+	files.data_type IN ["Aligned reads", "Unaligned reads"]
+
 
 ### "EXCLUDE" Operator
 
@@ -253,10 +226,7 @@ Examples:
 
 *   Find all files where experimental strategy is not WXS, WGS, Genotyping array:
 
-```
-files.experimental_strategy EXCLUDE [WXS, WGS, "Genotyping array"]
-```
-
+	files.experimental_strategy EXCLUDE [WXS, WGS, "Genotyping array"]
 
 ### "IS MISSING" Operator
 
@@ -266,9 +236,7 @@ Examples:
 
 *   Find all cases where gender is missing:
 
-```
-cases.demographic.gender is MISSING
-```
+	cases.demographic.gender is MISSING
 
 ### "NOT MISSING" Operator
 
@@ -278,9 +246,7 @@ Examples:
 
 *   Find all cases where race is not missing:
 
-```
-cases.demographic.race NOT MISSING
-```
+	cases.demographic.race NOT MISSING
 
 ## Special Cases
 
@@ -290,9 +256,7 @@ The date format should be the following: **YYYY-MM-DD** (without quotes).
 
 Example:
 
-```
-files.updated_datetime > 2015-12-31
-```
+	files.updated_datetime > 2015-12-31
 
 
 ### Using Quotes
@@ -303,9 +267,7 @@ Quotes are not necessary if the value consists of one single word.
 
 * Example: Find all cases with primary site is brain and data type is copy number variation:
 
-```
-cases.project.primary_site = Brain and files.data_type = "Copy number variation"
-```
+	cases.project.primary_site = Brain and files.data_type = "Copy number variation"
 
 ### Age at Diagnosis - Unit in Days
 
@@ -315,9 +277,8 @@ The __conversion factor__ is 1 year = 365.25 days
 
 *   Example: Find all cases whose age at diagnosis > 40 years old (40 * 365.25)
 
-```
-cases.diagnoses.age_at_diagnosis > 14610
-```
+	cases.diagnoses.age_at_diagnosis > 14610
+
 
 
 ## Fields Reference
