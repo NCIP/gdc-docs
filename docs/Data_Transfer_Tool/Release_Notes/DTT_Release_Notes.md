@@ -44,8 +44,6 @@
 * Use of a manifest file for uploads to the Submission Portal will produce an error message "ERROR: global name 'read_manifest' is not defined". <!--SV-457-->
 	* *Workaround:* Upload files via UUID instead or use the API/Submission Portal.
 
-
-
 ## v1.0.1
 
 * __GDC Product__: Data Transfer Tool
