@@ -3,7 +3,7 @@
 ## Release 1.3.0
 
 * __GDC Product__: GDC Data Submission Portal
-* __Release Date__: October 27, 2016
+* __Release Date__: October 31, 2016
 
 ### New Features and Changes
 
