@@ -346,7 +346,7 @@ Submitting an [__Analyte__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/
 
 * __`submitter_id`:__ A unique key to identify the `analyte`
 * __`portions.submitter_id`:__ The unique key that was used for the `portion` that links the `analyte` to the `portion`
-* __`analyte_type`:__ Protocol-specific molecular type of the specimen.
+* __`analyte_type`:__ Protocol-specific molecular type of the specimen
 
 ```JSON
 {
@@ -422,10 +422,10 @@ Submitting a [__Submitted Aligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dic
 * __`data_category`:__ Broad categorization of the contents of the data file
 * __`data_format`:__ Format of the data files
 * __`data_type`:__ Specific content type of the data file. (must be "Aligned Reads")
-* __`experimental_strategy`:__ The sequencing strategy used to generate the data file.
+* __`experimental_strategy`:__ The sequencing strategy used to generate the data file
 * __`file_name`:__ The name (or part of a name) of a file (of any type)
 * __`file_size`:__ The size of the data file (object) in bytes
-* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint
 
 
 ```JSON
@@ -457,13 +457,13 @@ Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_D
 
 * __`submitter_id`:__ A unique key to identify the `submitted_unaligned_reads`
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `submitted_unaligned_reads` to the `read_group`
-* __`data_category`:__ Broad categorization of the contents of the data file.
-* __`data_format`:__ Format of the data files.
+* __`data_category`:__ Broad categorization of the contents of the data file
+* __`data_format`:__ Format of the data files
 * __`data_type`:__ Specific content type of the data file. (must be "Unaligned Reads")
-* __`experimental_strategy`:__ The sequencing strategy used to generate the data file.
-* __`file_name`:__ The name (or part of a name) of a file (of any type).
-* __`file_size`:__ The size of the data file (object) in bytes.
-* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
+* __`experimental_strategy`:__ The sequencing strategy used to generate the data file
+* __`file_name`:__ The name (or part of a name) of a file (of any type)
+* __`file_size`:__ The size of the data file (object) in bytes
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint
 
 
 ```JSON
@@ -527,12 +527,12 @@ Submitting an [__Experiment Metadata__](https://gdc-docs.nci.nih.gov/Data_Dictio
 
 * __`submitter_id`:__ A unique key to identify the `experiment_metadata` entity
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `experiment_metadata` entity to the `read_group`
-* __`data_category`:__ Broad categorization of the contents of the data file.
+* __`data_category`:__ Broad categorization of the contents of the data file
 * __`data_format`:__ Format of the data files. (must be "SRA XML")
 * __`data_type`:__ Specific contents of the data file. (must be "Experiment Metadata")
-* __`file_name`:__ The name (or part of a name) of a file (of any type).  
-* __`file_size`:__ The size of the data file (object) in bytes.
-* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.  
+* __`file_name`:__ The name (or part of a name) of a file (of any type)
+* __`file_size`:__ The size of the data file (object) in bytes
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint
 
 ```JSON
 {

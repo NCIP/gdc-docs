@@ -17,7 +17,8 @@ DNA-Seq analysis is implemented across six main procedures:
 ## Data Processing Steps
 
 ### Pre-Alignment
-Prior to alignment, reads that failed the Illumina chastity test are removed. Note that this filtering step is distinct from trimming reads using base quality scores.  
+Prior to alignment, BAM files that were submitted to the GDC are split by read groups and converted to FASTQ files. Reads that failed the Illumina chastity test are removed. Note that this filtering step is distinct from trimming reads using base quality scores.
+
 
 ### Alignment Workflow
 DNA-Seq analysis begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow). Read groups are aligned to the reference genome using one of two [BWA](http://bio-bwa.sourceforge.net) algorithms [[1]](http://www.ncbi.nlm.nih.gov/pubmed/19451168). BWA-MEM is used if mean read length is greater than or equal to 70 bp. Otherwise BWA-aln is used.
@@ -382,7 +383,6 @@ Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Port
 | [Masked Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) | A modified version of the Aggregated Somatic Mutation MAF file with sensitive or potentially erroneous data removed. | MAF |
 
 - - -
-
 
 [1]. Li, Heng, and Richard Durbin. "Fast and accurate short read alignment with Burrows-Wheeler transform." Bioinformatics 25, no. 14 (2009): 1754-1760.
 

@@ -1,7 +1,7 @@
 # mRNA Analysis Pipeline
 
 ## Introduction
-The GDC mRNA quantification analysis pipeline measures gene level expression in [HT-Seq](http://www-huber.embl.de/HTSeq/doc/overview.html) raw mapping count, Fragments per Kilobase of transcript per Million mapped reads (FPKM) and FPKM-UQ (upper quartile normalization).  These values are generated through this pipeline by first aligning reads to the GRCh38 [reference genome](https://gdc.nci.nih.gov/download-gdc-reference-files) and then by quantifying the mapped reads.  To facilitate harmonization across samples, all RNA-Seq reads are treated as unstranded during analyses.    
+The GDC mRNA quantification analysis pipeline measures gene level expression in [HT-Seq](http://www-huber.embl.de/HTSeq/doc/overview.html) raw mapping count, Fragments per Kilobase of transcript per Million mapped reads (FPKM) and FPKM-UQ (upper quartile normalization).  These values are generated through this pipeline by first aligning reads to the GRCh38 [reference genome](https://gdc.cancer.gov/download-gdc-reference-files) and then by quantifying the mapped reads. To facilitate harmonization across samples, all RNA-Seq reads are treated as unstranded during analyses.    
 
 
 ## Data Processing Steps

@@ -71,6 +71,7 @@ pages:
   - "Bioinformatics Pipeline: mRNA Analysis": 'Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline.md'
   - "Bioinformatics Pipeline: DNA-Seq Analysis": 'Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md'
   - "Bioinformatics Pipeline: Copy Number Variation Analysis": 'Data/Bioinformatics_Pipelines/CNV_Pipeline.md'
+  - "Bioinformatics Pipeline: Methylation Liftover Pipeline": 'Data/Bioinformatics_Pipelines/Methylation_LO_Pipeline.md'
   - "Release Notes": 'Data/Release_Notes/Data_Release_Notes.md'
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: 'Data/PDF/index.md'
 extra:
