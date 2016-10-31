@@ -1,10 +1,10 @@
 # Data Portal Release Notes
 
 
-## Release 1.4.0
+## Release 1.4.2
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: October 27, 2016
+* __Release Date__: October 31, 2016
 
 ### New Features and Changes
 
