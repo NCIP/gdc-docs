@@ -4,30 +4,23 @@
 
 The GDC Data Submission process is detailed on the [Data Submission Processes and Tools](https://gdc.cancer.gov/submit-data/data-submission-processes-and-tools) section of the GDC Website.
 
-This chapter will focus on the following features:
-
-* The review and submission of data to the GDC
-* The release of data to the GDC Data Portal
-
 ## Review and Submit
 
-When data is uploaded to the project workspace (see previous section: [Data Upload User Guide](Data_Upload_UG.md)) the submitter should review the data to ensure that it is ready for processing by the GDC [Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization). The review will lock the project and prevent users from uploading more data. During this period, the submitter can browse the data in the Submission Portal or download it.
+When data is uploaded to the project workspace (see previous section: [Upload Data](Data_Upload_UG.md)) the submitter should review the data to ensure that it is ready for processing by the GDC [Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization). Setting the project to the 'REVIEW' state will lock the project and prevent users from uploading additional data. During this period, the submitter can browse the data in the Submission Portal or download it.
 
-If the project is ready for processing, the submitter will submit data to the GDC. If the project is not ready for processing, the submitter can re-open it. Then the submitter will be able to upload more data to the project workspace.
+If the project is ready for processing, the submitter will submit data to the GDC. If the project is not ready for processing, the project can be re-opened. Then the submitter will be able to upload more data to the project workspace.
 
-Submitters are requested to submit their data to the GDC within six months from the first upload to the project workspace.
+The GDC requests that users submit their data to the GDC within six months from the first upload to the project workspace.
 
 ### Review
 
-To review and submit data to the GDC, the user must have release privileges. The user will be able to view the section below on the dashboard.
-
-The "Review" button is available only if the project is in "OPEN" state.
+To review and submit data to the GDC, the user must have release privileges. The user will be able to view the section below on the dashboard. The "REVIEW" button is available only if the project is in "OPEN" state.
 
 [![GDC Submission Review Tab](images/GDC_Submission_Submit_Release_Review_tab_2.png)](images/GDC_Submission_Submit_Release_Review_tab_2.png "Click to see the full image.")
 
 Reviewing the project will prevent other users from uploading data to the project. Once the review is complete, the user can submit data to the GDC.
 
-Once the user clicks on "Review", the project state will change to "REVIEW":
+Once the user clicks on "REVIEW", the project state will change to "REVIEW":
 
 [![GDC Submission Review State](images/GDC_Submission_Submit_Release_Project_State_Review_2.png)](images/GDC_Submission_Submit_Release_Project_State_Review_2.png "Click to see the full image.")
 

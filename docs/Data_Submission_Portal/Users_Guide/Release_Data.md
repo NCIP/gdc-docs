@@ -16,4 +16,4 @@ After the user clicks on "Release Submitted and Processed Data", the project rel
 [![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State_2.png)](images/GDC_Submission_Submit_Release_Project_State_2.png "Click to see the full image.")
 
 
-__Note__: Released cases and/or files can be redacted from the GDC. Redaction is performed by GDC administrators, at case level through synchronization with dbGaP, and at file level at the submitter's request usually after a data quality issue is identified. The GDC Data Submission Portal itself currently does not support redaction through the web user interface.
+__Note__: Released cases and/or files can be redacted from the GDC. Redaction is performed by GDC administrators at the case level through synchronization with dbGaP and at the file level at the submitter's request usually after a data quality issue is identified. The GDC Data Submission Portal itself currently does not support redaction through the web interface.

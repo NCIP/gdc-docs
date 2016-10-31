@@ -17,15 +17,16 @@ DNA-Seq analysis is implemented across six main procedures:
 ## Data Processing Steps
 
 ### Pre-Alignment
-Prior to alignment, reads that failed the Illumina chastity test are removed. Note that this filtering step is distinct from trimming reads using base quality scores.  
+Prior to alignment, BAM files that were submitted to the GDC are split by read groups and converted to FASTQ files. Reads that failed the Illumina chastity test are removed. Note that this filtering step is distinct from trimming reads using base quality scores.
+
 
 ### Alignment Workflow
-DNA-Seq analysis begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow). Read groups are aligned to the reference genome using one of two [BWA](http://bio-bwa.sourceforge.net) algorithms [[1]](http://www.ncbi.nlm.nih.gov/pubmed/19451168). BWA-MEM is used if mean read length is greater than 70 bp, or otherwise BWA-aln is used.
+DNA-Seq analysis begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow). Read groups are aligned to the reference genome using one of two [BWA](http://bio-bwa.sourceforge.net) algorithms [[1]](http://www.ncbi.nlm.nih.gov/pubmed/19451168). BWA-MEM is used if mean read length is greater than or equal to 70 bp. Otherwise BWA-aln is used.
 Each read group is aligned to the reference genome separately and all read group alignments that belong to a single aliquot are merged using [Picard Tools](http://broadinstitute.github.io/picard) [SortSam](https://broadinstitute.github.io/picard/command-line-overview.html#SortSam) and [MergeSamFiles](https://broadinstitute.github.io/picard/command-line-overview.html#MergeSamFiles). Duplicate reads, which may persist as PCR artifacts, are then flagged to prevent downstream variant call errors.
 
 #### Quality Control
 
-Quality control metrics are collected before and after the alignment workflow and reviewed to identify potential low-quality data files.  Basic metrics such as GC content and mean read length as well as quality score metrics are collected from unaligned reads using [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Quality metrics collected by the GDC for aligned reads include idxstat and flagstat. Coverage information is collected using Picard [CollectHsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectHsMetrics).
+Quality control metrics are collected before and after the alignment workflow and reviewed to identify potential low-quality data files.  Basic metrics such as GC content and mean read length as well as quality score metrics are collected from unaligned reads using [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Quality metrics collected by the GDC for aligned reads include samtools idxstat and flagstat. Alignment information is collected using Picard [CollectMultipleMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectMultipleMetrics) for both WGS and WXS. Coverage information is collected using picard [CollectWgsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectWgsMetrics) for WGS and picard [CollectHsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectHsMetrics) for WXS.
 
 Quality control metrics for each file endpoint can be accessed through the API using the `expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs` parameter. Click [here](https://gdc-api.nci.nih.gov/files/40e311a4-67aa-468a-8e09-1c7daa2d10bb?pretty=true&expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs) for an example query.  
 
@@ -40,6 +41,78 @@ All alignments are performed using the human reference genome GRCh38.d1.vd1. Dec
 | Output | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) | BAM |
 
 ![DNA-Seq Alignment Pipeline](images/dna-alignment-pipeline_0.png)
+
+### DNA-Seq Alignment Command Line Parameters
+
+#### Step 1: Converting BAMs to FASTQs with Biobambam - biobambam2 2.0.54
+```Shell
+bamtofastq \
+collate=1 \
+exclude=QCFAIL,SECONDARY,SUPPLEMENTARY \
+filename= <input.bam> \
+gz=1 \
+inputformat=bam
+level=5 \
+outputdir= <output_path> \
+outputperreadgroup=1 \
+outputperreadgroupsuffixF=_1.fq.gz \
+outputperreadgroupsuffixF2=_2.fq.gz \
+outputperreadgroupsuffixO=_o1.fq.gz \
+outputperreadgroupsuffixO2=_o2.fq.gz \
+outputperreadgroupsuffixS=_s.fq.gz \
+tryoq=1 \
+```
+#### Step 2: BWA Alignment - bwa 0.7.15 - samtools 1.3.1
+If mean read length is greater than or equal to 70bp:
+```Shell
+bwa mem \
+-t 8 \
+-T 0 \
+-R <read_group> \
+<reference> \
+<fastq_1.fq.gz> \
+<fastq_2.fq.gz> |
+samtools view \
+-Shb
+-o <output.bam> -
+```
+If mean read length is less than 70bp:
+```Shell
+bwa aln -t 8 <reference> <fastq_1.fq.gz> > <sai_1.sai> &&
+bwa aln -t 8 <reference> <fastq_2.fq.gz> > <sai_2.sai> &&
+bwa sampe -r <read_group> <reference> <sai_1.sai> <sai_2.sai> <fastq_1.fq.gz> <fastq_2.fq.gz> | samtools view -Shb -o <output.bam> -
+```
+If the quality scores are encoded as Illumina 1.3 or 1.5, use BWA aln with the "-l" flag.  
+
+#### Step 3: BAM Sort - picard 2.6.0
+
+```Shell
+java -jar picard.jar SortSam \
+CREATE_INDEX=true \
+INPUT=<input.bam> \
+OUTPUT=<output.bam> \
+SORT_ORDER=coordinate \
+VALIDATION_STRINGENCY=STRICT
+```
+#### Step 4: BAM Merge - picard 2.6.0
+```Shell
+java -jar picard.jar MergeSamFiles \
+ASSUME_SORTED=false \
+CREATE_INDEX=true \                 
+[INPUT= <input.bam>]  \
+MERGE_SEQUENCE_DICTIONARIES=false \
+OUTPUT= <output_path> \
+SORT_ORDER=coordinate \
+USE_THREADING=true \
+VALIDATION_STRINGENCY=STRICT
+```
+#### Step 5: Mark Duplicates - picard 2.6.0
+```Shell
+java -jar picard.jar MarkDuplicates \
+CREATE_INDEX=true \
+INPUT=<input.bam> \
+VALIDATION_STRINGENCY=STRICT
+```
 
 ### Co-cleaning Workflow
 
@@ -58,6 +131,51 @@ A base quality score recalibration (BQSR) step is then performed using  [BaseRec
 |---|---|---|
 | Input | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads)  | BAM |
 | Output | Harmonized Aligned Reads | BAM |
+
+### DNA-Seq Co-Cleaning Command Line Parameters
+
+#### __Step 1:__ RealignTargetCreator
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T RealignerTargetCreator \
+-R <reference>
+-known <known_indels.vcf>
+[ -I <input.bam> ]
+-o <realign_target.intervals>
+```
+
+#### __Step 2:__ IndelRealigner
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T IndelRealigner \
+-R <reference> \
+-known <known_indels.vcf> \
+-targetIntervals <realign_target.intervals> \
+--noOriginalAlignmentTags \
+[ -I <input.bam> ] \
+-nWayOut <output.map>
+```
+
+#### __Step 3:__ BaseRecalibrator
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T BaseRecalibrator \
+-R <reference> \
+-I <input.bam> \
+-knownSites <dbsnp.vcf>
+-o <bqsr.grp>
+```
+
+#### __Step 4:__ PrintReads
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T PrintReads \
+-R <reference> \
+-I <input.bam> \
+--BQSR <bqsr.grp> \
+-o <output.bam>
+```
+
 
 ### Somatic Variant Calling Workflow
 Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using four separate pipelines:
@@ -90,6 +208,119 @@ At this time, germline variants are deliberately excluded as harmonized data. Th
 |---|---|---|
 | Input | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) |  BAM |
 | Output | [Raw Simple Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=simple_somatic_mutation) | VCF  |
+
+### Variant Call Command-Line Parameters
+
+#### MuSE
+
+MuSEv1.0rc_submission_c039ffa
+
+__Step 1:__ MuSE call
+
+```Shell
+MuSE call \
+-f <reference> \
+-r <region> \                               	
+<tumor.bam> \
+<normal.bam> \
+-O <intermediate_muse_call.txt>
+```
+
+__Step 2:__ MuSE sump
+```Shell
+MuSE sump \
+-I <intermediate_muse_call.txt> \                        	
+-E \                          		
+-D <dbsnp_known_snp_sites.vcf> \
+-O <muse_variants.vcf>  
+```
+__Note:__ -E is used for WXS data and -G can be used for WGS data.  
+
+
+
+#### MuTect2
+
+GATK nightly-2016-02-25-gf39d340
+
+```Shell
+java -jar GenomeAnalysisTK.jar \
+-T MuTect2 \
+-R <reference> \
+-L <region> \
+-I:tumor <tumor.bam> \
+-I:normal <normal.bam> \
+--normal_panel <pon.vcf> \                        
+--cosmic <cosmic.vcff> \
+--dbsnp <dbsnp.vcf> \
+--contamination_fraction_to_filter 0.02 \                   
+-o <mutect_variants.vcf> \
+--output_mode EMIT_VARIANTS_ONLY \
+--disable_auto_index_creation_and_locking_when_reading_rods
+```
+
+
+
+#### SomaticSniper
+Somatic-sniper v1.0.5.0
+
+```Shell
+bam-somaticsniper \
+-q 0 \
+-Q 15 \
+-s 0.01 \
+-T 0.85 \
+-N 2 \
+-r 0.001 \
+-n NORMAL \
+-t TUMOR \
+-F vcf \
+-f ref.fa \
+<tumor.bam> \
+<normal.bam> \
+<somaticsniper_variants.vcf>
+```
+
+#### VarScan
+
+
+__Step 1:__ Mpileup; Samtools 1.1
+```Shell
+samtools mpileup \
+-f <reference> \
+-q 1 \
+-B \
+<normal.bam> \
+<tumor.bam> >
+<intermediate_mpileup.pileup>
+```
+
+__Step 2:__ Varscan Somatic; Varscan.v2.3.9
+```Shell
+java -jar VarScan.jar somatic \
+<intermediate_mpileup.pileup> \
+<output_path> \
+--mpileup      1 \
+--min-coverage 8 \
+--min-coverage-normal 8 \
+--min-coverage-tumor 6 \
+--min-var-freq 0.10 \
+--min-freq-for-hom 0.75 \
+--normal-purity 1.0 \
+--tumor-purity 1.00 \
+--p-value 0.99 \
+--somatic-p-value 0.05 \
+--strand-filter 0 \
+--output-vcf
+```
+
+__Step 3:__ Varscan ProcessSomatic; Varscan.v2.3.9
+```Shell
+java -jar VarScan.jar processSomatic \
+<intermediate_varscan_somatic.vcf> \
+--min-tumor-freq 0.10 \
+--max-normal-freq 0.05 \
+--p-value 0.07
+```
 
 ### Variant Call Annotation Workflow
 
@@ -145,14 +376,13 @@ Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Port
 
 | Data Type | Description | File Format |
 |---|---|---|
-| Aligned Reads | Reads that have been aligned to the GRCh38 reference and co-cleaned. Unaligned reads and reads that map to decoy sequences are also included in the BAM files.  | BAM |
-| Raw Simple Somatic Mutation | A tab-delimited file with genotypic information related to genomic positions. Genomic variants are first identified here.  | VCF |
-| Annotated Somatic Mutation  | An annotated version of a raw simple somatic mutation file. Annotated files include biological context about each observed mutation. |  VCF |
-| Aggregated Somatic Mutations | A tab-delimited file derived from multiple VCF files. Contains information from all available cases in a project.  | MAF |
-| Masked Somatic Mutation | A modified version of the Aggregated Somatic Mutation MAF file with sensitive or potentially erroneous data removed. | MAF |
+| [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) | Reads that have been aligned to the GRCh38 reference and co-cleaned. Unaligned reads and reads that map to decoy sequences are also included in the BAM files.  | BAM |
+| [Raw Simple Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=simple_somatic_mutation)| A tab-delimited file with genotypic information related to genomic positions. Genomic variants are first identified here.  | VCF |
+| [Annotated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation)  | An annotated version of a raw simple somatic mutation file. Annotated files include biological context about each observed mutation. |  VCF |
+| [Aggregated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=aggregated_somatic_mutation) | A tab-delimited file derived from multiple VCF files. Contains information from all available cases in a project.  | MAF |
+| [Masked Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) | A modified version of the Aggregated Somatic Mutation MAF file with sensitive or potentially erroneous data removed. | MAF |
 
 - - -
-
 
 [1]. Li, Heng, and Richard Durbin. "Fast and accurate short read alignment with Burrows-Wheeler transform." Bioinformatics 25, no. 14 (2009): 1754-1760.
 
