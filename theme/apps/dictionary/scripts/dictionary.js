@@ -224,7 +224,7 @@
         entityCategories = categories,
         fileFormat = dataFormat || _dictionary._options.defaultTemplateDownloadFormat,
         entityExclusions = _.isArray(excludes) && excludes.length ? excludes : [],
-        params = {format: fileFormat},
+        params = { format: fileFormat },
         webServiceURL = _dictionary._options.dataSourceBaseHost + _parseContextPattern(_DICTIONARY_CONSTANTS.END_POINT.CONTEXT_TEMPLATE_PATTERN, {dictionary_name: ''}),
         containerEl = _dictionary._containerEl;
 
@@ -338,7 +338,7 @@
     view = _dictionary._getView(viewMode);
 
     if (_.has(urlParams, 'id')) {
-      params = {id: urlParams.id};
+      params = { id: urlParams.id };
     }
 
     var viewEvent = new Dictionary._ViewUpdateObject(view, _DICTIONARY_CONSTANTS.VIEW_UPDATE_EVENT_TYPES.NAV, params);
@@ -353,7 +353,6 @@
     var _dictionary = this;
 
     _dictionary._currentView.show().render(renderParams);
-
 
     return _dictionary;
   };
@@ -411,26 +410,26 @@
       case: 'Case',
       clinical: 'Clinical',
       biospecimen: 'Biospecimen',
-      data_bundle: 'Experiment Data',
       annotation: 'Annotations',
       data_file: 'Data Files',
+      generated_data_file: 'Generated Data Files',
       references: 'References',
       administrative: 'Administrative',
+      metadata_file: 'Metadata Files',
       tbd: 'References',
-      index_file: 'Index'
+      index_file: 'Index',
+      submittable_data_file: 'Submittable Data Files',
     },
-    ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'data_bundle', 'annotation', 'administrative'],
-    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative', 'index_file', 'analysis'],
+    ENTITY_LIST_DICTIONARY_KEY_ORDER: ['case', 'clinical', 'biospecimen', 'submittable_data_file', 'generated_data_file', 'annotation', 'administrative', 'analysis', 'notation'],
+    CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative', 'index_file', 'analysis', 'notation', 'generated_data_file'],
     CATEGORY_EXCLUDES: ['TBD'],
     CATEGORY_TEMPLATE_EXCLUDES: {
       clinical: ['clinical'],
-      data_bundle: ['file', 'generated_file', 'clinical_data_bundle', 'biospecimen_data_bundle', 'pathology_data_bundle'],
       annotation: ['analysis', 'archive', 'publication', 'slide']
     },
-    LINK_EXCLUDES: ['file', 'biospecimen_data_bundle', 'clinical_data_bundle', 'pathology_data_bundle'],
+    LINK_EXCLUDES: ['file', 'archive'],
     PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles'],
     CATEGORY_TEMPLATE_INCLUDES: {
-      data_bundle: ['read_group', 'submitted_unaligned_reads', 'slide', 'slide_image']
     },
     END_POINT: {
       DEFAULT_URL: 'https://gdc-api.nci.nih.gov', // TODO: env variable? 'http://localhost:5000'
@@ -771,13 +770,7 @@
     var dictionaryData = {};
 
     // TODO: Cleanup below hardcoding but unfortunately now this is necessary
-    delete data.biospecimen_data_bundle;
-    delete data.clinical_data_bundle;
-    delete data.pathology_data_bundle;
     delete data.clinical;
-    delete data.file;
-    delete data.generated_file;
-
 
     var dictionaryKeys = _.keys(data);
 
@@ -785,10 +778,6 @@
       var dictionaryName = dictionaryKeys[i];
       var dictionary = data[dictionaryName];
       var dictionaryCategory = _.get(dictionary, 'category');
-
-      if (dictionaryCategory === 'data_file') {
-        dictionary.category = 'data_bundle';
-      }
 
       if (dictionaryName === 'case') {
         dictionary.category = 'case';
@@ -798,13 +787,9 @@
         dictionary.category = 'annotation';
       }
 
-      //console.log(dictionary);
       dictionaryData[dictionaryName] = dictionary;
 
     }
-
-    //console.log(dictionaryData);
-
 
     return dictionaryData;
   }
@@ -820,7 +805,7 @@
     var dictDataList = _sanitizeDictionaryData(data);
 
     // Build our data structures and corresponding caches
-    return Object.keys(dictDataList).reduce(function (acc, dictionaryTitle) {
+    var r = Object.keys(dictDataList).reduce(function (acc, dictionaryTitle) {
       var dictionary = dictDataList[dictionaryTitle];
       if (dictionaryTitle[0] === '_') {
         // Add special private data prefixed with '_' to the dictionary data object top level
@@ -830,10 +815,25 @@
         if (dictDataList.hasOwnProperty(dictionaryTitle)) {
           acc.dictionaries = acc.dictionaries.concat(dictionary);
         }
-        acc.dictionaryMapByCategory[dictionary.category] = (acc.dictionaryMapByCategory[dictionary.category] || []).concat(dictionary);
+        // categorize by 'category' field except for data_file and metadata_file
+        // furthur break those down into 'Submittable Data Files' (submittable) and 'Generated Data Files' (!submittable)
+        // and add a ui_category key to reflect this (affects download template button display)
+        dictionary.ui_category = dictionary.category;
+        if (dictionary.category === 'data_file' || dictionary.category === 'metadata_file') {
+          if (dictionary.submittable) {
+            dictionary.ui_category = "sumbittable_data_file";
+            acc.dictionaryMapByCategory.submittable_data_file = acc.dictionaryMapByCategory.submittable_data_file.concat(dictionary);
+          } else {
+            dictionary.ui_category = 'generated_data_file';
+            acc.dictionaryMapByCategory.generated_data_file = acc.dictionaryMapByCategory.generated_data_file.concat(dictionary);
+          }
+        } else {
+          acc.dictionaryMapByCategory[dictionary.category] = (acc.dictionaryMapByCategory[dictionary.category] || []).concat(dictionary);
+        }
       }
       return acc;
-    }, {dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {}});
+    }, {dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {'submittable_data_file': [], 'generated_data_file': []}});
+    return r;
   }
   /////////////////////////////////////////////////////////
 
