@@ -52,7 +52,7 @@ A manifest for individual files can also be downloaded from the transaction tab 
 ### Obtaining UUIDs for Data Uploads
 A UUID can be used for data submission with the Data Transfer Tool.  The UUID for submittable data uploads can be obtained from the Submission Portal or from the API GraphQL endpoint.  In the Submission Portal the UUID for a data file can be found in the Manifest YAML file located in the _id:_ row located under the file size entry.   
 
-![Submission Manifest yaml file](images/10-18_yaml_submission_UUID.png)
+![Submission Manifest yaml file](images/10-18_yaml_submission_UUID_example.png)
 
 
  A second location to obtain a UUID in the Submission Portal is on the Browse Tab page. Under the Submittable Data Files section a UUID can be found by opening up the file's detail page. By clicking on the Submitter ID of the upload file a new window will display a Summary of the file's details, which contains the UUID.
