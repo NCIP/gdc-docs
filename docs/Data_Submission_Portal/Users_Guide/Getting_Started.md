@@ -21,8 +21,8 @@ To submit data to the GDC, the user will prepare the data and upload it to the p
 
 The main categories of data that can be uploaded include:
 
-* __Clinical Data__: Elements such as gender, age, diagnosis, etc. as defined in the GDC Data Dictionary.
-* __Biospecimen Data__: Information about entities such as samples, aliquots, etc. as defined in the GDC Data Dictionary.
+* __Clinical Data__: Elements such as `gender`, `age`, `diagnosis`, etc. as defined in the GDC Data Dictionary.
+* __Biospecimen Data__: Information about entities such as `samples`, `aliquots`, etc. as defined in the GDC Data Dictionary.
 * __Submittable Data Files__: Sequencing data such as BAM and FASTQ files, slide images, and other experimental data collected by the study.
 
 The [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md) outlines the minimum field requirements for each of the three categories listed above.
@@ -50,7 +50,7 @@ Authorized submitters can browse and retrieve data submitted to their project us
 
 ### Status and Alerts
 
-The GDC Data Submission Portal dashboard and navigation panel displays a summary of submitted data and associated data elements, such as the number of cases with Clinical data or Biospecimen data.
+The GDC Data Submission Portal Dashboard and navigation panel displays a summary of submitted data and associated data elements, such as the number of cases with Clinical data or Biospecimen data.
 
 ### Transactions
 
@@ -58,7 +58,7 @@ Submitters can access a list of all actions performed in a project by clicking o
 
 ### Submission Project Examples
 
-Step-by-step instructions on GDC data submission and their relationship to the GDC Data Model are detailed in the [Data Upload Users Guide](Data_Upload_UG.md) guide.
+Step-by-step instructions on GDC data submission and their relationship to the GDC Data Model are detailed in the [Upload Data](Data_Upload_UG.md) guide.
 
 ## Release Notes
 

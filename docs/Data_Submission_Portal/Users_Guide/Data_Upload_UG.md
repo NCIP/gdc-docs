@@ -1,6 +1,6 @@
 # Upload Data
 
-This guide details step-by-step procedures for different aspects of GDC data submission and how they relate to the GDC Data Model and structure. The first sections of this guide break down the submission process and associate each step with the Data Model. Additional sections are detailed below for strategies on expediting data submission and using upload features of the Submission Portal.
+This guide details step-by-step procedures for different aspects of the GDC Data Submission process and how they relate to the GDC Data Model and structure. The first sections of this guide break down the submission process and associate each step with the Data Model. Additional sections are detailed below for strategies on expediting data submission and using features of the Submission Portal.
 
 ## GDC Data Model Basics
 
@@ -28,7 +28,7 @@ Before submission can begin, the Program and Project must be approved and set by
 
 ### Program and Project Approval
 
-Each new project must [request submission access](https://gdc.cancer.gov/node/633/) from the GDC.  Before submission can commence the project must be registered at dbGaP along with the eRA commons IDs for all those users who will be uploading data. All cases (i.e. patients) must also be registered in dbGaP for that particular project.  Once these steps are complete the GDC will grant submission access and create program and project names in consultation with the user based on the rules outlined below.  
+Each new project must [request submission access](https://gdc.cancer.gov/submit-data/requesting-data-submission) from the GDC.  Before submission can commence the project must be registered at dbGaP along with the eRA commons IDs for all those users who will be uploading data. All cases (i.e. patients) must also be registered in dbGaP for that particular project.  Once these steps are complete the GDC will grant submission access and create program and project names in consultation with the user based on the rules outlined below.  
 
 ### Program and Project Naming Conventions
 
@@ -87,7 +87,7 @@ The file detailed above can be uploaded using the Data Submission Portal and the
 An example of a `case` upload is detailed below. The GDC Data Submission Portal is equipped with a wizard window to facilitate the upload and validation of entities. The Upload Data Wizard comprises two stages:
 
 * __Upload Entities__: Upload an entity into the user's browser, at this point nothing is submitted to the project workspace.
-* __Validate Entities__: Send an entity to the GDC backend to validate its content (see below).
+* __Validate Entities__: Send an entity to the GDC backend to validate its content (see below)
 
 The __Validate Entities__ stage acts as a safeguard against submitting incorrectly formatted data to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of uploaded entities against the Data Dictionary to detect potential errors. Invalid entities will not be processed and must be corrected by the user and re-uploaded before being accepted. A validation error report provided by the system can be used to isolate and correct errors.
 
@@ -115,7 +115,7 @@ If the upload contains invalid files, a transaction will appear with a FAILED st
 
 ### Upload - API
 
-The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-updating-entities) for a more detailed explanation and a for the rest of the functionalities of the API. Generally uploading an entity through the API can be performed using a command similar to the following:
+The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-updating-entities) for a more detailed explanation and for the rest of the functionalities of the API. Generally, uploading an entity through the API can be performed using a command similar to the following:
 
 ```Shell
 curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
@@ -153,10 +153,10 @@ Submitting a [__Demographic__](https://gdc-docs.nci.nih.gov/Data_Dictionary/view
 
 * __`submitter_id`:__ A unique key to identify the `demographic` entity
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `demographic` entity to the `case`
-* __`ethnicity`:__ An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
-* __`gender`:__ Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.
-* __`race`:__ An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
-* __`year_of_birth`:__ Numeric value to represent the calendar year in which an individual was born.  
+* __`ethnicity`:__ An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau
+* __`gender`:__ Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles
+* __`race`:__ An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau
+* __`year_of_birth`:__ Numeric value to represent the calendar year in which an individual was born
 
 ```JSON
 {
@@ -182,20 +182,20 @@ Submitting a [__Diagnosis__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer
 
 * __`submitter_id`:__ A unique key to identify the `diagnosis` entity
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `diagnosis` entity to the `case`
-* __`age_at_diagnosis`:__ Age at the time of diagnosis expressed in number of days since birth.
-* __`classification_of_tumor`:__ Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint.
-* __`days_to_last_follow_up`:__  Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
-* __`days_to_last_known_disease_status`:__ Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
-* __`days_to_recurrence`:__ Time interval from the date of new tumor event including progression, recurrence and new primary malignancies to the date of initial pathologic diagnosis, represented as a calculated number of days.
-* __`last_known_disease_status`:__  The state or condition of an individual's neoplasm at a particular point in time.
+* __`age_at_diagnosis`:__ Age at the time of diagnosis expressed in number of days since birth
+* __`classification_of_tumor`:__ Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint
+* __`days_to_last_follow_up`:__  Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days
+* __`days_to_last_known_disease_status`:__ Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days
+* __`days_to_recurrence`:__ Time interval from the date of new tumor event including progression, recurrence and new primary malignancies to the date of initial pathologic diagnosis, represented as a calculated number of days
+* __`last_known_disease_status`:__  The state or condition of an individual's neoplasm at a particular point in time
 * __`morphology`:__  The third edition of the International Classification of Diseases for Oncology, published in 2000 used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The study of the structure of the cells and their arrangement to constitute tissues and, finally, the association among these to form organs. In pathology, the microscopic process of identifying normal and abnormal morphologic characteristics in tissues, by employing various cytochemical and immunocytochemical stains. A system of numbered categories for representation of data
-* __`primary_diagnosis`:__  Text term for the structural pattern of cancer cells used to define a microscopic diagnosis.
-* __`progression_or_recurrence`:__ Yes/No/Unknown indicator to identify whether a patient has had a new tumor event after initial treatment.
-* __`site_of_resection_or_biopsy`:__ The third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The description of an anatomical region or of a body part. Named locations of, or within, the body. A system of numbered categories for representation of data.
-* __`tissue_or_organ_of_origin`:__ Text term that describes the anatomic site of the tumor or disease.
-* __`tumor_grade`:__ Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness.
-* __`tumor_stage`:__ The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body. The accepted values for tumor_stage depend on the tumor site, type, and accepted staging system. These items should accompany the tumor_stage value as associated metadata.
-* __`vital_status`:__ The survival state of the person registered on the protocol.
+* __`primary_diagnosis`:__  Text term for the structural pattern of cancer cells used to define a microscopic diagnosis
+* __`progression_or_recurrence`:__ Yes/No/Unknown indicator to identify whether a patient has had a new tumor event after initial treatment
+* __`site_of_resection_or_biopsy`:__ The third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The description of an anatomical region or of a body part. Named locations of, or within, the body. A system of numbered categories for representation of data
+* __`tissue_or_organ_of_origin`:__ Text term that describes the anatomic site of the tumor or disease
+* __`tumor_grade`:__ Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness
+* __`tumor_stage`:__ The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body. The accepted values for tumor_stage depend on the tumor site, type, and accepted staging system. These items should accompany the tumor_stage value as associated metadata
+* __`vital_status`:__ The survival state of the person registered on the protocol
 
 ```JSON
 {
@@ -229,13 +229,13 @@ diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	PROJECT-INTERNAL-000055	10256	not 
 
 Submitting an [__Exposure__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  The following fields are optionally included:  
 
-* __`alcohol_history`:__ A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.
-* __`alcohol_intensity`:__ Category to describe the patient's current level of alcohol use as self-reported by the patient.
-* __`bmi`:__ The body mass divided by the square of the body height expressed in units of kg/m^2.
+* __`alcohol_history`:__ A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime
+* __`alcohol_intensity`:__ Category to describe the patient's current level of alcohol use as self-reported by the patient
+* __`bmi`:__ The body mass divided by the square of the body height expressed in units of kg/m^2
 * __`cigarettes_per_day`:__ The average number of cigarettes smoked per day (number)
 * __`height`:__ The height of the individual in cm (number)
 * __`weight`:__ The weight of the individual in kg (number)
-* __`years_smoked`:__ Numeric value (or unknown) to represent the number of years a person has been smoking.
+* __`years_smoked`:__ Numeric value (or unknown) to represent the number of years a person has been smoking
 
 ```JSON
 {
@@ -274,7 +274,7 @@ Submitting a [__Sample__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?
 
 * __`submitter_id`:__ A unique key to identify the `sample`
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `sample` to the `case`
-* __`sample_type`:__ Type of the `sample`. Named for its cellular source, molecular composition, and/or therapeutic treatment.
+* __`sample_type`:__ Type of the `sample`. Named for its cellular source, molecular composition, and/or therapeutic treatment
 
 __Note:__ The `case` must be "committed" to the project before a `sample` can be linked to it.  This also applies to all other links between entities.
 
@@ -320,7 +320,7 @@ type	submitter_id	analytes.submitter_id
 aliquot	Blood-00021-aliquot55	Blood-00001SAMPLE_55
 ```
 
-__Note:__ `aliquot` entities can be directly linked to `sample` entities. The `portion` and `analyte` entities are not required for submission.
+__Note:__ `aliquot` entities can be directly linked to `sample` entities. The `portion` and `analyte` entities described below are not required for submission.
 
 Submitting a [__Portion__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=portion) entity requires:
 
@@ -346,7 +346,7 @@ Submitting an [__Analyte__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/
 
 * __`submitter_id`:__ A unique key to identify the `analyte`
 * __`portions.submitter_id`:__ The unique key that was used for the `portion` that links the `analyte` to the `portion`
-* __`analyte_type`:__ Protocol-specific molecular type of the specimen.
+* __`analyte_type`:__ Protocol-specific molecular type of the specimen
 
 ```JSON
 {
@@ -374,14 +374,14 @@ Submitting a [__Read Group__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewe
 
 * __`submitter_id`:__ A unique key to identify the `read_group`
 * __`aliquot.submitter_id`:__ The unique key that was used for the `aliquot` that links the `read_group` to the `aliquot`
-* __`experiment_name`:__ Submitter-defined name for the experiment.
+* __`experiment_name`:__ Submitter-defined name for the experiment
 * __`is_paired_end`:__ Are the reads paired end? (Boolean value: `true` or `false`)
 * __`library_name`:__ Name of the library  
-* __`library_strategy`:__ Library strategy.
-* __`platform`:__ Name of the platform used to obtain data.
-* __`read_group_name`:__ The name of the `read_group`.
+* __`library_strategy`:__ Library strategy
+* __`platform`:__ Name of the platform used to obtain data
+* __`read_group_name`:__ The name of the `read_group`
 * __`read_length`:__ The length of the reads (integer)
-* __`sequencing_center`:__ Name of the center that provided the sequence files.  
+* __`sequencing_center`:__ Name of the center that provided the sequence files  
 
 ```JSON
 {
@@ -419,13 +419,13 @@ Submitting a [__Submitted Aligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dic
 
 * __`submitter_id`:__ A unique key to identify the `submitted_aligned_reads`
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `submitted_aligned_reads` to the `read_group`
-* __`data_category`:__ Broad categorization of the contents of the data file.
-* __`data_format`:__ Format of the data files.
+* __`data_category`:__ Broad categorization of the contents of the data file
+* __`data_format`:__ Format of the data files
 * __`data_type`:__ Specific content type of the data file. (must be "Aligned Reads")
-* __`experimental_strategy`:__ The sequencing strategy used to generate the data file.
-* __`file_name`:__ The name (or part of a name) of a file (of any type).
-* __`file_size`:__ The size of the data file (object) in bytes.
-* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
+* __`experimental_strategy`:__ The sequencing strategy used to generate the data file
+* __`file_name`:__ The name (or part of a name) of a file (of any type)
+* __`file_size`:__ The size of the data file (object) in bytes
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint
 
 
 ```JSON
@@ -457,13 +457,13 @@ Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_D
 
 * __`submitter_id`:__ A unique key to identify the `submitted_unaligned_reads`
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `submitted_unaligned_reads` to the `read_group`
-* __`data_category`:__ Broad categorization of the contents of the data file.
-* __`data_format`:__ Format of the data files.
+* __`data_category`:__ Broad categorization of the contents of the data file
+* __`data_format`:__ Format of the data files
 * __`data_type`:__ Specific content type of the data file. (must be "Unaligned Reads")
-* __`experimental_strategy`:__ The sequencing strategy used to generate the data file.
-* __`file_name`:__ The name (or part of a name) of a file (of any type).
-* __`file_size`:__ The size of the data file (object) in bytes.
-* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
+* __`experimental_strategy`:__ The sequencing strategy used to generate the data file
+* __`file_name`:__ The name (or part of a name) of a file (of any type)
+* __`file_size`:__ The size of the data file (object) in bytes
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint
 
 
 ```JSON
@@ -527,12 +527,12 @@ Submitting an [__Experiment Metadata__](https://gdc-docs.nci.nih.gov/Data_Dictio
 
 * __`submitter_id`:__ A unique key to identify the `experiment_metadata` entity
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `experiment_metadata` entity to the `read_group`
-* __`data_category`:__ Broad categorization of the contents of the data file.
+* __`data_category`:__ Broad categorization of the contents of the data file
 * __`data_format`:__ Format of the data files. (must be "SRA XML")
 * __`data_type`:__ Specific contents of the data file. (must be "Experiment Metadata")
-* __`file_name`:__ The name (or part of a name) of a file (of any type).  
-* __`file_size`:__ The size of the data file (object) in bytes.
-* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.  
+* __`file_name`:__ The name (or part of a name) of a file (of any type)
+* __`file_size`:__ The size of the data file (object) in bytes
+* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint
 
 ```JSON
 {

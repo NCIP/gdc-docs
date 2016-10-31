@@ -26,3 +26,11 @@ The outputs of the miRNA profiling pipeline report raw read counts and counts no
 |---|---|---|
 | Input | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) |  BAM |
 | Output | [miRNA Expression](/Data_Dictionary/viewer/#?view=table-definition-view&id=mirna_expression) | TXT  |
+
+## File Access and Availability
+
+| Type | Description | Format |
+|---|---|---|
+| Aligned Reads | miRNA-Seq reads that have been aligned to the GRCh38 build. Reads that were not aligned are included to facilitate the availability of raw read sets.|  BAM |
+| miRNA Expression Quantification | A table that associates miRNA IDs with read count and a normalized count in reads-per-million-miRNA-mapped. |  TXT |
+| Isoform Expression Quantification | A table with the same information as the miRNA Expression Quantification files with the addition of isoform information such as the coordinates of the isoform and the type of region it constitutes within the full miRNA transcript.  |  TXT |

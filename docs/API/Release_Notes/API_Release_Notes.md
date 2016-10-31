@@ -1,6 +1,30 @@
 # API Release Notes
 
 
+## v1.5.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: October 27, 2016
+
+### New Features and Changes
+
+* API responds with an error when the request specifies an unsupported combination of `filters` and `facets`. <!-- API-34 -->
+* In TSV submissions, trailing and leading whitespace, including non-ASCII whitespace characters, are stripped from property names and values. <!-- API-63, API-29-->
+* For released projects, any updates to previously submitted entities (i.e. `"state": "submitted"`) will be included in the following GDC data release. <!-- API-81 -->
+* Performance improvements for manifest generation. <!-- API-58 -->
+
+### Bugs Fixed Since Last Release
+
+* Uploading certain unsupported metadata files caused the associated submission transactions to remain stuck in pending state. <!-- API-78 -->
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
+
+
+
 ## v1.4.0
 
 * __GDC Product__: Application Programming Interface (API)
