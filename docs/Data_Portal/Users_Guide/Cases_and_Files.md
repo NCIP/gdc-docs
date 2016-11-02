@@ -115,6 +115,10 @@ The page also provides clinical information about that case, and information abo
 
 [![Case Detail Page, Clinical and Biospecimen](images/gdc-data-portal-case-entity-page-footer.png)](images/gdc-data-portal-case-entity-page-footer.png "Click to see the full image.")
 
+For clinical records that support multiple records of the same type (Diagnoses, Family Histories, or Exposures), a UUID of the record is provided on the left hand side of the corresponding tab, allowing the user to select the entry of interest:
+
+[![UUID of a Diagnosis record](images/UUID_on_case_detail_page.png)](images/UUID_on_case_detail_page.png "Click to see the full image.")
+
 
 ## File Detail Page
 
