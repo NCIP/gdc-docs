@@ -19,7 +19,10 @@
 	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 * When any files mentioned in the upload manifest are not present in the upload directory the submission will hang at the missing file.
   * *Workaround:* Edit the manifest to specify only the the files that are present in the upload directory for submission or copy the missing files into the upload directory.  
-
+* Upload flags --path/-f are currently non-functional.
+  * *Workaround:* Copy the Data Transfer Tool into the the root of the submittable data repository and run from  there.  
+* Submission manifest field **local_file_path:** is non-functional
+  * *Workaround:* Run Data Transfer Tool from root of the submittable data repository so that data is in the current working directory of the data transfer tool.
 
 ## v1.1.0
 
