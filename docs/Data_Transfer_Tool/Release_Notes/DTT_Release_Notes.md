@@ -18,11 +18,11 @@
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
 	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 * When any files mentioned in the upload manifest are not present in the upload directory the submission will hang at the missing file.
-  * *Workaround:* Edit the manifest to specify only the the files that are present in the upload directory for submission or copy the missing files into the upload directory.  
+	* *Workaround:* Edit the manifest to specify only the the files that are present in the upload directory for submission or copy the missing files into the upload directory.  
 * Upload flags --path/-f do not modify the upload path as expected.
-  * *Workaround:* Copy the Data Transfer Tool into the the root of the submittable data repository and run from  there.  
-* Submission manifest field **local_file_path:** does not modify upload path expected. 
-  * *Workaround:* Run Data Transfer Tool from root of the submittable data repository so that data is in the current working directory of the data transfer tool.
+	* *Workaround:* Copy the Data Transfer Tool into the the root of the submittable data repository and run from  there.  
+* Submission manifest field **local_file_path:** does not modify upload path expected.
+	* *Workaround:* Run Data Transfer Tool from root of the submittable data repository so that data is in the current working directory of the Data Transfer Tool.
 
 ## v1.1.0
 
