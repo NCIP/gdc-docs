@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GDC Data Portal enables users to browse granular metadata that describes all data released to the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC Data Portal also allows users to download open-access files without logging in, but downloading of controlled-access files is restricted to authorized users and requires authentication.
+The GDC Data Portal provides granular metadata for all datasets available in the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC Data Portal also allows users to download open-access files without logging in, but downloading of controlled-access files is restricted to authorized users and requires authentication.
 
 Controlled-access files are identified using a "lock" icon:
 
@@ -36,7 +36,7 @@ For more information about authentication tokens, see [Data Security](../../Data
 
 ## Display Only Authorized Datasets
 
-The "Only My Projects" checkbox, available in [Data view](Data.md) to authenticated users, limits data file listings to only those files to which the user has access.
+The "Only My Projects" checkbox, available in [Data view](Cases_and_Files.md#data-view) to authenticated users, limits data file listings to only those files to which the user has access.
 
 [![Only My Projects checkbox](images/gdc-data-portal-only-my-projects.png)](images/gdc-data-portal-only-my-projects.png "Click to see the full image.")
 
@@ -45,7 +45,7 @@ The "Only My Projects" checkbox, available in [Data view](Data.md) to authentica
 
 The GDC Data Portal displays the following file authorization information for authenticated users:
 
-- Authorization status of individual files in the "My Projects" column, available in [Data view](Data.md) and [cart](Cart.md) file listings.
+- Authorization status of individual files in the "My Projects" column, available in [Data view](Cases_and_Files.md#data-view) and [cart](Cart.md) file listings.
 - Summary of file authorization status in the user's cart.
 
 [![File Authorization Summary in GDC Cart](images/gdc-portal-cart-authorization-summary.png)](images/gdc-portal-cart-authorization-summary.png "Click to see the full image.")

@@ -1,5 +1,60 @@
 # Data Portal Release Notes
 
+
+## Release 1.4.1
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: October 31, 2016
+
+### New Features and Changes
+
+* Added a search feature to help users select values of interest in certain facets that have many values. <!-- PRTL-21 -->
+* Added support for annotation ID queries in quick search. <!-- PRTL-29 -->
+* Added a warning when a value greater than 90 is entered in the "Age at Diagnosis" facet. <!-- PRTL-77 -->
+* Added Sample Type column to file entity page. <!-- PRTL-42 -->
+* Authentication tokens are refreshed every time they are downloaded from the GDC Data Portal. <!-- PRTL-278 -->
+* Buttons are inactive when an action is in progress. <!-- PRTL-270 -->
+* Improved navigation features in the overview chart on portal homepage. <!-- PRTL-2 -->
+* Removed State/Status from File and Case entity pages <!-- PRTL-292 -->
+* Removed the "My Projects" feature. <!-- PRTL-174 -->
+* Removed "Created" and "Updated" dates from clinical and biospecimen entities. <!-- PRTL-3 -->
+
+### Bugs Fixed Since Last Release
+
+*  Advanced search did not accept negative values for integer fields. <!-- PRTL-283 -->
+*  Moving from facet search to advanced search resulted in an incorrect advanced search query. <!-- PRTL-284 -->
+*  Some facets were cut off in Internet Explorer and Firefox. <!-- PRTL-290 -->
+
+### Known Issues and Workarounds
+
+*   General
+    *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status. <!-- PGDC-2403 / PRTL-133 -->
+    *   BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
+    *   Due to preceding issue, If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
+    *   Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files.  To produce a list of source files an API call can be used with the search parameter "fields=analysis.input_files.file_name". <!-- SV-396 / PRTL-342-->
+		*   Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+
+
+Example
+
+    https://gdc-api.nci.nih.gov/files/455e26f7-03f2-46f7-9e7a-9c51ac322461?pretty=true&fields=analysis.input_files.file_name
+
+
+
+
+*   Cart
+    *   Counts displayed in the top right of the screen, next to the Cart icon, may become inconsistent if files are removed from the server. <!-- PGDC-2403 / PRTL-133 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.nci.nih.gov/about-gdc/gdc-faqs).
+    *   Internet Explorer users are not able to use the "Only show fields with no values" when adding custom facets <!-- PGDC-2467 / PRTL-109 -->
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
+
+
+
 ## Release 1.3.0
 
 * __GDC Product__: GDC Data Portal
@@ -31,9 +86,8 @@
     *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status. <!-- PGDC-2403 / PRTL-133 -->
     *   BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
     *   Due to preceding issue, If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
-    *   After first applying facet filters, if a user clicks on advanced search they will encounter the error "Invalid Query".  The error can be removed by adding additional filters in the advanced search box or by clicking somewhere in the search box and pressing the down arrow on your keyboard. <!-- SV-394 -->
     *   Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files.  To produce a list of source files an API call can be used with the search parameter "fields=analysis.input_files.file_name". <!-- SV-396 -->
-    *   On the Legacy Archive, searches for "Case Submitter ID Prefix" containing special characters are not displayed correctly above the result list. The result list is correct, however. <!--SV-412-->
+    *   On the Legacy Archive, searches for "Case Submitter ID Prefix" containing special characters are not displayed correctly above the result list. The result list is correct, however. <!--SV-412 / LGCY-33-->
 
 Example
 

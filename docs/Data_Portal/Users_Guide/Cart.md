@@ -2,12 +2,11 @@
 
 ## Overview
 
-While browsing through the GDC Data Portal, files can be downloaded either individually or bundled through a cart mechanism similar to online stores.
-
+While browsing the GDC Data Portal, files can either be downloaded individually from [file detail pages](Cases_and_Files.md#file-detail-page) or collected in the file cart to be downloaded as a bundle.
 
 ## GDC Cart
 
-[![Cart](images/gdc-data-portal-cart.png)](images/gdc-data-portal-cart.png "Click to see the full image.")
+[![Cart](images/cart-overview.png)](images/cart-overview.png "Click to see the full image.")
 
 ### Cart Summary
 
@@ -17,10 +16,12 @@ The cart page shows a summary of all files currently in the cart:
 * Number of cases associated with the files
 * Total file size
 
-The Cart page also displays two charts: 
+The Cart page also displays two charts:
 
-* File count by project 
+* File count by project
 * File count by authorization level to those files: this number takes into account the user authorization to download a file upon his authentication to the GDC Data Portal.
+
+The charts can be converted to tables by clicking the table button in the top right corner of each chart.
 
 ### Cart table
 
@@ -35,18 +36,16 @@ The user can click on the links to get more information on each file, it will li
 
 ## Download Options
 
-From the cart, the following download options are available to the end user:
+From the cart, the following download options are available:
 
-* __Manifest__: Manifest used by the GDC Data Transfer Tool to download the files.
-* __Cart__: All the files in the Cart downloaded directly through the browser. Users have to be cautious of the amount of data in the cart since this option will not optimize bandwidth neither provide resume capabilities.
-* __Clinical__: GDC harmonized clinical data associated with the cases in the cart.
-* __Biospecimen__: GDC harmonized biospecimen data associated with the cases in the cart.
-* __SRA XML__: Experiment, analysis and run metadata files associated with the files in the cart
-* __File Metadata__: Metadata of the files in the cart (file properties, associated entities and workflow information if applicable).
+* __Metadata__: GDC harmonized clinical, biospecimen, and file metadata associated with the files in the cart.
+* __Download Manifest__: Download a manifest for use with the GDC Data Transfer Tool to download files.
+* __Download Cart__: Download the files in the Cart directly through the browser. Users have to be cautious of the amount of data in the cart since this option will not optimize bandwidth and will not provide resume capabilities.
+* __SRA XML, MAGE-TAB__: This option is available in the GDC Legacy Archive only. It is used to download metadata files associated with the files in the cart.
 
-Although an entire cart could be downloaded from Web Browsers, those are not ideally equipped to download very large files, in particular due to the absence of a retry/resume mechanism. To improve user experience we implemented a limit of 5 GB for direct cart download. Over 5 GB we recommend using the GDC Data Transfer Tool.
+The cart allows users to download up to 5 GB of data directly through the web browser. This is not recommended for downloading large volumes of data, in particular due to the absence of a retry/resume mechanism. For downloads over 5 GB we recommend using the GDC Data Transfer Tool.
 
-__Note__: when downloading multiple files from the GDC Data Portal, those files are automatically bundled-up into one single Gzipped (.tar.gz) file.
+__Note__: when downloading multiple files from the cart, they are automatically bundled into one single Gzipped (.tar.gz) file.
 
 ### GDC Data Transfer Tool
 
@@ -74,6 +73,6 @@ Similar to the files page, each row contains a download button to download a par
 
 ## Controlled Files
 
-If a user tries to download a cart containing controlled files and without being authenticated, a pop-up will be displayed to offer the user either to download only open access files or to login into the GDC Data Portal through eRA Commons.
+If a user tries to download a cart containing controlled files and without being authenticated, a pop-up will be displayed to offer the user either to download only open access files or to login into the GDC Data Portal through eRA Commons. See [Authentication](Authentication.md) for details.
 
 [![Cart Page](images/gdc-data-portal-download-cart.png)](images/gdc-data-portal-download-cart.png "Click to see the full image.")
