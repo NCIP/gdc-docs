@@ -145,7 +145,7 @@ htseq-count \
 -i gene_id \
 -r pos \
 -s no \
--t gencode.v22.annotation.gtf
+- gencode.v22.annotation.gtf
 
 ```
 
