@@ -310,7 +310,7 @@ The `files/ids` endpoint corresponds to the "Quick Search" functionality of the 
 	file.file_name.raw
 	file.submitter_id
 
-Requests to this endpoint must be in the format `files/ids?query=`, for example:
+Requests to this endpoint must be in the format `files/ids?query=`, as provided in the example below. The endpoint returns up to 500 results, which cannot be adjusted with the `size` parameter.
 
 ```shell
 curl 'https://gdc-api.nci.nih.gov/files/ids?query=nationwidechildrens.org_clinical.TCGA-EM&pretty=true'
