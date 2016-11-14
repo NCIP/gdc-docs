@@ -14,3 +14,5 @@ For additional reading and tutorials on the main features of cBioPortal please v
 
 ### Known Issues and Workarounds
 *  Oncoprint feature is not active if multiple pipelines are selected <!--SV-512-->
+*  Mutations classified as "Silent" or "RNA" in MAF file are not displayed in cBioPortal <!--SV-516-->
+*  On study summary page the number of genes may not be equal on the gene list and bar chart.  This is because the gene list filters out non-cancer related genes with a single mutation in the selected project <!--SV-516-->
