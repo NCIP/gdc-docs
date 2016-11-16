@@ -16,3 +16,4 @@ For additional reading and tutorials on the main features of cBioPortal please v
 *  Oncoprint feature is not active if multiple pipelines are selected <!--SV-512-->
 *  Mutations classified as "Silent" or "RNA" in MAF file are not displayed in cBioPortal <!--SV-516-->
 *  On study summary page the number of genes may not be equal on the gene list and bar chart.  This is because the gene list filters out non-cancer related genes with a single mutation in the selected project <!--SV-516-->
+*  When using the browser's back button to return to the homepage, the "Select Patient/Case Set" option appears. This option is disabled in the GDC cBioportal deployment and cannot be used. Attempting to use it generates an error message.
