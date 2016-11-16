@@ -9,7 +9,7 @@ For additional reading and tutorials on the main features of cBioPortal please v
 ## Release Beta
 
 * __GDC Product__: GDC cBioPortal
-* __Release Date__: November 15, 2016
+* __Release Date__: November 16, 2016
 
 
 ### Known Issues and Workarounds
