@@ -15,6 +15,7 @@ For additional reading and tutorials on the main features of cBioPortal please v
 
 
 ### Known Issues and Workarounds
+*  Some validated somatic mutations may not be present in the GDC cBioPortal, which is powered by GDC-produced open-access MAF files.  When creating the open-access MAF files from the protected versions we are extremely conservative in removing potential germline variants.  Our approach is to remove all mutations that are present in dbSNP.  In a subsequent release we will provide updated open-access MAF files, which preserve variants found in COSMIC or a TCGA validation study.  Please review the protected MAF files in the GDC Data Portal if you are unable to find your mutation in the open-access files.
 *  Oncoprint feature is not active if multiple pipelines are selected <!--SV-512-->
 *  Mutations classified as "Silent" or "RNA" in MAF file are not displayed in cBioPortal <!--SV-516-->
 *  On study summary page the number of genes may not be equal on the gene list and bar chart.  This is because the gene list filters out non-cancer related genes with a single mutation in the selected project <!--SV-516-->
