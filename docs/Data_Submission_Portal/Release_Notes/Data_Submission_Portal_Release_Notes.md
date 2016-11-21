@@ -1,5 +1,41 @@
 # Data Submission Portal Release Notes
 
+## Release 1.4.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: November 22, 2016
+
+### New Features and Changes
+
+*	Added possibility to delete an entity <!-- SUBP-144 -->
+*  Added Program Office (PO) Reports in the projects list page <!-- SUBP-281 -->
+*  To avoid confusion, renamed "Status" to "State" in the Browse section <!-- SUBP-281 -->
+*  Added tooltip over Hierarchy title when reviewing an entity <!-- SUBP-238 -->
+*  Restrict the upload window to only supported data formats (JSON and TSV) <!-- SUBP-245 -->
+
+### Bugs Fixed Since Last Release
+
+*	Adding a call to the backend to ensure a refreshed token is being downloaded when user clicks on "Download Token". <!-- SUBP-170 -->
+*	Fixed an issue with some buttons not working in Firefox <!-- SUBP-60 -->
+*	Disabled Download Clinical button if the file has no clinical data <!-- SUBP-173 -->
+*	Disabled Download Manifest button while the page is loading  <!-- SUBP-206 -->
+* 	Fixed an issue with some dropdowns being cut off <!-- SUBP-212 / SUBP-214 -->
+
+### Known Issues and Workarounds
+
+*	Project submission and release is currently disabled. <!--SUBP-201-->
+*	Diagnosis / Treatment detail: Submitter ID (of the child / parent) is missing in the Details -> Hierarchy view. <!--SUBP-227-->
+* File status column should not be displayed for any clinical or biospecimen entities but only for submittable data files. <!--SUBP-226-->
+*	In some situations tooltip entries remain on-screen. Workaround is to refresh the page. <!--SUBP-229-->
+*	In Browse tab, "Submittable Data Files" filter, clicking on "Download All" currently returns case and clinical informations instead of returning file informations. Workaround is to download information from the file the details panel. <!--SUBP-230-->
+*	In Dashboard, the donut chart for number of cases with submittable data files is always empty. A workaround is to visit the Browse, detailed case view section to see, case by case, if it has submittable data files.<!--SUBP-231 / SUBP-156-->
+*	In Transactions tab, after clicking on Commit or Discard, status is not automatically refreshed. Workaround is to refresh the page after clicking on Commit or Discard. This does not affect the transaction section of the project dashboard. <!--SUBP-232-->
+*  Reports are currently not available in the Data Submission Portal and will be added back in an upcoming version:
+    *   Data Validation Report: The rows in the report are sometimes duplicated and #Files in error are not showing up in the report. The user should go to Project > Browse > Submitted Files to see the files in error and the error type<!--PGDC-1025 and PGDC-997-->.
+    *   The Scientific Pre-alignment QC Report is not available.
+
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
 ## Release 1.3.0
 
 * __GDC Product__: GDC Data Submission Portal
