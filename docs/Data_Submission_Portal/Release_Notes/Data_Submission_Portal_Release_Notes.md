@@ -20,7 +20,7 @@
 *	In some situations tooltip entries remain on-screen. Workaround is to refresh the page. <!--SUBP-229-->
 *	In Browse tab, "Submittable Data Files" filter, clicking on "Download All" currently returns case and clinical informations instead of returning file informations. Workaround is to download information from the file the details panel. <!--SUBP-230-->
 *	In Dashboard, the donut chart for number of cases with submittable data files is always empty. A workaround is to visit the Browse, detailed case view section to see, case by case, if it has submittable data files.<!--SUBP-231 / SUBP-156-->
-*	In Transactions tab, after clicking on Commit or Discard, status is not automatically refreshed. Workaround is to refresh the page after clicking on Commit or Discard. This does not affect the transaction section of the project dashboard. <!--SUBP-232-->
+*	In Transactions tab, after clicking on Commit or Discard, status is not automatically refreshed. <!--SUBP-232-->
 *  Added the API version in the Data Submission Portal footer on the project list page. <!--SUBP-235-->
 *  Inconsistent behaviour when clicking on a Transaction ID on the Dashboard. <!--SUBP-239-->
 *  Empty transactions created when submitting files in an incorrect format. <!--SUBP-242-->
