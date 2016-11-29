@@ -1,5 +1,45 @@
 # Data Submission Portal Release Notes
 
+## Release 1.4.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: November 22, 2016
+
+### New Features and Changes
+
+*	Added possibility to delete an entity <!-- SUBP-144 -->
+*  Added Program Office (PO) Reports in the projects list page <!-- SUBP-281 -->
+*  To avoid confusion, renamed "Status" to "State" in the Browse section <!-- SUBP-281 -->
+*  Added tooltip over Hierarchy title when reviewing an entity <!-- SUBP-238 -->
+*  Restrict the upload window to only supported data formats (JSON and TSV) <!-- SUBP-245 -->
+
+### Bugs Fixed Since Last Release
+
+*  File status column should not be displayed for any clinical or biospecimen entities but only for submittable data files. <!--SUBP-226-->
+*	Diagnosis / Treatment detail: Submitter ID (of the child / parent) is missing in the Details -> Hierarchy view. <!--SUBP-227-->
+*	In some situations tooltip entries remain on-screen. Workaround is to refresh the page. <!--SUBP-229-->
+*	In Browse tab, "Submittable Data Files" filter, clicking on "Download All" currently returns case and clinical informations instead of returning file informations. Workaround is to download information from the file the details panel. <!--SUBP-230-->
+*	In Dashboard, the donut chart for number of cases with submittable data files is always empty. A workaround is to visit the Browse, detailed case view section to see, case by case, if it has submittable data files.<!--SUBP-231 / SUBP-156-->
+*	In Transactions tab, after clicking on Commit or Discard, status is not automatically refreshed. <!--SUBP-232-->
+*  Added the API version in the Data Submission Portal footer on the project list page. <!--SUBP-235-->
+*  Inconsistent behaviour when clicking on a Transaction ID on the Dashboard. <!--SUBP-239-->
+*  Empty transactions created when submitting files in an incorrect format. <!--SUBP-242-->
+*  JSON file downloaded from the Data Submission Portal cannot be used to resubmit data. <!--SUBP-243-->
+*  "Submitted data files" donut chart and "Download Manifest" button do not get refreshed after committing a transaction. <!--SUBP-248-->
+*  Release information on the Dashboard creates confusion. <!--SUBP-252-->
+*  Missing Boolean fields from details panel. <!--SUBP-254-->
+*  No message displayed if no results are found via the top menu search. <!--SUBP-256-->
+*  "Invalid Date" on IE11 and Firefox ESR 45.x <!--SUBP-257-->
+*  Download option truncated in the details panel. <!--SUBP-258-->
+*  Download All from the browse section returns too many records. <!--SUBP-266-->
+
+### Known Issues and Workarounds
+
+*	Project submission and release is currently disabled. <!--SUBP-201-->
+*  Reports are currently not available in the Data Submission Portal for all users. Accessing Case Overview Report, Aliquot Overview Report and Data Validation Report requires user to have both "read report" and access to projects they are willing to obtain a report for.
+
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
 ## Release 1.3.0
 
 * __GDC Product__: GDC Data Submission Portal
