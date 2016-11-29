@@ -1,5 +1,26 @@
 # API Release Notes
 
+## v1.6.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: November 22, 2016
+
+### New Features and Changes
+
+* Submission: Entities in submitted state (assigned when the project has been submitted) cannot be deleted.  <!-- API-129 -->
+* Submission: When attempting to delete an entity that has child entities not specified in the request, all of the child entities' UUIDs are included in the error message.  <!-- API-129 -->
+* Submission: Entities associated with files uploaded to the GDC object store cannot be deleted until the associated file has been deleted. <!-- API-132 -->
+
+
+### Bugs Fixed Since Last Release
+
+* None to report
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
 
 ## v1.5.0
 
