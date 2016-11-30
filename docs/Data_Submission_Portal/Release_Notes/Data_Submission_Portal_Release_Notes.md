@@ -3,12 +3,12 @@
 ## Release 1.4.0
 
 * __GDC Product__: GDC Data Submission Portal
-* __Release Date__: December 1, 2016
+* __Release Date__: December 5, 2016
 
 ### New Features and Changes
 
-*	 Added possibility to delete an entity <!-- SUBP-144 -->
-*  Added Program Office (PO) Reports in the projects list page <!-- SUBP-281 -->
+*	 Added ability to delete an entity <!-- SUBP-144 -->
+*  Added Summary Reports in the projects list page.  Read more about these [here](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md). <!-- SUBP-281 -->
 *  To avoid confusion, renamed "Status" to "State" in the Browse section <!-- SUBP-281 -->
 *  Added tooltip over Hierarchy title when reviewing an entity <!-- SUBP-238 -->
 *  Restrict the upload window to only supported data formats (JSON and TSV) <!-- SUBP-245 -->
