@@ -8,6 +8,8 @@ After [authentication](Authentication.md), users are redirected to a homepage. T
 
 Content on the homepage varies based on the user profile (e.g. submitter, program office).
 
+## Reports
+
 ## Projects
 
 The projects section in the homepage lists the projects that the user has access to along with basic information about each. The button used to [release](Submit_Data.md) each project is located on this screen. For users with access to a large number of projects, this table can be filtered with the 'FILTER PROJECTS' field.  

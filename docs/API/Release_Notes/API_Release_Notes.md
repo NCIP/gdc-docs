@@ -3,7 +3,7 @@
 ## v1.6.0
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__: December 1, 2016
+* __Release Date__: December 5, 2016
 
 ### New Features and Changes
 
@@ -14,7 +14,7 @@
 
 ### Bugs Fixed Since Last Release
 
-* None to report
+* Submission system did not accept boolean values properly  <!--API-168-->
 
 ### Known Issues and Workarounds
 
