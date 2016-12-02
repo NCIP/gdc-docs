@@ -554,9 +554,57 @@ Submitting an [__Experiment Metadata__](https://gdc-docs.nci.nih.gov/Data_Dictio
 type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
 experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
 ```
+## Deleting Submitted Entities
+
+The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.
+
+### Simple Deletion
+
+If an entity was uploaded and has no related entities, it can be deleted from the [Browse](Browse_Data.md) tab. Once the entity to be deleted is selected, choose the `DELETE` button in the right panel under "ACTIONS".
+
+---
+
+[![GDC Delete Unassociated Case](images/GDC-Delete-Case-Unassociated.png)](images/GDC-Delete-Case-Unassociated.png "Click to see the full image.")
+
+---
+
+A message will then appear asking if you are sure about deleting the entity.  Choosing the `YES, DELETE` button will remove the entity from the project, whereas choosing the `NO, CANCEL` button will return the user to the previous screen.  
+
+---
+
+[![GDC Yes or No](images/GDC-Delete-Sure.png)](images/GDC-Delete-Sure.png "Click to see the full image.")
+
+---
+
+### Deletion with Dependents
+
+If an entity has related entities, such as a `case` with multiple `samples` and `aliquots`, deletion takes one extra step.  
+
+---
+
+[![GDC Delete Associated Case](images/GDC-Delete-Case-Associated.png)](images/GDC-Delete-Case-Associated.png "Click to see the full image.")
+
+---
+
+Follow the 'Simple Deletion' method until the end. This action will appear in the [Transactions](Transactions.md) tab as "Delete" with a "FAILED" state.  
+
+---
+
+[![GDC Delete Failed](images/GDC-Failed-Transaction.png)](images/GDC-Failed-Transaction.png "Click to see the full image.")
+
+---
+
+Choose the failed transaction and the right panel will show the list of entities related to the entity that was going to be deleted.  
+
+---
+
+[![GDC Error Related](images/GDC-Error-Related.png)](images/GDC-Error-Related.png "Click to see the full image.")
+
+---
+
+Selecting the `DELETE ALL` button at the bottom of the list will delete all of the related entities, their descendants, and the original entity.
 
 ## Strategies for Submitting in Bulk
-
 
 Each submission in the previous sections was broken down by component to demonstrate the GDC Data Model structure. However, the submission of multiple entities at once is supported and encouraged. Here two strategies for submitting data in an efficient manner are discussed.   
 
@@ -666,7 +714,3 @@ The [transaction](Transactions.md) page lists all previous transactions in the p
 __Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.  
 
 [![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files_2.png)](images/GDC_Submission_Transactions_Original_Files_2.png "Click to see the full image.")
-
-## Deleting Previously Uploaded Files
-
-The GDC Data Submission Portal does not support the deletion of entities at this time. This can be performed using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.
