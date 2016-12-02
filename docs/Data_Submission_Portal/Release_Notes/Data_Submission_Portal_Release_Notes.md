@@ -8,7 +8,7 @@
 ### New Features and Changes
 
 *	 Added ability to delete an entity <!-- SUBP-144 -->
-*  Added Summary Reports in the projects list page.  Read more about these [here](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md). <!-- SUBP-281 -->
+*  Added Summary Reports in the projects list page.  Read more about these [here](http://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Homepage/#reports. <!-- SUBP-281 -->
 *  To avoid confusion, renamed "Status" to "State" in the Browse section <!-- SUBP-281 -->
 *  Added tooltip over Hierarchy title when reviewing an entity <!-- SUBP-238 -->
 *  Restrict the upload window to only supported data formats (JSON and TSV) <!-- SUBP-245 -->
