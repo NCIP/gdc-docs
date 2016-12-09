@@ -151,7 +151,7 @@ htseq-count \
 
 ## mRNA Expression Normalization
 
-RNA-Seq expression level read counts are normalized using two
+RNA-Seq expression level read counts are normalized using two related methods: FPKM and FPKM-UQ. Normalized values should be used only within the context of the entire gene set. Users are encouraged to normalize raw read count values if a subset of genes is investigated.
 
 ### FPKM
 
@@ -170,7 +170,7 @@ The upper quartile FPKM (FPKM-UQ) is a modified FPKM calculation in which the to
 - __RC<sub>g75</sub>:__ The 75th percentile read count value for genes in the sample
 - __L:__ Length of the gene in base pairs
 
-__Note:__ The read count is multiplied by a scalar during normalization to account for the kilobase and 'million mapped reads' units.
+__Note:__ The read count is multiplied by a scalar (10<sup>9</sup>) during normalization to account for the kilobase and 'million mapped reads' units.
 
 ### Examples
 
