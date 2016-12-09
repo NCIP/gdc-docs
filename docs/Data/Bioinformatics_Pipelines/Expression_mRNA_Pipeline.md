@@ -124,7 +124,7 @@ STAR
 ### mRNA Expression Workflow
 Following alignment, BAM files are processed through the [RNA Expression Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=rna_expression_workflow).
 
-First the BAM files are filtered for reads that were aligned to protein-coding genes using the [samtools](http://samtools.sourceforge.net) view function. The reads mapped to each protein-coding gene are enumerated using HT-Seq count. The number of reads mapped to each gene (raw count), gene length and the total number of reads mapped to protein-coding genes are then used to calculate normalized expression levels using FPKM and FPKM-UQ (upper quartile normalization). Expression values are provided in a tab-delimited format. [GENCODE v22](http://www.gencodegenes.org/releases/22.html) was used for gene annotation.
+First the BAM files are filtered for reads that were aligned to protein-coding genes using the [samtools](http://samtools.sourceforge.net) view function. The reads mapped to each protein-coding gene are enumerated using HT-Seq count. Expression values are provided in a tab-delimited format. [GENCODE v22](http://www.gencodegenes.org/releases/22.html) was used for gene annotation.
 
 [![Gene Expression Pipeline](images/gene-expression-quantification-pipeline.png)](images/gene-expression-quantification-pipeline.png "Click to see the full image.")
 
@@ -149,13 +149,49 @@ htseq-count \
 
 ```
 
+## mRNA Expression Normalization
+
+RNA-Seq expression level read counts are normalized using two
+
+### FPKM
+
+The Fragments per Kilobase of transcript per Million mapped reads (FPKM) calculation normalizes read count by dividing it by the gene length and the total number of reads mapped to protein-coding genes.
+
+### Upper Quartile FPKM
+
+The upper quartile FPKM (FPKM-UQ) is a modified FPKM calculation in which the total protein-coding read count is replaced by the 75th percentile read count value for the sample.
+
+### Calculations
+
+[![FPKM Calculations](images/Calc_FPKM_andUQ.png)](images/Calc_FPKM_andUQ.png "Click to see the full image.")
+
+- __RC<sub>g</sub>:__ Number of reads mapped to the gene
+- __RC<sub>pc</sub>:__ Number of reads mapped to all protein-coding genes
+- __RC<sub>g75</sub>:__ The 75th percentile read count value for genes in the sample
+- __L:__ Length of the gene in base pairs
+
+__Note:__ The read count is multiplied by a scalar during normalization to account for the kilobase and 'million mapped reads' units.
+
+### Examples
+
+__Sample 1: Gene A__
+
+* Gene length: 3,000 bp
+* 1,000 reads mapped to Gene A
+* 1,000,000 reads mapped to all protein-coding regions
+* Read count in Sample 1 for 75th percentile gene: 2,000
+
+__FPKM for Gene A__ = (1,000)\*(10^9)/[(3,000)\*(1,000,000)] = __333.33__
+
+__FPKM-UQ for Gene A__ = (1,000)\*(10^9)/[(3,000)\*(2,000)] = __166,666.67__
+
 ## File Access and Availability
 
 To facilitate the use of harmonized data in user-created pipelines, RNA-Seq gene expression is accessible in the GDC Data Portal at several intermediate steps in the pipeline. Below is a description of each type of file available for download in the GDC Data Portal.   
 
 | Type | Description | Format |
 |---|---|---|
-| RNA-Seq Alignment | RNA-Seq reads that have been aligned to the GRCh38 build. Reads that were not aligned are included to facilitate the availability of raw read sets.  |  BAM |
+| RNA-Seq Alignment | RNA-Seq reads that have been aligned to the GRCh38 build. Reads that were not aligned are included to facilitate the availability of raw read sets  |  BAM |
 | Raw Read Counts | The number of reads aligned to each protein-coding gene, calculated by HT-Seq. |  TXT |
-| FPKM | A normalized expression value that takes into account each protein-coding gene length and the number of reads mappable to all protein-coding genes. |  TXT |
-| FPKM-UQ | A normalized raw read count in which gene expression values, in FPKM, are divided by the 75th percentile value. |  TXT |
+| FPKM | A normalized expression value that takes into account each protein-coding gene length and the number of reads mappable to all protein-coding genes |  TXT |
+| FPKM-UQ | A modified version of the FPKM formula in which the 75th percentile read count is used as the denominator in place of the total number of protein-coding reads |  TXT |
