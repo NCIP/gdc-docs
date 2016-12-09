@@ -191,7 +191,7 @@ To facilitate the use of harmonized data in user-created pipelines, RNA-Seq gene
 
 | Type | Description | Format |
 |---|---|---|
-| RNA-Seq Alignment | RNA-Seq reads that have been aligned to the GRCh38 build. Reads that were not aligned are included to facilitate the availability of raw read sets.  |  BAM |
+| RNA-Seq Alignment | RNA-Seq reads that have been aligned to the GRCh38 build. Reads that were not aligned are included to facilitate the availability of raw read sets  |  BAM |
 | Raw Read Counts | The number of reads aligned to each protein-coding gene, calculated by HT-Seq. |  TXT |
-| FPKM | A normalized expression value that takes into account each protein-coding gene length and the number of reads mappable to all protein-coding genes. |  TXT |
+| FPKM | A normalized expression value that takes into account each protein-coding gene length and the number of reads mappable to all protein-coding genes |  TXT |
 | FPKM-UQ | A modified version of the FPKM formula in which the 75th percentile read count is used as the denominator in place of the total number of protein-coding reads |  TXT |
