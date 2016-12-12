@@ -1,12 +1,12 @@
 # DNA Methylation #
 
 ## Introduction ##
-DNA methylation is an epigenetic mark which can be associated with transcriptional inactivity when located in promoter regions. In the context of the GDC, DNA methylation refers to the covalent modification of cytosine bases at the C-5 position, generally within a CpG sequence context.
+DNA methylation is an epigenetic mark which can be associated with transcriptional inactivity when located in promoter regions. In the context of the GDC, DNA methylation refers to the covalent modification of cytosine bases at the C-5 position, generally within a CpG sequence context.[1]
 ## Description ##
 ### Overview ###
-DNA methylation data contains information on raw and normalized signal intensities, detection confidence and calculated beta values for methylated and unmethylated probes. Higher level data includes masking of data, including SNP-related data. Details on data masking can be found in the DESCRIPTION.txt files that accompany data level and MAGE-TAB archives.
+DNA methylation data contains information on raw and normalized signal intensities, detection confidence and calculated beta values for methylated and unmethylated probes. Higher level data includes masking of data, including SNP-related data. Details on data masking can be found in the DESCRIPTION.txt files that accompany data level and MAGE-TAB archives.[1]
 ### Data ###
-DNA methylation data consists of multiple files associated with each platform.
+DNA methylation data consists of multiple files associated with each platform.[1]
 
 | Platform Code | Platform Alias | Platform Name | Platform File Description | Platform File Type | Platform File Example |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -22,13 +22,15 @@ DNA methylation data consists of multiple files associated with each platform.
 | IlluminaDNAMethylation_OMA003_CPI | IlluminaDNAMethylation | Illumina DNA Methylation OMA003 Cancer Panel I | Calculated beta values | Tab-delimited, ASCII text (.txt) | TBD |
 ### Validation ###
 DNA Methylation data undergoes standard validation including:
-
 - MD5 Validation
+
 ### Analysis ###
 Analyzing DNA methylation data involves comparing ..
+
 ## Resources ##
 | Resource | Location |
 | --- | --- |
 |  TBD | TBD  | 
+
 ## References ##
 [1] [DNA methylation](https://wiki.nci.nih.gov/display/TCGA/DNA+methylation "DNA Methylation")
