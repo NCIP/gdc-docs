@@ -33,4 +33,4 @@ Analyzing DNA methylation data involves comparing ..
 |  TBD | TBD  | 
 
 ## References ##
-[1] [DNA methylation](https://wiki.nci.nih.gov/display/TCGA/DNA+methylation "DNA Methylation")
+[1] [DNA Methylation](https://wiki.nci.nih.gov/display/TCGA/DNA+methylation "DNA Methylation")
