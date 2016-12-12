@@ -3,8 +3,8 @@
 ## Description ##
 ### Overview ###
 ### Structure ###
-#### Header ####
-#### Body ####
+#### Header (Optional) ####
+#### Body (Optional) ####
 ## Resources ##
 | Resource | Location |
 | --- | --- |
