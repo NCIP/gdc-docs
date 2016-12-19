@@ -1,7 +1,6 @@
 # Experimental Strategy Name #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Strategy ###
 ## References ##
 1.
