@@ -9,6 +9,7 @@ Biospecimen data are data or metadata that describe biospecimen-related elements
 ## References ##
 1. [Biospecimen Data](https://wiki.nci.nih.gov/display/TCGA/Biospecimen+data)
 2. [Biospecimen Element Type](https://wiki.nci.nih.gov/display/TCGA/Biospecimen+element+type)
+
 ## External Links ##
 * TBD
 
