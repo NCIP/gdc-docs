@@ -12,7 +12,8 @@ The work of a BCR includes the following important functions:
 * Review pathology to ensure accurate diagnosis and validate against inclusion criteria
 * Collect clinical information for each sample and apply standardized terminology, definitions and formats that are compliant with data standards
 * Extract and distribute DNA and RNA from samples to genomic characterization and sequencing centers
-### Interaction with Other Centers###
+
+### Interaction with Other Centers ###
 After samples are collected from a TSS, a BCR ensures sample quality through a Pathology Review before extracting molecular analytes: DNA or RNA, which are in turn analysed for quality. Analytes are aliquoted and assigned aliquot barcodes by the BCR before they are sent to the other centers. The BCR sends plated DNA/RNA analytes and corresponding aliquot barcodes to Genome Characterization Centers (GCCs) for molecular characterization.
 
 ### GDC Data Submission ###
