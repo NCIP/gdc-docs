@@ -1,4 +1,4 @@
-# Clinical #
+# Clinical Data #
 ## Introduction ##
 ## Description ##
 ### Overview ###
