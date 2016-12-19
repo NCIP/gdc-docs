@@ -21,9 +21,12 @@ A MAF file identifies, for each sample, the discovered putative or validated mut
 
 ### Structure ###
 The structure of the MAF is available in the [TCGA MAF Specification] (https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification). Changes made to the MAF in support of the GDC are available in the [GDC MAF Format document] (https://gdc-docs.nci.nih.gov/Data/File_Formats/MAF_Format/).
-## Resources ##
-| Resource | Location |
-| TCGA MAF specification | https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification |
-| GDC MAF Format | https://gdc-docs.nci.nih.gov/Data/File_Formats/MAF_Format/ | 
+
 ## References ##
-[1] [Mutation Annotation Format] (https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format)
+1. [Mutation Annotation Format] (https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format)
+
+## External Links ##
+* [TCGA MAF specification] (https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification)
+* [GDC MAF Format] (https://gdc-docs.nci.nih.gov/Data/File_Formats/MAF_Format/)
+
+Categories: Data Format
