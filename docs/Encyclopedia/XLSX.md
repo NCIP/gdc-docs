@@ -1,7 +1,6 @@
 # Mutation Annotation Format #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Structure ###
 #### Header ####
 #### Body ####
