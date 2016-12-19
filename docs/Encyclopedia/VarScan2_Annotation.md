@@ -1,7 +1,6 @@
 # VarScan2 Annotation #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Tools ###
 ## References ##
 1.
