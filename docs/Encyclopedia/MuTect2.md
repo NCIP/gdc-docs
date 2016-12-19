@@ -1,7 +1,6 @@
 # MuTect2 #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Tools ###
 ## References ##
 1.
