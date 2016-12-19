@@ -1,7 +1,6 @@
 # Illumina Human Methylation 27 #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Vendors ###
 ## References ##
 1.
