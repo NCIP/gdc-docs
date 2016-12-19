@@ -1,7 +1,6 @@
 # Simple Nucleotide Variation #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Data ###
 ### Validation ###
 ### Analysis ###
