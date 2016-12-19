@@ -3,8 +3,10 @@
 ## Description ##
 ### Overview ###
 ### Tools ###
-## Resources ##
-| Resource | Location |
-| --- | --- |
-| TBD | TBD | 
 ## References ##
+1.
+
+## External Links ##
+* TBD
+
+Categories: Workflow Type
