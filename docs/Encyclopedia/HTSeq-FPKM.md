@@ -1,7 +1,6 @@
 # HTSeq-FPKM #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Tools ###
 ## References ##
 1.
