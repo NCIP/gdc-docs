@@ -3,8 +3,10 @@
 ## Description ##
 ### Overview ###
 ### Data Formats ###
-## Resources ##
-| Resource | Location |
-| --- | --- |
-| TBD | TBD | 
 ## References ##
+1.
+
+## External Links ##
+* TBD
+
+Categories: Data Type
