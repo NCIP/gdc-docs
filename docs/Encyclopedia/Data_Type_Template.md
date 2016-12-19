@@ -1,7 +1,6 @@
 # Data Type Name #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Data Formats ###
 ## References ##
 1.
