@@ -1,5 +1,6 @@
 # Masked Somatic Mutation #
 ## Introduction ##
+Masked Somatic Mutations are TSV files that contain all of the somatic mutations for all of the cases for a project.
 ## Description ##
 ### Overview ###
 ### Data Formats ###
