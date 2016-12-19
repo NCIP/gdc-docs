@@ -8,7 +8,7 @@ relates analytes to aliquots and/or portions but is not a required biospecimen e
 
 ## References ##
 1. [GDC Data Dictionary - Analyte] (https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=analyte)
-1. [TCGA Aliquot] (https://wiki.nci.nih.gov/display/TCGA/Analyte)
+1. [TCGA Enyclopedia - Analyte] (https://wiki.nci.nih.gov/display/TCGA/Analyte)
 
 ## External Links ##
 * TBD
