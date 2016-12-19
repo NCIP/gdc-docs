@@ -1,7 +1,6 @@
 # Annotated Somatic Mutation #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Data Formats ###
 ## References ##
 1.
