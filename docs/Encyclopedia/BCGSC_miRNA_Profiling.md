@@ -1,7 +1,6 @@
 # BCGSC miRNA Profiling #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Tools ###
 ## References ##
 1.
