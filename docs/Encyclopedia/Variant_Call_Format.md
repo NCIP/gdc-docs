@@ -13,6 +13,5 @@ The structure of the VCF is available in the [VCF 4.1 Specification](https://sam
 
 ## External Links ##
 * [VCF 4.1 Specification] (https://samtools.github.io/hts-specs/VCFv4.1.pdf)
-* [] ()
 
 Categories: Data Type
