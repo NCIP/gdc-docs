@@ -1,7 +1,6 @@
 # HTSeq-Counts #
 ## Description ##
 ## Overview ##
-### Tools ###
 ## References ##
 1.
 
