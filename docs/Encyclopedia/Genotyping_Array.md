@@ -1,7 +1,6 @@
 # Genotyping Array #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Data ###
 ### Validation ###
 ### Analysis ###
