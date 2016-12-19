@@ -1,7 +1,6 @@
 # SomaticSniper Variant Aggregation and Masking #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Tools ###
 ## References ##
 1.
