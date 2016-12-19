@@ -1,7 +1,6 @@
 # Tab Separated Values #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Structure ###
 #### Header ####
 #### Body ####
