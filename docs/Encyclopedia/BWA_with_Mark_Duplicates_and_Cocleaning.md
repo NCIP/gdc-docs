@@ -1,7 +1,6 @@
 # BWA with Mark Duplicates and Cocleaning #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Tools ###
 ## References ##
 1.
