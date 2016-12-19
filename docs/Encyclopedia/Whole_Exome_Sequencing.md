@@ -1,7 +1,6 @@
 # Whole Exome Sequencing (WXS) #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Data ###
 ### Validation ###
 ### Analysis ###
