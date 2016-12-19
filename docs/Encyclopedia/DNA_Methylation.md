@@ -27,10 +27,10 @@ DNA Methylation data undergoes standard validation including:
 ### Analysis ###
 Analyzing DNA methylation data involves comparing ..
 
-## Resources ##
-| Resource | Location |
-| --- | --- |
-|  TBD | TBD  | 
-
 ## References ##
-[1] [DNA Methylation](https://wiki.nci.nih.gov/display/TCGA/DNA+methylation "DNA Methylation")
+1. [DNA Methylation](https://wiki.nci.nih.gov/display/TCGA/DNA+methylation "DNA Methylation")
+
+## External Links ##
+* TBD
+
+Categories: Data Category
