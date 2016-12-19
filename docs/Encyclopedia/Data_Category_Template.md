@@ -1,7 +1,6 @@
 # Data Category Name #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Data ###
 ### Validation ###
 ### Analysis ###
