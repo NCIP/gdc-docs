@@ -7,7 +7,8 @@ Centers align sequence reads to a reference genome to produce a Sequence Alignme
 ### Structure ###
 The structure of the BAM is available in the [BAM specification](http://samtools.sourceforge.net/).
 ## References ##
-1.[Binary Alignment Map](https://wiki.nci.nih.gov/display/TCGA/Binary+Alignment+Map)
+1. [Binary Alignment Map](https://wiki.nci.nih.gov/display/TCGA/Binary+Alignment+Map)
 ## External Links ##
 * [BAM Specifications and Tools](http://samtools.sourceforge.net/)
+
 Categories: Data Format
