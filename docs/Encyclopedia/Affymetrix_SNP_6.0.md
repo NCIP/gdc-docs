@@ -1,7 +1,6 @@
 # Affymetrix SNP 6.0 #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Vendors ###
 ## References ##
 1.
