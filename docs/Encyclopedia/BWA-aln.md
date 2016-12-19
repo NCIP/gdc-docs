@@ -1,7 +1,6 @@
 # BWA-aln #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Tools ###
 ## References ##
 1.
