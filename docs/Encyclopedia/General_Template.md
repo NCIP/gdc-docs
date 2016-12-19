@@ -1,8 +1,10 @@
 # General #
 ## Introduction ##
 ## Description ##
-## Resources ##
-| Resource | Location |
-| --- | --- |
-| TBD | TBD | 
 ## References ##
+1.
+
+## External Links ##
+* TBD
+
+Categories: General
