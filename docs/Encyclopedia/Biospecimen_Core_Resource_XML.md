@@ -1,7 +1,6 @@
 # Biospecimen Core Resource XML #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Structure ###
 #### Header ####
 #### Body ####
