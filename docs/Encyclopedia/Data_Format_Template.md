@@ -1,7 +1,6 @@
 # Data Format Name #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Structure ###
 #### Header (Optional) ####
 #### Body (Optional) ####
