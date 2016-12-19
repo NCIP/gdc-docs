@@ -1,7 +1,6 @@
 # RNA-Seq #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Data ###
 ### Validation ###
 ### Analysis ###
