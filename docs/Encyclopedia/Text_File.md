@@ -1,7 +1,6 @@
 # TXT #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Structure ###
 #### Header ####
 #### Body ####
