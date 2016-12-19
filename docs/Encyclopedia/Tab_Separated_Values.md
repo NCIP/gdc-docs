@@ -5,8 +5,10 @@
 ### Structure ###
 #### Header ####
 #### Body ####
-## Resources ##
-| Resource | Location |
-| --- | --- |
-| TBD | TBD | 
 ## References ##
+1.
+
+## External Links ##
+* TBD
+
+Categories: Data Format
