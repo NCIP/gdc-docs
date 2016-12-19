@@ -1,9 +1,8 @@
 # DNA Methylation #
 
-## Introduction ##
-DNA methylation is an epigenetic mark which can be associated with transcriptional inactivity when located in promoter regions. In the context of the GDC, DNA methylation refers to the covalent modification of cytosine bases at the C-5 position, generally within a CpG sequence context.[1]
 ## Description ##
-### Overview ###
+DNA methylation is an epigenetic mark which can be associated with transcriptional inactivity when located in promoter regions. In the context of the GDC, DNA methylation refers to the covalent modification of cytosine bases at the C-5 position, generally within a CpG sequence context.[1]
+## Overview ##
 DNA methylation data contains information on raw and normalized signal intensities, detection confidence and calculated beta values for methylated and unmethylated probes. Higher level data includes masking of data, including SNP-related data. Details on data masking can be found in the DESCRIPTION.txt files that accompany data level and MAGE-TAB archives.[1]
 ### Data ###
 DNA methylation data consists of multiple files associated with each platform.[1]
