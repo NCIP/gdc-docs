@@ -1,7 +1,6 @@
 # Workflow Type #
-## Introduction ##
 ## Description ##
-### Overview ###
+## Overview ##
 ### Tools ###
 ## References ##
 1.
