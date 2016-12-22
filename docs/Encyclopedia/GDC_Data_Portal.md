@@ -15,6 +15,6 @@ The Genomic Data Commons (GDC) Data Portal provides users with web-based access 
 2. [GDC Data Portal User's Guide] (https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Getting_Started/)
 
 ## External Links ##
-* TBD
+* N/A
 
 Categories: Tool
