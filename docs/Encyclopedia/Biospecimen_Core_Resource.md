@@ -27,6 +27,6 @@ A BCR typically submits the following information to the GDC:
 1. [TCGA Enyclopedia - Biospecimen Core Resource] (https://wiki.nci.nih.gov/display/TCGA/Biospecimen+Core+Resource)
 
 ## External Links ##
-* TBD
+* N/A
 
 Categories: General
