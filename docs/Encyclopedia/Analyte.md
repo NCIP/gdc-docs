@@ -11,6 +11,6 @@ relates analytes to aliquots and/or portions but is not a required biospecimen e
 1. [TCGA Enyclopedia - Analyte] (https://wiki.nci.nih.gov/display/TCGA/Analyte)
 
 ## External Links ##
-* TBD
+* N/A
 
 Categories: General, Biospecimen
