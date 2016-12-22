@@ -1,6 +1,6 @@
 # Aligned Reads #
 ## Description ##
-A read is a sequence obtained from a single sequencing experiment. Typically a read is produced when a base calling program interprets information from a chromatogram trace file produced from a sequencing machine.[1] An aligned read, is a sequence that has been aligned to a common reference genome.
+A read is a sequence obtained from a single sequencing experiment. Typically a read is produced when a base calling program interprets information from a chromatogram trace file produced from a sequencing machine. An aligned read, is a sequence that has been aligned to a common reference genome.
 ## Overview ##
 The GDC supports the submission of aligned reads, in addition to unaligned reads. A data file containing aligned reads is used as input to GDC workflows.
 ### Data Formats ###
