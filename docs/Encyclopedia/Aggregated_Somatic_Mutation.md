@@ -5,6 +5,7 @@ Aggregated Somatic Mutations are MAF/TSV files that contain all of the somatic m
 ### Data Formats ###
 ## References ##
 1. [GDC Data Dictionary - Aggregated Somatic Mutation] (https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aggregated_somatic_mutation)
+
 ## External Links ##
 * TBD
 
