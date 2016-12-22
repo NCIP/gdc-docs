@@ -8,6 +8,8 @@ Aligned reads are maintained in Binary Alignment Map (BAM) format.
 ## References ##
 1. [Sequence Type and Features Ontology - Read](http://bioportal.bioontology.org/ontologies/SO?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FSO_0000150)
 2. [GDC Data Dictionary - Submitted Aligned Reads](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads)
+
 ## External Links ##
 * TBD
+
 Categories: Data Type
