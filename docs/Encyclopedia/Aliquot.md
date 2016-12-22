@@ -11,6 +11,6 @@ relates aliquots to samples and/or analytes for capturing the biospecimen inform
 1. [TCGA Encyclopedia - Aliquot] (https://wiki.nci.nih.gov/display/TCGA/Aliquot)
 
 ## External Links ##
-* TBD
+* N/A
 
 Categories: General, Biospecimen
