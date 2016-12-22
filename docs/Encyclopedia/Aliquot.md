@@ -8,7 +8,7 @@ relates aliquots to samples and/or analytes for capturing the biospecimen inform
 
 ## References ##
 1. [GDC Data Dictionary - Aliquot] (https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aliquot)
-1. [TCGA Aliquot] (https://wiki.nci.nih.gov/display/TCGA/Aliquot)
+1. [TCGA Encyclopedia - Aliquot] (https://wiki.nci.nih.gov/display/TCGA/Aliquot)
 
 ## External Links ##
 * TBD
