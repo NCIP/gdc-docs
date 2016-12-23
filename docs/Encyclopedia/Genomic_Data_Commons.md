@@ -17,6 +17,6 @@ defining genomic determinants of response to therapy, and informs the compositio
 4. [NCI GDC Launch] (https://www.cancer.gov/news-events/press-releases/2016/genomic-data-commons-launch)
 
 ## External Links ##
-* [University of Chicago GDC Press Release (http://www.chicagotribune.com/news/ct-university-chicago-cancer-data-met-20141202-story.html)
+* [University of Chicago GDC Press Release] (http://www.chicagotribune.com/news/ct-university-chicago-cancer-data-met-20141202-story.html)
 
 Categories: General
