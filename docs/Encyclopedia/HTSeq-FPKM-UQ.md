@@ -13,9 +13,13 @@ FPKM = [RM<sub>g</sub> * 10<sup>9</sup> ] / [RM<sub>75</sub> * L]
 * RM<sub>75</sub>: The number of read mapped to the 75th percentile gene in the alignment. 
 * L: The length of the gene in base pairs
 
-The scalar (10<sup>9</sup>) is added to normalize the values to "__kilo__ base" and "__million__ mapped reads."
+
+### Notes
+- The scalar (10<sup>9</sup>) is added to normalize the values to "__kilo__ base" and "__million__ mapped reads."
+- FPKM-UQ values tend to be much higher than FPKM values because of the large difference between the total mapped number of reads in an alignment and the mapped number of reads to one gene.  
 
 ### Tools ###
+
 ## References ##
 1. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq–a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
 
