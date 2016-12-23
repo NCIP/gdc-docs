@@ -1,6 +1,6 @@
 # GDC Documentation Site #
 ## Description ##
-The GDC Documentation Site
+The GDC Documentation Site is the official project documentation site of the GDC which provides users with access to detailed information on GDC tools and data.
 
 ## Overview ##
 
@@ -11,6 +11,6 @@ at the GDC, which includes guides to the file formats and bioinformatics pipelin
 1. [GDC Documentation Web Site](https://docs.gdc.cancer.gov)
 
 ## External Links ##
-* TBD
+* N/A
 
 Categories: Tool
