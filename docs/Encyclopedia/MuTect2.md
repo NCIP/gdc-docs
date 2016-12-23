@@ -6,7 +6,8 @@ MuTect2 is a variant-calling algorithm designed to detect somatic SNPs and indel
 
 ## Overview ##
 
-MuTect2 is one of the four somatic variant-calling algorithms used by the GDC.  MuTect2 uses a "panel of normals", which is an aggregation of curated normal samples, to effectively detect and eventually eliminate germline variants.  
+MuTect2 is one of the four somatic variant-calling algorithms used by the GDC.  MuTect2 uses a "panel of normals", which is an aggregation of curated normal samples, to effectively detect and 
+eventually eliminate germline variants. MuTect2 compares paired tumor/normal alignments and generates a list of variants in [variant call format](LINK) (VCF).  
 
 ### Tools ###
 
