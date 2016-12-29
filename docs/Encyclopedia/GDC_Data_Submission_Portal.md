@@ -12,8 +12,8 @@ The GDC Data Submission Portal is a platform that allows researchers to submit a
 * Status and Alerts: Visual cues are implemented to easily identify incomplete submissions.
 
 ## References ##
-1. [GDC Data Submission Portal] (https://gdc-portal.nci.nih.gov/submission/login?next=%2Fsubmission%2F)
-2. [GDC Data Submission Portal User's Guide] (https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Getting_Started/)
+1. [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission/login?next=%2Fsubmission%2F)
+2. [GDC Data Submission Portal User's Guide](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Getting_Started/)
 
 ## External Links ##
 * N/A

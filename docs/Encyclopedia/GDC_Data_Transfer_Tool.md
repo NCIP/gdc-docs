@@ -6,8 +6,8 @@ Raw sequence data, stored as BAM files, make up the bulk of data stored at the N
 
 The GDC Data Transfer Tool provides an optimized method of transferring data to and from the GDC, and enables resumption of interrupted transfers.
 ## References ##
-1. [GDC Data Transfer Tool] (https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
-2. [GDC Data Transfer Tool User's Guide] (https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/)
+1. [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
+2. [GDC Data Transfer Tool User's Guide](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/)
 
 ## External Links ##
 * N/A

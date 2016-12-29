@@ -1,4 +1,5 @@
-# STAR 2-Pass #
+# Variant Aggregation and Masking #
+
 ## Description ##
 ## Overview ##
 ### Tools ###

@@ -1,11 +1,11 @@
 # STAR 2-Pass #
 ## Description ##
 
-The STAR aligner is an alignment algorithm that specializes in RNA-Seq.  The STAR 2-Pass method first aligns the reads and identifies junction boundarie and then uses the junction boundary information in a second pass to generate a higher-quality alignment.  
+The STAR aligner is an alignment algorithm that specializes in RNA-Seq.  The STAR 2-Pass method first aligns the reads and identifies splice junctions and then uses the splice-junction information in a second pass to generate a higher-quality alignment.  
 
 ## Overview ##
 
-RNA-Seq reads harmonized by the GDC are initially aligned to the reference genome using the STAR 2-Pass method. The resulting [BAM files](LINK) are used for downstream [gene expression quantification](LINK). 
+RNA-Seq reads harmonized by the GDC are initially aligned to the reference genome using the STAR 2-Pass method. The resulting [BAM files](LINK) are used for downstream [gene expression quantification](LINK).
 
 ### Tools ###
 ## References ##

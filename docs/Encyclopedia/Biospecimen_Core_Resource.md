@@ -1,11 +1,10 @@
 # Biospecimen Core Resource (BCR) #
 ## Description ##
-A Biospecimen Core Resource (BCR) is a center where samples are carefully catalogued, processed, quality-checked and stored 
-along with participant clinical information.
+A Biospecimen Core Resource (BCR) is a center where samples are carefully catalogued, processed, quality-checked, and stored along with participant clinical information.
 ## Overview ##
 The work of a BCR includes the following important functions:
 * Serve as the interface between the program and the different Tissue Source Site (TSS) collecting tumor and matched normal controls
-* Ensure and verify that TCGA human subjects protections and guidelines are adhered to and that all regulations are followed at each TSS 
+* Ensure and verify that TCGA human subjects protections and guidelines are adhered to and that all regulations are followed at each TSS
 * Verify use of language consistent with informed consent documents
 * Examine all biospecimens to ensure they meet rigorous standards for each tumor type (including percent necrosis and percent tumor nuclei)
 * Review pathology to ensure accurate diagnosis and validate against inclusion criteria

@@ -10,7 +10,7 @@ FPKM-UQ is implemented at the GDC on gene-level read counts that are produced by
 FPKM = [RM<sub>g</sub> * 10<sup>9</sup> ] / [RM<sub>75</sub> * L]
 
 * RM<sub>g</sub>: The number of reads mapped to the gene
-* RM<sub>75</sub>: The number of read mapped to the 75th percentile gene in the alignment. 
+* RM<sub>75</sub>: The number of read mapped to the 75th percentile gene in the alignment.
 * L: The length of the gene in base pairs
 
 
@@ -22,9 +22,9 @@ FPKM = [RM<sub>g</sub> * 10<sup>9</sup> ] / [RM<sub>75</sub> * L]
 
 ## References ##
 1. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq–a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
-
+2. [GDC mRNA Expression Pipeline](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
 
 ## External Links ##
-* [GDC mRNA Expression Pipeline](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
+
 
 Categories: Workflow Type
