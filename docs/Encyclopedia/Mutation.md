@@ -1,6 +1,6 @@
 # Mutation #
 ## Description ##
-A mutation, in biology is a permanent alteration of the DNA with in the organism.     
+A mutation, in biology is a permanent alteration of the DNA within the organism.     
 ## Overview ##
 ## References ##
 1. TBD
