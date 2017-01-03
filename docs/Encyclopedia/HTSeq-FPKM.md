@@ -1,7 +1,7 @@
 # HTSeq-FPKM #
 ## Description ##
 
-Fragments per Kilobase of transcript per Million mapped reads (FPKM) is a simple expression level normalization method.  The FPKM normalizes raw read count based on the length of the gene and the total number of reads mapped.  
+Fragments per Kilobase of transcript per Million mapped reads (FPKM) is a simple expression level normalization method. The FPKM normalizes raw read count based on the length of the gene and the total number of reads mapped.  
 
 ## Overview ##
 

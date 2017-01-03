@@ -6,13 +6,13 @@ Copy-number segment files are generated from the GDC [Copy Number Variation](LIN
 
 ## Overview ##
 
-The main function of the harmonized Copy Number Segment files at the GDC is to identify contiguous segments of the chromosome that had undergone duplications or deletions. This is performed by locating probes with adjacent binding regions with intensities that suggest a 
-similiar copy number.    
+The main function of the harmonized Copy Number Segment files at the GDC is to identify contiguous segments of the chromosome that had undergone duplications or deletions. This is performed by locating probes with adjacent binding regions with intensities that suggest a
+similar copy number.    
 
 
 ### Data Formats ###
 
-Copy Number Segment files are tab-delimited and associate chromosomal coordinates with copy number data including log<sub>2</sub> ratio segment means and the number of probes associated with that particular segment.  
+Copy Number Segment files are tab-delimited and associate chromosomal coordinates with copy number data including log<sub>2</sub> ratio segment means and the number of probes associated with that segment.  
 
 ```
 Sample	Chromosome	Start	End	Num_Probes	Segment_Mean

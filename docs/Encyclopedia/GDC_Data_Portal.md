@@ -11,8 +11,8 @@ The Genomic Data Commons (GDC) Data Portal provides users with web-based access 
 * Secure data download directly from the cart or using the GDC Data Transfer Too
 
 ## References ##
-1. [GDC Data Portal] (https://gdc-portal.nci.nih.gov)
-2. [GDC Data Portal User's Guide] (https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Getting_Started/)
+1. [GDC Data Portal](https://gdc-portal.nci.nih.gov)
+2. [GDC Data Portal User's Guide](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Getting_Started/)
 
 ## External Links ##
 * N/A
