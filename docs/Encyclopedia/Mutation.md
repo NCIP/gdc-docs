@@ -1,6 +1,6 @@
 # Mutation #
 ## Description ##
-A mutation is...
+A mutation, when referring to genes is a permanent alteration of the DNA.   
 ## Overview ##
 ## References ##
 1. TBD
