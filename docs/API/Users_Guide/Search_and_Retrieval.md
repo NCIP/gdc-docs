@@ -410,6 +410,8 @@ curl 'https://gdc-api.nci.nih.gov/files/ids?query=nationwidechildrens.org_clinic
 
 The GDC Cases Endpoint `https://gdc-api.nci.nih.gov/cases` enables search and retrieval of information related to a specific case.
 
+__Note:__ The `cases` endpoint is designed to retrieve the metadata associated with one or more cases, including all nested biospecimen entities. Filters can be applied to retrieve information for entire cases, but not for lower-level biospecimen entities. For example, a sample within a case cannot be used to query for aliquots that are associated only with that sample. All aliquots associated with the case would be retrieved.
+
 
 #### Example
 
