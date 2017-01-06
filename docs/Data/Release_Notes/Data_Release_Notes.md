@@ -1,5 +1,43 @@
 # Data Release Notes
 
+## Data Release 5.0
+
+* __GDC Product__: Data
+* __Release Date__: January 17, 2017
+
+### New updates
+
+1.  Additional annotations from TCGA DCC are available <!--DAT-52-->
+2.  Clinical data added for TARGET ALL P1 and P2 <!--DAT-197-->
+3.  Missing cases from TCGA-LAML were added to Legacy Archive <!--DAT-272,DAT-324,DAT-127-->
+4.  Biotab files are now linked to Projects and Cases in Legacy Archive <!--SV-303,DAT-28-->
+5.  Pathology reports now have submitter IDs as assigned by the BCR <!--DAT-81-->
+6.  FASTQ files in the Legacy Archive now have data format "FASTQ" rather than "TARGZ" <!--DAT-107-->
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* Some validated somatic mutations may not be present in open-access MAF files.  When creating open-access MAF files from the protected versions we are extremely conservative in removing potential germline variants.  Our approach is to remove all mutations that are present in dbSNP.  In a subsequent release we will provide updated open-access MAF files, which preserve variants found in COSMIC or a TCGA validation study.  Please review the protected MAF files in the GDC Data Portal if you are unable to find your mutation in the open-access files.
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* MAF Column #109 "FILTER" entries are separated by both commas and semi-colons. <!-- PGDC-2589 -->
+* TARGET-AML is undergoing reorganization.  Pending reorganization, cases from this projects may not contain many clinical, biospecimen, or genomic data files.
+* No data from TARGET-MLDS is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* There are 200 cases from TCGA-LAML that do not appear in the Legacy Archive <!--SV-327-->
+* Biotab files are not linked to Project or Case in the Legacy Archive <!--SV-303-->
+* SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+
+
+Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_notes_manifest.txt)
+<br>
+
+
 ## Data Release 4.0
 
 * __GDC Product__: Data
