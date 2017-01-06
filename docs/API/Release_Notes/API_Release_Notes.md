@@ -16,10 +16,10 @@
   * Correct Cigarettes per day calculation from BCR XML import <!--DAT-108-->
   * Added "submittable" property to all entities <!--DAT-215-->
   * Changed Read Group to category biospecimen <!--DAT-216-->
-Added many new clinical properties available for submission <!--DAT-210, DAT-31-->
-Added sample codes from Office of Cancer Genomics (OCG) to analyze and aliquot <!--DAT-170-->
-Instrument model on read group is now required <!--SV-302--> ##why did we do this?
-Slides can now be attached to sample rather than just portion <!--DAT-205-->
+  * Added many new clinical properties available for submission <!--DAT-210, DAT-31-->
+  * Added sample codes from Office of Cancer Genomics (OCG) to analyze and aliquot <!--DAT-170-->
+  * Instrument model on read group is now required <!--SV-302--> ##why did we do this?
+  * Slides can now be attached to sample rather than just portion <!--DAT-205-->
   * Added many new clinical properties available for submission <!--DAT-210, DAT-31-->
   * Instrument model on read group is now required <!--SV-302-->
   * Slides can now be attached to sample rather than just portion <!--DAT-205-->
@@ -27,9 +27,9 @@ Slides can now be attached to sample rather than just portion <!--DAT-205-->
   * `analyte_type_id` is no longer required when submitting sample entities<!--DAT-255-->
   * Clinical Test Entity is created for storing results of a variety of potential clinical tests - <!--DAT-223-->
   * Genomic Profiling Report entity created for storing particular derived sequencing results <!--DAT-229-->
-Structural Variation entity created <!--DAT-328-->
-Project entity includes new field "Intended Release Date" <!--API-143-->
-Project entity includes new fields "Releasable" <!--API-157-->
+  * Structural Variation entity created <!--DAT-328-->
+  * Project entity includes new field "Intended Release Date" <!--API-143-->
+  * Project entity includes new fields "Releasable" <!--API-157-->
   * Structural Variation entity created <!--DAT-328-->
   * Project entity includes new field "Intended Release Date" <!--API-143-->
   * Project entity includes new fields "Releasable" <!--API-157-->
