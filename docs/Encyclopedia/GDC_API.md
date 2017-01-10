@@ -8,6 +8,6 @@ The GDC API drives the GDC Data Portal, the GDC Submission Portal and is made ac
 1. [GDC API](https://gdc.cancer.gov/developers/gdc-application-programming-interface-api)
 
 ## External Links ##
-* TBD
+* N/A
 
 Categories: Tool
