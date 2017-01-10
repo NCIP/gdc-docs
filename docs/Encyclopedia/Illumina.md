@@ -7,6 +7,6 @@ Illumina is commercial vendor that develops, manufactures and markets integrated
 1. [Illumina Wikipedia Page](https://en.wikipedia.org/wiki/Illumina_%28company%29) 
 
 ## External Links ##
-* n/A
+* N/A
 
 Categories: Platform
