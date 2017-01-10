@@ -4,9 +4,9 @@ A TXT file is a standard text document that contains unformatted text. It is rec
 ## Overview ##
 Generic text files with filenames that ending in ".txt" are created by Notepad for Windows and by TextEdit for Mac OS X when document formatting is removed.
 ## References ##
-1.[http://fileinfo.com/extension/txt](http://fileinfo.com/extension/txt)
+1. [http://fileinfo.com/extension/txt](http://fileinfo.com/extension/txt)
 
 ## External Links ##
-
+N/A
 
 Categories: Data Format
