@@ -16,10 +16,7 @@
   * Added "submittable" property to all entities <!--DAT-215-->
   * Changed Read Group to category biospecimen <!--DAT-216-->
   * Added many new clinical properties available for submission <!--DAT-210, DAT-31-->
-  * Added sample codes from Office of Cancer Genomics (OCG) to analyze and aliquot <!--DAT-170-->
-  * Slides can now be attached to sample rather than just portion <!--DAT-205-->
-  * Added many new clinical properties available for submission <!--DAT-210, DAT-31-->
-  * Instrument model on read group is now required <!--SV-302-->
+  * Added sample codes from Office of Cancer Genomics (OCG) to analyte and aliquot <!--DAT-170-->
   * Slides can now be attached to sample rather than just portion <!--DAT-205-->
   * `sample_type_id` is no longer required when submitting sample entities <!--DAT-233-->
   * `analyte_type_id` is no longer required when submitting aliquot and analyte entities<!--DAT-255-->
