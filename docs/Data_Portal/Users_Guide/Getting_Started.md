@@ -100,11 +100,11 @@ Custom facet filters can be added in [Data View](Cases_and_Files.md#data-view) t
 
 #### Quick Search
 
-The quick search feature allows users to find records and files using UUID, filename, or project name, id, disease type or primary site.  The GDC quick search is wildcard search enabled.  Using the "*" character in place of a character or a string of characters is valid. Quick search is available by clicking on the magnifier in the right section of the toolbar.
+The quick search feature allows users to find records and files using UUID, filename, or project name, id, disease type or primary site. Quick search is available by clicking on the magnifier in the right section of the toolbar.
 
 [![Quick Search](images/gdc-quick-search.png)](images/gdc-quick-search.png "Click to see the full image.")
 
-Search results are displayed as the user is typing, with icons indicating the type of each search result in the list (project, case, or file). Users can get a brief description of each search result by mousing over it or selecting it using keyboard arrow keys.  Clicking on a selected result or pressing enter will open a detail page with additional information.
+Search results are displayed as the user is typing, with icons indicating the type of each search result in the list (project, case, or file). Users can get a brief description each search result by mousing over it or selecting it using keyboard arrow keys. Clicking on a selected result or pressing enter will open a detail page with additional information.
 
 [![Quick Search, Searching for an Entity](images/quick-search-entity-search.png)](images/quick-search-entity-search.png "Click to see the full image.")
 

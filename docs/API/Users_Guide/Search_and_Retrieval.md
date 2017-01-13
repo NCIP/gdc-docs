@@ -288,7 +288,7 @@ curl 'https://gdc-api.nci.nih.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pre
 
 #### files/ids Endpoint
 
-The `files/ids` endpoint corresponds to the "Quick Search" functionality of the GDC Data Portal. The API response includes all files for which the query matches the beginning, entirety, or wildcard search of any of the following fields:
+The `files/ids` endpoint corresponds to the "Quick Search" functionality of the GDC Data Portal. The API response includes all files for which the query matches the beginning (or entirety) of any of the following fields:
 
 	project.project_id
 	project.name
