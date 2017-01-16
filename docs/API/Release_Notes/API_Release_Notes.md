@@ -10,7 +10,6 @@
 * Submission: Entities in submitted state (assigned when the project has been submitted) cannot be deleted.  <!-- API-129 -->
 * Submission: When attempting to delete an entity that has child entities not specified in the request, all of the child entities' UUIDs are included in the error message.  <!-- API-129 -->
 * Submission: Entities associated with files uploaded to the GDC object store cannot be deleted until the associated file has been deleted. <!-- API-132 -->
-* Allow wildcards for quick search <!--API-173-->
 * Re-enable Review, Submit and Release functions for submission <!--API-73-->
 * GDC Data Dictionary Changes
   * Added "submittable" property to all entities <!--DAT-215-->
