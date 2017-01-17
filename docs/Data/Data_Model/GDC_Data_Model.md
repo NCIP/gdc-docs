@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The GDC Data Model is the central method of organization of all data artifacts in the GDC. An overview of the data model, including a visual representation of its components, is provided [on the GDC website](https://gdc.nci.nih.gov/developers/gdc-data-model). This section provides technical details about its implementation for data users, submitters, and developers.
+The GDC Data Model is the central method of organization of all data artifacts in the GDC. An overview of the data model, including a visual representation of its components, is provided [on the GDC website](https://gdc.cancer.gov/developers/gdc-data-model). This section provides technical details about its implementation for data users, submitters, and developers.
 
 ## Entities, Properties, and Links
 
@@ -47,8 +47,8 @@ In addition to UUIDs stored in the `id` property, many entities also have a `sub
 
 ### Data Users
 
-Users can access information stored in the GDC Data Model using the [GDC Data Portal](https://gdc.nci.nih.gov/access-data/gdc-data-portal), the [GDC API](https://gdc.nci.nih.gov/developers/gdc-application-programming-interface-api), and the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool). For more information see [Data Access Processes and Tools](https://gdc.nci.nih.gov/access-data/data-access-processes-and-tools).
+Users can access information stored in the GDC Data Model using the [GDC Data Portal](https://gdc.cancer.gov/access-data/gdc-data-portal), the [GDC API](https://gdc.cancer.gov/developers/gdc-application-programming-interface-api), and the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool). For more information see [Data Access Processes and Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
 
 ### Data Submitters
 
-Data submitters can create and update submittable entities in the GDC Data Model and upload data files registered in the model using the [GDC Data Submission Portal](https://gdc.nci.nih.gov/submit-data/gdc-data-submission-portal), the [GDC API](https://gdc.nci.nih.gov/developers/gdc-application-programming-interface-api), and the [GDC Data Transfer Tool](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool). For more information see [Data Submission Processes and Tools](https://gdc.nci.nih.gov/submit-data/data-submission-processes-and-tools).
+Data submitters can create and update submittable entities in the GDC Data Model and upload data files registered in the model using the [GDC Data Submission Portal](https://gdc.cancer.gov/submit-data/gdc-data-submission-portal), the [GDC API](https://gdc.cancer.gov/developers/gdc-application-programming-interface-api), and the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool). For more information see [Data Submission Processes and Tools](https://gdc.cancer.gov/submit-data/data-submission-processes-and-tools).

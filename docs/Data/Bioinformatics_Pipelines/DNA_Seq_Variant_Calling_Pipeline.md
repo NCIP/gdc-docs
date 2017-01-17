@@ -32,7 +32,7 @@ Quality control metrics for each file endpoint can be accessed through the API u
 
 #### Reference Genome
 
-All alignments are performed using the human reference genome GRCh38.d1.vd1. Decoy viral sequences are included in the reference genome to prevent erroneous read alignments and attract reads from viruses known to be present in human samples. Ten types of human viral genomes are included: human cytomegalovirus (CMV), Epstein-Barr virus (EBV), hepatitis B (HBV), hepatitis C (HCV), human immunodeficiency virus (HIV), human herpes virus 8 (HHV-8), human T-lymphotropic virus 1 (HTLV-1), Merkel cell polyomavirus (MCV), Simian vacuolating virus 40 (SV40), and human papillomavirus (HPV). Reference sequences can be downloaded [here](https://gdc.nci.nih.gov/download-gdc-reference-files).
+All alignments are performed using the human reference genome GRCh38.d1.vd1. Decoy viral sequences are included in the reference genome to prevent erroneous read alignments and attract reads from viruses known to be present in human samples. Ten types of human viral genomes are included: human cytomegalovirus (CMV), Epstein-Barr virus (EBV), hepatitis B (HBV), hepatitis C (HCV), human immunodeficiency virus (HIV), human herpes virus 8 (HHV-8), human T-lymphotropic virus 1 (HTLV-1), Merkel cell polyomavirus (MCV), Simian vacuolating virus 40 (SV40), and human papillomavirus (HPV). Reference sequences can be downloaded [here](https://gdc.cancer.gov/download-gdc-reference-files).
 
 
 | I/O | Entity | Format |
@@ -190,13 +190,13 @@ Variant calls are reported by each pipeline in a VCF formatted file. See the GDC
 #### Pipeline Descriptions
 Four separate variant calling pipelines are implemented for GDC data harmonization. There is currently no scientific consensus on the best variant calling pipeline so the investigator is responsible for choosing the pipeline(s) most appropriate for the data. Some details about the pipelines are indicated below.
 
-The [MuTect2 pipeline](https://gdc.nci.nih.gov/files/public/image/Broad_MuTect_0.png) employs a "Panel of Normals" to identify additional germline mutations. This panel is generated using genomes from TCGA blood normal samples from thousands of individuals that were curated and confidently assessed to be cancer-free. This method allows for a higher level of confidence to be assigned to somatic variants that were called by the MuTect2 pipeline.
+The [MuTect2 pipeline](https://gdc.cancer.gov/files/public/image/Broad_MuTect_0.png) employs a "Panel of Normals" to identify additional germline mutations. This panel is generated using genomes from TCGA blood normal samples from thousands of individuals that were curated and confidently assessed to be cancer-free. This method allows for a higher level of confidence to be assigned to somatic variants that were called by the MuTect2 pipeline.
 
 Basic outlines for the other three pipelines can be found here:
 
-- [VarScan2 pipeline](https://gdc.nci.nih.gov/files/public/image/varscan-somatic-variant-calling-pipeline.png)
-- [MuSE pipeline](https://gdc.nci.nih.gov/files/public/image/muse-somatic-variant-calling-pipeline.png)  
-- [SomaticSniper pipeline](https://gdc.nci.nih.gov/files/public/image/somaticsniper-variant-calling-pipeline.png).
+- [VarScan2 pipeline](https://gdc.cancer.gov/files/public/image/varscan-somatic-variant-calling-pipeline.png)
+- [MuSE pipeline](https://gdc.cancer.gov/files/public/image/muse-somatic-variant-calling-pipeline.png)  
+- [SomaticSniper pipeline](https://gdc.cancer.gov/files/public/image/somaticsniper-variant-calling-pipeline.png).
 
 #### Indels
 Indel mutations that were generated with the MuTect2 pipeline are detected and reported in GDC VCF files. Indels detected with the VarScan pipeline are currently removed from the VCF output.

@@ -100,7 +100,7 @@ Users may see the following error message when attempting to download a file fro
 		  }
 
 
-This error message indicates that the user does not have dbGaP access to the project to which the file belongs. Instructions for requesting access from dbGaP can be found [here](https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data/registering-and-working-era-commons-and-dbgap).
+This error message indicates that the user does not have dbGaP access to the project to which the file belongs. Instructions for requesting access from dbGaP can be found [here](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data/registering-and-working-era-commons-and-dbgap).
 
 ### File Availability Error
 
