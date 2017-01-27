@@ -21,3 +21,7 @@ Project Summary Reports can be downloaded at the Submission Portal Homepage at t
 The projects section in the homepage lists the projects that the user has access to along with basic information about each. The button used to [release](Submit_Data.md) each project is located on this screen. For users with access to a large number of projects, this table can be filtered with the 'FILTER PROJECTS' field.  
 
 Selecting a project ID will direct the user to the project's [Dashboard](Dashboard.md).
+
+## Release data
+
+Data Release can be performed from the homepage. See the section about [Data Release](Release_Data.md) for details.
