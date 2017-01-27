@@ -1,4 +1,4 @@
-![](https://gdc.nci.nih.gov/sites/all/themes/gdc_bootstrap/logo.png)
+![](https://gdc.cancer.gov/sites/all/themes/gdc_bootstrap/logo.png)
 
 # GDC Open Source code
 
@@ -13,7 +13,7 @@ GDC is Open Source, Github Repositories containing source code of GDC Applicatio
 
 # Support
 
-Please direct technical questions to [GDC Support](https://gdc.nci.nih.gov/support).
+Please direct technical questions to [GDC Support](https://gdc.cancer.gov/support).
 
 # GDC Documentation Site
 
@@ -59,7 +59,7 @@ example:
 
 ### Documentation Conventions
 
-A detailed list of all conventions is available on [GDC Website](https://gdc.nci.nih.gov/conventions-page)
+A detailed list of all conventions is available on [GDC Website](https://gdc.cancer.gov/conventions-page)
 
 
 ### Build PDF

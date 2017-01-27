@@ -1,6 +1,6 @@
 This page identifies web site conventions and is intended for content editors.
 
-It is copied from [GDC Website](https://gdc.nci.nih.gov/conventions-page)
+It is copied from [GDC Website](https://gdc.cancer.gov/conventions-page)
 
 ## Web Site Grammar
 

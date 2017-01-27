@@ -11,7 +11,7 @@ To perform these functions, GDC users must first obtain appropriate authorizatio
 
 ## Authorization via dbGaP
 
-Instructions for obtaining authorization via dbGaP are provided in [Obtaining Access to Controlled Data](https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data) and [Obtaining Access to Submit Data](https://gdc.nci.nih.gov/submit-data/obtaining-access-submit-data).
+Instructions for obtaining authorization via dbGaP are provided in [Obtaining Access to Controlled Data](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data) and [Obtaining Access to Submit Data](https://gdc.cancer.gov/submit-data/obtaining-access-submit-data).
 
 ## Authentication via eRA Commons
 
