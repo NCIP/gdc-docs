@@ -3,20 +3,19 @@
 ## Data Release 5.0
 
 * __GDC Product__: Data
-* __Release Date__: January 17, 2017
+* __Release Date__: February 7, 2017
 
 ### New updates
 
 1.  Additional annotations from TCGA DCC are available <!--DAT-52-->
 2.  Clinical data added for TARGET ALL P1 and P2 <!--DAT-197-->
-3.  Missing cases from TCGA-LAML were added to Legacy Archive <!--DAT-272,DAT-324,DAT-127-->
-4.  Biotab files are now linked to Projects and Cases in Legacy Archive <!--SV-303,DAT-28-->
-5.  Pathology reports now have submitter IDs as assigned by the BCR <!--DAT-81-->
-6.  FASTQ files in the Legacy Archive now have data format "FASTQ" rather than "TARGZ" <!--DAT-107-->
+3.  Pathology reports now have submitter IDs as assigned by the BCR <!--DAT-81-->
+4.  FASTQ files in the Legacy Archive now have data format "FASTQ" rather than "TARGZ" <!--DAT-107-->
 
 ### Bugs Fixed Since Last Release
 
-* None
+1. Missing cases from TCGA-LAML were added to Legacy Archive <!--DAT-272,DAT-324-->
+2. Biotab files are now linked to Projects and Cases in Legacy Archive <!--SV-303,DAT-28-->
 
 ### Known Issues and Workarounds
 
@@ -28,8 +27,7 @@
 * No data from TARGET-MLDS is available.
 * Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
 * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
-* There are 200 cases from TCGA-LAML that do not appear in the Legacy Archive <!--SV-327-->
-* Biotab files are not linked to Project or Case in the Legacy Archive <!--SV-303-->
+* Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
 * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 
