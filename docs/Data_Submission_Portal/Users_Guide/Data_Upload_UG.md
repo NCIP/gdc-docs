@@ -451,7 +451,7 @@ type	submitter_id	data_category	data_format	data_type	experimental_strategy	file
 submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Sequencing Data	BAM	Aligned Reads	WGS	test.bam	38	aa6e82d11ccd8452f813a15a6d84faf1	Blood-00001-aliquot_lane1_barcodeACGTAC_55
 ```
 
-__Note:__ Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV. An additional associated `read_group` would use a column named `read_groups.submitter_id#2`. This relationship can be expressed with a JSON-formatted list object (comma-separated in square brackets).   
+__Note:__ Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV. An additional associated `read_group` would use a column named `read_groups.submitter_id#2`. The same conventions are used for other many-to-one or many-to-many relationships, such as the `clinical_test` entity, which may be associated with multiple `diagnosis` entities. This relationship can be expressed with a JSON-formatted list object (comma-separated in square brackets).   
 
 Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) entity requires:
 
