@@ -3,7 +3,7 @@
 ## Release 1.4.0
 
 * __GDC Product__: GDC Data Submission Portal
-* __Release Date__: February 7, 2017
+* __Release Date__: February 13, 2017
 
 ### New Features and Changes
 
@@ -34,8 +34,6 @@
 *  Download All from the browse section returns too many records. <!--SUBP-266-->
 
 ### Known Issues and Workarounds
-
-*	Project submission and release is currently disabled. <!--SUBP-201-->
 
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 

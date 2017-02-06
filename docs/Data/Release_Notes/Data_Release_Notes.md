@@ -3,7 +3,7 @@
 ## Data Release 5.0
 
 * __GDC Product__: Data
-* __Release Date__: February 7, 2017
+* __Release Date__: February 13, 2017
 
 ### New updates
 
@@ -30,6 +30,8 @@
 * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
 * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* Tumor grade property is not populated <!--SV-585-->
+* Progression_or_recurrence property is not populated <!--SV-584-->
 
 
 Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_notes_manifest.txt)

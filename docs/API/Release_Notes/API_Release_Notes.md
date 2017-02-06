@@ -3,18 +3,19 @@
 ## v1.6.0
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__: January 25, 2017
+* __Release Date__: February 13, 2017
 
 ### New Features and Changes
 
+* Submission: Due to Data Dictionary updates new submission templates may be required for users submitting JSON and TSV formats
 * Submission: Entities in submitted state (assigned when the project has been submitted) cannot be deleted.  <!-- API-129 -->
 * Submission: When attempting to delete an entity that has child entities not specified in the request, all of the child entities' UUIDs are included in the error message.  <!-- API-130 -->
 * Submission: Entities associated with files uploaded to the GDC object store cannot be deleted until the associated file has been deleted. <!-- API-132 -->
-* Re-enable Review, Submit and Release functions for submission <!--API-73-->
+* Re-enable Review, Submit, and Release functions for submission <!--API-73, API-138, API-159-->
 * GDC Data Dictionary Changes
   * Added "submittable" property to all entities <!--DAT-215-->
   * Changed Read Group to category biospecimen <!--DAT-216-->
-  * Added many new clinical properties available for submission <!--DAT-210, DAT-31, DAT-226-->
+  * Added many new clinical properties available for submission <!--DAT-210, DAT-31, DAT-226, DAT-205-->
   * Added sample codes from Office of Cancer Genomics (OCG) to analyte and aliquot <!--DAT-170-->
   * Slides can now be attached to sample rather than just portion <!--DAT-205-->
   * `sample_type_id` is no longer required when submitting sample entities <!--DAT-233-->
