@@ -26,7 +26,15 @@
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
 
-
+        {% set encyclopedia_pages = [] %}
+        {% for page in config.pages %}
+            {% if config.extra.encyclopedia_entries_page_title in page %}
+                {% for page in page[config.extra.encyclopedia_entries_page_title] %}
+                    {% if encyclopedia_pages.append(page) %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -75,7 +83,9 @@
                 <div class="col-md-3 toc-container" role="navigation" aria-label="In-Page Navigation">{% include "toc.html" %}</div>
                 {% endif %} -->
 
-                {% if current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != 'Home' %}
+                {% if "/Encyclopedia" in current_page.abs_url %}
+                  {% include "encyclopedia/menu.html" %}
+                {% elif current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != 'Home' %}
                   {% include "nav-section-map.html" %}
                 {% elif current_page.title == 'Home' %}
                   {% if toc and ((toc | first) is defined) %}
@@ -135,20 +145,9 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
 
             {% if current_page.title == config.extra.encyclopedia_page_title %}
-              {% for page in config.pages %}
-              {% if config.extra.encyclopedia_entries_page_title in page %}
-                {% set pages = page[config.extra.encyclopedia_entries_page_title] %}
                 <script>
-                window.ENCYCLOPEDIA_PAGES = {{ pages | tojson }}.map( x=> ({
-                  path: x.replace(/\.md$/, ''),
-                  title: x
-                    .replace(/Encyclopedia\//i, '')
-                    .replace(/\.md/i, '')
-                    .replace(/_/ig, ' ')
-                }));
+                window.ENCYCLOPEDIA_PAGES = {{ encyclopedia_pages | tojson }};
                 </script>
-              {% endif %}
-              {% endfor %}
             {% endif %}
 
             <script src="/js/jquery-1.12.0.min.js"></script>
