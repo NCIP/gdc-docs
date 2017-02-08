@@ -10,35 +10,35 @@
                 <span class="side-box-title">Browse the terms</span>
                 <br>
                 <div style="line-height: 34px; margin-top: 10px; margin-bottom: 7px">
-                    <button class='term-button link-button' id="A-button">A</button>
-                    <button class='term-button link-button' id="B-button">B</button>
-                    <button class='term-button link-button' id="C-button">C</button>
-                    <button class='term-button link-button' id="D-button">D</button>
-                    <button class='term-button link-button' id="E-button">E</button>
-                    <button class='term-button link-button' id="F-button">F</button>
-                    <button class='term-button link-button' id="G-button">G</button>
-                    <button class='term-button link-button' id="H-button">H</button>
-                    <button class='term-button link-button' id="I-button">I</button>
-                    <button class='term-button link-button' id="J-button">J</button>
-                    <button class='term-button link-button' id="K-button">K</button>
-                    <button class='term-button link-button' id="L-button">L</button>
-                    <button class='term-button link-button' id="M-button">M</button>
-                    <button class='term-button link-button' id="N-button">N</button>
-                    <button class='term-button link-button' id="O-button">O</button>
-                    <button class='term-button link-button' id="P-button">P</button>
-                    <button class='term-button link-button' id="Q-button">Q</button>
-                    <button class='term-button link-button' id="R-button">R</button>
-                    <button class='term-button link-button' id="S-button">S</button>
-                    <button class='term-button link-button' id="T-button">T</button>
-                    <button class='term-button link-button' id="U-button">U</button>
-                    <button class='term-button link-button' id="V-button">V</button>
-                    <button class='term-button link-button' id="W-button">W</button>
-                    <button class='term-button link-button' id="X-button">X</button>
-                    <button class='term-button link-button' id="Y-button">Y</button>
-                    <button class='term-button link-button' id="Z-button">Z</button>
-                    <button class='term-button link-button' id="NUM-button">#</button>
+                    <button class='term-button term-link' id="A-button">A</button>
+                    <button class='term-button term-link' id="B-button">B</button>
+                    <button class='term-button term-link' id="C-button">C</button>
+                    <button class='term-button term-link' id="D-button">D</button>
+                    <button class='term-button term-link' id="E-button">E</button>
+                    <button class='term-button term-link' id="F-button">F</button>
+                    <button class='term-button term-link' id="G-button">G</button>
+                    <button class='term-button term-link' id="H-button">H</button>
+                    <button class='term-button term-link' id="I-button">I</button>
+                    <button class='term-button term-link' id="J-button">J</button>
+                    <button class='term-button term-link' id="K-button">K</button>
+                    <button class='term-button term-link' id="L-button">L</button>
+                    <button class='term-button term-link' id="M-button">M</button>
+                    <button class='term-button term-link' id="N-button">N</button>
+                    <button class='term-button term-link' id="O-button">O</button>
+                    <button class='term-button term-link' id="P-button">P</button>
+                    <button class='term-button term-link' id="Q-button">Q</button>
+                    <button class='term-button term-link' id="R-button">R</button>
+                    <button class='term-button term-link' id="S-button">S</button>
+                    <button class='term-button term-link' id="T-button">T</button>
+                    <button class='term-button term-link' id="U-button">U</button>
+                    <button class='term-button term-link' id="V-button">V</button>
+                    <button class='term-button term-link' id="W-button">W</button>
+                    <button class='term-button term-link' id="X-button">X</button>
+                    <button class='term-button term-link' id="Y-button">Y</button>
+                    <button class='term-button term-link' id="Z-button">Z</button>
+                    <button class='term-button term-link' id="NUM-button">#</button>
                 </div>
-                <a style="font-weight: bold" class="side-box-text" id="view-all-link" href="#">View All</a> 
+                <a style="font-weight: bold" class="side-box-text" id="view-all-link" href="#">View All <i class="fa fa-chevron-right"></i></a> 
             </div>
             <div class="side-box">
                 <span class="side-box-title" style="padding-right: 108px; border-bottom: 1px solid #e5e5e5;">Suggest a Topic</span>
