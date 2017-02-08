@@ -86,7 +86,8 @@
             <!-- Main navigation -->
             <ul class="nav navbar-nav nav-full">
             {% for nav_item in nav %}
-            {% if nav_item.children %}
+            {% if nav_item.title in config.extra.nav_exclude %}
+            {% elif nav_item.children %}
                 <li class="dropdown{% if nav_item.active %} active{% endif %}">
                     <a href="#" title="{{nav_item.title}}" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.title }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">

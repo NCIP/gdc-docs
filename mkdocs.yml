@@ -72,6 +72,105 @@ pages:
   - "Bioinformatics Pipeline: Methylation Liftover Pipeline": 'Data/Bioinformatics_Pipelines/Methylation_LO_Pipeline.md'
   - "Release Notes": 'Data/Release_Notes/Data_Release_Notes.md'
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: 'Data/PDF/index.md'
+- GDC Encyclopedia: 'Encyclopedia/index.md'
+- EncyclopediaEntries:
+  - Encyclopedia/Affymetrix_SNP_6.0.md
+  - Encyclopedia/Aggregated_Somatic_Mutation.md
+  - Encyclopedia/Aligned_Reads.md
+  - Encyclopedia/Aliquot.md
+  - Encyclopedia/Analyte.md
+  - Encyclopedia/Annotated_Somatic_Mutation.md
+  - Encyclopedia/Annotation.md
+  - Encyclopedia/BCGSC_miRNA_Profiling.md
+  - Encyclopedia/BWA-aln.md
+  - Encyclopedia/BWA_with_Mark_Duplicates_and_Cocleaning.md
+  - Encyclopedia/Binary_Alignment_Map.md
+  - Encyclopedia/Biospecimen_Core_Resource.md
+  - Encyclopedia/Biospecimen_Core_Resource_XML.md
+  - Encyclopedia/Biospecimen_Data.md
+  - Encyclopedia/Biospecimen_Supplement.md
+  - Encyclopedia/Case.md
+  - Encyclopedia/Center_for_Cancer_Genomics.md
+  - Encyclopedia/Clinical_Data.md
+  - Encyclopedia/Clinical_Supplement.md
+  - Encyclopedia/Cocleaning_Workflow.md
+  - Encyclopedia/Controlled_Access.md
+  - Encyclopedia/Copy_Number_Segment.md
+  - Encyclopedia/Copy_Number_Variation.md
+  - Encyclopedia/DNA_Methylation.md
+  - Encyclopedia/DNAcopy.md
+  - Encyclopedia/Data Freeze.md
+  - Encyclopedia/Data Integrity.md
+  - Encyclopedia/Data Report.md
+  - Encyclopedia/Data_Access_Policy.md
+  - Encyclopedia/Data_Archive.md
+  - Encyclopedia/Data_Category_Template.md
+  - Encyclopedia/Data_Format_Template.md
+  - Encyclopedia/Data_Type_Template.md
+  - Encyclopedia/Experimental_Strategy_Template.md
+  - Encyclopedia/GDC_API.md
+  - Encyclopedia/GDC_Data_Portal.md
+  - Encyclopedia/GDC_Data_Submission_Portal.md
+  - Encyclopedia/GDC_Data_Transfer_Tool.md
+  - Encyclopedia/GDC_Documentation_Site.md
+  - Encyclopedia/GDC_Web_Site.md
+  - Encyclopedia/GDC_cBioPortal.md
+  - Encyclopedia/Gene_Expression_Quantification.md
+  - Encyclopedia/General_Template.md
+  - Encyclopedia/Genomic_Data_Analysis_Network.md
+  - Encyclopedia/Genomic_Data_Commons.md
+  - Encyclopedia/Genotyping_Array.md
+  - Encyclopedia/HTSeq-Counts.md
+  - Encyclopedia/HTSeq-FPKM-UQ.md
+  - Encyclopedia/HTSeq-FPKM.md
+  - Encyclopedia/Illumina.md
+  - Encyclopedia/Illumina_Human_Methylation_27.md
+  - Encyclopedia/Illumina_Human_Methylation_450.md
+  - Encyclopedia/Isoform_Expression_Quantification.md
+  - Encyclopedia/Liftover.md
+  - Encyclopedia/Masked_Copy_Number_Segment.md
+  - Encyclopedia/Masked_Somatic_Mutation.md
+  - Encyclopedia/Methylation_Array.md
+  - Encyclopedia/Methylation_Beta_Value.md
+  - Encyclopedia/MuSE.md
+  - Encyclopedia/MuSE_Annotation.md
+  - Encyclopedia/MuSE_Variant_Aggregation_and_Masking.md
+  - Encyclopedia/MuTect2.md
+  - Encyclopedia/MuTect2_Annotation.md
+  - Encyclopedia/MuTect2_Variant_Aggregation_and_Masking.md
+  - Encyclopedia/Mutation.md
+  - Encyclopedia/Mutation_Annotation_Format.md
+  - Encyclopedia/Open_Access.md
+  - Encyclopedia/Platform_Template.md
+  - Encyclopedia/Portion.md
+  - Encyclopedia/Program.md
+  - Encyclopedia/Project.md
+  - Encyclopedia/RNA-Seq.md
+  - Encyclopedia/Raw_Sequencing_Data.md
+  - Encyclopedia/Raw_Simple_Somatic_Mutation.md
+  - Encyclopedia/Read_Group.md
+  - Encyclopedia/STAR_2-Pass.md
+  - Encyclopedia/Sample.md
+  - Encyclopedia/Simple_Nucleotide_Variation.md
+  - Encyclopedia/Slide.md
+  - Encyclopedia/SomaticSniper.md
+  - Encyclopedia/SomaticSniper_Annotation.md
+  - Encyclopedia/SomaticSniper_Variant_Aggregation_and_Masking.md
+  - Encyclopedia/Tab_Separated_Values.md
+  - Encyclopedia/Text_File.md
+  - Encyclopedia/Tool_Template.md
+  - Encyclopedia/Transcriptome_Profiling.md
+  - Encyclopedia/VarScan2.md
+  - Encyclopedia/VarScan2_Annotation.md
+  - Encyclopedia/VarScan2_Variant_Aggregation_and_Masking.md
+  - Encyclopedia/Variant_Aggregation_and_Masking.md
+  - Encyclopedia/Variant_Call_Annotation.md
+  - Encyclopedia/Variant_Call_Format.md
+  - Encyclopedia/Whole_Exome_Sequencing.md
+  - Encyclopedia/Workflow_Type_Template.md
+  - Encyclopedia/XLSX.md
+  - Encyclopedia/miRNA-Seq.md
+  - Encyclopedia/miRNA_Expression_Quantification.md
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
@@ -79,8 +178,16 @@ extra:
   version: 1.0
   dictionary_viewer_page_id: 'Viewer'
   dictionary_app_root: '/apps/dictionary'
+  encyclopedia_page_title: 'GDC Encyclopedia'
+  encyclopedia_entries_page_title: 'EncyclopediaEntries'
+  nav_exclude:
+    - EncyclopediaEntries
+extra_css:
+  - css/encyclopedia.css
 markdown_extensions:
+  - tables
   - BSCodeTabExtension:
       default_lang: 'Source'
       show_all_code_as_folders: True
       animate_tab_transitions: False
+theme: mkdocs
