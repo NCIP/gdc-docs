@@ -11,6 +11,7 @@
 2.  Clinical data added for TARGET ALL P1 and P2 <!--DAT-197-->
 3.  Pathology reports now have submitter IDs as assigned by the BCR <!--DAT-81-->
 4.  FASTQ files in the Legacy Archive now have data format "FASTQ" rather than "TARGZ" <!--DAT-107-->
+5.  TARGET Data refresh
 
 ### Bugs Fixed Since Last Release
 
