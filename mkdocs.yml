@@ -74,103 +74,103 @@ pages:
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: 'Data/PDF/index.md'
 - GDC Encyclopedia: 'Encyclopedia/index.md'
 - EncyclopediaEntries:
-  - Encyclopedia/Affymetrix_SNP_6.0.md
-  - Encyclopedia/Aggregated_Somatic_Mutation.md
-  - Encyclopedia/Aligned_Reads.md
-  - Encyclopedia/Aliquot.md
-  - Encyclopedia/Analyte.md
-  - Encyclopedia/Annotated_Somatic_Mutation.md
-  - Encyclopedia/Annotation.md
-  - Encyclopedia/BCGSC_miRNA_Profiling.md
-  - Encyclopedia/BWA-aln.md
-  - Encyclopedia/BWA_with_Mark_Duplicates_and_Cocleaning.md
-  - Encyclopedia/Binary_Alignment_Map.md
-  - Encyclopedia/Biospecimen_Core_Resource.md
-  - Encyclopedia/Biospecimen_Core_Resource_XML.md
-  - Encyclopedia/Biospecimen_Data.md
-  - Encyclopedia/Biospecimen_Supplement.md
-  - Encyclopedia/Case.md
-  - Encyclopedia/Center_for_Cancer_Genomics.md
-  - Encyclopedia/Clinical_Data.md
-  - Encyclopedia/Clinical_Supplement.md
-  - Encyclopedia/Cocleaning_Workflow.md
-  - Encyclopedia/Controlled_Access.md
-  - Encyclopedia/Copy_Number_Segment.md
-  - Encyclopedia/Copy_Number_Variation.md
-  - Encyclopedia/DNA_Methylation.md
-  - Encyclopedia/DNAcopy.md
-  - Encyclopedia/Data Freeze.md
-  - Encyclopedia/Data Integrity.md
-  - Encyclopedia/Data Report.md
-  - Encyclopedia/Data_Access_Policy.md
-  - Encyclopedia/Data_Archive.md
-  - Encyclopedia/Data_Category_Template.md
-  - Encyclopedia/Data_Format_Template.md
-  - Encyclopedia/Data_Type_Template.md
-  - Encyclopedia/Experimental_Strategy_Template.md
-  - Encyclopedia/GDC_API.md
-  - Encyclopedia/GDC_Data_Portal.md
-  - Encyclopedia/GDC_Data_Submission_Portal.md
-  - Encyclopedia/GDC_Data_Transfer_Tool.md
-  - Encyclopedia/GDC_Documentation_Site.md
-  - Encyclopedia/GDC_Web_Site.md
-  - Encyclopedia/GDC_cBioPortal.md
-  - Encyclopedia/Gene_Expression_Quantification.md
-  - Encyclopedia/General_Template.md
-  - Encyclopedia/Genomic_Data_Analysis_Network.md
-  - Encyclopedia/Genomic_Data_Commons.md
-  - Encyclopedia/Genotyping_Array.md
-  - Encyclopedia/HTSeq-Counts.md
-  - Encyclopedia/HTSeq-FPKM-UQ.md
-  - Encyclopedia/HTSeq-FPKM.md
-  - Encyclopedia/Illumina.md
-  - Encyclopedia/Illumina_Human_Methylation_27.md
-  - Encyclopedia/Illumina_Human_Methylation_450.md
-  - Encyclopedia/Isoform_Expression_Quantification.md
-  - Encyclopedia/Liftover.md
-  - Encyclopedia/Masked_Copy_Number_Segment.md
-  - Encyclopedia/Masked_Somatic_Mutation.md
-  - Encyclopedia/Methylation_Array.md
-  - Encyclopedia/Methylation_Beta_Value.md
-  - Encyclopedia/MuSE.md
-  - Encyclopedia/MuSE_Annotation.md
-  - Encyclopedia/MuSE_Variant_Aggregation_and_Masking.md
-  - Encyclopedia/MuTect2.md
-  - Encyclopedia/MuTect2_Annotation.md
-  - Encyclopedia/MuTect2_Variant_Aggregation_and_Masking.md
-  - Encyclopedia/Mutation.md
-  - Encyclopedia/Mutation_Annotation_Format.md
-  - Encyclopedia/Open_Access.md
-  - Encyclopedia/Platform_Template.md
-  - Encyclopedia/Portion.md
-  - Encyclopedia/Program.md
-  - Encyclopedia/Project.md
-  - Encyclopedia/RNA-Seq.md
-  - Encyclopedia/Raw_Sequencing_Data.md
-  - Encyclopedia/Raw_Simple_Somatic_Mutation.md
-  - Encyclopedia/Read_Group.md
-  - Encyclopedia/STAR_2-Pass.md
-  - Encyclopedia/Sample.md
-  - Encyclopedia/Simple_Nucleotide_Variation.md
-  - Encyclopedia/Slide.md
-  - Encyclopedia/SomaticSniper.md
-  - Encyclopedia/SomaticSniper_Annotation.md
-  - Encyclopedia/SomaticSniper_Variant_Aggregation_and_Masking.md
-  - Encyclopedia/Tab_Separated_Values.md
-  - Encyclopedia/Text_File.md
-  - Encyclopedia/Tool_Template.md
-  - Encyclopedia/Transcriptome_Profiling.md
-  - Encyclopedia/VarScan2.md
-  - Encyclopedia/VarScan2_Annotation.md
-  - Encyclopedia/VarScan2_Variant_Aggregation_and_Masking.md
-  - Encyclopedia/Variant_Aggregation_and_Masking.md
-  - Encyclopedia/Variant_Call_Annotation.md
-  - Encyclopedia/Variant_Call_Format.md
-  - Encyclopedia/Whole_Exome_Sequencing.md
-  - Encyclopedia/Workflow_Type_Template.md
-  - Encyclopedia/XLSX.md
-  - Encyclopedia/miRNA-Seq.md
-  - Encyclopedia/miRNA_Expression_Quantification.md
+  - Affymetrix_SNP_6.0: Encyclopedia/Affymetrix_SNP_6.0.md
+  - Aggregated_Somatic_Mutation: Encyclopedia/Aggregated_Somatic_Mutation.md
+  - Aligned_Reads: Encyclopedia/Aligned_Reads.md
+  - Aliquot: Encyclopedia/Aliquot.md
+  - Analyte: Encyclopedia/Analyte.md
+  - Annotated_Somatic_Mutation: Encyclopedia/Annotated_Somatic_Mutation.md
+  - Annotation: Encyclopedia/Annotation.md
+  - BCGSC_miRNA_Profiling: Encyclopedia/BCGSC_miRNA_Profiling.md
+  - BWA-aln: Encyclopedia/BWA-aln.md
+  - BWA_with_Mark_Duplicates_and_Cocleaning: Encyclopedia/BWA_with_Mark_Duplicates_and_Cocleaning.md
+  - Binary_Alignment_Map: Encyclopedia/Binary_Alignment_Map.md
+  - Biospecimen_Core_Resource: Encyclopedia/Biospecimen_Core_Resource.md
+  - Biospecimen_Core_Resource_XML: Encyclopedia/Biospecimen_Core_Resource_XML.md
+  - Biospecimen_Data: Encyclopedia/Biospecimen_Data.md
+  - Biospecimen_Supplement: Encyclopedia/Biospecimen_Supplement.md
+  - Case: Encyclopedia/Case.md
+  - Center_for_Cancer_Genomics: Encyclopedia/Center_for_Cancer_Genomics.md
+  - Clinical_Data: Encyclopedia/Clinical_Data.md
+  - Clinical_Supplement: Encyclopedia/Clinical_Supplement.md
+  - Cocleaning_Workflow: Encyclopedia/Cocleaning_Workflow.md
+  - Controlled_Access: Encyclopedia/Controlled_Access.md
+  - Copy_Number_Segment: Encyclopedia/Copy_Number_Segment.md
+  - Copy_Number_Variation: Encyclopedia/Copy_Number_Variation.md
+  - DNA_Methylation: Encyclopedia/DNA_Methylation.md
+  - DNAcopy: Encyclopedia/DNAcopy.md
+  - Data Freeze: Encyclopedia/Data Freeze.md
+  - Data Integrity: Encyclopedia/Data Integrity.md
+  - Data Report: Encyclopedia/Data Report.md
+  - Data_Access_Policy: Encyclopedia/Data_Access_Policy.md
+  - Data_Archive: Encyclopedia/Data_Archive.md
+  - Data_Category_Template: Encyclopedia/Data_Category_Template.md
+  - Data_Format_Template: Encyclopedia/Data_Format_Template.md
+  - Data_Type_Template: Encyclopedia/Data_Type_Template.md
+  - Experimental_Strategy_Template: Encyclopedia/Experimental_Strategy_Template.md
+  - GDC_API: Encyclopedia/GDC_API.md
+  - GDC_Data_Portal: Encyclopedia/GDC_Data_Portal.md
+  - GDC_Data_Submission_Portal: Encyclopedia/GDC_Data_Submission_Portal.md
+  - GDC_Data_Transfer_Tool: Encyclopedia/GDC_Data_Transfer_Tool.md
+  - GDC_Documentation_Site: Encyclopedia/GDC_Documentation_Site.md
+  - GDC_Web_Site: Encyclopedia/GDC_Web_Site.md
+  - GDC_cBioPortal: Encyclopedia/GDC_cBioPortal.md
+  - Gene_Expression_Quantification: Encyclopedia/Gene_Expression_Quantification.md
+  - General_Template: Encyclopedia/General_Template.md
+  - Genomic_Data_Analysis_Network: Encyclopedia/Genomic_Data_Analysis_Network.md
+  - Genomic_Data_Commons: Encyclopedia/Genomic_Data_Commons.md
+  - Genotyping_Array: Encyclopedia/Genotyping_Array.md
+  - HTSeq-Counts: Encyclopedia/HTSeq-Counts.md
+  - HTSeq-FPKM-UQ: Encyclopedia/HTSeq-FPKM-UQ.md
+  - HTSeq-FPKM: Encyclopedia/HTSeq-FPKM.md
+  - Illumina: Encyclopedia/Illumina.md
+  - Illumina_Human_Methylation_27: Encyclopedia/Illumina_Human_Methylation_27.md
+  - Illumina_Human_Methylation_450: Encyclopedia/Illumina_Human_Methylation_450.md
+  - Isoform_Expression_Quantification: Encyclopedia/Isoform_Expression_Quantification.md
+  - Liftover: Encyclopedia/Liftover.md
+  - Masked_Copy_Number_Segment: Encyclopedia/Masked_Copy_Number_Segment.md
+  - Masked_Somatic_Mutation: Encyclopedia/Masked_Somatic_Mutation.md
+  - Methylation_Array: Encyclopedia/Methylation_Array.md
+  - Methylation_Beta_Value: Encyclopedia/Methylation_Beta_Value.md
+  - MuSE: Encyclopedia/MuSE.md
+  - MuSE_Annotation: Encyclopedia/MuSE_Annotation.md
+  - MuSE_Variant_Aggregation_and_Masking: Encyclopedia/MuSE_Variant_Aggregation_and_Masking.md
+  - MuTect2: Encyclopedia/MuTect2.md
+  - MuTect2_Annotation: Encyclopedia/MuTect2_Annotation.md
+  - MuTect2_Variant_Aggregation_and_Masking: Encyclopedia/MuTect2_Variant_Aggregation_and_Masking.md
+  - Mutation: Encyclopedia/Mutation.md
+  - Mutation_Annotation_Format: Encyclopedia/Mutation_Annotation_Format.md
+  - Open_Access: Encyclopedia/Open_Access.md
+  - Platform_Template: Encyclopedia/Platform_Template.md
+  - Portion: Encyclopedia/Portion.md
+  - Program: Encyclopedia/Program.md
+  - Project: Encyclopedia/Project.md
+  - RNA-Seq: Encyclopedia/RNA-Seq.md
+  - Raw_Sequencing_Data: Encyclopedia/Raw_Sequencing_Data.md
+  - Raw_Simple_Somatic_Mutation: Encyclopedia/Raw_Simple_Somatic_Mutation.md
+  - Read_Group: Encyclopedia/Read_Group.md
+  - STAR_2-Pass: Encyclopedia/STAR_2-Pass.md
+  - Sample: Encyclopedia/Sample.md
+  - Simple_Nucleotide_Variation: Encyclopedia/Simple_Nucleotide_Variation.md
+  - Slide: Encyclopedia/Slide.md
+  - SomaticSniper: Encyclopedia/SomaticSniper.md
+  - SomaticSniper_Annotation: Encyclopedia/SomaticSniper_Annotation.md
+  - SomaticSniper_Variant_Aggregation_and_Masking: Encyclopedia/SomaticSniper_Variant_Aggregation_and_Masking.md
+  - Tab_Separated_Values: Encyclopedia/Tab_Separated_Values.md
+  - Text_File: Encyclopedia/Text_File.md
+  - Tool_Template: Encyclopedia/Tool_Template.md
+  - Transcriptome_Profiling: Encyclopedia/Transcriptome_Profiling.md
+  - VarScan2: Encyclopedia/VarScan2.md
+  - VarScan2_Annotation: Encyclopedia/VarScan2_Annotation.md
+  - VarScan2_Variant_Aggregation_and_Masking: Encyclopedia/VarScan2_Variant_Aggregation_and_Masking.md
+  - Variant_Aggregation_and_Masking: Encyclopedia/Variant_Aggregation_and_Masking.md
+  - Variant_Call_Annotation: Encyclopedia/Variant_Call_Annotation.md
+  - Variant_Call_Format: Encyclopedia/Variant_Call_Format.md
+  - Whole_Exome_Sequencing: Encyclopedia/Whole_Exome_Sequencing.md
+  - Workflow_Type_Template: Encyclopedia/Workflow_Type_Template.md
+  - XLSX: Encyclopedia/XLSX.md
+  - miRNA-Seq: Encyclopedia/miRNA-Seq.md
+  - miRNA_Expression_Quantification: Encyclopedia/miRNA_Expression_Quantification.md
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
