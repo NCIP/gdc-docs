@@ -132,8 +132,25 @@
                     </div>
                 </div>
             </footer>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.3/showdown.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+
+            {% if current_page.title == config.extra.encyclopedia_page_title %}
+              {% for page in config.pages %}
+              {% if config.extra.encyclopedia_entries_page_title in page %}
+                {% set pages = page[config.extra.encyclopedia_entries_page_title] %}
+                <script>
+                window.ENCYCLOPEDIA_PAGES = {{ pages | tojson }}.map( x=> ({
+                  path: x.replace(/\.md$/, ''),
+                  title: x
+                    .replace(/Encyclopedia\//i, '')
+                    .replace(/\.md/i, '')
+                    .replace(/_/ig, ' ')
+                }));
+                </script>
+              {% endif %}
+              {% endfor %}
+            {% endif %}
+
             <script src="/js/jquery-1.12.0.min.js"></script>
             <script src="/js/jQuery-FontSpy.js"></script>
             <script src="/js/bootstrap-3.3.6.min.js"></script>
