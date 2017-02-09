@@ -1245,6 +1245,7 @@ filters| null | Specifies search parameters
 format | JSON | Specifies the API response format: JSON, XML, or TSV
 pretty | false | Returns response with indentations and line breaks in a human-readable format
 fields | null | Specifies which fields to include in the response
+expand | null | Returns multiple related fields
 size | 10 | Specifies the number of results to return
 from   | 1 | Specifies the first record to return from a set of search results
 sort | null | Specifies sorting for the search results
