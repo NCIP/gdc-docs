@@ -147,7 +147,7 @@ Typically a submission project will include additional information about a `case
 
 ### Submitting a Demographic Entity to a Case
 
-The `demographic` entity contains information that characterizes the `case` entity, which refers to a patient in most instances.  
+The `demographic` entity contains information that characterizes the `case` entity.  
 
 Submitting a [__Demographic__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=demographic) entity requires:
 
@@ -258,6 +258,25 @@ exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes	27.5	20	
 ```
 
 __Note:__ Submitting a clinical entity uses the same conventions as submitting a `case` entity (detailed above).
+
+### Case Age and GDC Privacy Policy
+
+Time-based records that were reported in clinical data, such as `age_at_diagnosis` and `days_to_death` do not increase after 32,872 days (~90 years) after birth. This protects the identity of patients who fall into this age bracket who could potentially be identified by their age. An example of how the actual and submitted values would differ is demonstrated below:
+
+```Actual
+{
+"age_at_diagnosis": 32900
+"days_to_last_follow_up": 100
+"days_to_death": 200
+}
+```
+```Submitted
+{
+"age_at_diagnosis": 32872
+"days_to_last_follow_up": 0
+"days_to_death": 0
+}
+```
 
 ## Biospecimen Submission
 
@@ -451,8 +470,6 @@ type	submitter_id	data_category	data_format	data_type	experimental_strategy	file
 submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Sequencing Data	BAM	Aligned Reads	WGS	test.bam	38	aa6e82d11ccd8452f813a15a6d84faf1	Blood-00001-aliquot_lane1_barcodeACGTAC_55
 ```
 
-__Note:__ Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV. An additional associated `read_group` would use a column named `read_groups.submitter_id#2`. This relationship can be expressed with a JSON-formatted list object (comma-separated in square brackets).   
-
 Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `submitted_unaligned_reads`
@@ -490,6 +507,10 @@ submitted_unaligned_reads	Blood-00001-aliquot_lane2_barcodeACGTAC_55.fastq	Raw S
 ```
 
 __Note:__ Submitting an experiment data entity uses the same conventions as submitting a `case` entity (detailed above).
+
+#### Submitting TSV Files with Many-To-One relationships
+
+Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV. An additional associated `read_group` would use a column named `read_groups.submitter_id#2`. The same conventions are used for other many-to-one or many-to-many relationships, such as the `clinical_test` entity, which may be associated with multiple `diagnosis` entities. This relationship can be expressed with a JSON-formatted list object (comma-separated in square brackets).   
 
 ### Uploading the Submittable Data File to the GDC
 
@@ -604,6 +625,11 @@ Choose the failed transaction and the right panel will show the list of entities
 
 Selecting the `DELETE ALL` button at the bottom of the list will delete all of the related entities, their descendants, and the original entity.
 
+
+### Submitted Data File Deletion
+
+The `submittable_data_file` that were uploaded erroneously are deleted separately from their associated entity using the GDC Data Transfer Tool. See the section on [Deleting Data Files](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) in the Data Transfer Tool users guide for specific instructions.  
+
 ## Strategies for Submitting in Bulk
 
 Each submission in the previous sections was broken down by component to demonstrate the GDC Data Model structure. However, the submission of multiple entities at once is supported and encouraged. Here two strategies for submitting data in an efficient manner are discussed.   
@@ -690,7 +716,7 @@ All of the entities are placed into a JSON list object:
 
 The entities need not be in any particular order as they are validated together.
 
-__Note:__ For this type of submission, a tab-delimited format is not recommended due to the inability of this format to accommodate multiple 'types' in one row.  
+__Note:__ Tab-delimited format is not recommended for 'one-step' submissions due to an inability of the format to accommodate multiple 'types' in one row.  
 
 ### Submitting Numerous Cases
 
