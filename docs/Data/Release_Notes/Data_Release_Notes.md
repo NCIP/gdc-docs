@@ -3,7 +3,7 @@
 ## Data Release 5.0
 
 * __GDC Product__: Data
-* __Release Date__: February 13, 2017
+* __Release Date__: February 15, 2017
 
 ### New updates
 
@@ -72,7 +72,7 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_no
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 
 
-Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_notes_manifest.txt)
+Details are provided in [Data Release Manifest](Manifests/GDC_Data_v5_release_notes_manifest.txt)
 <br>
 
 
