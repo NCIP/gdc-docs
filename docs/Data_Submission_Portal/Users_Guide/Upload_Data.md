@@ -27,9 +27,9 @@ For example, a Demographic entity describes a Case entity. The user is required 
 
 For a new submission project, cases are the first entities to be created, and linked to the project. Other entities are then created according to the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md).
 
-## Download Previously Uploaded Files
+## Download Previously Uploaded Metadata
 
-The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
+The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download metadata uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
 
 __Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.  
 

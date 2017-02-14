@@ -537,7 +537,7 @@ curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v
 For more details on how to upload a `submittable_data_file` to a project see the [API Users Guide](API/Users_Guide/Submission/) and the [Data Transfer Tool Users Guide](Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/).  
 
 
-## Metadata File Submission
+## Experiment Metadata File Submission
 
 [![GDC Data Model Metadata](images/GDC-Data-Model-Metadata.png)](images/GDC-Data-Model-Metadata.png "Click to see the full image.")
 
@@ -575,6 +575,36 @@ Submitting an [__Experiment Metadata__](https://gdc-docs.nci.nih.gov/Data_Dictio
 type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
 experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
 ```
+## Annotation Submission
+
+The GDC Data Submission Portal allows users to add notes or annotations to any entity or file in the Data Model.  These may include comments about
+
+If a submitter would like to redact an entity please contact the GDC Support Team (support@nci-gdc.datacommons.io) to coordinate.
+
+Submitting an [__Annotation_](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=annotation) entity requires:
+
+* __`submitter_id`:__ A unique key to identify the `annotation` entity
+* __`category`:__ Top level characterization of the annotation
+* __`entities.submitter_id`:__ The unique key that was used for the a GDC entity that links the `annotation` entity to the target entity
+* __`note`:__ Strongly recommended - a description of what the user should know about this particular entity or file
+
+```JSON
+{
+    "type": "annotation",
+    "project_id": "TCGA"
+    "submitter_id": "TCGA-BH-A0HN-01A-annotation",
+    "cases": {
+        "submitter_id": "	TCGA-UW-A7GR"
+    },
+    "category": "Neoadjuvant therapy"
+  }
+```
+
+```TSV
+type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
+experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
+```
+
 ## Deleting Submitted Entities
 
 The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.
@@ -733,9 +763,9 @@ See the following example TSV files:
 * [Aliquots.tsv](Aliquots.tsv)
 * [Read-Groups.tsv](Readgroups.tsv)
 
-## Download Previously Uploaded Files
+## Download Previously Uploaded Metadata
 
-The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
+The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download metadata uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
 
 __Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.  
 
