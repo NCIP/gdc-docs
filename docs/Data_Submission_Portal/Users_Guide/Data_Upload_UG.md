@@ -577,7 +577,7 @@ experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Bloo
 ```
 ## Annotation Submission
 
-The GDC Data Submission Portal allows users to add notes or annotations to any submitted entity or file.  These may include comments about why particular patients or samples are not present or why particular patients or samples may exhibit critical differences from others.  This would be for information that cannot be submitted to the GDC through other existing nodes or properties.
+The GDC Data Submission Portal allows users to add notes or annotations to any submitted entity or file.  These may include comments about why particular patients or samples are not present or why they may exhibit critical differences from others.  This would be for information that cannot be submitted to the GDC through other existing nodes or properties.
 
 If a submitter would like to create a redaction annotation please contact the GDC Support Team (support@nci-gdc.datacommons.io) to coordinate.
 
@@ -585,7 +585,7 @@ Submitting an [__Annotation__](https://gdc-docs.nci.nih.gov/Data_Dictionary/view
 
 * __`submitter_id`:__ A unique key to identify the `annotation` entity
 * __`category`:__ Top level characterization of the annotation
-* __`entities.submitter_id`:__ The unique key that was used for the a GDC entity that links the `annotation` entity to the target entity
+* __`entities.submitter_id`:__ The unique key that was used for the GDC entity that links the `annotation` entity to the target entity.  This could be any target entity such as a case, sample, or aliquot. Case is used below in an example.
 * __`note`:__ Strongly recommended - a description of what the user should know about this particular entity or file
 
 ```JSON
