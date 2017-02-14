@@ -581,7 +581,7 @@ The GDC Data Submission Portal allows users to add notes or annotations to any e
 
 If a submitter would like to redact an entity please contact the GDC Support Team (support@nci-gdc.datacommons.io) to coordinate.
 
-Submitting an [__Annotation_](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=annotation) entity requires:
+Submitting an [__Annotation__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=annotation) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `annotation` entity
 * __`category`:__ Top level characterization of the annotation
@@ -601,8 +601,8 @@ Submitting an [__Annotation_](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewe
 ```
 
 ```TSV
-type	project_id	submitter_id	cases.submitter_id#1	category
-annotation	TCGA-BRCA	TCGA-BH-A0HN-01A-annotation	TCGA-UW-A7GR	Neoadjuvant therapy	
+type	project_id	submitter_id	cases.submitter_id#1	category	notes
+annotation	TCGA-BRCA	TCGA-BH-A0HN-01A-annotation	TCGA-UW-A7GR	Neoadjuvant therapy	systemic treatment
 ```
 
 ## Deleting Submitted Entities
