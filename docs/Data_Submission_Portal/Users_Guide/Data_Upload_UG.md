@@ -591,18 +591,18 @@ Submitting an [__Annotation_](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewe
 ```JSON
 {
     "type": "annotation",
-    "project_id": "TCGA"
+    "project_id": "TCGA-KICH",
     "submitter_id": "TCGA-BH-A0HN-01A-annotation",
     "cases": {
-        "submitter_id": "	TCGA-UW-A7GR"
+        "submitter_id": "TCGA-UW-A7GR"
     },
     "category": "Neoadjuvant therapy"
   }
 ```
 
 ```TSV
-type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
-experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
+type	project_id	submitter_id	cases.submitter_id#1	category
+annotation	TCGA-BRCA	TCGA-BH-A0HN-01A-annotation	TCGA-UW-A7GR	Neoadjuvant therapy	
 ```
 
 ## Deleting Submitted Entities
