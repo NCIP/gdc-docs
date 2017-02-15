@@ -165,26 +165,28 @@
             {% if nav_item.title == "EncyclopediaEntries" %}
                 {% set sortedChildren = nav_item.children|sort(case_sensitive=False, attribute='title') %}
                 {% for child in sortedChildren %}
-                    {% if letters[letters|length - 1] != child.title[0]|upper %}
-                        {% if letters|length != 0 and child.title[0] not in numLetters %}
-                            </div>
+                    {% set previousLetter = letters[letters|length - 1] %}
+                    {% set nextLetter = sortedChildren[loop.index0 + 1].title[0]|upper if loop.index != sortedChildren|length else False %}
+                    {% set currentLetter = child.title[0]|upper %}
+                    {% set currentLetterIsNumber = currentLetter in numLetters %}
+                    {% set nextLetterIsNumber = nextLetter in numLetters %}
+                    {% set printLetter = "#" if currentLetterIsNumber else currentLetter %}
+                    {% set elementId = "num-list" if currentLetterIsNumber else currentLetter|upper + "-list" %}
+
+                    {% if previousLetter != currentLetter|upper %}
+                        {% if letters|length != 0 and not currentLetterIsNumber %}
                         {% endif %}
-                        {% if child.title[0] in numLetters and letters[letters|length - 1] not in numLetters %}
-                            {% if letters.append(child.title[0]) %}{% endif %}
-                            <div class = "letter-list" id = "num-list">
+                        {% if letters.append(currentLetter|upper) %}{% endif %}
+                        {% if (currentLetterIsNumber and previousLetter not in numLetters) or not currentLetterIsNumber %}
+                        <div class = "doc-list" id = "{{elementId}}">
                             <br>
-                            <a><div style="font-size: 24px; color: #6b6262;">#</div></a>
-                        {% elif child.title[0] not in numLetters %}
-                            {% if letters.append(child.title[0]) %}{% endif %}
-                            <div class = "doc-list" id = "{{child.title[0]}}-list">
-                            <br>
-                            <a><div style="font-size: 24px; color: #6b6262;">{{letters[letters|length -1]}}</div></a>
+                            <a><div style="font-size: 24px; color: #6b6262;">{{printLetter}}</div></a>
                         {% endif %}
                     {% endif %}
-                    <div>
-                        <a href="/Encyclopedia/{{child.url}}">{{child.title|replace("_", " ")}}</a>
-                    </div>
-                    {% if loop.index == sortedChildren|length %}
+                            <div>
+                                <a href="/Encyclopedia/{{child.url}}">{{child.title|replace("_", " ")}}</a>
+                            </div>
+                    {% if ((nextLetter != currentLetter or nextLetter == False) and not currentLetterIsNumber) or (currentLetterIsNumber and not nextLetterIsNumber) %}
                         </div>
                     {% endif %}
                 {% endfor %}
