@@ -2,16 +2,15 @@
 
 ## Introduction
 
-Mutation Annotation Format (MAF) is a tab-delimited text file that lists mutations.  The GDC produces two types of MAF files, Protected and Somatic (or Public) MAFs, for each variant calling pipeline in each GDC project. These MAFs are derived from the GDC annotated VCF files.
+Mutation Annotation Format (MAF) is a tab-delimited text file that lists mutations and are generated on a project-level.  The GDC produces MAF files at two permission levels: Protected and Somatic (or open-access). These are produced for each variant calling pipeline in each GDC project. MAFs are derived from the GDC annotated VCF files.
 
-Annotated VCF files often have variants reported on multiple transcripts whereas the protected MAF (\*protected.maf) only reports the most critically affected one.  Somatic MAFs (\*somatic.maf) are further processed to remove low quality and potential germline variants. In addition, for tumor samples that contain variants from multiple combinations of tumor normal aliquot pairs, only one pair is selected in the Somatic MAF. Somatic MAFs are open access and can be freely distributed.
+Annotated VCF files often have variants reported on multiple transcripts whereas the protected MAF (\*protected.maf) only reports the most critically affected one. Somatic MAFs (\*somatic.maf) are further processed to remove low quality and potential germline variants. In addition, for tumor samples that contain variants from multiple combinations of tumor normal aliquot pairs, only one pair is selected in the Somatic MAF. Somatic MAFs are open access and can be freely distributed.
 
-The GDC MAF file format follows the standard format of the <a href="https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification">TCGA Mutation Annotation Format</a>, but with additional columns.  
-
+The GDC MAF file format follows the standard format of the [TCGA Mutation Annotation Format](https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification), but with additional columns.
 
 ## Protected MAF File Structure
 
-Listed below are the columns in a protected MAF. Most columns are explained in either <a href="https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification">TCGA MAF specification</a> or <a href="http://www.ensembl.org/info/docs/tools/vep/vep_formats.html">VEP documentation</a>.
+Listed below are the columns in a protected MAF. Most columns are explained in either [TCGA MAF Specifications](https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification) or [VEP Documentation](http://www.ensembl.org/info/docs/tools/vep/vep_formats.html).
 
 ### Important updates from TCGA v2.4
 
