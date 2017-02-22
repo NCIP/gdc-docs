@@ -603,7 +603,7 @@ Submitting an [__Annotation__](https://gdc-docs.nci.nih.gov/Data_Dictionary/view
 
 ```TSV
 type	project_id	submitter_id	cases.submitter_id#1	category	notes
-annotation	TCGA-BRCA	TCGA-BH-A0HN-01A-annotation	TCGA-UW-A7GR	Neoadjuvant therapy	systemic treatment
+annotation	TCGA-KICH	TCGA-BH-A0HN-01A-annotation	TCGA-UW-A7GR	Neoadjuvant therapy	systemic treatment
 ```
 
 ## Deleting Submitted Entities
