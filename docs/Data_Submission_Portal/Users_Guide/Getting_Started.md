@@ -46,9 +46,8 @@ Data uploaded to the GDC can be updated before it is submitted for processing an
 
 ### Browse and Download Data
 
-Authorized submitters can browse and retrieve data submitted to their project using the Data Submission Portal.  Retrieval of data submitted to the submission portal can be accomplished by using the API or the Data Transfer Tool.  UUIDs of submitted files can be retrieved from the submission portal or with a [GraphQL] (https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql) query.  Please see API for more information about [downloads](https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/).
+Authorized submitters can browse and retrieve data submitted to their project using the Data Submission Portal.  Retrieval of data submitted to the submission portal can be accomplished by using the API or the Data Transfer Tool.  UUIDs of submitted files can be retrieved from the submission portal or with a [GraphQL](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql) query.  Please see API for more information about [downloads](https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/).
 
-Authorized submitters can browse and retrieve data submitted to their project using the Data Submission Portal.
 
 ### Status and Alerts
 
