@@ -24,18 +24,18 @@ Clinical events that occur over 32,872 days after an event also have the potenti
 
 __Example 1:__ An 88 year old patient is diagnosed with cancer and dies 13 years later.  The `days_to_birth` value is less than 32,872 days, so it can be accurately reported.  However, between the initial diagnosis and death, the patient turned 90 years old. Since 32,872 is the maximum, `days_to_death` would be calculated as 32872 - 32142 = 730.
 
-Dates
+__Dates__
 ```
 Date of Birth: 01-01-1900
 Date of Initial Diagnosis: 01-01-1988
 Date of Death: 01-01-2001
 ```
-Actual-Values
+__Actual-Values__
 ```
 days_to_birth: -32142
 days_to_death: 4748
 ```
-Obfuscated
+__Obfuscated-Values__
 ```
 days_to_birth: -32142
 days_to_death: 730
@@ -43,23 +43,26 @@ days_to_death: 730
 
 __Example 2:__ A 98 year old patient is diagnosed with cancer and dies three years later.  Because `days_to_X` values are counted from initial diagnosis, days will be at their maximum value of 32,872 upon initial diagnosis. This will compress the later dates and reduce `days_to_birth` to -32,872 and `days_to_death` to zero.  
 
-```Dates
+__Dates__
+```
 Date of Birth: 01-01-1900
 Date of Initial Diagnosis: 01-01-1998
 Date of Death: 01-01-2001
 ```
-```Actual-Values
+__Actual-Values__
+```
 days_to_birth: -35794
 days_to_death: 1095
 ```
-```Obfuscated
+__Obfuscated-Values__
+```
 days_to_birth: -32872
 days_to_death: 0
 ```
 
 ## Submitting Complex Data Model Relationships
 
-The GDC Data Model includes relationships in which more than one entity of one type can be associated with one entity of another type. For example, more than one `read_group` entity can be associated with a `submitted_aligned_reads` entity. JSON-formatted files are well-suited to represent this type of relationship, but tab-delimited (TSV) files require additional syntax. For example, associating a `submitted_aligned_reads` entity to three read groups would require three `read_groups.submitter_id` columns, each with the `#` symbol and a number appended to them. See the two files below:
+The GDC Data Model includes relationships in which more than one entity of one type can be associated with one entity of another type. For example, more than one `read_group` entity can be associated with a `submitted_aligned_reads` entity. JSON-formatted files, in which a list object can be used, are well-suited to represent this type of relationship. Tab-delimited (TSV) files require additional syntax to demonstrate these relationships. For example, associating a `submitted_aligned_reads` entity to three read groups would require three `read_groups.submitter_id` columns, each with the `#` symbol and a number appended to them. See the two files below:
 
 ```TSV
 type    submitter_id    data_category   data_format data_type   experimental_strategy   file_name   file_size   md5sum  read_groups.submitter_id#1 read_groups.submitter_id#2  read_groups.submitter_id#3
@@ -89,4 +92,4 @@ submitted_aligned_reads Alignment.bam  Raw Sequencing Data BAM Aligned Reads   W
 
 ## Submitting Read Group Names
 
-The `read_group` entity requires a `read_group_name` field for submission.  If the `read_group` entity is associated with a BAM file, the submitter should use the `@RG` ID present in the BAM header as the `read_group_name`. This will help expedite the harmonization process and reduce the possibility of errors.  
+The `read_group` entity requires a `read_group_name` field for submission.  If the `read_group` entity is associated with a BAM file, the submitter should use the `@RG` ID present in the BAM header as the `read_group_name`. This will help expedite the largely-automated harmonization process and reduce the possibility of errors.  
