@@ -24,16 +24,19 @@ Clinical events that occur over 32,872 days after an event also have the potenti
 
 __Example 1:__ An 88 year old patient is diagnosed with cancer and dies 13 years later.  The `days_to_birth` value is less than 32,872 days, so it can be accurately reported.  However, between the initial diagnosis and death, the patient turned 90 years old. Since 32,872 is the maximum, `days_to_death` would be calculated as 32872 - 32142 = 730.
 
-```Dates
+Dates
+```
 Date of Birth: 01-01-1900
 Date of Initial Diagnosis: 01-01-1988
 Date of Death: 01-01-2001
 ```
-```Actual-Values
+Actual-Values
+```
 days_to_birth: -32142
 days_to_death: 4748
 ```
-```Obfuscated
+Obfuscated
+```
 days_to_birth: -32142
 days_to_death: 730
 ```
