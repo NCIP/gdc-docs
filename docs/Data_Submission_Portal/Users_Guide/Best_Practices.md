@@ -34,40 +34,40 @@ Clinical events that occur over 32,872 days after an event also have the potenti
 __Example 1:__ An 88 year old patient is diagnosed with cancer and dies 13 years later.  The `days_to_birth` value is less than 32,872 days, so it can be accurately reported.  However, between the initial diagnosis and death, the patient turned 90 years old. Since 32,872 is the maximum, `days_to_death` would be calculated as 32872 - 32142 = 730.
 
 __Dates__
-```
-Date of Birth: 01-01-1900
-Date of Initial Diagnosis: 01-01-1988
-Date of Death: 01-01-2001
-```
+
+* _Date of Birth:_ 01-01-1900
+* _Date of Initial Diagnosis:_ 01-01-1988
+* _Date of Death:_ 01-01-2001
+
 __Actual-Values__
-```
-days_to_birth: -32142
-days_to_death: 4748
-```
+
+* _days_to_birth:_ -32142
+* _days_to_death:_ 4748
+
 __Obfuscated-Values__
-```
-days_to_birth: -32142
-days_to_death: 730
-```
+
+* _days_to_birth:_ -32142
+* _days_to_death:_ 730
+
 
 __Example 2:__ A 98 year old patient is diagnosed with cancer and dies three years later.  Because `days_to_X` values are counted from initial diagnosis, days will be at their maximum value of 32,872 upon initial diagnosis. This will compress the later dates and reduce `days_to_birth` to -32,872 and `days_to_death` to zero.  
 
 __Dates__
-```
-Date of Birth: 01-01-1900
-Date of Initial Diagnosis: 01-01-1998
-Date of Death: 01-01-2001
-```
+
+* _Date of Birth:_ 01-01-1900
+* _Date of Initial Diagnosis:_ 01-01-1998
+* _Date of Death:_ 01-01-2001
+
 __Actual-Values__
-```
-days_to_birth: -35794
-days_to_death: 1095
-```
+
+* _days_to_birth:_ -35794
+* _days_to_death:_ 1095
+
 __Obfuscated-Values__
-```
-days_to_birth: -32872
-days_to_death: 0
-```
+
+* _days_to_birth:_ -32872
+* _days_to_death:_ 0
+
 
 ## Submitting Complex Data Model Relationships
 
