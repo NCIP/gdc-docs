@@ -4,21 +4,30 @@ Because of the data types and relationships included in the GDC, data submission
 
 ## Date Obfuscation
 
-The GDC is committed to providing accurate and useful information as well as protecting the privacy of  patients if necessary. Following this, the GDC accepts time intervals that were transformed to remove information that could identify an individual but preserve clinically useful timelines. The GDC recommends following a series of HIPAA regulations regarding the reporting of age-related information.  
+The GDC is committed to providing accurate and useful information as well as protecting the privacy of  patients if necessary. Following this, the GDC accepts time intervals that were transformed to remove information that could identify an individual but preserve clinically useful timelines. The GDC recommends following a series of HIPAA regulations regarding the reporting of age-related information, which can be downloaded [here](BCRInformatics-DateObfuscator-291116-1100-2.pdf) as a PDF.
 
 ### General Guidelines
 
-Actual calendar dates are not reported in GDC clinical fields but the lengths of time between events are preserved. Time points are reported based on the number of days since the patient's initial diagnosis. Events that occurred after the initial diagnosis are reported as positive and events that occurred before are reported as negative. Dates are not automatically obfuscated by the GDC validation system, but invalid dates will not be validated. Submitters will need to make these changes in their clinical data.
+Actual calendar dates are not reported in GDC clinical fields but the lengths of time between events are preserved. Time points are reported based on the number of days since the patient's initial diagnosis. Events that occurred after the initial diagnosis are reported as positive and events that occurred before are reported as negative. Dates are not automatically obfuscated by the GDC validation system and submitters are required to make these changes in their clinical data.
+
+| Affected Fields |
+| --- |
+| `days_to_birth` |
+| `days_to_death` |
+| `days_to_last_follow_up` |
+| `days_to_last_known_disease_status` |
+| `days_to_recurrence` |
+| `days_to_treatment` |
 
 ### Patients Older than 90 Years
 
-Because of the low population number within the demographic of patients over 90 years old, it becomes more likely that patients can potentially be identified by a combination of their advanced age and publicly available clinical data. Because of this, patients over 90 years old are reported as exactly 90 years or 32872 days old.
+Because of the low population number within the demographic of patients over 90 years old, it becomes more likely that patients can potentially be identified by a combination of their advanced age and publicly available clinical data. Because of this, patients over 90 years old are reported as exactly 90 years or 32,872 days old.
 
 __Note:__ The day-based fields take leap years into account.   
 
 ### Clinical Events After a Patient Turns 90 Years Old
 
-Clinical events that occur over 32,872 days after an event also have the potential to reveal the age and identity of an individual over the age of 90. Following this, all timelines are capped at 32,872 days.  
+Clinical events that occur over 32,872 days after an event also have the potential to reveal the age and identity of an individual over the age of 90. Following this, all timelines are capped at 32,872 days. When timelines are capped, the priority should be to shorten the post-diagnosis values to preserve the accuracy of the age of the patient (except for patients who were diagnosed at over 90 years old). Values such as `days_to_death` and `days_to_recurrence` should be compressed before `days_to_birth` is compressed.
 
 ### Examples Timelines
 
@@ -92,4 +101,4 @@ submitted_aligned_reads Alignment.bam  Raw Sequencing Data BAM Aligned Reads   W
 
 ## Submitting Read Group Names
 
-The `read_group` entity requires a `read_group_name` field for submission.  If the `read_group` entity is associated with a BAM file, the submitter should use the `@RG` ID present in the BAM header as the `read_group_name`. This will help expedite the largely-automated harmonization process and reduce the possibility of errors.  
+The `read_group` entity requires a `read_group_name` field for submission.  If the `read_group` entity is associated with a BAM file, the submitter should use the `@RG` ID present in the BAM header as the `read_group_name`. This is important for the harmonization process and will reduce the possibility of errors.  
