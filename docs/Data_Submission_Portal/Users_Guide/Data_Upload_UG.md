@@ -224,6 +224,7 @@ Submitting a [__Diagnosis__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer
 type	submitter_id	cases.submitter_id	age_at_diagnosis	classification_of_tumor	days_to_last_follow_up	days_to_last_known_disease_status	days_to_recurrence	last_known_disease_status	morphology	primary_diagnosis	progression_or_recurrence	site_of_resection_or_biopsy	tissue_or_organ_of_origin	tumor_grade	tumor_stage	vital_status
 diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	PROJECT-INTERNAL-000055	10256	not reported	34	34	45	Tumor free	8260/3	c64.9	no	lung	lung	not reported	stage i	alive
 ```
+__Note:__ For information on submitting time-based data for patients over 90 years old see the [GDC Submission Best Practices](Best_Practices.md) Guide.
 
 ### Submitting an Exposure Entity to a Case
 
@@ -259,24 +260,6 @@ exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes	27.5	20	
 
 __Note:__ Submitting a clinical entity uses the same conventions as submitting a `case` entity (detailed above).
 
-### Case Age and GDC Privacy Policy
-
-Time-based records that were reported in clinical data, such as `age_at_diagnosis` and `days_to_death` do not increase after 32,872 days (~90 years) after birth. This protects the identity of patients who fall into this age bracket who could potentially be identified by their age. An example of how the actual and submitted values would differ is demonstrated below:
-
-```Actual
-{
-"age_at_diagnosis": 32900
-"days_to_last_follow_up": 100
-"days_to_death": 200
-}
-```
-```Submitted
-{
-"age_at_diagnosis": 32872
-"days_to_last_follow_up": 0
-"days_to_death": 0
-}
-```
 
 ## Biospecimen Submission
 
@@ -506,11 +489,7 @@ type	submitter_id	data_category	data_format	data_type	experimental_strategy	file
 submitted_unaligned_reads	Blood-00001-aliquot_lane2_barcodeACGTAC_55.fastq	Raw Sequencing Data	FASTQ	Unaligned Reads	WGS	test.fastq	38	901d48b862ea5c2bcdf376da82f2d22f	Blood-00001-aliquot_lane2_barcodeACGTAC_55
 ```
 
-__Note:__ Submitting an experiment data entity uses the same conventions as submitting a `case` entity (detailed above).
-
-#### Submitting TSV Files with Many-To-One relationships
-
-Because there can be many `read_groups` included in one `submitted_aligned_reads` file, the '\#1' is appended to the `read_groups.submitter_id` field in the TSV. An additional associated `read_group` would use a column named `read_groups.submitter_id#2`. The same conventions are used for other many-to-one or many-to-many relationships, such as the `clinical_test` entity, which may be associated with multiple `diagnosis` entities. This relationship can be expressed with a JSON-formatted list object (comma-separated in square brackets).   
+__Note:__ For details on submitting experiment data associated with more than one `read_group` entity, see the [GDC Submission Best Practices](Best_Practices.md) Guide.    
 
 ### Uploading the Submittable Data File to the GDC
 
