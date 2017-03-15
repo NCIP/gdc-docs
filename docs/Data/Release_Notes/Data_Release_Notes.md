@@ -3,15 +3,14 @@
 ## Data Release 5.0
 
 * __GDC Product__: Data
-* __Release Date__: March 14, 2017
+* __Release Date__: March 15, 2017
 
 ### New updates
 
 1.  Additional annotations from TCGA DCC are available <!--DAT-52-->
 2.  Clinical data added for TARGET ALL P1 and P2 <!--DAT-197-->
 3.  Pathology reports now have submitter IDs as assigned by the BCR <!--DAT-81-->
-4.  FASTQ files in the Legacy Archive now have data format "FASTQ" rather than "TARGZ" <!--DAT-107-->
-5.  TARGET Data refresh
+4.  TARGET Data refresh
 
 ### Bugs Fixed Since Last Release
 
