@@ -410,6 +410,8 @@ curl 'https://gdc-api.nci.nih.gov/files/ids?query=nationwidechildrens.org_clinic
 
 The GDC Cases Endpoint `https://gdc-api.nci.nih.gov/cases` enables search and retrieval of information related to a specific case.
 
+__Note:__ The `cases` endpoint is designed to retrieve the metadata associated with one or more cases, including all nested biospecimen entities. Filters can be applied to retrieve information for entire cases, but not for lower-level biospecimen entities. For example, a sample within a case cannot be used to query for aliquots that are associated only with that sample. All aliquots associated with the case would be retrieved.
+
 
 #### Example
 
@@ -1243,6 +1245,7 @@ filters| null | Specifies search parameters
 format | JSON | Specifies the API response format: JSON, XML, or TSV
 pretty | false | Returns response with indentations and line breaks in a human-readable format
 fields | null | Specifies which fields to include in the response
+expand | null | Returns multiple related fields
 size | 10 | Specifies the number of results to return
 from   | 1 | Specifies the first record to return from a set of search results
 sort | null | Specifies sorting for the search results
@@ -2236,7 +2239,7 @@ curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:a
 
 ### Fields
 
-This query parameter specifies which fields are to be included in the API response. A listing of available fields for each endpoint is provided in [Appendix A](Appendix_A_Available_Fields.md).
+This query parameter specifies which fields are to be included in the API response. The fields in the API response will be unordered. A listing of available fields for each endpoint is provided in [Appendix A](Appendix_A_Available_Fields.md).
 
 #### Example
 

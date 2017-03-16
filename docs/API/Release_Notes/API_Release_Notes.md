@@ -1,5 +1,41 @@
 # API Release Notes
 
+## v1.7.1
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: March 16, 2017
+
+### New Features and Changes
+
+* Submission: Due to Data Dictionary updates new submission templates may be required for users submitting JSON and TSV formats
+* Submission: Entities in submitted state (assigned when the project has been submitted) cannot be deleted.  <!-- API-129 -->
+* Submission: When attempting to delete an entity that has child entities not specified in the request, an error message is generated that will include all of the child entities' UUIDs.  <!-- API-130 -->
+* Submission: Entities associated with files uploaded to the GDC object store cannot be deleted until the associated file has been deleted. <!-- API-132 -->
+* Re-enable Review, Submit, and Release functions for submission <!--API-73, API-138, API-159-->
+* GDC Data Dictionary Changes
+  * Added "submittable" property to all entities <!--DAT-215-->
+  * Changed Read Group to category biospecimen <!--DAT-216-->
+  * Added many new clinical properties available for submission <!--DAT-210, DAT-31, DAT-226, DAT-205-->
+  * Added sample codes from Office of Cancer Genomics (OCG) to analyte and aliquot <!--DAT-170-->
+  * Slides can now be attached to sample rather than just portion <!--DAT-205-->
+  * `sample_type_id` is no longer required when submitting sample entities <!--DAT-233-->
+  * `analyte_type_id` is no longer required when submitting aliquot and analyte entities<!--DAT-255-->
+  * Clinical Test Entity is created for storing results of a variety of potential clinical tests related to the diagnosis - <!--DAT-223-->
+  * Genomic Profiling Report entity created for storing particular derived sequencing results <!--DAT-229-->
+  * Structural Variation entity created <!--DAT-229-->
+  * Project entity includes new field "Intended Release Date" <!--API-143-->
+  * Project entity includes new field "Releasable" <!--API-157-->
+
+
+### Bugs Fixed Since Last Release
+
+  * Fixed bug where boolean properties were not accepted with TSV submission <!--API-168-->
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
 
 ## v1.5.0
 

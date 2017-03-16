@@ -4,7 +4,7 @@
 
 Raw sequence data, stored as BAM files, make up the bulk of data stored at the NCI Genomic Data Commons (GDC). The size of a single file can vary greatly. Most BAM files stored in the GDC are in the 50 MB - 40 GB size range, with some of the whole genome BAM files reaching sizes of 200-300 GB.
 
-The GDC Data Transfer Tool provides an optimized method of transferring data to and from the GDC, and enables resumption of interrupted transfers.
+The GDC Data Transfer Tool, a command-line driven application, provides an optimized method of transferring data to and from the GDC and enables resumption of interrupted transfers.
 
 ## Downloading the GDC Data Transfer Tool
 
@@ -19,7 +19,7 @@ The system recommendations for using the GDC Data Transfer Tool&nbsp;are as foll
 
 ### Binary Distributions
 
-Binary distributions are available on the [GDC Transfer Tool page](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool). To install the GDC Data Transfer Tool, download the respective binary distribution and unzip the distribution&#39;s archive to a location on the target system.
+Binary distributions are available on the [GDC Transfer Tool page](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool). To install the GDC Data Transfer Tool, download the respective binary distribution and unzip the distribution&#39;s archive to a location on the target system.
 
 ### Release Notes
 

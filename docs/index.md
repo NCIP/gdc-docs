@@ -1,6 +1,6 @@
 # Welcome
 
-This is the official project documentation site of the NCI [Genomic Data Commons (GDC)](https://gdc.nci.nih.gov).
+This is the official project documentation site of the NCI [Genomic Data Commons (GDC)](https://gdc.cancer.gov).
 
 ## Contents
 
@@ -15,4 +15,4 @@ The GDC documentation is divided into the following top-level sections:
 
 ## Learn More
 
-To learn more about GDC, please visit our official [GDC Website](https://gdc.nci.nih.gov).
+To learn more about GDC, please visit our official [GDC Website](https://gdc.cancer.gov).

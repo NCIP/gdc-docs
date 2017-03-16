@@ -40,7 +40,7 @@ On the top-right section of the screen, the user can download data about all ent
 
 Clicking on an entity will open the details panel. Data in this panel is broken down into multiple sections depending on the entity type. The main sections are:
 
-* __Actions__: Actions that can be performed relating the entity. This includes downloading the metadata (JSON or TSV) or submittable data file pertaining to the entity.  
+* __Actions__: Actions that can be performed relating the entity. This includes downloading the metadata (JSON or TSV) or submittable data file pertaining to the entity and deleting the entity. See the [Deleting Entities](https://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Data_Upload_UG/#deleting-submitted-entities) guide for more information.  
 * __Summary__: A list of IDs and system properties associated with the entity.
 * __Details__: Properties of the entity (not associated with cases).
 * __Hierarchy__ or __Related Entities__: A list of associated entities.
