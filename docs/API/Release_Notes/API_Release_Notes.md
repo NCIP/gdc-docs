@@ -1,6 +1,6 @@
 # API Release Notes
 
-## v1.6.0
+## v1.7.1
 
 * __GDC Product__: Application Programming Interface (API)
 * __Release Date__: March 16, 2017
