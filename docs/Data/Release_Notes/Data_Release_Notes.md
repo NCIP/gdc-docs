@@ -3,7 +3,7 @@
 ## Data Release 5.0
 
 * __GDC Product__: Data
-* __Release Date__: March 15, 2017
+* __Release Date__: March 16, 2017
 
 ### New updates
 
@@ -32,6 +32,7 @@
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * Tumor grade property is not populated <!--SV-585-->
 * Progression_or_recurrence property is not populated <!--SV-584-->
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json)
 
 
 Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_notes_manifest.txt)
