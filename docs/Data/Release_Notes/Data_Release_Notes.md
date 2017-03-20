@@ -11,6 +11,10 @@
 2.  Clinical data added for TARGET ALL P1 and P2 <!--DAT-197-->
 3.  Pathology reports now have submitter IDs as assigned by the BCR <!--DAT-81-->
 4.  TARGET Data refresh
+    * Most recent biospecimen and clinical information from the TARGET DCC. New imported files are listed [here](DR5.0_changes_TARGET.xlsx)
+    * Updated indexed biospecimen and clinical metadata
+    * Updated SRA XMLs files
+    * Does not include updates to TARGET NBL <!--SV-585-->
 
 ### Bugs Fixed Since Last Release
 
