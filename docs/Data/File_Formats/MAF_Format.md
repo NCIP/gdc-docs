@@ -32,7 +32,7 @@ The GDC MAF file format is based on the [TCGA Mutation Annotation Format](https:
 
 This is very similar to the protected MAF format, but with some important additional filters.  The process for modifying a protected MAF into a somatic MAF is as follows:
 
-1. Aliquot Selection: only one tumor-normal pair are selected for each tumor sample based on the plate number, sample_type, analyte_type and other features extracted from tumor TCGA aliquot barcode.
+1. Aliquot Selection: only one tumor-normal pair are selected for each tumor sample based on the plate number, sample type, analyte type and other features extracted from tumor TCGA aliquot barcode.
 2. Low quality variants filtering: currently variants with FILTER="PASS" are kept and n_depth < 8 are removed.
 3. Germline Masking
     * Remove variants with Mutation_Status does not equal "Somatic"
@@ -53,6 +53,15 @@ This is very similar to the protected MAF format, but with some important additi
     * n_alt_count
 
 Note: the criteria for allowing mutations into open-access are purposefully implemented to overcompensate and filter out any germline mutations. If omission of true-positive somatic mutations is a concern, the GDC recommends using protected MAFs.  
+
+## Somatic MAF File Generation
+
+The process for modifying a protected MAF into a somatic MAF is as follows:
+
+1. Aliquot Selection: only one tumor-normal pair are selected for each tumor sample based on the plate number, sample type, analyte type and other features extracted from tumor TCGA aliquot barcode.
+
+![Somatic MAF Generation](images/ProtectedMAF.png)
+
 
 ## Protected MAF File Structure
 
@@ -179,8 +188,8 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 117 - COSMIC | Overlapping COSMIC variants |
 | 118 - MC3_Overlap| Indicates whether this region overlaps with an MC3 variant for the same sample pair |
 | 119 - GDC_Validation_Status | GDC implementation of validation checks |
-| 120 - GDC_Valid_Somatic | True or False |
-| 121 - vcf_region | Colon separated string containing the CHROM, POS, ID, REF, and ALT columns from the VCF file (e.g., chrZ:20:rs1234:A:T)|
+| 120 - GDC_Valid_Somatic | True or False (not in somatic MAF)|
+| 121 - vcf_region | Colon separated string containing the CHROM, POS, ID, REF, and ALT columns from the VCF file (e.g., chrZ:20:rs1234:A:T) (not in somatic MAF)|
 | 122 - vcf_info | INFO column from VCF (not in somatic MAF)|
 | 123 - vcf_format | FORMAT column from VCF (not in somatic MAF)|
 | 124 - vcf_tumor_gt | Tumor sample genotype column from VCF (not in somatic MAF)|
