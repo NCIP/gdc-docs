@@ -58,7 +58,16 @@ Note: the criteria for allowing mutations into open-access are purposefully impl
 
 The process for modifying a protected MAF into a somatic MAF is as follows:
 
-1. Aliquot Selection: only one tumor-normal pair are selected for each tumor sample based on the plate number, sample type, analyte type and other features extracted from tumor TCGA aliquot barcode.
+*  Aliquot Selection: only one tumor-normal pair are selected for each tumor sample based on the plate number, sample type, analyte type and other features extracted from tumor TCGA aliquot barcode.
+*  Low quality variant filtering and germline masking:
+  1. Variants with __Mutation_Status != "Somatic"__, __n_depth < 8__, or __GDC_FILTER = 'GapFiller', 'ContEst', 'multi_allelic', 'nonselectedaliquot', 'BCR_Duplicate' or 'BadSeq'__ are __removed__.
+  2. Remaining variants with __GDC_Valid_Somatic = True__ are __included__ in the Somatic MAF.
+  3. Remaining variants with __FILTER != panel_of_normals or PASS__ are __removed__.
+  4. Remaining variants with __MC3_Overlap = True__ are __included__ in the Somatic MAF.
+  5. Remaining variants with __GDC_FILTER = 'ndp', 'nonExonic', 'bitgt', or 'gdc_pon'__ are __removed__.
+  6. Remaining variants with __SOMATIC != null__ are __included__ in the Somatic MAF.
+  7. Remaining variants with __dbSNP_RS = 'novel' or null__ are __included__ in the Somatic MAF.
+  8. Remaining variants are __removed__.
 
 ![Somatic MAF Generation](images/ProtectedMAF.png)
 ![Somatic MAF Generation](images/ProtectedMAF2.png)
