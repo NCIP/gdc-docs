@@ -61,7 +61,8 @@ The process for modifying a protected MAF into a somatic MAF is as follows:
 1. Aliquot Selection: only one tumor-normal pair are selected for each tumor sample based on the plate number, sample type, analyte type and other features extracted from tumor TCGA aliquot barcode.
 
 ![Somatic MAF Generation](images/ProtectedMAF.png)
-
+![Somatic MAF Generation](images/ProtectedMAF2.png)
+![Somatic MAF Generation](images/ProtectedMAF3.png)
 
 ## Protected MAF File Structure
 
