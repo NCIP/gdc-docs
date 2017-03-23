@@ -147,7 +147,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 93 - IMPACT | The impact modifier for the consequence type|
 | 94 - PICK | Indicates if this block of consequence data was picked by VEP's [pick feature](http://useast.ensembl.org/info/docs/tools/vep/script/vep_options.html#opt_pick) (1 or null)|
 | 95 - VARIANT_CLASS | Sequence Ontology variant class |
-| 96 - TSL | [Transcript support level](http://useast.ensembl.org/Help/Glossary?id=492), which is based on independent RNA |
+| 96 - TSL | [Transcript support level](http://useast.ensembl.org/Help/Glossary?id=492), which is based on independent RNA analyses|
 | 97 - HGVS_OFFSET | Indicates by how many bases the HGVS notations for this variant have been shifted |
 | 98 - PHENO|Indicates if existing variant is associated with a phenotype, disease or trait (0, 1, or null) |
 | 99 - MINIMISED | Alleles in this variant have been converted to minimal representation before consequence calculation (1 or null) |
