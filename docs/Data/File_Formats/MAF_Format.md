@@ -48,30 +48,30 @@ The process for modifying a protected MAF into a somatic MAF is as follows:
 
 ## Protected MAF File Structure
 
-The table below describes the columns in a protected MAF and their definitions. Note that the somatic (open-access) MAF structure is the same except for having the last four columns removed.
+The table below describes the columns in a protected MAF and their definitions. Note that the somatic (open-access) MAF structure is the same except for having the last six columns removed.
 
 | Column | Description |
 |---|---|
-| 1 - Hugo_Symbol | [HUGO](http://www.genenames.org/) symbol for the gene (HUGO symbols are always in all caps). "Unknown" is used for regions that do not correspond to a gene. |
-| 2 - Entrez_Gene_Id | Entrez gene ID (an integer).  "0" is used for regions that do not correspond to a gene |
-| 3 - Center| One or more genome sequencing center reporting the variant|
-| 4 - NCBI_Build| The reference genome used for the alignment (GRCh38)|
+| 1 - Hugo_Symbol | [HUGO](http://www.genenames.org/) symbol for the gene (HUGO symbols are always in all caps). "Unknown" is used for regions that do not correspond to a gene  |
+| 2 - Entrez_Gene_Id | [Entrez gene](https://www.ncbi.nlm.nih.gov/gene) ID (an integer).  "0" is used for regions that do not correspond to a gene |
+| 3 - Center| One or more genome sequencing center reporting the variant |
+| 4 - NCBI_Build| The reference genome used for the alignment (GRCh38) |
 | 5 - Chromosome | The affected chromosome (chr1) |
 | 6 - Start_Position | Lowest numeric position of the reported variant on the genomic reference sequence. Mutation start coordinate |
 | 7 - End_Position | Highest numeric genomic position of the reported variant on the genomic reference sequence. Mutation end coordinate |
 | 8 - Strand | Genomic strand of the reported allele. Currently, all variants will report the positive strand: '+' |
-| 9 - Variant_Classification | Translational effect of variant allele. |
+| 9 - Variant_Classification | Translational effect of variant allele  |
 | 10 - Variant_Type | Type of mutation. TNP (tri-nucleotide polymorphism) is analogous to DNP (di-nucleotide polymorphism) but for three consecutive nucleotides. ONP (oligo-nucleotide polymorphism) is analogous to TNP but for consecutive runs of four or more (SNP, DNP, TNP, ONP, INS, DEL, or Consolidated)|
 | 11 - Reference_Allele | The plus strand reference allele at this position. Includes the deleted sequence for a deletion or "-" for an insertion |
-| 12 - Tumor_Seq_Allele1 | Primary data genotype for tumor sequencing (discovery) allele 1. A "-" symbol for a deletion represents a variant. A "-" symbol for an insertion represents wild-type allele. Novel inserted sequence for insertion does not include flanking reference bases. |
-| 13 - Tumor_Seq_Allele2 | Tumor sequencing (discovery) allele 2. |
+| 12 - Tumor_Seq_Allele1 | Primary data genotype for tumor sequencing (discovery) allele 1. A "-" symbol for a deletion represents a variant. A "-" symbol for an insertion represents wild-type allele. Novel inserted sequence for insertion does not include flanking reference bases  |
+| 13 - Tumor_Seq_Allele2 | Tumor sequencing (discovery) allele 2  |
 | 14 - dbSNP_RS| The rs-IDs from the [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/) database, null if not found in any database used, or "novel" if there is no dbSNP record, but it is found in other databases|
-| 15 - dbSNP_Val_Status | The dbSNP validation status is reported as a semicolon-separated list of statuses. The union of all rs-IDs is taken when there are multiple.|
+| 15 - dbSNP_Val_Status | The dbSNP validation status is reported as a semicolon-separated list of statuses. The union of all rs-IDs is taken when there are multiple |
 | 16 - Tumor_Sample_Barcode| Aliquot barcode for the tumor sample |
 | 17 - Matched_Norm_Sample_Barcode| Aliquot barcode for the matched normal sample |
 | 18 - Match_Norm_Seq_Allele1 | Primary data genotype. Matched normal sequencing allele 1. A "-" symbol for a deletion represents a variant. A "-" symbol for an insertion represents wild-type allele. Novel inserted sequence for insertion does not include flanking reference bases (cleared in somatic MAF) |
 | 19 - Match_Norm_Seq_Allele2| Matched normal sequencing allele 2 |
-| 20 - Tumor_Validation_Allele1| Secondary data from orthogonal technology. Tumor genotyping (validation) for allele 1. A "-" symbol for a deletion represents a variant. A "-" symbol for an insertion represents wild-type allele. Novel inserted sequence for insertion does not include flanking reference bases. |
+| 20 - Tumor_Validation_Allele1| Secondary data from orthogonal technology. Tumor genotyping (validation) for allele 1. A "-" symbol for a deletion represents a variant. A "-" symbol for an insertion represents wild-type allele. Novel inserted sequence for insertion does not include flanking reference bases  |
 | 21 - Tumor_Validation_Allele2 | Secondary data from orthogonal technology. Tumor genotyping (validation) for allele 2 |
 | 22 - Match_Norm_Validation_Allele1 | Secondary data from orthogonal technology. Matched normal genotyping (validation) for allele 1. A "-" symbol for a deletion represents a variant. A "-" symbol for an insertion represents wild-type allele. Novel inserted sequence for insertion does not include flanking reference bases (cleared in somatic MAF) |
 | 23 - Match_Norm_Validation_Allele2 | Secondary data from orthogonal technology. Matched normal genotyping (validation) for allele 2 (cleared in somatic MAF) |
@@ -81,73 +81,73 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 27 - Sequencing_Phase | TCGA sequencing phase (if applicable). Phase should change under any circumstance that the targets under consideration change |
 | 28 - Sequence_Source | Molecular assay type used to produce the analytes used for sequencing. Allowed values are a subset of the SRA 1.5 library_strategy field values. This subset matches those used at CGHub |
 | 29 - Validation_Method | The assay platforms used for the validation call |
-| 30 - Score | Not in use.|
-| 31 - BAM_File | Not in use.|
-| 32 - Sequencer | Instrument used to produce primary sequence data|
-| 33 - Tumor_Sample_UUID | BCR aliquot UUID for tumor sample|
-| 34 - Matched_Norm_Sample_UUID | BCR aliquot UUID for matched normal sample|
-| 35 - HGVSc | The coding sequence of the variant in HGVS recommended format|
-| 36 - HGVSp | The protein sequence of the variant in HGVS recommended format. "p.=" signifies no change in the protein.|
-| 37 - HGVSp_Short | Same as the HGVSp column, but using 1-letter amino-acid codes|
+| 30 - Score | Not in use |
+| 31 - BAM_File | Not in use |
+| 32 - Sequencer | Instrument used to produce primary sequence data |
+| 33 - Tumor_Sample_UUID | BCR aliquot UUID for tumor sample |
+| 34 - Matched_Norm_Sample_UUID | BCR aliquot UUID for matched normal sample |
+| 35 - HGVSc | The coding sequence of the variant in HGVS recommended format |
+| 36 - HGVSp | The protein sequence of the variant in HGVS recommended format. "p.=" signifies no change in the protein |
+| 37 - HGVSp_Short | Same as the HGVSp column, but using 1-letter amino-acid codes |
 | 38 - Transcript_ID| [Ensembl](http://useast.ensembl.org/index.html) ID of the transcript affected by the variant |
-| 39 - Exon_Number | The exon number (out of total number)|
-| 40 - t_depth | Read depth across this locus in tumor BAM|
-| 41 - t_ref_count | Read depth supporting the reference allele in tumor BAM|
-| 42 - t_alt_count | Read depth supporting the variant allele in tumor BAM|
-| 43 - n_depth | Read depth across this locus in normal BAM|
-| 44 - n_ref_count | Read depth supporting the reference allele in normal BAM (cleared in somatic MAF)|
-| 45 - n_alt_count | Read depth supporting the variant allele in normal BAM (cleared in somatic MAF)|
-| 46 - all_effects | A semicolon delimited list of all possible variant effects, sorted by priority ([SYMBOL,Consequence,HGVSp_Short,Transcript_ID,RefSeq])|
+| 39 - Exon_Number | The exon number (out of total number) |
+| 40 - t_depth | Read depth across this locus in tumor BAM |
+| 41 - t_ref_count | Read depth supporting the reference allele in tumor BAM |
+| 42 - t_alt_count | Read depth supporting the variant allele in tumor BAM |
+| 43 - n_depth | Read depth across this locus in normal BAM |
+| 44 - n_ref_count | Read depth supporting the reference allele in normal BAM (cleared in somatic MAF) |
+| 45 - n_alt_count | Read depth supporting the variant allele in normal BAM (cleared in somatic MAF) |
+| 46 - all_effects | A semicolon delimited list of all possible variant effects, sorted by priority ([SYMBOL,Consequence,HGVSp_Short,Transcript_ID,RefSeq]) |
 |47 - Allele| The variant allele used to calculate the consequence |
-|48 - Gene|Stable Ensembl ID of affected gene|
+|48 - Gene|Stable Ensembl ID of affected gene |
 |49 - Feature|Stable Ensembl ID of feature (transcript, regulatory, motif) |
-|50 - Feature_type| Type of feature. Currently one of Transcript, RegulatoryFeature, MotifFeature (or blank)|
+|50 - Feature_type| Type of feature. Currently one of Transcript, RegulatoryFeature, MotifFeature (or blank) |
 |51 - Consequence | Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms |
 |52 - cDNA_position | Relative position of base pair in the cDNA sequence as a fraction. A "-" symbol is displayed as the numerator if the variant does not appear in cDNA |
 |53 - CDS_position | Relative position of base pair in coding sequence. A "-" symbol is displayed as the numerator if the variant does not appear in coding sequence |
 |54 - Protein_position | Relative position of affected amino acid in protein. A "-" symbol is displayed as the numerator if the variant does not appear in coding sequence |
 |55 - Amino_acids | Only given if the variation affects the protein-coding sequence |
 |56 - Codons | The alternative codons with the variant base in upper case |
-|57 - Existing_variation | Known identifier of existing variation|
+|57 - Existing_variation | Known identifier of existing variation |
 |58 - ALLELE_NUM | Allele number from input; 0 is reference, 1 is first alternate etc. |
 |59 - DISTANCE | Shortest distance from the variant to transcript |
-|60 - TRANSCRIPT_STRAND | The DNA strand (1 or -1) on which the transcript/feature lies|
+|60 - TRANSCRIPT_STRAND | The DNA strand (1 or -1) on which the transcript/feature lies |
 |61 - SYMBOL | The gene symbol |
 |62 - SYMBOL_SOURCE | The source of the gene symbol |
 |63 - HGNC_ID | Gene identifier from the HUGO Gene Nomenclature Committee if applicable |
 |64 - BIOTYPE | Biotype of transcript |
 |65 - CANONICAL | A flag (YES) indicating that the VEP-based canonical transcript, the longest translation, was used for this gene. If not, the value is null |
-|66 - CCDS | The [CCDS](https://www.ncbi.nlm.nih.gov/projects/CCDS/CcdsBrowse.cgi) identifier for this transcript, where applicable|
-|67 - ENSP | The Ensembl protein identifier of the affected transcript|
-|68 - SWISSPROT | [UniProtKB/Swiss-Prot](http://www.uniprot.org/) accession|
-|69 - TREMBL | UniProtKB/TrEMBL identifier of protein product|
-|70 - UNIPARC | UniParc identifier of protein product|
-|71 - RefSeq | RefSeq identifier for this transcript|
-|72 - SIFT | The [SIFT](http://sift.jcvi.org/) prediction and/or score, with both given as prediction (score)|
-|73 - PolyPhen | The [PolyPhen](http://genetics.bwh.harvard.edu/pph2/) prediction and/or score|
-|74 - EXON | The exon number (out of total number)|
-|75 - INTRON | The intron number (out of total number)|
+|66 - CCDS | The [CCDS](https://www.ncbi.nlm.nih.gov/projects/CCDS/CcdsBrowse.cgi) identifier for this transcript, where applicable |
+|67 - ENSP | The Ensembl protein identifier of the affected transcript |
+|68 - SWISSPROT | [UniProtKB/Swiss-Prot](http://www.uniprot.org/) accession |
+|69 - TREMBL | UniProtKB/TrEMBL identifier of protein product |
+|70 - UNIPARC | UniParc identifier of protein product |
+|71 - RefSeq | RefSeq identifier for this transcript |
+|72 - SIFT | The [SIFT](http://sift.jcvi.org/) prediction and/or score, with both given as prediction (score) |
+|73 - PolyPhen | The [PolyPhen](http://genetics.bwh.harvard.edu/pph2/) prediction and/or score |
+|74 - EXON | The exon number (out of total number) |
+|75 - INTRON | The intron number (out of total number) |
 |76 - DOMAINS | The source and identifier of any overlapping protein domains |
-|77 - GMAF | Non-reference allele and frequency of existing variant in [1000 Genomes](http://www.internationalgenome.org/)|
-|78 - AFR_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined African population|
-|79 - AMR_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined American population|
-|80 - ASN_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined Asian population|
-|81 - EAS_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined East Asian population|
-|82 - EUR_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined European population|
-|83 - SAS_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined South Asian population|
-|84 - AA_MAF | Non-reference allele and frequency of existing variant in [NHLBI-ESP](http://evs.gs.washington.edu/EVS/) African American population|
+|77 - GMAF | Non-reference allele and frequency of existing variant in [1000 Genomes](http://www.internationalgenome.org/) |
+|78 - AFR_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined African population |
+|79 - AMR_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined American population |
+|80 - ASN_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined Asian population |
+|81 - EAS_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined East Asian population |
+|82 - EUR_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined European population |
+|83 - SAS_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined South Asian population |
+|84 - AA_MAF | Non-reference allele and frequency of existing variant in [NHLBI-ESP](http://evs.gs.washington.edu/EVS/) African American population |
 |85 - EA_MAF | Non-reference allele and frequency of existing variant in NHLBI-ESP European American population|
-|86 - CLIN_SIG | Clinical significance of variant from dbSNP|
-|87 - SOMATIC |Somatic status of each ID reported under Existing_variation (0, 1, or null)|
-|88 - PUBMED | Pubmed ID(s) of publications that cite existing variant|
-|89 - MOTIF_NAME |The source and identifier of a transcription factor binding profile aligned at this position|
-|90 - MOTIF_POS | The relative position of the variation in the aligned TFBP|
-|91 - HIGH_INF_POS | A flag indicating if the variant falls in a high information position of a transcription factor binding profile (TFBP) (Y, N, or null)|
+|86 - CLIN_SIG | Clinical significance of variant from dbSNP |
+|87 - SOMATIC |Somatic status of each ID reported under Existing_variation (0, 1, or null) |
+|88 - PUBMED | Pubmed ID(s) of publications that cite existing variant |
+|89 - MOTIF_NAME |The source and identifier of a transcription factor binding profile aligned at this position |
+|90 - MOTIF_POS | The relative position of the variation in the aligned TFBP |
+|91 - HIGH_INF_POS | A flag indicating if the variant falls in a high information position of a transcription factor binding profile (TFBP) (Y, N, or null) |
 | 92 - MOTIF_SCORE_CHANGE | The difference in motif score of the reference and variant sequences for the TFBP |
-| 93 - IMPACT | The impact modifier for the consequence type|
-| 94 - PICK | Indicates if this block of consequence data was picked by VEP's [pick feature](http://useast.ensembl.org/info/docs/tools/vep/script/vep_options.html#opt_pick) (1 or null)|
+| 93 - IMPACT | The impact modifier for the consequence type |
+| 94 - PICK | Indicates if this block of consequence data was picked by VEP's [pick feature](http://useast.ensembl.org/info/docs/tools/vep/script/vep_options.html#opt_pick) (1 or null) |
 | 95 - VARIANT_CLASS | Sequence Ontology variant class |
-| 96 - TSL | [Transcript support level](http://useast.ensembl.org/Help/Glossary?id=492), which is based on independent RNA analyses|
+| 96 - TSL | [Transcript support level](http://useast.ensembl.org/Help/Glossary?id=492), which is based on independent RNA analyses |
 | 97 - HGVS_OFFSET | Indicates by how many bases the HGVS notations for this variant have been shifted |
 | 98 - PHENO|Indicates if existing variant is associated with a phenotype, disease or trait (0, 1, or null) |
 | 99 - MINIMISED | Alleles in this variant have been converted to minimal representation before consequence calculation (1 or null) |
@@ -171,22 +171,22 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 117 - COSMIC | Overlapping COSMIC variants |
 | 118 - MC3_Overlap| Indicates whether this region overlaps with an MC3 variant for the same sample pair |
 | 119 - GDC_Validation_Status | GDC implementation of validation checks. See notes section (#5) below for details |
-| 120 - GDC_Valid_Somatic | True or False (not in somatic MAF)|
-| 121 - vcf_region | Colon separated string containing the CHROM, POS, ID, REF, and ALT columns from the VCF file (e.g., chrZ:20:rs1234:A:T) (not in somatic MAF)|
-| 122 - vcf_info | INFO column from VCF (not in somatic MAF)|
-| 123 - vcf_format | FORMAT column from VCF (not in somatic MAF)|
-| 124 - vcf_tumor_gt | Tumor sample genotype column from VCF (not in somatic MAF)|
-| 125 - vcf_normal_gt | Normal sample genotype column from VCF (not in somatic MAF)|  
+| 120 - GDC_Valid_Somatic | True or False (not in somatic MAF) |
+| 121 - vcf_region | Colon separated string containing the CHROM, POS, ID, REF, and ALT columns from the VCF file (e.g., chrZ:20:rs1234:A:T) (not in somatic MAF) |
+| 122 - vcf_info | INFO column from VCF (not in somatic MAF) |
+| 123 - vcf_format | FORMAT column from VCF (not in somatic MAF) |
+| 124 - vcf_tumor_gt | Tumor sample genotype column from VCF (not in somatic MAF) |
+| 125 - vcf_normal_gt | Normal sample genotype column from VCF (not in somatic MAF) |  
 
 ### Notes About GDC MAF Implementation
 
 1. Column #4 __NCBI_Build__ is GRCh38 by default
-2. Column #32 __Sequencer__ includes sequencers used. If different sequencers were used to generate normal and tumor data, normal sequencer is listed first.
+2. Column #32 __Sequencer__ includes the sequencers used. If different sequencers were used to generate normal and tumor data, the normal sequencer is listed first.
 3. Column #60 VEP name "STRAND" is changed to __TRANSCRIPT_STRAND__ to avoid confusion with Column#8 "Strand"
-4. Column #122-125 __vcf_info, vcf_format, vcf_tumor_gt, and vcf_normal_gt__ are the corresponding columns from VCF files. Including them facilitates parsing specific variant information.
+4. Column #122-125 __vcf_info, vcf_format, vcf_tumor_gt, and vcf_normal_gt__ are the corresponding columns from the VCF files. Including them facilitates parsing specific variant information.
 5. Column #119 __GDC_Validation_Status__: GDC also collects TCGA validation sequences. It compares these with variants derived from Next-Generation Sequencing data from the same sample and populates the comparison result in "GDC_Validation_Status".
-    * "Valid", if Alternative allele(s) in the tumor validation sequence is(are) the same as GDC variant call
+    * "Valid", if the alternative allele(s) in the tumor validation sequence is(are) the same as GDC variant call
     * "Invalid", if none of the alternative allele(s) in the tumor validation sequence is the same as GDC variant call
-    * "Inconclusive" if two alternative allele exists, and one matches while the other does not.
+    * "Inconclusive" if two alternative allele exists, and one matches while the other does not
     * "Unknown" if no validation sequence exists
-6. Column #120 __GDC_Valid_Somatic__ is TRUE if GDC_Validation_Status is "Valid" and the variant is "Somatic" in validation calls.  It is FALSE if these criteria are not met.
+6. Column #120 __GDC_Valid_Somatic__ is TRUE if GDC_Validation_Status is "Valid" and the variant is "Somatic" in validation calls.  It is FALSE if these criteria are not met
