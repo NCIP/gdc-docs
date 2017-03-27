@@ -10,7 +10,7 @@ length is less than 70 bp, whereas [BWA-mem](LINK) is used if the mean read leng
 
 ### Tools ###
 ## References ##
-1. Li, H. and Durbin, R., 2010. Fast and accurate long-read alignment with Burrows–Wheeler transform. Bioinformatics, 26(5), pp.589-595.
+1. Li, H. and Durbin, R., 2010. Fast and accurate long-read alignment with Burrows-Wheeler transform. Bioinformatics, 26(5), pp.589-595.
 
 ## External Links ##
 * [GDC DNA-Seq Documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/)

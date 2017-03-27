@@ -1,6 +1,6 @@
 # Genomic Data Commons (GDC) #
 ## Description ##
-The National Cancer Institute’s (NCI’s) Genomic Data Commons (GDC) is a next generation cancer knowledge network that supports the hosting and standardization of genomic and clinical data from cancer research programs, the harmonization of raw sequence data, and the application of state-of-the art methods for generating high level data (e.g. mutation calls, structural variants, etc.).
+The National Cancer Institute's (NCI's) Genomic Data Commons (GDC) is a next generation cancer knowledge network that supports the hosting and standardization of genomic and clinical data from cancer research programs, the harmonization of raw sequence data, and the application of state-of-the art methods for generating high level data (e.g. mutation calls, structural variants, etc.).
 ## Overview ##
 The NCI Center for Cancer Genomics (CCG) established the GDC to provide the cancer research community with a data service supporting the receipt, quality control, integration, storage, and redistribution of standardized cancer genomic data sets derived from cancer studies.
 
