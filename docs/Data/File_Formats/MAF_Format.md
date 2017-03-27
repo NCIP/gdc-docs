@@ -1,6 +1,4 @@
-# GDC MAF Format
-
-The purpose of this guide is to document the GDC MAF Format v1.0.0.  
+# GDC MAF Format v.1.0.0
 
 ## Introduction
 
