@@ -5,9 +5,9 @@ import os
 import yaml
 
 ABSFILEPATH = os.path.dirname(os.path.realpath(__file__))
-FILEARRAY = os.listdir(ABSFILEPATH + '/../../../docs/Encyclopedia/pages')
+FILEARRAY = os.listdir(ABSFILEPATH + '/docs/Encyclopedia/pages')
 
-with open(ABSFILEPATH + '/../../../mkdocs.yml', 'r') as f:
+with open(ABSFILEPATH + '/mkdocs.yml', 'r') as f:
     doc = yaml.load(f)
 
 encycdict = next(d for (index, d) in enumerate(doc['pages']) \
@@ -22,5 +22,5 @@ for x in range(len(FILEARRAY)):
 
 encycdict['EncyclopediaEntries'] = newlist
 
-with open(ABSFILEPATH + '/../../../mkdocs.yml', 'w+') as f:
+with open(ABSFILEPATH + '/mkdocs.yml', 'w+') as f:
     f.write(yaml.dump(doc, default_flow_style=False))
