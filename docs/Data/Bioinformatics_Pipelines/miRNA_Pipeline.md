@@ -1,7 +1,7 @@
 # miRNA Analysis Pipeline
 
 ## Introduction
-The GDC miRNA quantification analysis makes use of a modified version of the profiling pipeline that the British Columbia Genome Sciences Centre developed.  The pipeline generates TCGA-formatted miRNAseq data.  The first step is read alignment. The tool then compares the individual reads to sequence feature annotations in  miRBase and UCSC. Of note, however, the tool only annotates those reads that have an exact match with known miRNAs in miRBase and should therefore not be considered for novel miRNA identification or mismatched alignments.
+The GDC miRNA quantification analysis makes use of a modified version of the profiling pipeline that the British Columbia Genome Sciences Centre developed.  The pipeline generates TCGA-formatted miRNAseq data. The first step is read alignment. The tool then compares the individual reads to sequence feature annotations in miRBase v21 and UCSC. Of note, however, the tool only annotates those reads that have an exact match with known miRNAs in miRBase and should therefore not be considered for novel miRNA identification or mismatched alignments.
 
 For more information see [BCGSC's GitHub](https://github.com/bcgsc/mirna) or the [original publication](http://nar.oxfordjournals.org/content/early/2015/08/13/nar.gkv808.full).
 

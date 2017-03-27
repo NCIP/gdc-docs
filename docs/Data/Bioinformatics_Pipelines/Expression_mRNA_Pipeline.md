@@ -61,7 +61,7 @@ STAR
 --sjdbGTFfile <gencode.v22.annotation.gtf>
 --runThreadN 8
 ```
-\*These indices are available for download at the GDC Website and do not need to be built again.
+\*These indices are available for download at the [GDC Website](https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files) and do not need to be built again.
 
 #### Step 2: Alignment 1st Pass.
 ```Shell

@@ -963,7 +963,7 @@ The `manifest` endpoint generates a manifest for uploading files using the GDC D
 
 ### Downloading Files
 
-Unreleased files that have been uploaded to the GDC can be downloaded by submitters using the `data` endpoint and an appropriate authentication token. See [Downloading Files](Downloading_Files.md) for details.
+Files in file state = validated can be downloaded by the submitter using the API or the Data Transfer Tool. This is done in a similar manner as files available in the Data Portal, but will require submission access to the particular project in dbGaP as opposed to downloader access.  File UUIDs can be found in the original upload manifest file, the submission portal, or for API call.  See [Downloading Files](Downloading_Files.md) for details.
 
 ### Deleting Files
 

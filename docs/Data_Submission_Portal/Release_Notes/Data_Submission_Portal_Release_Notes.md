@@ -1,15 +1,15 @@
 # Data Submission Portal Release Notes
 
-## Release 1.4.0
+## Release 1.5.1
 
 * __GDC Product__: GDC Data Submission Portal
-* __Release Date__: January 25, 2017
+* __Release Date__: March 16, 2017
 
 ### New Features and Changes
 
 *	 Added ability to delete an entity.  Read more about this [here](http://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Data_Upload_UG/#deleting-submitted-entities) <!-- SUBP-144 -->
-*  Added Project Reports in the projects list page.  Read more about this [here](http://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Homepage/#reports). <!-- SUBP-281 -->
-*  To avoid confusion, renamed "Status" to "State" in the Browse section <!-- SUBP-281 -->
+*  Added Project Reports in the projects list page.  Read more about this [here](http://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Homepage/#reports). <!-- SUBP-281, DAT-286, DAT-287, DAT-289 -->
+*  To avoid confusion, renamed "Status" to "State" in the Browse section <!-- SUBP-237 -->
 *  Added tooltip over Hierarchy title when reviewing an entity <!-- SUBP-238 -->
 *  Restrict the upload window to only supported data formats (JSON and TSV) <!-- SUBP-245 -->
 
@@ -35,8 +35,8 @@
 
 ### Known Issues and Workarounds
 
-*	Project submission and release is currently disabled. <!--SUBP-201-->
-
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
 Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
 ## Release 1.3.0
