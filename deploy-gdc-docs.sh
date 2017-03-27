@@ -109,6 +109,9 @@ done
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Cleaning previous website directory (rm)"
 sudo rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/* -R
 
+echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Build Encyclopedia"
+python buildencyclopedia.py
+
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Deploying new version to /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/"
 /usr/local/bin/mkdocs build -v --site-dir /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/
 
