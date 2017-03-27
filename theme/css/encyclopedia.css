@@ -1,20 +1,20 @@
 @media (min-width: 925px) and (max-width: 1447px) {
-  #body,
+   #body[data-current-page="Encyclopedia"],
   .bs-sidebar {
     margin-top: 8rem !important;
   }
 }
 
-#body{
+#body[data-current-page="Encyclopedia"]{
     margin-top: 20px;
 }
-#main h1 .header-badge{
+#main h1 .header-badge[data-current-page="Encyclopedia"]{
     display: none;
 }
-.hidden{
+.hidden[data-current-page="Encyclopedia"]{
     display: none;
 }
-.main-container{
+[data-current-page="Encyclopedia"] .main-container{
     padding: 0px;
     padding-bottom: 20px;
 }
