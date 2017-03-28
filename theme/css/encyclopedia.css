@@ -5,16 +5,16 @@
   }
 }
 
-#body[data-current-page="Encyclopedia"]{
+#body{
     margin-top: 20px;
 }
-#main h1 .header-badge[data-current-page="Encyclopedia"]{
+#main h1 .header-badge [data-current-page="Encyclopedia"]{
     display: none;
 }
 .hidden[data-current-page="Encyclopedia"]{
     display: none;
 }
-[data-current-page="Encyclopedia"] .main-container{
+.main-container [data-current-page="Encyclopedia"]{
     padding: 0px;
     padding-bottom: 20px;
 }
@@ -33,20 +33,22 @@
 }
 
 .encyclopedia-menu .term-button{
-    background-color:#2c7b87;
-    text-align: center;
+    display: inline-flex;
+    background-color:rgba(44, 123, 135,1);
+    align-items: center;
+    justify-content: center;
     border-radius:2px;
     border:none;
     color:white;
     font-size:18px;
     height:32px;
     width: 32px;
-    display:inline-block;
     padding:0px;
 }
 .encyclopedia-menu .term-button.not-exists{
     pointer-events: none;
     cursor: default;
+    background: rgba(44, 123, 135,0.3)
 }
 
 .encyclopedia-menu .topic-submit-button{

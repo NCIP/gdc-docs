@@ -23,3 +23,6 @@ $(function () {
     }
 });
 
+if(window.location.href.includes('Encyclopedia'))
+    $('body').css('margin-top', '20px');
+
