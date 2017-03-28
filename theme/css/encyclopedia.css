@@ -1,5 +1,5 @@
 @media (min-width: 925px) and (max-width: 1447px) {
-   #body[data-current-page="Encyclopedia"],
+   #body,
   .bs-sidebar {
     margin-top: 8rem !important;
   }

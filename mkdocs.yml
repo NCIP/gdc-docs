@@ -110,13 +110,13 @@ pages:
   - Controlled_Access: Encyclopedia/pages/Controlled_Access.md
   - Copy_Number_Segment: Encyclopedia/pages/Copy_Number_Segment.md
   - Copy_Number_Variation: Encyclopedia/pages/Copy_Number_Variation.md
-  - Data Freeze: Encyclopedia/pages/Data Freeze.md
-  - Data Integrity: Encyclopedia/pages/Data Integrity.md
-  - Data Report: Encyclopedia/pages/Data Report.md
   - Data_Access_Policy: Encyclopedia/pages/Data_Access_Policy.md
   - Data_Archive: Encyclopedia/pages/Data_Archive.md
   - Data_Category_Template: Encyclopedia/pages/Data_Category_Template.md
   - Data_Format_Template: Encyclopedia/pages/Data_Format_Template.md
+  - Data_Freeze: Encyclopedia/pages/Data_Freeze.md
+  - Data_Integrity: Encyclopedia/pages/Data_Integrity.md
+  - Data_Report: Encyclopedia/pages/Data_Report.md
   - Data_Type_Template: Encyclopedia/pages/Data_Type_Template.md
   - DNA_Methylation: Encyclopedia/pages/DNA_Methylation.md
   - DNAcopy: Encyclopedia/pages/DNAcopy.md
