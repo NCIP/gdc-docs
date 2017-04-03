@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Mutation Annotation Format (MAF) is a tab-delimited text file that aggregates mutation information from [VCF Files](VCF_Format.md) and are generated on a project-level.  The GDC produces MAF files at two permission levels: __protected__ and __somatic__ (or open-access). One MAF files is produced per variant calling pipeline per GDC project. MAFs are produced by aggregating the GDC annotated VCF files generated from one pipeline for one project.
+Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mutation information from [VCF Files](VCF_Format.md) and are generated on a project-level. MAF files are produced through the [Somatic Aggregation Workflow](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_aggregation_workflow&_top=1)  The GDC produces MAF files at two permission levels: __protected__ and __somatic__ (or open-access). One MAF files is produced per variant calling pipeline per GDC project. MAFs are produced by aggregating the GDC annotated VCF files generated from one pipeline for one project.
 
-Annotated VCF files often have variants reported on multiple transcripts whereas the protected MAF file generated from the VCFs (\*protected.maf) only reports the most critically affected one. Somatic MAFs (\*somatic.maf) are further processed to remove lower quality and potential germline variants. For tumor samples that contain variants from multiple combinations of tumor-normal aliquot pairs, only one pair is selected in the Somatic MAF based on their sample type. Somatic MAFs are publicly available and can be freely distributed within the boundaries of the [GDC Data Access Policies](https://gdc.cancer.gov/access-data/data-access-policies).
+Annotated VCF files often have variants reported on multiple transcripts whereas the MAF files generated from the VCFs (\*protected.maf) only report the most critically affected one. Somatic MAFs (\*somatic.maf), which are also known as [Masked Somatic Mutation](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) files, are further processed to remove lower quality and potential germline variants. For tumor samples that contain variants from multiple combinations of tumor-normal aliquot pairs, only one pair is selected in the Somatic MAF based on their sample type. Somatic MAFs are publicly available and can be freely distributed within the boundaries of the [GDC Data Access Policies](https://gdc.cancer.gov/access-data/data-access-policies).
 
-The GDC MAF file format is based on the [TCGA Mutation Annotation Format](https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification) specifications, with some additional columns included and some removed.
+The GDC MAF file format is based on the [TCGA Mutation Annotation Format](https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification) specifications, with additional columns included.
 
 __Note:__ The criteria for allowing mutations into open-access are purposefully implemented to overcompensate and filter out germline variants. If omission of true-positive somatic mutations is a concern, the GDC recommends using protected MAFs.  
 
@@ -16,11 +16,11 @@ The process for modifying a protected MAF into a somatic MAF is as follows:
 
 *  Aliquot Selection: only one tumor-normal pair are selected for each tumor sample based on the plate number, sample type, analyte type and other features extracted from tumor TCGA aliquot barcode.
 *  Low quality variant filtering and germline masking:
-    1. Variants with __Mutation_Status != 'Somatic'__ or __GDC_FILTER = 'GapFiller', 'ContEst', 'multi_allelic', 'nonselectedaliquot', 'BCR_Duplicate' or 'BadSeq'__ are __removed__.
+    1. Variants with __Mutation_Status != 'Somatic'__ or __GDC_FILTER = 'Gapfiller', 'ContEst', 'multiallelic', 'nonselectedaliquot', 'BCR_Duplicate' or 'BadSeq'__ are __removed__.
     2. Remaining variants with __GDC_Valid_Somatic = True__ are __included__ in the Somatic MAF.
-    3. Remaining variants with __FILTER != 'panel_of_normals' or PASS__ are __removed__.
+    3. Remaining variants with __FILTER != 'panel_of_normals' or PASS__ are __removed__. Note that the `FILTER != panel_of_normals` value is only relevant for the variants generated from the MuTect2 pipeline.
     4. Remaining variants with __MC3_Overlap = True__ are __included__ in the Somatic MAF.
-    5. Remaining variants with __GDC_FILTER = 'ndp', 'nonExonic', 'bitgt', or 'gdc_pon'__ are __removed__.
+    5. Remaining variants with __GDC_FILTER = 'ndp', 'NonExonic', 'bitgt', or 'gdc_pon'__ are __removed__.
     6. Remaining variants with __SOMATIC != null__ are __included__ in the Somatic MAF.
     7. Remaining variants with __dbSNP_RS = 'novel' or null__ are __included__ in the Somatic MAF.
     8. Remaining variants are __removed__.
@@ -51,7 +51,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 | Column | Description |
 |---|---|
 | 1 - Hugo_Symbol | [HUGO](http://www.genenames.org/) symbol for the gene (HUGO symbols are always in all caps). "Unknown" is used for regions that do not correspond to a gene  |
-| 2 - Entrez_Gene_Id | [Entrez gene](https://www.ncbi.nlm.nih.gov/gene) ID (an integer).  "0" is used for regions that do not correspond to a gene |
+| 2 - Entrez_Gene_Id | [Entrez gene](https://www.ncbi.nlm.nih.gov/gene) ID (an integer).  "0" is used for regions that do not correspond to a gene region or Ensembl ID |
 | 3 - Center| One or more genome sequencing center reporting the variant |
 | 4 - NCBI_Build| The reference genome used for the alignment (GRCh38) |
 | 5 - Chromosome | The affected chromosome (chr1) |
@@ -63,7 +63,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 11 - Reference_Allele | The plus strand reference allele at this position. Includes the deleted sequence for a deletion or "-" for an insertion |
 | 12 - Tumor_Seq_Allele1 | Primary data genotype for tumor sequencing (discovery) allele 1. A "-" symbol for a deletion represents a variant. A "-" symbol for an insertion represents wild-type allele. Novel inserted sequence for insertion does not include flanking reference bases  |
 | 13 - Tumor_Seq_Allele2 | Tumor sequencing (discovery) allele 2  |
-| 14 - dbSNP_RS| The rs-IDs from the [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/) database, null if not found in any database used, or "novel" if there is no dbSNP record, but it is found in other databases|
+| 14 - dbSNP_RS| The rs-IDs from the [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/) database, "novel" if not found in any database used, or null if there is no dbSNP record, but it is found in other databases|
 | 15 - dbSNP_Val_Status | The dbSNP validation status is reported as a semicolon-separated list of statuses. The union of all rs-IDs is taken when there are multiple |
 | 16 - Tumor_Sample_Barcode| Aliquot barcode for the tumor sample |
 | 17 - Matched_Norm_Sample_Barcode| Aliquot barcode for the matched normal sample |
@@ -75,15 +75,15 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 23 - Match_Norm_Validation_Allele2 | Secondary data from orthogonal technology. Matched normal genotyping (validation) for allele 2 (cleared in somatic MAF) |
 | 24 - Verification_Status| Second pass results from independent attempt using same methods as primary data source. Generally reserved for 3730 Sanger Sequencing |
 | 25 - Validation_Status | Second pass results from orthogonal technology |
-| 26 - Mutation_Status | An assessment of the mutation as somatic, germline, LOH, post transcriptional modification, unknown, or none. Updated to reflect validation or verification status and to be in agreement with the VCF VLS field. The values allowed in this field are constrained by the value in the Validation_Status field |
+| 26 - Mutation_Status | An assessment of the mutation as somatic, germline, LOH, post transcriptional modification, unknown, or none. The values allowed in this field are constrained by the value in the Validation_Status field |
 | 27 - Sequencing_Phase | TCGA sequencing phase (if applicable). Phase should change under any circumstance that the targets under consideration change |
 | 28 - Sequence_Source | Molecular assay type used to produce the analytes used for sequencing. Allowed values are a subset of the SRA 1.5 library_strategy field values. This subset matches those used at CGHub |
 | 29 - Validation_Method | The assay platforms used for the validation call |
 | 30 - Score | Not in use |
 | 31 - BAM_File | Not in use |
 | 32 - Sequencer | Instrument used to produce primary sequence data |
-| 33 - Tumor_Sample_UUID | BCR aliquot UUID for tumor sample |
-| 34 - Matched_Norm_Sample_UUID | BCR aliquot UUID for matched normal sample |
+| 33 - Tumor_Sample_UUID | GDC aliquot UUID for tumor sample |
+| 34 - Matched_Norm_Sample_UUID | GDC aliquot UUID for matched normal sample |
 | 35 - HGVSc | The coding sequence of the variant in HGVS recommended format |
 | 36 - HGVSp | The protein sequence of the variant in HGVS recommended format. "p.=" signifies no change in the protein |
 | 37 - HGVSp_Short | Same as the HGVSp column, but using 1-letter amino-acid codes |
