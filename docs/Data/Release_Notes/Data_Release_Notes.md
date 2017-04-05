@@ -8,6 +8,7 @@
 ### New updates
 
 1.  Additional annotations from TCGA DCC are available <!--DAT-52-->
+    * Complete list of updated TCGA files is found [here](DR5.0_CHANGES_TCGA.xlsx)
 2.  Clinical data added for TARGET ALL P1 and P2 <!--DAT-197-->
 3.  Pathology reports now have submitter IDs as assigned by the BCR <!--DAT-81-->
 4.  TARGET Data refresh
