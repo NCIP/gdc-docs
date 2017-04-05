@@ -4,7 +4,7 @@ The GDC Documentation Site is the official project documentation site of the GDC
 
 ## Overview ##
 
-The GDC Documentation Site contains in-depth information and tutorials on the usage of the GDC features. The website includes tutorials on using the Data Portal, API, Data Transfer Tool, Submission Portal, and Data Dictionary. A guide to interpreting the data available at the GDC, which includes guides to the file formats and bioinformatics pipelines used to process the data, is also included.  
+The GDC Documentation Site contains in-depth information and tutorials on the usage of the GDC features. The website includes tutorials on using the Data Portal, API, Data Transfer Tool, Submission Portal, and Data Dictionary. A guide to interpreting the data available at the GDC, which includes guides to the file formats and bioinformatics pipelines used to process the data, is also included.
 
 ## References ##
 1. [GDC Documentation Web Site](https://docs.gdc.cancer.gov)

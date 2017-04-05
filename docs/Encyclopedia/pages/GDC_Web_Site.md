@@ -8,6 +8,6 @@ The GDC Web Site targets data consumers, providers, developers, and general user
 1. [GDC Web Site](https://gdc.cancer.gov)
 
 ## External Links ##
-* TBD
+* N/A
 
 Categories: Tool

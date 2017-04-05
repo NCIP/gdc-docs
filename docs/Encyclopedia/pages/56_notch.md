@@ -1,3 +1,0 @@
-#LMAO
-
-JSOn notch
