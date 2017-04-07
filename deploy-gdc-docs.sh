@@ -28,6 +28,11 @@ fi
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Building script for ${ENVIRONMENT}"
 
+rm /tmp/${ENVIRONMENT}-buildlog.txt
+exec 3>&1 4>&2
+trap 'exec 2>&4 1>&3' 0 1 2 3
+exec 1>/tmp/${ENVIRONMENT}-buildlog.txt 2>&1
+
 if [ -d "~/gdc-docs-${ENVIRONMENT}/" ]; then
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Directory exists, removing"
    sudo rm ~/gdc-docs-${ENVIRONMENT}/ -R
