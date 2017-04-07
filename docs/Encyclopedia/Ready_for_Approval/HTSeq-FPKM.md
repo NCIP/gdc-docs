@@ -22,6 +22,6 @@ See [HTSeq-FPKM-UQ](HTSeq-FPKM-UQ.md) for an alternative method of gene expressi
 
 ## References ##
 1. [GDC mRNA-Seq Documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
-2. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq–a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
+2. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq-a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
 
 Categories: Workflow Type
