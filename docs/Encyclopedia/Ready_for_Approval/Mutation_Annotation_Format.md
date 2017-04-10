@@ -1,6 +1,6 @@
 # Mutation Annotation Format (MAF) #
 ## Description ##
-A Mutation Annotation Format (MAF) files are tab-delimited files that contain somatic and/or germline mutation annotations. MAF files containing any germline mutation annotations are protected and distributed in the controlled access portion of the GDC Data Portal. MAF files containing only somatic mutations are publicly available.
+Mutation Annotation Format (MAF) files are tab-delimited files that contain somatic and/or germline mutation annotations. MAF files containing any germline mutation annotations are protected and distributed in the controlled access portion of the GDC Data Portal. MAF files containing only somatic mutations are publicly available.
 
 ## Overview ##
 Variants are discovered by aligning DNA sequences derived from tumor samples and sequences derived from normal samples to a reference sequence. A MAF file identifies, for all samples in a project, the discovered putative or validated mutations and categorizes those mutations (polymorphism, deletion, or insertion) as somatic (originating in the tumor tissue) or germline (originating from the germline). Mutation annotation are also reported. Note that VCF files report on all transcripts affected by a mutation while MAF files only report on the most affected one.  
