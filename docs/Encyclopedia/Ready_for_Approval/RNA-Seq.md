@@ -1,7 +1,7 @@
 # RNA-Seq #
 ## Description ##
 
-RNA-Seq is used to determine gene expression levels as well as nucleotide-level sequence data. RNA-Seq data originates from extracted RNA that was reverse transcribed into DNA and sequenced on a next-generation sequencing platform. The number of reads determined to have originated from each transcript (usually by alignment) are proportional to their expression level.
+RNA-Seq is a sequencing method used to determine gene expression levels. RNA-Seq data originates from extracted RNA that was reverse transcribed into DNA and sequenced on a next-generation sequencing platform. The number of reads determined to have originated from each transcript (usually by alignment) are proportional to their expression level.
 
 ## Overview ##
 

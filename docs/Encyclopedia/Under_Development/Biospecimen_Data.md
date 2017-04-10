@@ -7,7 +7,9 @@ Biospecimen data describe biospecimen-related elements. A biospecimen element is
 
 In the GDC, biospecimen elements refer to biological specimens that originate from cancer patients and each other.  For example, a `sample` element (entity) comes directly from a patient, but a `portion` that was used to generate a diagnostic slide comes from the `sample`. Each entity has associated attributes that can be used to describe it.  For example, an `analyte` entity has the `analyte_type` attribute, which reports the type of biological molecule that was extracted to produce the `analyte`.
 
-Data included in the GDC will be associated with different biospecimen entities depending on their type. For example, clinical data files will be directly associated with a case entity (a patient) because they are associated with the patient as a whole.  The data used to produce an RNA-Seq alignment originates from sequenced RNA extracts and would be associated with an aliquot entity. See the GDC Data Model and Data Dictionary for details on the biospecimen entity types and their properties.
+Data included in the GDC will be associated with different biospecimen entities depending on their type. For example, clinical data files will be directly associated with a case entity (a patient) because they are associated with the patient as a whole. The data used to produce an RNA-Seq alignment originates from sequenced RNA extracts and would be associated with an aliquot entity. See the GDC Data Model and Data Dictionary for details on the biospecimen entity types and their properties.
+
+The TCGA program, from which many of the GDC attributes were inherited, includes biospecimen elements that are reflected in the structure of the TCGA Barcode.
 
 ### Data ###
 
@@ -25,6 +27,7 @@ Additionally, the biospecimen data that is available from the API is displayed o
 3. [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-model-components)
 4. [GDC Biospecimen Harmonization](https://gdc.cancer.gov/about-data/data-harmonization-and-generation/biospecimen-data-harmonization)
 5. [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/)
+6. [TCGA Barcode](https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode)
 
 ## External Links ##
 * N/A
