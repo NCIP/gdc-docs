@@ -12,7 +12,7 @@ Variant type is reported by the GDC MAF file in a column named `Variant_Type` (c
 * __TNP:__ Triple nucleotide polymorphism -- a substitution in three consecutive nucleotides
 * __ONP:__ Oligo-nucleotide polymorphism -- a substitution in more than three consecutive nucleotides
 * __INS:__ Insertion -- the addition of nucleotides
-* __DEL:__ Deletion -- the removal of nucleotides
+* __DEL:__ Deletion -- the removal of  nucleotides
 
 ## References ##
 1.[GDC MAF File Format](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/)
