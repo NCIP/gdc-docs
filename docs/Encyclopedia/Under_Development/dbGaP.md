@@ -1,12 +1,12 @@
 # Database of Genotypes and Phenotypes (dbGaP) #
 ## Description ##
-The Description section should include the basic definition (description) of the term. Use the GDC dictionary to obtain the definition if available.
+The Database of Genotypes and Phenotypes (dbGaP) is a National Institutes of Health (NIH) sponsored repository charged to archive, curate and distribute information produced by studies investigating the interaction of genotype and phenotype.
 ## Overview ##
-The Overview section should provide information on how the term is used in the GDC. Subsections can be created for this section, if applicable.
+
 ## References ##
 1. [reference name] (reference URL)
 
 ## External Links ##
-* [external link name] (external link URL)
+* https://www.ncbi.nlm.nih.gov/gap
 
 Categories: General
