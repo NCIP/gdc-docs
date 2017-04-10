@@ -10,6 +10,8 @@ The GDC Data Model has an extensive set of clinical elements, but the GDC model 
 
 For example, whether or not a patient has mutations in the ER, PR and HER2 genes is very important when researching breast cancer.  This information would not be very useful in most other cancers, so it can be found in the clinical supplement files for breast cancer patients rather than being incorporated into the data model across all cancers.
 
+While some elements are unique to certain cancers, there is no guarantee that all patients associated with these cancers will have all elements populated. 
+
 ### Data Formats ###
 
 Clinical Supplement files are available in the GDC Data Portal as case-level XML files. Most elements have an associated CDE-ID that can be queried at the CDE Browser website for additional information.  
