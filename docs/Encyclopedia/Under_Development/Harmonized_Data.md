@@ -1,6 +1,6 @@
 # Harmonized Data #
 ## Description ##
-The Description section should include the basic definition (description) of the term. Use the GDC dictionary to obtain the definition if available.
+Harmonized data refers to the collection of raw data from multiple sources and normalizing them so that a valid comparison can be made across these sources.
 ## Overview ##
 The Overview section should provide information on how the term is used in the GDC. Subsections can be created for this section, if applicable.
 ## References ##
