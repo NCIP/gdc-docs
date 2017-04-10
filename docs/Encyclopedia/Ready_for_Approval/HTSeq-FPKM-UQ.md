@@ -13,6 +13,7 @@ FPKM = [RM<sub>g</sub> * 10<sup>9</sup> ] / [RM<sub>75</sub> * L]
 * RM<sub>75</sub>: The number of read mapped to the 75th percentile gene in the alignment.
 * L: The length of the gene in base pairs
 
+Like [HTSeq - count](HTSeq-Counts.md) files, FPKM-UQ files are available as tab delimited files with the Ensembl gene IDs in the first column and the expression values in the second.
 
 ### Notes
 - The scalar (10<sup>9</sup>) is added to normalize the values to "__kilo__ base" and "__million__ mapped reads."
@@ -24,5 +25,9 @@ FPKM = [RM<sub>g</sub> * 10<sup>9</sup> ] / [RM<sub>75</sub> * L]
 ## References ##
 1. [GDC mRNA-Seq Documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
 2. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq-a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
+
+## External Links##
+* [Ensembl Human Genome](http://www.ensembl.org/Homo_sapiens/Info/Annotation)
+* [GENCODE 22](http://www.gencodegenes.org/releases/22.html)
 
 Categories: Workflow Type

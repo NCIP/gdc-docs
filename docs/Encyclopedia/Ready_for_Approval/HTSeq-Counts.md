@@ -1,4 +1,5 @@
 # HTSeq-Counts #
+
 ## Description ##
 
 HTSeq is a Python package that calculates the number of mapped reads to each gene.
@@ -13,5 +14,9 @@ The first step in generating gene expression values from an RNA-Seq alignment at
 ## References ##
 1. [GDC mRNA-Seq Documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
 2. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq-a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
+
+## External Links##
+* [Ensembl Human Genome](http://www.ensembl.org/Homo_sapiens/Info/Annotation)
+* [GENCODE 22](http://www.gencodegenes.org/releases/22.html)
 
 Categories: Workflow Type

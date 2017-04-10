@@ -1,18 +1,19 @@
 # Mutation Annotation Format (MAF) #
 ## Description ##
-A Mutation Annotation Format (MAF) is a tab-delimited file containing somatic and/or germline mutation annotations. MAF files containing any germline mutation annotations are kept in the controlled access portion of the GDC Data Portal. MAF files containing only somatic mutations are kept in the open access portion of the GDC Data Portal.[1]
+A Mutation Annotation Format (MAF) files are tab-delimited files that contain somatic and/or germline mutation annotations. MAF files containing any germline mutation annotations are protected and distributed in the controlled access portion of the GDC Data Portal. MAF files containing only somatic mutations are publicly available.
 
 ## Overview ##
-Variants are discovered by aligning DNA sequences derived from tumor samples and sequences derived from normal samples to a reference sequence. A MAF file identifies, for each sample, the discovered putative or validated mutations and categorizes those mutations (polymorphism, deletion, or insertion) as somatic (originating in the tumor tissue) or germline (originating from the germline) as well as the annotation for those mutations.[1]
+Variants are discovered by aligning DNA sequences derived from tumor samples and sequences derived from normal samples to a reference sequence. A MAF file identifies, for all samples in a project, the discovered putative or validated mutations and categorizes those mutations (polymorphism, deletion, or insertion) as somatic (originating in the tumor tissue) or germline (originating from the germline). Mutation annotation are also reported. Note that VCF files report on all transcripts affected by a mutation while MAF files only report on the most affected one.  
 
-MAF files are generated at the GDC using the Variant Aggregation pipeline.
+MAF files are generated at the GDC using the Variant Aggregation pipeline by aggregating case-level VCF files on a project and pipeline level (one protected MAF per project per pipeline). Protected MAF files are further processed into open-access somatic MAF files by removing potentially erroneous or germline mutations.
 
 ### Structure ###
-The structure of the MAF is available in the [GDC MAF Specification] (https://gdc-docs.nci.nih.gov/Data/File_Formats/MAF_Format/) along with descriptions for each field.
+The structure of the MAF is available in the [GDC MAF Specification](https://gdc-docs.nci.nih.gov/Data/File_Formats/MAF_Format/) along with descriptions for each field.
 
 ## References ##
 1. [GDC MAF Format](https://gdc-docs.nci.nih.gov/Data/File_Formats/MAF_Format/)
 2. [Mutation Annotation Format](https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format)
+3. [GDC-Dictionary: Somatic Aggregation Pipeline](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_aggregation_workflow)
 
 ## External Links ##
 * [TCGA MAF specification](https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification)
