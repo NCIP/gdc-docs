@@ -9,6 +9,6 @@ The Overview section should provide information on how the term is used in the G
 1. https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/#entity-uuids
 
 ## External Links ##
-* [external link name] (external link URL)
+* https://en.wikipedia.org/wiki/Universally_unique_identifier
 
 Categories: General
