@@ -1,6 +1,12 @@
 # Clinical Data #
+
 ## Description ##
+Clinical data is a collection of clinical trial information or patient care records.  
+
 ## Overview ##
+In the GDC clinical data is generally stored in XML format and accessible as metadata to experimental data in a case. In addition to the XML format clinical data is available in the biotab format on the Legacy Portal.
+
+
 ### Data ###
 ### Validation ###
 ### Analysis ###
