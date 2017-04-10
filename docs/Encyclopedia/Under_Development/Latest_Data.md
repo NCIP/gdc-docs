@@ -1,10 +1,13 @@
 # Latest Data #
+
 ## Description ##
-The Description section should include the basic definition (description) of the term. Use the GDC dictionary to obtain the definition if available.
+A large-scale data commons that provides processed data files will inevitably start to have newer versions of the files due to improvements,   
+
 ## Overview ##
-The Overview section should provide information on how the term is used in the GDC. Subsections can be created for this section, if applicable.
+The default setting for the GDC is to provide the latest version of the data.
+
 ## References ##
-1. [reference name] (reference URL)
+1. [GDC Portal](https://portal.gdc.cancer.gov/)
 
 ## External Links ##
 * [external link name] (external link URL)

@@ -1,7 +1,7 @@
 # HTSeq-Counts #
 ## Description ##
 
-HTSeq is a Python package that calculates the number of mapped reads to each protein-coding gene.
+HTSeq is a Python package that calculates the number of mapped reads to each gene.
 
 ## Overview ##
 
