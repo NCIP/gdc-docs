@@ -4,9 +4,11 @@ The Database of Genotypes and Phenotypes (dbGaP) is the National Institutes of H
 ## Overview ##
 
 ## References ##
-1. [reference name] (reference URL)
+1. https://gdc.cancer.gov/access-data/obtaining-access-controlled-data
+2. https://gdc.cancer.gov/access-data/obtaining-access-controlled-data/registering-and-working-era-commons-and-dbgap  
 
 ## External Links ##
 * https://www.ncbi.nlm.nih.gov/gap
+* https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=login
 
 Categories: General
