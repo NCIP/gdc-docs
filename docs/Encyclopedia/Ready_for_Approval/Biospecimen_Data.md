@@ -1,7 +1,7 @@
 # Biospecimen Data #
 
 ## Description ##
-Biospecimen data describe biospecimen-related elements. A biospecimen element is a classification of biospecimen data that describe a common form of biospecimen. A biospecimen often takes the form of a case, sample, portion, analyte, or aliquot. They can be represented in a hierarchical relationship to one another.
+Biospecimen data includes information about how a patient's tissue was processed and subsampled for use in histology and molecular assays. They can be represented in a hierarchical relationship to one another.
 
 ## Overview ##
 
