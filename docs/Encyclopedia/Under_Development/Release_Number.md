@@ -1,12 +1,19 @@
 # Release Number #
 ## Description ##
-The Description section should include the basic definition (description) of the term. Use the GDC dictionary to obtain the definition if available.
+The release number defines the latest revision of different parts of the GDC.
 ## Overview ##
-The Overview section should provide information on how the term is used in the GDC. Subsections can be created for this section, if applicable.
+The release number keeps track of new releases of the GDC.  The different parts of the GDC that may be updated and their release information (which contains the release number) are summarized below:
+
+* __API__: [Release Notes](https://docs.gdc.cancer.gov/API/Release_Notes/API_Release_Notes/#api-release-notes)
+* __Data Portal__: [Release Notes](https://docs.gdc.cancer.gov/Data_Portal/Release_Notes/Data_Portal_Release_Notes/)
+* __Data Submission Portal__: [Release Notes](https://docs.gdc.cancer.gov/Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes/)
+* __Data Transfer Tool__: [Release Notes](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Release_Notes/DTT_Release_Notes/)
+* __Data__: [Release Notes](https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/)
+
 ## References ##
-1. [reference name] (reference URL)
+N/A
 
 ## External Links ##
-* [external link name] (external link URL)
+N/A
 
 Categories: General
