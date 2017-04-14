@@ -4,9 +4,9 @@ The Description section should include the basic definition (description) of the
 ## Overview ##
 The Overview section should provide information on how the term is used in the GDC. Subsections can be created for this section, if applicable.
 ## References ##
-1. [reference name] (reference URL)
+1. [GDC API]https://gdc.cancer.gov/developers/gdc-application-programming-interface-api
 
 ## External Links ##
-* [external link name] (external link URL)
+* [Representational state transfer]https://en.wikipedia.org/wiki/Representational_state_transfer
 
 Categories: General
