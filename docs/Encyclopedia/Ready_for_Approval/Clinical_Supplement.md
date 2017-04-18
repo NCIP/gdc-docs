@@ -2,11 +2,11 @@
 
 ## Description ##
 
-The purpose of a clinical supplement file is to make available clinical information that does not fit into an established data structure.
+The purpose of a clinical supplement file is to make available clinical information that does not fit into the GDC Data Dictionary.
 
 ## Overview ##
 
-The GDC Data Dictionary has an extensive set of clinical elements<sup>1</sup>. However, due to the number and variety of submitting projects the GDC is not able to accommodate all possible clinical elements into the GDC Data Dictionary.  The Clinical supplement offers a way for submitters to include all existing clinical data even though it may not conform to the GDC Data Dictionary. Note that the content of these files is not searchable via the API and may use different CDEs and vocabulary than other projects stored in the GDC.  
+The GDC Data Dictionary has an extensive set of clinical elements<sup>1</sup>. However, due to the number and variety of submitting projects the GDC is not able to accommodate all possible clinical elements into the GDC Data Dictionary. The clinical supplement offers a way for submitters to include all existing clinical data even though it may not conform to the GDC Data Dictionary. Note that the content of these files is not searchable via the API, does not fit the GDC Data Dictionary, and may use different CDEs and vocabulary than other projects stored in the GDC.  
 
 For example, whether or not a patient has mutations in the ER, PR and HER2 genes is very important when researching breast cancer. This information would not be very useful in most other cancers, so it can be found in the clinical supplement files for breast cancer patients rather than being incorporated into the data model across all cancers.
 
