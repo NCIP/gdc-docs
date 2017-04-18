@@ -5,7 +5,7 @@ RNA-Seq is a sequencing method used to determine gene expression levels. RNA-Seq
 
 ## Overview ##
 
-RNA-Seq data in the GDC is used to generate a gene expression profile for tumor samples across many cancer types and to determine which gene expression levels are responsible for tumor development. The GDC harmonizes RNA-Seq data by aligning raw RNA reads to the GRCh38 reference genome build and calculating gene expression levels with standardized protocols. RNA-Seq data is mostly available for tumor samples, although some normal samples have associated RNA-Seq data.
+RNA-Seq data in the GDC is used to generate a gene expression profile for tumor samples across many cancer types and to determine which gene expression levels are responsible for tumor development. The GDC harmonizes RNA-Seq data by aligning raw RNA reads to the GRCh38 reference genome build and calculating gene expression levels with standardized protocols<sup>1</sup>. RNA-Seq data is mostly available for tumor samples, although some normal samples have associated RNA-Seq data.
 
 ### Data ###
 

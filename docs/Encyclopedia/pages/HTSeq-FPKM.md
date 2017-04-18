@@ -5,7 +5,7 @@ Fragments Per Kilobase of transcript per Million mapped reads (FPKM) is a simple
 
 ## Overview ##
 
-FPKM is implemented at the GDC on gene-level read counts that are produced by HTSeq and generated using custom scripts. The formula used to generate FPKM values is as follows:
+FPKM is implemented at the GDC on gene-level read counts that are produced by HTSeq<sup>1</sup> and generated using custom scripts<sup>2</sup>. The formula used to generate FPKM values is as follows:
 
 FPKM = [RM<sub>g</sub> * 10<sup>9</sup> ] / [RM<sub>t</sub> * L]
 
@@ -21,8 +21,9 @@ Like [HTSeq - count](HTSeq-Counts.md) files, FPKM files are available as tab del
 1. [HTSeq Website](http://www-huber.embl.de/users/anders/HTSeq/doc/overview.html)
 
 ## References ##
-1. [GDC mRNA-Seq Documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
-2. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq-a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
+1. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq-a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
+2. [GDC mRNA-Seq Documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
+
 
 ## External Links##
 * [Ensembl Human Genome](http://www.ensembl.org/Homo_sapiens/Info/Annotation)

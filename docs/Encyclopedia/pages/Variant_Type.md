@@ -5,7 +5,7 @@ Variant callers identify multiple types of variants.  The type of variant can be
 
 ## Overview ##
 
-Variant type is reported by the GDC MAF file in a column named `Variant_Type` (column 10). The following variant types are reported:
+Variant type is reported by the GDC MAF file in a column named `Variant_Type` (column 10)<sup>1</sup>. The following variant types are reported:
 
 * __SNP:__ Single nucleotide polymorphism -- a substitution in one nucleotide
 * __DNP:__ Double nucleotide polymorphism -- a substitution in two consecutive nucleotides
