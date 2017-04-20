@@ -26,6 +26,5 @@ In the GDC clinical data is searchable in the API, Data Portal, or Legacy Archiv
 
 * https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html
 * https://cbiit.nci.nih.gov/
-*
 
 Categories: Data Category
