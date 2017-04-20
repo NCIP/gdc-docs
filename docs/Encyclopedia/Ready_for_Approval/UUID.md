@@ -3,7 +3,7 @@
 A UUID (Universal Unique Identifier) is a 128-bit number used to uniquely identify an object or entity in a system.
 
 ## Overview ##
-In the GDC every entity in the data model is assigned a UUID.  An entity can be a file, case, project, or other node.  Uniquely identifying objects in this manner allows the GDC to have a uniform method of referencing any object in the system.        
+In the GDC every entity in the data model is assigned a UUID.  An entity can be a file, case, project, or other node.  Uniquely identifying objects in this manner allows the GDC to have a uniform method of referencing any object in the system<sup>1</sup>.        
 
 
 ## References ##
