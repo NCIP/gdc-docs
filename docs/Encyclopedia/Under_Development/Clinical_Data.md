@@ -5,7 +5,7 @@ Clinical data is a collection of data related to patient diagnosis, exposure, la
 
 ## Overview ##
 
-A core focus of the GDC is enable relating cancer genomic data to patient clinical data.  This may include patient diagnosis, exposure, laboratory tests, and family relationships.  To allow for comparisons across projects the GDC adheres to a common set of clinical terms.
+A core focus of the GDC is to enable the comparison of cancer genomic data to patient clinical data.  This may include patient diagnosis, exposure, laboratory tests, and family relationships.  To allow for comparisons across projects the GDC adheres to a common set of clinical terms.
 
 Clinical data vocabulary in the GDC is defined in the GDC Data Dictionary<sup>1</sup>.  A simple list of all GDC clinical terms can be found here<sup>2</sup>. Whenever possible each clinical data property is tied to a Common Data Element defined in the [CDE Browser](https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html), which is part of the [Center for Biomedical Informatics & Information Technology](https://cbiit.nci.nih.gov/).  CDEs and their component definitions in the [NCI Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/) provide very precise descriptions of clinical data, which allows data consumers and submitters to understand precisely what data in the GDC represents.
 
