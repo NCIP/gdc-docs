@@ -4,9 +4,8 @@ Controlled Access data is data that may be unique to an individual. All data typ
 The controlled access data tier requires user certification.
 ## Overview ##
 ## References ##
-1. [Controlled Access](https://wiki.nci.nih.gov/display/TCGA/Controlled+access)
 
 ## External Links ##
-* N/A
+* [Controlled Access](https://wiki.nci.nih.gov/display/TCGA/Controlled+access)
 
 Categories: General
