@@ -1,6 +1,6 @@
 # GDC Documentation Site #
 ## Description ##
-The GDC Documentation Site is the official project documentation site of the GDC which provides users with detailed information on GDC tools and data.
+The GDC Documentation Site<sup>1</sup> is the official project documentation site of the GDC which provides users with detailed information on GDC tools and data.
 
 ## Overview ##
 

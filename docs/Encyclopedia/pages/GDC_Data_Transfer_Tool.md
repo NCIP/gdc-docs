@@ -1,10 +1,10 @@
 # GDC Data Transfer Tool (DTT) #
 ## Description ##
-The GDC Data Transfer Tool (DTT) provides a standard client-based mechanism in support of high performance data downloads and submission.
+The GDC Data Transfer Tool (DTT)<sup>1</sup> provides a standard client-based mechanism in support of high performance data downloads and submission.
 ## Overview ##
 The GDC DTT provides an optimized method of transferring data to and from the GDC, and enables resumption of interrupted transfers. The GDC DTT is the preferred option for downloading or submitting large or numerous files.
 
-Key GDC DTT features include:
+Key GDC DTT features include<sup>2</sup>:
 
 * Command-line interface to specify the desired data transfer protocol
 * Utilization of a manifest file generated from the GDC Data Portal and GDC Data Submission Portal for multiple downloads and uploads, respectively

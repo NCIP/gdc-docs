@@ -1,6 +1,6 @@
 # Center for Cancer Genomics (CCG) #
 ## Description ##
-The Center for Cancer Genomics (CCG) is an organization within the National Cancer Institute (NCI) that unifies NCI's activities in cancer genomics by aiming to synthesize research in different fields of cancer genomics - structural, functional, and computational - to improve patient outcomes.
+The Center for Cancer Genomics (CCG) is an organization within the National Cancer Institute (NCI) that unifies NCI's activities in cancer genomics by aiming to synthesize research in different fields of cancer genomics - structural, functional, and computational - to improve patient outcomes<sup>1</sup>.
 
 ## Overview ##
 CCG and the offices it oversees-The Cancer Genome Atlas (TCGA) and the Office of Cancer Genomics (OCG)-manage multiple programs. These offices serve to advance CCG's goal of ushering in a modern era of diagnosis, treatment, and prevention based on the study of genomes.
