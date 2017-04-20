@@ -7,7 +7,7 @@ A data submitter uploads approved data to the GDC for harmonization and public r
 
 ### Submission Project Approval
 
-A prospective data submitter must first have their project approved by the GDC. Project approval is granted based on the context of the study, the number of samples in the study, and the available data types<sup>1</sup>. Project approval requests can be directed to GDC User Support<sup>2</sup>.  Once approved, the samples in the submission project must be registered with dbGaP.   
+A prospective data submitter must first have their project approved by the GDC. Project approval is granted based on the context of the study, the number of samples in the study, and the available data types<sup>1</sup>. Project approval requests can be directed to GDC User Support<sup>2</sup>. Before data can be uploaded to the GDC, a project and all cases must first be registered in dbGaP. Individuals who wish to upload data for a particular project must be registered as a data submitter in dbGaP for that project.
 
 ### Data Upload
 
@@ -15,7 +15,7 @@ Data upload must be performed based on the GDC Data Model<sup>3</sup> and Data D
 
 ### Additional Data Submitter Roles
 
-After all project data is uploaded and reviewed, the data submitter can release the data for distribution and submit the data to the GDC for harmonization.  
+After all project data is uploaded and reviewed, the data submitter can release and/or submit the project. Releasing the project gives the GDC permission to distribute data to users. Submitting the project verifies that the data has been reviewed and is ready for harmonization.    
 
 ## References ##
 1. [Requesting Data Submission](https://gdc.cancer.gov/node/633/)
