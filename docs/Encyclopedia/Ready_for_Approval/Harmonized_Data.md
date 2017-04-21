@@ -1,7 +1,7 @@
 # Harmonized Data #
 ## Description ##
 
-Harmonized data refers to the collection of raw data from multiple sources and normalizing them so that a valid comparison can be made across these sources.
+Harmonized data refers to the collection of raw data from multiple sources that has been normalized so that a valid comparison can be made across these sources.
 
 ## Overview ##
 
