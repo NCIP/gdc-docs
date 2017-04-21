@@ -1,7 +1,7 @@
 # SNP Array-Based Data #
 ## Description ##
 
-SNP Arrays produce data based on DNA hybridization levels to a set of array probes. Hybridization occurs on the arrays based on the presence of probe-specific SNPs in the chromosome.
+SNP Arrays produce data based on DNA hybridization levels to a set of array probes. Hybridization occurs on the arrays based on the presence or absence of probe-specific SNPs in the chromosome.
 
 ## Overview ##
 
