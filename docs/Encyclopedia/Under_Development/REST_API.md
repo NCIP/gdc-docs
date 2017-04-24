@@ -2,7 +2,7 @@
 ## Description ##
 A RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data.
 ## Overview ##
-The GDC offers a RESTful API to the client that allows them access to perform all functions currently available on the data portals with the added bonus of accessing additional features like querying the API for information only found in the meta data.  This helps the researcher by allowing them to make a single query to retrieve data that would take multiple steps to retrieve.  The process of retrieving the information can also be scripted and presented in a TSV file format giving the research another level of flexibility.       
+The GDC offers a RESTful API to the client that allows them access to perform all functions currently available on the data portals with the added bonus of accessing additional features like advanced queries to meta data, scripted data downloads, and submission function.  These extended features provide a multifaceted tool set to the researcher that can save time and bring data once only available in raw format no presented in a searchable data base format.    
 
 
 
