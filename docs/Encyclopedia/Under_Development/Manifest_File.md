@@ -9,10 +9,10 @@ For GDC submission projects that require multiple experimental data uploads a ma
 
 
 ## References ##
-1. [Manifest endpoint]https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/#manifest-endpoint
-2. [GDC Data Transfer Tool]https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Cart/#gdc-data-transfer-tool
-3. [Upload Manifest] https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#upload-manifest
-4. [Data Transfer Tool Submission with Manifest ]https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-a-manifest-file-for-data-uploads
+1. [Manifest endpoint](https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/#manifest-endpoint)
+2. [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Cart/#gdc-data-transfer-tool)
+3. [Upload Manifest](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#upload-manifest)
+4. [Data Transfer Tool Submission with Manifest ](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-a-manifest-file-for-data-uploads)
 ## External Links ##
 * [external link name] (external link URL)
 
