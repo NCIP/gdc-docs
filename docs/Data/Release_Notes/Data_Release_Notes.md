@@ -7,9 +7,9 @@
 
 ### New updates
 
-1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy. Detailed description of the new format can be found here.
-2.  Protected MAFs are updated to include additional variant annotation information.
-3.  Some MuTect2 VCFs updated to include dbSNP and COSMIC annotations.
+1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy. Detailed description of the new format can be found [here](Data/File_Formats/MAF_Format/).
+2.  Protected MAFs are updated to include additional variant annotation information
+3.  Some MuTect2 VCFs updated to include dbSNP and COSMIC annotations found in other VCFs
 
 ### Bugs Fixed Since Last Release
 
