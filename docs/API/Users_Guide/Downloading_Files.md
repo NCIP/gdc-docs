@@ -12,6 +12,9 @@ To download a file, users can pass UUID(s) to the `data` endpoint.  If a single 
 
 The `data` endpoint supports GET and POST requests as demonstrated in the following examples.
 
+### Tar File Option
+If the `?tarfile` parameter is specified to a data endpoint download query all files requested in the download string will be bundled in a single tar file.         
+
 ### Related Files
 
 If the `related_files=true` parameter is specified, the following related files, if available, will be included in the download package by the GDC API:
