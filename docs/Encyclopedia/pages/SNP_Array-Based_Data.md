@@ -16,6 +16,6 @@ The GDC stores processed SNP Array-Based data in the active harmonized portal. T
 2. [GDC Legacy Archive](https://portal.gdc.cancer.gov/legacy-archive/)
 
 ## External Links ##
-* TBD
+* N/A
 
 Categories: Data Type
