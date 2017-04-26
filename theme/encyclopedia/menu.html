@@ -1,0 +1,44 @@
+<h1><a href="/Encyclopedia/" style="color: inherit; text-decoration: none;">Encyclopedia<a></h1>
+<div style="display: flex; flex-direction: column; width: 250px; margin-right: 20px; float: left" class="encyclopedia-menu toc-container">
+    <div class="side-box">
+        <!--<span class="side-box-title">Search the Encyclopedia<br>
+        <input class="side-box-input encyclopedia-search" type="text" style="margin-bottom: 12px;">
+        </span>-->
+        <span class="side-box-title">Browse the terms</span>
+        <br>
+        <div style="line-height: 36px; margin-top: 10px; margin-bottom: 7px">
+            {% set letters = [] %}
+            {% set numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] %}
+            {% for nav_item in nav %}
+                {% if nav_item.title == "EncyclopediaEntries" %}
+                    {% for child in nav_item.children|sort(case_sensitive=False, attribute='title') %}
+                        {% if letters[letters|length -1] != child.title[0]|upper %}
+                            {% if letters.append(child.title[0]) %}{% endif %}
+                        {% endif %}
+                        {% if child.title[0] in numbers %}
+                            {% if letters.append("#") %}{% endif %} 
+                        {% endif %}   
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            {% for letter in ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"] %}
+                {% if letter == "#" %}
+                    <a href="/Encyclopedia#num" class="{% if letter not in letters %}not-exists {% endif %}term-button term-link">{{letter}}</a>
+                {% else %}
+                    <a href="/Encyclopedia#{{letter}}" class="{% if letter not in letters %}not-exists {% endif %}term-button term-link">{{letter}}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <a style="font-weight: bold" class="side-box-text" id="view-all-link" href="/Encyclopedia#">View All <i class="fa fa-chevron-right"></i></a> 
+    </div>
+    <div class="side-box">
+        <span class="side-box-title" style="padding-right: 108px; border-bottom: 1px solid #e5e5e5;">Suggest a Topic</span>
+        <br>
+        <br>
+        <span class="side-box-text" style="line-height: 10px;">Our goal is to maintain this resource as an important tool for understanding cancer biology. If there is
+            a topic you are unsure about, please suggest it below.
+        </span> 
+        <br>
+        <a href="mailto:support@nci-gdc.datacommons.io?subject=Encyclopedia:%20Suggest%20a%20topic&body=Hi!%20I%20would%20like%20to%20suggest%20a%20topic%20for%20the%20encyclopedia." class="topic-submit-button">Contact us &nbsp;</a>
+    </div>
+</div>

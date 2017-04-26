@@ -554,6 +554,12 @@ Submitting an [__Experiment Metadata__](https://gdc-docs.nci.nih.gov/Data_Dictio
 type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
 experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
 ```
+## Annotation Submission
+
+The GDC Data Portal supports the use of annotations for any submitted entity or file.  An annotation entity may include comments about why particular patients or samples are not present or why they may exhibit critical differences from others.  Annotations include information that cannot be submitted to the GDC through other existing nodes or properties.
+
+If a submitter would like to create an annotation please contact the GDC Support Team (support@nci-gdc.datacommons.io).
+
 ## Deleting Submitted Entities
 
 The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.

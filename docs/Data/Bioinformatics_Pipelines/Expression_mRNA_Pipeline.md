@@ -124,7 +124,7 @@ STAR
 ### mRNA Expression Workflow
 Following alignment, BAM files are processed through the [RNA Expression Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=rna_expression_workflow).
 
-First the BAM files are filtered for reads that were aligned to protein-coding genes using the [samtools](http://samtools.sourceforge.net) view function. The reads mapped to each protein-coding gene are enumerated using HT-Seq count. Expression values are provided in a tab-delimited format. [GENCODE v22](http://www.gencodegenes.org/releases/22.html) was used for gene annotation.
+First the BAM files are filtered for aligned reads using the [samtools](http://samtools.sourceforge.net) view function. The reads mapped to each gene are enumerated using HT-Seq count. Expression values are provided in a tab-delimited format. [GENCODE v22](http://www.gencodegenes.org/releases/22.html) was used for gene annotation.
 
 [![Gene Expression Pipeline](images/gene-expression-quantification-pipeline.png)](images/gene-expression-quantification-pipeline.png "Click to see the full image.")
 
@@ -192,6 +192,6 @@ To facilitate the use of harmonized data in user-created pipelines, RNA-Seq gene
 | Type | Description | Format |
 |---|---|---|
 | RNA-Seq Alignment | RNA-Seq reads that have been aligned to the GRCh38 build. Reads that were not aligned are included to facilitate the availability of raw read sets  |  BAM |
-| Raw Read Counts | The number of reads aligned to each protein-coding gene, calculated by HT-Seq. |  TXT |
-| FPKM | A normalized expression value that takes into account each protein-coding gene length and the number of reads mappable to all protein-coding genes |  TXT |
+| Raw Read Counts | The number of reads aligned to each gene, calculated by HT-Seq. |  TXT |
+| FPKM | A normalized expression value that takes into account each gene length and the number of reads mapped to all protein-coding genes |  TXT |
 | FPKM-UQ | A modified version of the FPKM formula in which the 75th percentile read count is used as the denominator in place of the total number of protein-coding reads |  TXT |

@@ -21,12 +21,21 @@
         <link rel="stylesheet" href="/css/highlight.css">
         <link href="/css/base.css" rel="stylesheet">
         <link href="/css/gdc-common.css" rel="stylesheet">
-        <link href="/css/gdc-fonts.css" rel="stylesheet"
+        <link href="/css/gdc-fonts.css" rel="stylesheet">
+        <link href="/css/encyclopedia.css" rel="stylesheet">
         {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
 
-
+        {% set encyclopedia_pages = [] %}
+        {% for page in config.pages %}
+            {% if config.extra.encyclopedia_entries_page_title in page %}
+                {% for page in page[config.extra.encyclopedia_entries_page_title] %}
+                    {% if encyclopedia_pages.append(page) %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -70,12 +79,14 @@
             {% include "nav.html" %}
 
             <div id="docs-container" class="container">
-                <div id="body">
+                <div data-current-page="{{current_page.title}}"id="body">
                 <!-- {% if toc and ((toc | first) is defined) and current_page.title != config.extra.dictionary_viewer_page_id %}
                 <div class="col-md-3 toc-container" role="navigation" aria-label="In-Page Navigation">{% include "toc.html" %}</div>
                 {% endif %} -->
 
-                {% if current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != 'Home' %}
+                {% if "/Encyclopedia" in current_page.abs_url %}
+                  {% include "encyclopedia/menu.html" %}
+                {% elif current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != 'Home' %}
                   {% include "nav-section-map.html" %}
                 {% elif current_page.title == 'Home' %}
                   {% if toc and ((toc | first) is defined) %}
@@ -83,12 +94,16 @@
                   {% endif %}
                 {% endif %}
 
-                {% if current_page.title != config.extra.dictionary_viewer_page_id%}
-                <div class="col-md-9 main-container fadeInBlurIntroOld loading-content-old" role="main" id="main" tabindex="-1">
-                {% else %}
+                {% if current_page.title == config.extra.dictionary_viewer_page_id%}
                 <div class="col-md-12 main-container" role="main" id="main" tabindex="-1">
+                {% else %}
+                <div class="col-md-9 main-container fadeInBlurIntroOld loading-content-old" role="main" id="main" tabindex="-1">
                 {% endif %}
-                   {% include "content.html" %}
+                {% if current_page.title == config.extra.encyclopedia_page_title%}
+                    {% include "encyclopedia/index.html" %}
+                {% else %}
+                    {% include "content.html" %}    
+                {% endif %}
                 </div>
                     {% if next_page or previous_page %}
                     <div class="history-nav-control-container clearfix" role="navigation" aria-label="footer navigation">
@@ -132,12 +147,14 @@
                     </div>
                 </div>
             </footer>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+
 
             <script src="/js/jquery-1.12.0.min.js"></script>
             <script src="/js/jQuery-FontSpy.js"></script>
             <script src="/js/bootstrap-3.3.6.min.js"></script>
             <script src="/js/highlight.pack.js"></script>
-            <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="/js/lunr-0.5.7.min.js"></script>
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
             <script src="/js/jquery.scrollUp.min.js"></script>
@@ -150,6 +167,10 @@
             {%- for path in extra_javascript %}
             <script src="{{ path }}"></script>
             {%- endfor %}
+
+            {% if current_page.title == config.extra.encyclopedia_page_title %}
+                <script src="/js/encyclopedia.js"></script>
+            {% endif %}
         </div>
     </body>
 </html>

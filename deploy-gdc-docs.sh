@@ -28,6 +28,11 @@ fi
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Building script for ${ENVIRONMENT}"
 
+rm /tmp/${ENVIRONMENT}-buildlog.txt
+exec 3>&1 4>&2
+trap 'exec 2>&4 1>&3' 0 1 2 3
+exec 1>/tmp/${ENVIRONMENT}-buildlog.txt 2>&1
+
 if [ -d "~/gdc-docs-${ENVIRONMENT}/" ]; then
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Directory exists, removing"
    sudo rm ~/gdc-docs-${ENVIRONMENT}/ -R
@@ -108,6 +113,9 @@ done
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Cleaning previous website directory (rm)"
 sudo rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/* -R
+
+echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Build Encyclopedia"
+python buildencyclopedia.py
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Deploying new version to /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/"
 /usr/local/bin/mkdocs build -v --site-dir /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/
