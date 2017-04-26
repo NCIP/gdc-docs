@@ -11,9 +11,7 @@ The GDC API implements file download functionality using `data` and `manifest` e
 To download a file, users can pass UUID(s) to the `data` endpoint.  If a single UUID is provided, the API will return the associated file. If a comma-separated list of UUIDs is provided, the API will return an archive file containing the requested files.
 
 The `data` endpoint supports GET and POST requests as demonstrated in the following examples.
-
-### Tar File Option
-If the `?tarfile` parameter is specified to a data endpoint download query all files requested in the download string will be bundled in a single tar file.         
+       
 
 ### Related Files
 
