@@ -14,7 +14,4 @@ RNA-Seq data is available as aligned reads (BAM) and expression levels as: [raw 
 ## References ##
 1. [GDC mRNA Expression Pipeline](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
 
-## External Links ##
-* N/A
-
 Categories: Experimental Strategy
