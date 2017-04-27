@@ -12,12 +12,6 @@ To download a file, users can pass UUID(s) to the `data` endpoint.  If a single 
 
 The `data` endpoint supports GET and POST requests as demonstrated in the following examples.
 
-### Tar File Option
-If the `?tarfile` parameter is specified to a data endpoint download query all files requested in the download string will be bundled in a single tar file.  
-```shell
-curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/1da7105a-f0ff-479d-9f82-6c1d94456c91,77e73cc4-ff31-449e-8e3c-7ae5ce57838c?tarfile'
-```      
-
 ### Related Files
 
 If the `related_files=true` parameter is specified, the following related files, if available, will be included in the download package by the GDC API:
@@ -58,6 +52,13 @@ curl: Saved to filename 'gdc_download_064d1aa8cc8cbab33e93979bebbf7d6af2d6a802.t
 ```
 
 **Note:** This method supports downloading a limited number of files at one time. To download a large number of files, please use [POST](#downloading-multiple-files-using-post).
+
+#### Downloading an Uncompressed Group of Files
+
+If the `?tarfile` parameter is specified to a data endpoint download query all files requested in the download string will be bundled in a single tar file rather than a tar.gz file which is the default behavior.  
+```shell
+curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/1da7105a-f0ff-479d-9f82-6c1d94456c91,77e73cc4-ff31-449e-8e3c-7ae5ce57838c?tarfile'
+```      
 
 ### Downloading Multiple Files using POST
 
