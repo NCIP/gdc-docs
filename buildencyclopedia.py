@@ -5,7 +5,7 @@ import os
 import yaml
 
 ABSFILEPATH = os.path.dirname(os.path.realpath(__file__))
-FILEARRAY = os.listdir(ABSFILEPATH + '/docs/Encyclopedia/pages')
+FILEARRAY = sorted(os.listdir(ABSFILEPATH + '/docs/Encyclopedia/pages'))
 
 with open(ABSFILEPATH + '/mkdocs.yml', 'r') as f:
     doc = yaml.load(f)
