@@ -1,9 +1,9 @@
 # Data Access Policy #
 ## Description ##
-A Data Access Policy is an established control put in place to ensure that data protection requirements are adhered to. The GDC Data Access Policy ensures that personally identifiable information in data made available in the GDC is kept from unauthorized users. GDC access control policies adhere to the [National Institutes of Health (NIH) Genomic Data Sharing Policy (GDS) Policy](https://gds.nih.gov/03policy2.html) as well as the [NCI GDS Policy](https://www.cancer.gov/grants-training/grants-management/nci-policies/genomic-data). The GDC requires that users obtain authorization from the [National Center for Biotechnology Information (NCBI) Database of Genotypes and Phenotypes (dbGaP)](https://www.ncbi.nlm.nih.gov/gap) for accessing controlled data.
+A Data Access Policy is an established control put in place to ensure that data protection requirements are adhered to. The GDC Data Access Policy<sup>1</sup> ensures that personally identifiable information in data made available in the GDC is kept from unauthorized users. GDC access control policies adhere to the [National Institutes of Health (NIH) Genomic Data Sharing Policy (GDS) Policy](https://gds.nih.gov/03policy2.html)<sup>2</sup> as well as the [NCI GDS Policy](https://www.cancer.gov/grants-training/grants-management/nci-policies/genomic-data)<sup>3</sup>. The GDC requires that users obtain authorization from the [National Center for Biotechnology Information (NCBI) Database of Genotypes and Phenotypes (dbGaP)](https://www.ncbi.nlm.nih.gov/gap) for accessing controlled data.
 
 ## Overview ##
-Any user accessing GDC open data must adhere to the NIH Genomic Data Sharing (GDS) Policy which indicates that investigators who download unrestricted-access data from NIH-designated data repositories should:
+Any user accessing GDC open data must adhere to the NIH Genomic Data Sharing (GDS) Policy<sup>2</sup> which indicates that investigators who download unrestricted-access data from NIH-designated data repositories should:
 
 * Not attempt to identify individual human research participants from whom the data were obtained
 * Acknowledge in all oral or written presentations, disclosures, or publications the specific dataset(s) or applicable accession number(s) and the NIH-designated data repositories through which the investigator accessed any data
