@@ -28,8 +28,8 @@ Descriptions for fields present in GDC Harmonized Methylation Beta Values Table 
 ---
 | I/O | Entity | Format |
 |---|---|---|
-| Input | [Submitted Methylation Beta Values](Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_methylation_beta_value) |  TXT |
-| Output | [Methylation Beta Values](Data_Dictionary/viewer/#?view=table-definition-view&id=methylation_beta_value) or Masked Copy Number Segment | TXT  |
+| Input | [Submitted Methylation Beta Values](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_methylation_beta_value) |  TXT |
+| Output | [Methylation Beta Values](/Data_Dictionary/viewer/#?view=table-definition-view&id=methylation_beta_value) or Masked Copy Number Segment | TXT  |
 
 ## File Access and Availability
 
