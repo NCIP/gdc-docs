@@ -17,7 +17,7 @@ The network's eleven specialized centers are comprised of foremost experts in th
 
 __Visualization:__
 
-The network's single visualization center, led by first-time grant recipient Jingchun Zhu, Ph.D., of University of California Santa Cruz, will enable the research community to interact with and manipulate the CCG data. This group developed UCSC Xena, an interactive interface for visualizing genomics data, and will continue to refine their platform as the network’s visualization center.
+The network's single visualization center, led by first-time grant recipient Jingchun Zhu, Ph.D., of University of California Santa Cruz, will enable the research community to interact with and manipulate the CCG data. This group developed UCSC Xena, an interactive interface for visualizing genomics data, and will continue to refine their platform as the network's visualization center.
 
 ## References ##
 1. TBD
