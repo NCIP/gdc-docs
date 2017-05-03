@@ -27,7 +27,7 @@ The following is an example of an HTTP POST request to the `files` endpoint of t
 
 #### Request
 
-	curl --request POST --header "Content-Type: application/json" --data @Payload 'https://gdc-api.nci.nih.gov/files' > response.tsv
+	curl --request POST --header "Content-Type: application/json" --data @Payload 'https://api.gdc.cancer.gov/files' > response.tsv
 
 #### Payload
 
@@ -67,7 +67,7 @@ Each component of the request is explained below.
 
 The above request can be executed as an HTTP GET:
 
-	https://gdc-api.nci.nih.gov/files?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.submitter_id%22%2C%22value%22%3A%5B%22TCGA-CK-4948%22%2C%22TCGA-D1-A17N%22%2C%22TCGA-4V-A9QX%22%2C%22TCGA-4V-A9QM%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_type%22%2C%22value%22%3A%22Gene%20Expression%20Quantification%22%7D%7D%5D%7D&format=tsv&fields=file_id,file_name,cases.submitter_id,cases.case_id,data_category,data_type,cases.samples.tumor_descriptor,cases.samples.tissue_type,cases.samples.sample_type,cases.samples.submitter_id,cases.samples.sample_id,analysis.workflow_type,cases.project.project_id,cases.samples.portions.analytes.aliquots.aliquot_id,cases.samples.portions.analytes.aliquots.submitter_id&size=1000
+	https://api.gdc.cancer.gov/files?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.submitter_id%22%2C%22value%22%3A%5B%22TCGA-CK-4948%22%2C%22TCGA-D1-A17N%22%2C%22TCGA-4V-A9QX%22%2C%22TCGA-4V-A9QM%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_type%22%2C%22value%22%3A%22Gene%20Expression%20Quantification%22%7D%7D%5D%7D&format=tsv&fields=file_id,file_name,cases.submitter_id,cases.case_id,data_category,data_type,cases.samples.tumor_descriptor,cases.samples.tissue_type,cases.samples.sample_type,cases.samples.submitter_id,cases.samples.sample_id,analysis.workflow_type,cases.project.project_id,cases.samples.portions.analytes.aliquots.aliquot_id,cases.samples.portions.analytes.aliquots.submitter_id&size=1000
 
 Each component of the request is explained below.
 
@@ -93,7 +93,7 @@ The `projects` endpoint provides access to project records, the highest level of
 This example is a query for projects contained in the GDC. It uses the [from](#from), [size](#size), [sort](#sort), and [pretty](#pretty) parameters, and returns the first two projects sorted by project id.
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=2&sort=project.project_id:asc&pretty=true'
+curl 'https://api.gdc.cancer.gov/projects?from=1&size=2&sort=project.project_id:asc&pretty=true'
 ```
 ``` Output
 
@@ -135,7 +135,7 @@ curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=2&sort=project.project_id
 The `project` endpoint supports a simple query format that retrieves the metadata of a single project using its `project_id`:
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/projects/TARGET-NBL?expand=summary,summary.experimental_strategies,summary.data_categories&pretty=true'
+curl 'https://api.gdc.cancer.gov/projects/TARGET-NBL?expand=summary,summary.experimental_strategies,summary.data_categories&pretty=true'
 ```
 ```Response
 {
@@ -193,14 +193,14 @@ curl 'https://gdc-api.nci.nih.gov/projects/TARGET-NBL?expand=summary,summary.exp
 
 ### Files Endpoint
 
-The GDC Files Endpoint `https://gdc-api.nci.nih.gov/files` enables search and retrieval of information relating to files stored in the GDC, including file properties such as `file_name`, `md5sum`, `data_format`, and others.
+The GDC Files Endpoint `https://api.gdc.cancer.gov/files` enables search and retrieval of information relating to files stored in the GDC, including file properties such as `file_name`, `md5sum`, `data_format`, and others.
 
 #### Example
 
 This example is a query for files contained in the GDC. It uses the [from](#from), [size](#size), [sort](#sort), and [pretty](#pretty) parameters, and returns only the first two files, sorted by file size, from smallest to largest.
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=true'
+curl 'https://api.gdc.cancer.gov/files?from=1&size=2&sort=file_size:asc&pretty=true'
 ```
 ``` Output
 	{
@@ -258,7 +258,7 @@ curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=
 The `files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID:
 
 ```Shell
-curl 'https://gdc-api.nci.nih.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pretty=true'
+curl 'https://api.gdc.cancer.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pretty=true'
 ```
 ```
 {
@@ -313,7 +313,7 @@ The `files/ids` endpoint corresponds to the "Quick Search" functionality of the 
 Requests to this endpoint must be in the format `files/ids?query=`, as provided in the example below. The endpoint returns up to 500 results, which cannot be adjusted with the `size` parameter.
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/files/ids?query=nationwidechildrens.org_clinical.TCGA-EM&pretty=true'
+curl 'https://api.gdc.cancer.gov/files/ids?query=nationwidechildrens.org_clinical.TCGA-EM&pretty=true'
 ```
 ``` Output
 {
@@ -408,7 +408,7 @@ curl 'https://gdc-api.nci.nih.gov/files/ids?query=nationwidechildrens.org_clinic
 
 ### Cases Endpoint
 
-The GDC Cases Endpoint `https://gdc-api.nci.nih.gov/cases` enables search and retrieval of information related to a specific case.
+The GDC Cases Endpoint `https://api.gdc.cancer.gov/cases` enables search and retrieval of information related to a specific case.
 
 __Note:__ The `cases` endpoint is designed to retrieve the metadata associated with one or more cases, including all nested biospecimen entities. Filters can be applied to retrieve information for entire cases, but not for lower-level biospecimen entities. For example, a sample within a case cannot be used to query for aliquots that are associated only with that sample. All aliquots associated with the case would be retrieved.
 
@@ -422,7 +422,7 @@ This example is a query for files contained in GDC. It returns case where submit
 Command:
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22submitter_id%22%2C%22value%22%3A%5B%22TCGA-BH-A0EA%22%5D%7D%7D%5D%7D%0A%0A&pretty=true'
+curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22submitter_id%22%2C%22value%22%3A%5B%22TCGA-BH-A0EA%22%5D%7D%7D%5D%7D%0A%0A&pretty=true'
 ```
 ``` Output
 {
@@ -543,7 +543,7 @@ curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22con
 The `cases` endpoint supports a simple query format that retrieves the metadata of a single case using its UUID:
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pretty=true&expand=diagnoses'
+curl 'https://api.gdc.cancer.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pretty=true&expand=diagnoses'
 ```
 ```Response
 {
@@ -674,7 +674,7 @@ curl 'https://gdc-api.nci.nih.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pre
 
 ### Annotations Endpoint
 
-The GDC Annotation Endpoint `https://gdc-api.nci.nih.gov/annotations` enables search and retrieval of annotations stored in the GDC.
+The GDC Annotation Endpoint `https://api.gdc.cancer.gov/annotations` enables search and retrieval of annotations stored in the GDC.
 
 
 #### Example
@@ -704,7 +704,7 @@ The query uses the [filters](#filters) parameter to specify entity UUIDs. Code s
 %7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22entity_id%22%2C%22value%22%3A%5B%22e0d36cc0-652c-4224-bb10-09d15c7bd8f1%22%2C%2225ebc29a-7598-4ae4-ba7f-618d448882cc%22%2C%22fe660d7c-2746-4b50-ab93-b2ed99960553%22%5D%7D%7D
 ```
 ```shell
-curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22entity_id%22%2C%22value%22%3A%5B%22e0d36cc0-652c-4224-bb10-09d15c7bd8f1%22%2C%2225ebc29a-7598-4ae4-ba7f-618d448882cc%22%2C%22fe660d7c-2746-4b50-ab93-b2ed99960553%22%5D%7D%7D&pretty=true'
+curl 'https://api.gdc.cancer.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22entity_id%22%2C%22value%22%3A%5B%22e0d36cc0-652c-4224-bb10-09d15c7bd8f1%22%2C%2225ebc29a-7598-4ae4-ba7f-618d448882cc%22%2C%22fe660d7c-2746-4b50-ab93-b2ed99960553%22%5D%7D%7D&pretty=true'
 ```
 ``` Output
 {
@@ -795,7 +795,7 @@ The query uses the [filters](#filters) parameter to specify entity UUIDs. Code s
 %7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22annotation.case_id%22%2C%22value%22%3A%5B%22513c5f34-dc6e-4caa-81cc-907fd6a825b1%22%2C%22942c0088-c9a0-428c-a879-e16f8c5bfdb8%22%5D%7D%7D
 ```
 ```shell
-curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22annotation.case_id%22%2C%22value%22%3A%5B%22513c5f34-dc6e-4caa-81cc-907fd6a825b1%22%2C%22942c0088-c9a0-428c-a879-e16f8c5bfdb8%22%5D%7D%7D&pretty=true&size=30'
+curl 'https://api.gdc.cancer.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22annotation.case_id%22%2C%22value%22%3A%5B%22513c5f34-dc6e-4caa-81cc-907fd6a825b1%22%2C%22942c0088-c9a0-428c-a879-e16f8c5bfdb8%22%5D%7D%7D&pretty=true&size=30'
 ```
 ``` Output
 {
@@ -1180,7 +1180,7 @@ curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%
 
 ### \_mapping Endpoint
 
-Each search and retrieval endpoint is equipped with a ```_mapping``` endpoint that provides information about available fields. For example, `files/_mapping` endpoint provides information about fields and field groups available at the `files` endpoint: `https://gdc-api.nci.nih.gov/files/_mapping`.
+Each search and retrieval endpoint is equipped with a ```_mapping``` endpoint that provides information about available fields. For example, `files/_mapping` endpoint provides information about fields and field groups available at the `files` endpoint: `https://api.gdc.cancer.gov/files/_mapping`.
 
 The high-level structure of a response to a `_mapping` query is as follows:
 
@@ -1208,7 +1208,7 @@ Each part of the response is described below:
 #### Example
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/projects/_mapping'
+curl 'https://api.gdc.cancer.gov/projects/_mapping'
 ```
 ```output
 {
@@ -1279,7 +1279,7 @@ The following `filters` query operators are supported by the GDC API:
 
 The `field` operand specifies a field that corresponds to a property defined in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). A list of supported fields is provided in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint).
 
-The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://gdc-api.nci.nih.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`. See [Facets](#facets) for details.
+The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://api.gdc.cancer.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`. See [Facets](#facets) for details.
 
 A simple query with a single operator looks like this:
 
@@ -1341,12 +1341,12 @@ URL-encoding the above JSON object using [Percent-(URL)-encoding tool](http://te
 The above string can now be passed to the GDC API using the `filters` parameter:
 
 ```shell
- curl  'https://gdc-api.nci.nih.gov/cases?filters=%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.demographic.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d&pretty=true'
+ curl  'https://api.gdc.cancer.gov/cases?filters=%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.demographic.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d&pretty=true'
 ```
 ```python
 import requests
 import json
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+cases_endpt = 'https://api.gdc.cancer.gov/cases'
 filt = {"op":"=",
         "content":{
             "field": "cases.demographic.gender",
@@ -2092,7 +2092,7 @@ The first step is to construct a JSON query object, including `filters`, `fields
 }
 ```
 ```Shell
-curl --request POST --header "Content-Type: application/json" --data @Payload.txt 'https://gdc-api.nci.nih.gov/files' > File_metadata.txt
+curl --request POST --header "Content-Type: application/json" --data @Payload.txt 'https://api.gdc.cancer.gov/files' > File_metadata.txt
 ```
 ```File_metadata_txt
 cases_0_submitter_id	cases_0_case_id	data_type	cases_0_samples_0_sample_type	cases_0_samples_0_tissue_type	file_name	cases_0_samples_0_submitter_id	cases_0_samples_0_portions_0_analytes_0_aliquots_0_aliquot_id	cases_0_samples_0_sample_id	file_id	data_category	cases_0_samples_0_tumor_descriptor	cases_0_samples_0_portions_0_analytes_0_aliquots_0_submitter_id
@@ -2121,12 +2121,12 @@ Specifies the format of the API response: JSON (default), `TSV` or `XML`.
 #### Examples
 
 ```shell1
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&size=5&format=TSV'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&size=5&format=TSV'
 ```
 ```python1
 import requests
 
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+cases_endpt = 'https://api.gdc.cancer.gov/cases'
 params = {'fields':'submitter_id',
           'format':'TSV'}
 response = requests.get(cases_endpt, params = params)
@@ -2141,12 +2141,12 @@ TCGA-BQ-5876
 TCGA-Z6-A9VB
 ```
 ```shell2
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&size=5&format=XML&pretty=true'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&size=5&format=XML&pretty=true'
 ```
 ```python2
 import requests
 
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+cases_endpt = 'https://api.gdc.cancer.gov/cases'
 params = {'fields':'submitter_id',
           'format':'XML',
           'pretty':'true'}
@@ -2195,13 +2195,13 @@ Returns when the `pretty` parameter is set to `true`, the API response is format
 #### Example
 
 ```Request1
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5'
 ```
 ```Response1
 {"data": {"hits": [{"submitter_id": "TARGET-20-PABGKN"}, {"submitter_id": "TARGET-20-PABHET"}, {"submitter_id": "TARGET-20-PABHKY"}, {"submitter_id": "TARGET-20-PABLDZ"}, {"submitter_id": "TARGET-20-PACDZR"}], "pagination": {"count": 5, "sort": "submitter_id.raw:asc", "from": 1, "pages": 2811, "total": 14052, "page": 1, "size": 5}}, "warnings": {}}
 ```
 ```Request2
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5&pretty=true'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5&pretty=true'
 ```
 ```Response2
 {
@@ -2246,13 +2246,13 @@ This query parameter specifies which fields are to be included in the API respon
 The following example requests case submitter ID, file UUID, file name and file size from the `files` endpoint.
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/files?fields=cases.submitter_id,file_id,file_name,file_size&pretty=true'
+curl 'https://api.gdc.cancer.gov/files?fields=cases.submitter_id,file_id,file_name,file_size&pretty=true'
 ```
 ```python
 import requests
 import json
 
-files_endpt = 'https://gdc-api.nci.nih.gov/files'
+files_endpt = 'https://api.gdc.cancer.gov/files'
 params = {'fields':'cases.submitter_id,file_id,file_name,file_size'}
 response = requests.get(files_endpt, params = params)
 print json.dumps(response.json(), indent=2)
@@ -2383,7 +2383,7 @@ The `expand` parameter provides a shortcut to request multiple related fields (f
 #### Example
 
 ```Shell
-curl 'https://gdc-api.nci.nih.gov/files/ac2ddebd-5e5e-4aea-a430-5a87c6d9c878?expand=cases.samples&pretty=true'
+curl 'https://api.gdc.cancer.gov/files/ac2ddebd-5e5e-4aea-a430-5a87c6d9c878?expand=cases.samples&pretty=true'
 ```
 ```
 {
@@ -2459,13 +2459,13 @@ The `from` query parameter specifies the first record to return out of the set o
 
 
 ``` Shell1
-curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&from=0&size=2&pretty=true'
+curl 'https://api.gdc.cancer.gov/files?fields=file_name&from=0&size=2&pretty=true'
 ```
 ``` Python1
 import requests
 import json
 
-files_endpt = 'https://gdc-api.nci.nih.gov/files'
+files_endpt = 'https://api.gdc.cancer.gov/files'
 params = {'fields':'file_name',
           'from':0, 'size':2}
 response = requests.get(files_endpt, params = params)
@@ -2497,13 +2497,13 @@ print json.dumps(response.json(), indent=2)
 }
 ```
 ``` Shell2
-curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&from=101&size=5&pretty=true'
+curl 'https://api.gdc.cancer.gov/files?fields=file_name&from=101&size=5&pretty=true'
 ```
 ``` Python2
 import requests
 import json
 
-files_endpt = 'https://gdc-api.nci.nih.gov/files'
+files_endpt = 'https://api.gdc.cancer.gov/files'
 params = {'fields':'file_name',
           'from':101, 'size':5}
 response = requests.get(files_endpt, params = params)
@@ -2552,13 +2552,13 @@ The `sort` query parameter sorts the results by a specific field, and with the s
 Sort cases by `submitter_id` in ascending order:
 
 ``` shell
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&pretty=true'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&pretty=true'
 ```
 ``` python
 import requests
 import json
 
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+cases_endpt = 'https://api.gdc.cancer.gov/cases'
 params = {'fields':'submitter_id',
           'sort':'submitter_id:asc'}
 response = requests.get(cases_endpt, params = params)
@@ -2627,13 +2627,13 @@ The `facets` parameter can be used in conjunction with the `filters` parameter t
 This is an example of a request for a count of projects in each program.
 
 ```shell
-curl  'https://gdc-api.nci.nih.gov/projects?facets=program.name&from=1&size=0&sort=program.name:asc&pretty=true'
+curl  'https://api.gdc.cancer.gov/projects?facets=program.name&from=1&size=0&sort=program.name:asc&pretty=true'
 ```
 ```python
 import requests
 import json
 
-projects_endpt = 'https://gdc-api.nci.nih.gov/projects'
+projects_endpt = 'https://api.gdc.cancer.gov/projects'
 params = {'facets':'program.name',
           'from':1, 'size':0,
           'sort':'program.name:asc'}
@@ -2704,7 +2704,7 @@ In this sample POST request, both `filters` and `facets` parameters are used. No
 }
 ```
 ```Shell
-curl --request POST --header "Content-Type: application/json" --data @Payload 'https://gdc-api.nci.nih.gov/v0/cases'
+curl --request POST --header "Content-Type: application/json" --data @Payload 'https://api.gdc.cancer.gov/v0/cases'
 ```
 ``` Response
 {

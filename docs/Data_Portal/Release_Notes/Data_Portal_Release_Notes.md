@@ -4,7 +4,7 @@
 ## Release 1.4.2
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: April 27, 2017
+* __Release Date__: May 4, 2017
 
 ### New Features and Changes
 

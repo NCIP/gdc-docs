@@ -30,7 +30,7 @@ Each read group is aligned to the reference genome separately and all read group
 
 Quality control metrics are collected before and after the alignment workflow and reviewed to identify potential low-quality data files.  Basic metrics such as GC content and mean read length as well as quality score metrics are collected from unaligned reads using [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Quality metrics collected by the GDC for aligned reads include samtools idxstat and flagstat. Alignment information is collected using Picard [CollectMultipleMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectMultipleMetrics) for both WGS and WXS. Coverage information is collected using picard [CollectWgsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectWgsMetrics) for WGS and picard [CollectHsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectHsMetrics) for WXS.
 
-Quality control metrics for each file endpoint can be accessed through the API using the `expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs` parameter. Click [here](https://gdc-api.nci.nih.gov/files/40e311a4-67aa-468a-8e09-1c7daa2d10bb?pretty=true&expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs) for an example query.  
+Quality control metrics for each file endpoint can be accessed through the API using the `expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs` parameter. Click [here](https://api.gdc.cancer.gov/files/40e311a4-67aa-468a-8e09-1c7daa2d10bb?pretty=true&expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs) for an example query.  
 
 #### Reference Genome
 
@@ -372,8 +372,8 @@ While these criteria cause the pipeline to over-filter some of the true positive
 
 ## File Access and Availability
 
-Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Portal](https://gdc-portal.nci.nih.gov) in BAM, VCF, and MAF formats. Descriptions are listed below for all available data types and their respective file formats.
 
+Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Portal](https://portal.gdc.cancer.gov) in BAM, VCF, and MAF formats. Descriptions are listed below for all available data types and their respective file formats.
 
 | Data Type | Description | File Format |
 |---|---|---|

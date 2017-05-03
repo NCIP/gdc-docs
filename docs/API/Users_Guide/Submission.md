@@ -12,13 +12,13 @@ This section describes the GDC API's submission functionality, including methods
 
 The endpoint for submitting data to a specific project in the GDC is constructed as follows:
 
-	https://gdc-api.nci.nih.gov/[API_version/]submission/Program.name/Project.code
+	https://api.gdc.cancer.gov/[API_version/]submission/Program.name/Project.code
 
 where __[API_version/]__ is the optional API version component (see [Getting Started](Getting_Started.md)).
 
 The values of `Program.name` and `Project.code` can be obtained from the project URL on the GDC Data Submission Portal:
 
-	https://gdc-portal.nci.nih.gov/submission/Program.name/Project.code/dashboard
+	https://portal.gdc.cancer.gov/submission/Program.name/Project.code/dashboard
 
 For more information about program name and project code see [The GDC Data Model  section](../../Data/Data_Model/GDC_Data_Model/#program-name-project-code-and-project-id).
 
@@ -26,9 +26,9 @@ For more information about program name and project code see [The GDC Data Model
 
 The following are URL examples for a project with `Program.name` "TCGA" and `Project.code` "ALCH":
 
-* Submission Portal URL: `https://gdc-portal.nci.nih.gov/submission/TCGA/ALCH/dashboard`
-* API submission endpoint (versioned): `https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH`
-* API submission endpoint (unversioned): `https://gdc-api.nci.nih.gov/submission/TCGA/ALCH`
+* Submission Portal URL: `https://portal.gdc.cancer.gov/submission/TCGA/ALCH/dashboard`
+* API submission endpoint (versioned): `https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH`
+* API submission endpoint (unversioned): `https://api.gdc.cancer.gov/submission/TCGA/ALCH`
 
 ## Submission Formats
 
@@ -52,8 +52,8 @@ While JSON and TSV are the recommended formats for submitting metadata, the GDC 
 
 To submit BCR XML, make `PUT` requests with the `Content-Type: application/xml` header to the following URLs, replacing Program.name and Project.code as desribed in [Submission Endpoint](#submission_endpoint) (above):
 
-0. For Biospecimen BCR XML: `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/biospecimen/bcr/`
-0. For Clinical BCR XML: `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/clinical/bcr/`.
+0. For Biospecimen BCR XML: `https://api.gdc.cancer.gov/v0/submission/Program.name/Project.code/xml/biospecimen/bcr/`
+0. For Clinical BCR XML: `https://api.gdc.cancer.gov/v0/submission/Program.name/Project.code/xml/clinical/bcr/`.
 
 Biospecimen BCR XML creates Case entities in the GDC Data Model, whereas Clinical BCR XML does not. Unless the associated cases already exist in the GDC, Biospecimen BCR XML must be uploaded before Clinical BCR XML.
 
@@ -61,7 +61,7 @@ BCR XML files can be submitted in dry run mode, described [below](#dry-run-trans
 
 The following is a sample shell command for submitting an XML file:
 
-	curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @biospecimen.xml 'https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/xml/biospecimen/bcr/_dry_run'
+	curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @biospecimen.xml 'https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/xml/biospecimen/bcr/_dry_run'
 
 **NOTE:** A typical BCR XML file contains more information than what is extracted and indexed by the GDC. XML files submitted to the above endpoints are not retained or distributed to GDC data users, so the same files should also be submitted as data files (i.e. as clinical or biospecimen supplements).
 
