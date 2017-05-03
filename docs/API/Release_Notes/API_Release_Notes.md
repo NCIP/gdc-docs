@@ -3,11 +3,11 @@
 ## v1.7.2
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__: April 27, 2017
+* __Release Date__: May 4, 2017
 
 ### New Features and Changes
 
-* New ability to control whether a file will be compressed or not when downloading.  For further details see the API User Guide <!--API-175-->
+* Added ability to control whether a file will be compressed or not when downloading.  For further details see the API User Guide <!--API-175-->
 
 ### Known Issues and Workarounds
 

@@ -3,11 +3,11 @@
 ## Data Release 6.0
 
 * __GDC Product__: Data
-* __Release Date__: April 27, 2017
+* __Release Date__: May 4, 2017
 
 ### New updates
 
-1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy. Detailed description of the new format can be found [here](Data/File_Formats/MAF_Format/).
+1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy. Detailed description of the new format can be found [here](../File_Formats/MAF_Format/).
 2.  Protected MAFs are updated to include additional variant annotation information
 3.  Some MuTect2 VCFs updated to include dbSNP and COSMIC annotations found in other VCFs
 
