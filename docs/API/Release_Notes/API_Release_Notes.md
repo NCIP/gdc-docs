@@ -7,7 +7,7 @@
 
 ### New Features and Changes
 
-* Added ability to control whether a file will be compressed or not when downloading.  For further details see the API User Guide <!--API-175-->
+* Added ability to control whether a file will be compressed or not when downloading.  For further details see the [API User Guide](../Users_Guide/Downloading_Files/#downloading-an-uncompressed-group-of-files) <!--API-175-->
 
 ### Known Issues and Workarounds
 
