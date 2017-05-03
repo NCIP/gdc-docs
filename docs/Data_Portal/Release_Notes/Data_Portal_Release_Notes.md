@@ -28,7 +28,7 @@
 
 Example
 
-    https://gdc-api.nci.nih.gov/files/455e26f7-03f2-46f7-9e7a-9c51ac322461?pretty=true&fields=analysis.input_files.file_name
+    https://api.gdc.cancer.gov/files/455e26f7-03f2-46f7-9e7a-9c51ac322461?pretty=true&fields=analysis.input_files.file_name
 
 
 
@@ -85,7 +85,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 
 Example
 
-    https://gdc-api.nci.nih.gov/files/455e26f7-03f2-46f7-9e7a-9c51ac322461?pretty=true&fields=analysis.input_files.file_name
+    https://api.gdc.cancer.gov/files/455e26f7-03f2-46f7-9e7a-9c51ac322461?pretty=true&fields=analysis.input_files.file_name
 
 
 
@@ -139,7 +139,7 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 
 Example
 
-    https://gdc-api.nci.nih.gov/files/455e26f7-03f2-46f7-9e7a-9c51ac322461?pretty=true&fields=analysis.input_files.file_name
+    https://api.gdc.cancer.gov/files/455e26f7-03f2-46f7-9e7a-9c51ac322461?pretty=true&fields=analysis.input_files.file_name
 
 
 

@@ -1,7 +1,7 @@
 # Release
 Project release occurs after the data has been harmonized and allows users to access this data with the GDC Data Portal. The GDC will release data according to [GDC Data Sharing Policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data may be released after six months from the date of upload, or the submitter may request earlier release using the "Release Project" function.  A project can only be released once. If additional data is added to the project after it is released, the data will be released automatically after harmonization.  
 
-Upon release, harmonized data will be available to GDC users through the [GDC Data Portal](https://gdc-portal.nci.nih.gov/) and other [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
+Upon release, harmonized data will be available to GDC users through the [GDC Data Portal](https://portal.gdc.cancer.gov/) and other [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
 
 **Note:** To release data to the GDC Data Portal, the user must have release privileges.
 

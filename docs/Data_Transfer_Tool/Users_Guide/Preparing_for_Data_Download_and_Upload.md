@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GDC Data Transfer Tool is intended to be used in conjunction with the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission/) to transfer data to or from the GDC. First, the GDC Data Portal&#39;s interface is used to generate a manifest file or obtain UUID(s) and (for Controlled-Access Data) an authentication token. The GDC Data Transfer Tool is then used to transfer the data files listed in the manifest file or identified by UUID(s).
+The GDC Data Transfer Tool is intended to be used in conjunction with the [GDC Data Portal](https://portal.gdc.cancer.gov) and the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/) to transfer data to or from the GDC. First, the GDC Data Portal&#39;s interface is used to generate a manifest file or obtain UUID(s) and (for Controlled-Access Data) an authentication token. The GDC Data Transfer Tool is then used to transfer the data files listed in the manifest file or identified by UUID(s).
 
 ##Downloads
 ### Obtaining a Manifest File for Data Download
@@ -47,7 +47,7 @@ Multiple data file uploads are supported by the GDC Data Transfer Tool via a man
 
 **NOTE:** To download a project's manifest file click on the _Download Manifest_ button located on the home page of the project, just below the four status charts.  A manifest will be generated for the entire project or if previous files have already been upload only the files that remain to be uploaded.  
 
-A manifest for individual files can also be downloaded from the transaction tab and browse tab pages of the submission portal's project.  More information on the process can be found under the Submission Portal's documentation section entitled [Step 4: GDC Data Transfer Tool](https://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Upload_Data/#step-4-gdc-data-transfer-tool).
+A manifest for individual files can also be downloaded from the transaction tab and browse tab pages of the submission portal's project.  More information on the process can be found under the Submission Portal's documentation section entitled [Step 4: GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Upload_Data/#step-4-gdc-data-transfer-tool).
 
 ### Obtaining UUIDs for Data Uploads
 A UUID can be used for data submission with the Data Transfer Tool.  The UUID for submittable data uploads can be obtained from the Submission Portal or from the API GraphQL endpoint.  In the Submission Portal the UUID for a data file can be found in the Manifest YAML file located in the _id:_ row located under the file size entry.
@@ -61,7 +61,7 @@ A UUID can be used for data submission with the Data Transfer Tool.  The UUID fo
 
 ###GraphQL
 
-A UUID can be obtained from the API GraphQL endpoint.  An overview of what GraphQL and its uses is located on the API documentation page section [Querying Submitted Data Using GraphQL](https://gdc-docs.nci.nih.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
+A UUID can be obtained from the API GraphQL endpoint.  An overview of what GraphQL and its uses is located on the API documentation page section [Querying Submitted Data Using GraphQL](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql)
 
 The following example will query the endpoint to produce a UUID along with submitter_id, file_name, and project_id.
 
@@ -87,7 +87,7 @@ The following example will query the endpoint to produce a UUID along with submi
 ```
 ```Shell_command
 export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
-$ curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/v0/submission/graphql' -d@data.json
+$ curl --request POST --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/v0/submission/graphql' -d@data.json
 ```
 ```API_Response
 {

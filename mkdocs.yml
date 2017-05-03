@@ -120,6 +120,6 @@ pages:
   - Variant Type: Encyclopedia/pages/Variant_Type.md
 repo_url: https://github.com/NCI-GDC/gdc-docs
 site_name: GDC Docs
-site_url: http://gdc-docs.nci.nih.gov
+site_url: http://docs.gdc.cancer.gov
 theme: mkdocs
 theme_dir: theme
