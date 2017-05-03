@@ -7,9 +7,11 @@
 
 ### New updates
 
-1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy. Detailed description of the new format can be found [here](../File_Formats/MAF_Format/).
-2.  Protected MAFs are updated to include additional variant annotation information
-3.  Some MuTect2 VCFs updated to include dbSNP and COSMIC annotations found in other VCFs
+1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy, which results in more variants being recovered relative to the previous version. A detailed description of the new format can be found [here](../File_Formats/MAF_Format/). <!--DAT-572-->
+2.  Protected MAFs are updated to include additional variant annotation information <!--DAT-572-->
+3.  Some MuTect2 VCFs updated to include dbSNP and COSMIC annotations found in other VCFs <!--TT-21-->
+
+Updated files for this release are listed [here](DR6.0_files_swap.txt).
 
 ### Bugs Fixed Since Last Release
 
@@ -17,6 +19,7 @@ None
 
 ### Known Issues and Workarounds
 
+* Variants found in VCF and MAF files may contain oxoG artifacts, which are produced during library preparation and may result in the apparent substitutions of C to A or G to T in certain sequence contexts.  In the future we will plan to label potential oxoG artifacts in the MAF files.
 * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
 * Some validated somatic mutations may not be present in open-access MAF files.  When creating open-access MAF files from the protected versions we are extremely conservative in removing potential germline variants.  Our approach is to remove all mutations that are present in dbSNP.  In a subsequent release we will provide updated open-access MAF files, which preserve variants found in MC3 or a TCGA validation study.  Please review the protected MAF files in the GDC Data Portal if you are unable to find your mutation in the open-access files.
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
