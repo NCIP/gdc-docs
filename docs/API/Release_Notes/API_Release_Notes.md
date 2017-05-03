@@ -1,13 +1,13 @@
 # API Release Notes
 
-## v1.7.2
+## v1.8.0
 
 * __GDC Product__: Application Programming Interface (API)
 * __Release Date__: May 4, 2017
 
 ### New Features and Changes
 
-* Users can now control whether a set of files will be compressed or not when downloading.  For further details see the [API User Guide](../Users_Guide/Downloading_Files/#downloading-an-uncompressed-group-of-files) <!--API-175-->
+* Users can now control whether a set of files will be compressed or not when downloading.  For further details see the [API User Guide](../Users_Guide/Downloading_Files/#downloading-an-uncompressed-group-of-files). <!--API-175-->
 
 ### Known Issues and Workarounds
 
