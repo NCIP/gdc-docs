@@ -13,7 +13,7 @@ One processing center, the Broad Institute of MIT and Harvard, does all of the i
 
 __Specialized:__
 
-The network’s eleven specialized centers are comprised of foremost experts in their fields who work with the processed data to illuminate particular patterns in the data, and integrate the data, forming a more complete picture.
+The network's eleven specialized centers are comprised of foremost experts in their fields who work with the processed data to illuminate particular patterns in the data, and integrate the data, forming a more complete picture.
 
 __Visualization:__
 
