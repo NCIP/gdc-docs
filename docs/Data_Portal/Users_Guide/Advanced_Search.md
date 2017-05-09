@@ -285,7 +285,7 @@ The __conversion factor__ is 1 year = 365.25 days
 
 The full list of fields available on the GDC Data Portal can be found through the GDC API using the following endpoint:
 
-[https://gdc-api.nci.nih.gov/gql/_mapping](https://gdc-api.nci.nih.gov/gql/_mapping)
+[https://api.gdc.cancer.gov/gql/_mapping](https://gdc-api.nci.nih.gov/gql/_mapping)
 
 Alternatively, a static list of fields is available below (not exhaustive).
 

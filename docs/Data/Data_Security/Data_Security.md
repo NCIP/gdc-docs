@@ -34,7 +34,7 @@ The GDC Data Transfer Tool and the GDC API use tokens for authentication. GDC au
 
 #### Obtaining A Token
 
-Users can obtain authentication tokens from the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) for instructions.
+Users can obtain authentication tokens from the [GDC Data Portal](https://portal.gdc.cancer.gov) and the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) for instructions.
 
 #### Token Expiration
 
@@ -46,5 +46,5 @@ Tokens can be replaced at any time by downloading a new token, which will be val
 
 Users can view the permissions granted to them by the GDC system as follows:
 
-0. Log into the [GDC Data Portal](https://gdc-portal.nci.nih.gov) or the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission) using your eRA Commons account.
-0. Open the URL `https://gdc-portal.nci.nih.gov/auth/user` to see a JSON object that describes user permissions.
+0. Log into the [GDC Data Portal](https://portal.gdc.cancer.gov) or the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission) using your eRA Commons account.
+0. Open the URL `https://portal.gdc.cancer.gov/auth/user` to see a JSON object that describes user permissions.

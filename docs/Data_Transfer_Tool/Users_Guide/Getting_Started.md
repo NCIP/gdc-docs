@@ -23,4 +23,4 @@ Binary distributions are available on the [GDC Transfer Tool page](https://gdc.c
 
 ### Release Notes
 
-Release Notes are available on the [GDC Data Transfer Tool Release Notes](https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Release_Notes/DTT_Release_Notes) Page.
+Release Notes are available on the [GDC Data Transfer Tool Release Notes](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Release_Notes/DTT_Release_Notes) Page.

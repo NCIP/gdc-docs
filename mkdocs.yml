@@ -86,40 +86,40 @@ pages:
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: Data/PDF/index.md
 - Encyclopedia: Encyclopedia/index.md
 - EncyclopediaEntries:
-  - Biospecimen_Data: Encyclopedia/pages/Biospecimen_Data.md
+  - Biospecimen Data: Encyclopedia/pages/Biospecimen_Data.md
   - Case: Encyclopedia/pages/Case.md
-  - Center_for_Cancer_Genomics: Encyclopedia/pages/Center_for_Cancer_Genomics.md
-  - Clinical_Data: Encyclopedia/pages/Clinical_Data.md
-  - Clinical_Supplement: Encyclopedia/pages/Clinical_Supplement.md
-  - Controlled_Access: Encyclopedia/pages/Controlled_Access.md
-  - Data_Submitter: Encyclopedia/pages/Data_Submitter.md
+  - Center for Cancer Genomics: Encyclopedia/pages/Center_for_Cancer_Genomics.md
+  - Clinical Data: Encyclopedia/pages/Clinical_Data.md
+  - Clinical Supplement: Encyclopedia/pages/Clinical_Supplement.md
+  - Controlled Access: Encyclopedia/pages/Controlled_Access.md
+  - Data Submitter: Encyclopedia/pages/Data_Submitter.md
   - dbGaP: Encyclopedia/pages/dbGaP.md
   - Entity: Encyclopedia/pages/Entity.md
-  - GDC_API: Encyclopedia/pages/GDC_API.md
-  - GDC_cBioPortal: Encyclopedia/pages/GDC_cBioPortal.md
-  - GDC_Data_Portal: Encyclopedia/pages/GDC_Data_Portal.md
-  - GDC_Data_Submission_Portal: Encyclopedia/pages/GDC_Data_Submission_Portal.md
-  - GDC_Data_Transfer_Tool: Encyclopedia/pages/GDC_Data_Transfer_Tool.md
-  - GDC_Documentation_Site: Encyclopedia/pages/GDC_Documentation_Site.md
-  - GDC_Web_Site: Encyclopedia/pages/GDC_Web_Site.md
-  - Genomic_Data_Commons: Encyclopedia/pages/Genomic_Data_Commons.md
-  - Harmonized_Data: Encyclopedia/pages/Harmonized_Data.md
+  - GDC API: Encyclopedia/pages/GDC_API.md
+  - GDC cBioPortal: Encyclopedia/pages/GDC_cBioPortal.md
+  - GDC Data Portal: Encyclopedia/pages/GDC_Data_Portal.md
+  - GDC Data Submission Portal: Encyclopedia/pages/GDC_Data_Submission_Portal.md
+  - GDC Data Transfer Tool: Encyclopedia/pages/GDC_Data_Transfer_Tool.md
+  - GDC Documentation Site: Encyclopedia/pages/GDC_Documentation_Site.md
+  - GDC Web Site: Encyclopedia/pages/GDC_Web_Site.md
+  - Genomic Data Commons: Encyclopedia/pages/Genomic_Data_Commons.md
+  - Harmonized Data: Encyclopedia/pages/Harmonized_Data.md
   - HTSeq-Counts: Encyclopedia/pages/HTSeq-Counts.md
   - HTSeq-FPKM-UQ: Encyclopedia/pages/HTSeq-FPKM-UQ.md
   - HTSeq-FPKM: Encyclopedia/pages/HTSeq-FPKM.md
-  - Latest_Data: Encyclopedia/pages/Latest_Data.md
-  - Manifest_File: Encyclopedia/pages/Manifest_File.md
-  - Mutation_Annotation_Format: Encyclopedia/pages/Mutation_Annotation_Format.md
+  - Latest Data: Encyclopedia/pages/Latest_Data.md
+  - Manifest File: Encyclopedia/pages/Manifest_File.md
+  - Mutation Annotation Format: Encyclopedia/pages/Mutation_Annotation_Format.md
   - Redaction: Encyclopedia/pages/Redaction.md
-  - Release_Number: Encyclopedia/pages/Release_Number.md
-  - REST_API: Encyclopedia/pages/REST_API.md
+  - Release Number: Encyclopedia/pages/Release_Number.md
+  - REST API: Encyclopedia/pages/REST_API.md
   - RNA-Seq: Encyclopedia/pages/RNA-Seq.md
-  - SNP_Array-Based_Data: Encyclopedia/pages/SNP_Array-Based_Data.md
+  - SNP Array-Based Data: Encyclopedia/pages/SNP_Array-Based_Data.md
   - UUID: Encyclopedia/pages/UUID.md
-  - Variant_Call_Format: Encyclopedia/pages/Variant_Call_Format.md
-  - Variant_Type: Encyclopedia/pages/Variant_Type.md
+  - Variant Call Format: Encyclopedia/pages/Variant_Call_Format.md
+  - Variant Type: Encyclopedia/pages/Variant_Type.md
 repo_url: https://github.com/NCI-GDC/gdc-docs
 site_name: GDC Docs
-site_url: http://gdc-docs.nci.nih.gov
+site_url: http://docs.gdc.cancer.gov
 theme: mkdocs
 theme_dir: theme

@@ -4,7 +4,7 @@ At a high level, data in the Genomic Data Commons is organized by project. Typic
 
 ## Projects View
 
-The Projects View provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering and navigation features that allow users to identify and browse projects of interest. Users can access Projects View from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://gdc-portal.nci.nih.gov/projects](https://gdc-portal.nci.nih.gov/projects).
+The Projects View provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering and navigation features that allow users to identify and browse projects of interest. Users can access Projects View from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/projects](https://portal.gdc.cancer.gov/projects).
 
 On the right, the Table tab provides a list of projects and select details about each project, such as the number of cases and data files. The Graph tab provides a visual representation of this information.
 

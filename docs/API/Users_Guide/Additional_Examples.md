@@ -11,7 +11,7 @@ This section contains additional examples for using endpoints.
 This example is a query for Projects contained in GDC. It returns only the first five projects sorted by project name.
 
 ```Query
-curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=5&sort=project.name:asc&pretty=true'
+curl 'https://api.gdc.cancer.gov/projects?from=1&size=5&sort=project.name:asc&pretty=true'
 ```
 ```Response
 {
@@ -71,7 +71,7 @@ curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=5&sort=project.name:asc&p
 This example is a query for files contained in GDC. It returns only the first two files, sorted by file size, from smallest to largest.
 
 ``` Query
-curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=true'
+curl 'https://api.gdc.cancer.gov/files?from=1&size=2&sort=file_size:asc&pretty=true'
 ```
 ```Response
 {
@@ -132,7 +132,7 @@ curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=
 This example is a query for cases contained in GDC. It returns only the first five files.
 
 ```Query
-curl 'https://gdc-api.nci.nih.gov/cases?from=1&size=5&pretty=true'
+curl 'https://api.gdc.cancer.gov/cases?from=1&size=5&pretty=true'
 ```
 ```Response
 {
@@ -223,7 +223,7 @@ curl 'https://gdc-api.nci.nih.gov/cases?from=1&size=5&pretty=true'
 This example is a query for annotations contained in the GDC. It returns only the first two annotations.
 
 ```Query
-curl 'https://gdc-api.nci.nih.gov/annotations?from=1&size=2&pretty=true'
+curl 'https://api.gdc.cancer.gov/annotations?from=1&size=2&pretty=true'
 ```
 ```Response
 {
@@ -297,7 +297,7 @@ The following is an example of `filters` syntax, including the JSON object passe
 }
 ```
 ```Query
-curl 'https://gdc-api.nci.nih.gov/projects?filters=%7b%0d%0a++%22op%22%3a+%22and%22%2c%0d%0a++%22content%22%3a+%5b%0d%0a++++%7b%0d%0a++++++%22op%22%3a+%22in%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++%22field%22%3a+%22primary_site%22%2c%0d%0a++++++++%22value%22%3a+%5b%0d%0a++++++++++%22Blood%22%0d%0a++++++++%5d%0d%0a++++++%7d%0d%0a++++%7d%0d%0a++%5d%0d%0a%7d&pretty=true'
+curl 'https://api.gdc.cancer.gov/projects?filters=%7b%0d%0a++%22op%22%3a+%22and%22%2c%0d%0a++%22content%22%3a+%5b%0d%0a++++%7b%0d%0a++++++%22op%22%3a+%22in%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++%22field%22%3a+%22primary_site%22%2c%0d%0a++++++++%22value%22%3a+%5b%0d%0a++++++++++%22Blood%22%0d%0a++++++++%5d%0d%0a++++++%7d%0d%0a++++%7d%0d%0a++%5d%0d%0a%7d&pretty=true'
 ```
 ```Response
 {
@@ -379,7 +379,7 @@ This is an example of a value-based filter:
 }
 ```
 ```Query
-curl 'https://gdc-api.nci.nih.gov/cases?filters=%7b%0d%0a+++%22op%22+%3a+%22%3d%22+%2c%0d%0a+++%22content%22+%3a+%7b%0d%0a+++++++%22field%22+%3a+%22cases.clinical.gender%22+%2c%0d%0a+++++++%22value%22+%3a+%5b+%22male%22+%5d%0d%0a+++%7d%0d%0a%7d%0d%0a&fields=clinical.gender,case_id&pretty=true'
+curl 'https://api.gdc.cancer.gov/cases?filters=%7b%0d%0a+++%22op%22+%3a+%22%3d%22+%2c%0d%0a+++%22content%22+%3a+%7b%0d%0a+++++++%22field%22+%3a+%22cases.clinical.gender%22+%2c%0d%0a+++++++%22value%22+%3a+%5b+%22male%22+%5d%0d%0a+++%7d%0d%0a%7d%0d%0a&fields=clinical.gender,case_id&pretty=true'
 ```
 
 #### Example: Filter using a range
@@ -412,7 +412,7 @@ This is an example of filtering for age at diagnosis. The request is for cases w
 }
 ```
 ```Query
-curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22%3E%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B14600%5D%7D%7D,%7B%22op%22:%22%3C%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B25550%5D%7D%7D%5D%7D&fields=clinical.age_at_diagnosis,case_id&pretty=true'
+curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22%3E%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B14600%5D%7D%7D,%7B%22op%22:%22%3C%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B25550%5D%7D%7D%5D%7D&fields=clinical.age_at_diagnosis,case_id&pretty=true'
 ```
 
 
@@ -444,5 +444,5 @@ Filter projects for primary_site being Kidney or Brain and program.name being TC
 }
 ```
 ```Query
-curl 'https://gdc-api.nci.nih.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22primary_site%22%2C%22value%22%3A%5B%22Kidney%22%2C%22Brain%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22program.name%22%2C%22value%22%3A%5B%22TCGA%22%5D%7D%7D%5D%7D&pretty=true'
+curl 'https://api.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22primary_site%22%2C%22value%22%3A%5B%22Kidney%22%2C%22Brain%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22program.name%22%2C%22value%22%3A%5B%22TCGA%22%5D%7D%7D%5D%7D&pretty=true'
 ```

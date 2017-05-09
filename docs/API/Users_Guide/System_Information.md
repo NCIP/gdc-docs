@@ -31,7 +31,7 @@ Notifications will indicate the GDC `components` to which they apply:
 ### Sample Request
 
 ```Shell
-curl --request GET https://gdc-api.nci.nih.gov/v0/notifications
+curl --request GET https://api.gdc.cancer.gov/v0/notifications
 ```
 ```Response
 {
@@ -55,13 +55,13 @@ The `status` endpoint provides information about the current status and version 
 ### Sample Request
 
 ``` shell
-curl https://gdc-api.nci.nih.gov/status
+curl https://api.gdc.cancer.gov/status
 ```
 ``` python
 import requests
 import json
 
-status_endpt = 'https://gdc-api.nci.nih.gov/status'
+status_endpt = 'https://api.gdc.cancer.gov/status'
 response = requests.get(status_endpt)
 print json.dumps(response.json(), indent=2)
 ```

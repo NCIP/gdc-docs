@@ -19,7 +19,7 @@ For more information about available datasets, see the [GDC Website](https://gdc
 
 The GDC Data Portal is accessible using a web browser such as Chrome, Internet Explorer, and Firefox at the following URL:
 
-[https://gdc-portal.nci.nih.gov](https://gdc-portal.nci.nih.gov)
+[https://gdc-portal.nci.nih.gov](https://portal.gdc.cancer.gov)
 
 The front page displays an overview of all available datasets:
 

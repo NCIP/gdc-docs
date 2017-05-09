@@ -1,6 +1,6 @@
 # Submission Best Practices
 
-Because of the data types and relationships included in the GDC, data submission can become a complex procedure. The purpose of this section is to present guidelines that will aid in the incorporation and harmonization of submitters' data. Please contact the GDC Help Desk at support@nci-gdc.datacommons.io if you have any questions or concerns regarding a submission project.
+Because of the data types and relationships included in the GDC, data submission can become a complex procedure. The purpose of this section is to present guidelines that will aid in the incorporation and harmonization of submitters' data. Please contact the GDC Help Desk at __support@nci-gdc.datacommons.io__ if you have any questions or concerns regarding a submission project.
 
 ## Date Obfuscation
 
@@ -97,8 +97,10 @@ submitted_aligned_reads Alignment.bam  Raw Sequencing Data BAM Aligned Reads   W
 }
 ```
 
-
-
 ## Submitting Read Group Names
 
 The `read_group` entity requires a `read_group_name` field for submission.  If the `read_group` entity is associated with a BAM file, the submitter should use the `@RG` ID present in the BAM header as the `read_group_name`. This is important for the harmonization process and will reduce the possibility of errors.  
+
+## Submission File Quality Control
+
+The GDC harmonization pipelines include multiple quality control steps to ensure the integrity of harmonized files and the efficient use of computational resources. For fastest turnaround of data processing we recommend that submitters perform basic QC of their data files prior to upload to identify any underlying data quality issues. This may include such tests as verifying expected genome coverage levels and sequencing quality.
