@@ -1,4 +1,4 @@
-Data Format	Old Fille UUID	Old File Name	New File UUID	New File Name
+Data Format	Old File UUID	Old File Name	New File UUID	New File Name
 VCF	0004f223-180a-4cd1-add5-fc0d2f0b55d6	0004f223-180a-4cd1-add5-fc0d2f0b55d6.vcf.gz	da7610a9-b27f-4e25-b72a-f1d30127421c	da7610a9-b27f-4e25-b72a-f1d30127421c.vcf
 VCF	001330b2-15dd-4ff6-80c8-0206e2d7a7d8	001330b2-15dd-4ff6-80c8-0206e2d7a7d8.vcf.gz	7c766cdf-9972-4c82-bb93-8bc8f8c8d5bc	7c766cdf-9972-4c82-bb93-8bc8f8c8d5bc.vcf
 VCF	00554662-b0cc-4dd3-8ccd-57991431a3fc	00554662-b0cc-4dd3-8ccd-57991431a3fc.vcf.gz	1a476809-3e24-4019-b11c-2556330acfe5	1a476809-3e24-4019-b11c-2556330acfe5.vcf

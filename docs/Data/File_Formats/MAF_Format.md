@@ -181,6 +181,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 1. Column #4 __NCBI_Build__ is GRCh38 by default
 2. Column #32 __Sequencer__ includes the sequencers used. If different sequencers were used to generate normal and tumor data, the normal sequencer is listed first.
 3. Column #60 VEP name "STRAND" is changed to __TRANSCRIPT_STRAND__ to avoid confusion with Column#8 "Strand"
+4. Column #93 __IMPACT__ categories are defined by the VEP software and do not necessarily reflect the relative biological influence of each mutation.
 4. Column #122-125 __vcf_info, vcf_format, vcf_tumor_gt, and vcf_normal_gt__ are the corresponding columns from the VCF files. Including them facilitates parsing specific variant information.
 5. Column #119 __GDC_Validation_Status__: GDC also collects TCGA validation sequences. It compares these with variants derived from Next-Generation Sequencing data from the same sample and populates the comparison result in "GDC_Validation_Status".
     * "Valid", if the alternative allele(s) in the tumor validation sequence is(are) the same as GDC variant call
