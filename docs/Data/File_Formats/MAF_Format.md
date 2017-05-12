@@ -25,6 +25,7 @@ The process for modifying a protected MAF into a somatic MAF is as follows:
     7. Remaining variants with __dbSNP_RS = 'novel' or null__ are __included__ in the Somatic MAF.
     8. Remaining variants are __removed__.
 * Removal of the following columns:
+    * vcf_region
     * vcf_info
     * vcf_format
     * vcf_tumor_gt
