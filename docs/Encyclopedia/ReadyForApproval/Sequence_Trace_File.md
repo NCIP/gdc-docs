@@ -1,9 +1,9 @@
 # Sequence Trace File #
 ## Description ##
-Sequence trace files contain the raw data output from automated sequencing instruments.
+Sequence trace files (or chomatograms) contain the raw data output from sequencers employing automated Sanger-based sequencing.
 
 ## Overview ##
-Sequence trace files contain the raw data output from automated sequencing instruments.  While TCGA data is available in this format, sequence trace files are no longer a primary source data for TCGA as the project has moved to next generation sequencing methods and file formats such as sequence read files.
+Sequence trace files (or chomatograms) contain the raw data output from sequencers employing automated Sanger-based sequencing.  This sequencing methodology and file format have largely been replaced by next-generation sequencing and BAM or FASTQ formatted data.  This file type can be found in the GDC Legacy Archive.
 
 ## References ##
 1. N/A
