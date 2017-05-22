@@ -1,6 +1,6 @@
 # Advanced Search
 
-Only available in the Data view, the Advanced Search page offers complex query building capabilities to identify specific set of cases and files.
+Only available in the Repository view, the Advanced Search page offers complex query building capabilities to identify specific set of cases and files.
 
 [![Access to Advanced Search from Data View](images/gdc-data-portal-access-advanced-search-data-view.png)](images/gdc-data-portal-access-advanced-search-data-view.png "Click to see the full image.")
 
@@ -11,7 +11,7 @@ Advanced search allows, via Genomic Query Language (GQL), to use structured quer
 
 [![Advanced Search View](images/gdc-data-portal-advanced-search.png)](images/gdc-data-portal-advanced-search.png "Click to see the full image.")
 
-A simple query in GQL (also known as a 'clause') consists of a __field__, followed by an __operator__, followed by one or more __values__. For example, the simple query `cases.project.primary_site = Brain` will find all cases for projects in which the primary site is Brain:
+A simple query in GQL (also known as a 'clause') consists of a __field__, followed by an __operator__, followed by one or more __values__. For example, the simple query `cases.primary_site = Brain` will find all cases for projects in which the primary site is Brain:
 
 [![Advanced Search Example](images/gdc-data-portal-advanced-search-example.png)](images/gdc-data-portal-advanced-search-example.png "Click to see the full image.")
 
@@ -21,13 +21,13 @@ __Note__: GQL is not a database query language. For example, GQL does not have a
 
 ### Switching between Advanced Search and Facet Filters
 
-When accessing Advanced Search from Data View, a query created using facet filters in Data View will be automatically translated to an Advanced Search GQL Query.
+When accessing Advanced Search from Repository View, a query created using facet filters in Repository View will be automatically translated to an Advanced Search GQL Query.
 
 A query created in Advanced Search is not translated back to facet filters. Clicking on "Back to Facet Search" will return the user to Data View and reset the filters.
 
 ## Using the Advanced Search
 
-When opening the advanced search page (via the Data view), the search field will be automatically populated with facets filters already applied (if any).
+When opening the advanced search page (via the Repository view), the search field will be automatically populated with facets filters already applied (if any).
 
 This default query can be removed by pressing "Reset".
 
@@ -35,7 +35,7 @@ Once the query has been entered and is identified as a "Valid Query", click on "
 
 ### Auto-complete
 
-As a query is being written, the GDC Data Portal will analyse the context and offer a list of auto-complete suggestions. Auto-complete suggests both fields and values as described below.
+As a query is being written, the GDC Data Portal will analyze the context and offer a list of auto-complete suggestions. Auto-complete suggests both fields and values as described below.
 
 #### Field Auto-complete
 
