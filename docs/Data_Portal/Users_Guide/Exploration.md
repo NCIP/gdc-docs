@@ -1,11 +1,11 @@
 # Exploration
 
-The Exploration page allows users to explore data for cases in the GDC on a gene and mutation level.  Users choose filters on specific Cases, Genes, and/or Mutations and then can visualize these results on the right.
+The Exploration page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level.  Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.
 
 [![Exploration Page](images/GDC-Exploration-Page.png)](images/GDC-Exploration-Page.png "Click to see the full image.")
 
-## Filters
-On the left of this page, users can create advanced filters to narrow down results to specific genes or mutations that may be present.
+## Filters / Facets
+On the left of this page, users can create advanced filters to narrow down results to create synthetic cohorts.
 
 ### Case Filters
 
@@ -61,14 +61,14 @@ The final tab of filters are for specific mutations.  Users can filter by:
 
 ## Results
 
-As users add filters to the data on the Exploration Page, the Results section will automatically be updated.  Results are broken up into different tabs:  Cases, Genes, Mutations, and OncoGrid.  
+As users add filters to the data on the Exploration Page, the Results section will automatically be updated.  Results are broken up into different tabs:  `Cases`, `Genes`, `Mutations`, and `OncoGrid`.  
 
 To illustrate these tabs, Case, Gene, and Mutation filters have been chosen ( Genes in the Cancer Gene Census, that have HIGH Impact for the TCGA-BRCA project) and a description of what each tab displays follows.
 
 
 #### Cases
 
-The Cases tab will give an overview of all the cases/patients who correspond to the filters chosen (Cohort).
+The `Cases` tab will give an overview of all the cases/patients who correspond to the filters chosen (Cohort).
 
 [![Exploration Case Example](images/Exploration-Case-Example.png)](images/Exploration-Case-Example.png "Click to see the full image.")
 
@@ -87,7 +87,7 @@ Below these pie charts is a tabular view (which can be exported and sorted using
 
 #### Genes
 
-The Genes tab will give an overview of all the genes who match the criteria of the filters (Cohort).
+The `Genes` tab will give an overview of all the genes who match the criteria of the filters (Cohort).
 
 [![Exploration Gene Example](images/Exploration-Gene-Example.png)](images/Exploration-Gene-Example.png "Click to see the full image.")
 
@@ -107,7 +107,7 @@ Below these graphs is a tabular view of the genes affected, which includes the f
 
 #### Mutations
 
-The Genes tab will give an overview of all the mutations who match the criteria of the filters (Cohort).
+The `Mutations` tab will give an overview of all the mutations who match the criteria of the filters (Cohort).
 
 [![Exploration Mutation Example](images/Exploration-Mutation-Example.png)](images/Exploration-Mutation-Example.png "Click to see the full image.")
 

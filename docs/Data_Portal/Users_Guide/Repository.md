@@ -6,8 +6,8 @@ On the left, a panel of data facets allows users to filter cases and files using
 
 On the right, two tabs contain information about available data:
 
-* *Cases tab* provides a list of cases, select information about each case, and links to individual case summary pages
-* *Files tab* provides a list of files, select information about each file, and links to individual file detail pages.
+* *`Cases` tab* provides a list of cases, select information about each case, and links to individual case summary pages
+* *`Files` tab* provides a list of files, select information about each file, and links to individual file detail pages.
 
 The banner above the tabs on the right displays any active facet filters and provides access to advanced search.
 

@@ -1,5 +1,7 @@
 # Gene and Mutation Summary Pages
 
+Many parts of the GDC website contain links to Gene and Mutation summary pages.  These pages display information about specific genes and mutations, along with visualizations and data regarding their interactions between themselves and the projects and cases within the GDC.
+
 ## Gene Summary Page
 
 The Gene Summary Page describes each gene with mutation data featured at the GDC and provides results related to the analyses that are performed on these genes.  

@@ -1,11 +1,11 @@
 # Projects
 
 ## Summary
-At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to look at particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC Data Portal allows users to access aggregate project-level information via the Projects View and project detail pages.
+At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to look at particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC Data Portal allows users to access aggregate project-level information via the Projects View and Project Summary pages.
 
-## Projects List Page
+## Projects View
 
-The Projects List Page provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access Projects View from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/projects](https://portal.gdc.cancer.gov/projects).
+The Projects View provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access Projects View from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/projects](https://portal.gdc.cancer.gov/projects).
 
 On the left, a panel of data facets allows users to apply filters to find projects of interest. When facet filters are applied, the tabs and visualizations on the right are updated to display only the matching projects. When no filters are applied, all projects are displayed.
 
@@ -14,6 +14,8 @@ On the right, is a few visualizations of the data (Top Mutated Genes in Selected
 [![Projects View, Main Window (Table View)](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
 
 ### Visualizations
+
+[![Projects Visualizations)](images/gdc-projects-visualizations.png)](images/gdc-projects-visualizations.png "Click to see the full image.")
 
 #### Top Mutated Cancer Genes in Selected Projects
 
@@ -27,18 +29,19 @@ A pie graph displays the relative number of cases for each primary site (inner c
 
 
 ### Projects Table
+[![Projects Table)](images/gdc-projects-table-view.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
 
-The Table tab lists projects by Project ID and provides additional information about each project. If no facet filters have been applied, the table will display all available projects; otherwise it will display only those projects that match the selected criteria.
+The `Table` tab lists projects by Project ID and provides additional information about each project. If no facet filters have been applied, the table will display all available projects; otherwise it will display only those projects that match the selected criteria.
 
-The table provides links to project detail pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Data View](Cases_and_Files.md#data-view).
+The table provides links to project detail pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository View](Repository.md).
 
 ### Projects Graph
 
-The Graph tab contains an interactive view of information in the Table tab. The numerical values in Case Count, File Count, and File Size columns are represented by bars of varying length according to size. These columns are sorted independently in descending order. Mousing over an element of the graph connects it to associated elements in other columns, including project name and primary site.
+The `Graph` tab contains an interactive view of information in the Table tab. The numerical values in Case Count, File Count, and File Size columns are represented by bars of varying length according to size. These columns are sorted independently in descending order. Mousing over an element of the graph connects it to associated elements in other columns, including project name and primary site.
 
 [![Graph Mouseover](images/gdc-table-graph-mouse-over.png)](images/gdc-table-graph-mouse-over.png "Click to see the full image.")
 
-Most elements in the graph are clickable, allowing the user to open the associated cases or files in [Data View](Cases_and_Files.md#data-view).
+Most elements in the graph are clickable, allowing the user to open the associated cases or files in [Repository View](Repository.md).
 
 Like the projects table, the graph will reflect any applied facet filters.
 
@@ -123,7 +126,7 @@ The calculated cumulated survival probability can be plotted against the interva
 
 ### OncoGrid
 
-The project detail page includes an OncoGrid plot of the cases with the most mutations, for the top 50 mutated genes affected by high impact mutations. Genes displayed on the left of the grid (Y-axis) correspond to individual cases on the bottom of the grid (X-axis).  
+The Project Summary page includes an OncoGrid plot of the cases with the most mutations, for the top 50 mutated genes affected by high impact mutations. Genes displayed on the left of the grid (Y-axis) correspond to individual cases on the bottom of the grid (X-axis).  
 
 [![Oncogrid](images/gdc-oncogrid.png)](images/gdc-oncogrid.png "Click to see the full image.")
 

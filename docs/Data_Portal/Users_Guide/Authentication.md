@@ -2,11 +2,15 @@
 
 ## Overview
 
-The GDC Data Portal provides granular metadata for all datasets available in the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC Data Portal also allows users to download open-access files without logging in, but downloading of controlled-access files is restricted to authorized users and requires authentication.
+The GDC Data Portal provides granular metadata for all datasets available in the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC Data Portal also allows users to download open-access files without logging in. However, downloading of controlled-access files is restricted to authorized users and requires authentication.
 
-Controlled-access files are identified using a "lock" icon:
+## Logging into the GDC
 
-[![GDC Data Portal Main Page](images/gdc-data-portal-controlled-files.png)](images/gdc-data-portal-controlled-files.png "Click to see the full image.")
+To login to the GDC, users must click on the `Login` button on the top right of the GDC website.
+
+![Login](images/gdc-login.png)
+
+After clicking Login, users authenticate themselves using their eRA Commons login and password.  If authentication is successful, the eRA Commons username will be displayed in the upper right corner of the screen, in place of the "Login" button.
 
 Upon successful authentication, GDC Data Portal users can:
 
@@ -14,11 +18,11 @@ Upon successful authentication, GDC Data Portal users can:
 - download controlled-access files directly from the GDC Data Portal;
 - download an authentication token for use with the GDC Data Transfer Tool or the GDC API.
 
+Controlled-access files are identified using a "lock" icon:
+
+[![GDC Data Portal Main Page](images/gdc-data-portal-controlled-files.png)](images/gdc-data-portal-controlled-files.png "Click to see the full image.")
+
 The rest of this section describes controlled data access features of the GDC Data Portal available to authorized users. For more information about open and controlled-access data, and about obtaining access to controlled data, see [Data Access Processes and Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
-
-## Authentication via eRA Commons
-
-Users can log into the GDC using their eRA Commons credentials by clicking the "Login" button in the upper right corner of the screen. If authentication is successful, the eRA Commons username will be displayed in the upper right corner of the screen, in place of the "Login" button.
 
 ## GDC Authentication Tokens
 
