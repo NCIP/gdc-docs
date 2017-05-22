@@ -36,15 +36,14 @@ pages:
 - Data Portal:
   - Getting Started: Data_Portal/Users_Guide/Getting_Started.md
   - Projects: Data_Portal/Users_Guide/Projects.md
-  - Genes and Mutations: Data_Portal/Users_Guide/Genes and Mutations.md
   - Exploration: Data_Portal/Users_Guide/Exploration.md
   - Repository: Data_Portal/Users_Guide/Repository.md
+  - Genes and Mutations: Data_Portal/Users_Guide/Genes and Mutations.md
   - Annotations: Data_Portal/Users_Guide/Annotations.md
   - Advanced Search: Data_Portal/Users_Guide/Advanced_Search.md
   - Authentication: Data_Portal/Users_Guide/Authentication.md
   - File Cart: Data_Portal/Users_Guide/Cart.md
   - Legacy Archive: Data_Portal/Users_Guide/Legacy_Archive.md
-  - Reports: Data_Portal/Users_Guide/Reports.md
   - Release Notes: Data_Portal/Release_Notes/Data_Portal_Release_Notes.md
   - GDC cBioPortal Release Notes: Data_Portal/Release_Notes/cBioPortal_Release_Notes.md
   - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md

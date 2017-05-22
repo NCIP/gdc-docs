@@ -28,33 +28,15 @@ The rest of this section describes controlled data access features of the GDC Da
 
 The GDC Data Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
 
-0. Log into the GDC using your eRA Commons credentials,
-0. Click the username in the top right corner of the screen,
-0. Select the "Download token" option.
+1. Log into the GDC using your eRA Commons credentials,
+2. Click the username in the top right corner of the screen,
+3. Select the "Download token" option.
 
 ![Token Download Button](images/gdc-data-portal-token-download.png)
 
 For more information about authentication tokens, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
 
 **NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
-
-## Display Only Authorized Datasets
-
-The "Only My Projects" checkbox, available in [Data view](Cases_and_Files.md#data-view) to authenticated users, limits data file listings to only those files to which the user has access.
-
-[![Only My Projects checkbox](images/gdc-data-portal-only-my-projects.png)](images/gdc-data-portal-only-my-projects.png "Click to see the full image.")
-
-
-## Viewing File Authorization Information
-
-The GDC Data Portal displays the following file authorization information for authenticated users:
-
-- Authorization status of individual files in the "My Projects" column, available in [Data view](Cases_and_Files.md#data-view) and [cart](Cart.md) file listings.
-- Summary of file authorization status in the user's cart.
-
-[![File Authorization Summary in GDC Cart](images/gdc-portal-cart-authorization-summary.png)](images/gdc-portal-cart-authorization-summary.png "Click to see the full image.")
-
-
 
 ## Logging Out
 
