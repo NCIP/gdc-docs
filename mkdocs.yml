@@ -36,7 +36,9 @@ pages:
 - Data Portal:
   - Getting Started: Data_Portal/Users_Guide/Getting_Started.md
   - Projects: Data_Portal/Users_Guide/Projects.md
-  - Cases And Files: Data_Portal/Users_Guide/Cases_and_Files.md
+  - Genes and Mutations: Data_Portal/Users_Guide/Genes and Mutations.md
+  - Exploration: Data_Portal/Users_Guide/Exploration.md
+  - Repository: Data_Portal/Users_Guide/Repository.md
   - Annotations: Data_Portal/Users_Guide/Annotations.md
   - Advanced Search: Data_Portal/Users_Guide/Advanced_Search.md
   - Authentication: Data_Portal/Users_Guide/Authentication.md
