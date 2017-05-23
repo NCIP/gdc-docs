@@ -19,7 +19,7 @@ None
 
 ### Known Issues and Workarounds
 
-* There are 11 cases in project TCGA-DLBC that are known to have incorrect WXS data in the GDC Data Portal.  Impacted cases are listed below.  This affects the BAMs and VCFs associated with these cases in the GDC Data Portal.  Corrected BAMs can be found in the GDC Legacy Archive.  Variants from affected aliquots appear in the protected MAFs with GDC_FILTER=ContEst to indicate a sample contamination problem, but are removed during the generation of the Somatic MAF file.  In a later release we will supply corrected BAM, VCF, and MAF files for these cases.  In the mean time, we advise you not to use any of the WXS files associated with these cases in the GDC Data Portal.  A list of these files can be found here [Download list of affected files](DLBC_Affected_Files.txt). <!-- Data-871-->
+* There are 11 cases in project TCGA-DLBC that are known to have incorrect WXS data in the GDC Data Portal.  Impacted cases are listed below.  This affects the BAMs and VCFs associated with these cases in the GDC Data Portal.  Corrected BAMs can be found in the GDC Legacy Archive.  Variants from affected aliquots appear in the protected MAFs with GDC_FILTER=ContEst to indicate a sample contamination problem, but are removed during the generation of the Somatic MAF file.  In a later release we will supply corrected BAM, VCF, and MAF files for these cases.  In the mean time, we advise you not to use any of the WXS files associated with these cases in the GDC Data Portal.  A list of these files can be found here. [Download list of affected files](DLBC_Affected_Files.txt). <!-- Data-871-->
     * TCGA-FF-8062
     * TCGA-FM-8000
     * TCGA-G8-6324
