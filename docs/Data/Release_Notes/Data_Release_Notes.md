@@ -19,6 +19,18 @@ None
 
 ### Known Issues and Workarounds
 
+* There are 11 cases in project TCGA-DLBC that are known to have incorrect WXS data in the GDC Data Portal.  Impacted cases are listed below.  This affects the BAMs and VCFs associated with these cases in the GDC Data Portal.  Corrected BAMs can be found in the GDC Legacy Archive.  Variants from affected aliquots appear in the protected MAFs with GDC_FILTER=ContEst to indicate sample contamination problem, but are removed during the generation of the Somatic MAF file.  In a later release we will supply corrected BAM, VCF, and MAF files for these cases.  In the mean time, we advise you not to use any of the WXS files associated with these cases in the GDC Data Portal.  A list of these files can be found [here](DLBC_Affected_Files.txt). <!-- Data-871-->
+    * TCGA-FF-8062
+    * TCGA-FM-8000
+    * TCGA-G8-6324
+    * TCGA-G8-6325
+    * TCGA-G8-6326
+    * TCGA-G8-6906
+    * TCGA-G8-6907
+    * TCGA-G8-6909
+    * TCGA-G8-6914
+    * TCGA-GR-7351
+    * TCGA-GR-7353
 * Variants found in VCF and MAF files may contain OxoG artifacts, which are produced during library preparation and may result in the apparent substitutions of C to A or G to T in certain sequence contexts.  In the future we will plan to label potential oxoG artifacts in the MAF files.
 * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
 * Some validated somatic mutations may not be present in open-access MAF files.  Please review the protected MAF files in the GDC Data Portal if you are unable to find your mutation in the open-access files.

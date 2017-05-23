@@ -10,6 +10,6 @@ It is usually of a particular molecular type. The [GDC Data Model](https://gdc.c
 1. [GDC Data Dictionary - Analyte](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=analyte)
 
 ## External Links ##
-
+# [Analyte Wikipedia](https://en.wikipedia.org/wiki/Analyte)
 
 Categories: General, Biospecimen

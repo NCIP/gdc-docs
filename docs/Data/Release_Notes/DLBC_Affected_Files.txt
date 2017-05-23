@@ -1,0 +1,111 @@
+file_name	cases_0_submitter_id	file_id	data_type
+29f01838-f99e-4691-885a-f3e43a063c2e.vcf	TCGA-G8-6906	29f01838-f99e-4691-885a-f3e43a063c2e	Raw Simple Somatic Mutation
+8d2b6641-83d3-48a3-98b0-f17144a2ae0e.snp.Somatic.hc.vcf.gz	TCGA-G8-6325	8d2b6641-83d3-48a3-98b0-f17144a2ae0e	Raw Simple Somatic Mutation
+83d97edc-8fd0-41d8-8801-4ee20b41a693.vcf.gz	TCGA-G8-6914	83d97edc-8fd0-41d8-8801-4ee20b41a693	Raw Simple Somatic Mutation
+e12e9783-78f9-47ff-b8f9-dcafe2f7c952.vcf.gz	TCGA-G8-6914	e12e9783-78f9-47ff-b8f9-dcafe2f7c952	Raw Simple Somatic Mutation
+ea7ba9c9-c03c-49e1-87ad-1db7069da499.snp.Somatic.hc.vcf.gz	TCGA-G8-6907	ea7ba9c9-c03c-49e1-87ad-1db7069da499	Raw Simple Somatic Mutation
+b128aa0e-406b-49c4-8291-4f3638818c90.snp.Somatic.hc.vcf.gz	TCGA-G8-6326	b128aa0e-406b-49c4-8291-4f3638818c90	Raw Simple Somatic Mutation
+TCGA-G8-6906-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6906	fb439645-d31a-49e0-b57a-9df33a05265d	Aligned Reads
+520f54b6-5ad8-48ea-a198-651e7be33a7a.snp.Somatic.hc.vcf.gz	TCGA-GR-7351	520f54b6-5ad8-48ea-a198-651e7be33a7a	Raw Simple Somatic Mutation
+14f628af-fe69-4a9c-b7be-7a4028c17d90.vep.reheader.vcf.gz	TCGA-G8-6907	14f628af-fe69-4a9c-b7be-7a4028c17d90	Annotated Somatic Mutation
+TCGA-G8-6907-14A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6907	bfa15ba5-88d9-4524-909c-1ff282ccca2f	Aligned Reads
+TCGA-G8-6325-10A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6325	665db8ed-05d4-4330-b08e-0928c1000a34	Aligned Reads
+6313dba8-026d-49e9-9b94-2e0c615a0d37.vep.reheader.vcf.gz	TCGA-G8-6906	6313dba8-026d-49e9-9b94-2e0c615a0d37	Annotated Somatic Mutation
+c22b68e2-833f-4f39-8eab-c45676a9a008.vep.reheader.vcf.gz	TCGA-G8-6914	c22b68e2-833f-4f39-8eab-c45676a9a008	Annotated Somatic Mutation
+01a9e2ea-3cf3-468c-996c-30fb380c0e47.vep.reheader.vcf.gz	TCGA-FF-8062	01a9e2ea-3cf3-468c-996c-30fb380c0e47	Annotated Somatic Mutation
+d422dc72-97d8-4ad1-b25f-b4d28d87a01b.vcf.gz	TCGA-FM-8000	d422dc72-97d8-4ad1-b25f-b4d28d87a01b	Raw Simple Somatic Mutation
+d1214bc7-3256-4cb4-a52a-b0f9813c5b81.vep.reheader.vcf.gz	TCGA-G8-6324	d1214bc7-3256-4cb4-a52a-b0f9813c5b81	Annotated Somatic Mutation
+0ba9145c-5d98-49e4-9135-0b3867ebc9b8.vcf.gz	TCGA-G8-6909	0ba9145c-5d98-49e4-9135-0b3867ebc9b8	Raw Simple Somatic Mutation
+e955bebd-a33c-46c2-9f07-c30051859875.vcf	TCGA-G8-6914	e955bebd-a33c-46c2-9f07-c30051859875	Raw Simple Somatic Mutation
+47da3f88-13a6-4c47-b8a7-c9fa76087232.vcf.gz	TCGA-G8-6325	47da3f88-13a6-4c47-b8a7-c9fa76087232	Raw Simple Somatic Mutation
+f1377528-8332-4919-a966-eea64af6225a.vep.reheader.vcf.gz	TCGA-G8-6914	f1377528-8332-4919-a966-eea64af6225a	Annotated Somatic Mutation
+b869e0b6-fc66-4f15-b31e-25beb1ec6fe0.vep.reheader.vcf.gz	TCGA-GR-7351	b869e0b6-fc66-4f15-b31e-25beb1ec6fe0	Annotated Somatic Mutation
+79b958b8-4e31-4416-ad51-93ca549a94ba.vep.reheader.vcf.gz	TCGA-G8-6324	79b958b8-4e31-4416-ad51-93ca549a94ba	Annotated Somatic Mutation
+78611b05-1d64-4f43-a278-fa0efb96b73e.vcf	TCGA-G8-6907	78611b05-1d64-4f43-a278-fa0efb96b73e	Raw Simple Somatic Mutation
+a17ff8dc-27b8-471d-8d38-ed779176d0ac.vep.reheader.vcf.gz	TCGA-GR-7353	a17ff8dc-27b8-471d-8d38-ed779176d0ac	Annotated Somatic Mutation
+TCGA-G8-6914-14A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6914	7fa2e87a-b11d-4812-a1a6-c4211ea18a2c	Aligned Reads
+9b2a6f2e-5461-46aa-9ad1-0db6d33f85e1.vep.reheader.vcf.gz	TCGA-GR-7351	9b2a6f2e-5461-46aa-9ad1-0db6d33f85e1	Annotated Somatic Mutation
+d97132f8-aab1-459d-923f-8dd769501a9f.vcf	TCGA-G8-6325	d97132f8-aab1-459d-923f-8dd769501a9f	Raw Simple Somatic Mutation
+166c74dc-e409-446f-8b53-e59f2aaf757a.vcf	TCGA-G8-6326	166c74dc-e409-446f-8b53-e59f2aaf757a	Raw Simple Somatic Mutation
+a8d18a00-ceb5-4633-aac7-a6faf7f0dcb9.vep.reheader.vcf.gz	TCGA-G8-6914	a8d18a00-ceb5-4633-aac7-a6faf7f0dcb9	Annotated Somatic Mutation
+c01a4c71-5e76-4124-adf8-47f11afa9741.vep.reheader.vcf.gz	TCGA-GR-7353	c01a4c71-5e76-4124-adf8-47f11afa9741	Annotated Somatic Mutation
+bf4fdb2a-7eb3-4d44-9ed0-6cec29ed93d8.vcf.gz	TCGA-FM-8000	bf4fdb2a-7eb3-4d44-9ed0-6cec29ed93d8	Raw Simple Somatic Mutation
+e8d9c66b-a7fa-46fc-9030-6ed254da38e5.vep.reheader.vcf.gz	TCGA-G8-6325	e8d9c66b-a7fa-46fc-9030-6ed254da38e5	Annotated Somatic Mutation
+b9b7f958-6b9b-43a2-9fbb-44d551077804.vcf	TCGA-GR-7353	b9b7f958-6b9b-43a2-9fbb-44d551077804	Raw Simple Somatic Mutation
+889cf3c0-9395-41a0-855a-933114f643b8.vcf.gz	TCGA-FF-8062	889cf3c0-9395-41a0-855a-933114f643b8	Raw Simple Somatic Mutation
+1782bff7-cf86-4853-a850-3bc78c7bc667.vcf.gz	TCGA-G8-6324	1782bff7-cf86-4853-a850-3bc78c7bc667	Raw Simple Somatic Mutation
+46ab258d-8b00-45ca-b426-493cdd14a8c2.snp.Somatic.hc.vcf.gz	TCGA-FM-8000	46ab258d-8b00-45ca-b426-493cdd14a8c2	Raw Simple Somatic Mutation
+549efdb3-596b-4941-95e6-7840f191ba23.vep.reheader.vcf.gz	TCGA-FM-8000	549efdb3-596b-4941-95e6-7840f191ba23	Annotated Somatic Mutation
+cffc2ffe-6d99-4f8b-8f33-170a43f5cbab.vcf.gz	TCGA-G8-6906	cffc2ffe-6d99-4f8b-8f33-170a43f5cbab	Raw Simple Somatic Mutation
+TCGA-G8-6907-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6907	074fc242-d5ac-478e-bf84-9d6e782002c5	Aligned Reads
+TCGA-GR-7353-10A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-GR-7353	53a8ed0d-6ab6-4bc7-ae77-13db437d9f33	Aligned Reads
+4aa32318-2880-4ea6-95cb-6a3e6bf9c2a2.vep.reheader.vcf.gz	TCGA-G8-6906	4aa32318-2880-4ea6-95cb-6a3e6bf9c2a2	Annotated Somatic Mutation
+f8db5af5-c425-4334-9c06-a5d474ec466d.vcf.gz	TCGA-G8-6907	f8db5af5-c425-4334-9c06-a5d474ec466d	Raw Simple Somatic Mutation
+a2fa4322-c6bd-45ab-bd1c-baf7211ab915.vep.reheader.vcf.gz	TCGA-GR-7351	a2fa4322-c6bd-45ab-bd1c-baf7211ab915	Annotated Somatic Mutation
+794c912a-a403-4983-be67-858a475cbef8.vcf	TCGA-GR-7351	794c912a-a403-4983-be67-858a475cbef8	Raw Simple Somatic Mutation
+7d9b135c-b3e2-4db1-9ea9-b4cb4a0aa97e.vep.reheader.vcf.gz	TCGA-G8-6909	7d9b135c-b3e2-4db1-9ea9-b4cb4a0aa97e	Annotated Somatic Mutation
+f84d87b8-0c4b-4987-8523-39e3a0a544f1.vep.reheader.vcf.gz	TCGA-G8-6326	f84d87b8-0c4b-4987-8523-39e3a0a544f1	Annotated Somatic Mutation
+TCGA-FM-8000-10A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-FM-8000	ed954dd6-e397-403e-a6c9-b717cb6d3abf	Aligned Reads
+580a87e6-674e-4a47-83b7-36893a0654fe.vep.reheader.vcf.gz	TCGA-FM-8000	580a87e6-674e-4a47-83b7-36893a0654fe	Annotated Somatic Mutation
+2f287d90-501c-42e9-a7c1-3a3bef910fc6.vep.reheader.vcf.gz	TCGA-G8-6909	2f287d90-501c-42e9-a7c1-3a3bef910fc6	Annotated Somatic Mutation
+77ed5f1c-435c-4ebf-8410-4aceb070354c.vep.reheader.vcf.gz	TCGA-G8-6326	77ed5f1c-435c-4ebf-8410-4aceb070354c	Annotated Somatic Mutation
+84471a1b-6e1f-4056-9c7f-3c51d76a5e86.vcf.gz	TCGA-G8-6907	84471a1b-6e1f-4056-9c7f-3c51d76a5e86	Raw Simple Somatic Mutation
+TCGA-GR-7351-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-GR-7351	04fafe64-6e6e-46b2-b94e-3d1f0adecc6a	Aligned Reads
+ff0b8531-66f7-4b8a-9f50-d06ddead02f4.vep.reheader.vcf.gz	TCGA-FM-8000	ff0b8531-66f7-4b8a-9f50-d06ddead02f4	Annotated Somatic Mutation
+ee49d7df-7c92-4f90-a6a4-339c81c51113.vep.reheader.vcf.gz	TCGA-G8-6324	ee49d7df-7c92-4f90-a6a4-339c81c51113	Annotated Somatic Mutation
+b933010b-afa1-4ef5-9e3c-7bce01445d78.vep.reheader.vcf.gz	TCGA-G8-6909	b933010b-afa1-4ef5-9e3c-7bce01445d78	Annotated Somatic Mutation
+65580ee2-2203-4880-ac92-aa97bcb43f03.vep.reheader.vcf.gz	TCGA-G8-6907	65580ee2-2203-4880-ac92-aa97bcb43f03	Annotated Somatic Mutation
+9b960188-ef75-4a23-af11-fa6812d2c610.vcf.gz	TCGA-GR-7353	9b960188-ef75-4a23-af11-fa6812d2c610	Raw Simple Somatic Mutation
+TCGA-G8-6914-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6914	54e09481-75b7-4677-a361-1b9770517c2a	Aligned Reads
+8f73dabc-8178-4d66-91ec-cc2b2b805040.vep.reheader.vcf.gz	TCGA-G8-6907	8f73dabc-8178-4d66-91ec-cc2b2b805040	Annotated Somatic Mutation
+TCGA-G8-6906-14A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6906	a88a1d15-322a-4917-836b-91e00a8bdea8	Aligned Reads
+TCGA-FF-8062-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-FF-8062	e67069c9-26b7-4b0b-9300-c006cd969159	Aligned Reads
+eb06f728-bda9-4ed5-aedb-876702f46120.vcf	TCGA-FM-8000	eb06f728-bda9-4ed5-aedb-876702f46120	Raw Simple Somatic Mutation
+c529e78f-69a3-4bf6-bd6e-22c24292cf2f.vep.reheader.vcf.gz	TCGA-G8-6326	c529e78f-69a3-4bf6-bd6e-22c24292cf2f	Annotated Somatic Mutation
+d1307d45-b031-48ce-b121-4980ef56c6df.snp.Somatic.hc.vcf.gz	TCGA-G8-6914	d1307d45-b031-48ce-b121-4980ef56c6df	Raw Simple Somatic Mutation
+84a9c5a8-94f4-4680-b74b-3e743ff6c42d.vcf.gz	TCGA-G8-6326	84a9c5a8-94f4-4680-b74b-3e743ff6c42d	Raw Simple Somatic Mutation
+1fb0b5b1-d75d-48de-aa19-d86d9f714393.vep.reheader.vcf.gz	TCGA-G8-6906	1fb0b5b1-d75d-48de-aa19-d86d9f714393	Annotated Somatic Mutation
+TCGA-G8-6326-10A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6326	d46164eb-bb4d-4360-b59d-bb4e4a702b15	Aligned Reads
+d5abe4f7-5e1a-4913-b532-e9bcedd6b7df.vep.reheader.vcf.gz	TCGA-FF-8062	d5abe4f7-5e1a-4913-b532-e9bcedd6b7df	Annotated Somatic Mutation
+b97006f4-64b4-493c-bed1-9eeef20fd21f.vep.reheader.vcf.gz	TCGA-G8-6909	b97006f4-64b4-493c-bed1-9eeef20fd21f	Annotated Somatic Mutation
+8bedbae8-262f-4dab-9a48-fa66d07c237a.vep.reheader.vcf.gz	TCGA-G8-6906	8bedbae8-262f-4dab-9a48-fa66d07c237a	Annotated Somatic Mutation
+b9f8a85f-f772-4ece-9b27-030adab9625a.vcf.gz	TCGA-G8-6324	b9f8a85f-f772-4ece-9b27-030adab9625a	Raw Simple Somatic Mutation
+TCGA-GR-7351-10A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-GR-7351	e9dd9daf-7941-4650-b673-d3920f7b535b	Aligned Reads
+863925c6-dd3d-40f9-bb18-e35cc9d6a4fe.vcf	TCGA-G8-6909	863925c6-dd3d-40f9-bb18-e35cc9d6a4fe	Raw Simple Somatic Mutation
+da253f59-113d-4e5e-9f53-c1876c913b71.vep.reheader.vcf.gz	TCGA-FM-8000	da253f59-113d-4e5e-9f53-c1876c913b71	Annotated Somatic Mutation
+5518549e-fbaf-4809-a2dc-73300f4535ad.snp.Somatic.hc.vcf.gz	TCGA-GR-7353	5518549e-fbaf-4809-a2dc-73300f4535ad	Raw Simple Somatic Mutation
+b2fbd121-3fe1-4f46-b753-fdfa979739e9.vep.reheader.vcf.gz	TCGA-G8-6914	b2fbd121-3fe1-4f46-b753-fdfa979739e9	Annotated Somatic Mutation
+73be6b39-1aef-4e40-b866-82946f86f26a.vep.reheader.vcf.gz	TCGA-G8-6326	73be6b39-1aef-4e40-b866-82946f86f26a	Annotated Somatic Mutation
+d80c30d0-859c-449a-895c-ee0f89af8421.snp.Somatic.hc.vcf.gz	TCGA-G8-6906	d80c30d0-859c-449a-895c-ee0f89af8421	Raw Simple Somatic Mutation
+63f91042-d138-411a-a7a4-5fd23e0fdd29.vcf.gz	TCGA-FF-8062	63f91042-d138-411a-a7a4-5fd23e0fdd29	Raw Simple Somatic Mutation
+7c915216-9046-4065-a0aa-9e583c709421.vcf.gz	TCGA-G8-6906	7c915216-9046-4065-a0aa-9e583c709421	Raw Simple Somatic Mutation
+TCGA-FM-8000-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-FM-8000	b2e1e5fd-3b5a-4b5f-bb7c-14cc5299bb27	Aligned Reads
+05ee6bfb-5501-496a-8631-95c9ece300cd.vcf.gz	TCGA-G8-6326	05ee6bfb-5501-496a-8631-95c9ece300cd	Raw Simple Somatic Mutation
+fc5ffbd4-bd87-4400-9b7d-289c85104062.vcf	TCGA-FF-8062	fc5ffbd4-bd87-4400-9b7d-289c85104062	Raw Simple Somatic Mutation
+5bf8b076-5974-4e7a-b3d6-30b93c23e965.vep.reheader.vcf.gz	TCGA-G8-6325	5bf8b076-5974-4e7a-b3d6-30b93c23e965	Annotated Somatic Mutation
+afdd45ab-8b78-410c-9df9-b95fff7bac89.vcf	TCGA-G8-6325	afdd45ab-8b78-410c-9df9-b95fff7bac89	Raw Simple Somatic Mutation
+bacd32e1-25ba-45ef-8be8-4f3ba86cca2c.vcf.gz	TCGA-GR-7353	bacd32e1-25ba-45ef-8be8-4f3ba86cca2c	Raw Simple Somatic Mutation
+TCGA-G8-6326-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6326	171740ce-b978-407d-9c42-b24bd8be4f42	Aligned Reads
+dffbf9b8-2515-42b7-bfe1-550d382f4a7b.vep.reheader.vcf.gz	TCGA-G8-6907	dffbf9b8-2515-42b7-bfe1-550d382f4a7b	Annotated Somatic Mutation
+f9d7590c-d02f-4d12-a682-199db214ebf4.vep.reheader.vcf.gz	TCGA-FF-8062	f9d7590c-d02f-4d12-a682-199db214ebf4	Annotated Somatic Mutation
+TCGA-FF-8062-10A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-FF-8062	3c2a2f57-3e11-49c5-b9e1-dd1756c41460	Aligned Reads
+f42d0cc9-3fd6-474c-921a-ba2b997b6eee.vep.reheader.vcf.gz	TCGA-FF-8062	f42d0cc9-3fd6-474c-921a-ba2b997b6eee	Annotated Somatic Mutation
+cffe40ac-1892-4edd-b95a-1a0f64e670e3.vcf.gz	TCGA-GR-7351	cffe40ac-1892-4edd-b95a-1a0f64e670e3	Raw Simple Somatic Mutation
+e160e47b-324f-4a5e-b2d9-cd075bfb8e9b.vep.reheader.vcf.gz	TCGA-GR-7353	e160e47b-324f-4a5e-b2d9-cd075bfb8e9b	Annotated Somatic Mutation
+TCGA-G8-6324-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6324	2d93b702-ba67-4159-b837-5f01a19b8eae	Aligned Reads
+TCGA-G8-6909-14A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6909	3aef1c0e-2f1d-4581-9769-2a959668f2ac	Aligned Reads
+b1d0ba8d-d1ad-4b29-8073-3515760f1c37.vep.reheader.vcf.gz	TCGA-G8-6324	b1d0ba8d-d1ad-4b29-8073-3515760f1c37	Annotated Somatic Mutation
+8bdbf6a3-ebb1-4a05-9f08-f1d5f281058d.vcf.gz	TCGA-GR-7351	8bdbf6a3-ebb1-4a05-9f08-f1d5f281058d	Raw Simple Somatic Mutation
+5fa8fbe1-e317-4048-aabf-f950c60aee4e.vep.reheader.vcf.gz	TCGA-GR-7353	5fa8fbe1-e317-4048-aabf-f950c60aee4e	Annotated Somatic Mutation
+e142452a-bcd4-42c2-b4d5-7cde4006721e.snp.Somatic.hc.vcf.gz	TCGA-G8-6909	e142452a-bcd4-42c2-b4d5-7cde4006721e	Raw Simple Somatic Mutation
+347bbaa4-626a-45ba-824a-36fe06b74c2a.snp.Somatic.hc.vcf.gz	TCGA-FF-8062	347bbaa4-626a-45ba-824a-36fe06b74c2a	Raw Simple Somatic Mutation
+TCGA-G8-6325-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6325	52db7beb-dabd-4f8e-b3c4-aa24823afa70	Aligned Reads
+3181ee71-33ec-4140-9aa7-97a5dbe6b22d.vep.reheader.vcf.gz	TCGA-G8-6325	3181ee71-33ec-4140-9aa7-97a5dbe6b22d	Annotated Somatic Mutation
+965f013a-f168-48ec-88ad-bab797cc3d03.snp.Somatic.hc.vcf.gz	TCGA-G8-6324	965f013a-f168-48ec-88ad-bab797cc3d03	Raw Simple Somatic Mutation
+TCGA-G8-6324-10A-01D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6324	0254b444-abac-486b-9d62-a2aceedcbf3d	Aligned Reads
+9ef5dffd-bc1b-4e44-83aa-ed843361545a.vep.reheader.vcf.gz	TCGA-GR-7351	9ef5dffd-bc1b-4e44-83aa-ed843361545a	Annotated Somatic Mutation
+003f2955-8447-475b-8c57-06214c346ec9.vcf	TCGA-G8-6324	003f2955-8447-475b-8c57-06214c346ec9	Raw Simple Somatic Mutation
+f4ae0e2c-2e05-4fe0-b100-c831030b8b6d.vep.reheader.vcf.gz	TCGA-G8-6325	f4ae0e2c-2e05-4fe0-b100-c831030b8b6d	Annotated Somatic Mutation
+TCGA-GR-7353-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-GR-7353	0d7669a0-08c3-486d-872a-56c8abcc59f4	Aligned Reads
+77e078bc-7159-4f97-ad44-5da7756b5752.vcf.gz	TCGA-G8-6909	77e078bc-7159-4f97-ad44-5da7756b5752	Raw Simple Somatic Mutation
+TCGA-G8-6909-01A-11D-2210-10_Illumina_gdc_realn.bam	TCGA-G8-6909	c8c36597-6777-426f-bef7-97e2aff61709	Aligned Reads
