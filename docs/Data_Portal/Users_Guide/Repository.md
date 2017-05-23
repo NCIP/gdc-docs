@@ -1,6 +1,6 @@
 # Repository
 
-The Repository view is the primary method of accessing data in the GDC Data Portal. It provides an overview of all cases and files available in the GDC and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access Repository View from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/repository](https://portal.gdc.cancer.gov/repository).
+The Repository Page is the primary method of accessing data in the GDC Data Portal. It provides an overview of all cases and files available in the GDC and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the Repository Page from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/repository](https://portal.gdc.cancer.gov/repository).
 
 On the left, a panel of data facets allows users to filter cases and files using a variety of criteria. If facet filters are applied, the tabs on the right will display information about matching cases and files. If no filters are applied, the tabs on the right will display information about all available data.
 
@@ -11,7 +11,7 @@ On the right, two tabs contain information about available data:
 
 The banner above the tabs on the right displays any active facet filters and provides access to advanced search.
 
-The top of the Repository page contains a few summary pie charts for Primary Sites, Projects, Disease Type, Gender, and Vital Status.  These reflect all available data or, if facet filters are applied, only the data that matches the filters. Clicking on a specific slice in a pie chart, or on a number in a table, applies corresponding facet filters.
+The top of the Repository Page contains a few summary pie charts for Primary Sites, Projects, Disease Type, Gender, and Vital Status.  These reflect all available data or, if facet filters are applied, only the data that matches the filters. Clicking on a specific slice in a pie chart, or on a number in a table, applies corresponding facet filters.
 
 [![Data View](images/gdc-data-portal-repository-view.png)](images/gdc-data-portal-repository-view.png "Click to see the full image.")
 
@@ -55,7 +55,7 @@ The default set of facets is listed below.
 
 #### Adding Custom Facets
 
-The Repository view provides access to additional data facets beyond those listed above. Facets corresponding to additional properties listed in the [GDC Data Dictionary](../../Data_Dictionary/index.md) can be added using the "add a filter" links available at the top of the Cases and Files facet tabs:
+The Repository Page provides access to additional data facets beyond those listed above. Facets corresponding to additional properties listed in the [GDC Data Dictionary](../../Data_Dictionary/index.md) can be added using the "add a filter" links available at the top of the Cases and Files facet tabs:
 
 [![Add a Facet](images/gdc-data-portal-data-add-facet.png)](images/gdc-data-portal-data-add-facet.png "Click to see the full image.")
 
@@ -79,7 +79,6 @@ The list also includes a shopping cart button, allowing the user to add all file
 
 [![Cases Tab, Add to Cart](images/gdc-data-portal-data-case-add-cart.png)](images/gdc-data-portal-data-case-add-cart.png "Click to see the full image.")
 
-
 ### Files List
 
 The Files tab on the right provides a list of available files and select information about each file. If facet filters are applied, the list includes only matching files. Otherwise, the list includes all data files available in the GDC Data Portal.
@@ -90,11 +89,11 @@ The *File Name* column includes links to [file detail pages](#file-detail-page) 
 
 Users can add individual file(s) to the file cart using the cart button next to each file. Alternatively, all files that match the current facet filters can be added to the cart using the menu in the top left corner of the table:
 
-[![Files Tab](images/gdc-data-portal-data-files-add-cart.png)](images/gdc-data-portal-data-files-add-cart.png "Click to see the full image."
+[![Files Tab](images/gdc-data-portal-data-files-add-cart.png)](images/gdc-data-portal-data-files-add-cart.png "Click to see the full image.")
 
 ## Case Summary Page
 
-The Case Summary Page displays case details including the project and disease information, data files that are available for that case, and the experimental strategies employed. A button in the top-right corner of the page allows the user to add all files associated with the case to the file cart.
+The Case Summary page displays case details including the project and disease information, data files that are available for that case, and the experimental strategies employed. A button in the top-right corner of the page allows the user to add all files associated with the case to the file cart.
 
 [![Case Page](images/gdc-case-entity-page.png)](images/gdc-case-entity-page.png "Click to see the full image.")
 
@@ -111,7 +110,6 @@ For clinical records that support multiple records of the same type (Diagnoses, 
 A search filter just below the biospecimen section can be used to find and filter biospecimen data. The wildcard search will highlight entities in the tree that match the characters typed. This will search both the case submitter ID, as well as the additional metadata for each entity. For example, searching 'Primary Tumor' will highlight samples that match that type.
 
 [![Biospecimen Search](images/gdc-case-biospecimen-search.png)](images/gdc-case-biospecimen-search.png "Click to see the full image.")
-
 
 ## File Summary Page
 
@@ -132,7 +130,6 @@ In the lower section of the screen, the following tables provide more details ab
 [![Files Entity Page](images/gdc-data-portal-files-entity-page-part2.png)](images/gdc-data-portal-files-entity-page-part2.png "Click to see the full image.")
 
 **Note**: *The Legacy Archive* will not display "Workflow, Reference Genome and Read Groups" sections (these sections are applicable to the GDC harmonization pipeline only). However it may provide information on Archives and metadata files like MAGE-TABs and SRA XMLs. For more information, please refer to the section [Legacy Archive](Legacy_Archive.md).
-
 
 ### BAM Slicing
 

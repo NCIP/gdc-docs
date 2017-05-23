@@ -1,17 +1,17 @@
 # Projects
 
 ## Summary
-At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to look at particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC Data Portal allows users to access aggregate project-level information via the Projects View and Project Summary pages.
+At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to look at particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC Data Portal allows users to access aggregate project-level information via the Projects Page and Project Summary pages.
 
-## Projects View
+## Projects Page
 
-The Projects View provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access Projects View from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/projects](https://portal.gdc.cancer.gov/projects).
+The Projects Page provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access Projects Page from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/projects](https://portal.gdc.cancer.gov/projects).
 
 On the left, a panel of data facets allows users to apply filters to find projects of interest. When facet filters are applied, the tabs and visualizations on the right are updated to display only the matching projects. When no filters are applied, all projects are displayed.
 
 On the right, is a few visualizations of the data (Top Mutated Genes in Selected Projects and Case Distribution per Project). Below these graphs is a table that contains a list of projects and select details about each project, such as the number of cases and data files. The Graph tab provides a visual representation of this information.
 
-[![Projects View, Main Window (Table View)](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
+[![Projects Page, Main Window (Table View)](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
 
 ### Visualizations
 
@@ -33,7 +33,7 @@ A pie graph displays the relative number of cases for each primary site (inner c
 
 The `Table` tab lists projects by Project ID and provides additional information about each project. If no facet filters have been applied, the table will display all available projects; otherwise it will display only those projects that match the selected criteria.
 
-The table provides links to project detail pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository View](Repository.md).
+The table provides links to Project Summary pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository Page](Repository.md).
 
 ### Projects Graph
 
@@ -41,13 +41,17 @@ The `Graph` tab contains an interactive view of information in the Table tab. Th
 
 [![Graph Mouseover](images/gdc-table-graph-mouse-over.png)](images/gdc-table-graph-mouse-over.png "Click to see the full image.")
 
-Most elements in the graph are clickable, allowing the user to open the associated cases or files in [Repository View](Repository.md).
+Most elements in the graph are clickable, allowing the user to open the associated cases or files in [Repository Page](Repository.md).
 
 Like the projects table, the graph will reflect any applied facet filters.
 
 ### Facets Panel
 
-Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the projects presented in the Table and Graph tabs. Users can filter by the following facets:
+Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the projects presented in the Table and Graph tabs.
+
+[![Panel with Applied Filters](images/gdc-data-portal-project-page-facets.png)](images/gdc-data-portal-project-page-facets.png "Click to see the full image.")
+
+Users can filter by the following facets:
 
 *   __Project__: Individual project ID
 *   __Primary Site__: Anatomical site of the cancer under investigation or review.
@@ -67,7 +71,7 @@ For information on how to use facet filters, see [Getting Started](Getting_Start
 
 Each project has a summary page that provides an overview of all available cases, files, and annotations available. Clicking on the numbers in the summary table will display the corresponding data.
 
-[![Project Detail Page](images/gdc-project-entity-page.png)](images/gdc-project-entity-page.png "Click to see the full image.")
+[![Project Summary Page](images/gdc-project-entity-page.png)](images/gdc-project-entity-page.png "Click to see the full image.")
 
 Three download buttons in the top right corner of the screen allow the user to download the entire project dataset, along with the associated project metadata:
 
@@ -77,7 +81,7 @@ Three download buttons in the top right corner of the screen allow the user to d
 
 ### Most Frequently Mutated Genes
 
-The project detail page also reports the genes that have somatic mutations in the greatest numbers of cases in a graphical and tabular format.
+The Project Summary page also reports the genes that have somatic mutations in the greatest numbers of cases in a graphical and tabular format.
 
 [![Frequently Mutated Genes](images/gdc-frequently-mutated-genes.png)](images/gdc-frequently-mutated-genes.png "Click to see the full image.")
 
@@ -153,7 +157,7 @@ A tool bar at the top right of the graphic allows the user to export the data as
 * __Fullscreen:__ Turns Fullscreen mode on/off
 
 ### Most Frequent Mutations
-The project detail page also displays the 20 most frequent mutations in the project as a bar graph that indicates the number of cases that are affected by each mutation. Hovering over each bar in the plot will show information about the number of cases affected.
+The Project Summary page also displays the 20 most frequent mutations in the project as a bar graph that indicates the number of cases that are affected by each mutation. Hovering over each bar in the plot will show information about the number of cases affected.
 
 [![Most Frequent Mutations](images/gdc-frequent-mutations.png)](images/gdc-frequent-mutations.png "Click to see the full image.")
 
@@ -173,7 +177,7 @@ A table is displayed below that lists information about each mutation:
 
 ### Most Affected Cases
 
-The final section of the project detail page is a display of the top 20 cases in a specified project, with the greatest number of affected genes.
+The final section of the Project Summary page is a display of the top 20 cases in a specified project, with the greatest number of affected genes.
 
 [![Most Affected Cases](images/gdc-most-affected-cases.png)](images/gdc-most-affected-cases.png "Click to see the full image.")
 
