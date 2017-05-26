@@ -15,19 +15,18 @@ The first tab of filters is for cases in the GDC.
 
 These criteria limit the results only to specific cases within the GDC. The default filters available are:
 
-* __Case ID__ - Specific UUID
-* __Case Submitter ID__ - i.e. TCGA Barcode
-* __Primary Site__ - Location of the cancer
-* __Cancer Program__
-* __Project__
-* __Disease Type__
-* __Primary Site__
-* __Gender__
-* __Age at Diagnosis__
-* __Vital Status__
-* __Days to Death__
-* __Race__
-* __Ethnicity__
+* __Case__: Specify individual cases using submitter ID (barcode) or UUID.
+* __Case Submitter ID Prefix__: Search for cases using a part (prefix) of the submitter ID (barcode).
+* __Primary Site__: Anatomical site of the cancer under investigation or review.
+* __Cancer Program__: A cancer research program, typically consisting of multiple focused projects.
+* __Project__: A cancer research project, typically part of a larger cancer research program.
+* __Disease Type__: Type of cancer studied.
+* __Gender__: Gender of the patient.
+* __Age at Diagnosis__: Patient age at the time of diagnosis.
+* __Vital Status__: Indicator of whether the patient was living or deceased at the date of last contact.
+* __Days to Death__: Number of days from date of diagnosis to death of the patient.
+* __Race__: Race of the patient.
+* __Ethnicity__: Ethnicity of the patient.
 
 In addition to the defaults, users can add additional case filters by clicking on the link titled 'Add a Case Filter'
 
@@ -39,7 +38,7 @@ The second tab of filters are for specific genes.  Users can filter by:
 
 * __Gene__ - Entering in a specific Gene Symbol or ID
 * __Type__ - Classification of the type of gene
-* __Curated Gene Set__ - Whether or not a gene is part of The Cancer Gene Census
+* __Curated Gene Set__ - Whether or not a gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/)
 
 ### Mutation Filters
 
@@ -87,7 +86,7 @@ Below these pie charts is a tabular view (which can be exported and sorted using
 
 #### Genes
 
-The `Genes` tab will give an overview of all the genes who match the criteria of the filters (Cohort).
+The `Genes` tab will give an overview of all the genes that match the criteria of the filters (Cohort).
 
 [![Exploration Gene Example](images/Exploration-Gene-Example.png)](images/Exploration-Gene-Example.png "Click to see the full image.")
 

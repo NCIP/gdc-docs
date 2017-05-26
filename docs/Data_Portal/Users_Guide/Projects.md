@@ -7,9 +7,9 @@ At a high level, data in the Genomic Data Commons is organized by project. Typic
 
 The Projects Page provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access Projects Page from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/projects](https://portal.gdc.cancer.gov/projects).
 
-On the left, a panel of data facets allows users to apply filters to find projects of interest. When facet filters are applied, the tabs and visualizations on the right are updated to display only the matching projects. When no filters are applied, all projects are displayed.
+On the left, a panel of data facets allows users to apply filters to find projects of interest. When facet filters are applied, the table and visualizations on the right are updated to display only the matching projects. When no filters are applied, all projects are displayed.
 
-On the right, is a few visualizations of the data (Top Mutated Genes in Selected Projects and Case Distribution per Project). Below these graphs is a table that contains a list of projects and select details about each project, such as the number of cases and data files. The Graph tab provides a visual representation of this information.
+The right side of this page displays a few visualizations of the data (Top Mutated Genes in Selected Projects and Case Distribution per Project). Below these graphs is a table that contains a list of projects and select details about each project, such as the number of cases and data files. The Graph tab provides a visual representation of this information.
 
 [![Projects Page, Main Window (Table View)](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
 
@@ -29,9 +29,10 @@ A pie graph displays the relative number of cases for each primary site (inner c
 
 
 ### Projects Table
-[![Projects Table)](images/gdc-projects-table-view.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
 
 The `Table` tab lists projects by Project ID and provides additional information about each project. If no facet filters have been applied, the table will display all available projects; otherwise it will display only those projects that match the selected criteria.
+
+[![Projects Table)](images/gdc-projects-table-view.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
 
 The table provides links to Project Summary pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository Page](Repository.md).
 
@@ -60,7 +61,7 @@ Users can filter by the following facets:
 *   __Data Category__: Type of data available in the project.
 *   __Experimental Strategy__: Experimental strategies used for molecular characterization of the cancer.
 
-Filters can be applied by selecting values of interest in the available facets, for example "WXS" and "miRNA-Seq" in the "Experimental Strategy" facet and "Kidney" in the "Primary Site" facet. When facet filters are applied, the Table and Graph tabs are updated to display matching projects, and the banner above the tabs  summarizes the applied filters. The banner allows the user to click on filter elements to remove the associated filters, and includes a link to view the matching cases and files.
+Filters can be applied by selecting values of interest in the available facets, for example "WXS" and "RNA-Seq" in the "Experimental Strategy" facet and "Brain" in the "Primary Site" facet. When facet filters are applied, the Table and Graph tabs are updated to display matching projects, and the banner above the tabs  summarizes the applied filters. The banner allows the user to click on filter elements to remove the associated filters, and includes a link to view the matching cases and files.
 
 [![Panel with Applied Filters](images/panel-with-applied-filters.png)](images/panel-with-applied-filters.png "Click to see the full image.")
 

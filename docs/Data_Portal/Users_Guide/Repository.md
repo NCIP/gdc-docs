@@ -1,7 +1,10 @@
 # Repository
 
+## Summary
+
 The Repository Page is the primary method of accessing data in the GDC Data Portal. It provides an overview of all cases and files available in the GDC and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the Repository Page from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/repository](https://portal.gdc.cancer.gov/repository).
 
+## Filters / Facets
 On the left, a panel of data facets allows users to filter cases and files using a variety of criteria. If facet filters are applied, the tabs on the right will display information about matching cases and files. If no filters are applied, the tabs on the right will display information about all available data.
 
 On the right, two tabs contain information about available data:
@@ -53,7 +56,7 @@ The default set of facets is listed below.
 * __Platform__: Technological platform on which experimental data was produced.
 * __Access Level__: Indicator of whether access to the data file is open or controlled.
 
-#### Adding Custom Facets
+### Adding Custom Facets
 
 The Repository Page provides access to additional data facets beyond those listed above. Facets corresponding to additional properties listed in the [GDC Data Dictionary](../../Data_Dictionary/index.md) can be added using the "add a filter" links available at the top of the Cases and Files facet tabs:
 
@@ -66,6 +69,7 @@ The links open a search window that allows the user to find an additional facet 
 Newly added facets will show up at the top of the facets panel and can be removed individually by clicking on the red cross to the right of the facet name. The default set of facets can be restored by clicking "Reset".
 
 [![Customize Facet](images/gdc-data-portal-data-facet-tumor_stage.png)](images/gdc-data-portal-data-facet-tumor_stage.png "Click to see the full image.")
+## Results
 
 ### Cases List
 
