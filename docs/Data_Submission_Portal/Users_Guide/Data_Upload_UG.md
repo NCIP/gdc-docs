@@ -729,7 +729,7 @@ The [transaction](Transactions.md) page lists all previous transactions in the p
 
 ### Download Previously Uploaded Data Files
 
-The only supported method to download data files previously uploaded to the GDC Submission Portal that have not been release yet is to use the [Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/). To retrieve data previous upload to the submission portal you will need to retrieve the data file's UUID.  The UUIDs for submitted data files are located in the submission portal under the file's Summary section.    
+The only supported method to download data files previously uploaded to the GDC Submission Portal that have not been release yet is to use the API or the [Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/). To retrieve data previous upload to the submission portal you will need to retrieve the data file's UUID.  The UUIDs for submitted data files are located in the submission portal under the file's Summary section.    
 
 [![Submission Portal Summary View](images/gdc-submission__image2_submission_UUID.png)](images/gdc-submission__image2_submission_UUID.png "Click to see the full image.")  
 The UUIDs can also be found in the manifest file accessible from the manifest button located on the file's  Summary page.   
