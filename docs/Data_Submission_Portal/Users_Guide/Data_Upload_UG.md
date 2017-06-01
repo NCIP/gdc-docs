@@ -734,21 +734,6 @@ The only supported method to download data files previously uploaded to the GDC 
 [![Submission Portal Summary View](images/gdc-submission__image2_submission_UUID.png)](images/gdc-submission__image2_submission_UUID.png "Click to see the full image.")  
 The UUIDs can also be found in the manifest file accessible from the manifest button located on the file's  Summary page.   
 
-Once the UUID(s) have been retrieved the download process is that same as it is for our main portal downloads.  If the process is not familiar please refer to the [Downloading data using GDC file UUIDs](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#downloading-data-using-gdc-file-uuids) for downloading instructions. 
+Once the UUID(s) have been retrieved the download process is the same as it is for data on our main portal.  If the process is unfamiliar please refer to the [Downloading data using GDC file UUIDs](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#downloading-data-using-gdc-file-uuids) for downloading instructions.
 
-
-
-For more information on downloading data using the data transfer tool please refer to [Downloading data using GDC file UUIDs](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#downloading-data-using-gdc-file-uuids)
-__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.
-
-
-
-
-
-From the browse tab link located on the project's home page navigate to the "Submittable Data Files" section and click on the submitter id associated with the file.  The UUID associated file will appear under the "SUMMARY" section in the file's information pain located on the right site of the page.
-
-
-
-For more information on downloading data using the data transfer tool with a UUID please refer to [Downloading data using GDC file UUIDs](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#downloading-data-using-gdc-file-uuids)
-
-__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.
+ __Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.
