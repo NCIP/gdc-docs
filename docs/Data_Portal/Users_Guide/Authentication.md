@@ -28,11 +28,13 @@ The rest of this section describes controlled data access features of the GDC Da
 
 The GDC Data Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
 
-1. Log into the GDC using your eRA Commons credentials,
-2. Click the username in the top right corner of the screen,
-3. Select the "Download token" option.
+1. Log into the GDC using your eRA Commons credentials
+2. Click the username in the top right corner of the screen
+3. Select the "Download token" option
 
 ![Token Download Button](images/gdc-data-portal-token-download.png)
+
+A new token is generated each time the `Download Token` button is clicked.
 
 For more information about authentication tokens, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
 

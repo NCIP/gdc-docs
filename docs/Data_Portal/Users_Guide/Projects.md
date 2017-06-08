@@ -19,7 +19,7 @@ The right side of this page displays a few visualizations of the data (Top Mutat
 
 #### Top Mutated Cancer Genes in Selected Projects
 
-This dynamically generated bar graph shows the ten genes with the most mutations across all projects. The bars represent the frequency of each mutation and is broken down into different colored segments by project and disease type. The graphic is updated as filters are applied for projects, programs, disease types, and data categories available in the project.
+This dynamically generated bar graph shows the 20 genes with the most mutations across all projects. The genes are filtered by those that are part of the Cancer Gene Census and that have the following types of mutations: `missense_variant, frameshift_variant, start_lost, stop_lost, initiator_codon_variant, stop_gained`.  The bars represent the frequency of each mutation and is broken down into different colored segments by project and disease type. The graphic is updated as filters are applied for projects, programs, disease types, and data categories available in the project.
 
 Hovering the cursor over each bar will display information about the number of cases affected by the disease type and clicking on each bar will bring the user to the Gene Summary Page page for the gene associated with the mutation.
 
@@ -55,16 +55,15 @@ Facets represent properties of the data that can be used for filtering. The face
 Users can filter by the following facets:
 
 *   __Project__: Individual project ID
-*   __Primary Site__: Anatomical site of the cancer under investigation or review.
-*   __Cancer Program__: Research program that the project is part of.
-*   __Disease Type__: Type of cancer studied.
-*   __Data Category__: Type of data available in the project.
-*   __Experimental Strategy__: Experimental strategies used for molecular characterization of the cancer.
+*   __Primary Site__: Anatomical site of the cancer under investigation or review
+*   __Cancer Program__: Research program that the project is part of
+*   __Disease Type__: Type of cancer studied
+*   __Data Category__: Type of data available in the project
+*   __Experimental Strategy__: Experimental strategies used for molecular characterization of the cancer
 
 Filters can be applied by selecting values of interest in the available facets, for example "WXS" and "RNA-Seq" in the "Experimental Strategy" facet and "Brain" in the "Primary Site" facet. When facet filters are applied, the Table and Graph tabs are updated to display matching projects, and the banner above the tabs  summarizes the applied filters. The banner allows the user to click on filter elements to remove the associated filters, and includes a link to view the matching cases and files.
 
 [![Panel with Applied Filters](images/panel-with-applied-filters.png)](images/panel-with-applied-filters.png "Click to see the full image.")
-
 
 For information on how to use facet filters, see [Getting Started](Getting_Started.md#facet-filters).
 

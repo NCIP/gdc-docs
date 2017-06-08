@@ -50,7 +50,7 @@ The final tab of filters are for specific mutations.  Users can filter by:
     * UUID - c7c0aeaa-29ed-5a30-a9b6-395ba4133c63
     * DNA Change - 	chr12:g.121804752delC
     * COSMIC ID - COSM202522
-* __Impact__ - A subjective classification of the severity of the variant consequence. The categories are:
+* __Impact (VEP)__ - A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
     * __HIGH__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
     * __MODERATE__: A non-disruptive variant that might change protein effectiveness
     * __LOW__: Assumed to be mostly harmless or unlikely to change protein behavior
