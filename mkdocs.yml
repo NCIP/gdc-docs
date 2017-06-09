@@ -24,6 +24,7 @@ pages:
   - Getting Started: API/Users_Guide/Getting_Started.md
   - Search and Retrieval: API/Users_Guide/Search_and_Retrieval.md
   - Downloading Files: API/Users_Guide/Downloading_Files.md
+  - Data Analysis: API/Users_Guide/Data_Analysis.md
   - BAM Slicing: API/Users_Guide/BAM_Slicing.md
   - Submission: API/Users_Guide/Submission.md
   - System Information: API/Users_Guide/System_Information.md
