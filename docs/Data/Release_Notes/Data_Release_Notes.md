@@ -19,7 +19,7 @@ None
 
 ### Known Issues and Workarounds
 
-* The GDC does not have the latest TARGET data available.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+* The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
     *  All microarray data and metadata
     *  All sequencing analyzed data and metadata
     *  1180 of 12063 sequencing runs of raw data
