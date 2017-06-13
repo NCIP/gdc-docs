@@ -17,6 +17,7 @@ There was a major new release of the GDC Data Portal focused on Data Analysis, V
 *  Survival plots for patients with or without variants in specific genes
 *  List of cases with the largest number of somatic mutations
 *  Lollipop plots of mutation frequency across protein domains
+
 _For detailed updates please review the [Data Portal User Guide](../Data_Portal/Users_Guide/Getting_Started/)._
 
 ### Bugs Fixed Since Last Release
