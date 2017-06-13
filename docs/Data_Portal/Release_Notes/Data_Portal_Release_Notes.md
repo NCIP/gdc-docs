@@ -8,7 +8,7 @@
 
 ### New Features and Changes
 
-There was a major new release of the GDC Data Portal focused on Data Analysis, Visualization, and Exploration (DAVE). For detailed updates please review the [Data Portal User Guide](../Data_Portal/Users_Guide/Getting_Started/).  Some important new features include the following:
+There was a major new release of the GDC Data Portal focused on Data Analysis, Visualization, and Exploration (DAVE). Some important new features include the following:
 
 *  List of most frequently mutated genes per project or patient cohort
 *  List of most frequent variants per project or patient cohort
@@ -17,6 +17,7 @@ There was a major new release of the GDC Data Portal focused on Data Analysis, V
 *  Survival plots for patients with or without variants in specific genes
 *  List of cases with the largest number of somatic mutations
 *  Lollipop plots of mutation frequency across protein domains
+_For detailed updates please review the [Data Portal User Guide](../Data_Portal/Users_Guide/Getting_Started/)._
 
 ### Bugs Fixed Since Last Release
 
