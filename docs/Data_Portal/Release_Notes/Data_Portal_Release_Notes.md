@@ -1,6 +1,57 @@
 # Data Portal Release Notes
 
 
+## Release 1.6.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: June 27, 2017
+
+### New Features and Changes
+
+There was a major new release of the GDC Data Portal focused on Data Analysis, Visualization, and Exploration (DAVE). For detailed updates please review the [Data Portal User Guide](../Data_Portal/Users_Guide/Getting_Started/).  Some important new features include the following:
+
+*  List of most frequently mutated genes per project or patient cohort
+*  List of most frequent variants per project or patient cohort
+*  Oncogrid view of mutation frequency
+*  Survival plots for patients with or without specific variants
+*  Survival plots for patients with or without variants in specific genes
+*  List of cases with the largest number of somatic mutations
+*  Lollipop plots of mutation frequency across protein domains
+
+### Bugs Fixed Since Last Release
+
+*  None
+
+### Known Issues and Workarounds
+
+*   General
+    *   Exporting large tables in the Data Portal may produce a 500 error.  Filtering this list to include fewer cases or files should eliminate the error <!--API-223-->
+    *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status. <!-- PGDC-2403 / PRTL-133 -->
+    *   BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
+    *   Due to preceding issue, If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
+    *   Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files.  To produce a list of source files an API call can be used with the search parameter "fields=analysis.input_files.file_name". <!-- SV-396 / PRTL-342-->
+		*   Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+
+
+Example
+
+    https://api.gdc.cancer.gov/files/455e26f7-03f2-46f7-9e7a-9c51ac322461?pretty=true&fields=analysis.input_files.file_name
+
+
+
+
+*   Cart
+    *   Counts displayed in the top right of the screen, next to the Cart icon, may become inconsistent if files are removed from the server. <!-- PGDC-2403 / PRTL-133 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   Internet Explorer users are not able to use the "Only show fields with no values" when adding custom facets <!-- PGDC-2467 / PRTL-109 -->
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
+
+
 ## Release 1.5.2
 
 * __GDC Product__: GDC Data Portal
@@ -45,7 +96,6 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 
 
 
-# Data Portal Release Notes
 
 
 ## Release 1.4.1
