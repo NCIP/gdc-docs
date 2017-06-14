@@ -10,28 +10,36 @@
 
 There was a major new release of the GDC Data Portal focused on Data Analysis, Visualization, and Exploration (DAVE). Some important new features include the following:
 
-*  List of most frequently mutated genes per project or patient cohort
-*  List of most frequent variants per project or patient cohort
-*  Oncogrid view of mutation frequency
-*  Survival plots for patients with or without specific variants
-*  Survival plots for patients with or without variants in specific genes
-*  List of cases with the largest number of somatic mutations
-*  Lollipop plots of mutation frequency across protein domains
-*  New Entity pages for Mutations & Genes, containing links to external databases (COSMIC, Uniprot, Ensembl, etc...)
+*  New visual for the Homepage: a human body provides the number of Cases per Primary Site with a link to an advanced Cancer Projects search
+*  The Projects menu provides the Top 20 Cancer Genes across the GDC Projects and the Case Distribution per Project
+*  A new menu “Exploration” is an advanced Cancer Projects search which provides the ability, given Case, Gene and Mutation filters, to look for:
+    *   List of Cases with the largest number of Somatic Mutations
+    *	The most frequently mutated Genes 
+    *	The most frequent Variants
+    *	It also provides the Oncogrid view of mutation frequency 
+*  Visualizations are provided across the Project, Case, Gene and Mutation entity pages:
+    *	List of most frequently mutated genes and most frequent variants
+    *	Survival plots for patients with or without specific variants
+    *	Survival plots for patients with or without variants in specific genes
+    *	Lollipop plots of mutation frequency across protein domains
+*  Links to external databases (COSMIC, dbSNP, Uniprot, Ensembl, OMIM, HGNC)
+*  Quick Search for Gene and Mutation entity pages
+*  The ability to export in TSV the current view of a table
 
 _For detailed updates please review the [Data Portal User Guide](../Data_Portal/Users_Guide/Getting_Started/)._
 
 ### Bugs Fixed Since Last Release
 
 *  BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
+*  Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files. <!-- SV-396 / PRTL-342-->
+*  If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
 
 ### Known Issues and Workarounds
 
-*   General
+*  The annotation count in Repository File table does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table
+*  General
     *   Exporting large tables in the Data Portal may produce a 500 error.  Filtering this list to include fewer cases or files should eliminate the error <!--API-223-->
     *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status. <!-- PGDC-2403 / PRTL-133 -->
-    *   Due to preceding issue, If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
-    *   Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files.  To produce a list of source files an API call can be used with the search parameter "fields=analysis.input_files.file_name". <!-- SV-396 / PRTL-342-->
     *   Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
 *   Cart
     *   Counts displayed in the top right of the screen, next to the Cart icon, may become inconsistent if files are removed from the server. <!-- PGDC-2403 / PRTL-133 -->
