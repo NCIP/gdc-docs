@@ -33,6 +33,7 @@ _For detailed updates please review the [Data Portal User Guide](../Data_Portal/
 *  BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
 *  Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files. <!-- SV-396 / PRTL-342-->
 *  If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
+    *   Internet Explorer users are not able to use the "Only show fields with no values" when adding custom facets <!-- PGDC-2467 / PRTL-109 -->
 
 ### Known Issues and Workarounds
 *  General
@@ -47,7 +48,6 @@ _For detailed updates please review the [Data Portal User Guide](../Data_Portal/
     *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
-    *   Internet Explorer users are not able to use the "Only show fields with no values" when adding custom facets <!-- PGDC-2467 / PRTL-109 -->
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
 
 
