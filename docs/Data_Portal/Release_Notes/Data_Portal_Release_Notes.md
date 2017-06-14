@@ -35,15 +35,16 @@ _For detailed updates please review the [Data Portal User Guide](../Data_Portal/
 *  If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
 
 ### Known Issues and Workarounds
-
-*  The annotation count in Repository File table does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table
 *  General
     *   Exporting large tables in the Data Portal may produce a 500 error.  Filtering this list to include fewer cases or files should eliminate the error <!--API-223-->
     *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status. <!-- PGDC-2403 / PRTL-133 -->
-    *   Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+*  Exploration: Combining a Mutation filter like Variant Caller, Cosmic ID and dbSNP rs ID with a Case Filter will display wrong counts in the Mutation facets. The counts in the Result tables are correct.
+*  Repository: The annotation count in Repository File table does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table
 *   Cart
     *   Counts displayed in the top right of the screen, next to the Cart icon, may become inconsistent if files are removed from the server. <!-- PGDC-2403 / PRTL-133 -->
-*  Legacy Archive: exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only
+*  Legacy Archive: 
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   Internet Explorer users are not able to use the "Only show fields with no values" when adding custom facets <!-- PGDC-2467 / PRTL-109 -->
