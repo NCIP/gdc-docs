@@ -1,6 +1,6 @@
 # Exploration
 
-The Exploration page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level.  Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.
+The Exploration page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level. Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.  The Gene/Mutation data for these visualizations comes from the Open-Access MAF files on the GDC Portal.
 
 [![Exploration Page](images/GDC-Exploration-Page.png)](images/GDC-Exploration-Page.png "Click to see the full image.")
 
@@ -55,10 +55,10 @@ The final tab of filters is for specific mutations.  Users can filter by:
     * DNA Change - 	chr12:g.121804752delC
     * COSMIC ID - COSM202522
 * __Impact (VEP)__ - A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
-    * __HIGH__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
-    * __MODERATE__: A non-disruptive variant that might change protein effectiveness
-    * __LOW__: Assumed to be mostly harmless or unlikely to change protein behavior
-    * __MODIFIER__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+    * __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
+    * __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
+    * __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
+    * __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
 * __Consequence Type__ - Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms
 * __Mutation Type__ - The type of mutation
 * __Variant Caller__ - The variant caller used to identify the mutation
@@ -127,12 +127,12 @@ A table is displayed below that lists information about each mutation:
 * __Type:__ A general classification of the mutation
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript).  A link to the Gene Summary Page for the gene affected by the mutation is included
 * __# Affected Cases in Cohort:__ The number of affected cases in the Cohort
-* __# Affected Cases in Across all Projects:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will display a breakdown of each affected project
-* __Impact:__ A subjective classification of the severity of the variant consequence. The categories are:
-    * __HIGH__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
-    * __MODERATE__: A non-disruptive variant that might change protein effectiveness
-    * __LOW__: Assumed to be mostly harmless or unlikely to change protein behavior
-    * __MODIFIER__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+* __# Affected Cases in Across all Projects:__ The number of affected cases, expressed as number across all projects. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). Choosing the arrow next to the percentage will display a breakdown of each affected project
+* __Impact (VEP):__ A subjective classification of the severity of the variant consequence. The categories are:
+    * __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
+    * __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
+    * __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
+    * __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
 * __Survival Analysis:__ An icon that when clicked, will plot the survival rate between the gene's mutated and non-mutated cases
 
 #### OncoGrid

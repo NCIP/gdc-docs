@@ -7,7 +7,7 @@ The Genomic Data Commons (GDC) Data Portal provides users with web-based access 
 
 *   Open, granular access to information about all datasets available in the GDC
 *   Advanced search and visualization-assisted filtering of data files
-*   Data visualization tools to support the analysis and exploration of data (including on a gene and mutation level)
+*   Data visualization tools to support the analysis and exploration of data (including on a gene and mutation level from Open-Access MAF files)
 *   Cart for collecting data files of interest
 *   Authentication using eRA Commons credentials for access to controlled data files
 *   Secure data download directly from the cart or using the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
@@ -36,11 +36,11 @@ The GDC Data Portal provides four interfaces (*Views*) for browsing available ha
 
 [![GDC Views](images/gdc-home-view-options.png)](images/gdc-home-view-options.png "Click to see the full image.")
 
-* __Projects__: The projects link directs users to the [Projects Page](Projects.md), which gives an overall summary of project-level information.
+* __Projects__: The projects link directs users to the [Projects Page](Projects.md), which gives an overall summary of project-level information, including the available data for each project.
 
-* __Exploration__: The exploration link takes users to the [Exploration Page](Exploration.md), which allows users to explore data by filtering on the mutation and gene level.
+* __Exploration__: The exploration link takes users to the [Exploration Page](Exploration.md), which allows users to explore data by utilizing various case, genes and mutation filters.
 
-* __Repository__: The repository link directs users to the [Repository Page](Repository.md).  Here users can see the data files available at the GDC and apply file/case filters to narrow down their search.
+* __Repository__: The repository link directs users to the [Repository Page](Repository.md).  Here users can see the data files available for download at the GDC and apply file/case filters to narrow down their search.
 
 * __Human Outline__: The home page displays a human anatomical outline that can be used to refine their search. Choosing an associated organ will direct the user to a listing of all projects associated with that primary site. For example, clicking on the human brain will show only cases and projects associated with brain cancer (TCGA-GBM and TCGA-LGG).  The number of cases associated with each primary site is also displayed here and separated by project.
 
@@ -52,7 +52,7 @@ The Projects, Exploration, and Repository pages can be accessed from the GDC Dat
 
 The toolbar available at the top of all pages in the GDC Data Portal provides convenient navigation links and access to authentication and quick search.
 
-The left portion of this toolbar provides access to the Home Page, the __Projects Page__, the __Exploration Page__, and a link to __Repository Page__:
+The left portion of this toolbar provides access to the Home Page, __Projects Page__, __Exploration Page__, and a link to __Repository Page__:
 
 [![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-left.png)](images/gdc-data-portal-top-menu-bar-left.png "Click to see the full image.")
 
@@ -68,13 +68,19 @@ The GDC Apps menu provides links to all resources provided by the GDC, including
 
 Tabular listings are the primary method of representing available data in the GDC Data Portal. Tables are available in all views and in the file cart. Users can customize each table by specifying columns, size, and sorting.
 
+#### Table Sort
+
 The *sort table* button is available in the top right corner of each table. To sort by a column, place a checkmark next to it and select the preferred sort direction. If multiple columns columns are selected for sorting, data is sorted column-by-column in the order that columns appear in the sort menu: the topmost selected column becomes the primary sorting parameter; the selected column below it is used for secondary sort, etc.
 
 [![Sorting a table](images/gdc-data-portal-table-sort.png)](images/gdc-data-portal-table-sort.png "Click to see the full image.")
 
+#### Table Arrangement
+
 The *arrange columns* button allows users to adjust the order of columns in the table and select which columns are displayed.
 
 ![Selecting table columns](images/gdc-data-portal-table-column-selection.png)
+
+#### Table Size
 
 Table size can be adjusted using the menu in the bottom left corner of the table. The menu sets the maximum number of rows to display. If the number of entries to be displayed exceeds the maximum number of rows, then the table will be paginated, and navigation buttons will be provided in the bottom right corner of the table to navigate between pages.
 
@@ -93,7 +99,7 @@ The GDC Data Portal offers three different means of searching and filtering the 
 
 #### Facet Filters
 
-Facets on the left of each view (Projects, Exploration, and Repository) represent properties of the data that can be used for filtering. Some of the available facets are project name, disease type, patient gender and age at diagnosis, and various data formats and categories. Each facet displays the name of the data property, the available values, and numbers of matching entities for each value (files, cases, annotations, or projects, depending on the context).
+Facets on the left of each view (Projects, Exploration, and Repository) represent properties of the data that can be used for filtering. Some of the available facets are project name, disease type, patient gender and age at diagnosis, and various data formats and categories. Each facet displays the name of the data property, the available values, and numbers of matching entities for each value (files, cases, mutations, genes, annotations, or projects, depending on the context).
 
 Below are two file facets available in the Repository view. A _Data Type_ facet filter is applied, filtering for "Aligned Reads" files.
 
@@ -107,7 +113,7 @@ Custom facet filters can be added in [Repository View](Repository.md) to expand 
 
 #### Quick Search
 
-The quick search feature allows users to find records and files using UUID, filename, or project name, id, disease type or primary site. Quick search is available by clicking on the magnifier in the right section of the toolbar (which appears on every page) or by using the search bar on the Home Page.
+The quick search feature allows users to find cases, files, mutations, or genes using a search query (i.e. UUID, filename, gene name, DNA Change, project name, id, disease type or primary site). Quick search is available by clicking on the magnifier in the right section of the toolbar (which appears on every page) or by using the search bar on the Home Page.
 
 [![Quick Search](images/gdc-quick-search-home.png)](images/gdc-quick-search-home.png "Click to see the full image.")
 

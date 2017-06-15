@@ -75,13 +75,13 @@ Each project has a summary page that provides an overview of all available cases
 
 Three download buttons in the top right corner of the screen allow the user to download the entire project dataset, along with the associated project metadata:
 
-* __Download Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the GDC Data Transfer Tool to download the files.
-* __Download Clinical__: Downloads clinical metadata about all cases in the project.
 * __Download Biospecimen__: Downloads biospecimen metadata associated with all cases in the project.
+* __Download Clinical__: Downloads clinical metadata about all cases in the project.
+* __Download Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the GDC Data Transfer Tool to download the files.
 
 ### Most Frequently Mutated Genes
 
-The Project Summary page also reports the genes that have somatic mutations in the greatest numbers of cases in a graphical and tabular format.  The information in this section is from data in the Open-Access MAFs.
+The Project Summary page also reports the genes that have somatic mutations in the greatest numbers of cases in a graphical and tabular format.
 
 [![Frequently Mutated Genes](images/gdc-frequently-mutated-genes.png)](images/gdc-frequently-mutated-genes.png "Click to see the full image.")
 
@@ -143,11 +143,11 @@ A table is displayed below that lists information about each mutation:
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript).  A link to the Gene Summary Page for the gene affected by the mutation is included
 * __# Affected Cases in Project:__ The number of affected cases in the project
 * __# Affected Cases in Across the GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will display a breakdown of each affected project
-* __Impact (VEP):__ A subjective classification of the severity of the variant consequence. The categories are:
-    * __HIGH__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
-    * __MODERATE__: A non-disruptive variant that might change protein effectiveness
-    * __LOW__: Assumed to be mostly harmless or unlikely to change protein behavior
-    * __MODIFIER__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+* __Impact (VEP):__ A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
+    * __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
+    * __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
+    * __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
+    * __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
 * __Survival Analysis:__ An icon that when clicked, will plot the survival rate between the gene's mutated and non-mutated cases
 
 ### Most Affected Cases
