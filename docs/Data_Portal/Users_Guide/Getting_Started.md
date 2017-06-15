@@ -82,7 +82,7 @@ Table size can be adjusted using the menu in the bottom left corner of the table
 
 #### Table Export
 
-In Data, Projects, and Annotations views, tables can be exported in JSON format using the "Export Table" button in the top right corner of the table. The "Export Table" function is available only if the table contains 2,000 rows or less.
+In the Repository, Projects, and Annotations views, tables can be exported in either a JSON or TSV format. The `JSON` button will export the entire table's contents into a JSON file.  The `TSV` button will export the current view of the table into a TSV file.
 
 [![Table Columns Filtering](images/gdc-data-portal-table-export.png)](images/gdc-data-portal-table-export.png "Click to see the full image.")
 

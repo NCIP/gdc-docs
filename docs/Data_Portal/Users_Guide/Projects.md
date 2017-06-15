@@ -87,6 +87,8 @@ The Project Summary page also reports the genes that have somatic mutations in t
 
 The top of this section contains a bar graph of the most frequently mutated genes as well as a survival plot of all the cases within the specified project. Hovering over each bar in the plot will display information about the number of cases affected. Users may choose to download the underlying data in JSON or TSV format or an image of the graph in SVG or PNG format by clicking the `download` icon at the top of each graph.
 
+Also at the top of this section are two links: `OncoGrid` and `Open in Exploration`.  The `OncoGrid` button will take the user to the [OncoGrid](Exploration.md#OncoGrid) for this project on the [Exploration Page](Exploration.md).  `Open in Exploration` will take the user to the Exploration page with this filters applied for the current project selected.
+
 Below these graphs is a tabular view of the genes affected, which includes the following information:
 
 * __Symbol:__ The gene symbol, which links to the Gene Summary Page
@@ -128,34 +130,6 @@ The calculated cumulated survival probability can be plotted against the interva
 [![Sample Survival Analysis Plot](images/gdc-survival-plot.png)](images/gdc-survival-plot.png "Click to see the full image.")
 
 
-### OncoGrid
-
-The Project Summary page includes an OncoGrid plot of the cases with the most mutations, for the top 50 mutated genes affected by high impact mutations. Genes displayed on the left of the grid (Y-axis) correspond to individual cases on the bottom of the grid (X-axis).  
-
-[![Oncogrid](images/gdc-oncogrid.png)](images/gdc-oncogrid.png "Click to see the full image.")
-
-The grid is color-coded with a legend at the top left which describes what type of mutation consequence is observed for each gene/case combination. Clinical information and the available data for each case are available at the bottom of the grid.
-
-The right side of the grid displays additional information about the genes:
-
-* __Gene Sets:__ Describes whether a gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/).  (The Cancer Gene Census is an ongoing effort to catalogue those genes for which mutations have been causally implicated in cancer)
-* __GDC:__ Identifies all cases in the GDC affected with a mutation in this gene
-
-
-#### OncoGrid Options
-
-To facilitate readability and comparisons, drag-and-drop can be used to reorder the gene rows.  Double clicking a row in the "# Cases Affected" bar at the right side of the graphic launches the respective Gene Summary Page page. Hovering over a cell will display information about the mutation such as its ID, affected case, and biological consequence. Clicking on the cell will bring the user to the respective Mutation Summary page.  
-
-A tool bar at the top right of the graphic allows the user to export the data as a JSON object, PNG image, or SVG image.  Seven buttons are available in this toolbar:
-
-* __Download:__ Users can choose to export the contents either to a static image file (PNG or SVG format) or the underlying data in JSON format
-* __Reload Grid:__ Sets all OncoGrid rows, columns, and zoom levels back to their initial positions
-* __Cluster Data:__ Clusters the rows and columns to place mutated genes with the same cases and cases with the same mutated genes together
-* __Toggle Heatmap View:__ The view can be toggled between cells representing mutation consequences or number of mutations in each gene
-* __Toggle Gridlines:__ Turn the gridlines on and off
-* __Toggle Crosshairs:__ Turns crosshairs on, so that users can zoom into specific sections of the OncoGrid
-* __Fullscreen:__ Turns Fullscreen mode on/off
-
 ### Most Frequent Mutations
 The Project Summary page also displays the 20 most frequent mutations in the project as a bar graph that indicates the number of cases that are affected by each mutation. Hovering over each bar in the plot will show information about the number of cases affected.
 
@@ -190,7 +164,7 @@ Below the bar graph is a table contains information about these cases:
 * __Gender:__ Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles
 * __Age at Diagnosis:__ Age at the time of diagnosis expressed in number of days since birth
 * __Stage:__ The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body. The accepted values for tumor_stage depend on the tumor site, type, and accepted staging system
-* __Survival:__ The number of days until death
+* __Survival (days):__ The number of days until death
 * __Last Follow Up (days):__ Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days
 * __Available Files per Data Category:__ Five columns displaying the number of files available in each of the five data categories.  These link to the files for the specific case.
 * __# Mutations:__ The number of mutations for the case
