@@ -1,6 +1,6 @@
 # Gene and Mutation Summary Pages
 
-Many parts of the GDC website contain links to Gene and Mutation summary pages.  These pages display information about specific genes and mutations, along with visualizations and data regarding their interactions between themselves and the projects and cases within the GDC.
+Many parts of the GDC website contain links to Gene and Mutation summary pages.  These pages display information about specific genes and mutations, along with visualizations and data regarding their interactions between themselves and the projects and cases within the GDC.  The gene and mutation data that is visualized on these pages comes from the Open-Access MAF files available for download on the GDC Portal.
 
 ## Gene Summary Page
 
@@ -57,11 +57,11 @@ A table is displayed below that lists information about each mutation including:
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
 * __# Affected Cases in Gene:__ The number of affected cases, expressed as number across all mutations within the Gene
 * __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project
-* __Impact:__ A subjective classification of the severity of the variant consequence. The categories are:
-  - __HIGH__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
-  - __MODERATE__: A non-disruptive variant that might change protein effectiveness
-  - __LOW__: Assumed to be mostly harmless or unlikely to change protein behavior
-  - __MODIFIER__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+* __Impact (VEP):__ A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
+  - __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
+  - __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
+  - __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
+  - __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
 
 ## Mutation Summary Page
 
@@ -76,11 +76,11 @@ A table is displayed below that lists information about each mutation including:
   - __Type:__ A broad categorization of the mutation
   - __Reference Genome Assembly:__ The reference genome in which the chromosomal position refers to
   - __Allele in the Reference Assembly:__ The nucleotide(s) that compose the site in the reference assembly
-  - __Functional Impact:__ A subjective classification of the severity of the variant consequence. The categories are:
-    - __HIGH__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
-    - __MODERATE__: A non-disruptive variant that might change protein effectiveness
-    - __LOW__: Assumed to be mostly harmless or unlikely to change protein behavior
-    - __MODIFIER__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+  - __Functional Impact (VEP):__ A subjective classification of the severity of the variant consequence. The categories are:
+    - __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
+    - __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
+    - __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
+    - __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
 
 #### External References
 
