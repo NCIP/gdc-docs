@@ -12,11 +12,11 @@ There was a major new release of the GDC Data Portal focused on Data Analysis, V
 
 *  New visual for the Homepage: a human body provides the number of Cases per Primary Site with a link to an advanced Cancer Projects search
 *  The Projects menu provides the Top 20 Cancer Genes across the GDC Projects and the Case Distribution per Project
-*  A new menu “Exploration” is an advanced Cancer Projects search which provides the ability, given Case, Gene and Mutation filters, to look for:
-    *   List of Cases with the largest number of Somatic Mutations
-    *	The most frequently mutated Genes 
+*  A new menu “Exploration” is an advanced Cancer Projects search which provides the ability to apply Case, Gene, and Mutation filters to look for:
+    * List of Cases with the largest number of Somatic Mutations
+    *	The most frequently mutated Genes
     *	The most frequent Variants
-    *	It also provides the Oncogrid view of mutation frequency 
+    *	Oncogrid view of mutation frequency
 *  Visualizations are provided across the Project, Case, Gene and Mutation entity pages:
     *	List of most frequently mutated genes and most frequent variants
     *	Survival plots for patients with or without specific variants
@@ -24,7 +24,8 @@ There was a major new release of the GDC Data Portal focused on Data Analysis, V
     *	Lollipop plots of mutation frequency across protein domains
 *  Links to external databases (COSMIC, dbSNP, Uniprot, Ensembl, OMIM, HGNC)
 *  Quick Search for Gene and Mutation entity pages
-*  The ability to export in TSV the current view of a table
+*  The ability to export the current view of a table in TSV
+*  Retired GDC cBioPortal
 
 _For detailed updates please review the [Data Portal User Guide](../Data_Portal/Users_Guide/Getting_Started/)._
 
@@ -43,7 +44,7 @@ _For detailed updates please review the [Data Portal User Guide](../Data_Portal/
 *  Repository: The annotation count in Repository File table does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table
 *   Cart
     *   Counts displayed in the top right of the screen, next to the Cart icon, may become inconsistent if files are removed from the server. <!-- PGDC-2403 / PRTL-133 -->
-*  Legacy Archive: 
+*  Legacy Archive:
     *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
     *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only
 *   Web Browsers
