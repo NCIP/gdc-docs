@@ -1,10 +1,22 @@
 # Data Analysis
 
-The GDC DAVE tools use the same API as the rest of the Data Portal and takes advantage of several new endpoints:
+The GDC DAVE tools use the same API as the rest of the Data Portal and takes advantage of several new endpoints. Therefore, similar to the [GDC Data Portal Exploration](LINK) feature, the GDC data analysis endpoints allow API users to programmatically explore data in the GDC using advanced filters at a gene and mutation level. Survival analysis data is also available.  
 
-* __ssms:__ The simple somatic mutation (`ssms`) endpoint allows users to access information about each somatic point mutation. For example, a `ssm` would represent the transition of C to T at position 52000 of chromosome 1.  
-* __ssm_occurrences:__ A SSM entity as applied to a single instance (case). An example of a `ssm occurrence` would be that the transition of C to T at position 52000 of chromosome 1 occurred in patient TCGA-XX-XXXX.  
-* __genes:__ The `genes` endpoint allows users to access in-depth information about each gene.  
+## Endpoints
+
+The following data analysis endpoints are available:
+
+| __Endpoint__ | __Description__ |
+|---|---|
+| __/genes__ | The `genes` endpoint allows users to access in-depth information about each gene. |
+| __/ssms__ | The simple somatic mutation (`ssms`) endpoint allows users to access information about each somatic point mutation. For example, a `ssm` would represent the transition of C to T at position 52000 of chromosome 1. |
+| __/ssm_occurrences__ | A SSM entity as applied to a single instance (case). An example of a `ssm occurrence` would be that the transition of C to T at position 52000 of chromosome 1 occurred in patient TCGA-XX-XXXX. |
+|__/analysis/top_cases_counts_by_genes__|The `/analysis/top_cases_counts_by_genes` endpoint gives the number of cases with a mutation in each gene listed in the gene_ids parameter for each project. Note that this endpoint cannot be used with the format or fields parameters.|
+|__/analysis/top_mutated_genes_by_project__|The analysis /top_mutated_genes_by_project endpoint returns a list of genes with score ???|
+|__/analysis/top_mutated_cases_by_gene__|The analysis/top_mutated_cases_by_gene endpoint generates information about the cases that are most affected by mutations in a given number of genes.|
+|__/analysis/top_mutated_cases_by_ssm__||
+|__/analysis/mutated_cases_count_by_project__|The analysis/mutated_cases_count_by_project endpoint produces counts for the number of cases that have associated ssm data in each project. The number of affected cases can be found under "case_with_ssm": {"doc_count": $case_count}.|
+|__/analysis/survival__| Survival plots can be generated in the Data Portal for different subsets of data, based upon many query factors such as variants, disease type and projects. The analysis/survival endpoint can be used to programmatically retrieve the raw data to generate these plots and apply different filters to the data. (see Survival Example)|
 
 The methods for retrieving information from these endpoint are very similar to those used for the `cases` and `files` endpoints. These methods are explored in depth in the [API Search and Retrieval](https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/) documentation. The `_mapping` parameter can also be used with each of these endpoints to generate a list of potential fields.  For example:
 
@@ -22,13 +34,16 @@ curl "https://api.gdc.cancer.gov/genes/ENSG00000084073?pretty=true"
 ```Response
 {
   "data": {
+    "canonical_transcript_length": 3108,
     "description": "This gene encodes a member of the peptidase M48A family. The encoded protein is a zinc metalloproteinase involved in the two step post-translational proteolytic cleavage of carboxy terminal residues of farnesylated prelamin A to form mature lamin A. Mutations in this gene have been associated with mandibuloacral dysplasia and restrictive dermopathy. [provided by RefSeq, Jul 2008]",
     "cytoband": [
       "1p34.2"
     ],
     "gene_start": 40258107,
-    "symbol": "ZMPSTE24",
+    "canonical_transcript_length_genomic": 36078,
     "gene_id": "ENSG00000084073",
+    "gene_strand": 1,
+    "canonical_transcript_length_cds": 1425,
     "gene_chromosome": "1",
     "synonyms": [
       "FACE-1",
@@ -41,14 +56,14 @@ curl "https://api.gdc.cancer.gov/genes/ENSG00000084073?pretty=true"
     "biotype": "protein_coding",
     "gene_end": 40294184,
     "canonical_transcript_id": "ENST00000372759",
-    "gene_strand": 1,
+    "symbol": "ZMPSTE24",
     "name": "zinc metallopeptidase STE24"
   },
   "warnings": {}
 }
 ```
 
-__Example 2:__ A user wants a list of coordinates for all genes on chromosome 7. The query can be filtered for only results from chromosome 7 using a JSON-formatted query that is URL-encoded.
+__Example 2:__ A user wants a subset of elements such as a list of coordinates for all genes on chromosome 7. The query can be filtered for only results from chromosome 7 using a JSON-formatted query that is URL-encoded.
 
 ```Shell
 curl "https://api.gdc.cancer.gov/genes?pretty=true&fields=gene_id,symbol,gene_start,gene_end&format=tsv&size=2000&filters=%7B%0D%0A%22op%22%3A%22in%22%2C%0D%0A%22content%22%3A%7B%0D%0A%22field%22%3A%22gene_chromosome%22%2C%0D%0A%22value%22%3A%5B%0D%0A%227%22%0D%0A%5D%0D%0A%7D%0D%0A%7D"
@@ -98,26 +113,144 @@ __Example 3:__ A user wants to determine which chromosome in case `TCGA-DU-6407`
 curl "https://api.gdc.cancer.gov/ssm_occurrences?format=tsv&fields=ssm.chromosome&size=5000&filters=%7B%0D%0A%22op%22%3A%22in%22%2C%0D%0A%22content%22%3A%7B%0D%0A%22field%22%3A%22case.submitter_id%22%2C%0D%0A%22value%22%3A%5B%0D%0A%22TCGA-DU-6407%22%0D%0A%5D%0D%0A%7D%0D%0A%7D"
 ```
 ```Response
-chr2    452d43e1-7b07-54f4-89e2-830ee2200d71
-chr7    4760a779-60aa-5659-959b-d9d8a4dcd3a0
-chr12   45b8955b-dd26-5de9-8e52-44b16618a544
-chr6    bc5176cd-3112-52f7-9a98-38f85dd4e020
-chr15   0a38de0d-4576-5eb8-917f-e926861a5a13
-chr8    d580b1ed-efef-5d00-85bb-68341e82bbf6
-chr14   fddd03e2-3486-52cf-9366-5f322996e468
-chr12   ae706566-468b-522c-a3ad-6e325bdcc0fc
-chr5    ef067db6-2e1a-5ee3-a3cd-2a1283d948a5
-chr8    fa88e686-e96a-569a-92b2-576f897a177c
-chr6    532825d7-9604-50fc-b661-1355fc1a89b2
-chr15   fc52b56d-1a49-58c0-83a0-25a7a259c9cf
-chr7    6d287d4c-c8b3-5cf7-9051-94625431e1e5
-chr11   87717814-c7d9-5adf-a704-19b7c7b0a5a5
-chr2    b1a57129-5a52-5fd9-a6c1-335be26f3b57
-chr6    be64ef89-bec0-5472-97e5-e545f2144f22
+chr10	1378cbc4-af88-55bb-b2e5-185bb4246d7a
+chr19	f08dcc53-eadc-5ceb-bf31-f6b38629e4cb
+chr17	a76469cb-973c-5d4d-bf82-7cf4e8f6c129
+chr13	9dc3f7cd-9efa-530a-8524-30d067e49d54
+chr19	c44a93a1-5c73-5cff-b40e-98ce7e5fe57b
+chr5	3a023e72-da92-54f7-aa18-502c1076b2b0
+chr2	b4822fc9-f0cc-56fd-9d97-f916234e309d
+chr15	b4a86ffd-e60c-5c9c-aaa1-9e9f02d86116
+chr10	2cb06277-993e-5502-b2c5-263037c45d18
+chr10	3a2b3870-a395-5bc3-8c8f-0d40b0f2202c
+chr6	97c5b38b-fc96-57f5-8517-cc702b3aa70a
+chr2	3548ecfe-5186-51e7-8f40-37f4654cd260
+chrX	19ca262d-b354-54a0-b582-c4719e37e91d
+chr1	4a93d7a5-988d-5055-80da-999dc3b45d80
+chr2	99b3aad4-d368-506d-99d6-047cbe5dff0f
+chr12	dbc5eafa-ea26-5f1c-946c-b6974a345b69
 (truncated)
 ```
 
 The number of ssms in each chromosome could then be determined by calculating the count of each value in the first column.
+
+## Simple Somatic Mutation Endpoint Examples
+
+__Example 1__: Similar to the /genes endpoint, A user would like to get back information about the mutation based on its cosmic_id. This would be accomplished by creating a filter such as
+
+```Query
+ {
+   "op":"in",
+   "content":{
+      "field":"cosmic_id",
+      "value":[
+         "COSM4860838"
+      ]
+   }
+}
+```
+
+```Shell
+curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%0A%22op%22%3A%22in%22%2C%0A%22content%22%3A%7B%0A%22field%22%3A%22cosmic_id%22%2C%0A%22value%22%3A%5B%0A%22COSM4860838%22%0A%5D%0A%7D%0A%7D%0A'
+```
+
+```Response
+{
+  "data": {
+    "hits": [
+      {
+        "ncbi_build": "GRCh38",
+        "mutation_type": "Simple Somatic Mutation",
+        "mutation_subtype": "Single base substitution",
+        "end_position": 62438203,
+        "reference_allele": "C",
+        "ssm_id": "8b3c1a7a-e4e0-5200-9d46-5767c2982145",
+        "start_position": 62438203,
+        "cosmic_id": [
+          "COSM4860838",
+          "COSM731764",
+          "COSM731765"
+        ],
+        "id": "8b3c1a7a-e4e0-5200-9d46-5767c2982145",
+        "tumor_allele": "T",
+        "gene_aa_change": [
+          "CADPS G1147G",
+          "CADPS G1187G",
+          "CADPS G1217G",
+          "CADPS G1226G",
+          "CADPS G127G",
+          "CADPS G218G",
+          "CADPS G95G"
+        ],
+        "chromosome": "chr3",
+        "genomic_dna_change": "chr3:g.62438203C>T"
+      }
+    ],
+    "pagination": {
+      "count": 1,
+      "sort": "",
+      "from": 0,
+      "page": 1,
+      "total": 1,
+      "pages": 1,
+      "size": 10
+    }
+  },
+  "warnings": {}
+}
+```
+
+## Simple Somatic Mutation Occurrence Endpoint Examples
+
+__Example 1:__ A user wants to determine which chromosome in case `TCGA-DU-6407` contains the largest number of `ssms`. As this relates to mutations that are observed in a case, the `ssm_occurrences` endpoint is used.
+
+```
+{  
+   "op":"in",
+   "content":{  
+      "field":"case.submitter_id",
+      "value":["TCGA-DU-6407"]
+   }
+}
+```
+```Shell
+curl https://api.gdc.cancer.gov/ssm_occurrences?format=tsv&fields=ssm.chromosome&size=5000&filters=%7B%0D%0A%22op%22%3A%22in%22%2C%0D%0A%22content%22%3A%7B%0D%0A%22field%22%3A%22case.submitter_id%22%2C%0D%0A%22value%22%3A%5B%0D%0A%22TCGA-DU-6407%22%0D%0A%5D%0D%0A%7D%0D%0A%7D
+```
+```Response
+ssm.chromosome	id
+chr3	552c09d1-69b1-5c04-b543-524a6feae3eb
+chr10	391011ff-c1fd-5e2a-a128-652bc660f64c
+chr10	1378cbc4-af88-55bb-b2e5-185bb4246d7a
+chr10	3a2b3870-a395-5bc3-8c8f-0d40b0f2202c
+chr1	4a93d7a5-988d-5055-80da-999dc3b45d80
+chrX	22a07c7c-16ba-51df-a9a9-1e41e2a45225
+chr12	dbc5eafa-ea26-5f1c-946c-b6974a345b69
+chr11	02ae553d-1f27-565d-96c5-2c3cfca7264a
+chr2	faee73a9-4804-58ea-a91f-18c3d901774f
+chr6	97c5b38b-fc96-57f5-8517-cc702b3aa70a
+chr17	0010a89d-9434-5d97-8672-36ee394767d0
+chr19	f08dcc53-eadc-5ceb-bf31-f6b38629e4cb
+chrX	19ca262d-b354-54a0-b582-c4719e37e91d
+chr19	c44a93a1-5c73-5cff-b40e-98ce7e5fe57b
+chr3	b67f31b5-0341-518e-8fcc-811cd2e36af1
+chr1	94abd5fd-d539-5a4a-8719-9615cf7cec5d
+chr17	1476a543-2951-5ec4-b165-67551b47d810
+chr2	b4822fc9-f0cc-56fd-9d97-f916234e309d
+chr2	3548ecfe-5186-51e7-8f40-37f4654cd260
+chr16	105e7811-4601-5ccb-ae93-e7107923599e
+chr2	99b3aad4-d368-506d-99d6-047cbe5dff0f
+chr13	9dc3f7cd-9efa-530a-8524-30d067e49d54
+chr21	1267330b-ae6d-5e25-b19e-34e98523679e
+chr16	c77f7ce5-fbe6-5da4-9a7b-b528f8e530cb
+chr10	2cb06277-993e-5502-b2c5-263037c45d18
+chr17	d25129ad-3ad7-584f-bdeb-fba5c3881d32
+chr17	a76469cb-973c-5d4d-bf82-7cf4e8f6c129
+chr10	727c9d57-7b74-556f-aa5b-e1ca1f76d119
+chr15	b4a86ffd-e60c-5c9c-aaa1-9e9f02d86116
+chr5	3a023e72-da92-54f7-aa18-502c1076b2b0
+```
+
+
 
 ## Analysis Endpoints
 
@@ -130,417 +263,14 @@ In addition the `ssms`, `ssm_occurrences`, and `genes` endpoints mentioned previ
 * __analysis/top_mutated_cases_by_ssm__
 * __analysis/mutated_cases_count_by_project__
 
+## Analysis top_cases_counts_by_genes Endpoint
+
 __Example 1:__ The `analysis/top_cases_counts_by_genes` endpoint gives the number of cases with a mutation in each gene listed in the `gene_ids` parameter for each project. Note that this endpoint cannot be used with the `format` or `fields` parameters. In this case, the query will produce the number of cases in each projects with mutations in the gene `ENSG00000155657`.
 
 ```Shell
 curl "https://api.gdc.cancer.gov/analysis/top_cases_counts_by_genes?gene_ids=ENSG00000155657&pretty=true"
 ```
-```Response
-{
-  "hits": {
-    "hits": [],
-    "total": 3330,
-    "max_score": 0.0
-  },
-  "_shards": {
-    "successful": 9,
-    "failed": 0,
-    "total": 9
-  },
-  "took": 39,
-  "aggregations": {
-    "projects": {
-      "buckets": [
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 398
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 398
-            },
-            "doc_count": 160615
-          },
-          "key": "TCGA-LUSC",
-          "doc_count": 398
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 372
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 372
-            },
-            "doc_count": 332432
-          },
-          "key": "TCGA-SKCM",
-          "doc_count": 372
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 314
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 314
-            },
-            "doc_count": 159998
-          },
-          "key": "TCGA-LUAD",
-          "doc_count": 314
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 268
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 268
-            },
-            "doc_count": 603632
-          },
-          "key": "TCGA-UCEC",
-          "doc_count": 268
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 243
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 243
-            },
-            "doc_count": 64638
-          },
-          "key": "TCGA-BRCA",
-          "doc_count": 243
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 241
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 241
-            },
-            "doc_count": 68916
-          },
-          "key": "TCGA-HNSC",
-          "doc_count": 241
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 233
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 233
-            },
-            "doc_count": 101801
-          },
-          "key": "TCGA-BLCA",
-          "doc_count": 233
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 194
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 194
-            },
-            "doc_count": 46304
-          },
-          "key": "TCGA-OV",
-          "doc_count": 194
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 130
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 130
-            },
-            "doc_count": 27752
-          },
-          "key": "TCGA-LIHC",
-          "doc_count": 130
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 127
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 127
-            },
-            "doc_count": 45123
-          },
-          "key": "TCGA-GBM",
-          "doc_count": 127
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 124
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 124
-            },
-            "doc_count": 66854
-          },
-          "key": "TCGA-CESC",
-          "doc_count": 124
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 96
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 96
-            },
-            "doc_count": 29810
-          },
-          "key": "TCGA-ESCA",
-          "doc_count": 96
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 88
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 88
-            },
-            "doc_count": 10026
-          },
-          "key": "TCGA-KIRC",
-          "doc_count": 88
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 87
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 87
-            },
-            "doc_count": 15276
-          },
-          "key": "TCGA-LGG",
-          "doc_count": 87
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 83
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 83
-            },
-            "doc_count": 44972
-          },
-          "key": "TCGA-READ",
-          "doc_count": 83
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 61
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 61
-            },
-            "doc_count": 11820
-          },
-          "key": "TCGA-PRAD",
-          "doc_count": 61
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 59
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 59
-            },
-            "doc_count": 5915
-          },
-          "key": "TCGA-KIRP",
-          "doc_count": 59
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 38
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 38
-            },
-            "doc_count": 13107
-          },
-          "key": "TCGA-SARC",
-          "doc_count": 38
-        },
-        {
-          "genes": {
-            "my_genes": {
-              "gene_id": {
-                "buckets": [
-                  {
-                    "key": "ENSG00000155657",
-                    "doc_count": 33
-                  }
-                ],
-                "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 33
-            },
-            "doc_count": 13905
-          },
-          "key": "TCGA-PAAD",
-          "doc_count": 33
-        },
-(truncated)
-      ],
-      "sum_other_doc_count": 0,
-      "doc_count_error_upper_bound": 0
-    }
-  },
-  "timed_out": false
-}
 
-```
 
 This JSON-formatted output is broken up by project. For an example, see the following text:
 
@@ -597,7 +327,7 @@ __Example 2:__ The following demonstrates a use of the `analysis/top_mutated_gen
 }
 ```
 ```Shell
-curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=gene_id,symbol&filters=%7B%22op%22%3A%22AND%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.project.project_id%22%2C%22value%22%3A%5B%22TCGA-DLBC%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.ssm.consequence.transcript.annotation.impact%22%2C%22value%22%3A%5B%22HIGH%22%2C%22MODERATE%22%5D%7D%7D%5D%7D"
+curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=gene_id,symbol&filters=%7B%22op%22%3A%22AND%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.project.project_id%22%2C%22value%22%3A%5B%22TCGA-DLBC%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.ssm.consequence.transcript.annotation.impact%22%2C%22value%22%3A%5B%22HIGH%22%2C%22MODERATE%22%5D%7D%7D%5D%7D&pretty=true"
 ```
 ```Response
 {
@@ -1209,7 +939,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
   "timed_out": false
 }
 ```
-### Survival Analysis
+### Survival Analysis Endpoint
 
 [Survival plots](link) are generated for different subsets of data, based on variants or projects, in the GDC Data Portal. The `analysis/survival` endpoint can be used to programmatically retrieve the raw data used to generate these plots and apply different filters to the data. Note that the `fields` and `format` parameters cannot be modified.
 
@@ -1560,7 +1290,7 @@ __Example 2:__ Here the survival endpoint is used to compare two survival plots 
 ]
 ```
 ```Shell
-curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22937a26c2-089c-51de-a0f9-70567d965c38%22%7D%7D%5D%7D%2C%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22excludeifany%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22937a26c2-089c-51de-a0f9-70567d965c38%22%7D%7D%5D%7D%5D"
+curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22937a26c2-089c-51de-a0f9-70567d965c38%22%7D%7D%5D%7D%2C%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22excludeifany%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22937a26c2-089c-51de-a0f9-70567d965c38%22%7D%7D%5D%7D%5D&pretty=true"
 ```
 ```json2
 {
@@ -1601,5 +1331,4 @@ curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%7B%22op%22%3A%22a
 (truncated)
 ```
 
-The output represents two sets of coordinates delimited as objects with the `donors` tag. One set of coordinates will generated a survival plot representing TCGA-BRCA cases that have the mutation of interest and the other will generate a survival plot for the remaining cases in TCGA-BRCA.
-
+The output represents two sets of coordinates delimited as objects with the `donors` tag. One set of coordinates will generate a survival plot representing TCGA-BRCA cases that have the mutation of interest and the other will generate a survival plot for the remaining cases in TCGA-BRCA.
