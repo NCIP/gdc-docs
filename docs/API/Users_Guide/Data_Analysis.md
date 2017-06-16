@@ -136,7 +136,7 @@ The number of ssms in each chromosome could then be determined by calculating th
 
 ## Simple Somatic Mutation Endpoint Examples
 
-__Example 1__: Similar to the /genes endpoint, A user would like to get back information about the mutation based on its cosmic_id. This would be accomplished by creating a filter such as
+__Example 1__: Similar to the `/genes` endpoint, A user would like to retrieve information about the mutation based on its COSMIC ID. This would be accomplished by creating a filter such as:
 
 ```Query
  {
@@ -202,7 +202,7 @@ curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%0A%22op%22%3A%22in
 
 ## Simple Somatic Mutation Occurrence Endpoint Examples
 
-__Example 1:__ A user wants to determine which chromosome in case `TCGA-DU-6407` contains the largest number of `ssms`. As this relates to mutations that are observed in a case, the `ssm_occurrences` endpoint is used.
+__Example 1:__ A user wants to determine the chromosome in case `TCGA-DU-6407` that contains the largest number of `ssms`. As this relates to mutations that are observed in a case, the `ssm_occurrences` endpoint is used.
 
 ```
 {  
