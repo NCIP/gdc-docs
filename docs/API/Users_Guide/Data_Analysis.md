@@ -1,6 +1,6 @@
 # Data Analysis
 
-The GDC DAVE tools use the same API as the rest of the Data Portal and takes advantage of several new endpoints. Therefore, similar to the [GDC Data Portal Exploration](LINK) feature, the GDC data analysis endpoints allow API users to programmatically explore data in the GDC using advanced filters at a gene and mutation level. Survival analysis data is also available.  
+The GDC DAVE tools use the same API as the rest of the Data Portal and takes advantage of several new endpoints. Therefore, similar to the [GDC Data Portal Exploration](http://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Exploration/) feature, the GDC data analysis endpoints allow API users to programmatically explore data in the GDC using advanced filters at a gene and mutation level. Survival analysis data is also available.  
 
 ## Endpoints
 
@@ -8,15 +8,15 @@ The following data analysis endpoints are available:
 
 | __Endpoint__ | __Description__ |
 |---|---|
-| __/genes__ | The `genes` endpoint allows users to access in-depth information about each gene. |
-| __/ssms__ | The simple somatic mutation (`ssms`) endpoint allows users to access information about each somatic point mutation. For example, a `ssm` would represent the transition of C to T at position 52000 of chromosome 1. |
+| __/genes__ | Allows users to access in-depth information about each gene. |
+| __/ssms__ | Allows users to access information about each somatic point mutation. For example, a `ssm` would represent the transition of C to T at position 52000 of chromosome 1. |
 | __/ssm_occurrences__ | A SSM entity as applied to a single instance (case). An example of a `ssm occurrence` would be that the transition of C to T at position 52000 of chromosome 1 occurred in patient TCGA-XX-XXXX. |
-|__/analysis/top_cases_counts_by_genes__|The `/analysis/top_cases_counts_by_genes` endpoint gives the number of cases with a mutation in each gene listed in the gene_ids parameter for each project. Note that this endpoint cannot be used with the format or fields parameters.|
-|__/analysis/top_mutated_genes_by_project__|The analysis /top_mutated_genes_by_project endpoint returns a list of genes with score ???|
-|__/analysis/top_mutated_cases_by_gene__|The analysis/top_mutated_cases_by_gene endpoint generates information about the cases that are most affected by mutations in a given number of genes.|
-|__/analysis/top_mutated_cases_by_ssm__||
-|__/analysis/mutated_cases_count_by_project__|The analysis/mutated_cases_count_by_project endpoint produces counts for the number of cases that have associated ssm data in each project. The number of affected cases can be found under "case_with_ssm": {"doc_count": $case_count}.|
-|__/analysis/survival__| Survival plots can be generated in the Data Portal for different subsets of data, based upon many query factors such as variants, disease type and projects. The analysis/survival endpoint can be used to programmatically retrieve the raw data to generate these plots and apply different filters to the data. (see Survival Example)|
+|__/analysis/top_cases_counts_by_genes__| Returns the number of cases with a mutation in each gene listed in the gene_ids parameter for each project. Note that this endpoint cannot be used with the format or fields parameters.|
+|__/analysis/top_mutated_genes_by_project__| Returns a list of genes that have the most associated mutations within a given project. |
+|__/analysis/top_mutated_cases_by_gene__| Generates information about the cases that are most affected by mutations in a given number of genes |
+|__/analysis/top_mutated_cases_by_ssm__| Returns information about the cases with the greatest number of mutations that contain a specific ssm |
+|__/analysis/mutated_cases_count_by_project__| Produces counts for the number of cases that have associated ssm data in each project. The number of affected cases can be found under "case_with_ssm": {"doc_count": $case_count}.|
+|__/analysis/survival__| Survival plots can be generated in the Data Portal for different subsets of data, based upon many query factors such as variants, disease type and projects. This endpoint can be used to programmatically retrieve the raw data to generate these plots and apply different filters to the data. (see Survival Example)|
 
 The methods for retrieving information from these endpoint are very similar to those used for the `cases` and `files` endpoints. These methods are explored in depth in the [API Search and Retrieval](https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/) documentation. The `_mapping` parameter can also be used with each of these endpoints to generate a list of potential fields.  For example:
 
@@ -24,7 +24,7 @@ The methods for retrieving information from these endpoint are very similar to t
 
 While it is not an endpoint, the `observation` entity is featured in the visualization section of the API. The `observation` entity provides information from the MAF file, such as read depth and normal genotype, that supports the validity of the associated `ssm`.
 
-## Endpoint Examples
+## Gene Endpoint Examples
 
 __Example 1:__ A user would like to access information about the gene `ZMPSTE24`, which has an Ensembl gene ID of `ENSG00000084073`.  This would be accomplished by appending `ENSG00000084073` (`gene_id`) to the `genes` endpoint.
 
@@ -202,7 +202,7 @@ curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%0A%22op%22%3A%22in
 
 ## Simple Somatic Mutation Occurrence Endpoint Examples
 
-__Example 1:__ A user wants to determine the chromosome in case `TCGA-DU-6407` that contains the largest number of `ssms`. As this relates to mutations that are observed in a case, the `ssm_occurrences` endpoint is used.
+__Example 1:__ A user wants to determine the chromosome in case `TCGA-DU-6407` that contains the greatest number of `ssms`. As this relates to mutations that are observed in a case, the `ssm_occurrences` endpoint is used.
 
 ```
 {  
@@ -250,20 +250,9 @@ chr15	b4a86ffd-e60c-5c9c-aaa1-9e9f02d86116
 chr5	3a023e72-da92-54f7-aa18-502c1076b2b0
 ```
 
-
-
 ## Analysis Endpoints
 
 In addition the `ssms`, `ssm_occurrences`, and `genes` endpoints mentioned previously, several `analysis` endpoints were designed to quickly retrieve specific datasets used for visualization display.  
-
-* __analysis/survival__
-* __analysis/top_cases_counts_by_genes__
-* __analysis/top_mutated_genes_by_project__
-* __analysis/top_mutated_cases_by_gene__
-* __analysis/top_mutated_cases_by_ssm__
-* __analysis/mutated_cases_count_by_project__
-
-## Analysis top_cases_counts_by_genes Endpoint
 
 __Example 1:__ The `analysis/top_cases_counts_by_genes` endpoint gives the number of cases with a mutation in each gene listed in the `gene_ids` parameter for each project. Note that this endpoint cannot be used with the `format` or `fields` parameters. In this case, the query will produce the number of cases in each projects with mutations in the gene `ENSG00000155657`.
 
@@ -398,7 +387,7 @@ curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=ge
 }
 ```
 
-__Example 3:__ The `analysis/top_mutated_cases_by_gene` endpoint will generate information about the cases that are most affected by mutations in a given number of genes. Below, the file count for each category is given for the cases most affected by mutations in these 50 genes.  The size of the output is limited to two cases with the `size=2` parameter.
+__Example 3:__ The `analysis/top_mutated_cases_by_gene` endpoint will generate information about the cases that are most affected by mutations in a given number of genes. Below, the file count for each category is given for the cases most affected by mutations in these 50 genes.  The size of the output is limited to two cases with the `size=2` parameter, but a higher value can be set by the user.
 
 ```Shell
 curl "https://api.gdc.cancer.gov/analysis/top_mutated_cases_by_gene?fields=diagnoses.days_to_death,diagnoses.age_at_diagnosis,diagnoses.vital_status,diagnoses.primary_diagnosis,demographic.gender,demographic.race,demographic.ethnicity,case_id,summary.data_categories.file_count,summary.data_categories.data_category&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-DLBC%22%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22genes.gene_id%22%2C%22value%22%3A%5B%22ENSG00000166710%22%2C%22ENSG00000005339%22%2C%22ENSG00000083857%22%2C%22ENSG00000168769%22%2C%22ENSG00000100906%22%2C%22ENSG00000184677%22%2C%22ENSG00000101680%22%2C%22ENSG00000101266%22%2C%22ENSG00000028277%22%2C%22ENSG00000140968%22%2C%22ENSG00000181827%22%2C%22ENSG00000116815%22%2C%22ENSG00000275221%22%2C%22ENSG00000139083%22%2C%22ENSG00000112851%22%2C%22ENSG00000112697%22%2C%22ENSG00000164134%22%2C%22ENSG00000009413%22%2C%22ENSG00000071626%22%2C%22ENSG00000135407%22%2C%22ENSG00000101825%22%2C%22ENSG00000104814%22%2C%22ENSG00000166415%22%2C%22ENSG00000142867%22%2C%22ENSG00000254585%22%2C%22ENSG00000139718%22%2C%22ENSG00000077721%22%2C%22ENSG00000130294%22%2C%22ENSG00000117245%22%2C%22ENSG00000117318%22%2C%22ENSG00000270550%22%2C%22ENSG00000163637%22%2C%22ENSG00000166575%22%2C%22ENSG00000065526%22%2C%22ENSG00000156453%22%2C%22ENSG00000128191%22%2C%22ENSG00000055609%22%2C%22ENSG00000204469%22%2C%22ENSG00000187605%22%2C%22ENSG00000185875%22%2C%22ENSG00000110888%22%2C%22ENSG00000007341%22%2C%22ENSG00000173198%22%2C%22ENSG00000115568%22%2C%22ENSG00000163714%22%2C%22ENSG00000125772%22%2C%22ENSG00000080815%22%2C%22ENSG00000189079%22%2C%22ENSG00000120837%22%2C%22ENSG00000143951%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22ssms.consequence.transcript.annotation.impact%22%2C%22value%22%3A%5B%22HIGH%22%5D%7D%7D%5D%7D&pretty=true&size=2"
@@ -941,7 +930,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
 ```
 ### Survival Analysis Endpoint
 
-[Survival plots](link) are generated for different subsets of data, based on variants or projects, in the GDC Data Portal. The `analysis/survival` endpoint can be used to programmatically retrieve the raw data used to generate these plots and apply different filters to the data. Note that the `fields` and `format` parameters cannot be modified.
+[Survival plots](/Data_Portal/Projects/#Survival-Analysis) are generated for different subsets of data, based on variants or projects, in the GDC Data Portal. The `analysis/survival` endpoint can be used to programmatically retrieve the raw data used to generate these plots and apply different filters to the data. Note that the `fields` and `format` parameters cannot be modified.
 
  __Example 1:__ A user wants to download data to generate a survival plot for cases from the project TCGA-DLBC.
 
