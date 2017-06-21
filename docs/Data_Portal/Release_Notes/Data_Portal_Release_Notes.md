@@ -44,8 +44,6 @@ _For detailed updates please review the [Data Portal User Guide](../Data_Portal/
     *  Combining a Mutation filter like Variant Caller, Cosmic ID and dbSNP rs ID with a Case Filter will display wrong counts in the Mutation facets. The counts in the Result tables are correct. <!-- API-307 -->
 *  Repository
     *  The annotation count in Repository File table does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table <!-- PRTL-1275 -->
-*   Cart
-    *   Counts displayed in the top right of the screen, next to the Cart icon, may become inconsistent if files are removed from the server. <!-- PGDC-2403 / PRTL-133 -->
 *  Legacy Archive
     *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
 *   Web Browsers
