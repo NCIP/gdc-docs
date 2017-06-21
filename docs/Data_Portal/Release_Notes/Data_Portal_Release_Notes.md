@@ -35,22 +35,19 @@ _For detailed updates please review the [Data Portal User Guide](../Data_Portal/
 *  Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files. <!-- SV-396 / PRTL-342-->
 *  If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
     *   Internet Explorer users are not able to use the "Only show fields with no values" when adding custom facets <!-- PGDC-2467 / PRTL-109 -->
+    *   Exporting large tables in the Data Portal may produce a 500 error.  Filtering this list to include fewer cases or files should eliminate the error <!--API-223-->    
 
 ### Known Issues and Workarounds
-*  General
-    *   Exporting large tables in the Data Portal may produce a 500 error.  Filtering this list to include fewer cases or files should eliminate the error <!--API-223-->
-    *   After successful authentication, the authentication popup does not close for Internet Explorer users running in "Compatibility View". Workaround is to uncheck "Display Intranet sites in Compatibility View" in Internet Explorer options. Alternatively, refreshing the portal will correctly display authentication status. <!-- PGDC-2403 / PRTL-133 -->
-* New Visualizations
+*  New Visualizations
     *  Cannot export Data Portal graphs in SVG and PNG in Internet Explorer. The user should use the latest Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->
 *  Exploration
     *  Combining a Mutation filter like Variant Caller, Cosmic ID and dbSNP rs ID with a Case Filter will display wrong counts in the Mutation facets. The counts in the Result tables are correct. <!-- API-307 -->
 *  Repository
-    *  The annotation count in Repository File table does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table
+    *  The annotation count in Repository File table does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table <!-- PRTL-1275 -->
 *   Cart
     *   Counts displayed in the top right of the screen, next to the Cart icon, may become inconsistent if files are removed from the server. <!-- PGDC-2403 / PRTL-133 -->
 *  Legacy Archive
     *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
-    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
