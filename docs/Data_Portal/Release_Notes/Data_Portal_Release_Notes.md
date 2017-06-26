@@ -4,7 +4,7 @@
 ## Release 1.6.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: June 27, 2017
+* __Release Date__: June 29, 2017
 
 ### New Features and Changes
 
