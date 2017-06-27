@@ -118,7 +118,7 @@ The `Mutations` tab will give an overview of all the mutations who match the cri
 
 [![Exploration Mutation Example](images/Exploration-Mutation-Example.png)](images/Exploration-Mutation-Example.png "Click to see the full image.")
 
-At the top of this tab is a bar graph of the 20 most frequent somatic mutations in the cohort as a bar graph that indicates the percentage of cases that are affected by each mutation. Hovering over each bar in the plot will show information about the number of cases affected.  The top of this tab also includes a survival plot of all the cases within the specified exploration page filters.
+At the top of this tab is a survival plot of all the cases within the specified exploration page filters.
 
 A table is displayed below that lists information about each mutation:
 
@@ -126,7 +126,7 @@ A table is displayed below that lists information about each mutation:
 * __DNA Change:__ The chromosome and starting coordinates of the mutation are displayed along with the nucleotide differences between the reference and tumor allele
 * __Type:__ A general classification of the mutation
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript).  A link to the Gene Summary Page for the gene affected by the mutation is included
-* __# Affected Cases in Cohort:__ The number of affected cases in the Cohort
+* __# Affected Cases in Cohort:__ The number of affected cases in the Cohort as a fraction and as a percentage
 * __# Affected Cases in Across all Projects:__ The number of affected cases, expressed as number across all projects. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). Choosing the arrow next to the percentage will display a breakdown of each affected project
 * __Impact (VEP):__ A subjective classification of the severity of the variant consequence. The categories are:
     * __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay

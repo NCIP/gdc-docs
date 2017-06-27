@@ -41,7 +41,7 @@ The plot can be viewed at different zoom levels by clicking and dragging across 
 
 ## Most Frequent Mutations
 
-The 20 most frequent mutations in the gene are displayed as a bar graph that indicates the number of cases that share each mutation.  
+The most frequent somatic mutations in the gene are displayed in a tabular view at the bottom of the page.
 
 [![Gene MFM](images/GDC-Gene-MFM.png)](images/GDC-Gene-MFM.png "Click to see the full image.")
 
@@ -51,7 +51,7 @@ A table is displayed below that lists information about each mutation including:
 * __DNA Change:__ The chromosome and starting coordinates of the mutation are displayed along with the nucleotide differences between the reference and tumor allele
 * __Type:__ A general classification of the mutation
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
-* __# Affected Cases in Gene:__ The number of affected cases, expressed as number across all mutations within the Gene
+* __# Affected Cases in Gene:__ The number of affected cases, expressed as number and percentage across all mutations within the gene
 * __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project
 * __Impact:__ A subjective classification of the severity of the variant consequence. The categories are:
   - __HIGH__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
