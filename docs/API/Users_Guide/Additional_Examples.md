@@ -393,7 +393,7 @@ This is an example of filtering for age at diagnosis. The request is for cases w
         {
             "op": ">=",
             "content": {
-                "field": "cases.clinical.age_at_diagnosis",
+                "field": "cases.diagnoses.age_at_diagnosis",
                 "value": [
                     14600
                 ]
@@ -402,7 +402,7 @@ This is an example of filtering for age at diagnosis. The request is for cases w
         {
             "op": "<=",
             "content": {
-                "field": "cases.clinical.age_at_diagnosis",
+                "field": "cases.diagnoses.age_at_diagnosis",
                 "value": [
                     25550
                 ]
@@ -412,7 +412,7 @@ This is an example of filtering for age at diagnosis. The request is for cases w
 }
 ```
 ```Query
-curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22%3E%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B14600%5D%7D%7D,%7B%22op%22:%22%3C%3D%22,%22content%22:%7B%22field%22:%22cases.clinical.age_at_diagnosis%22,%22value%22:%5B25550%5D%7D%7D%5D%7D&fields=clinical.age_at_diagnosis,case_id&pretty=true'
+curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22%3E%3D%22,%22content%22:%7B%22field%22:%22cases.diagnoses.age_at_diagnosis%22,%22value%22:%5B14600%5D%7D%7D,%7B%22op%22:%22%3C%3D%22,%22content%22:%7B%22field%22:%22cases.diagnoses.age_at_diagnosis%22,%22value%22:%5B25550%5D%7D%7D%5D%7D&fields=diagnoses.age_at_diagnosis,case_id&pretty=true'
 ```
 
 
