@@ -40,6 +40,7 @@ _For detailed updates please review the [Data Portal User Guide](../Data_Portal/
 ### Known Issues and Workarounds
 *  New Visualizations
     *  Cannot export Data Portal graphs in PNG in Internet Explorer. Graphs can be exported to PNG or SVG from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet would not display chart legend and title when re-opening previously downloaded SVG files, recommendation is to open downloaded SVG files with another software.
+    *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
 *  Exploration
     *  Combining a Mutation filter like Variant Caller, Cosmic ID and dbSNP rs ID with a Case Filter will display wrong counts in the Mutation facets. The counts in the Result tables are correct. <!-- API-307 -->
 *  Repository
