@@ -19,6 +19,15 @@ None
 
 ### Known Issues and Workarounds
 
+* Reads that are mapped to multiple genomic locations are double counted in some of the GDC miRNA results.  The GDC will release updated files correcting the issue in an upcoming release.<!--SV-745-->  The specific impacts are described further below:
+    *  Isoform Expression Quantification files
+        *  Raw reads counts are accurate
+        *  Normalized counts are proportionally skewed (r^2=1.0)
+    *  miRNA Expression Quantification files
+        *  A small proportion of miRNA counts are overestimated (r^2=0.9999)
+        *  Normalized counts are proportionally skewed (r^2=0.9999)
+    * miRNA BAM files
+        * no impact
 * Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
 * Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
 * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
