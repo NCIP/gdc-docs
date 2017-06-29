@@ -1563,8 +1563,8 @@ footer a:visited {
   background-color: transparent;
   padding: 0rem 0rem;
   margin-bottom: 0rem;
-  margin-top: 0.5rem;
   position: relative;
+  height: 64px;
 }
 
 .gdc-app-list:hover {

@@ -1,12 +1,12 @@
 # The Cancer Imaging Archive (TCIA) #
 ## Description ##
-The Description section should include the basic definition (description) of the term. Use the GDC dictionary to obtain the definition if available.
+The Cancer Imaging Archive is an open-access database of medical images for cancer research.
 ## Overview ##
-The Overview section should provide information on how the term is used in the GDC. Subsections can be created for this section, if applicable.
+The Cancer Imaging Archive is an open-access database of medical images for cancer research.  It provides access to radiological imaging data sets in DICOM format from the TCGA cases.
 ## References ##
-1. [reference name] (reference URL)
+1. N/A
 
 ## External Links ##
-* [external link name] (external link URL)
+* [The Cancer Imaging Archive](http://www.cancerimagingarchive.net)
 
 Categories: General

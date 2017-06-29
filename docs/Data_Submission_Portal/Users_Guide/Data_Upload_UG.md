@@ -562,7 +562,9 @@ If a submitter would like to create an annotation please contact the GDC Support
 
 ## Deleting Submitted Entities
 
-The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.
+The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. Files cannot be deleted while in the 'SUBMITTED' stated.  This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.
+
+__NOTE:__  Entities associated with files uploaded to the GDC object store cannot be deleted until the associated file has been deleted. Users must utilize the [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) to delete these files first.
 
 ### Simple Deletion
 
@@ -718,10 +720,20 @@ See the following example TSV files:
 * [Aliquots.tsv](Aliquots.tsv)
 * [Read-Groups.tsv](Readgroups.tsv)
 
-## Download Previously Uploaded Files
+### Download Previously Uploaded Metadata Files
 
-The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
+The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download metadata files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
 
-__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.  
 
 [![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files_2.png)](images/GDC_Submission_Transactions_Original_Files_2.png "Click to see the full image.")
+
+### Download Previously Uploaded Data Files
+
+The only supported method to download data files previously uploaded to the GDC Submission Portal that have not been release yet is to use the API or the [Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/). To retrieve data previous upload to the submission portal you will need to retrieve the data file's UUID.  The UUIDs for submitted data files are located in the submission portal under the file's Summary section.    
+
+[![Submission Portal Summary View](images/gdc-submission__image2_submission_UUID.png)](images/gdc-submission__image2_submission_UUID.png "Click to see the full image.")  
+The UUIDs can also be found in the manifest file accessible from the manifest button located on the file's  Summary page.   
+
+Once the UUID(s) have been retrieved the download process is the same as it is for data on our main portal.  If the process is unfamiliar please refer to the [Downloading data using GDC file UUIDs](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#downloading-data-using-gdc-file-uuids) for downloading instructions.
+
+ __Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.

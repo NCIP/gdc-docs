@@ -286,125 +286,6 @@ curl 'https://api.gdc.cancer.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pret
 }
 ```
 
-#### files/ids Endpoint
-
-The `files/ids` endpoint corresponds to the "Quick Search" functionality of the GDC Data Portal. The API response includes all files for which the query matches the beginning (or entirety) of any of the following fields:
-
-	project.project_id
-	project.name
-	project.disease_type.analyzed
-	project.primary_site.analyzed
-	case.aliquot_ids
-	case.submitter_aliquot_ids
-	case.analyte_ids
-	case.submitter_analyte_ids
-	case.case_id.raw
-	case.submitter_id.raw
-	case.portion_ids
-	case.submitter_portion_ids
-	case.sample_ids
-	case.slide_ids
-	case.submitter_slide_ids
-	case.submitter_sample_ids
-	file.file_id.raw
-	file.file_name.raw
-	file.submitter_id
-
-Requests to this endpoint must be in the format `files/ids?query=`, as provided in the example below. The endpoint returns up to 500 results, which cannot be adjusted with the `size` parameter.
-
-```shell
-curl 'https://api.gdc.cancer.gov/files/ids?query=nationwidechildrens.org_clinical.TCGA-EM&pretty=true'
-```
-``` Output
-{
-  "data": {
-    "pagination": {
-      "count": 5,
-      "sort": "",
-      "from": 1,
-      "page": 1,
-      "total": 81,
-      "pages": 17,
-      "size": 5
-    },
-    "hits": [
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A3FQ.xml",
-        "file_id": "efac6904-ac9f-4a44-bf9c-f7d9a822c127",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "fef9c64f-5959-4da0-aaa2-66b56fc7b4c3",
-            "submitter_id": "TCGA-EM-A3FQ"
-          }
-        ],
-        "_id": "efac6904-ac9f-4a44-bf9c-f7d9a822c127"
-      },
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A4FN.xml",
-        "file_id": "07add35d-66f0-4384-bb2c-9d86661f4073",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "f854ce67-c586-4424-a674-2dd67ad0ed7f",
-            "submitter_id": "TCGA-EM-A4FN"
-          }
-        ],
-        "_id": "07add35d-66f0-4384-bb2c-9d86661f4073"
-      },
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A3AN.xml",
-        "file_id": "889f222e-09d1-477c-a7b9-a514b65f322b",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "6491d025-c061-4180-bfd4-d7c6e6e55f66",
-            "submitter_id": "TCGA-EM-A3AN"
-          }
-        ],
-        "_id": "889f222e-09d1-477c-a7b9-a514b65f322b"
-      },
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A4FO.xml",
-        "file_id": "37db38d4-64ca-4cd4-9adc-d504b812997b",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "e0ab95ef-5c96-4d00-8950-04e26e3b4672",
-            "submitter_id": "TCGA-EM-A4FO"
-          }
-        ],
-        "_id": "37db38d4-64ca-4cd4-9adc-d504b812997b"
-      },
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A3FN.xml",
-        "file_id": "e2d13acf-3121-4c7b-b2ec-28db49eff699",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "59cd0969-a798-4d19-95ed-a311f39d2f38",
-            "submitter_id": "TCGA-EM-A3FN"
-          }
-        ],
-        "_id": "e2d13acf-3121-4c7b-b2ec-28db49eff699"
-      }
-    ],
-    "_shards": {
-      "successful": 5,
-      "failed": 0,
-      "total": 5
-    },
-    "took": 9,
-    "timed_out": false
-  },
-  "warnings": {}
-}
-```
 
 ### Cases Endpoint
 
@@ -2841,7 +2722,100 @@ The GDC API also supports POST requests with `Content-Type: application/x-www-fo
 
 	filters=%7B%0A%20%20%20%20%22op%22%3A%22in%22%2C%0A%20%20%20%20%22content%22%3A%7B%0A%20%20%20%20%20%20%20%20%22field%22%3A%22files.file_id%22%2C%0A%20%20%20%20%20%20%20%20%22value%22%3A%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%220001801b-54b0-4551-8d7a-d66fb59429bf%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22002c67f2-ff52-4246-9d65-a3f69df6789e%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22003143c8-bbbf-46b9-a96f-f58530f4bb82%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%220043d981-3c6b-463f-b512-ab1d076d3e62%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22004e2a2c-1acc-4873-9379-ef1aa12283b6%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22005239a8-2e63-4ff1-9cd4-714f81837a61%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22006b8839-31e5-4697-b912-8e3f4124dd15%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22006ce9a8-cf38-462e-bb99-7f08499244ab%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22007ce9b5-3268-441e-9ffd-b40d1127a319%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%220084a614-780b-42ec-b85f-7a1b83128cd3%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200a5e471-a79f-4d56-8a4c-4847ac037400%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200ab2b5a-b59e-4ec9-b297-76f74ff1d3fb%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200c5f14e-a398-4076-95d1-25f320ee3a37%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200c74a8b-10aa-40cc-991e-3365ea1f3fce%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200df5a50-bce3-4edf-a078-641e54800dcb%22%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%7D%0A%7D&fields=file_id,file_name,cases.submitter_id,cases.case_id,data_category,data_type,cases.samples.tumor_descriptor,cases.samples.tissue_type,cases.samples.sample_type,cases.samples.submitter_id,cases.samples.sample_id&format=tsv&size=100
 
+## Quicksearch Endpoint
 
+The GDC Portal has a quicksearch functionality that allows for a project, case, or file to be queried from a search box. This function calls the `/v0/all` endpoint, which retrieves the top cases, files, and projects that match to the query. The quicksearch can also be used programmatically through the API.  For example, a search term of 'TCGA' would produce the following query:  
+
+```Shell
+curl "https://api.gdc.cancer.gov/v0/all?query=TCGA&size=5"
+```
+```Response
+{
+  "data": {
+    "query": {
+      "hits": [
+        {
+          "disease_type": [
+            "Esophageal Carcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUVTQ0E=",
+          "name": "Esophageal Carcinoma",
+          "primary_site": [
+            "Esophagus"
+          ],
+          "project_id": "TCGA-ESCA"
+        },
+        {
+          "disease_type": [
+            "Head and Neck Squamous Cell Carcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUhOU0M=",
+          "name": "Head and Neck Squamous Cell Carcinoma",
+          "primary_site": [
+            "Head and Neck"
+          ],
+          "project_id": "TCGA-HNSC"
+        },
+        {
+          "disease_type": [
+            "Liver Hepatocellular Carcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUxJSEM=",
+          "name": "Liver Hepatocellular Carcinoma",
+          "primary_site": [
+            "Liver"
+          ],
+          "project_id": "TCGA-LIHC"
+        },
+        {
+          "disease_type": [
+            "Colon Adenocarcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUNPQUQ=",
+          "name": "Colon Adenocarcinoma",
+          "primary_site": [
+            "Colorectal"
+          ],
+          "project_id": "TCGA-COAD"
+        },
+        {
+          "disease_type": [
+            "Adrenocortical Carcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUFDQw==",
+          "name": "Adrenocortical Carcinoma",
+          "primary_site": [
+            "Adrenal Gland"
+          ],
+          "project_id": "TCGA-ACC"
+        }
+      ]
+    }
+  }
+}
+```
+
+This endpoint can be used to quickly retrieve information about a file.  For example, if a user wanted to know the UUID for `nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml`, the following query could be used to quicky retrieve it programmatically:
+
+```Shell
+curl "https://api.gdc.cancer.gov/v0/all?query=nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml&size=5"
+```
+```Response
+{
+  "data": {
+    "query": {
+      "hits": [
+        {
+          "file_id": "2a7a354b-e497-4ae6-8a85-a170951596c1",
+          "file_name": "nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml",
+          "id": "RmlsZToyYTdhMzU0Yi1lNDk3LTRhZTYtOGE4NS1hMTcwOTUxNTk2YzE=",
+          "submitter_id": null
+        }
+      ]
+    }
+  }
+}
+```
 ## Additional Examples
 
 More examples of API functionality described in this section are provided in [Additional Examples](Additional_Examples.md).

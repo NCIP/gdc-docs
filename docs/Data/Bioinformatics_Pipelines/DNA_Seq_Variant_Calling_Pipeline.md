@@ -252,7 +252,7 @@ java -jar GenomeAnalysisTK.jar \
 -I:tumor <tumor.bam> \
 -I:normal <normal.bam> \
 --normal_panel <pon.vcf> \                        
---cosmic <cosmic.vcff> \
+--cosmic <cosmic.vcf> \
 --dbsnp <dbsnp.vcf> \
 --contamination_fraction_to_filter 0.02 \                   
 -o <mutect_variants.vcf> \

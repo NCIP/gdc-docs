@@ -20,7 +20,7 @@ The GDC Legacy Archive contains a limited set of features of the GDC Data Portal
 
 ### File Page
 
-The file page of the GDC Legacy Archive is similar to the [file page of the GDC Data Portal](Cases_and_Files.md#file-detail-page). It does not include the Workflow, Reference Genome, and Read Groups sections as these are only applicable to harmonized data available in the GDC Data Portal. The Legacy Archive includes additional archive information as described below.
+The file page of the GDC Legacy Archive is similar to the [file page of the GDC Data Portal](Repository.md#file-summary-page). It does not include the Workflow, Reference Genome, and Read Groups sections as these are only applicable to harmonized data available in the GDC Data Portal. The Legacy Archive includes additional archive information as described below.
 
 [![Files Entity Page](images/gdc-data-portal-files-entity-page-Archive-MagTab.png)](images/gdc-data-portal-files-entity-page-Archive-MagTab.png "Click to see the full image.")
 

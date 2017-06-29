@@ -1,6 +1,61 @@
 # Data Portal Release Notes
 
 
+## Release 1.6.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: June 29, 2017
+
+### New Features and Changes
+
+There was a major new release of the GDC Data Portal focused on Data Analysis, Visualization, and Exploration (DAVE). Some important new features include the following:
+
+*  New visual for the Homepage: a human body provides the number of Cases per Primary Site with a link to an advanced Cancer Projects search
+*  The Projects menu provides the Top 20 Cancer Genes across the GDC Projects and the Case Distribution per Project
+*  A new menu "Exploration" is an advanced Cancer Projects search which provides the ability to apply Case, Gene, and Mutation filters to look for:
+    * List of Cases with the largest number of Somatic Mutations
+    *	The most frequently mutated Genes
+    *	The most frequent Variants
+    *	Oncogrid view of mutation frequency
+*  Visualizations are provided across the Project, Case, Gene and Mutation entity pages:
+    *	List of most frequently mutated genes and most frequent variants
+    *	Survival plots for patients with or without specific variants
+    *	Survival plots for patients with or without variants in specific genes
+    *	Lollipop plots of mutation frequency across protein domains
+*  Links to external databases (COSMIC, dbSNP, Uniprot, Ensembl, OMIM, HGNC)
+*  Quick Search for Gene and Mutation entity pages
+*  The ability to export the current view of a table in TSV
+*  Retired GDC cBioPortal
+
+_For detailed updates please review the [Data Portal User Guide](../Data_Portal/Users_Guide/Getting_Started/)._
+
+### Bugs Fixed Since Last Release
+
+*  BAM Slicing dialog box does not disappear automatically upon executing the BAM slicing function. The box can be closed manually. <!-- PRTL-282 -->
+*  Very long URLs will produce a 400 error.  Users may encounter this after clicking on "source files" on a file page where the target file is derived from hundreds of other files such as for MAF files. <!-- SV-396 / PRTL-342-->
+*  If bam slicing produces an error pop-up message it will be obscured behind the original dialog box. <!--SV-419-->
+    *   Internet Explorer users are not able to use the "Only show fields with no values" when adding custom facets <!-- PGDC-2467 / PRTL-109 -->
+    *   Exporting large tables in the Data Portal may produce a 500 error.  Filtering this list to include fewer cases or files should eliminate the error <!--API-223-->    
+
+### Known Issues and Workarounds
+*  New Visualizations
+    *  Cannot export Data Portal graphs in PNG in Internet Explorer. Graphs can be exported to PNG or SVG from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet would not display chart legend and title when re-opening previously downloaded SVG files, recommendation is to open downloaded SVG files with another software.
+    *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
+*  Exploration
+    *  Combining a Mutation filter like Variant Caller, Cosmic ID and dbSNP rs ID with a Case Filter will display wrong counts in the Mutation facets. The counts in the Result tables are correct. <!-- API-307 -->
+*  Repository
+    *  The annotation count in Repository File table does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table <!-- PRTL-1275 -->
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
+
+
 ## Release 1.5.2
 
 * __GDC Product__: GDC Data Portal
@@ -45,7 +100,6 @@ Release details are maintained in the [GDC Data Portal Change Log](https://githu
 
 
 
-# Data Portal Release Notes
 
 
 ## Release 1.4.1

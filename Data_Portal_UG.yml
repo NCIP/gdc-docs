@@ -10,16 +10,16 @@ theme_dir: theme
 pages:
 - Data Portal:
   - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
-  - Projects View: 'Data_Portal/Users_Guide/Projects.md'
-  - Cases And Files: 'Data_Portal/Users_Guide/Cases_and_Files.md'
+  - Projects: 'Data_Portal/Users_Guide/Projects.md'
+  - Exploration: Data_Portal/Users_Guide/Exploration.md
+  - Repository: Data_Portal/Users_Guide/Repository.md
+  - Genes and Mutations: Data_Portal/Users_Guide/Genes_and_Mutations.md
   - Annotations: 'Data_Portal/Users_Guide/Annotations.md'
   - Advanced Search: 'Data_Portal/Users_Guide/Advanced_Search.md'
   - Authentication: 'Data_Portal/Users_Guide/Authentication.md'
   - File Cart: 'Data_Portal/Users_Guide/Cart.md'
   - Legacy Archive: 'Data_Portal/Users_Guide/Legacy_Archive.md'
-  - Reports: 'Data_Portal/Users_Guide/Reports.md'
   - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
-  - GDC cBioPortal Release Notes: 'Data_Portal/Release_Notes/cBioPortal_Release_Notes.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
