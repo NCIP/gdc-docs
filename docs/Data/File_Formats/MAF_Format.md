@@ -161,7 +161,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 108 - ExAC_AF_OTH | Other Allele Frequency from ExAC |
 | 109 - ExAC_AF_SAS | South Asian Allele Frequency from ExAC |
 | 110 - GENE_PHENO | Indicates if gene that the variant maps to is associated with a phenotype, disease or trait (0, 1, or null) |
-| 111 - FILTER | Copied from input VCF |
+| 111 - FILTER | Copied from input VCF.  This includes filters implemented directly by the variant caller and other external software used in the DNA-Seq pipeline. See below for additional details. |
 | 112 - CONTEXT | The reference allele per VCF specs, and its five flanking base pairs |
 | 113 - src_vcf_id | GDC UUID for the input VCF file |
 | 114 - tumor_bam_uuid | GDC UUID for the tumor bam file |
@@ -191,3 +191,9 @@ The table below describes the columns in a protected MAF and their definitions. 
     * "Inconclusive" if two alternative allele exists, and one matches while the other does not
     * "Unknown" if no validation sequence exists
 6. Column #121 __GDC_Valid_Somatic__ is TRUE if GDC_Validation_Status is "Valid" and the variant is "Somatic" in validation calls.  It is FALSE if these criteria are not met
+
+### FILTER Value Definitions (column 111)
+
+* __oxog :__ Signifies that this variant was determined to be an OxoG artifact. This was calculated with [D-ToxoG](http://archive.broadinstitute.org/cancer/cga/dtoxog)
+* __bPcr :__ Signifies that this variant was determined to be an artifact of bias on the PCR template strand.  This was calculated with the [DKFZ Bias Filter](https://github.com/eilslabs/DKFZBiasFilter).
+* __bSeq :__ Signifies that this variant was determined to be an artifact of bias on the forward/reverse strand. This was also calculated with the [DKFZ Bias Filter](https://github.com/eilslabs/DKFZBiasFilter).
