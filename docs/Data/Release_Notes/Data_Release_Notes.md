@@ -19,13 +19,14 @@ None
 
 ### Known Issues and Workarounds
 
+* TARGET-NBL RNA-Seq files were run as SE even though they are derived from PE data.  These files will be rerun through the GDC RNA-Seq pipelines in a later release.  Impacted files can be found [here](https://portal.gdc.cancer.gov/repository?facetTab=files&files_offset=20&filters=~%28op~%27and~content~%28~%28op~%27in~content~%28field~%27cases.project.program.name~value~%28~%27TARGET%29%29%29~%28op~%27in~content~%28field~%27cases.project.project_id~value~%28~%27TARGET-NBL%29%29%29~%28op~%27in~content~%28field~%27files.data_format~value~%28~%27BAM%29%29%29~%28op~%27in~content~%28field~%27files.experimental_strategy~value~%28~%27RNA-Seq%29%29%29%29%29&searchTableTab=files).
 * Reads that are mapped to multiple genomic locations are double counted in some of the GDC miRNA results.  The GDC will release updated files correcting the issue in an upcoming release.<!--SV-745-->  The specific impacts are described further below:
     *  Isoform Expression Quantification files
         *  Raw reads counts are accurate
         *  Normalized counts are proportionally skewed (r^2=1.0)
     *  miRNA Expression Quantification files
-        *  A small proportion of miRNA counts are overestimated (r^2=0.9999)
-        *  Normalized counts are proportionally skewed (r^2=0.9999)
+        *  A small proportion of miRNA counts are overestimated (mean r^2=0.9999)
+        *  Normalized counts are proportionally skewed (mean r^2=0.9999)
     * miRNA BAM files
         * no impact
 * Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
