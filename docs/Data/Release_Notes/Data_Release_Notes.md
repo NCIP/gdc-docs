@@ -19,13 +19,14 @@ None
 
 ### Known Issues and Workarounds
 
+* TARGET-NBL RNA-Seq files were run as SE even though they are derived from PE data.  These files will be rerun through the GDC RNA-Seq pipelines in a later release.  Impacted files can be found [here](https://portal.gdc.cancer.gov/repository?facetTab=files&files_offset=20&filters=~%28op~%27and~content~%28~%28op~%27in~content~%28field~%27cases.project.program.name~value~%28~%27TARGET%29%29%29~%28op~%27in~content~%28field~%27cases.project.project_id~value~%28~%27TARGET-NBL%29%29%29~%28op~%27in~content~%28field~%27files.data_format~value~%28~%27BAM%29%29%29~%28op~%27in~content~%28field~%27files.experimental_strategy~value~%28~%27RNA-Seq%29%29%29%29%29&searchTableTab=files).
 * Reads that are mapped to multiple genomic locations are double counted in some of the GDC miRNA results.  The GDC will release updated files correcting the issue in an upcoming release.<!--SV-745-->  The specific impacts are described further below:
     *  Isoform Expression Quantification files
         *  Raw reads counts are accurate
         *  Normalized counts are proportionally skewed (r^2=1.0)
     *  miRNA Expression Quantification files
-        *  A small proportion of miRNA counts are overestimated (r^2=0.9999)
-        *  Normalized counts are proportionally skewed (r^2=0.9999)
+        *  A small proportion of miRNA counts are overestimated (mean r^2=0.9999)
+        *  Normalized counts are proportionally skewed (mean r^2=0.9999)
     * miRNA BAM files
         * no impact
 * Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
@@ -165,7 +166,7 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_no
 1.  TARGET ALL P1 and P2 biospecimen and molecular data are now available in the Legacy Archive.  Clinical data will be available in a later release. <!-- Dat-185, Dat-194-->
 2.  Methylation data from 27k/450k Arrays has been lifted over to hg38 and is now available in the GDC Data Portal <!-- Dat-109 -->
 3.  Public MAF files are now available for VarScan2, MuSE, and SomaticSniper.  MuTect2 MAFs were made available in a previous release. <!--DAT-235-->
-4.  Updated VCFs and MAF files are available for MuTect2 pipeline to compensate for WGA-related false positive indels.  See additional information on that change [here](https://gdc.cancer.gov/about-gdc/scientific-reports/known-mutect2-variant-artifacts). A listing of replaced files is provided [here](GDC_Data_v4_mapping_of_replaced_Mutect2_MAF_and_VCF_files.zip). <!-- Dat-145, Dat-260 -->
+4.  Updated VCFs and MAF files are available for MuTect2 pipeline to compensate for WGA-related false positive indels.  See additional information on that change [here](https://gdc.cancer.gov/content/mutect2-insertion-artifacts). A listing of replaced files is provided [here](GDC_Data_v4_mapping_of_replaced_Mutect2_MAF_and_VCF_files.zip). <!-- Dat-145, Dat-260 -->
 5.  Added submitter_id for Pathology Reports in Legacy Archive <!--DAT-81-->
 
 ### Bugs Fixed Since Last Release
