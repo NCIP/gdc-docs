@@ -8,9 +8,25 @@
 ### New Features and Changes
 
 * GDC Data Dictionary Changes
-  * Creation of follow_up entity to support longitudinal clinical data
-    * Deprecation of the clinical_test entity - will be removed in a later release
-  * Update links to CaDSR in the Dictionary Viewer
+  * Created follow_up entity to support longitudinal clinical data
+  * Deprecated clinical test <!--DOC-67-->
+  * Dictionary changes
+  * Modified acceptable values for Read Group properties <!--TT-9,TT-76-->
+  * Modified Diagnosis Node <!--TT-64-->  
+  * Created Follow-up node to enable longitudinal data <!--TT-65-->
+  * Modified Treatment Node <!--TT-66-->
+  * Modified Demographic Node <!--TT-83-->
+  * Modified Case Node <!--TT-84-->
+  * Added new tumor code and tumor id <!--TT-85-->
+  * Added property `days_to_diagnosis` to diagnosis entity <!--TT-91-->
+  * Created Somatic Mutation Index entity <!--TT-92-->
+  * Updated CaDSR CDE links in data dictionary <!--DAT-794-->
+  * Created new sample types for OCG <!--TT-68-->
+  * Added new sample type =tumor to sample entity <!--TT-77-->
+  * Made classification_of_tumor on diagnosis entity non-required <!--DAT-203-->
+  * Added support for FM-AD to Genomic Profile Harmonization Workflow entity <!--DAT-985-->
+  * Created new data type = Gene Level Copy Number Scores to Copy Number Segment entity <!--TT-94-->
+
 
 
 ### Known Issues and Workarounds
