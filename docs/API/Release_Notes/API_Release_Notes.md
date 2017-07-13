@@ -7,25 +7,23 @@
 
 ### New Features and Changes
 
-* GDC Data Dictionary Changes
-  * Created follow_up entity to support longitudinal clinical data
-  * Deprecated clinical test <!--DOC-67-->
-  * Dictionary changes
+* Created new entities and reorganized the location of many properties in the GDC Dictionary.  A list of deprecated properties and their new locations can be found [here].  Note that the deprecated properties still contain all information that they previously did.  In a later release we will map the data from the old location to the new.  Eventually, we will suspend submission to the old properties and will remove them entirely from the GDC.
+* GDC Data Dictionary Changes Details
+  * Created follow_up entity to support longitudinal clinical data <!--TT-65-->
+  * Deprecated clinical test entity <!--DOC-67-->
   * Modified acceptable values for Read Group properties <!--TT-9,TT-76-->
-  * Modified Diagnosis Node <!--TT-64-->  
-  * Created Follow-up node to enable longitudinal data <!--TT-65-->
-  * Modified Treatment Node <!--TT-66-->
-  * Modified Demographic Node <!--TT-83-->
-  * Modified Case Node <!--TT-84-->
-  * Added new tumor code and tumor id <!--TT-85-->
-  * Added property `days_to_diagnosis` to diagnosis entity <!--TT-91-->
+  * Modified Diagnosis entity <!--TT-64-->  
+  * Modified Treatment entity <!--TT-66-->
+  * Modified Demographic entity <!--TT-83-->
+  * Modified Case entity <!--TT-84-->
+  * Added new tumor code, tumor id, and sample types to Sample entity to support OCG <!--TT-85, TT-68-->
+  * Added property `days_to_diagnosis` to Diagnosis entity <!--TT-91-->
   * Created Somatic Mutation Index entity <!--TT-92-->
   * Updated CaDSR CDE links in data dictionary <!--DAT-794-->
-  * Created new sample types for OCG <!--TT-68-->
-  * Added new sample type =tumor to sample entity <!--TT-77-->
+  * Added new sample type `tumor` to sample entity <!--TT-77-->
   * Made classification_of_tumor on diagnosis entity non-required <!--DAT-203-->
   * Added support for FM-AD to Genomic Profile Harmonization Workflow entity <!--DAT-985-->
-  * Created new data type = Gene Level Copy Number Scores to Copy Number Segment entity <!--TT-94-->
+  * Added data type `Gene Level Copy Number Scores` to Copy Number Segment entity <!--TT-94-->
 
 
 
