@@ -2013,28 +2013,33 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "file_name": "unc.edu.956590e9-4962-497b-a59f-81ee0a1c0caf.1379536.junction_quantification.txt"
+        "file_name": "OCULI_p_TCGA_159_160_SNP_N_GenomeWideSNP_6_E09_831242.grch38.seg.txt",
+        "id": "1d959137-d8e6-4336-b357-8ab9c88eeca8"
       },
       {
-        "file_name": "MATZO_p_TCGAb40_SNP_1N_GenomeWideSNP_6_G09_667760.ismpolish.data.txt"
+        "file_name": "jhu-usc.edu_SKCM.HumanMethylation450.3.lvl-3.TCGA-EE-A3JI-06A-11D-A21B-05.gdc_hg38.txt",
+        "id": "9c02ec95-4aa3-4112-8823-c0fa87f71773"
       },
       {
-        "file_name": "GIRTH_p_TCGA_b108_137_SNP_N_GenomeWideSNP_6_D06_787864.hg18.seg.txt"
+        "file_name": "jhu-usc.edu_LAML.HumanMethylation450.2.lvl-3.TCGA-AB-3002-03A-01D-0742-05.gdc_hg38.txt",
+        "id": "731c3560-bcef-4ebf-bfbc-7320399a5bcb"
       },
       {
-        "file_name": "PLENA_p_TCGAb63and64_SNP_N_GenomeWideSNP_6_B12_697382.CEL"
+        "file_name": "CUSKS_p_TCGAb47_SNP_1N_GenomeWideSNP_6_B03_628222.grch38.seg.txt",
+        "id": "a6f73a3e-faf8-49d9-9b68-77781bd302df"
       },
       {
-        "file_name": "TCGA-HU-8604-01A-11R-2402-13.isoform.quantification.txt"
+        "file_name": "5496e9f1-a383-4874-95bb-f4d1b33f4594.vcf",
+        "id": "5496e9f1-a383-4874-95bb-f4d1b33f4594"
       }
     ],
     "pagination": {
       "count": 5,
       "sort": "",
-      "from": 100,
-      "pages": 109553,
-      "total": 547761,
+      "from": 101,
       "page": 21,
+      "total": 274724,
+      "pages": 54945,
       "size": 5
     }
   },
@@ -2144,7 +2149,7 @@ import json
 
 projects_endpt = 'https://api.gdc.cancer.gov/projects'
 params = {'facets':'program.name',
-          'from':1, 'size':0,
+          'from':0, 'size':0,
           'sort':'program.name:asc'}
 response = requests.get(projects_endpt, params = params)
 print json.dumps(response.json(), indent=2)
