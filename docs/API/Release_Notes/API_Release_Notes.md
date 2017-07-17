@@ -9,7 +9,7 @@
 
 * Updated ability to search data based on genes and mutations have been released. Discussion of the new endpoints and their use can be found in the Data Portal User Guide. These feature are limited to those projects for which the GDC contains open-access MAF files.
 <!--API-112, API-114, API-116, API-118, API-119, APIT-179, API-180, API-181, API-181-->
-* API request parameter `from` now returns first record when `from=0`.  Previously, `from=1` was the first record.
+* API request parameter `from` now returns first record when `from=0`.  Previously, `from=1` was the first record.  `from=0` is now the default.
 
 ### Known Issues and Workarounds
 
