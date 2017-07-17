@@ -93,21 +93,21 @@ Submission templates are accessible programmatically at the `templates` endpoint
 
 For example, the JSON template for `case` entities can be obtained from:
 
-	https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json
+	https://api.gdc.cancer.gov/v0/submission/template/case?format=json
 
 A set of templates for all entities in the GDC Data Model can be downloaded from:
 
-	https://gdc-api.nci.nih.gov/v0/submission/template/?format=json
+	https://api.gdc.cancer.gov/v0/submission/template/?format=json
 
 #### Entity JSON Schemas
 
 The entire collection of GDC entity schemas can be downloaded from the `dictionary` endpoint:
 
-	https://gdc-api.nci.nih.gov/v0/submission/_dictionary/_all
+	https://api.gdc.cancer.gov/v0/submission/_dictionary/_all
 
 Individual schemas can be downloaded by specifying entity type. For example, the JSON schema for `case` entities can be found at:
 
-	https://gdc-api.nci.nih.gov/v0/submission/_dictionary/case
+	https://api.gdc.cancer.gov/v0/submission/_dictionary/case
 
 
 ## Making Requests to the Submission API
@@ -140,7 +140,7 @@ The following is an example of a POST request, that simulates creating an entity
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/_dry_run
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/_dry_run
 ```
 ```Response
 {
@@ -186,7 +186,7 @@ To commit a transaction, submit a POST or PUT request to `/submission/Program.na
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
 ```
 ```Response
 {
@@ -207,7 +207,7 @@ To close a transaction, submit a POST or PUT request to `/submission/Program.nam
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/close
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/close
 ```
 ```Response
 {
@@ -239,7 +239,7 @@ The following is an example of a PUT request, that creates a case asynchronously
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH?async=true
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH?async=true
 ```
 ```Response
 {
@@ -306,7 +306,7 @@ The GDC suggests using POST for creating new entities, and using PUT only for up
 
 In this example, a case entity is created using POST. Then an attempt is made to create the same entity again using POST, resulting in an error. Then the originally created entity is updated (with the same information) using PUT.
 
-The JSON in the request was generated using the `case` JSON template that can be obtained from the [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) and from `https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json`.
+The JSON in the request was generated using the `case` JSON template that can be obtained from the [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) and from `https://api.gdc.cancer.gov/v0/submission/template/case?format=json`.
 
 **Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
@@ -324,7 +324,7 @@ The JSON in the request was generated using the `case` JSON template that can be
 ```Command1
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response1
 {
@@ -359,7 +359,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 }
 ```
 ```Command2
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response2
 {
@@ -402,7 +402,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 }
 ```
 ```Command3
-curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response3
 {
@@ -468,7 +468,7 @@ In this example, an `aliquot` entity and a `sample` entity are created in a sing
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response
 {
@@ -555,7 +555,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response
 {
@@ -625,7 +625,7 @@ sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleA	GDC-INTERNAL-000022	Additional M
 sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleB	GDC-INTERNAL-000022	Solid Tissue Normal	02
 ```
 ```Shell
-curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request PUT --data-binary @Samples.tsv 'https://gdc-api.nci.nih.gov/submission/GDC/INTERNAL/_dry_run'
+curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request PUT --data-binary @Samples.tsv 'https://api.gdc.cancer.gov/submission/GDC/INTERNAL/_dry_run'
 ```
 ```Response
 {
@@ -694,7 +694,7 @@ JSON objects representing submitted entities can be retrieved with a GET request
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/entities/fbf69646-5904-4f95-92d6-692bde658f05
+curl --header "X-Auth-Token: $token" https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/entities/fbf69646-5904-4f95-92d6-692bde658f05
 ```
 ```Response
 {
@@ -731,7 +731,7 @@ The `export` endpoint provides additional functionality for exporting entities f
 token=$(<gdc-token-text-file.txt)
 
 
-curl --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/export?ids=11f8321-832f-4a8b-8384-a2f6256557e0&format=json&with_children=with_children'
+curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/export?ids=11f8321-832f-4a8b-8384-a2f6256557e0&format=json&with_children=with_children'
 ```
 ```Response
 {
@@ -912,7 +912,7 @@ Entities in submitted state (assigned when the project has been submitted) canno
 ```Shell
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request DELETE https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/entities/67782964-0065-491d-b051-2ae404bb734d
+curl --header "X-Auth-Token: $token" --request DELETE https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/entities/67782964-0065-491d-b051-2ae404bb734d
 ```
 ```Response
 {
@@ -948,7 +948,7 @@ Experimental data files like BAM and FASTQ can be uploaded directly to the API u
 ```
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --output needed_to_show_progress_bar.log --request PUT --data-binary @GDC-INTERNAL-000084-S1-Q1-RG1.fastq.zip https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/files/c414a205-376e-4993-af48-2a4689eb433e && rm needed_to_show_progress_bar.log
+curl --header "X-Auth-Token: $token" --output needed_to_show_progress_bar.log --request PUT --data-binary @GDC-INTERNAL-000084-S1-Q1-RG1.fastq.zip https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/files/c414a205-376e-4993-af48-2a4689eb433e && rm needed_to_show_progress_bar.log
 
 	# "&& rm needed_to_show_progress_bar.log" at the end of the command above
 	# removes the temporary file required to show upload progress bar. This
@@ -961,7 +961,7 @@ curl --header "X-Auth-Token: $token" --output needed_to_show_progress_bar.log --
 The `manifest` endpoint generates a manifest for uploading files using the GDC Data Transfer Tool. It requires a comma-separated list of file UUIDs to generate a manifest.
 
 ```
-https://gdc-api.nci.nih.gov/v0/submission/PROGRAM/PROJECT/manifest?ids=bf0751ca-fc3b-4760-b876-0fefce040be5,90163202-cfd7-4f6a-8214-e7e4e924d3a6
+https://api.gdc.cancer.gov/v0/submission/PROGRAM/PROJECT/manifest?ids=bf0751ca-fc3b-4760-b876-0fefce040be5,90163202-cfd7-4f6a-8214-e7e4e924d3a6
 ```
 
 ### Downloading Files
@@ -993,7 +993,7 @@ Before interacting directly with the GDC Submission API's GraphQL endpoint, user
 
 GDC data submitters can access the GDC Submission API GraphQL endpoint at:
 
-	https://gdc-api.nci.nih.gov/[API_version/]submission/graphql
+	https://api.gdc.cancer.gov/[API_version/]submission/graphql
 
 where __[API_version/]__ is the optional API version component (see [Getting Started](Getting_Started.md)).
 
@@ -1076,7 +1076,7 @@ Using the `case` and `_case_count` example above as the starting point, the resu
 ```Shell_command
 token=$(<gdc-token-text-file.txt)
 
-curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/v0/submission/graphql' --data-binary @Query_json
+curl --request POST --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/v0/submission/graphql' --data-binary @Query_json
 ```
 ```API_Response
 {
@@ -1192,7 +1192,7 @@ GraphQL query to find the file UUID based on file `submitter_id`:
 }
 ```
 ```Shell
-curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/v0/submission/graphql' --data-binary @escaped_GraphQL
+curl --request POST --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/v0/submission/graphql' --data-binary @escaped_GraphQL
 ```
 ```Response
 {
