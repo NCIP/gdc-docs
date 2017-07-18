@@ -7,7 +7,7 @@
 
 ### New updates
 
-1. Released updated miRNA quantification files to address miscalculation of counts described in DR7.0 release notes <!--DAT-1, DAT-988-->
+1. Released updated miRNA quantification files to address miscalculation of counts described in DR7.0 release notes. <!--DAT-1, DAT-988-->
 
 Updated files for this release are listed [here](DR8.0_files_swap.txt).
 
@@ -49,7 +49,7 @@ None
 * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
-* No data from TARGET-MLDS is available.
+* No data from TARGET-MDLS is available.
 * Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
 * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
 * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
