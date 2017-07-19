@@ -7,7 +7,7 @@
 
 ### New Features and Changes
 
-3 major features:
+Major features/changes:
 *  Link between the exploration and repository pages: 
     * in exploration page, the user can for example select cases with specific mutations then link to repository page to download the data associated with these cases. 
     * in repository menu, the user can select cases with specific files then link to exploration page to view variants associated with these cases.
@@ -17,6 +17,10 @@
 *  Filter the Gene entity page, for example:
     * clicking on a mutated gene from the project page will display the mutations of the gene in this project (filtered protein viewer, etc.).
     * clicking on a mutated gene from the exploration page will display the mutations of the gene filtered by the user search criteria, such as "primary site is Kidney and mutation impact is high".
+    
+* Hiding UUIDs from tables: the user can still export the UUIDs in the tables using the "arrange columns" feature.
+
+* Mutation entity page - the consequence table shows 1 consequence per transcript (10 rows by default). The user should display all rows before exporting the table.
 
 ### Bugs Fixed Since Last Release
 *  Exploration 
