@@ -8,19 +8,19 @@
 ### New Features and Changes
 
 Major features/changes:
-*  Link between the exploration and repository pages: 
+*  Provide a link between the exploration and repository pages: 
     * in exploration page, the user can for example select cases with specific mutations then link to repository page to download the data associated with these cases. 
     * in repository menu, the user can select cases with specific files then link to exploration page to view variants associated with these cases.
 
-*  Upload Gene Set: the user can upload his own gene list to the exploration page.
+*  Upload gene set: the user can upload his own gene list to the exploration page and leverage the GDC search and visualization features for this custom gene set.
 
-*  Filter the Gene entity page, for example:
+*  Filter the gene entity page, for example:
     * clicking on a mutated gene from the project page will display the mutations of the gene in this project (filtered protein viewer, etc.).
     * clicking on a mutated gene from the exploration page will display the mutations of the gene filtered by the user search criteria, such as "primary site is Kidney and mutation impact is high".
     
-* Hiding UUIDs from tables: the user can still export the UUIDs in the tables using the "arrange columns" feature.
+* Hide UUIDs from tables and charts. However the user can still view and export the UUIDs in the tables using the "arrange columns" feature. In Mutation table, the UUIDs are automatically exported.
 
-* Mutation entity page - the consequence table shows 1 consequence per transcript (10 rows by default). The user should display all rows before exporting the table.
+* Mutation entity page - show 1 consequence per transcript (10 rows by default) in the consequence table. The user should display all rows before exporting the table.
 
 ### Bugs Fixed Since Last Release
 *  Exploration 
@@ -29,7 +29,7 @@ Major features/changes:
 
 
 ### Known Issues and Workarounds
-*  New Visualizations
+*  Visualizations
     *  Cannot export Data Portal graphs in PNG in Internet Explorer. Graphs can be exported to PNG or SVG from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet would not display chart legend and title when re-opening previously downloaded SVG files, recommendation is to open downloaded SVG files with another software.
     *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
 *  Entity page
