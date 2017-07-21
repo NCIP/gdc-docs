@@ -8,29 +8,30 @@
 ### New Features and Changes
 
 Major features/changes:
-*  Provide a link between the exploration and repository pages: 
-    * in exploration page, the user can for example select cases with specific mutations then link to repository page to download the data associated with these cases. 
-    * in repository menu, the user can select cases with specific files then link to exploration page to view variants associated with these cases.
 
-*  Upload gene set: the user can upload his own gene list to the exploration page and leverage the GDC search and visualization features for this custom gene set.
+* A feature that links the exploration and repository pages. For example:
+    - In the exploration page, the user could select cases with a specific mutation. This set could then be linked to the repository page to download the data associated with these cases.
+    - In the repository menu, the user can select cases associated with specific files. The set could then be linked to exploration page to view the variants associated with these cases.
 
-*  Filter the gene entity page, for example:
-    * clicking on a mutated gene from the project page will display the mutations of the gene in this project (filtered protein viewer, etc.).
-    * clicking on a mutated gene from the exploration page will display the mutations of the gene filtered by the user search criteria, such as "primary site is Kidney and mutation impact is high".
-    
-* Hide UUIDs from tables and charts. However the user can still view and export the UUIDs in the tables using the "arrange columns" feature. In Mutation table, the UUIDs are automatically exported.
+*  Upload gene set: users can upload a custom gene list to the exploration page and leverage the GDC search and visualization features for the set.
 
-* Mutation entity page - show 1 consequence per transcript (10 rows by default) in the consequence table. The user should display all rows before exporting the table.
+*  Filters for the gene entity page. For example:
+    - Clicking on a mutated gene from the project page will display mutations associated with the gene that are present in this project (filtered protein viewer, etc.).
+    - Clicking on a mutated gene from the exploration page will display the mutations associated with the gene filtered by additional search criteria, such as "primary site is Kidney and mutation impact is high".
+
+* UUIDs are now hidden from tables and charts for easier readability. The UUIDs can still be exported and viewed in the tables using the "arrange columns" feature. In the mutation table, UUIDs are automatically exported.
+
+* Mutation entity page - one consequence per transcript is shown (10 rows by default) in the consequence table. The user should display all rows before exporting the table.
 
 ### Bugs Fixed Since Last Release
-*  Exploration 
-    *  Combining "Variant Caller" mutation filter with a case filter will display wrong counts in the mutation facet. The number of mutations in the result mutation table is correct. <!-- API-307 -->
+*  Exploration
+    *  Combining "Variant Caller" mutation filter with a case filter will display incorrect counts in the mutation facet. The number of mutations in the resulting mutation table is correct. <!-- API-307 -->
     *  Mutation table: it is difficult to click on the denominator in "#Affected Cases in Cohort" column displayed to the left side of the bar. The user should click at a specific position at the top of the number to be able to go to the corresponding link. <!-- PRTL-1377 -->
 
 
 ### Known Issues and Workarounds
 *  Visualizations
-    *  Cannot export Data Portal graphs in PNG in Internet Explorer. Graphs can be exported to PNG or SVG from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet would not display chart legend and title when re-opening previously downloaded SVG files, recommendation is to open downloaded SVG files with another software.
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported to PNG or SVG from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer would not display chart legend and title when re-opening previously downloaded SVG files, recommendation is to open downloaded SVG files with another software.
     *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
 *  Entity page
     *  On the mutation entity page, in the Consequences Table, the "Coding DNA Change" column is not populated for rows that do not correspond to the canonical mutation. <!-- SV-751 -->
@@ -87,7 +88,7 @@ _For detailed updates please review the [Data Portal User Guide](../Data_Portal/
 *  New Visualizations
     *  Cannot export Data Portal graphs in PNG in Internet Explorer. Graphs can be exported to PNG or SVG from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet would not display chart legend and title when re-opening previously downloaded SVG files, recommendation is to open downloaded SVG files with another software.
     *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
-*  Exploration 
+*  Exploration
     *  Combining "Variant Caller" mutation filter with a case filter will display wrong counts in the mutation facet. The number of mutations in the result mutation table is correct. <!-- API-307 -->
     *  Mutation table: it is difficult to click on the denominator in "#Affected Cases in Cohort" column displayed to the left side of the bar. The user should click at a specific position at the top of the number to be able to go to the corresponding link. <!-- PRTL-1377 -->
 *  Entity page
