@@ -1245,48 +1245,48 @@ __Example 2:__ Here the survival endpoint is used to compare two survival plots 
 
 ```json
 [  
-   {  
-      "op":"and",
-      "content":[  
-         {  
-            "op":"=",
-            "content":{  
-               "field":"cases.project.project_id",
-               "value":"TCGA-BRCA"
-            }
-         },
-         {  
-            "op":"=",
-            "content":{  
-               "field":"gene.ssm.ssm_id",
-               "value":"937a26c2-089c-51de-a0f9-70567d965c38"
-            }
-         }
-      ]
-   },
-   {  
-      "op":"and",
-      "content":[  
-         {  
-            "op":"=",
-            "content":{  
-               "field":"cases.project.project_id",
-               "value":"TCGA-BRCA"
-            }
-         },
-         {  
-            "op":"excludeifany",
-            "content":{  
-               "field":"gene.ssm.ssm_id",
-               "value":"937a26c2-089c-51de-a0f9-70567d965c38"
-            }
-         }
-      ]
-   }
+  {  
+    "op":"and",
+    "content":[  
+      {  
+        "op":"=",
+        "content":{  
+          "field":"cases.project.project_id",
+          "value":"TCGA-BRCA"
+        }
+      },
+      {  
+        "op":"=",
+        "content":{  
+          "field":"gene.ssm.ssm_id",
+          "value":"edd1ae2c-3ca9-52bd-a124-b09ed304fcc2"
+        }
+      }
+    ]
+  },
+  {  
+    "op":"and",
+    "content":[  
+      {  
+        "op":"=",
+        "content":{  
+          "field":"cases.project.project_id",
+          "value":"TCGA-BRCA"
+        }
+      },
+      {  
+        "op":"excludeifany",
+        "content":{  
+          "field":"gene.ssm.ssm_id",
+          "value":"edd1ae2c-3ca9-52bd-a124-b09ed304fcc2"
+        }
+      }
+    ]
+  }
 ]
 ```
 ```Shell
-curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22937a26c2-089c-51de-a0f9-70567d965c38%22%7D%7D%5D%7D%2C%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22excludeifany%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22937a26c2-089c-51de-a0f9-70567d965c38%22%7D%7D%5D%7D%5D&pretty=true"
+curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22edd1ae2c-3ca9-52bd-a124-b09ed304fcc2%22%7D%7D%5D%7D%2C%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22excludeifany%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22edd1ae2c-3ca9-52bd-a124-b09ed304fcc2%22%7D%7D%5D%7D%5D&pretty=true"
 ```
 ```json2
 {
