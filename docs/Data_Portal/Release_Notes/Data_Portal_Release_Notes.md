@@ -9,17 +9,17 @@
 
 Major features/changes:
 
-* A feature that links the exploration and repository pages. For example:
-    - In the exploration page, the user could select cases with a specific mutation. This set could then be linked to the repository page to download the data associated with these cases.
-    - In the repository menu, the user can select cases associated with specific files. The set could then be linked to exploration page to view the variants associated with these cases.
+* A feature that links the exploration and repository pages was added. For example:
+    - In the exploration page, cases with a specific mutation could be selected. This set could then be linked to the repository page to download the data files associated with these cases.
+    - In the repository menu, the user can select cases associated with specific files. The set could then be linked to exploration page to view the variants associated with this set of cases.
 
-*  Upload gene set: users can upload a custom gene list to the exploration page and leverage the GDC search and visualization features for the set.
+*  Users can now upload a custom gene list to the exploration page and leverage the GDC search and visualization features for cases and variants associated with the gene set.
 
 *  Filters for the gene entity page. For example:
     - Clicking on a mutated gene from the project page will display mutations associated with the gene that are present in this project (filtered protein viewer, etc.).
     - Clicking on a mutated gene from the exploration page will display the mutations associated with the gene filtered by additional search criteria, such as "primary site is Kidney and mutation impact is high".
 
-* UUIDs are now hidden from tables and charts for easier readability. The UUIDs can still be exported and viewed in the tables using the "arrange columns" feature. In the mutation table, UUIDs are automatically exported.
+* UUIDs are now hidden from tables and charts to simplify readability. The UUIDs can still be exported and viewed in the tables using the "arrange columns" feature. In the mutation table, UUIDs are automatically exported.
 
 * Mutation entity page - one consequence per transcript is shown (10 rows by default) in the consequence table. The user should display all rows before exporting the table.
 
@@ -31,7 +31,7 @@ Major features/changes:
 
 ### Known Issues and Workarounds
 *  Visualizations
-    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported to PNG or SVG from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer would not display chart legend and title when re-opening previously downloaded SVG files, recommendation is to open downloaded SVG files with another software.
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
     *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
 *  Entity page
     *  On the mutation entity page, in the Consequences Table, the "Coding DNA Change" column is not populated for rows that do not correspond to the canonical mutation. <!-- SV-751 -->
