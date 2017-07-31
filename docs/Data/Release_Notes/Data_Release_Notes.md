@@ -10,6 +10,7 @@
 1. Released updated miRNA quantification files to address miscalculation of counts described in DR7.0 release notes. <!--DAT-1, DAT-988-->
 
 Updated files for this release are listed [here](DR8.0_files_swap.txt).
+A Complete list of files for DR8.0 are listed [here](gdc_manifest_20170629_data_release_8.0.txt.gz)
 
 ### Bugs Fixed Since Last Release
 
@@ -73,6 +74,7 @@ None
 2.  Annotated VCFs are updated to include flags for OxoG artifacts and strand bias. <!--DAT-874-->
 
 Updated files for this release are listed [here](DR7.0_files_swap.txt).
+A Complete list of files for DR8.0 are listed [here](gdc_manifest_20170629_data_release_7.0.txt.gz)
 
 ### Bugs Fixed Since Last Release
 
