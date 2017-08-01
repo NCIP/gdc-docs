@@ -69,7 +69,7 @@ None
 
 ### New updates
 
-1.  Updated public Mutation Annotation Format (MAF) files are now available. Updates include filtering to remove variants impacted by OxoG artifacts and those impacted by stand bias. <!--AP-29-->
+1.  Updated public Mutation Annotation Format (MAF) files are now available. Updates include filtering to remove variants impacted by OxoG artifacts and those impacted by strand bias. <!--AP-29-->
 2.  Protected MAF files are updated to include flags for OxoG and strand bias. <!--AP-29-->
 2.  Annotated VCFs are updated to include flags for OxoG artifacts and strand bias. <!--DAT-874-->
 
