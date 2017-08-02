@@ -1,6 +1,6 @@
 # Data Portal Release Notes
 
-## Release 1.6.1
+## Release 1.8.0
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__: August x, 2017
