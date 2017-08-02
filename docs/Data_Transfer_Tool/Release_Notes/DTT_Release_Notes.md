@@ -1,8 +1,35 @@
 # Data Transfer Tool Release Notes
 
+## v1.3.0
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: August X, 2017
+
+
+### New Features and Changes
+* Faster performance overall
+*	Better handling of time outs <!--DTT-23-->
+*	Faster performance when downloading many small files <!--DTT-29, DTT-42-->
+* Uses new default API URL (htts://api.gdc.cancer.gov) <!--DTT-34-->
+*	Better logging <!--DTT-38, DTT-12-->
+* Can specify manifest path for upload <!--DTT-32-->
+
+### Bugs Fixed Since Last Release
+* Submission manifest **local_file_path:** will now modify path as expected <!--DTT-27-->
+* Upload flags --path/-f will modify the upload path as expected <!--DTT-28-->
+*	When deleting uploaded files you will no longer need a file in the current directory of the same name <!--DTT-36-->
+
+
+### Known Issues and Workarounds
+* Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* When any files mentioned in the upload manifest are not present in the upload directory the submission will hang at the missing file.
+	* *Workaround:* Edit the manifest to specify only the the files that are present in the upload directory for submission or copy the missing files into the upload directory.  
+
+
 ## v1.2.0
 * __GDC Product__: Data Transfer Tool
-* __Release Date__: October 31, 2016
+* __Release Date__: August X, 2017
 
 
 ### New Features and Changes
