@@ -49,33 +49,34 @@ The GDC Data Transfer Tool displays the following help menu for its download fun
 gdc-client download --help
 ```
 ```Output
-usage: gdc-client download [-h] [--debug] [-v] [--log-file LOG_FILE]
-                           [-T TOKEN | -t TOKEN] [-H HOST] [-P PORT] [-d DIR]
-                           [-s server] [--no-segment-md5sums] [-n N_PROCESSES]
-                           [--http-chunk-size HTTP_CHUNK_SIZE]
-                           [--save-interval SAVE_INTERVAL]
-                           [--no-related-files] [--no-annotations] [-u]
-                           [-m MANIFEST]
-                           [file_id [file_id ...]]
+usage: gdc-client download [-h] [--debug] [--log-file LOG_FILE]
+                                  [-t TOKEN_FILE] [-d DIR] [-s server]
+                                  [--no-segment-md5sums] [--no-file-md5sum]
+                                  [-n N_PROCESSES]
+                                  [--http-chunk-size HTTP_CHUNK_SIZE]
+                                  [--save-interval SAVE_INTERVAL]
+                                  [--no-verify] [--no-related-files]
+                                  [--no-annotations] [--no-auto-retry]
+                                  [--retry-amount RETRY_AMOUNT]
+                                  [--wait-time WAIT_TIME] [-u] [-m MANIFEST]
+                                  [file_id [file_id ...]]
 
 positional arguments:
-  file_id               GDC files to download
+  file_id               The GDC UUID of the file(s) to download
 
 optional arguments:
   -h, --help            show this help message and exit
-  --debug               enable debug logging
-  -v, --verbose         enable verbose logging
-  --log-file LOG_FILE   log file [stderr]
-  -t TOKEN, --token-file TOKEN
+  --debug               Enable debug logging. If a failure occurs, the program
+                                                          will stop.
+  --log-file LOG_FILE   Save logs to file. Amount logged affected by --debug
+  -t TOKEN_FILE, --token-file TOKEN_FILE
                         GDC API auth token file
-  -H HOST, --host HOST  GDC API host [gdc-api.nci.nih.gov]
-  -P PORT, --port PORT  GDC API port [443]
-  -d DIR, --dir DIR     Directory to download files to. Defaults to current
-                        dir
+  -d DIR, --dir DIR     Directory to download files to. Defaults to current dir
   -s server, --server server
-                        The TCP server address server[:port]
-  --no-segment-md5sums  Calculate inbound segment md5sums and/or verify
-                        md5sums on restart
+                      The TCP server address server[:port]
+  --no-segment-md5sums  Do not calculate inbound segment md5sumsand/or do not
+                      verify md5sums on restart
+  --no-file-md5sum      Do not verify file md5sum after download
   -n N_PROCESSES, --n-processes N_PROCESSES
                         Number of client connections.
   --http-chunk-size HTTP_CHUNK_SIZE
@@ -84,9 +85,15 @@ optional arguments:
                         The number of chunks after which to flush state file.
                         A lower save interval will result in more frequent
                         printout but lower performance.
+  --no-verify           Perform insecure SSL connection and transfer
   --no-related-files    Do not download related files.
   --no-annotations      Do not download annotations.
-  -u, --udt             Use the UDT protocol. Better for WAN connections
+  --no-auto-retry       Ask before retrying to download a file
+  --retry-amount RETRY_AMOUNT
+                        Number of times to retry a download
+  --wait-time WAIT_TIME
+                        Amount of seconds to wait before retrying
+  -u, --udt             Use the UDT protocol.
   -m MANIFEST, --manifest MANIFEST
                         GDC download manifest file
 ```
@@ -110,17 +117,13 @@ usage: gdc-client upload [-h] [--debug] [-v] [--log-file LOG_FILE]
 
 optional arguments:
   -h, --help            show this help message and exit
-  --debug               enable debug logging
-  -v, --verbose         enable verbose logging
-  --log-file LOG_FILE   log file [stderr]
-  -t TOKEN, --token-file TOKEN
+  --debug               Enable debug logging.  If a failure occurs, the program
+                        will stop.
+  --log-file LOG_FILE   Save logs to file. Amount logged affected by --debug
+  -t TOKEN_FILE, --token-file TOKEN_FILE
                         GDC API auth token file
-  -H HOST, --host HOST  GDC API host [gdc-api.nci.nih.gov]
-  -P PORT, --port PORT  GDC API port [443]
   --project-id PROJECT_ID, -p PROJECT_ID
                         The project ID that owns the file
-  --identifier IDENTIFIER, -i IDENTIFIER
-                        The file id
   --path path, -f path  directory path to find file
   --upload-id UPLOAD_ID, -u UPLOAD_ID
                         Multipart upload id
@@ -137,4 +140,5 @@ optional arguments:
   --delete              Delete an uploaded file
   --manifest MANIFEST, -m MANIFEST
                         Manifest which describes files to be uploaded
+--identifier, -i      DEPRECATED
 ```
