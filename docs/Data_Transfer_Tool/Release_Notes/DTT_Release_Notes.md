@@ -6,18 +6,17 @@
 
 
 ### New Features and Changes
-* Faster performance overall
-*	Better handling of time outs <!--DTT-23-->
 *	Faster performance when downloading many small files <!--DTT-29, DTT-42-->
+* Faster performance overall <!--DTT-29-->
+*	Better handling of time outs <!--DTT-23-->
 * Uses new default API URL (htts://api.gdc.cancer.gov) <!--DTT-34-->
 *	Better logging <!--DTT-38, DTT-12-->
-* Can specify manifest path for upload <!--DTT-32-->
 
 ### Bugs Fixed Since Last Release
 * Submission manifest **local_file_path:** will now modify path as expected <!--DTT-27-->
 * Upload flags --path/-f will modify the upload path as expected <!--DTT-28-->
 *	When deleting uploaded files you will no longer need a file in the current directory of the same name <!--DTT-36-->
-
+* Can specify manifest path for upload <!--DTT-32-->
 
 ### Known Issues and Workarounds
 * Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
