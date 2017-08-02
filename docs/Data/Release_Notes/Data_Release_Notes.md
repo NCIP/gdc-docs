@@ -7,7 +7,7 @@
 
 ### New updates
 
-1. Released updated miRNA quantification files to address miscalculation of counts described in DR7.0 release notes. <!--DAT-1, DAT-988-->
+1. Released updated miRNA quantification files to address double counting of some normalized counts described in DR7.0 release notes. <!--DAT-1, DAT-988-->
 
 Updated files for this release are listed here (pending).
 A Complete list of files for DR8.0 are listed here (pending).
