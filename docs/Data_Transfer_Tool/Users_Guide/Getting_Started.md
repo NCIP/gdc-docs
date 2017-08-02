@@ -19,7 +19,7 @@ The system recommendations for using the GDC Data Transfer Tool&nbsp;are as foll
 
 ### Binary Distributions
 
-Binary distributions are available on the [GDC Transfer Tool page](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool). To install the GDC Data Transfer Tool, download the respective binary distribution and unzip the distribution&#39;s archive to a location on the target system.
+Binary distributions are available on the [GDC Transfer Tool page](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool). To install the GDC Data Transfer Tool, download the respective binary distribution and unzip the distribution&#39;s archive to a location on the target system.  It is recommended that the binary be copied to a located that is in the user's path so that is it accessible from any location within the terminal or command prompt.   
 
 ### Release Notes
 
