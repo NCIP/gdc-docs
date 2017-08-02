@@ -3,7 +3,7 @@
 ## Release 1.6.1
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: August 7, 2017
+* __Release Date__: August x, 2017
 
 ### New Features and Changes
 

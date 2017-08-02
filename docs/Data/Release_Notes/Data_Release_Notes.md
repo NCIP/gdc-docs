@@ -3,7 +3,7 @@
 ## Data Release 8.0
 
 * __GDC Product__: Data
-* __Release Date__: July x, 2017
+* __Release Date__: August x, 2017
 
 ### New updates
 
