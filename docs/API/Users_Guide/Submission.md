@@ -93,11 +93,42 @@ Submission templates are accessible programmatically at the `templates` endpoint
 
 For example, the JSON template for `case` entities can be obtained from:
 
-	https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json
+	https://api.gdc.cancer.gov/v0/submission/template/case?format=json
 
-A set of templates for all entities in the GDC Data Model can be downloaded from:
+In addition to `case`, templates for the following entities can be downloaded
 
-	https://gdc-api.nci.nih.gov/v0/submission/template/?format=json
+__Biospecimen:__
+```
+sample
+portion
+analyte
+aliquot
+read_group
+```
+__Clinical:__
+```
+slide
+demographic
+diagnosis
+exposure
+family_history
+treatment
+follow_up
+```
+
+__Data Files:__
+```
+analysis_metadata
+biospecimen_supplement
+clinical_supplement
+experiment_metadata
+pathology_report
+run_metadata
+slide_image
+submitted_unaligned_reads
+submitted_aligned_reads
+submitted_genomic_profile
+```
 
 #### Entity JSON Schemas
 
