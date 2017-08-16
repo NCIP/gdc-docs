@@ -1,6 +1,6 @@
 # Gene and Mutation Summary Pages
 
-Many parts of the GDC website contain links to Gene and Mutation summary pages.  These pages display information about specific genes and mutations, along with visualizations and data regarding their interactions between themselves and the projects and cases within the GDC.  The gene and mutation data that is visualized on these pages comes from the Open-Access MAF files available for download on the GDC Portal.
+Many parts of the GDC website contain links to Gene and Mutation summary pages.  These pages display information about specific genes and mutations, along with visualizations and data showcasing the relationship between themselves and the projects and cases within the GDC.  The gene and mutation data that is visualized on these pages comes from the Open-Access MAF files available for download on the GDC Portal.
 
 ## Gene Summary Page
 
@@ -51,7 +51,6 @@ The 20 most frequent mutations in the gene are displayed as a bar graph that ind
 
 A table is displayed below that lists information about each mutation including:
 
-* __Mutation ID:__ A UUID Code for the mutation assigned by the GDC, when clicked will bring a user to the Mutation Summary Page
 * __DNA Change:__ The chromosome and starting coordinates of the mutation are displayed along with the nucleotide differences between the reference and tumor allele
 * __Type:__ A general classification of the mutation
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
@@ -62,6 +61,10 @@ A table is displayed below that lists information about each mutation including:
   - __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
   - __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
   - __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+
+*Note: The Mutation UUID can be displayed in this table by selecting it from the drop-down represented by three parallel lines*
+
+Clicking the `Open in Exploration` button will navigate the user to the Exploration page, showing the same results in the table (mutations filtered by the gene).
 
 ## Mutation Summary Page
 
