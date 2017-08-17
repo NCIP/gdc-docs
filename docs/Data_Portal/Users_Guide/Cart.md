@@ -18,7 +18,7 @@ The cart page shows a summary of all files currently in the cart:
 
 The Cart page also displays two tables:
 
-* __File count by project__: Breaks down the files by each project
+* __File count by project__: Breaks down the files and cases by each project
 * __File count by authorization level__: Breaks down the files in the cart by authorization level.  A user must be logged into the GDC in order to download 'Controlled-Access files'
 
 The cart also directs users how to download files in the cart.  For large data files, it is recommended that the GDC Data Transfer Tool be used.

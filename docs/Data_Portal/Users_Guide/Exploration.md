@@ -32,6 +32,8 @@ In addition to the defaults, users can add additional case filters by clicking o
 
 ### Gene Filters
 
+The second tab of filters is for genes affected by mutations in the GDC.
+
 [![Exploration Gene Filters](images/Exploration-Gene-Filter.png)](images/Exploration-Gene-Filter.png "Click to see the full image.")
 
 The second tab of filters are for specific genes.  Users can filter by:
@@ -184,4 +186,4 @@ After utilizing the Exploration Page to narrow down a specific cohort, users can
 
 [![Exploration File Navigation](images/Exploration-View-Files.png)](images/Exploration-View-Files.png "Click to see the full image.")
 
-Clicking this button will navigate the users to the Exploration Page, filtered by the cases within the cohort.
+Clicking this button will navigate the users to the Repository Page, filtered by the cases within the cohort.
