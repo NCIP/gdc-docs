@@ -3,7 +3,7 @@
 ## Release 1.8.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: August x, 2017
+* __Release Date__: August 22, 2017
 
 ### New Features and Changes
 
@@ -19,13 +19,9 @@ Major features/changes:
     - Clicking on a mutated gene from the project page will display mutations associated with the gene that are present in this project (filtered protein viewer, etc.).
     - Clicking on a mutated gene from the exploration page will display the mutations associated with the gene filtered by additional search criteria, such as "primary site is Kidney and mutation impact is high".
 
-* UUIDs are now hidden from tables and charts to simplify readability. The UUIDs can still be exported and viewed in the tables using the "arrange columns" feature.
+* UUIDs are now hidden from tables and charts to simplify readability. The UUIDs can still be exported and viewed in the tables using the "arrange columns" feature. In the mutation table, UUIDs are automatically exported.
 
 * Mutation entity page - one consequence per transcript is shown (10 rows by default) in the consequence table. The user should display all rows before exporting the table.
-
-* In Exploration page, the order of Case and File tabs has been flipped to emphasize the files.
-
-* The GDC banner pop-up has been updated to provide more information on TCGA and TARGET data availability.
 
 ### Bugs Fixed Since Last Release
 *  Exploration
@@ -47,6 +43,7 @@ Major features/changes:
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
 
