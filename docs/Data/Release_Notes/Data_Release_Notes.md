@@ -9,8 +9,8 @@
 
 1. Released updated miRNA quantification files to address double counting of some normalized counts described in DR7.0 release notes. <!--DAT-1, DAT-988-->
 
-Updated files for this release are listed here (pending).
-A Complete list of files for DR8.0 are listed here (pending).
+Updated files for this release are listed here [here](DR8.0_files_swap.txt).
+A Complete list of files for DR8.0 are listed here [here](gdc_manifest_20170822_data_release_8.0_active.txt.gz).
 
 ### Bugs Fixed Since Last Release
 
