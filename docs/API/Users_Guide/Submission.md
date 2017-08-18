@@ -97,6 +97,7 @@ For example, the JSON template for `case` entities can be obtained from:
 
 In addition to `case`, templates for the following entities can be downloaded
 
+
 __Biospecimen:__
 ```
 sample
