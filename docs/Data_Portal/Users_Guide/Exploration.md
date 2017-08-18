@@ -32,11 +32,13 @@ In addition to the defaults, users can add additional case filters by clicking o
 
 ### Gene Filters
 
+The second tab of filters is for genes affected by mutations in the GDC.
+
 [![Exploration Gene Filters](images/Exploration-Gene-Filter.png)](images/Exploration-Gene-Filter.png "Click to see the full image.")
 
 The second tab of filters are for specific genes.  Users can filter by:
 
-* __Gene__ - Entering in a specific Gene Symbol or ID
+* __Gene__ - Entering in a specific Gene Symbol, ID, or List of Genes ('Gene Set')
 * __Biotype__ - Classification of the type of gene according to Ensembl. The biotypes can be grouped into protein coding, pseudogene, long noncoding and short noncoding. Examples of biotypes in each group are as follows:
     * __Protein coding__: IGC gene, IGD gene, IG gene, IGJ gene, IGLV gene, IGM gene, IGV gene, IGZ gene, nonsense mediated decay, nontranslating CDS, non stop decay, polymorphic pseudogene, TRC gene, TRD gene, TRJ gene.
     * __Pseudogene__: disrupted domain, IGC pseudogene, IGJ pseudogene, IG pseudogene, IGV pseudogene, processed pseudogene, transcribed processed pseudogene, transcribed unitary pseudogene, transcribed unprocessed pseudogene, translated processed pseudogene, TRJ pseudogene, unprocessed pseudogene
@@ -44,23 +46,37 @@ The second tab of filters are for specific genes.  Users can filter by:
     * __Short noncoding__: miRNA, miRNA_pseudogene, miscRNA, miscRNA pseudogene, Mt rRNA, Mt tRNA, rRNA, scRNA, snlRNA, snoRNA, snRNA, tRNA, tRNA_pseudogene
 * __Is Cancer Gene Census__ - Whether or not a gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/)
 
+#### Upload Gene Set
+
+In the `Genes` filters panel, instead of supplying genes one-by-one, users can supply a list of genes.  Clicking on the `Upload Gene Set` button will launch a dialog as shown below, where users can supply a list of genes or upload a comma-separated text file of genes.
+
+[![Upload Gene Set](images/Exploration-Upload-Gene-Set.png)](images/Exploration-Upload-Gene-Set.png "Click to see the full image.")
+
+After supplying a list of genes, a table below will appear which indicates whether the gene was found.
+
+[![Upload Gene Set Validation](images/Exploration-Upload-Gene-Set-Validation.png)](images/Exploration-Upload-Gene-Set-Validation.png "Click to see the full image.")
+
+Clicking on `Submit` will filter the results in the Exploration Page by those genes.
+
 ### Mutation Filters
+
+The final tab of filters is for specific mutations.
 
 [![Exploration Mutation Filters](images/Exploration-Mutations-Filter.png)](images/Exploration-Mutations-Filter.png "Click to see the full image.")
 
-The final tab of filters is for specific mutations.  Users can filter by:
+Users can filter by:
 
 * __Mutation__ - Unique ID for that mutation.  Users can use the following:
     * UUID - c7c0aeaa-29ed-5a30-a9b6-395ba4133c63
     * DNA Change - 	chr12:g.121804752delC
     * COSMIC ID - COSM202522
+* __Consequence Type__ - Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms
 * __Impact (VEP)__ - A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
     * __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
     * __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
     * __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
     * __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
-* __Consequence Type__ - Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms
-* __Mutation Type__ - The type of mutation
+* __Type__ - A general classification of the mutation
 * __Variant Caller__ - The variant caller used to identify the mutation
 * __COSMIC ID__ - The identifier of the gene or mutation maintained in COSMIC, the Catalogue Of Somatic Mutations In Cancer
 * __dbSNP rs ID__ - The reference SNP identifier maintained in dbSNP
@@ -82,8 +98,7 @@ The top of this section contains a few pie graphs with categorical information r
 
 Below these pie charts is a tabular view (which can be exported and sorted using the buttons on the right) of the cases affected, which includes the following information:
 
-* __Case UUID:__ The UUID of the case/patient
-* __Submitter ID:__ The submitter ID of that case/patient (i.e. TCGA Barcode)
+* __Case ID (Submitter ID):__ The Case ID / submitter ID of that case/patient (i.e. TCGA Barcode)
 * __Project:__ The study name for the project for which the case belongs
 * __Primary Site:__ The primary site of the cancer/project
 * __Gender:__ The gender of the case
@@ -91,6 +106,8 @@ Below these pie charts is a tabular view (which can be exported and sorted using
 * __Available Files per Data Category:__ Five columns displaying the number of files available in each of the five data categories.  These link to the files for the specific case.
 * __# Mutations:__ The number of SSMs (simple somatic mutations) detected in that case
 * __# Genes:__ The number of genes detected in that case
+
+*Note: By default, the Case UUID is not displayed.  You can display the UUID of the case, but clicking on the icon with 3 parallel lines, and choose to display the Case UUID*
 
 #### Genes
 
@@ -122,7 +139,6 @@ At the top of this tab is a survival plot of all the cases within the specified 
 
 A table is displayed below that lists information about each mutation:
 
-* __Mutation ID:__ A UUID for the mutation assigned by the GDC, when clicked will bring a user to the Mutation Summary Page
 * __DNA Change:__ The chromosome and starting coordinates of the mutation are displayed along with the nucleotide differences between the reference and tumor allele
 * __Type:__ A general classification of the mutation
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript).  A link to the Gene Summary Page for the gene affected by the mutation is included
@@ -134,6 +150,8 @@ A table is displayed below that lists information about each mutation:
     * __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
     * __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
 * __Survival Analysis:__ An icon that when clicked, will plot the survival rate between the gene's mutated and non-mutated cases
+
+*Note: By default, the Mutation UUID is not displayed.  You can display the UUID of the case, but clicking on the icon with 3 parallel lines, and choose to display the Mutation UUID*
 
 #### OncoGrid
 
@@ -148,7 +166,7 @@ The right side of the grid displays additional information about the genes:
 * __Gene Sets:__ Describes whether a gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/).  (The Cancer Gene Census is an ongoing effort to catalogue those genes for which mutations have been causally implicated in cancer)
 * __GDC:__ Identifies all cases in the GDC affected with a mutation in this gene
 
-### OncoGrid Options
+#### OncoGrid Options
 
 To facilitate readability and comparisons, drag-and-drop can be used to reorder the gene rows.  Double clicking a row in the "# Cases Affected" bar at the right side of the graphic launches the respective Gene Summary Page page. Hovering over a cell will display information about the mutation such as its ID, affected case, and biological consequence. Clicking on the cell will bring the user to the respective Mutation Summary page.  
 
@@ -161,3 +179,11 @@ A tool bar at the top right of the graphic allows the user to export the data as
 * __Toggle Gridlines:__ Turn the gridlines on and off
 * __Toggle Crosshairs:__ Turns crosshairs on, so that users can zoom into specific sections of the OncoGrid
 * __Fullscreen:__ Turns Fullscreen mode on/off
+
+### File Navigation
+
+After utilizing the Exploration Page to narrow down a specific cohort, users can find the specific files that relate to this group by clicking on the `View Files in Repository` button as shown in the image below.
+
+[![Exploration File Navigation](images/Exploration-View-Files.png)](images/Exploration-View-Files.png "Click to see the full image.")
+
+Clicking this button will navigate the users to the Repository Page, filtered by the cases within the cohort.

@@ -1,5 +1,38 @@
 # API Release Notes
 
+## v1.10.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: August x, 2017
+
+### New Features and Changes
+
+* Created new entities and reorganized the location of many properties in the GDC Dictionary.  A list of deprecated properties and their new locations can be found [here](../Release_Notes/DeprecatedFields_072017.txt).  Note that the deprecated properties still contain all information that they previously did.  In a later release we will map the data from the old location to the new.  Eventually, we will suspend submission to the old properties and will remove them entirely from the GDC.
+* GDC Data Dictionary Changes Details
+    * Created follow_up entity to support longitudinal clinical data <!--TT-65-->
+    * Deprecated clinical test entity <!--DOC-67-->
+    * Modified acceptable values for Read Group properties <!--TT-9,TT-76-->
+    * Modified Diagnosis entity <!--TT-64-->  
+    * Modified Treatment entity <!--TT-66-->
+    * Modified Demographic entity <!--TT-83-->
+    * Modified Case entity <!--TT-84-->
+    * Added new tumor code, tumor id, and sample types to Sample entity to support OCG <!--TT-85, TT-68-->
+    * Added property `days_to_diagnosis` to Diagnosis entity <!--TT-91-->
+    * Created Somatic Mutation Index entity <!--TT-92-->
+    * Updated CaDSR CDE links in data dictionary <!--DAT-794-->
+    * Added new sample type `tumor` to sample entity <!--TT-77-->
+    * Made classification_of_tumor on diagnosis entity non-required <!--DAT-203-->
+    * Added support for FM-AD to Genomic Profile Harmonization Workflow entity <!--DAT-985-->
+    * Added data type `Gene Level Copy Number Scores` to Copy Number Segment entity <!--TT-94-->
+
+
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
+
 ## v1.9.0
 
 * __GDC Product__: Application Programming Interface (API)

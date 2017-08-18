@@ -23,6 +23,8 @@ This dynamically generated bar graph shows the 20 genes with the most mutations 
 
 Hovering the cursor over each bar will display information about the number of cases affected by the disease type and clicking on each bar will launch the Gene Summary Page page for the gene associated with the mutation.
 
+Users can toggle the Y-Axis of this bar graph between a percentage or raw number of cases affected.
+
 #### Case Distribution per Project
 
 A pie chart displays the relative number of cases for each primary site (inner circle), which is further divided by project (outer circle). Hovering the cursor over each portion of the graph will display the primary site or project with the number of associated cases. Filtering projects at the left panel will update the pie chart.

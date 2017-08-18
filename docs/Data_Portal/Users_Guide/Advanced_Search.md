@@ -285,7 +285,7 @@ The __conversion factor__ is 1 year = 365.25 days
 
 The full list of fields available on the GDC Data Portal can be found through the GDC API using the following endpoint:
 
-[https://api.gdc.cancer.gov/gql/_mapping](https://gdc-api.nci.nih.gov/gql/_mapping)
+[https://api.gdc.cancer.gov/gql/_mapping](https://api.gdc.cancer.gov/gql/_mapping)
 
 Alternatively, a static list of fields is available below (not exhaustive).
 
@@ -345,7 +345,8 @@ Alternatively, a static list of fields is available below (not exhaustive).
 + cases.samples.time_between_clamping_and_freezing
 + cases.samples.time_between_excision_and_freezing
 + cases.samples.tumor_code
-+ cases.samples.tumor_code_id+ cases.samples.current_weight
++ cases.samples.tumor_code_id
++ cases.samples.current_weight
 + cases.samples.days_to_collection
 + cases.samples.days_to_sample_procurement
 + cases.samples.freezing_method
