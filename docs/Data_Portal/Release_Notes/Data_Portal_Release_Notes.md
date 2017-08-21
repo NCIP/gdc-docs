@@ -15,7 +15,7 @@ Major features/changes:
 
 *  Users can now upload a custom gene list to the exploration page and leverage the GDC search and visualization features for cases and variants associated with the gene set.
 
-*  Filters for the gene entity page. For example:
+*  Filters added for the gene entity page. For example:
     - Clicking on a mutated gene from the project page will display mutations associated with the gene that are present in this project (filtered protein viewer, etc.).
     - Clicking on a mutated gene from the exploration page will display the mutations associated with the gene filtered by additional search criteria, such as "primary site is Kidney and mutation impact is high".
 
@@ -33,6 +33,8 @@ Major features/changes:
 *  Visualizations
     *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
     *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
+*  Project page
+    *  On the project page, the Summary Case Count link should open the case tab on the Repository page - instead it opens the file page <!--PRTL-1591-->
 *  Entity page
     *  On the mutation entity page, in the Consequences Table, the "Coding DNA Change" column is not populated for rows that do not correspond to the canonical mutation. <!-- SV-751 -->
 *  Repository and Cart

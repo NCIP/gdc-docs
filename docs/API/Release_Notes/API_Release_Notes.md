@@ -7,6 +7,7 @@
 
 ### New Features and Changes
 
+* Longitudinal clinical data can now be submitted to the GDC
 * Created new entities and reorganized the location of many properties in the GDC Dictionary.  A list of deprecated properties and their new locations can be found [here](../Release_Notes/DeprecatedFields_072017.txt).  Note that the deprecated properties still contain all information that they previously did.  In a later release we will map the data from the old location to the new.  Eventually, we will suspend submission to the old properties and will remove them entirely from the GDC.
 * GDC Data Dictionary Changes Details
     * Created follow_up entity to support longitudinal clinical data <!--TT-65-->
