@@ -1245,48 +1245,48 @@ __Example 2:__ Here the survival endpoint is used to compare two survival plots 
 
 ```json
 [  
-   {  
-      "op":"and",
-      "content":[  
-         {  
-            "op":"=",
-            "content":{  
-               "field":"cases.project.project_id",
-               "value":"TCGA-BRCA"
-            }
-         },
-         {  
-            "op":"=",
-            "content":{  
-               "field":"gene.ssm.ssm_id",
-               "value":"937a26c2-089c-51de-a0f9-70567d965c38"
-            }
-         }
-      ]
-   },
-   {  
-      "op":"and",
-      "content":[  
-         {  
-            "op":"=",
-            "content":{  
-               "field":"cases.project.project_id",
-               "value":"TCGA-BRCA"
-            }
-         },
-         {  
-            "op":"excludeifany",
-            "content":{  
-               "field":"gene.ssm.ssm_id",
-               "value":"937a26c2-089c-51de-a0f9-70567d965c38"
-            }
-         }
-      ]
-   }
+  {  
+    "op":"and",
+    "content":[  
+      {  
+        "op":"=",
+        "content":{  
+          "field":"cases.project.project_id",
+          "value":"TCGA-BRCA"
+        }
+      },
+      {  
+        "op":"=",
+        "content":{  
+          "field":"gene.ssm.ssm_id",
+          "value":"edd1ae2c-3ca9-52bd-a124-b09ed304fcc2"
+        }
+      }
+    ]
+  },
+  {  
+    "op":"and",
+    "content":[  
+      {  
+        "op":"=",
+        "content":{  
+          "field":"cases.project.project_id",
+          "value":"TCGA-BRCA"
+        }
+      },
+      {  
+        "op":"excludeifany",
+        "content":{  
+          "field":"gene.ssm.ssm_id",
+          "value":"edd1ae2c-3ca9-52bd-a124-b09ed304fcc2"
+        }
+      }
+    ]
+  }
 ]
 ```
 ```Shell
-curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22937a26c2-089c-51de-a0f9-70567d965c38%22%7D%7D%5D%7D%2C%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22excludeifany%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22937a26c2-089c-51de-a0f9-70567d965c38%22%7D%7D%5D%7D%5D&pretty=true"
+curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22edd1ae2c-3ca9-52bd-a124-b09ed304fcc2%22%7D%7D%5D%7D%2C%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-BRCA%22%7D%7D%2C%7B%22op%22%3A%22excludeifany%22%2C%22content%22%3A%7B%22field%22%3A%22gene.ssm.ssm_id%22%2C%22value%22%3A%22edd1ae2c-3ca9-52bd-a124-b09ed304fcc2%22%7D%7D%5D%7D%5D&pretty=true"
 ```
 ```json2
 {
@@ -1328,3 +1328,73 @@ curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%7B%22op%22%3A%22a
 ```
 
 The output represents two sets of coordinates delimited as objects with the `donors` tag. One set of coordinates will generate a survival plot representing TCGA-BRCA cases that have the mutation of interest and the other will generate a survival plot for the remaining cases in TCGA-BRCA.
+
+__Example 3:__ Custom survival plots can be generated using the GDC API.  For example, a user could generate survival plot data comparing patients with a mutation in genes associated with a biological pathway with patients without mutations in that pathway. The following example compares a patient with at least one mutation in either gene `ENSG00000141510` or `ENSG00000155657` with patients that do not have mutations in these genes.
+
+``` Query
+[  
+   {  
+      "op":"and",
+      "content":[  
+         {  
+            "op":"=",
+            "content":{  
+               "field":"cases.project.project_id",
+               "value":"TCGA-BRCA"
+            }
+         },
+         {  
+            "op":"=",
+            "content":{  
+               "field":"gene.gene_id",
+               "value":["ENSG00000141510","ENSG00000155657"]
+            }
+         }
+      ]
+   },
+   {  
+      "op":"and",
+      "content":[  
+         {  
+            "op":"=",
+            "content":{  
+               "field":"cases.project.project_id",
+               "value":"TCGA-BRCA"
+            }
+         },
+         {  
+            "op":"excludeifany",
+            "content":{  
+               "field":"gene.gene_id",
+               "value":["ENSG00000141510","ENSG00000155657"]
+            }
+         }
+      ]
+   }
+]
+```
+```Shell
+curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%0D%0A%7B%0D%0A%22op%22%3A%22and%22%2C%0D%0A%22content%22%3A%5B%0D%0A%7B%0D%0A%22op%22%3A%22%3D%22%2C%0D%0A%22content%22%3A%7B%0D%0A%22field%22%3A%22cases.project.project_id%22%2C%0D%0A%22value%22%3A%22TCGA-BRCA%22%0D%0A%7D%0D%0A%7D%2C%0D%0A%7B%0D%0A%22op%22%3A%22%3D%22%2C%0D%0A%22content%22%3A%7B%0D%0A%22field%22%3A%22gene.gene_id%22%2C%0D%0A%22value%22%3A%5B%22ENSG00000141510%22%2C%22ENSG00000155657%22%5D%0D%0A%7D%0D%0A%7D%0D%0A%5D%0D%0A%7D%2C%0D%0A%7B%0D%0A%22op%22%3A%22and%22%2C%0D%0A%22content%22%3A%5B%0D%0A%7B%0D%0A%22op%22%3A%22%3D%22%2C%0D%0A%22content%22%3A%7B%0D%0A%22field%22%3A%22cases.project.project_id%22%2C%0D%0A%22value%22%3A%22TCGA-BRCA%22%0D%0A%7D%0D%0A%7D%2C%0D%0A%7B%0D%0A%22op%22%3A%22excludeifany%22%2C%0D%0A%22content%22%3A%7B%0D%0A%22field%22%3A%22gene.gene_id%22%2C%0D%0A%22value%22%3A%5B%22ENSG00000141510%22%2C%22ENSG00000155657%22%5D%0D%0A%7D%0D%0A%7D%0D%0A%5D%0D%0A%7D%0D%0A%5D&pretty=true"
+```
+
+__Example 4:__ Survival plots can be even more customizable when sets of case IDs are used. Two sets of case IDs (or barcodes) can be retrieved in a separate step based on custom criteria and compared in a survival plot. See below for an example query.
+
+```Json
+[{  
+   "op":"=",
+   "content":{  
+      "field":"cases.submitter_id",
+      "value":["TCGA-HT-A74J","TCGA-43-A56U","TCGA-GM-A3XL","TCGA-A1-A0SQ","TCGA-K1-A6RV","TCGA-J2-A4AD","TCGA-XR-A8TE"]
+   }
+},
+{  
+   "op":"=",
+   "content":{  
+      "field":"cases.submitter_id",
+      "value":["TCGA-55-5899","TCGA-55-6642","TCGA-55-7907","TCGA-67-6216","TCGA-75-5146","TCGA-49-4510","TCGA-78-7159"]
+   }
+}]
+```
+```Shell
+curl "https://api.gdc.cancer.gov/analysis/survival?filters=%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.submitter_id%22%2C%22value%22%3A%5B%22TCGA-HT-A74J%22%2C%22TCGA-43-A56U%22%2C%22TCGA-GM-A3XL%22%2C%22TCGA-A1-A0SQ%22%2C%22TCGA-K1-A6RV%22%2C%22TCGA-J2-A4AD%22%2C%22TCGA-XR-A8TE%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.submitter_id%22%2C%22value%22%3A%5B%22TCGA-55-5899%22%2C%22TCGA-55-6642%22%2C%22TCGA-55-7907%22%2C%22TCGA-67-6216%22%2C%22TCGA-75-5146%22%2C%22TCGA-49-4510%22%2C%22TCGA-78-7159%22%5D%7D%7D%5D"
+```

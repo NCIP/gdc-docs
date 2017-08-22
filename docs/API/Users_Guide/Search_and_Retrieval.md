@@ -828,7 +828,7 @@ The JSON object to be passed to the GDC API looks like:
 		  }
 	}
 
-URL-encoding the above JSON object using [Percent-(URL)-encoding tool](http://text-rescue.com/string-escape/percent-url-encoding-tool.html) results in the following string:
+URL-encoding the above JSON object using [Percent-(URL)-encoding tool](https://www.beautifyconverter.com/json-escape-unescape.php) results in the following string:
 
 	%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.clinical.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d
 

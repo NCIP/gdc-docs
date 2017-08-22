@@ -9,8 +9,8 @@ On the left, a panel of data facets allows users to filter cases and files using
 
 On the right, two tabs contain information about available data:
 
-* *`Cases` tab* provides a list of cases, select information about each case, and links to individual case summary pages
 * *`Files` tab* provides a list of files, select information about each file, and links to individual file detail pages.
+* *`Cases` tab* provides a list of cases, select information about each case, and links to individual case summary pages
 
 The banner above the tabs on the right displays any active facet filters and provides access to advanced search.
 
@@ -22,13 +22,24 @@ The top of the Repository Page contains a few summary pie charts for Primary Sit
 
 Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the cases and files presented in the tabs on the right.
 
-The facets panel is divided into two tabs, with the Cases tab containing facets pertaining to the cases and biospecimen, and the Files tab containing facets pertaining to data files and experimental strategies. Users can apply filters in both tabs simultaneously. The applied filters will be displayed in the banner above the tabs on the right, with the option to open the filter in [Advanced Search](Advanced_Search.md) to further refine the query.
+The facets panel is divided into two tabs, with the Files tab containing facets pertaining to data files and experimental strategies, while the Cases tab containing facets pertaining to the cases and biospecimen information. Users can apply filters in both tabs simultaneously. The applied filters will be displayed in the banner above the tabs on the right, with the option to open the filter in [Advanced Search](Advanced_Search.md) to further refine the query.
 
-The [Getting Started](Getting_Started.md#facet-filters) section provides instructions on using facet filters. In the following example, a filter from the Cases tab ("primary site") and a filter from the Files tab ("data format") are both applied:
+The [Getting Started](Getting_Started.md#facet-filters) section provides instructions on using facet filters. In the following example, a filter from the Cases tab ("primary site") and filters from the Files tab ("data category", "experimental strategy") are both applied:
 
 [![Facet Filters Applied in Data View](images/data-view-with-facet-filters-applied.png)](images/data-view-with-facet-filters-applied.png "Click to see the full image.")
 
 The default set of facets is listed below.
+
+*Files* facets tab:
+
+* __File__: Specify individual files using filename or UUID.
+* __Data Category__: A high-level data file category, such as "Raw Sequencing Data" or "Transcriptome Profiling".
+* __Data Type__: Data file type, such as "Aligned Reads" or "Gene Expression Quantification". Data Type is more granular than Data Category.
+* __Experimental Strategy__: Experimental strategies used for molecular characterization of the cancer.
+* __Workflow Type__: Bioinformatics workflow used to generate or harmonize the data file.
+* __Data Format__: Format of the data file.
+* __Platform__: Technological platform on which experimental data was produced.
+* __Access Level__: Indicator of whether access to the data file is open or controlled.
 
 *Cases* facets tab:
 
@@ -45,17 +56,6 @@ The default set of facets is listed below.
 * __Race__: Race of the patient.
 * __Ethnicity__: Ethnicity of the patient.
 
-*Files* facets tab:
-
-* __File__: Specify individual files using filename or UUID.
-* __Data Category__: A high-level data file category, such as "Raw Sequencing Data" or "Transcriptome Profiling".
-* __Data Type__: Data file type, such as "Aligned Reads" or "Gene Expression Quantification". Data Type is more granular than Data Category.
-* __Experimental Strategy__: Experimental strategies used for molecular characterization of the cancer.
-* __Workflow Type__: Bioinformatics workflow used to generate or harmonize the data file.
-* __Data Format__: Format of the data file.
-* __Platform__: Technological platform on which experimental data was produced.
-* __Access Level__: Indicator of whether access to the data file is open or controlled.
-
 ### Adding Custom Facets
 
 The Repository Page provides access to additional data facets beyond those listed above. Facets corresponding to additional properties listed in the [GDC Data Dictionary](../../Data_Dictionary/index.md) can be added using the "add a filter" links available at the top of the Cases and Files facet tabs:
@@ -71,6 +71,18 @@ Newly added facets will show up at the top of the facets panel and can be remove
 [![Customize Facet](images/gdc-data-portal-data-facet-tumor_stage.png)](images/gdc-data-portal-data-facet-tumor_stage.png "Click to see the full image.")
 ## Results
 
+### Files List
+
+The Files tab on the right provides a list of available files and select information about each file. If facet filters are applied, the list includes only matching files. Otherwise, the list includes all data files available in the GDC Data Portal.
+
+[![Files Tab](images/gdc-data-portal-data-files.png)](images/gdc-data-portal-data-files.png "Click to see the full image.")
+
+The *File Name* column includes links to [file detail pages](#file-detail-page) where the user can learn more about each file.
+
+Users can add individual file(s) to the file cart using the cart button next to each file. Alternatively, all files that match the current facet filters can be added to the cart using the menu in the top left corner of the table:
+
+[![Files Tab](images/gdc-data-portal-data-files-add-cart.png)](images/gdc-data-portal-data-files-add-cart.png "Click to see the full image.")
+
 ### Cases List
 
 The Cases tab on the right provides a list of available cases and select information about each case. If facet filters are applied, the list includes only matching cases. Otherwise, the list includes all cases available in the GDC Data Portal.
@@ -83,17 +95,14 @@ The list also includes a shopping cart button, allowing the user to add all file
 
 [![Cases Tab, Add to Cart](images/gdc-data-portal-data-case-add-cart.png)](images/gdc-data-portal-data-case-add-cart.png "Click to see the full image.")
 
-### Files List
 
-The Files tab on the right provides a list of available files and select information about each file. If facet filters are applied, the list includes only matching files. Otherwise, the list includes all data files available in the GDC Data Portal.
+## Navigation
 
-[![Files Tab](images/gdc-data-portal-data-files.png)](images/gdc-data-portal-data-files.png "Click to see the full image.")
+After utilizing the Repository Page to narrow down a specific set of cases, users can continue to explore the mutations and genes affected by these cases by clicking the `View Files in Repository` button as shown in the image below.
 
-The *File Name* column includes links to [file detail pages](#file-detail-page) where the user can learn more about each file.
+[![Exploration File Navigation](images/gdc-view-in-exploration.png)](images/gdc-view-in-exploration.png "Click to see the full image.")
 
-Users can add individual file(s) to the file cart using the cart button next to each file. Alternatively, all files that match the current facet filters can be added to the cart using the menu in the top left corner of the table:
-
-[![Files Tab](images/gdc-data-portal-data-files-add-cart.png)](images/gdc-data-portal-data-files-add-cart.png "Click to see the full image.")
+Clicking this button will navigate the users to the Exploration Page, filtered by the cases within the cohort.
 
 ## Case Summary Page
 
@@ -114,6 +123,27 @@ For clinical records that support multiple records of the same type (Diagnoses, 
 A search filter just below the biospecimen section can be used to find and filter biospecimen data. The wildcard search will highlight entities in the tree that match the characters typed. This will search both the case submitter ID, as well as the additional metadata for each entity. For example, searching 'Primary Tumor' will highlight samples that match that type.
 
 [![Biospecimen Search](images/gdc-case-biospecimen-search.png)](images/gdc-case-biospecimen-search.png "Click to see the full image.")
+
+### Most Frequent Somatic Mutations
+
+The case entity page also lists the mutations found in that particular case.
+
+[![Case Page](images/gdc-case-entity-mfm.png)](images/gdc-case-entity-mfm.png "Click to see the full image.")
+
+The table lists the following information for each mutation
+
+* __DNA Change:__ The chromosome and starting coordinates of the mutation are displayed along with the nucleotide differences between the reference and tumor allele
+* __Type:__ A general classification of the mutation
+* __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
+* __# Affected Cases in Project:__ The number of affected cases, expressed as number across all mutations within the Project
+* __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project
+* __Impact (VEP):__ A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
+  - __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
+  - __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
+  - __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
+  - __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+
+Clicking on the `Open in Exploration` button at the top right of this section will navigate the user to the Exploration page, filtered on this case.
 
 ## File Summary Page
 

@@ -1,5 +1,25 @@
 # Data Submission Portal Release Notes
 
+## Release 1.6.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: August 22, 2017
+
+### New Features and Changes
+
+*	 Added ability to see metadata for particular harmonized data files in the Submission Portal <!--SUBP-393-->
+
+### Bugs Fixed Since Last Release
+
+None
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
+
 ## Release 1.5.1
 
 * __GDC Product__: GDC Data Submission Portal

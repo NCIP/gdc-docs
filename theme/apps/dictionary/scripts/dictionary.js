@@ -424,10 +424,10 @@
     CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative', 'index_file', 'analysis', 'notation', 'generated_data_file'],
     CATEGORY_EXCLUDES: ['TBD'],
     CATEGORY_TEMPLATE_EXCLUDES: {
-      clinical: ['clinical'],
+      clinical: ['clinical', 'clinical_test'],
       annotation: ['analysis', 'archive', 'publication', 'slide']
     },
-    LINK_EXCLUDES: ['file', 'archive'],
+    LINK_EXCLUDES: ['file', 'archive', 'clinical_test'],
     PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles'],
     CATEGORY_TEMPLATE_INCLUDES: {
     },
