@@ -317,6 +317,7 @@ curl 'https://api.gdc.cancer.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pret
 }
 ```
 
+__Note:__ The `file_size` field associated with each file is reported in bytes.  
 
 ### Cases Endpoint
 
