@@ -10,7 +10,7 @@ A standard VCF file is composed of three parts, in the following order:
 
 ### Part 1: Meta-information
 
-The meta-information section of a VCF file comprises lines that begin with `##`. Some key components of this section are:
+The meta-information section of a VCF file is located at the top of the file and includes lines that begin with `##`. These files can be Some key components of this section are:
 
 *  **gdcWorkflow:** information on GDC pipelines that were used to generate the VCF file. GDC annotated VCF files contain two *gdcWorkflow* lines, one representing the variant calling process and the other representing the variant annotation process.
 *  **INDIVIDUAL:** information about the study participant, including:
