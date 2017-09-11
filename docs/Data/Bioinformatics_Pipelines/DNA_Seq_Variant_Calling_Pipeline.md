@@ -267,7 +267,9 @@ Somatic-sniper v1.0.5.0
 
 ```Shell
 bam-somaticsniper \
--q 0 \
+-q 1 \
+-L \
+-G \
 -Q 15 \
 -s 0.01 \
 -T 0.85 \
