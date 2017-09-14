@@ -8,25 +8,25 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 
 | Field Name | Description |
 | --- | -------- |
-| dbgap_accession_number |   This is a test!!
-| disease_type |    This is a second test to see what formatting will look like!
-| name |
-| primary_site |
-| project_id |
-| released |
-| state |
-| program.dbgap_accession_number |
-| program.name |
-| program.program_id |
-| summary.case_count |
-| summary.file_count |
-| summary.file_size |
-| summary.data_categories.case_count |
-| summary.data_categories.data_category |
-| summary.data_categories.file_count |
-| summary.experimental_strategies.case_count |
-| summary.experimental_strategies.experimental_strategy |
-| summary.experimental_strategies.file_count |
+| dbgap_accession_number |   Unique identifier assigned by dbGaP field usually left with a null value
+| disease_type |   Type of cancer identified
+| name |   Name of the disease  
+| primary_site |   Location on the body where cancer was first identified in the patient
+| project_id |   ID assigned by the project owner to the study
+| released |  Release state of project to production
+| state |  The state that the project is in
+| program.dbgap_accession_number |  Unique identifier assigned by dbGaP
+| program.name |   Name given to the research program  
+| program.program_id |   The UUID assigned to the program
+| summary.case_count |  Number of cases present in the project
+| summary.file_count |  Number of files present in the project
+| summary.file_size |   Total file size of project measured in bytes
+| summary.data_categories.case_count |  Total number of cases per data category
+| summary.data_categories.data_category | Listing of all data categories in the project
+| summary.data_categories.file_count |  Total number of files per data category
+| summary.experimental_strategies.case_count |  Total number of cases in experimental strategies for a project  
+| summary.experimental_strategies.experimental_strategy |  Names of the experimental strategies in a project
+| summary.experimental_strategies.file_count |  Total number of files in experimental strategies for a project
 
 
 
