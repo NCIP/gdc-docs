@@ -80,13 +80,13 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | demographic.year_of_death |  Numeric value to represent the year of the death of an individual
 | diagnoses.age_at_diagnosis |  Age at the time of diagnosis expressed in number of days since birth
 | diagnoses.classification_of_tumor |  Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint
-| diagnoses.created_datetime |
-| diagnoses.days_to_birth |
-| diagnoses.days_to_death |
-| diagnoses.days_to_last_follow_up |
+| diagnoses.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
+| diagnoses.days_to_birth |  Time interval from a person's date of birth to the date of initial pathologic diagnosis, represented as a calculated negative number of days
+| diagnoses.days_to_death |  Time interval from a person's date of death to the date of initial pathologic diagnosis, represented as a calculated number of days
+| diagnoses.days_to_last_follow_up |  Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days
 | diagnoses.days_to_last_known_disease_status |
 | diagnoses.days_to_recurrence |
-| diagnoses.diagnosis_id |
+| diagnoses.diagnosis_id |  Number of days between the date used for index and the date of diagnosis
 | diagnoses.last_known_disease_status |
 | diagnoses.morphology |
 | diagnoses.primary_diagnosis |
