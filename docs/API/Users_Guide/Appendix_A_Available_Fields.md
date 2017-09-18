@@ -34,7 +34,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 
 
 | Field Name |
-| --- |
+| --- | ---- |
 | aliquot_ids |  Aliquote UUIDs associated with case
 | analyte_ids |  Analyte UUIDs associated with  case
 | case_id | Case UUID
