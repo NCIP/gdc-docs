@@ -50,36 +50,36 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | submitter_portion_ids |
 | submitter_sample_ids |
 | submitter_slide_ids |
-| updated_datetime |
+| updated_datetime |  
 | annotations.annotation_id |
 | annotations.case_id |
 | annotations.case_submitter_id |
-| annotations.category |
-| annotations.classification |
-| annotations.created_datetime |
-| annotations.creator |
+| annotations.category |  Top level characterization of the annotation
+| annotations.classification |  Top level classification of the annotation
+| annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\n
+| annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | annotations.entity_id |
 | annotations.entity_submitter_id |
 | annotations.entity_type |
-| annotations.legacy_created_datetime |
-| annotations.legacy_updated_datetime |
-| annotations.notes |
-| annotations.state |
+| annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\n
+| annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\n
+| annotations.notes |  Open entry for any further description or characterization of the data
+| annotations.state |  The current state of the object
 | annotations.status |
 | annotations.submitter_id |
-| annotations.updated_datetime |
-| demographic.created_datetime |
+| annotations.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\n
+| demographic.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | demographic.demographic_id |
-| demographic.ethnicity |
-| demographic.gender |
-| demographic.race |
-| demographic.state |
+| demographic.ethnicity |  An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau
+| demographic.gender |  Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles
+| demographic.race |  An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau
+| demographic.state |  The current state of the object
 | demographic.submitter_id |
-| demographic.updated_datetime |
-| demographic.year_of_birth |
-| demographic.year_of_death |
-| diagnoses.age_at_diagnosis |
-| diagnoses.classification_of_tumor |
+| demographic.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
+| demographic.year_of_birth |  Numeric value to represent the calendar year in which an individual was born
+| demographic.year_of_death |  Numeric value to represent the year of the death of an individual
+| diagnoses.age_at_diagnosis |  Age at the time of diagnosis expressed in number of days since birth
+| diagnoses.classification_of_tumor |  Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint
 | diagnoses.created_datetime |
 | diagnoses.days_to_birth |
 | diagnoses.days_to_death |
