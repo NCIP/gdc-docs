@@ -38,13 +38,13 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | aliquot_ids |  Aliquote UUIDs associated with case
 | analyte_ids |  Analyte UUIDs associated with  case
 | case_id | Case UUID
-| created_datetime |  Entry is currently not utilized
-| days_to_index |  Entry is currently not utilized
+| created_datetime |  
+| days_to_index |  
 | portion_ids |  Portion associated with case
 | sample_ids |  Sample UUIDs associated with case
 | slide_ids |  Slide UUIDs associated with case
 | state |  Current state the file is in
-| submitter_aliquot_ids |
+| submitter_aliquot_ids |  
 | submitter_analyte_ids |
 | submitter_id |
 | submitter_portion_ids |
