@@ -44,7 +44,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | sample_ids |  Sample UUIDs associated with case
 | slide_ids |  Slide UUIDs associated with case
 | state |  Current state the file is in
-| submitter_aliquot_ids |  hhh
+| submitter_aliquot_ids |
 | submitter_analyte_ids |
 | submitter_id |
 | submitter_portion_ids |
