@@ -65,7 +65,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\n
 | annotations.notes |  Open entry for any further description or characterization of the data
 | annotations.state |  The current state of the object
-| annotations.status |
+| annotations.status |  Status of the annotation
 | annotations.submitter_id |
 | annotations.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\n
 | demographic.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
@@ -85,37 +85,37 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | diagnoses.days_to_death |  Time interval from a person's date of death to the date of initial pathologic diagnosis, represented as a calculated number of days
 | diagnoses.days_to_last_follow_up |  Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days
 | diagnoses.days_to_last_known_disease_status |
-| diagnoses.days_to_recurrence |
+| diagnoses.days_to_recurrence |  Number of days between the date used for index and the date the patient was diagnosed with a recurrent malignancy
 | diagnoses.diagnosis_id |  Number of days between the date used for index and the date of diagnosis
-| diagnoses.last_known_disease_status |
-| diagnoses.morphology |
-| diagnoses.primary_diagnosis |
-| diagnoses.prior_malignancy |
-| diagnoses.progression_or_recurrence |
-| diagnoses.site_of_resection_or_biopsy |
-| diagnoses.state |
+| diagnoses.last_known_disease_status |   Text term that describes the last known state or condition of an individual's neoplasm
+| diagnoses.morphology |  The third edition of the International Classification of Diseases for Oncology, published in 2000 used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The study of the structure of the cells and their arrangement to constitute tissues and, finally, the association among these to form organs. In pathology, the microscopic process of identifying normal and abnormal morphologic characteristics in tissues, by employing various cytochemical and immunocytochemical stains. A system of numbered categories for representation of data
+| diagnoses.primary_diagnosis |  Text term for the structural pattern of cancer cells used to define a microscopic diagnosis
+| diagnoses.prior_malignancy |  Text term to describe the patient's history of prior cancer diagnosis and the spatial location of any previous cancer occurrence
+| diagnoses.progression_or_recurrence |  Yes/No/Unknown indicator to identify whether a patient has had a new tumor event after initial treatment
+| diagnoses.site_of_resection_or_biopsy |  The third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The description of an anatomical region or of a body part. Named locations of, or within, the body. A system of numbered categories for representation of data
+| diagnoses.state |  The current state of the object
 | diagnoses.submitter_id |
-| diagnoses.tissue_or_organ_of_origin |
-| diagnoses.tumor_grade |
-| diagnoses.tumor_stage |
-| diagnoses.updated_datetime |
-| diagnoses.vital_status |
-| diagnoses.treatments.created_datetime |
-| diagnoses.treatments.days_to_treatment |
-| diagnoses.treatments.state |
+| diagnoses.tissue_or_organ_of_origin |  Text term that describes the anatomic site of the tumor or disease
+| diagnoses.tumor_grade |  Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness
+| diagnoses.tumor_stage |  The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body. The accepted values for tumor_stage depend on the tumor site, type, and accepted staging system. These items should accompany the tumor_stage value as associated metadata
+| diagnoses.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
+| diagnoses.vital_status |  The survival state of the person registered on the protocol
+| diagnoses.treatments.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| diagnoses.treatments.days_to_treatment |  Number of days from date of initial pathologic diagnosis that treatment began
+| diagnoses.treatments.state |  The current state of the object
 | diagnoses.treatments.submitter_id |
-| diagnoses.treatments.therapeutic_agents |
+| diagnoses.treatments.therapeutic_agents |  Text identification of the individual agent(s) used as part of a prior treatment regimen
 | diagnoses.treatments.treatment_id |
-| diagnoses.treatments.treatment_intent_type |
-| diagnoses.treatments.treatment_or_therapy |
-| diagnoses.treatments.updated_datetime |
-| exposures.alcohol_history |
-| exposures.alcohol_intensity |
-| exposures.bmi |
-| exposures.cigarettes_per_day |
-| exposures.created_datetime |
+| diagnoses.treatments.treatment_intent_type |  Text term to identify the reason for the administration of a treatment regimen
+| diagnoses.treatments.treatment_or_therapy |  A yes/no/unknown/not applicable indicator related to the administration of therapeutic agents received before the body specimen was collected
+| diagnoses.treatments.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
+| exposures.alcohol_history |  A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime
+| exposures.alcohol_intensity |  Category to describe the patient's current level of alcohol use as self-reported by the patient
+| exposures.bmi |  The body mass divided by the square of the body height expressed in units of kg/m^2
+| exposures.cigarettes_per_day |  The average number of cigarettes smoked per day
+| exposures.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | exposures.exposure_id |
-| exposures.height |
+| exposures.height |  The height of the patient in centimeters
 | exposures.state |
 | exposures.submitter_id |
 | exposures.updated_datetime |
