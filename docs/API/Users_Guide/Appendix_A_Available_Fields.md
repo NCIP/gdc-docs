@@ -389,7 +389,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.longest_dimension |
 | files.cases.samples.oct_embedded |
 | files.cases.samples.pathology_report_uuid |
-| files.cases.samples.preservation_method |
+| files.cases.samples.preservation_method |  Text term that represents the method used to preserve the sample
 | files.cases.samples.sample_id |
 | files.cases.samples.sample_type |
 | files.cases.samples.sample_type_id |
@@ -425,9 +425,9 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.is_ffpe |
 | files.cases.samples.portions.portion_id |
 | files.cases.samples.portions.portion_number |
-| files.cases.samples.portions.state |
-| files.cases.samples.portions.submitter_id |
-| files.cases.samples.portions.updated_datetime |
+| files.cases.samples.portions.state |  The current state of the object
+| files.cases.samples.portions.submitter_id |  The legacy barcode used before prior to the use UUIDs, varies by project. For TCGA this is bcrportionbarcode
+| files.cases.samples.portions.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
 | files.cases.samples.portions.weight |
 | files.cases.samples.portions.analytes.a260_a280_ratio |
 | files.cases.samples.portions.analytes.amount |
@@ -529,9 +529,9 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.slides.percent_tumor_nuclei |
 | files.cases.samples.portions.slides.section_location |
 | files.cases.samples.portions.slides.slide_id |
-| files.cases.samples.portions.slides.state |
-| files.cases.samples.portions.slides.submitter_id |
-| files.cases.samples.portions.slides.updated_datetime |
+| files.cases.samples.portions.slides.state |  The current state of the object
+| files.cases.samples.portions.slides.submitter_id |  The legacy barcode used before prior to the use UUIDs, varies by project
+| files.cases.samples.portions.slides.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
 | files.cases.samples.portions.slides.annotations.annotation_id |
 | files.cases.samples.portions.slides.annotations.case_id |
 | files.cases.samples.portions.slides.annotations.case_submitter_id |
@@ -1107,11 +1107,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.longest_dimension |
 | cases.samples.oct_embedded |
 | cases.samples.pathology_report_uuid |
-| cases.samples.preservation_method |
+| cases.samples.preservation_method |  Text term that represents the method used to preserve the sample
 | cases.samples.sample_id |
-| cases.samples.sample_type |
-| cases.samples.sample_type_id |
-| cases.samples.shortest_dimension |
+| cases.samples.sample_type |  Text term to describe the source of a biospecimen used for a laboratory test
+| cases.samples.sample_type_id |  The accompanying sample type id for the sample type
+| cases.samples.shortest_dimension |  Numeric value that represents the shortest dimension of the sample, measured in millimeters
 | cases.samples.state |
 | cases.samples.submitter_id |
 | cases.samples.time_between_clamping_and_freezing |
@@ -1143,10 +1143,10 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.is_ffpe |
 | cases.samples.portions.portion_id |
 | cases.samples.portions.portion_number |
-| cases.samples.portions.state |
-| cases.samples.portions.submitter_id |
-| cases.samples.portions.updated_datetime |
-| cases.samples.portions.weight |
+| cases.samples.portions.state |  The current state of the object
+| cases.samples.portions.submitter_id |  The legacy barcode used before prior to the use UUIDs, varies by project. For TCGA this is bcrportionbarcode
+| cases.samples.portions.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
+| cases.samples.portions.weight |  Numeric value that represents the sample portion weight, measured in milligrams
 | cases.samples.portions.analytes.a260_a280_ratio |
 | cases.samples.portions.analytes.amount |
 | cases.samples.portions.analytes.analyte_id |
@@ -1237,19 +1237,19 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.slides.percent_eosinophil_infiltration |
 | cases.samples.portions.slides.percent_granulocyte_infiltration |
 | cases.samples.portions.slides.percent_inflam_infiltration |
-| cases.samples.portions.slides.percent_lymphocyte_infiltration |
-| cases.samples.portions.slides.percent_monocyte_infiltration |
-| cases.samples.portions.slides.percent_necrosis |
-| cases.samples.portions.slides.percent_neutrophil_infiltration |
-| cases.samples.portions.slides.percent_normal_cells |
-| cases.samples.portions.slides.percent_stromal_cells |
-| cases.samples.portions.slides.percent_tumor_cells |
-| cases.samples.portions.slides.percent_tumor_nuclei |
-| cases.samples.portions.slides.section_location |
+| cases.samples.portions.slides.percent_lymphocyte_infiltration |  Numeric value to represent the percentage of infiltration by lymphocytes in a solid tissue normal sample or specimen
+| cases.samples.portions.slides.percent_monocyte_infiltration |  Numeric value to represent the percentage of monocyte infiltration in a sample or specimen
+| cases.samples.portions.slides.percent_necrosis |  Numeric value to represent the percentage of cell death in a malignant tumor sample or specimen
+| cases.samples.portions.slides.percent_neutrophil_infiltration |  Numeric value to represent the percentage of infiltration by neutrophils in a tumor sample or specimen
+| cases.samples.portions.slides.percent_normal_cells |  Numeric value to represent the percentage of normal cell content in a malignant tumor sample or specimen
+| cases.samples.portions.slides.percent_stromal_cells |  Numeric value to represent the percentage of reactive cells that are present in a malignant tumor sample or specimen but are not malignant such as fibroblasts, vascular structures, etc.\
+| cases.samples.portions.slides.percent_tumor_cells |  Numeric value that represents the percentage of infiltration by granulocytes in a sample
+| cases.samples.portions.slides.percent_tumor_nuclei |  Numeric value to represent the percentage of tumor nuclei in a malignant neoplasm sample or specimen
+| cases.samples.portions.slides.section_location |  Tissue source of the slide
 | cases.samples.portions.slides.slide_id |
-| cases.samples.portions.slides.state |
-| cases.samples.portions.slides.submitter_id |
-| cases.samples.portions.slides.updated_datetime |
+| cases.samples.portions.slides.state |  The current state of the object
+| cases.samples.portions.slides.submitter_id |  The legacy barcode used before prior to the use UUIDs, varies by project
+| cases.samples.portions.slides.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
 | cases.samples.portions.slides.annotations.annotation_id |
 | cases.samples.portions.slides.annotations.case_id |
 | cases.samples.portions.slides.annotations.case_submitter_id |
