@@ -629,7 +629,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.metadata_files.submitter_id |
 | files.metadata_files.type |
 | files.metadata_files.updated_datetime |
-| project.dbgap_accession_number |
+| project.dbgap_accession_number |  The dbgap accession number provided for the program
 | project.disease_type |
 | project.name |
 | project.primary_site |
@@ -1115,11 +1115,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.state |
 | cases.samples.submitter_id |
 | cases.samples.time_between_clamping_and_freezing |
-| cases.samples.time_between_excision_and_freezing |
-| cases.samples.tissue_type |
-| cases.samples.tumor_code |
-| cases.samples.tumor_code_id |
-| cases.samples.tumor_descriptor |
+| cases.samples.time_between_excision_and_freezing |  Numeric representation of the elapsed time between the excision and freezing of the sample, measured in minutes
+| cases.samples.tissue_type |  Text term that represents a description of the kind of tissue collected with respect to disease status or proximity to tumor tissue
+| cases.samples.tumor_code |  Diagnostic tumor code of the tissue sample source
+| cases.samples.tumor_code_id |  BCR-defined id code for the tumor sample
+| cases.samples.tumor_descriptor |  Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint
 | cases.samples.updated_datetime |
 | cases.samples.annotations.annotation_id |
 | cases.samples.annotations.case_id |
@@ -1273,10 +1273,10 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.summary.data_categories.file_count |
 | cases.summary.experimental_strategies.experimental_strategy |
 | cases.summary.experimental_strategies.file_count |
-| cases.tissue_source_site.bcr_id |
-| cases.tissue_source_site.code |
-| cases.tissue_source_site.name |
-| cases.tissue_source_site.project |
+| cases.tissue_source_site.bcr_id |  TCGA-provided BCR id
+| cases.tissue_source_site.code |  TCGA-provided TSS code
+| cases.tissue_source_site.name |  Name of the source site
+| cases.tissue_source_site.project |  Study name of the project
 | cases.tissue_source_site.tissue_source_site_id |
 | center.center_id |
 | center.center_type |
