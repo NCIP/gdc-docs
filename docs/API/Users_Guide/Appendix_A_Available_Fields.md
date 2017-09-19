@@ -514,11 +514,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.center.name |
 | files.cases.samples.portions.center.namespace |
 | files.cases.samples.portions.center.short_name |
-| files.cases.samples.portions.slides.created_datetime |
-| files.cases.samples.portions.slides.number_proliferating_cells |
-| files.cases.samples.portions.slides.percent_eosinophil_infiltration |
+| files.cases.samples.portions.slides.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.samples.portions.slides.number_proliferating_cells |  Numeric value that represents the count of proliferating cells determined during pathologic review of the sample slide(s)
+| files.cases.samples.portions.slides.percent_eosinophil_infiltration |  Numeric value that represents the count of proliferating cells determined during pathologic review of the sample slide(s).
 | files.cases.samples.portions.slides.percent_granulocyte_infiltration |
-| files.cases.samples.portions.slides.percent_inflam_infiltration |
+| files.cases.samples.portions.slides.percent_inflam_infiltration |  Numeric value to represent local response to cellular injury, marked by capillary dilatation, edema and leukocyte infiltration; clinically, inflammation is manifest by reddness, heat, pain, swelling and loss of function, with the need to heal damaged tissue
 | files.cases.samples.portions.slides.percent_lymphocyte_infiltration |
 | files.cases.samples.portions.slides.percent_monocyte_infiltration |
 | files.cases.samples.portions.slides.percent_necrosis |
@@ -548,7 +548,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.slides.annotations.state |
 | files.cases.samples.portions.slides.annotations.status |
 | files.cases.samples.portions.slides.annotations.submitter_id |
-| files.cases.samples.portions.slides.annotations.updated_datetime |
+| files.cases.samples.portions.slides.annotations.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.summary.file_count |
 | files.cases.summary.file_size |
 | files.cases.summary.data_categories.data_category |
@@ -777,7 +777,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.center.namespace |
 | samples.portions.center.short_name |
 | samples.portions.slides.created_datetime |
-| samples.portions.slides.number_proliferating_cells |
+| samples.portions.slides.number_proliferating_cells |  Numeric value that represents the count of proliferating cells determined during pathologic review of the sample slide(s)
 | samples.portions.slides.percent_eosinophil_infiltration |
 | samples.portions.slides.percent_granulocyte_infiltration |
 | samples.portions.slides.percent_inflam_infiltration |
@@ -810,7 +810,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.slides.annotations.state |
 | samples.portions.slides.annotations.status |
 | samples.portions.slides.annotations.submitter_id |
-| samples.portions.slides.annotations.updated_datetime |
+| samples.portions.slides.annotations.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | summary.file_count |
 | summary.file_size |
 | summary.data_categories.data_category |
@@ -1232,11 +1232,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.center.name |
 | cases.samples.portions.center.namespace |
 | cases.samples.portions.center.short_name |
-| cases.samples.portions.slides.created_datetime |
-| cases.samples.portions.slides.number_proliferating_cells |
-| cases.samples.portions.slides.percent_eosinophil_infiltration |
-| cases.samples.portions.slides.percent_granulocyte_infiltration |
-| cases.samples.portions.slides.percent_inflam_infiltration |
+| cases.samples.portions.slides.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| cases.samples.portions.slides.number_proliferating_cells |  Numeric value that represents the count of proliferating cells determined during pathologic review of the sample slide(s).
+| cases.samples.portions.slides.percent_eosinophil_infiltration |  Numeric value that represents the count of proliferating cells determined during pathologic review of the sample slide(s).
+| cases.samples.portions.slides.percent_granulocyte_infiltration |  Numeric value to represent the percentage of infiltration by granulocytes in a tumor sample or specimen
+| cases.samples.portions.slides.percent_inflam_infiltration |  Numeric value to represent local response to cellular injury, marked by capillary dilatation, edema and leukocyte infiltration; clinically, inflammation is manifest by reddness, heat, pain, swelling and loss of function, with the need to heal damaged tissue
 | cases.samples.portions.slides.percent_lymphocyte_infiltration |  Numeric value to represent the percentage of infiltration by lymphocytes in a solid tissue normal sample or specimen
 | cases.samples.portions.slides.percent_monocyte_infiltration |  Numeric value to represent the percentage of monocyte infiltration in a sample or specimen
 | cases.samples.portions.slides.percent_necrosis |  Numeric value to represent the percentage of cell death in a malignant tumor sample or specimen
@@ -1266,7 +1266,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.slides.annotations.state |
 | cases.samples.portions.slides.annotations.status |
 | cases.samples.portions.slides.annotations.submitter_id |
-| cases.samples.portions.slides.annotations.updated_datetime |
+| cases.samples.portions.slides.annotations.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.summary.file_count |
 | cases.summary.file_size |
 | cases.summary.data_categories.data_category |
