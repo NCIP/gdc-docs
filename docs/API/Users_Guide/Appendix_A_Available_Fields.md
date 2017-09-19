@@ -119,18 +119,18 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | exposures.state |
 | exposures.submitter_id |
 | exposures.updated_datetime |
-| exposures.weight |
-| exposures.years_smoked |
-| family_histories.created_datetime |
-| family_histories.family_history_id |
-| family_histories.relationship_age_at_diagnosis |
-| family_histories.relationship_gender |
-| family_histories.relationship_primary_diagnosis |
-| family_histories.relationship_type |
-| family_histories.relative_with_cancer_history |
-| family_histories.state |
-| family_histories.submitter_id |
-| family_histories.updated_datetime |
+| exposures.weight |  The weight of the patient measured in kilograms
+| exposures.years_smoked |  Numeric value (or unknown) to represent the number of years a person has been smoking
+| family_histories.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
+| family_histories.family_history_id |  
+| family_histories.relationship_age_at_diagnosis |  The age (in years) when the patient's relative was first diagnosed
+| family_histories.relationship_gender |  Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles. [Explanatory Comment 1: Identification of gender is based upon self-report and may come from a form, questionnaire, interview, etc.]
+| family_histories.relationship_primary_diagnosis |  Text term for the structural pattern of cancer cells used to define a microscopic diagnosis
+| family_histories.relationship_type |  The subgroup that describes the state of connectedness between members of the unit of society organized around kinship ties
+| family_histories.relative_with_cancer_history |  Indicator to signify whether or not an individual's biological relative has been diagnosed with another type of cancer
+| family_histories.state |  The current state of the object
+| family_histories.submitter_id |  The current state of the object
+| family_histories.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
 | files.access |
 | files.acl |
 | files.created_datetime |
