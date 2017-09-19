@@ -396,11 +396,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.shortest_dimension |
 | files.cases.samples.state |
 | files.cases.samples.submitter_id |
-| files.cases.samples.time_between_clamping_and_freezing |
-| files.cases.samples.time_between_excision_and_freezing |
-| files.cases.samples.tissue_type |
-| files.cases.samples.tumor_code |
-| files.cases.samples.tumor_code_id |
+| files.cases.samples.time_between_clamping_and_freezing |  Numeric representation of the elapsed time between the surgical clamping of blood supply and freezing of the sample, measured in minutes
+| files.cases.samples.time_between_excision_and_freezing |  Numeric representation of the elapsed time between the excision and freezing of the sample, measured in minutes
+| files.cases.samples.tissue_type |  Text term that represents a description of the kind of tissue collected with respect to disease status or proximity to tumor tissue
+| files.cases.samples.tumor_code |  Diagnostic tumor code of the tissue sample source
+| files.cases.samples.tumor_code_id |  BCR-defined id code for the tumor sample
 | files.cases.samples.tumor_descriptor |
 | files.cases.samples.updated_datetime |
 | files.cases.samples.annotations.annotation_id |
