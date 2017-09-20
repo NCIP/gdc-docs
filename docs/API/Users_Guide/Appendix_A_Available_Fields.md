@@ -281,12 +281,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.annotations.case_submitter_id |
 | files.cases.annotations.category |
 | files.cases.annotations.classification |
-| files.cases.annotations.created_datetime |
-| files.cases.annotations.creator |
+| files.cases.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | files.cases.annotations.entity_id |
 | files.cases.annotations.entity_submitter_id |
 | files.cases.annotations.entity_type |
-| files.cases.annotations.legacy_created_datetime |
+| files.cases.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.annotations.notes |
 | files.cases.annotations.state |
@@ -408,12 +408,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.annotations.case_submitter_id |
 | files.cases.samples.annotations.category |
 | files.cases.samples.annotations.classification |
-| files.cases.samples.annotations.created_datetime |
-| files.cases.samples.annotations.creator |
+| files.cases.samples.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.samples.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | files.cases.samples.annotations.entity_id |
 | files.cases.samples.annotations.entity_submitter_id |
 | files.cases.samples.annotations.entity_type |
-| files.cases.samples.annotations.legacy_created_datetime |
+| files.cases.samples.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.annotations.notes |
 | files.cases.samples.annotations.state |
@@ -456,12 +456,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.analytes.aliquots.annotations.case_submitter_id |
 | files.cases.samples.portions.analytes.aliquots.annotations.category |
 | files.cases.samples.portions.analytes.aliquots.annotations.classification |
-| files.cases.samples.portions.analytes.aliquots.annotations.created_datetime |
-| files.cases.samples.portions.analytes.aliquots.annotations.creator |
+| files.cases.samples.portions.analytes.aliquots.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.samples.portions.analytes.aliquots.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | files.cases.samples.portions.analytes.aliquots.annotations.entity_id |
 | files.cases.samples.portions.analytes.aliquots.annotations.entity_submitter_id |
 | files.cases.samples.portions.analytes.aliquots.annotations.entity_type |
-| files.cases.samples.portions.analytes.aliquots.annotations.legacy_created_datetime |
+| files.cases.samples.portions.analytes.aliquots.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.portions.analytes.aliquots.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.portions.analytes.aliquots.annotations.notes |
 | files.cases.samples.portions.analytes.aliquots.annotations.state |
@@ -479,12 +479,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.analytes.annotations.case_submitter_id |
 | files.cases.samples.portions.analytes.annotations.category |
 | files.cases.samples.portions.analytes.annotations.classification |
-| files.cases.samples.portions.analytes.annotations.created_datetime |
-| files.cases.samples.portions.analytes.annotations.creator |
+| files.cases.samples.portions.analytes.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.samples.portions.analytes.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | files.cases.samples.portions.analytes.annotations.entity_id |
 | files.cases.samples.portions.analytes.annotations.entity_submitter_id |
 | files.cases.samples.portions.analytes.annotations.entity_type |
-| files.cases.samples.portions.analytes.annotations.legacy_created_datetime |
+| files.cases.samples.portions.analytes.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.portions.analytes.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.portions.analytes.annotations.notes |
 | files.cases.samples.portions.analytes.annotations.state |
@@ -496,12 +496,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.annotations.case_submitter_id |
 | files.cases.samples.portions.annotations.category |
 | files.cases.samples.portions.annotations.classification |
-| files.cases.samples.portions.annotations.created_datetime |
-| files.cases.samples.portions.annotations.creator |
+| files.cases.samples.portions.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.samples.portions.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | files.cases.samples.portions.annotations.entity_id |
 | files.cases.samples.portions.annotations.entity_submitter_id |
 | files.cases.samples.portions.annotations.entity_type |
-| files.cases.samples.portions.annotations.legacy_created_datetime |
+| files.cases.samples.portions.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.portions.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.portions.annotations.notes |
 | files.cases.samples.portions.annotations.state |
@@ -537,12 +537,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.slides.annotations.case_submitter_id |
 | files.cases.samples.portions.slides.annotations.category |
 | files.cases.samples.portions.slides.annotations.classification |
-| files.cases.samples.portions.slides.annotations.created_datetime |
-| files.cases.samples.portions.slides.annotations.creator |
+| files.cases.samples.portions.slides.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.samples.portions.slides.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | files.cases.samples.portions.slides.annotations.entity_id |
 | files.cases.samples.portions.slides.annotations.entity_submitter_id |
 | files.cases.samples.portions.slides.annotations.entity_type |
-| files.cases.samples.portions.slides.annotations.legacy_created_datetime |
+| files.cases.samples.portions.slides.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.portions.slides.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | files.cases.samples.portions.slides.annotations.notes |  Open entry for any further description or characterization of the data
 | files.cases.samples.portions.slides.annotations.state |  The current state of the object
@@ -670,12 +670,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.annotations.case_submitter_id |
 | samples.annotations.category |
 | samples.annotations.classification |
-| samples.annotations.created_datetime |
-| samples.annotations.creator |
+| samples.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| samples.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | samples.annotations.entity_id |
 | samples.annotations.entity_submitter_id |
 | samples.annotations.entity_type |
-| samples.annotations.legacy_created_datetime |
+| samples.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.annotations.notes |
 | samples.annotations.state |
@@ -718,12 +718,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.analytes.aliquots.annotations.case_submitter_id |
 | samples.portions.analytes.aliquots.annotations.category |
 | samples.portions.analytes.aliquots.annotations.classification |
-| samples.portions.analytes.aliquots.annotations.created_datetime |
-| samples.portions.analytes.aliquots.annotations.creator |
+| samples.portions.analytes.aliquots.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| samples.portions.analytes.aliquots.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | samples.portions.analytes.aliquots.annotations.entity_id |
 | samples.portions.analytes.aliquots.annotations.entity_submitter_id |
 | samples.portions.analytes.aliquots.annotations.entity_type |
-| samples.portions.analytes.aliquots.annotations.legacy_created_datetime |
+| samples.portions.analytes.aliquots.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.portions.analytes.aliquots.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.portions.analytes.aliquots.annotations.notes |
 | samples.portions.analytes.aliquots.annotations.state |
@@ -741,12 +741,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.analytes.annotations.case_submitter_id |
 | samples.portions.analytes.annotations.category |
 | samples.portions.analytes.annotations.classification |
-| samples.portions.analytes.annotations.created_datetime |
-| samples.portions.analytes.annotations.creator |
+| samples.portions.analytes.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| samples.portions.analytes.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | samples.portions.analytes.annotations.entity_id |
 | samples.portions.analytes.annotations.entity_submitter_id |
 | samples.portions.analytes.annotations.entity_type |
-| samples.portions.analytes.annotations.legacy_created_datetime |
+| samples.portions.analytes.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.portions.analytes.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.portions.analytes.annotations.notes |
 | samples.portions.analytes.annotations.state |
@@ -758,12 +758,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.annotations.case_submitter_id |
 | samples.portions.annotations.category |
 | samples.portions.annotations.classification |
-| samples.portions.annotations.created_datetime |
-| samples.portions.annotations.creator |
+| samples.portions.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| samples.portions.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | samples.portions.annotations.entity_id |
 | samples.portions.annotations.entity_submitter_id |
 | samples.portions.annotations.entity_type |
-| samples.portions.annotations.legacy_created_datetime |
+| samples.portions.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.portions.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.portions.annotations.notes |
 | samples.portions.annotations.state |
@@ -799,12 +799,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.slides.annotations.case_submitter_id |
 | samples.portions.slides.annotations.category |
 | samples.portions.slides.annotations.classification |
-| samples.portions.slides.annotations.created_datetime |
-| samples.portions.slides.annotations.creator |
+| samples.portions.slides.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| samples.portions.slides.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | samples.portions.slides.annotations.entity_id |
 | samples.portions.slides.annotations.entity_submitter_id |
 | samples.portions.slides.annotations.entity_type |
-| samples.portions.slides.annotations.legacy_created_datetime |
+| samples.portions.slides.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.portions.slides.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | samples.portions.slides.annotations.notes |  Open entry for any further description or characterization of the data
 | samples.portions.slides.annotations.state |  The current state of the object
@@ -947,12 +947,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | annotations.case_submitter_id |
 | annotations.category |
 | annotations.classification |
-| annotations.created_datetime |
-| annotations.creator |
+| annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | annotations.entity_id |
 | annotations.entity_submitter_id |
 | annotations.entity_type |
-| annotations.legacy_created_datetime |
+| annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | annotations.notes |
 | annotations.state |
@@ -999,12 +999,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.annotations.case_submitter_id |
 | cases.annotations.category |
 | cases.annotations.classification |
-| cases.annotations.created_datetime |
-| cases.annotations.creator |
+| cases.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| cases.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | cases.annotations.entity_id |
 | cases.annotations.entity_submitter_id |
 | cases.annotations.entity_type |
-| cases.annotations.legacy_created_datetime |
+| cases.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.annotations.notes |
 | cases.annotations.state |
@@ -1126,12 +1126,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.annotations.case_submitter_id |
 | cases.samples.annotations.category |
 | cases.samples.annotations.classification |
-| cases.samples.annotations.created_datetime |
-| cases.samples.annotations.creator |
+| cases.samples.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| cases.samples.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | cases.samples.annotations.entity_id |
 | cases.samples.annotations.entity_submitter_id |
 | cases.samples.annotations.entity_type |
-| cases.samples.annotations.legacy_created_datetime |
+| cases.samples.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.annotations.notes |
 | cases.samples.annotations.state |
@@ -1174,12 +1174,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.analytes.aliquots.annotations.case_submitter_id |
 | cases.samples.portions.analytes.aliquots.annotations.category |
 | cases.samples.portions.analytes.aliquots.annotations.classification |
-| cases.samples.portions.analytes.aliquots.annotations.created_datetime |
-| cases.samples.portions.analytes.aliquots.annotations.creator |
+| cases.samples.portions.analytes.aliquots.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| cases.samples.portions.analytes.aliquots.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | cases.samples.portions.analytes.aliquots.annotations.entity_id |
 | cases.samples.portions.analytes.aliquots.annotations.entity_submitter_id |
 | cases.samples.portions.analytes.aliquots.annotations.entity_type |
-| cases.samples.portions.analytes.aliquots.annotations.legacy_created_datetime |
+| cases.samples.portions.analytes.aliquots.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.portions.analytes.aliquots.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.portions.analytes.aliquots.annotations.notes |
 | cases.samples.portions.analytes.aliquots.annotations.state |
@@ -1197,12 +1197,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.analytes.annotations.case_submitter_id |
 | cases.samples.portions.analytes.annotations.category |
 | cases.samples.portions.analytes.annotations.classification |
-| cases.samples.portions.analytes.annotations.created_datetime |
-| cases.samples.portions.analytes.annotations.creator |
+| cases.samples.portions.analytes.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| cases.samples.portions.analytes.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | cases.samples.portions.analytes.annotations.entity_id |
 | cases.samples.portions.analytes.annotations.entity_submitter_id |
 | cases.samples.portions.analytes.annotations.entity_type |
-| cases.samples.portions.analytes.annotations.legacy_created_datetime |
+| cases.samples.portions.analytes.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.portions.analytes.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.portions.analytes.annotations.notes |
 | cases.samples.portions.analytes.annotations.state |
@@ -1214,12 +1214,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.annotations.case_submitter_id |
 | cases.samples.portions.annotations.category |
 | cases.samples.portions.annotations.classification |
-| cases.samples.portions.annotations.created_datetime |
-| cases.samples.portions.annotations.creator |
+| cases.samples.portions.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| cases.samples.portions.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | cases.samples.portions.annotations.entity_id |
 | cases.samples.portions.annotations.entity_submitter_id |
 | cases.samples.portions.annotations.entity_type |
-| cases.samples.portions.annotations.legacy_created_datetime |
+| cases.samples.portions.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.portions.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.portions.annotations.notes |
 | cases.samples.portions.annotations.state |
@@ -1255,12 +1255,12 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.slides.annotations.case_submitter_id |
 | cases.samples.portions.slides.annotations.category |
 | cases.samples.portions.slides.annotations.classification |
-| cases.samples.portions.slides.annotations.created_datetime |
-| cases.samples.portions.slides.annotations.creator |
+| cases.samples.portions.slides.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| cases.samples.portions.slides.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
 | cases.samples.portions.slides.annotations.entity_id |
 | cases.samples.portions.slides.annotations.entity_submitter_id |
 | cases.samples.portions.slides.annotations.entity_type |
-| cases.samples.portions.slides.annotations.legacy_created_datetime |
+| cases.samples.portions.slides.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.portions.slides.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 | cases.samples.portions.slides.annotations.notes |  Open entry for any further description or characterization of the data
 | cases.samples.portions.slides.annotations.state |  The current state of the object
