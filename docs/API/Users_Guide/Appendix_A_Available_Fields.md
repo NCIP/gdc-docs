@@ -470,10 +470,10 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.analytes.aliquots.annotations.updated_datetime |
 | files.cases.samples.portions.analytes.aliquots.center.center_id |
 | files.cases.samples.portions.analytes.aliquots.center.center_type |
-| files.cases.samples.portions.analytes.aliquots.center.code |
-| files.cases.samples.portions.analytes.aliquots.center.name |
-| files.cases.samples.portions.analytes.aliquots.center.namespace |
-| files.cases.samples.portions.analytes.aliquots.center.short_name |
+| files.cases.samples.portions.analytes.aliquots.center.code |  Numeric code for the center
+| files.cases.samples.portions.analytes.aliquots.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
+| files.cases.samples.portions.analytes.aliquots.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
+| files.cases.samples.portions.analytes.aliquots.center.short_name |  Shortened name of the center (e.g. BI)
 | files.cases.samples.portions.analytes.annotations.annotation_id |
 | files.cases.samples.portions.analytes.annotations.case_id |
 | files.cases.samples.portions.analytes.annotations.case_submitter_id |
@@ -510,7 +510,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.annotations.updated_datetime |
 | files.cases.samples.portions.center.center_id |
 | files.cases.samples.portions.center.center_type |
-| files.cases.samples.portions.center.code |
+| files.cases.samples.portions.center.code |  Numeric code for the center
 | files.cases.samples.portions.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
 | files.cases.samples.portions.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
 | files.cases.samples.portions.center.short_name |  Shortened name of the center (e.g. BI)
@@ -562,10 +562,10 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.tissue_source_site.tissue_source_site_id |
 | files.center.center_id |
 | files.center.center_type |
-| files.center.code |
-| files.center.name |
-| files.center.namespace |
-| files.center.short_name |
+| files.center.code |  Numeric code for the center
+| files.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
+| files.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
+| files.center.short_name |  Shortened name of the center (e.g. BI)
 | files.downstream_analyses.analysis_id |
 | files.downstream_analyses.analysis_type |
 | files.downstream_analyses.created_datetime |
@@ -732,10 +732,10 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.analytes.aliquots.annotations.updated_datetime |
 | samples.portions.analytes.aliquots.center.center_id |
 | samples.portions.analytes.aliquots.center.center_type |
-| samples.portions.analytes.aliquots.center.code |
-| samples.portions.analytes.aliquots.center.name |
-| samples.portions.analytes.aliquots.center.namespace |
-| samples.portions.analytes.aliquots.center.short_name |
+| samples.portions.analytes.aliquots.center.code |  Numeric code for the center
+| samples.portions.analytes.aliquots.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
+| samples.portions.analytes.aliquots.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
+| samples.portions.analytes.aliquots.center.short_name |  Shortened name of the center (e.g. BI)
 | samples.portions.analytes.annotations.annotation_id |
 | samples.portions.analytes.annotations.case_id |
 | samples.portions.analytes.annotations.case_submitter_id |
@@ -772,7 +772,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.annotations.updated_datetime |
 | samples.portions.center.center_id |
 | samples.portions.center.center_type |
-| samples.portions.center.code |
+| samples.portions.center.code |  Numeric code for the center
 | samples.portions.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
 | samples.portions.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
 | samples.portions.center.short_name |  Shortened name of the center (e.g. BI)
@@ -1188,10 +1188,10 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.analytes.aliquots.annotations.updated_datetime |
 | cases.samples.portions.analytes.aliquots.center.center_id |
 | cases.samples.portions.analytes.aliquots.center.center_type |
-| cases.samples.portions.analytes.aliquots.center.code |
-| cases.samples.portions.analytes.aliquots.center.name |
-| cases.samples.portions.analytes.aliquots.center.namespace |
-| cases.samples.portions.analytes.aliquots.center.short_name |
+| cases.samples.portions.analytes.aliquots.center.code |  Numeric code for the center
+| cases.samples.portions.analytes.aliquots.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
+| cases.samples.portions.analytes.aliquots.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
+| cases.samples.portions.analytes.aliquots.center.short_name |  Shortened name of the center (e.g. BI)
 | cases.samples.portions.analytes.annotations.annotation_id |
 | cases.samples.portions.analytes.annotations.case_id |
 | cases.samples.portions.analytes.annotations.case_submitter_id |
@@ -1228,7 +1228,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.annotations.updated_datetime |
 | cases.samples.portions.center.center_id |
 | cases.samples.portions.center.center_type |
-| cases.samples.portions.center.code |
+| cases.samples.portions.center.code |  Numeric code for the center
 | cases.samples.portions.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)  
 | cases.samples.portions.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
 | cases.samples.portions.center.short_name |  Shortened name of the center (e.g. BI)
@@ -1280,10 +1280,10 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.tissue_source_site.tissue_source_site_id |
 | center.center_id |
 | center.center_type |
-| center.code |
-| center.name |
-| center.namespace |
-| center.short_name |
+| center.code |  Numeric code for the center
+| center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
+| center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
+| center.short_name |  Shortened name of the center (e.g. BI)
 | downstream_analyses.analysis_id |
 | downstream_analyses.analysis_type |
 | downstream_analyses.created_datetime |
