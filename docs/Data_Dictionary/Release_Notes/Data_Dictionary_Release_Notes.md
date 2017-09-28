@@ -18,7 +18,7 @@
 * Added new tumor code, tumor id, and sample types to Sample entity to support OCG <!--TT-85, TT-68-->
 * Added property `days_to_diagnosis` to Diagnosis entity <!--TT-91-->
 * Created Somatic Mutation Index entity <!--TT-92-->
-* Updated CaDSR CDE links in data dictionary <!--DAT-794-->
+* Updated caDSR CDE links in data dictionary <!--DAT-794-->
 * Added new sample type `tumor` to sample entity <!--TT-77-->
 * Made classification_of_tumor on diagnosis entity non-required <!--DAT-203-->
 * Added support for FM-AD to Genomic Profile Harmonization Workflow entity <!--DAT-985-->
