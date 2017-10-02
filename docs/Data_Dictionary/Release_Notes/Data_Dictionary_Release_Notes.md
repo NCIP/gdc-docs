@@ -8,21 +8,39 @@
 
 ### New Features and Changes
 
-* Created follow_up entity to support longitudinal clinical data <!--TT-65-->
-* Deprecated clinical test entity <!--DOC-67-->
+* Created `follow_up` entity to support longitudinal clinical data <!--TT-65-->
+* Deprecated `clinical_test` entity <!--DOC-67-->
 * Modified acceptable values for Read Group properties <!--TT-9,TT-76-->
-* Modified Diagnosis entity <!--TT-64-->  
+    - `library_selection` : "Hybrid Selection, Affinity Enrichment, Poly-T Enrichment, Random, rRNA Depletion, miRNA Size Fractionation, Targeted Sequencing"
+    - `library_strategy` : "Targeted Sequencing"
+* Modified Diagnosis entity <!--TT-64-->
+    - Added field `iss_stage`
+    - Added field `best_overall_response`
+    - Added field `days_to_best_overall_response`
+    - Added field `progression_free_survival`
+    - Added field `progression_free_survival_event`
+    - Added field `overall_survival`
+    - Added field `days_to_diagnosis` (from XXXX entity) <!--TT-91-->
 * Modified Treatment entity <!--TT-66-->
+    - Added field `regimen_or_line_of_therapy`
 * Modified Demographic entity <!--TT-83-->
+    - Added field `cause_of_death`
+    - Added field `days_to_birth`
+    - Added field `days_to_death`
+    - Added field `vital_status`
 * Modified Case entity <!--TT-84-->
+    - Added field `days_to_lost_to_followup`
+    - Added field `lost_to_followup`
+    - Added field `index_date`
 * Added new tumor code, tumor id, and sample types to Sample entity to support OCG <!--TT-85, TT-68-->
-* Added property `days_to_diagnosis` to Diagnosis entity <!--TT-91-->
-* Created Somatic Mutation Index entity <!--TT-92-->
-* Updated CaDSR CDE links in data dictionary <!--DAT-794-->
-* Added new sample type `tumor` to sample entity <!--TT-77-->
-* Made classification_of_tumor on diagnosis entity non-required <!--DAT-203-->
+    - `tumor_code` : "Acute leukemia of Ambiguous Lineage (ALAL), Lymphoid Normal, Tumor Adjacent Normal - Post Neo Adjuvant Therapy"
+    - `tumor_code_id` : "15, 17, 18"
+* Created `somatic_mutation_index` entity <!--TT-92-->
+* Updated caDSR CDE links in data dictionary <!--DAT-794-->
+* Added new `sample_type` : `tumor` to sample entity <!--TT-77-->
+* Made `classification_of_tumor` on diagnosis entity non-required <!--DAT-203-->
 * Added support for FM-AD to Genomic Profile Harmonization Workflow entity <!--DAT-985-->
-* Added data type `Gene Level Copy Number Scores` to Copy Number Segment entity <!--TT-94-->
+* Added `data_type` : `Gene Level Copy Number Scores` to Copy Number Segment entity <!--TT-94-->
 
 ### Bugs Fixed Since Last Release
 
@@ -30,7 +48,7 @@ None
 
 ### Known Issues and Workarounds
 
-*  Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+*  Portion `weight` property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 
 ## Release with API v1.7.1
 
