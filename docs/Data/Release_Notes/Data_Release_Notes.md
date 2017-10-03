@@ -3,18 +3,18 @@
 ## Data Release 9.0 <!--REQ-317-->
 
 * __GDC Product__: Data
-* __Release Date__: September x, 2017
+* __Release Date__: October x, 2017
 
 ### New updates
 
-1. FMI Data Release
-* This includes clinical and biospecimen metadata as well as controlled-access VCF and MAF files.
-* Original Foundation Medicine supplied data can be found on the project page (insert FMI project page link here)
-2.  Update RNA-Seq data for TARGET RNA-Seq  
+1. Foundation Medicine Data Release
+* This includes controlled-access VCF and MAF files as well as clinical and biospecimen supplements and metadata.
+* Original Foundation Medicine supplied data can be found on the [Foundation Medicine Project Page](https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/foundation-medicine/foundation-medicine).
+2.  Updated RNA-Seq data for TARGET NBL  
 * Includes new BAM and count files
 
 Updated files for this release are listed [here](DR9.0_files_swap.txt).
-A Complete list of files for DR8.0 are listed [here](gdc_manifest_20170822_data_release_9.0_active.txt.gz).
+A Complete list of files for DR9.0 are listed [here](gdc_manifest_20170822_data_release_9.0_active.txt.gz).
 
 ### Bugs Fixed Since Last Release
 
@@ -22,7 +22,7 @@ None
 
 ### Known Issues and Workarounds
 
-
+* FM-AD clinical and biospecimen supplement files have incorrect data format.  They are listed as XLSX, but are in fact TSV files.
 * Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
 * Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
 * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
