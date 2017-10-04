@@ -11,7 +11,7 @@
       }
     };
 
-    return fetch('https://gdc-api.nci.nih.gov/notifications')
+    return fetch('https://api.gdc.cancer.gov')
       .then(checkStatus)
       .then(function(response) {
         return response.json();
