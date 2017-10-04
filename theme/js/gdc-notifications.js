@@ -11,7 +11,7 @@
       }
     };
 
-    return fetch('https://api.gdc.cancer.gov')
+    return fetch('https://api.gdc.cancer.gov/notifications')
       .then(checkStatus)
       .then(function(response) {
         return response.json();
