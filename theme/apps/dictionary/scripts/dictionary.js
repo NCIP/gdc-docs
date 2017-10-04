@@ -432,7 +432,7 @@
     CATEGORY_TEMPLATE_INCLUDES: {
     },
     END_POINT: {
-      DEFAULT_URL: 'https://gdc-api.nci.nih.gov', // TODO: env variable? 'http://localhost:5000'
+      DEFAULT_URL: 'https://api.gdc.cancer.gov', // TODO: env variable? 'http://localhost:5000'
       CONTEXT_PROGRAM_PROJECT_PATTERN: '/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
       CONTEXT_PATTERN: '/v0/submission/_dictionary/${dictionary_name}',
       CONTEXT_TEMPLATE_PATTERN: '/v0/submission/template/${dictionary_name}',
