@@ -20,7 +20,7 @@
     - Added field `progression_free_survival`
     - Added field `progression_free_survival_event`
     - Added field `overall_survival`
-    - Added field `days_to_diagnosis` (from XXXX entity) <!--TT-91-->
+    - Added field `days_to_diagnosis` <!--TT-91-->
 * Modified Treatment entity <!--TT-66-->
     - Added field `regimen_or_line_of_therapy`
 * Modified Demographic entity <!--TT-83-->
