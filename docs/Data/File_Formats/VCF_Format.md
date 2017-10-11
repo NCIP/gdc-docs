@@ -42,7 +42,7 @@ Each variant is represented by a row in the VCF file. Below each of the columns 
 0. __QUAL:__ Not populated
 0. __FILTER:__ The names of the filters that have flagged this variant. The types of filters used will depend on the variant caller used.
 0. __INFO:__ Additional information about the variant. This includes the annotation applied by the VEP.
-0. __FORMAT:__ The format of the sample genotype data in the next two columns. This includes colon-separated values.
+0. __FORMAT:__ The format of the sample genotype data in the next two columns. This includes descriptions of the colon-separated values.
 0. __NORMAL:__ Colon-separated values that describe the normal sample
 0. __TUMOR:__ Colon-separated values that describe the tumor sample
 
@@ -61,8 +61,8 @@ The following variant annotation fields are currently included in Annotated Soma
 | SYMBOL | The HUGO gene symbol |
 | Gene | Ensembl stable ID of the affected gene |
 | Feature_type | Type of feature. Currently one of Transcript, RegulatoryFeature, MotifFeature. |
-| Feature | Ensembl stable ID of feature |
-| BIOTYPE | Biotype of transcript or regulatory feature |
+| Feature | Ensembl stable ID of the feature |
+| BIOTYPE | The type of transcript or regulatory feature (e.g. protein_coding) |
 | EXON | Exon number (out of total exons) |
 | INTRON | Intron number (out of total introns) |
 | HGVSc | The HGVS coding sequence name |
@@ -71,8 +71,8 @@ The following variant annotation fields are currently included in Annotated Soma
 | CDS_position | Relative position of base pair in coding sequence |
 | Protein_position | Relative position of the affected amino acid in protein |
 | Amino_acids | Change in amino acids (only given if the variant affects the protein-coding sequence) |
-| Codon | The alternative codons with the variant base in upper case |
-| Existing_variation | Known identifier of existing variant |
+| Codon | The affected codons with the variant base in upper case |
+| Existing_variation | Known identifier of existing variant; usually a dbSNP rs number if applicable |
 | ALLELE_NUM | Allele number from input; 0 is reference, 1 is first alternate, etc. |
 | DISTANCE | Shortest distance from variant to transcript |
 | STRAND | The DNA strand (1 or -1) on which the transcript/feature lies |
@@ -89,7 +89,7 @@ The following variant annotation fields are currently included in Annotated Soma
 | TREMBL | UniProtKB/TrEMBL identifier of protein product |
 | UNIPARC | UniParc identifier of protein product |
 | RefSeq | RefSeq gene ID |
-| GENE_PHENO | Indicates if overlapped gene is associated with a phenotype, disease or trait |
+| GENE_PHENO | Indicates if the gene is associated with a phenotype, disease or trait |
 | SIFT | The SIFT prediction and/or score, with both given as prediction (score) |
 | PolyPhen | The PolyPhen prediction and/or score |
 | DOMAINS | The source and identifier of any overlapping protein domains |
