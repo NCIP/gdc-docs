@@ -158,7 +158,7 @@ java -jar GenomeAnalysisTK.jar \
 -nWayOut <output.map>
 ```
 
-#### __Step 3:__ BaseRecalibrator
+#### __Step 3:__ BaseRecalibrator; dbSNP v.144
 ```Shell
 java -jar GenomeAnalysisTK.jar \
 -T BaseRecalibrator \
@@ -215,7 +215,7 @@ At this time, germline variants are deliberately excluded as harmonized data. Th
 
 #### MuSE
 
-MuSEv1.0rc_submission_c039ffa
+MuSEv1.0rc_submission_c039ffa; dbSNP v.144
 
 __Step 1:__ MuSE call
 
@@ -242,7 +242,7 @@ __Note:__ -E is used for WXS data and -G can be used for WGS data.
 
 #### MuTect2
 
-GATK nightly-2016-02-25-gf39d340
+GATK nightly-2016-02-25-gf39d340; dbSNP v.144
 
 ```Shell
 java -jar GenomeAnalysisTK.jar \
@@ -336,7 +336,7 @@ The VEP uses the coordinates and alleles in the VCF file to infer biological con
 *   sift v.5.2.2
 *   ESP v.20141103
 *   polyphen v.2.2.2
-*   dbSNP v.144
+*   dbSNP v.146
 *   Ensembl genebuild v.2014-07
 *   Ensembl regbuild v.13.0
 *   HGMD public v.20154
