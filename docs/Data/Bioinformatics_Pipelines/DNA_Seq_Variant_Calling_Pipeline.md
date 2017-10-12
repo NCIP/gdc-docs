@@ -336,7 +336,7 @@ The VEP uses the coordinates and alleles in the VCF file to infer biological con
 *   sift v.5.2.2
 *   ESP v.20141103
 *   polyphen v.2.2.2
-*   dbSNP v.146
+*   dbSNP v.144
 *   Ensembl genebuild v.2014-07
 *   Ensembl regbuild v.13.0
 *   HGMD public v.20154
