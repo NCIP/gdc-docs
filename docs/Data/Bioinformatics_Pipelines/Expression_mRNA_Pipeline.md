@@ -167,7 +167,7 @@ The upper quartile FPKM (FPKM-UQ) is a modified FPKM calculation in which the to
 - __RC<sub>g</sub>:__ Number of reads mapped to the gene
 - __RC<sub>pc</sub>:__ Number of reads mapped to all protein-coding genes
 - __RC<sub>g75</sub>:__ The 75th percentile read count value for genes in the sample
-- __L:__ Length of the gene in base pairs
+- __L:__ Length of the gene in base pairs; Calculated as the sum of all exons in a gene
 
 __Note:__ The read count is multiplied by a scalar (10<sup>9</sup>) during normalization to account for the kilobase and 'million mapped reads' units.
 
