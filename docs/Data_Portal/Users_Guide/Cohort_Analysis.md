@@ -9,7 +9,10 @@ Cohort sets are completely customizable and can be generated for cases, genes, o
 
 __Upload ID Set:__ This feature is available in the "Manage Sets" link at the top right of the Portal. Choose "Upload Set" and then select whether the set comprises cases, genes, or mutations. A set of IDs (UUIDs or submitter IDs) can then be uploaded in a text file or copied and pasted into the field.
 
-__Apply Filters in Exploration:__
+__Apply Filters in Exploration:__ Sets can be assembled using the existing filters in the exploration page.  They can be saved by choosing the "Save/Edit Case Set" button under the pie charts. This will prompt a decision to:
+* Save as a new case set
+* Add to existing case set
+* Remove from existing case set
 
 
 
