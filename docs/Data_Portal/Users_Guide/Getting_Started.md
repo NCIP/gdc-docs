@@ -52,11 +52,11 @@ The Projects, Exploration, and Repository pages can be accessed from the GDC Dat
 
 The toolbar available at the top of all pages in the GDC Data Portal provides convenient navigation links and access to authentication and quick search.
 
-The left portion of this toolbar provides access to the Home Page, __Projects Page__, __Exploration Page__, and a link to __Repository Page__:
+The left portion of this toolbar provides access to the Home Page, __Projects Page__, __Exploration Page__, __Analysis Page__, and a link to __Repository Page__:
 
 [![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-left.png)](images/gdc-data-portal-top-menu-bar-left.png "Click to see the full image.")
 
-The right portion of this toolbar provides access to [quick search](#quick-search), [authentication functions](Authentication.md), the [cart](Cart.md), and the GDC Apps menu:
+The right portion of this toolbar provides access to [quick search](#quick-search), manage sets, [authentication functions](Authentication.md), the [cart](Cart.md), and the GDC Apps menu:
 
 [![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-right.png)](images/gdc-data-portal-top-menu-bar-right.png "Click to see the full image.")
 
