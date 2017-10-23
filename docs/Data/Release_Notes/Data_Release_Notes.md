@@ -3,7 +3,7 @@
 ## Data Release 9.0 <!--REQ-317-->
 
 * __GDC Product__: Data
-* __Release Date__: October x, 2017
+* __Release Date__: October 24, 2017
 
 ### New updates
 
@@ -13,8 +13,8 @@
 2.  Updated RNA-Seq data for TARGET NBL  
 * Includes new BAM and count files
 
-Updated files for this release are listed [here](DR9.0_files_swap.txt).
-A Complete list of files for DR9.0 are listed [here](gdc_manifest_20170822_data_release_9.0_active.txt.gz).
+Updated files for this release are listed [here](DR9.0_files_swap.txt.gz).
+A Complete list of files for DR9.0 are listed [here](gdc_manifest_20171024_data_release_9.0_active.txt.gz).
 
 ### Bugs Fixed Since Last Release
 
