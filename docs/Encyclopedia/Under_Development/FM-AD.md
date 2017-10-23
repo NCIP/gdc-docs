@@ -2,7 +2,7 @@
 
 ## Overview ##
 
-The Foundation Medicine Adult Dataset project was initially harmonized and imported into the Genomic Data Commons with Data Release 9.0 [1].  This project includes data from 18,004 patients, which was produced using the FoundationOne® genomic profiling assay.
+The Foundation Medicine Adult Dataset project was initially harmonized and imported into the Genomic Data Commons with Data Release 9.0 [1].  This project includes data from 18,004 patients, which was produced using the FoundationOne genomic profiling assay.
 
 ## Data
 
