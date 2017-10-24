@@ -14,7 +14,7 @@
 * Includes new BAM and count files
 
 Updated files for this release are listed [here](DR9.0_files_swap.txt.gz).
-A Complete list of files for DR9.0 are listed [here](gdc_manifest_20171024_data_release_9.0_active.txt.gz).
+A complete list of files for DR9.0 are listed [here](gdc_manifest_20171024_data_release_9.0_active.txt.gz).
 
 ### Bugs Fixed Since Last Release
 
