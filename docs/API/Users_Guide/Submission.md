@@ -1080,7 +1080,7 @@ The bare query above can be used as is in the GraphQL IDE. In order to pass this
 
 Before a bare GraphQL query is passed to the GDC API, it must be processed as follows:
 
-1. [Escape](http://text-rescue.com/string-escape/json-escape-tool.html) the query using JSON string rules
+1. [Escape](https://www.freeformatter.com/json-escape.html) the query using JSON string rules
 2. Wrap the query in a ["query" JSON object](#constructing-a-query).
 3. Pass the query to the `graphql` endpoint in an HTTP POST request.
 

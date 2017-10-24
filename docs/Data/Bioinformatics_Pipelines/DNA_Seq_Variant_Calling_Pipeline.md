@@ -158,7 +158,7 @@ java -jar GenomeAnalysisTK.jar \
 -nWayOut <output.map>
 ```
 
-#### __Step 3:__ BaseRecalibrator
+#### __Step 3:__ BaseRecalibrator; dbSNP v.144
 ```Shell
 java -jar GenomeAnalysisTK.jar \
 -T BaseRecalibrator \
@@ -215,7 +215,7 @@ At this time, germline variants are deliberately excluded as harmonized data. Th
 
 #### MuSE
 
-MuSEv1.0rc_submission_c039ffa
+MuSEv1.0rc_submission_c039ffa; dbSNP v.144
 
 __Step 1:__ MuSE call
 
@@ -242,7 +242,7 @@ __Note:__ -E is used for WXS data and -G can be used for WGS data.
 
 #### MuTect2
 
-GATK nightly-2016-02-25-gf39d340
+GATK nightly-2016-02-25-gf39d340; dbSNP v.144
 
 ```Shell
 java -jar GenomeAnalysisTK.jar \
@@ -267,7 +267,9 @@ Somatic-sniper v1.0.5.0
 
 ```Shell
 bam-somaticsniper \
--q 0 \
+-q 1 \
+-L \
+-G \
 -Q 15 \
 -s 0.01 \
 -T 0.85 \
