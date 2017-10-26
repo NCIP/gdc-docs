@@ -130,3 +130,27 @@ __Toolbar Quick Search:__
 #### Advanced Search
 
 Advanced Search is available in Repository View. It allows users to construct complex queries with a custom query language and auto-complete suggestions. See [Advanced Search](Advanced_Search.md) for details.
+
+#### Mange Sets
+The `Manage Sets` button at the top of the GDC Portal stores sets of cases, genes, or mutations of interest.  On this page, users can review the sets that have been saved as well as upload new sets and delete existing sets.
+
+[![Manage Sets](images/gdc-manage-sets.png)](images/gdc-manage-sets.png "Click to see the full image.")
+
+##### Upload Sets
+
+Clicking the `Upload Set` button shows options for creating Case, Gene, or Mutation sets.  
+
+[![Upload Sets](images/gdc-upload-sets.png)](images/gdc-upload-sets.png "Click to see the full image.")
+
+Upon clicking one of the menu items, users are shown a dialog where they can enter unique identifiers (i.e. UUIDs, TCGA Barcodes, gene symbols, mutation UUIDs, etc.) that describe the set.
+
+[![Manage Sets Gene](images/gdc-manage-set-gene.png)](images/gdc-manage-sets.png "Click to see the full image.")
+
+Clicking the `Submit` button will add the set of items to the list of sets on the Manage Sets page.
+
+[![New Sets Gene](images/gdc-new-set.png)](images/gdc-manage-sets.png "Click to see the full image.")
+
+##### Creating Sets from GDC Portal Filters
+Many pages on the GDC Portal have an option called `Save Sets` that allows users to save a group of cases, mutations, or genes for further analysis.  After using the filtering options on the `Exploration` page as an example, users can click the `Save Case/Gene/Mutation Set` button to save this set.
+
+[![Save Sets](images/gdc-exploration-save-sets.png)](images/gdc-quick-search2.png "Click to see the full image.")

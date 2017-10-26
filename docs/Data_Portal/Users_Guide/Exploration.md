@@ -15,7 +15,7 @@ The first tab of filters is for cases in the GDC.
 
 These criteria limit the results only to specific cases within the GDC. The default filters available are:
 
-* __Case__: Specify individual cases using submitter ID (barcode) or UUID.
+* __Case__: Specify individual cases using submitter ID (barcode), UUID, or list of Cases ('Case Set')
 * __Case Submitter ID__: Search for cases using a part (prefix) of the submitter ID (barcode).
 * __Primary Site__: Anatomical site of the cancer under investigation or review.
 * __Program__: A cancer research program, typically consisting of multiple focused projects.
@@ -30,6 +30,20 @@ These criteria limit the results only to specific cases within the GDC. The defa
 
 In addition to the defaults, users can add additional case filters by clicking on the link titled 'Add a Case Filter'
 
+#### Upload Case Set
+
+In the `Cases` filters panel, instead of supplying cases one-by-one, users can supply a list of cases.  Clicking on the `Upload Case Set` button will launch a dialog as shown below, where users can supply a list of cases or upload a comma-separated text file of cases.
+
+[![Upload Case Set](images/gdc-exploration-case-set.png)](images/gdc-exploration-case-set.png "Click to see the full image.")
+
+After supplying a list of cases, a table below will appear which indicates whether the case was found.
+
+[![Upload Case Set Validation](images/gdc-exploration-case-set-validation.png)](images/gdc-exploration-case-set-validation.png "Click to see the full image.")
+
+Clicking on `Submit` will filter the results in the Exploration Page by those cases.
+
+[![Upload Case Set Results](images/case-set-filter.png)](images/case-set-filter.png "Click to see the full image.")
+
 ### Gene Filters
 
 The second tab of filters is for genes affected by mutations in the GDC.
@@ -38,7 +52,7 @@ The second tab of filters is for genes affected by mutations in the GDC.
 
 The second tab of filters are for specific genes.  Users can filter by:
 
-* __Gene__ - Entering in a specific Gene Symbol, ID, or List of Genes ('Gene Set')
+* __Gene__ - Entering in a specific Gene Symbol, ID, or list of Genes ('Gene Set')
 * __Biotype__ - Classification of the type of gene according to Ensembl. The biotypes can be grouped into protein coding, pseudogene, long noncoding and short noncoding. Examples of biotypes in each group are as follows:
     * __Protein coding__: IGC gene, IGD gene, IG gene, IGJ gene, IGLV gene, IGM gene, IGV gene, IGZ gene, nonsense mediated decay, nontranslating CDS, non stop decay, polymorphic pseudogene, TRC gene, TRD gene, TRJ gene.
     * __Pseudogene__: disrupted domain, IGC pseudogene, IGJ pseudogene, IG pseudogene, IGV pseudogene, processed pseudogene, transcribed processed pseudogene, transcribed unitary pseudogene, transcribed unprocessed pseudogene, translated processed pseudogene, TRJ pseudogene, unprocessed pseudogene
@@ -70,6 +84,7 @@ Users can filter by:
     * UUID - c7c0aeaa-29ed-5a30-a9b6-395ba4133c63
     * DNA Change - 	chr12:g.121804752delC
     * COSMIC ID - COSM202522
+    * List of any mutation UUIDs or DNA Change id's ('Mutation Set')
 * __Consequence Type__ - Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms
 * __Impact (VEP)__ - A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
     * __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
@@ -80,6 +95,20 @@ Users can filter by:
 * __Variant Caller__ - The variant caller used to identify the mutation
 * __COSMIC ID__ - The identifier of the gene or mutation maintained in COSMIC, the Catalogue Of Somatic Mutations In Cancer
 * __dbSNP rs ID__ - The reference SNP identifier maintained in dbSNP
+
+#### Upload Mutation Set
+
+In the `Mutations` filters panel, instead of supplying mutation id's one-by-one, users can supply a list of mutations.  Clicking on the `Upload Mutation Set` button will launch a dialog as shown below, where users can supply a list of mutations or upload a comma-separated text file of mutations.
+
+[![Upload Case Set](images/gdc-exploration-mutation-set.png)](images/gdc-exploration-case-set.png "Click to see the full image.")
+
+After supplying a list of mutations, a table below will appear which indicates whether the mutation was found.
+
+[![Upload Case Set Validation](images/gdc-exploration-mutation-set-validation.png)](images/gdc-exploration-case-set-validation.png "Click to see the full image.")
+
+Clicking on `Submit` will filter the results in the Exploration Page by those mutations.
+
+[![Upload Case Set Results](images/mutation-set-filter.png)](images/case-set-filter.png "Click to see the full image.")
 
 ## Results
 
