@@ -22,7 +22,7 @@ The GDC Data Portal is accessible using a web browser such as Chrome, Internet E
 
 [https://portal.gdc.cancer.gov](https://portal.gdc.cancer.gov)
 
-The front page displays an overview of all available datasets:
+The front page displays a summary of all available datasets:
 
 [![GDC Home Page](images/GDC-Home-Page.png)](images/GDC-Home-Page.png "Click to see the full image.")
 
@@ -56,7 +56,7 @@ The left portion of this toolbar provides access to the Home Page, __Projects Pa
 
 [![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-left.png)](images/gdc-data-portal-top-menu-bar-left.png "Click to see the full image.")
 
-The right portion of this toolbar provides access to [quick search](#quick-search), manage sets, [authentication functions](Authentication.md), the [cart](Cart.md), and the GDC Apps menu:
+The right portion of this toolbar provides access to [quick search](#quick-search), [manage sets](#manage-sets), [authentication functions](Authentication.md), the [cart](Cart.md), and the GDC Apps menu:
 
 [![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-right.png)](images/gdc-data-portal-top-menu-bar-right.png "Click to see the full image.")
 
@@ -131,7 +131,7 @@ __Toolbar Quick Search:__
 
 Advanced Search is available in Repository View. It allows users to construct complex queries with a custom query language and auto-complete suggestions. See [Advanced Search](Advanced_Search.md) for details.
 
-#### Mange Sets
+#### Manage Sets
 The `Manage Sets` button at the top of the GDC Portal stores sets of cases, genes, or mutations of interest.  On this page, users can review the sets that have been saved as well as upload new sets and delete existing sets.
 
 [![Manage Sets](images/gdc-manage-sets.png)](images/gdc-manage-sets.png "Click to see the full image.")
@@ -149,6 +149,14 @@ Upon clicking one of the menu items, users are shown a dialog where they can ent
 Clicking the `Submit` button will add the set of items to the list of sets on the Manage Sets page.
 
 [![New Sets Gene](images/gdc-new-set.png)](images/gdc-manage-sets.png "Click to see the full image.")
+
+##### Review Sets
+
+There are a few buttons in the list of sets that allows a user to get further information about each one.
+
+* __# Items__: Clicking the link under the # Items column navigates the user to the Exploration page using the set as a filter.
+
+* __Download/View__: To the right of the # Items column are buttons that will download the list as a tsv or open the cases in the Repository page.
 
 ##### Creating Sets from GDC Portal Filters
 Many pages on the GDC Portal have an option called `Save Sets` that allows users to save a group of cases, mutations, or genes for further analysis.  After using the filtering options on the `Exploration` page as an example, users can click the `Save Case/Gene/Mutation Set` button to save this set.
