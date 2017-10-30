@@ -1,6 +1,6 @@
 # Cohort Set Analysis
 
-In addition to the [Exploration page](XXXXXXX), the GDC Data Portal also has features used to compare cohorts.  These cohorts can either be generated with existing filters (e.g. males with lung cancer) or through custom selection (e.g. a user-generated list of patient IDs).
+In addition to the [Exploration page](Exploration.md), the GDC Data Portal also has features used to compare cohorts.  These cohorts can either be generated with existing filters (e.g. males with lung cancer) or through custom selection (e.g. a user-generated list of patient IDs).
 
 
 ## Generating a cohort for Analysis
@@ -14,15 +14,48 @@ __Apply Filters in Exploration:__ Sets can be assembled using the existing filte
 * Add to existing case set
 * Remove from existing case set
 
-
-
 ## Analysis Tab: Set Operations
+
+Up to three sets of the same type can be compared and exported based on complex overlapping subsets.  The features of this page include:
+
+[![Set Operations](images/GDC-SetOpsFull-Cohort.png)](images/GDC-SetOpsFull-Cohort.png "Click to see the full image.")
+
+* __Summary Table:__ Displays the alias, type, and name for each set included in this analysis
+
+* __Venn Diagram:__ Visually displays the overlapping items included within the three sets. Subsets based on overlap can be selected by clicking one or many sections of the Venn diagram. As sections of the Venn Diagram become highlighted, their corresponding row in the overlap table becomes highlighted.  
+
+* __Overlap Table:__ Displays the number of overlapping items with text operators rather than a visual diagram.  Subsets can be selected by checking boxes in the "Select" column, which will highlight the corresponding section of the Venn Diagram. As rows are selected, the "Union of selected sets" row is populated.  Each row has an option to save the subset as a cohort or export the set as a TSV.  The links that correspond to the number of items in each row will open the cohort in the Exploration page.  
+
 
 ## Analysis Tab: Cohort Comparison
 
-The "Cohort Comparison" analysis displays a series of graphs and tables that demonstrate the similarities and differences between two case sets.  
+The "Cohort Comparison" analysis displays a series of graphs and tables that demonstrate the similarities and differences between two case sets. The following features are displayed for each two sets:
+
+* A key detailing the number of cases in each cohort and the color that represents each (blue/gold)
+
+[![Case Key](images/GDC-CaseKey-Cohort.png)](images/GDC-CaseKey-Cohort.png "Click to see the full image.")
+
+* A venn diagram, which shows the overlap between the two cohorts
+
+[![Venn Cohort](images/GDC-VennD-Cohort.png)](images/GDC-VennD-Cohort.png "Click to see the full image.")
+
+* A survival plot that compares both sets with information about the proportion of each set that is represented
+
+[![Survival Cohort](images/GDC-Survival-Cohort.png)](images/GDC-Survival-Cohort.png "Click to see the full image.")
+
+* A breakdown of each cohort by gender with a bar graph, table, and p-value that demonstrates whether the genders are proportionally represented
+
+[![Gender Cohort](images/GDC-Gender-Cohort.png)](images/GDC-Gender-Cohort.png "Click to see the full image.")
+
+* A breakdown of each cohort by vital status (alive/ dead) with a bar graph, table, and p-value that demonstrates whether the statuses are proportionally represented
+
+[![Vital Status Cohort](images/GDC-Vital-Cohort.png)](images/GDC-Vital-Cohort.png "Click to see the full image.")
+
+* A breakdown of each cohort by race with an associated bar graph and table
+
+[![Race Cohort](images/GDC-Race-Cohort.png)](images/GDC-Race-Cohort.png "Click to see the full image.")
 
 
 ## Analysis Tab: Results
 
-The results of the previous analyses are displayed here. Each tab at the left side of the page is labeled according to the analysis type and the date that the analysis was performed. The "Delete All" button will removed all of the previous analyses.  
+The results of the previous analyses are displayed here. Each tab at the left side of the page is labeled according to the analysis type and the date that the analysis was performed. The "Delete All" button will remove all of the previous analyses.  
