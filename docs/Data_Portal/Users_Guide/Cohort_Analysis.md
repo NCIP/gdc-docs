@@ -9,10 +9,14 @@ Cohort sets are completely customizable and can be generated for cases, genes, o
 
 __Upload ID Set:__ This feature is available in the "Manage Sets" link at the top right of the Portal. Choose "Upload Set" and then select whether the set comprises cases, genes, or mutations. A set of IDs (UUIDs or submitter IDs) can then be uploaded in a text file or copied and pasted into the field.
 
+[![Upload Set](images/GDC-UploadSet-Cohort.png)](images/GDC-UploadSet-Cohort.png "Click to see the full image.")
+
 __Apply Filters in Exploration:__ Sets can be assembled using the existing filters in the exploration page.  They can be saved by choosing the "Save/Edit Case Set" button under the pie charts. This will prompt a decision to:
 * Save as a new case set
 * Add to existing case set
 * Remove from existing case set
+
+[![Exploration Set](images/GDC-ExplorationSet-Cohort.png)](images/GDC-ExplorationSet-Cohort.png "Click to see the full image.")
 
 ## Analysis Tab: Set Operations
 
@@ -22,7 +26,7 @@ Up to three sets of the same type can be compared and exported based on complex 
 
 * __Summary Table:__ Displays the alias, type, and name for each set included in this analysis
 
-* __Venn Diagram:__ Visually displays the overlapping items included within the three sets. Subsets based on overlap can be selected by clicking one or many sections of the Venn diagram. As sections of the Venn Diagram become highlighted, their corresponding row in the overlap table becomes highlighted.  
+* __Venn Diagram:__ Visually displays the overlapping items included within the three sets. Subsets based on overlap can be selected by clicking one or many sections of the Venn diagram. As sections of the Venn Diagram become highlighted in blue, their corresponding row in the overlap table becomes highlighted.  
 
 * __Overlap Table:__ Displays the number of overlapping items with text operators rather than a visual diagram.  Subsets can be selected by checking boxes in the "Select" column, which will highlight the corresponding section of the Venn Diagram. As rows are selected, the "Union of selected sets" row is populated. Each row has an option to save the subset as a cohort or export the set as a TSV. The links that correspond to the number of items in each row will open the cohort in the Exploration page.  
 
