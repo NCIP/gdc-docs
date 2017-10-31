@@ -12,7 +12,7 @@ __Upload ID Set:__ This feature is available in the "Manage Sets" link at the to
 [![Upload Set](images/GDC-UploadSet-Cohort.png)](images/GDC-UploadSet-Cohort.png "Click to see the full image.")
 
 __Apply Filters in Exploration:__ Sets can be assembled using the existing filters in the exploration page.  They can be saved by choosing the "Save/Edit Case Set" button under the pie charts. This will prompt a decision to:
-* Save as a new case set
+* Save as new case set
 * Add to existing case set
 * Remove from existing case set
 
