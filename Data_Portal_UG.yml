@@ -14,7 +14,7 @@ pages:
   - Exploration: Data_Portal/Users_Guide/Exploration.md
   - Repository: Data_Portal/Users_Guide/Repository.md
   - Genes and Mutations: Data_Portal/Users_Guide/Genes_and_Mutations.md
-  - Cohort Analysis: Data_Portal/Users_Guide/Cohort_Analysis.md  
+  - Custom Set Analysis: Data_Portal/Users_Guide/Custom_Set_Analysis.md  
   - Annotations: 'Data_Portal/Users_Guide/Annotations.md'
   - Advanced Search: 'Data_Portal/Users_Guide/Advanced_Search.md'
   - Authentication: 'Data_Portal/Users_Guide/Authentication.md'
