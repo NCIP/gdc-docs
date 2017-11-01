@@ -3,16 +3,17 @@
 ## Release 1.9.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: November, 2017
 
-### New Features and Changes
+* __Release Date__: October 24, 2017
 
-Major features/changes:
+### New Features and Changes <!--REQ-317-->
 
+* Support for projects with multiple primary sites per project <!--PRTL-1478, PRTL-1676, PRTL-1668, PRTL-1675,PRTL-1685,PRTL-1695-->
+* Support for slides that are linked to `sample` rather than `portion` <!--PRTL-1696-->
 
 ### Bugs Fixed Since Last Release
 
-
+None
 
 ### Known Issues and Workarounds
 *  Visualizations

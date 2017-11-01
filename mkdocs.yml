@@ -73,6 +73,7 @@ pages:
 - Data Dictionary:
   - About: Data_Dictionary/index.md
   - Viewer: Data_Dictionary/viewer.md
+  - Release Notes: Data_Dictionary/Release_Notes/Data_Dictionary_Release_Notes.md
 - Data:
   - Introduction: Data/Introduction.md
   - GDC Data Model: Data/Data_Model/GDC_Data_Model.md
