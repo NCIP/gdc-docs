@@ -119,13 +119,13 @@ To illustrate these tabs, Case, Gene, and Mutation filters have been chosen ( Ge
 
 #### Cases
 
-The `Cases` tab will give an overview of all the cases/patients who correspond to the filters chosen (Cohort).
+The `Cases` tab gives an overview of all the cases/patients who correspond to the filters chosen (Cohort).
 
 [![Exploration Case Example](images/Exploration-Case-Example.png)](images/Exploration-Case-Example.png "Click to see the full image.")
 
 The top of this section contains a few pie graphs with categorical information regarding the Primary Site, Project, Disease Type, Gender, and Vital Status.
 
-Below these pie charts is a tabular view (which can be exported and sorted using the buttons on the right) of the cases affected, which includes the following information:
+Below these pie charts is a tabular view of cases (which can be exported, sorted and saved using the buttons on the right), that includes the following information:
 
 * __Case ID (Submitter ID):__ The Case ID / submitter ID of that case/patient (i.e. TCGA Barcode)
 * __Project:__ The study name for the project for which the case belongs
@@ -134,7 +134,7 @@ Below these pie charts is a tabular view (which can be exported and sorted using
 * __Files:__ The total number of files available for that case
 * __Available Files per Data Category:__ Five columns displaying the number of files available in each of the five data categories.  These link to the files for the specific case.
 * __# Mutations:__ The number of SSMs (simple somatic mutations) detected in that case
-* __# Genes:__ The number of genes detected in that case
+* __# Genes:__ The number of genes affected by mutations in that case
 
 *Note: By default, the Case UUID is not displayed.  You can display the UUID of the case, but clicking on the icon with 3 parallel lines, and choose to display the Case UUID*
 
