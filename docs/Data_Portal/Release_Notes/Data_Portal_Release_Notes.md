@@ -3,6 +3,7 @@
 ## Release 1.9.0
 
 * __GDC Product__: GDC Data Portal
+
 * __Release Date__: October 24, 2017
 
 ### New Features and Changes <!--REQ-317-->
