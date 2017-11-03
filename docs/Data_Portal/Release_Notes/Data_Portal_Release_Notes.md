@@ -12,6 +12,7 @@
 * Support for saving, editing, removing Case, Gene and Mutation sets in the Exploration page <!--PRTL-1472,PRTL-1464, PRTL-1473, PRTL-1468, PRTL-1465, PRTL-1470,PRTL-1469, PRTL-1466, PRTL-1471-->
 * Added a Managed Sets menu where the user can see his saved sets <!--PRTL-1597-->
 * Added an Analysis menu with 2 analyses: Set Operation and Cohort Comparison <!--PRTL-1599, PRTL-1600-->
+* Added a User Profile page that shows all the projects and permissions assigned to the user: available in the username dropdown after the user logs in <!--PRTL-1458-->
 
 ### Bugs Fixed Since Last Release
 
