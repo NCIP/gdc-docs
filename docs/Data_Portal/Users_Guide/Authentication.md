@@ -24,6 +24,16 @@ Controlled-access files are identified using a "lock" icon:
 
 The rest of this section describes controlled data access features of the GDC Data Portal available to authorized users. For more information about open and controlled-access data, and about obtaining access to controlled data, see [Data Access Processes and Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
 
+## User Profile
+
+After logging into the GDC Portal, users can view which projects they have access to by clicking the `User Profile` section in the dropdown menu in the top corner of the screen.
+
+[![User Profile Drop Down](images/gdc-user-profile-dropdown.png)](images/gdc-user-profile-dropdown.png "Click to see the full image.")
+
+Clicking this button shows the list of projects.
+
+[![User Profile](images/gdc-user-profile.png)](images/gdc-user-profile.png "Click to see the full image.")
+
 ## GDC Authentication Tokens
 
 The GDC Data Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
