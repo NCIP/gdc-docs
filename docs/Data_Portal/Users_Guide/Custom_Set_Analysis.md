@@ -1,7 +1,8 @@
 # Custom Set Analysis
 
-In addition to the [Exploration page](Exploration.md), the GDC Data Portal also has features used to compare cohorts.  These cohorts can either be generated with existing filters (e.g. males with lung cancer) or through custom selection (e.g. a user-generated list of patient IDs).
+In addition to the [Exploration page](Exploration.md), the GDC Data Portal also has features used to save and compare sets of cases, genes, and mutations. These sets can either be generated with existing filters (e.g. males with lung cancer) or through custom selection (e.g. a user-generated list of patient IDs).
 
+Note that saving a set only saves the type of entity included in the set. For example, a saved case set will not include filters that were applied to genes or mutations.
 
 ## Generating a cohort for analysis
 
