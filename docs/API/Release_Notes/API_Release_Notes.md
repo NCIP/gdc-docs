@@ -7,7 +7,11 @@
 
 ### New Features and Changes
 
+* Added support for histogram aggregation for numeric fields <!--API-355-->
 
+### Bugs Fixed Since Last Release
+
+* None
 
 ### Known Issues and Workarounds
 
