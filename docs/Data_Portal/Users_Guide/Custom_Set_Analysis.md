@@ -12,9 +12,10 @@ __Upload ID Set:__ This feature is available in the "Manage Sets" link at the to
 
 [![Upload Set](images/GDC-UploadSet-Cohort.png)](images/GDC-UploadSet-Cohort.png "Click to see the full image.")
 
-\* These is referred to as a `submitter_id` in the GDC API, which is a non-UUID identifier such as a TCGA barcode.
+\* This is referred to as a `submitter_id` in the GDC API, which is a non-UUID identifier such as a TCGA barcode.
 
 __Apply Filters in Exploration:__ Sets can be assembled using the existing filters in the exploration page.  They can be saved by choosing the "Save/Edit Case Set" button under the pie charts. This will prompt a decision to:
+
 * Save as new case set
 * Add to existing case set
 * Remove from existing case set
@@ -23,7 +24,7 @@ __Apply Filters in Exploration:__ Sets can be assembled using the existing filte
 
 ## Analysis Tab: Set Operations
 
-Up to three sets of the same type can be compared and exported based on complex overlapping subsets. The features of this page include:
+Up to three sets of the same entity type can be compared and exported based on complex overlapping subsets. The features of this page include:
 
 [![Set Operations](images/GDC-SetOpsFull-Cohort.png)](images/GDC-SetOpsFull-Cohort.png "Click to see the full image.")
 
