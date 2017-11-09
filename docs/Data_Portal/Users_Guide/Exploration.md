@@ -216,3 +216,7 @@ After utilizing the Exploration Page to narrow down a specific cohort, users can
 [![Exploration File Navigation](images/Exploration-View-Files.png)](images/Exploration-View-Files.png "Click to see the full image.")
 
 Clicking this button will navigate the users to the Repository Page, filtered by the cases within the cohort.
+
+[![Input Set Explanation](images/gdc-input-set.png)](images/gdc-input-set.png "Click to see the full image.")
+
+The filters chosen on the Exploration page are displayed as an `input set` on the Repository page.  Additional filters may be added on top of this `input set`, but the original set cannot be modified and instead must be created from scratch again.  

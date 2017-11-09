@@ -19,7 +19,7 @@ The right side of this page displays a few visualizations of the data (Top Mutat
 
 #### Top Mutated Cancer Genes in Selected Projects
 
-This dynamically generated bar graph shows the 20 genes with the most mutations across all projects. The genes are filtered by those that are part of the Cancer Gene Census and that have the following types of mutations: `missense_variant, frameshift_variant, start_lost, stop_lost, initiator_codon_variant, and stop_gained`.  The bars represent the frequency of each mutation and is broken down into different colored segments by project and disease type. The graphic is updated as filters are applied for projects, programs, disease types, and data categories available in the project.
+This dynamically generated bar graph shows the 20 genes with the most mutations across all projects. The genes are filtered by those that are part of the Cancer Gene Census and that have the following types of mutations: `missense_variant, frameshift_variant, start_lost, stop_lost, initiator_codon_variant, and stop_gained`. The bars represent the frequency of each mutation and is broken down into different colored segments by project and disease type. The graphic is updated as filters are applied for projects, programs, disease types, and data categories available in the project. Note, that due the these filters the number of cases displayed here will be less that the total number of cases per project. 
 
 Hovering the cursor over each bar will display information about the number of cases affected by the disease type and clicking on each bar will launch the Gene Summary Page page for the gene associated with the mutation.
 
