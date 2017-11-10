@@ -1,5 +1,21 @@
 # Data Submission Portal Release Notes
 
+## Release 1.7.0 <!--REQ-322-->
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: November, 2017
+
+### New Features and Changes
+* None
+
+### Bugs Fixed Since Last Release
+
+* Fixed bug related to project submission, which produced an error even though it completed successfully <!--SUBP-394-->
+
+### Known Issues and Workarounds
+
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
 ## Release 1.6.0
 
 * __GDC Product__: GDC Data Submission Portal
