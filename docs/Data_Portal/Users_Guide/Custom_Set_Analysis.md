@@ -20,6 +20,10 @@ __Apply Filters in Exploration:__ Sets can be assembled using the existing filte
 
 [![Exploration Set](images/GDC-ExplorationSet-Cohort.png)](images/GDC-ExplorationSet-Cohort.png "Click to see the full image.")
 
+## Analysis Tab
+
+[![Analysis Tab](images/GDC-Analysis-Tab.png)](images/GDC-Analysis-Tab.png "Click to see the full image.")
+
 ## Analysis Tab: Set Operations
 
 Up to three sets of the same type can be compared and exported based on complex overlapping subsets. The features of this page include:
@@ -39,13 +43,11 @@ The "Cohort Comparison" analysis displays a series of graphs and tables that dem
 
 * A key detailing the number of cases in each cohort and the color that represents each (blue/gold)
 
-* A venn diagram, which shows the overlap between the two cohorts
+* A Venn diagram, which shows the overlap between the two cohorts.  The Venn diagram can be opened in a 'Set Operations' tab by choosing "Open venn diagram in new tab"
 
-[![Venn Cohort](images/GDC-VennD-Cohort.png)](images/GDC-VennD-Cohort.png "Click to see the full image.")
+* A selectable [survival plot](Projects/#survival-analysis) that compares both sets with information about the percentage of represented cases
 
-* A survival plot that compares both sets with information about the proportion of each set that is represented
-
-[![Survival Cohort](images/GDC-Survival-Cohort.png)](images/GDC-Survival-Cohort.png "Click to see the full image.")
+[![Top Cohort](images/GDC-Cohort-Comparison-Top.png)](images/GDC-Cohort-Comparison-Top.png "Click to see the full image.")
 
 * A breakdown of each cohort by selectable clinical facets with a bar graph and table. Facets include `vital_status`, `gender`, `race`, `ethnicity`, and `age_at_diagnosis`.  A p-value that demonstrates whether the statuses are proportionally represented is displayed for the `vital_status`, `gender`, and `ethnicity` facets.  
 
