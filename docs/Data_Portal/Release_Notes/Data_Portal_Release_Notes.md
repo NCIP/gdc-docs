@@ -3,7 +3,6 @@
 ## Release 1.10.0
 
 * __GDC Product__: GDC Data Portal
-
 * __Release Date__: November 16, 2017
 
 ### New Features and Changes <!--REQ-322-->
