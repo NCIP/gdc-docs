@@ -1,5 +1,25 @@
 # Data Submission Portal Release Notes
 
+## Release 1.7.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: November 16, 2017
+
+### New Features and Changes
+
+*  None
+
+### Bugs Fixed Since Last Release
+
+*  Fixed bug where error would be produced even while project was successfully submitted <!--SUBP-394-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
+
 ## Release 1.6.0
 
 * __GDC Product__: GDC Data Submission Portal
