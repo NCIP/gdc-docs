@@ -7,7 +7,7 @@
 
 ### New Features and Changes
 
-None
+*  None
 
 ### Bugs Fixed Since Last Release
 
