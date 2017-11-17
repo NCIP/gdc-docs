@@ -19,6 +19,10 @@
     *  On the project page, the Summary Case Count link should open the case tab on the Repository page - instead it opens the file page <!--PRTL-1591-->
 
 ### Known Issues and Workarounds
+
+*  Custom facet filters
+    * Definitions are missing from the property list when adding custom facet file or case filters <!--SV-916-->
+    * Selecting 'Only show fields with values' will show some fields without values in the Repository section.  This works correctly under the Exploration section. <!--SV-917-->
 *  Visualizations
     *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
     *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
