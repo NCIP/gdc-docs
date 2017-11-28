@@ -6,7 +6,7 @@ Python can be a versatile tool for retrieving information from the GDC API and p
 
 ### A Basic Query
 
-This example passes some basic parameters (fields, format, size) to the `cases` endpoint and prints the results.
+This example passes some basic parameters (fields, format, size) to the `cases` endpoint and prints the results. Note that the `fields` parameter needs to be a string comprising comma-delimited field names.  
 
 ```Python
 import requests
