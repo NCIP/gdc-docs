@@ -7,7 +7,9 @@ Python can be a versatile tool for retrieving information from the GDC API and p
 ### A Basic Query
 
 This example passes some basic parameters (fields, format, size) to the `cases` endpoint and prints the results. Note that the `fields` parameter needs to be a string comprising comma-delimited field names.  
-
+```TXT
+Choose the Python tab to view script.
+```
 ```Python
 import requests
 import json
@@ -32,6 +34,9 @@ print(response.content)
 
 In the next example, a `filters` parameter is added to the query. This parameter is passed as a Python dictionary object. The filter used in this example will only show cases that come from a patient with kidney disease (`primary_site: Kidney`).
 
+```TXT
+Choose the Python tab to view script.
+```
 ```Python
 import requests
 import json
@@ -50,7 +55,7 @@ filters = {
             }
         }
 
-# The filters parameter needs to be converted from a dictionary to JSON object
+# The filters parameter needs to be converted from a dictionary to JSON-formatted string
 
 params = {
     "filters":json.dumps(filters),
@@ -64,11 +69,13 @@ response = requests.get(cases_endpt, params = params)
 print(response.content)
 ```
 
-### A More Complicated Filter
+### Complex Filters
 
-The following example returns information about the RNA-Seq BAM files that originate from lung cancer patients.   
+The following example utilizes the `and` operator in the filter to returns information about RNA-Seq BAM files that originate from lung cancer patients.   
 
-
+```TXT
+Choose the Python tab to view script.
+```
 ```Python
 import requests
 import json
