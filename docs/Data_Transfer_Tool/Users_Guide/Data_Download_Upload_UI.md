@@ -1,9 +1,9 @@
 #Data Downloads from the UI
 
-Data Transfer Tool UI: Overview
+##Data Transfer Tool UI: Overview
 The UI version of the Data Transfer Tool was created for users who prefer a graphical interface over the command line or have no command line experience.  For more with more command line experience who require large data transfers of GDC data or need to download a large numbers of data files the command line version is recommend.
 
-System Recommendations
+###System Recommendations
 
 The system recommendations for using the GDC Data Transfer Tool are as follows:
 
