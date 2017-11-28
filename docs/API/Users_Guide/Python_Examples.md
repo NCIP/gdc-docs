@@ -2,7 +2,7 @@
 
 Python can be a versatile tool for retrieving information from the GDC API and performing downstream processing. This guide details some examples that demonstrate the basic methods for querying the API using Python. Most of the examples in this guide will use the [requests](http://docs.python-requests.org/en/master/) Python library and should be compatible with Python3.
 
-## Querying metadata
+## Querying Metadata
 
 ### A Basic Query
 
@@ -29,6 +29,7 @@ response = requests.get(cases_endpt, params = params)
 
 print(response.content)
 ```
+[Download Script](scripts/Basic_Query.py)
 
 ### A Filtered Query
 
@@ -68,10 +69,10 @@ response = requests.get(cases_endpt, params = params)
 
 print(response.content)
 ```
-
+[Download Script](scripts/Filter_Query.py)
 ### Complex Filters
 
-The following example utilizes the `and` operator in the filter to returns information about RNA-Seq BAM files that originate from lung cancer patients.   
+The following example utilizes the `and` operator in the filter to returns information about RNA-Seq BAM files that originate from lung cancer patients. Note that these three filters are nested within a list in the highest level `content` key.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -125,8 +126,15 @@ response = requests.get(files_endpt, params = params)
 
 print(response.content)
 ```
+[Download Script](scripts/Complex_Query.py)
 
-## Troubleshooting
+
+## Downloading Files
+
+
+
+
+## Basic Troubleshooting
 
 The following script should produce an unformatted JSON string when run. Run this to verify that a valid connection is being made to the GDC API.  
 
