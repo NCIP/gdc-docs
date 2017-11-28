@@ -1,7 +1,7 @@
 #Data Downloads from the UI.
 
 Data Transfer Tool UI: Overview
-The UI version of the Data Transfer Tool was created for users who prefer a graphical interface over the command line.  Though the DTT UI does have all of the functionality that the command line version has it is recommend that the command line version be used for very large downloads.       
+The UI version of the Data Transfer Tool was created for users who prefer a graphical interface over the command line or have no command line experience.  For more with more command line experience who require large data transfers of GDC data or need to download a large numbers of data files the command line version is recommend.
 
 System Recommendations
 
@@ -14,7 +14,10 @@ Storage: Enterprise-class storage system capable of at least 1 Gb/s (gigabit per
 
 Binary Distributions
 
-Binary distributions are available on the GDC Transfer Tool page. To install the GDC Data Transfer Tool, download the respective binary distribution and unzip the distribution's archive to a location on the target system that is easily accessible.
+Binary distributions are available on the GDC Transfer Tool page. To install the GDC Data Transfer UI Software download the respective binary distribution and unzip the distribution's archive to a location on the target system that is easily accessible.
+
+Binary Installation
+
 
 #Preparing for Data Downloads.
 The GDC Data Transfer Tool UI is a stand alone client intended to be with the GDC Data Portal for data downloads.  Data download information must first be gathered from either the Harmonized portal or the legacy.  From their a manifest file can be generated and feed to the client or UUIDs for individual files be add into the client's queue for download.  
