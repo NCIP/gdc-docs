@@ -7,16 +7,16 @@ The UI version of the Data Transfer Tool was created for users who prefer a grap
 
 The system recommendations for using the GDC Data Transfer Tool are as follows:
 
-OS: Linux (Ubuntu 14.x or later), OS X (10.9 Mavericks or later), or Windows (7 or later)
-CPU: At least four 64-bit cores, Intel or AMD
-RAM: At least 2 GiB
-Storage: Enterprise-class storage system capable of at least 1 Gb/s (gigabit per second) write throughput and sufficient free space for BAM files.
+* OS: Linux (Ubuntu 14.x or later), OS X (10.9 Mavericks or later), or Windows (7 or later)
+* CPU: At least four 64-bit cores, Intel or AMD
+* RAM: At least 2 GiB
+* Storage: Enterprise-class storage system capable of at least 1 Gb/s (gigabit per second) write throughput and sufficient free space for BAM files.
 
 Binary Distributions
 
 Binary distributions are available on the GDC Transfer Tool page. To install the GDC Data Transfer UI Software download the respective binary distribution and unzip the distribution's archive to a location on the target system that is easily accessible.
 
-Binary Installation
+###Binary Installation
 
 
 
