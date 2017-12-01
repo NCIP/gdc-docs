@@ -173,21 +173,25 @@ import requests
 import json
 import re
 
+# The GDC token is passed by reading in the text file containing the token.
 token_file = <TOKEN_FILE_PATH>
 
 file_id = "2f97081c-7e84-4a93-91a8-fee860769f8e"
 
 data_endpt = 'https://api.gdc.cancer.gov/data/%s' % file_id
 
+# The token is the read into the token_string variable
 with open(token_file,'r') as token:
     token_string = str(token.read().strip())
 
+# The location of the token needs to be specified in the headers dictionary
 response = requests.get(data_endpt, headers={"Content-Type": "application/json", "X-Auth-Token":token_string })
 
+# The file name is located in the headers of the response
 response_head = response.headers["Content-Disposition"]
-
 file_name = re.findall("filename=(.+)", response_head)[0]
 
+# Note that 'wb' is required for the script to work with Python3
 with open(file_name,'wb') as output_file:
     output_file.write(response.content)
 ```
@@ -226,8 +230,7 @@ with open(file_name,'wb') as output_file:
 
 ### Downloading a Set of Files Based on a Filter
 
-Here files based on a set of filters are downloaded.  First file UUIDs are retrieved based on filters and used to download the correct files.   
-
+Here files based on a set of filters are downloaded.  First file UUIDs are retrieved based on the filters.  These UUIDs are required to download the correct files.   
 
 ```TXT
 Choose the Python tab to view script.
@@ -303,6 +306,14 @@ with open(file_name,'wb') as output_file:
     output_file.write(response.content)
 ```
 [Download Script](scripts/Download_Files_Filter.py)
+
+## Querying and Parsing Data
+
+The gene, mutation, and survival data used to generate the visualization data on the GDC Data Portal can also be retrieved from the API.  Below are instructions for doing this using Python.  
+
+
+
+
 
 ## Basic Troubleshooting
 
