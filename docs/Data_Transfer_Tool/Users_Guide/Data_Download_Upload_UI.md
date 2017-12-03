@@ -25,7 +25,10 @@ Once the binary has been positioned in an appropriate location on the client's f
 ###Preparing for Data Download
 
 
-The GDC Data Transfer Tool UI is a stand alone client application intended to work with data file information stored on the GDC Data Portals.  Data download information must first be gathered from either the Harmonized or legacy portals.  From their a manifest file can be generated to be supplied to the client or individual file UUIDs can be looked up and added to the UUIDs entry window located on the Download tab in the client.  
+The GDC Data Transfer Tool UI is a stand alone client application intended to work with data file information stored on the GDC Data Portals.  Data download information must first be gathered from either the Harmonized or legacy portals.  From their a manifest file can be generated to be supplied to the client or individual file UUIDs can be looked up and added to the UUIDs entry window located on the Download tab in the client.
+
+![GDC DTT UI Start Page](/Users/ianmmiller/Documents/gdc-docs/gdc-docs/Docs/Data_Transfer_Tool/Users_Guide/images)
+  
 
 
 
