@@ -17,18 +17,17 @@ Binary Distributions
 Binary distributions are available on the GDC Transfer Tool page. To install the GDC Data Transfer UI Software download the respective binary distribution and unzip the distribution's archive to a location on the target system that is easily accessible.
 
 ###Binary Installation
-![GDC DTT UI Installation](images/GDC_DTT_UI_INSTALLv3.png "GDC Data Transfer Tool UI Install")
+![GDC DTT UI Installation](images/GDC_DTT_UI_INSTALLv6.png "GDC Data Transfer Tool UI Install")
 
 Once the binary has been positioned in an appropriate location on the client's file system the application will need to run thought a one time installation process.  On first execution the binary a install splash screen will appear showing the progress of the installation.  A hidden direction is created within the user home directory labled dtt that holds configuration and executable files.
 
 
 ###Preparing for Data Download
 
-
-The GDC Data Transfer Tool UI is a stand alone client application intended to work with data file information stored on the GDC Data Portals.  Data download information must first be gathered from either the Harmonized or legacy portals.  From their a manifest file can be generated to be supplied to the client or individual file UUIDs can be looked up and added to the UUIDs entry window located on the Download tab in the client.
+The GDC Data Transfer Tool UI is a stand alone client application intended to work with data file information stored on the GDC Data Portals.  Data download information must first be gathered from either the Harmonized or legacy portals.  From their a manifest file can be [generate](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-a-manifest-file-for-data-download) to supply the client or individual file UUIDs can be looked up and added to the UUIDs entry window located on the Download tab in the client.
 
 ![GDC DTT UI Start Page](images/DTT_UI_Start_Page.png)
-  
+
 
 
 
