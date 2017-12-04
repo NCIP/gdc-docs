@@ -307,6 +307,69 @@ with open(file_name,'wb') as output_file:
 ```
 [Download Script](scripts/Download_Files_Filter.py)
 
+### BAM Slicing
+
+The BAM slicing feature can also be accessed through Python.  Below is an example of a basic BAM slicing command.  
+
+```TXT
+Choose the Python tab to view script.
+```
+```Python
+import requests
+import json
+
+token_file = <TOKEN_FILE_PATH>
+
+file_id = "11443f3c-9b8b-4e47-b5b7-529468fec098"
+
+data_endpt = 'https://api.gdc.cancer.gov/slicing/view/%s' % file_id
+
+with open(token_file,'r') as token:
+    token_string = str(token.read().strip())
+
+params = { "gencode": ["BRCA1","BRCA2"] }
+
+response = requests.post(data_endpt, data = json.dumps(params), headers = {"Content-Type": "application/json", "X-Auth-Token":token_string })
+
+file_name = "brca_slices.bam"
+
+with open(file_name,'wb') as output_file:
+    output_file.write(response.content)
+```
+[Download Script](scripts/BAM_Slice.py)
+
+
+An additional usage of this feature would be the retrieval of the same feature across multiple BAM files.
+
+```TXT
+Choose the Python tab to view script.
+```
+```Python
+import requests
+import json
+
+token_file = <TOKEN_FILE_PATH>
+
+file_ids = ["11443f3c-9b8b-4e47-b5b7-529468fec098", "1f103620-bb34-46f1-b565-94f0027e396d", "ca549554-a244-4209-9086-92add7bb7109"]
+
+for file_id in file_ids:
+
+  data_endpt = 'https://api.gdc.cancer.gov/slicing/view/%s' % file_id
+
+  with open(token_file,'r') as token:
+    token_string = str(token.read().strip())
+
+  params = { "regions": ["chr1:1-20000","chr10:129000-160000"] }
+
+  response = requests.post(data_endpt, data = json.dumps(params), headers = {"Content-Type": "application/json", "X-Auth-Token":token_string })
+
+  file_name = "%s_region_slices.bam" % file_id
+
+  with open(file_name,'wb') as output_file:
+    output_file.write(response.content)
+```
+[Download Script](scripts/BAM_Slice_Multiple.py)
+
 ## Querying and Parsing Data
 
 The gene, mutation, and survival data used to generate the visualization data on the GDC Data Portal can also be retrieved from the API.  Below are instructions for doing this using Python.  
