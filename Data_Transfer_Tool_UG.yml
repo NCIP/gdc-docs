@@ -14,7 +14,9 @@ pages:
   - Preparing for Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md'
   - Data Download and Upload: 'Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md'
   - Key Terms: 'Data_Transfer_Tool/Users_Guide/Appendix_A_-_Key_Terms.md'
-  - Release Notes: 'Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md'
+  - Command Line Release Notes: 'Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md'
+  - UI Release Notes: 'Data_Transfer_Tool/Release_Notes/CommandLine_DTT_Release_Notes.md'
+
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
