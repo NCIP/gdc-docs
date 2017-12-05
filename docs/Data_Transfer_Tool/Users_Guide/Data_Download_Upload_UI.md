@@ -17,9 +17,8 @@ Binary Distributions
 Binary distributions are available on the GDC Transfer Tool page. To install the GDC Data Transfer UI Software download the respective binary distribution and unzip the distribution's archive to a location on the target system that is easily accessible.
 
 ###Binary Installation
-![GDC DTT UI Installation](images/GDC_DTT_UI_INSTALLv6.png "GDC Data Transfer Tool UI Install")
-
-Once the binary has been positioned in an appropriate location on the client's file system the application will need to run thought a one time installation process.  On first execution the binary a install splash screen will appear showing the progress of the installation.  A hidden direction is created within the user home directory labled dtt that holds configuration and executable files.
+Once the binary has been positioned in an appropriate location on the client's file system the application will need to run thought a one time installation process.  On first execution the binary install splash screen will appear showing the progress of the installation.  A hidden direction is created within the user home directory labled dtt that holds configuration and executable files.
+![GDC DTT UI Installation](images/GDC_DTT_UI_INSTALLv7.png "GDC Data Transfer Tool UI Install")
 
 
 ###Preparing for Data Download
