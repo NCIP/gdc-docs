@@ -27,9 +27,7 @@ The GDC Data Transfer Tool UI is a stand alone client application intended to wo
 
 ![GDC DTT UI Start Page](images/DTT_UI_Start_Page.png)
 
-
 ##Downloads with UUIDs
-
 The Data Transfer Tool UI can download files by individual UUID.  UUIDs can be entered into the client while on the download tab.  The single entry field labeled "Enter UUID(s)"
 
 To obtain a data file's UUID from the GDC Data Portal, click the file name to find its detail page including its GDC UUID.
