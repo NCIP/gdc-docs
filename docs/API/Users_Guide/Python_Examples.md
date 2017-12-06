@@ -192,7 +192,7 @@ response_head = response.headers["Content-Disposition"]
 file_name = re.findall("filename=(.+)", response_head)[0]
 
 # Note that 'wb' is required for the script to work with Python3
-with open(file_name,'wb') as output_file:
+with open(file_name, "wb") as output_file:
     output_file.write(response.content)
 ```
 [Download Script](scripts/Download_Files_Token.py)
@@ -211,7 +211,7 @@ import re
 
 data_endpt = 'https://api.gdc.cancer.gov/data'
 
-ids = ["b658d635-258a-4f6f-8377-767a43771fe4","3968213d-b293-4b3d-8033-5b5a0ca07b6c"]
+ids = ["b658d635-258a-4f6f-8377-767a43771fe4", "3968213d-b293-4b3d-8033-5b5a0ca07b6c"]
 
 params = {
     "ids":ids
@@ -223,7 +223,7 @@ response_head = response.headers["Content-Disposition"]
 
 file_name = re.findall("filename=(.+)", response_head)[0]
 
-with open(file_name,'wb') as output_file:
+with open(file_name, "wb") as output_file:
     output_file.write(response.content)
 ```
 [Download Script](scripts/Download_Files_Post.py)
@@ -302,7 +302,7 @@ response_head = response.headers["Content-Disposition"]
 
 file_name = re.findall("filename=(.+)", response_head)[0]
 
-with open(file_name,'wb') as output_file:
+with open(file_name, "wb") as output_file:
     output_file.write(response.content)
 ```
 [Download Script](scripts/Download_Files_Filter.py)
@@ -370,21 +370,13 @@ for file_id in file_ids:
 ```
 [Download Script](scripts/BAM_Slice_Multiple.py)
 
-## Querying and Parsing Data
-
-The gene, mutation, and survival data used to generate the visualization data on the GDC Data Portal can also be retrieved from the API.  Below are instructions for doing this using Python.  
-
-
-
-
-
 ## Basic Troubleshooting
 
 The following script should produce an unformatted JSON string when run. Run this to verify that a valid connection is being made to the GDC API.  
 
 ```Python
 import requests
-files_endpt = 'https://api.gdc.cancer.gov/files'
-response = requests.get(files_endpt)
+status = 'https://api.gdc.cancer.gov/status'
+response = requests.get(status)
 print(response.content)
 ```

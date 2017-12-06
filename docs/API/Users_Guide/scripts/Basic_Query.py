@@ -3,13 +3,21 @@ import json
 
 cases_endpt = 'https://api.gdc.cancer.gov/cases'
 
-fields = ["submitter_id","case_id","primary_site","disease_type","diagnoses.vital_status"]
+# The fields parameter is passed as a comma-separated string of single names
+fields = [
+    "submitter_id",
+    "case_id",
+    "primary_site",
+    "disease_type",
+    "diagnoses.vital_status"
+    ]
+
 fields = ','.join(fields)
 
 params = {
-    "fields":fields,
-    "format":"TSV",
-    "size":"100",
+    "fields": fields,
+    "format": "TSV",
+    "size": "100"
     }
 
 response = requests.get(cases_endpt, params = params)
