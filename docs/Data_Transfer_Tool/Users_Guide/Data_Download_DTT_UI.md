@@ -28,6 +28,10 @@ The GDC Data Transfer Tool UI is a stand alone client application intended to wo
 ![GDC DTT UI Start Page](images/DTT_UI_Start_Page.png)
 
 ##Downloads with UUIDs
-The Data Transfer Tool UI can download files by individual UUID.  UUIDs can be entered into the client while on the download tab.  The single entry field labeled "Enter UUID(s)"
+The Data Transfer Tool UI can download files by individual UUID.  UUIDs can be entered into the client while on the download tab.  The single entry field labeled "Enter UUID(s)" allows the user to enter UUIDs individually.     
+To obtain a data file's UUID from the GDC Data Portal, click on the file name to display the file's summary page which includes vital information like: file size,  its GDC UUID.  
 
-To obtain a data file's UUID from the GDC Data Portal, click the file name to find its detail page including its GDC UUID.
+##Downloads with manifest
+A portal generated manifest file can be used with the Data Transfer Tool UI.  From the Download tab home page click on the Select Manifest File button.  A file system search window will popup allowing navigation to the manifest file.  
+
+![GDC DTT UI Manifest Button Example](images/Manifest_button_DTT_UI_Start_Window.png "GDC Data Transfer Tool UI Manifest Button")     
