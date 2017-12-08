@@ -35,3 +35,6 @@ To obtain a data file's UUID from the GDC Data Portal, click on the file name to
 A portal generated manifest file can be used with the Data Transfer Tool UI.  From the Download tab home page click on the Select Manifest File button.  A file system search window will popup allowing navigation to the manifest file.  
 
 ![GDC DTT UI Manifest Button Example](images/Manifest_button_DTT_UI_Start_Window.png "GDC Data Transfer Tool UI Manifest Button")     
+
+##Download Progress Page  
+The Data Transfer Tool Monitors downloads - The Download progress page is the command console for the Data Transfer Tool UI -    Progress of all downloads including the ability to start and stop a download are performed on the Download Progress Page.   
