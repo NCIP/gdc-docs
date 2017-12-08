@@ -41,7 +41,6 @@ filters = {
     ]
 }
 
-
 # A POST is used, so the filter parameters can be passed directly as a Dict object.
 params = {
     "filters": filters,

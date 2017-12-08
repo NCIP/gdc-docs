@@ -9,9 +9,7 @@ ids = [
     "3968213d-b293-4b3d-8033-5b5a0ca07b6c"
     ]
 
-params = {
-    "ids": ids
-    }
+params = {"ids": ids}
 
 response = requests.post(data_endpt,
                         data = json.dumps(params),

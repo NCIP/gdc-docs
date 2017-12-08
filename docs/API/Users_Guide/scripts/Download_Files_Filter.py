@@ -51,6 +51,7 @@ response = requests.get(files_endpt, params = params)
 
 file_uuid_list = []
 
+# This step populates the download list with the file_ids from the previous query
 for file_entry in json.loads(response.content.decode("utf-8"))["data"]["hits"]:
     file_uuid_list.append(file_entry["file_id"])
 
@@ -64,5 +65,5 @@ response_head_cd = response.headers["Content-Disposition"]
 
 file_name = re.findall("filename=(.+)", response_head_cd)[0]
 
-with open(file_name,"wb") as output_file:
+with open(file_name, "wb") as output_file:
     output_file.write(response.content)

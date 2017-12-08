@@ -17,13 +17,21 @@ import json
 
 cases_endpt = 'https://api.gdc.cancer.gov/cases'
 
-fields = ["submitter_id","case_id","primary_site","disease_type","diagnoses.vital_status"]
+# The fields parameter is passed as a comma-separated string of single names
+fields = [
+    "submitter_id",
+    "case_id",
+    "primary_site",
+    "disease_type",
+    "diagnoses.vital_status"
+    ]
+
 fields = ','.join(fields)
 
 params = {
-    "fields":fields,
-    "format":"TSV",
-    "size":"100",
+    "fields": fields,
+    "format": "TSV",
+    "size": "100"
     }
 
 response = requests.get(cases_endpt, params = params)
@@ -43,27 +51,34 @@ Choose the Python tab to view script.
 import requests
 import json
 
+fields = [
+    "submitter_id",
+    "case_id",
+    "primary_site",
+    "disease_type",
+    "diagnoses.vital_status"
+    ]
 
-fields = ["submitter_id","case_id","primary_site","disease_type","diagnoses.vital_status"]
-fields = ','.join(fields)
+fields = ",".join(fields)
 
-cases_endpt = 'https://api.gdc.cancer.gov/cases'
+cases_endpt = "https://api.gdc.cancer.gov/cases"
 
 filters = {
-    "op":"in",
+    "op": "in",
     "content":{
-        "field":"primary_site",
-        "value":["Kidney"]
-            }
+        "field": "primary_site",
+        "value": ["Kidney"]
         }
+    }
 
-# The filters parameter needs to be converted from a dictionary to JSON-formatted string
+# With a GET request, the filters parameter needs to be converted
+# from a dictionary to JSON-formatted string
 
 params = {
-    "filters":json.dumps(filters),
-    "fields":fields,
-    "format":"TSV",
-    "size":"100",
+    "filters": json.dumps(filters),
+    "fields": fields,
+    "format": "TSV",
+    "size": "100"
     }
 
 response = requests.get(cases_endpt, params = params)
@@ -71,6 +86,7 @@ response = requests.get(cases_endpt, params = params)
 print(response.content)
 ```
 [Download Script](scripts/Filter_Query.py)
+
 ### Complex Filters
 
 The following example utilizes the `and` operator in the filter to returns information about RNA-Seq BAM files that originate from lung cancer patients. Note that these three filters are nested within a list in the highest level `content` key.  
@@ -82,50 +98,58 @@ Choose the Python tab to view script.
 import requests
 import json
 
-fields = ["file_name","cases.submitter_id","cases.samples.sample_type",
-    "cases.disease_type","cases.project.project_id"]
+fields = [
+    "file_name",
+    "cases.submitter_id",
+    "cases.samples.sample_type",
+    "cases.disease_type",
+    "cases.project.project_id"
+    ]
 
-fields = ','.join(fields)
+fields = ",".join(fields)
 
-files_endpt = 'https://api.gdc.cancer.gov/files'
+files_endpt = "https://api.gdc.cancer.gov/files"
 
+# This set of filters is nested under an 'and' operator.
 filters = {
-    "op":"and",
+    "op": "and",
     "content":[
         {
-        "op":"in",
+        "op": "in",
         "content":{
-            "field":"cases.project.primary_site",
-            "value":["Lung"]
+            "field": "cases.project.primary_site",
+            "value": ["Lung"]
             }
         },
         {
-        "op":"in",
+        "op": "in",
         "content":{
-            "field":"files.experimental_strategy",
-            "value":["RNA-Seq"]
+            "field": "files.experimental_strategy",
+            "value": ["RNA-Seq"]
             }
         },
         {
-        "op":"in",
+        "op": "in",
         "content":{
-            "field":"files.data_format",
-            "value":["BAM"]
+            "field": "files.data_format",
+            "value": ["BAM"]
             }
         }
     ]
 }
 
+# A POST is used, so the filter parameters can be passed directly as a Dict object.
 params = {
-    "filters":json.dumps(filters),
-    "fields":fields,
-    "format":"TSV",
-    "size":"2000"
+    "filters": filters,
+    "fields": fields,
+    "format": "TSV",
+    "size": "2000"
     }
 
-response = requests.get(files_endpt, params = params)
+# The parameters are passed to 'json' rather than 'params' in this case
+response = requests.post(files_endpt, headers = {"Content-Type": "application/json"}, json = params)
 
-print(response.content)
+print(response.content.decode("utf-8"))
 ```
 [Download Script](scripts/Complex_Query.py)
 
@@ -148,18 +172,18 @@ import re
 
 file_id = "b658d635-258a-4f6f-8377-767a43771fe4"
 
-data_endpt = 'https://api.gdc.cancer.gov/data/%s' % file_id
+data_endpt = "https://api.gdc.cancer.gov/data/{}".format(file_id)
 
-response = requests.get(data_endpt, headers={"Content-Type": "application/json"})
+response = requests.get(data_endpt, headers = {"Content-Type": "application/json"})
 
-response_head = response.headers["Content-Disposition"]
+response_head_cd = response.headers["Content-Disposition"]
 
-file_name = re.findall("filename=(.+)", response_head)[0]
+file_name = re.findall("filename=(.+)", response_head_cd)[0]
 
-with open(file_name,'wb') as output_file:
+with open(file_name, "wb") as output_file:
     output_file.write(response.content)
 ```
-[Download Script](scripts/Download_Files_Post.py)
+[Download Script](scripts/Download_Files.py)
 
 ### Passing a Token to Download a Controlled-Access File
 
@@ -173,25 +197,25 @@ import requests
 import json
 import re
 
-# The GDC token is passed by reading in the text file containing the token.
-token_file = <TOKEN_FILE_PATH>
+token_file = "$TOKEN_FILE_PATH"
 
 file_id = "2f97081c-7e84-4a93-91a8-fee860769f8e"
 
-data_endpt = 'https://api.gdc.cancer.gov/data/%s' % file_id
+data_endpt = "https://api.gdc.cancer.gov/data/{}".format(file_id)
 
-# The token is the read into the token_string variable
-with open(token_file,'r') as token:
+with open(token_file, "r") as token:
     token_string = str(token.read().strip())
 
-# The location of the token needs to be specified in the headers dictionary
-response = requests.get(data_endpt, headers={"Content-Type": "application/json", "X-Auth-Token":token_string })
+response = requests.get(data_endpt,
+                        headers = {
+                            "Content-Type": "application/json",
+                            "X-Auth-Token": token_string
+                            })
 
-# The file name is located in the headers of the response
-response_head = response.headers["Content-Disposition"]
-file_name = re.findall("filename=(.+)", response_head)[0]
+response_head_cd = response.headers["Content-Disposition"]
 
-# Note that 'wb' is required for the script to work with Python3
+file_name = re.findall("filename=(.+)", response_head_cd)[0]
+
 with open(file_name, "wb") as output_file:
     output_file.write(response.content)
 ```
@@ -209,19 +233,24 @@ import requests
 import json
 import re
 
-data_endpt = 'https://api.gdc.cancer.gov/data'
+data_endpt = "https://api.gdc.cancer.gov/data"
 
-ids = ["b658d635-258a-4f6f-8377-767a43771fe4", "3968213d-b293-4b3d-8033-5b5a0ca07b6c"]
+ids = [
+    "b658d635-258a-4f6f-8377-767a43771fe4",
+    "3968213d-b293-4b3d-8033-5b5a0ca07b6c"
+    ]
 
-params = {
-    "ids":ids
-    }
+params = {"ids": ids}
 
-response = requests.post(data_endpt, data = json.dumps(params), headers={"Content-Type": "application/json"})
+response = requests.post(data_endpt,
+                        data = json.dumps(params),
+                        headers={
+                            "Content-Type": "application/json"
+                            })
 
-response_head = response.headers["Content-Disposition"]
+response_head_cd = response.headers["Content-Disposition"]
 
-file_name = re.findall("filename=(.+)", response_head)[0]
+file_name = re.findall("filename=(.+)", response_head_cd)[0]
 
 with open(file_name, "wb") as output_file:
     output_file.write(response.content)
@@ -230,7 +259,7 @@ with open(file_name, "wb") as output_file:
 
 ### Downloading a Set of Files Based on a Filter
 
-Here files based on a set of filters are downloaded.  First file UUIDs are retrieved based on the filters.  These UUIDs are required to download the correct files.   
+Here files based on a set of filters are downloaded.  First file UUIDs are retrieved based on the filters.  These UUIDs are then passed to the `data` endpoint to download the correct files.   
 
 ```TXT
 Choose the Python tab to view script.
@@ -240,67 +269,68 @@ import requests
 import json
 import re
 
-files_endpt = 'https://api.gdc.cancer.gov/files'
+files_endpt = "https://api.gdc.cancer.gov/files"
 
 filters = {
-    "op":"and",
+    "op": "and",
     "content":[
         {
-        "op":"in",
+        "op": "in",
         "content":{
-            "field":"cases.project.primary_site",
-            "value":["Lung"]
+            "field": "cases.project.primary_site",
+            "value": ["Lung"]
             }
         },
         {
-        "op":"in",
+        "op": "in",
         "content":{
-            "field":"cases.demographic.race",
-            "value":["white"]
+            "field": "cases.demographic.race",
+            "value": ["white"]
             }
         },
         {
-        "op":"in",
+        "op": "in",
         "content":{
-            "field":"cases.demographic.gender",
-            "value":["female"]
+            "field": "cases.demographic.gender",
+            "value": ["female"]
             }
         },
         {
-        "op":"in",
+        "op": "in",
         "content":{
-            "field":"files.analysis.workflow_type",
-            "value":["HTSeq - FPKM"]
+            "field": "files.analysis.workflow_type",
+            "value": ["HTSeq - FPKM"]
             }
         }
     ]
 }
 
+# Here a GET is used, so the filter parameters should be passed as a JSON string.
+
 params = {
-    "filters":json.dumps(filters),
-    "fields":'file_id',
-    "format":"JSON",
-    "size":"1000"
+    "filters": json.dumps(filters),
+    "fields": "file_id",
+    "format": "JSON",
+    "size": "1000"
     }
 
 response = requests.get(files_endpt, params = params)
 
 file_uuid_list = []
 
+# This step populates the download list with the file_ids from the previous query
 for file_entry in json.loads(response.content.decode("utf-8"))["data"]["hits"]:
     file_uuid_list.append(file_entry["file_id"])
 
-data_endpt = 'https://api.gdc.cancer.gov/data'
+data_endpt = "https://api.gdc.cancer.gov/data"
 
-params = {
-    "ids":file_uuid_list
-    }
+params = {"ids": file_uuid_list}
 
-response = requests.post(data_endpt, data = json.dumps(params), headers={"Content-Type": "application/json"})
+response = requests.post(data_endpt, data = json.dumps(params), headers = {"Content-Type": "application/json"})
 
-response_head = response.headers["Content-Disposition"]
+response_head_cd = response.headers["Content-Disposition"]
 
-file_name = re.findall("filename=(.+)", response_head)[0]
+file_name = re.findall("filename=(.+)", response_head_cd)[0]
 
 with open(file_name, "wb") as output_file:
     output_file.write(response.content)
@@ -318,26 +348,30 @@ Choose the Python tab to view script.
 import requests
 import json
 
-token_file = <TOKEN_FILE_PATH>
+token_file = "$TOKEN_FILE_PATH"
 
 file_id = "11443f3c-9b8b-4e47-b5b7-529468fec098"
 
-data_endpt = 'https://api.gdc.cancer.gov/slicing/view/%s' % file_id
+data_endpt = "https://api.gdc.cancer.gov/slicing/view/{}".format(file_id)
 
-with open(token_file,'r') as token:
+with open(token_file,"r") as token:
     token_string = str(token.read().strip())
 
-params = { "gencode": ["BRCA1","BRCA2"] }
+params = {"gencode": ["BRCA1","BRCA2"]}
 
-response = requests.post(data_endpt, data = json.dumps(params), headers = {"Content-Type": "application/json", "X-Auth-Token":token_string })
+response = requests.post(data_endpt,
+                        data = json.dumps(params),
+                        headers = {
+                            "Content-Type": "application/json",
+                            "X-Auth-Token": token_string
+                            })
 
 file_name = "brca_slices.bam"
 
-with open(file_name,'wb') as output_file:
+with open(file_name, "wb") as output_file:
     output_file.write(response.content)
 ```
 [Download Script](scripts/BAM_Slice.py)
-
 
 An additional usage of this feature would be the retrieval of the same feature across multiple BAM files.
 
@@ -348,35 +382,46 @@ Choose the Python tab to view script.
 import requests
 import json
 
-token_file = <TOKEN_FILE_PATH>
+token_file = "$TOKEN_FILE_PATH"
 
-file_ids = ["11443f3c-9b8b-4e47-b5b7-529468fec098", "1f103620-bb34-46f1-b565-94f0027e396d", "ca549554-a244-4209-9086-92add7bb7109"]
+file_ids = [
+    "11443f3c-9b8b-4e47-b5b7-529468fec098",
+    "1f103620-bb34-46f1-b565-94f0027e396d",
+    "ca549554-a244-4209-9086-92add7bb7109"
+    ]
 
 for file_id in file_ids:
 
-  data_endpt = 'https://api.gdc.cancer.gov/slicing/view/%s' % file_id
+    data_endpt = "https://api.gdc.cancer.gov/slicing/view/{}".format(file_id)
 
-  with open(token_file,'r') as token:
-    token_string = str(token.read().strip())
+    with open(token_file, "r") as token:
+        token_string = str(token.read().strip())
 
-  params = { "regions": ["chr1:1-20000","chr10:129000-160000"] }
+    params = {
+        "regions": ["chr1:1-20000", "chr10:129000-160000"]
+        }
 
-  response = requests.post(data_endpt, data = json.dumps(params), headers = {"Content-Type": "application/json", "X-Auth-Token":token_string })
+    response = requests.post(data_endpt,
+                            data = json.dumps(params),
+                            headers = {
+                                "Content-Type": "application/json",
+                                "X-Auth-Token": token_string
+                                })
 
-  file_name = "%s_region_slices.bam" % file_id
+    file_name = "{}_region_slices.bam".format(file_id)
 
-  with open(file_name,'wb') as output_file:
-    output_file.write(response.content)
+    with open(file_name, "wb") as output_file:
+        output_file.write(response.content)
 ```
 [Download Script](scripts/BAM_Slice_Multiple.py)
 
 ## Basic Troubleshooting
 
-The following script should produce an unformatted JSON string when run. Run this to verify that a valid connection is being made to the GDC API.  
+The following script should produce an unformatted JSON string with information about the API status. Run this script to verify that a valid connection is being made to the GDC API.  
 
 ```Python
 import requests
-status = 'https://api.gdc.cancer.gov/status'
-response = requests.get(status)
+status_endpt = 'https://api.gdc.cancer.gov/status'
+response = requests.get(status_endpt)
 print(response.content)
 ```
