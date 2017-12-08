@@ -2,6 +2,10 @@ import requests
 import json
 import re
 
+'''
+ This script will not work until $TOKEN_FILE_PATH
+ is replaced with an actual path.
+'''
 token_file = "$TOKEN_FILE_PATH"
 
 file_id = "2f97081c-7e84-4a93-91a8-fee860769f8e"

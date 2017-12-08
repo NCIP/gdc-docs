@@ -1,12 +1,14 @@
 # Using Python to Query the GDC API
 
-Python can be a versatile tool for retrieving information from the GDC API and performing downstream processing. This guide details some examples that demonstrate the basic methods for querying the API using Python. The examples in this guide will use the [requests](http://docs.python-requests.org/en/master/) Python library and should be compatible with Python3.
+Python can be a versatile tool for retrieving information from the GDC API and performing downstream processing. This page details some examples that demonstrate the basic methods for querying the API using Python. The examples in this guide will use the [requests](http://docs.python-requests.org/en/master/) Python library and should be compatible with Python3.
 
 ## Querying Metadata
 
+Python can be used with the GDC API to retrieve the metadata that is indexed in the GDC Database. See the [Search and Retrieval](Search_and_Retrieval.md) section of the API documentation for specific details about parameters and usage.
+
 ### A Basic Query
 
-This example passes some basic parameters (fields, format, size) to the `cases` endpoint and prints the results. Note that the `fields` parameter needs to be a string comprising comma-delimited field names.  
+This example passes some basic parameters (fields, format, size) to the `cases` endpoint and prints the results in a tab-delimited format. Note that the `fields` parameter needs to be a string comprising comma-delimited field names.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -17,7 +19,7 @@ import json
 
 cases_endpt = 'https://api.gdc.cancer.gov/cases'
 
-# The fields parameter is passed as a comma-separated string of single names
+# The 'fields' parameter is passed as a comma-separated string of single names.
 fields = [
     "submitter_id",
     "case_id",
@@ -42,7 +44,7 @@ print(response.content)
 
 ### A Filtered Query
 
-In the next example, a `filters` parameter is added to the query. This parameter is passed as a Python dictionary object. The filter used in this example will only show cases that come from a patient with kidney disease (`primary_site: Kidney`).
+In the next example, a `filters` parameter is added to the script. This parameter is passed as a Python dictionary object. The filter used in this example will only display cases that come from a kidney disease study (`primary_site: Kidney`).
 
 ```TXT
 Choose the Python tab to view script.
@@ -89,7 +91,7 @@ print(response.content)
 
 ### Complex Filters
 
-The following example utilizes the `and` operator in the filter to returns information about RNA-Seq BAM files that originate from lung cancer patients. Note that these three filters are nested within a list in the highest level `content` key.  
+The following example uses the `and` operator in the filter to returns information about files that 1) come from RNA-Seq, 2) downloadable in BAM format, and 3) originate from lung cancer patients. Note that these three filters are nested within a list in the highest level `content` key.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -156,11 +158,11 @@ print(response.content.decode("utf-8"))
 
 ## Downloading Files
 
-GDC files can also be downloaded from the API using Python scripts.
+GDC files can also be downloaded from the API and saved locally using Python scripts. See the [File Download](Downloading_Files.md) section of the API documentation for more information.  
 
 ### A Simple Download Request
 
-Here an open-access file is downloaded from the GDC using the file UUID.  
+Here an open-access GDC file is downloaded by appending the file UUID to the `data` endpoint URL.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -176,6 +178,7 @@ data_endpt = "https://api.gdc.cancer.gov/data/{}".format(file_id)
 
 response = requests.get(data_endpt, headers = {"Content-Type": "application/json"})
 
+# The file name can be found in the header within the Content-Disposition key.
 response_head_cd = response.headers["Content-Disposition"]
 
 file_name = re.findall("filename=(.+)", response_head_cd)[0]
@@ -195,26 +198,30 @@ Choose the Python tab to view script.
 ```Python
 import requests
 import json
-import re
 
+'''
+ This script will not work until $TOKEN_FILE_PATH
+ is replaced with an actual path.
+'''
 token_file = "$TOKEN_FILE_PATH"
 
-file_id = "2f97081c-7e84-4a93-91a8-fee860769f8e"
+file_id = "11443f3c-9b8b-4e47-b5b7-529468fec098"
 
-data_endpt = "https://api.gdc.cancer.gov/data/{}".format(file_id)
+data_endpt = "https://api.gdc.cancer.gov/slicing/view/{}".format(file_id)
 
-with open(token_file, "r") as token:
+with open(token_file,"r") as token:
     token_string = str(token.read().strip())
 
-response = requests.get(data_endpt,
+params = {"gencode": ["BRCA1", "BRCA2"]}
+
+response = requests.post(data_endpt,
+                        data = json.dumps(params),
                         headers = {
                             "Content-Type": "application/json",
                             "X-Auth-Token": token_string
                             })
 
-response_head_cd = response.headers["Content-Disposition"]
-
-file_name = re.findall("filename=(.+)", response_head_cd)[0]
+file_name = "brca_slices.bam"
 
 with open(file_name, "wb") as output_file:
     output_file.write(response.content)
@@ -223,7 +230,7 @@ with open(file_name, "wb") as output_file:
 
 ### Post Request to Download Multiple Files  
 
-This example uses a Python list to specify a set of file UUIDs.  Note that the list in the example was populated manually but could potentially be populated from an external list.  
+This example uses a Python list to specify a set of file UUIDs. The list in the example was populated manually but could potentially be populated programmatically from an external list or API call.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -339,7 +346,7 @@ with open(file_name, "wb") as output_file:
 
 ### BAM Slicing
 
-The BAM slicing feature can also be accessed through Python.  Below is an example of a basic BAM slicing command.  
+The [BAM Slicing](BAM_Slicing.md) feature can also be accessed through Python.  Below is an example of a basic BAM slicing command.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -348,6 +355,10 @@ Choose the Python tab to view script.
 import requests
 import json
 
+'''
+ This script will not work until $TOKEN_FILE_PATH
+ is replaced with an actual path.
+'''
 token_file = "$TOKEN_FILE_PATH"
 
 file_id = "11443f3c-9b8b-4e47-b5b7-529468fec098"
@@ -357,7 +368,7 @@ data_endpt = "https://api.gdc.cancer.gov/slicing/view/{}".format(file_id)
 with open(token_file,"r") as token:
     token_string = str(token.read().strip())
 
-params = {"gencode": ["BRCA1","BRCA2"]}
+params = {"gencode": ["BRCA1", "BRCA2"]}
 
 response = requests.post(data_endpt,
                         data = json.dumps(params),
@@ -373,7 +384,7 @@ with open(file_name, "wb") as output_file:
 ```
 [Download Script](scripts/BAM_Slice.py)
 
-An additional usage of this feature would be the retrieval of the same feature across multiple BAM files.
+The retrieval of the same region(s) across multiple BAM files can be performed using a for-loop within a Python script.
 
 ```TXT
 Choose the Python tab to view script.
@@ -382,6 +393,10 @@ Choose the Python tab to view script.
 import requests
 import json
 
+'''
+ This script will not work until $TOKEN_FILE_PATH
+ is replaced with an actual path.
+'''
 token_file = "$TOKEN_FILE_PATH"
 
 file_ids = [
@@ -421,7 +436,7 @@ The following script should produce an unformatted JSON string with information 
 
 ```Python
 import requests
-status_endpt = 'https://api.gdc.cancer.gov/status'
+status_endpt = "https://api.gdc.cancer.gov/status"
 response = requests.get(status_endpt)
 print(response.content)
 ```

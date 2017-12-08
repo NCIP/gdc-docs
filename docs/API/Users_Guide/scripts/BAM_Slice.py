@@ -1,6 +1,10 @@
 import requests
 import json
 
+'''
+ This script will not work until $TOKEN_FILE_PATH
+ is replaced with an actual path.
+'''
 token_file = "$TOKEN_FILE_PATH"
 
 file_id = "11443f3c-9b8b-4e47-b5b7-529468fec098"
@@ -10,7 +14,7 @@ data_endpt = "https://api.gdc.cancer.gov/slicing/view/{}".format(file_id)
 with open(token_file,"r") as token:
     token_string = str(token.read().strip())
 
-params = {"gencode": ["BRCA1","BRCA2"]}
+params = {"gencode": ["BRCA1", "BRCA2"]}
 
 response = requests.post(data_endpt,
                         data = json.dumps(params),

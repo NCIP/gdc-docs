@@ -1,6 +1,10 @@
 import requests
 import json
 
+'''
+ This script will not work until $TOKEN_FILE_PATH
+ is replaced with an actual path.
+'''
 token_file = "$TOKEN_FILE_PATH"
 
 file_ids = [
