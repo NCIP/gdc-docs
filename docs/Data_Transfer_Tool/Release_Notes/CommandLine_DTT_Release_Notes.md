@@ -6,7 +6,7 @@
 
 
 ### New Features and Changes
-* This is the first release for the Data Transfer Tool User Interface.  It allows users to download controlled access data using a simplified point and click interface.  Important updates compared to the Command Line version include:
+* This is the first release for the Data Transfer Tool User Interface.  It allows users to download controlled access data using a simplified point and click interface.  This is a beta release and we welcome feedback on the user experience.  Important updates compared to the Command Line version include:
   * Upload and store authentication token between sessions
   * Easily view progress on a download manifest as the files are completed
   * View download history
