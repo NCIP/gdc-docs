@@ -1,8 +1,49 @@
 # Data Portal Release Notes
 
+## Release 1.10.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: November 16, 2017
+
+### New Features and Changes <!--REQ-322-->
+
+* Support for uploading Case and Mutation sets in Exploration page <!--PRTL-1452, PRTL-1453-->
+* Support for saving, editing, removing Case, Gene and Mutation sets in the Exploration page <!--PRTL-1472,PRTL-1464, PRTL-1473, PRTL-1468, PRTL-1465, PRTL-1470,PRTL-1469, PRTL-1466, PRTL-1471-->
+* Added a Managed Sets menu where the user can see their saved sets <!--PRTL-1597-->
+* Added an Analysis menu with two analyses: Set Operation and Cohort Comparison <!--PRTL-1599, PRTL-1600-->
+* Added a User Profile page that shows all the projects and permissions assigned to the user: available in the username dropdown after the user logs in <!--PRTL-1458-->
+
+### Bugs Fixed Since Last Release
+
+*  Project page
+    *  On the project page, the Summary Case Count link should open the case tab on the Repository page - instead it opens the file page <!--PRTL-1591-->
+
+### Known Issues and Workarounds
+
+*  Custom facet filters
+    * Definitions are missing from the property list when adding custom facet file or case filters <!--SV-916-->
+    * Selecting 'Only show fields with values' will show some fields without values in the Repository section.  This works correctly under the Exploration section. <!--SV-917-->
+*  Visualizations
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+    *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
+*  Entity page
+    *  On the mutation entity page, in the Consequences Table, the "Coding DNA Change" column is not populated for rows that do not correspond to the canonical mutation. <!-- SV-751 -->
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only.
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
 ## Release 1.9.0
 
 * __GDC Product__: GDC Data Portal
+
 * __Release Date__: October 24, 2017
 
 ### New Features and Changes <!--REQ-317-->

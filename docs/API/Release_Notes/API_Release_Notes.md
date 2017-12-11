@@ -1,5 +1,25 @@
 # API Release Notes
 
+## v1.11.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: November 16, 2017
+
+### New Features and Changes
+
+* Added support for histogram aggregation for numeric fields <!--API-355-->
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
+
+
 ## v1.10.0
 
 * __GDC Product__: Application Programming Interface (API)
