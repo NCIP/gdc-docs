@@ -8,7 +8,7 @@
 1. New TARGET files for all projects <!--DAT-1135-->
 2. TARGET updates for clinical and biospecimen data <!--DAT-1125, DAT-1153-->
 3. Replace corrupted .bai files. <!--TT-109-->
-4. Update TCGA and TARGET MAF files to include all_effects and VarScan2 indels. <!--DAT-987-->
+4. Update TCGA and TARGET MAF files to include VarScan2 indels and more information in all_effects column. <!--DAT-987-->
 5. Update VarScan VCF files <!--DAT-1020-->
 
 Updated files for this release are listed [here](DR10.0_files_swap.txt.gz).
