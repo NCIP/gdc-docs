@@ -1,4 +1,4 @@
-#Data Downloads and Uploads
+#Data Downloads and Uploads from the command line.
 
 ## Downloads
 
