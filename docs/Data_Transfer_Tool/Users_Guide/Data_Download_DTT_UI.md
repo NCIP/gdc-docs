@@ -73,3 +73,5 @@ The Data Transfer Tool UI application has advanced features like concurrent down
 | Calculate Inbound Segment and check Md5sum on Restart: Default (On) | Verify previous partial downloaded files via segment check sum |
 | Calculates check sums on previous downloaded files Default (On) | Verify downloaded files via file level check sum |
 | Save Logs: - Download Navigation windows for client downloads | Export download or token log files via drop down and export log button |
+| Debug Logging: Default (Off) | Enable debug level logging for file downloads |
+| Block Size (Bytes): Default (1048576) | HTTP chunk size transfers |
