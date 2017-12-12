@@ -62,4 +62,7 @@ The token manager will verify access and display the projects the token has been
 
 ##Settings and Advanced Settings
 
-The Data Transfer Tool UI has advanced logging and retry functions.   
+The Data Transfer Tool UI has advanced logging and retry functions.  
+The list of features on the Settings page is as follows:
+
+ 
