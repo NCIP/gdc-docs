@@ -66,8 +66,9 @@ The Data Transfer Tool UI application has advanced features like concurrent down
 
 ![DTT Settings and Advanced Settings Page](images/DTT_Settings_Page.png)   
 
-Features:
-Number of Client Connections: Default (3)
+| Features | Details
+|----------|---------|
+| Number of Client Connections: | Default (3) |
 Destination Folder: Default (Users Home Directory)  
 Calculate Inbound Segment and check Md5sum on Restart: Default (on)
 Calculates check sums on previous downloaded files on  
