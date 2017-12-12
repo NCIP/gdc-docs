@@ -75,4 +75,7 @@ The Data Transfer Tool UI application has advanced features like concurrent down
 | Save Logs: - Download Navigation windows for client downloads | Export download or token log files via drop down and export log button |
 | Debug Logging: Default (Off) | Enable debug level logging for file downloads |
 | Block Size (Bytes): Default (1048576) | HTTP chunk size transfers |
-| Save Interval (Bytes): Default (1000000) | save interval in bytes | 
+| Save Interval (Bytes): Default (1000000) | save interval in bytes |
+| Auto Retry: Default (On) | Enables auto retries of failed downloads |
+| Retry(s): Default (5) | Number of retry attempts to download a file after failure |
+| Seconds between Retrys: Default (5) | Number of seconds between retires |  
