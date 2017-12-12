@@ -62,7 +62,22 @@ The token manager will verify access and display the projects the token has been
 
 ##Settings and Advanced Settings
 
-The Data Transfer Tool UI has advanced logging and retry functions.  
-The list of features on the Settings page is as follows:
+The Data Transfer Tool UI application has advanced features like concurrent download streams and a client selectable download navigation function.  
 
- 
+![DTT Settings and Advanced Settings Page](images/DTT_Settings_Page.png)   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The list of features on the Settings page is as follows:
