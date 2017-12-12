@@ -68,25 +68,8 @@ The Data Transfer Tool UI application has advanced features like concurrent down
 
 | Features | Details
 |----------|---------|
-| Number of Client Connections: | Default (3) |
-Destination Folder: Default (Users Home Directory)  
-Calculate Inbound Segment and check Md5sum on Restart: Default (on)
-Calculates check sums on previous downloaded files on  
-Save Logs: - Download Navigation windows for client downloads
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The list of features on the Settings page is as follows:
+| Number of Client Connections: Default (3) | Number of concurrent client threads |
+| Destination Folder: Default (Users Home Directory) | User selectable download file location |  
+| Calculate Inbound Segment and check Md5sum on Restart: Default (On) | Verify previous partial downloaded files via segment check sum |
+| Calculates check sums on previous downloaded files Default (On) | Verify downloaded files via file level check sum |
+| Save Logs: - Download Navigation windows for client downloads | Export download or token log files via drop down and export log button |
