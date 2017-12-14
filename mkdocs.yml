@@ -66,7 +66,7 @@ pages:
   - Getting Started: Data_Transfer_Tool/Users_Guide/Getting_Started.md
   - Accessing Built-in Help: Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md
   - Preparing for Data Download and Upload: Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md
-  - Data Download and Upload - Comamand Line: Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md
+  - Data Download and Upload - Command Line: Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md
   - Data Download and Upload - UI: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
   - Key Terms: Data_Transfer_Tool/Users_Guide/Appendix_A_-_Key_Terms.md
   - Release Notes - Command Line: Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md
