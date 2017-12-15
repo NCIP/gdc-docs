@@ -9,10 +9,11 @@
 
 * Update UI to support SIFT and Polyphen annotations as well as annotations on all transcripts <!--PRTL-1404-->
 * A `Sample Sheet` can now be created which allows easy association between file names and the case and sample submitter_id <!--PRTL-1872-->
-* Updated Advanced Search page to include options to `Add All Files to Cart`, `Download Manifest`, and `View X Cases in Exploration`
+* Updated Advanced Search page to include options to `Add All Files to Cart`, `Download Manifest`, and `View X Cases in Exploration` <!--PRTL-1796-->
 * Provide clear message rather than blank screen if survival plots cannot be calculated for particular cohort comparison <!--PRTL-1842-->
 * Display sample_type on associated entities section on file page <!--PRTL-1890-->
 * Allows for special characters in case, gene, and mutation set upload (`-, :, >, .`) <!--PRTL-1847-->
+
 
 ### Bugs Fixed Since Last Release
 
@@ -20,12 +21,14 @@
 *  Fixed number of annotations displayed in Legacy Archive for particular entities <!--LGCY-74-->
 *  Replaced missing bars to indicate proportion of applicable files and cases on project entity page in Cases and File Counts by Data Category table <!--PRTL-1725-->
 *  Fixed project page display when projects are selected that contain no mutation data in the facet panel <!--PRTL-1754-->
+*  Fixed error where exporting case sets as TSV included fewer cases than the total <!--PRTL-1888-->
+*  Fixed error in exploration section when adding custom facets.  Previously selecting 'Only show fields with values' did not result in the expected behavior <!--PRTL-1901-->
+*  Fixed error where number of associated entities for a file was showing an incorrect number <!--PRTL-1891-->
 
 ### Known Issues and Workarounds
 
 *  Custom facet filters
     * Definitions are missing from the property list when adding custom facet file or case filters <!--SV-916-->
-    * Selecting 'Only show fields with values' will show some fields without values in the Repository section.  This works correctly under the Exploration section. <!--SV-917-->
 *  Visualizations
     *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
     *  In the protein viewer there may be overlapping mutations.  In this case mousing over a point will just show a single mutation and the other mutations at this location will not be apparent.  <!--SV-750-->
