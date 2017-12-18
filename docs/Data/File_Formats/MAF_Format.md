@@ -96,7 +96,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 43 - n_depth | Read depth across this locus in normal BAM |
 | 44 - n_ref_count | Read depth supporting the reference allele in normal BAM (cleared in somatic MAF) |
 | 45 - n_alt_count | Read depth supporting the variant allele in normal BAM (cleared in somatic MAF) |
-| 46 - all_effects | A semicolon delimited list of all possible variant effects, sorted by priority ([SYMBOL,Consequence,HGVSp_Short,Transcript_ID,RefSeq]) |
+| 46 - all_effects | A semicolon delimited list of all possible variant effects, sorted by priority ([Symbol,Consequence,HGVSp_Short,Transcript_ID,RefSeq,HGVSc,Impact,Canonical,Sift,PolyPhen,Strand]) |
 |47 - Allele| The variant allele used to calculate the consequence |
 |48 - Gene|Stable Ensembl ID of affected gene |
 |49 - Feature|Stable Ensembl ID of feature (transcript, regulatory, motif) |
