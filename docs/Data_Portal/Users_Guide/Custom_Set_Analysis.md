@@ -2,7 +2,7 @@
 
 In addition to the [Exploration page](Exploration.md), the GDC Data Portal also has features used to save and compare sets of cases, genes, and mutations. These sets can either be generated with existing filters (e.g. males with lung cancer) or through custom selection (e.g. a user-generated list of case IDs).
 
-Note that saving a set only saves the type of entity included in the set. For example, a saved case set will not include filters that were applied to genes or mutations.
+Note that saving a set only saves the type of entity included in the set. For example, a saved case set will not include filters that were applied to genes or mutations. Please be aware that your custom sets are deleted during each new GDC data release. You can export them and re-upload them in the "Manage Sets" link at the top right of the Portal.
 
 ## Generating a Cohort for Analysis
 
