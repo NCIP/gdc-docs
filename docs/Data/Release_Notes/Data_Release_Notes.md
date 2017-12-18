@@ -1,7 +1,7 @@
 ## Data Release 10.0 <!--REQ-318-->
 
 * __GDC Product__: Data
-* __Release Date__: December, 2017
+* __Release Date__: December 21, 2017
 
 ### New updates
 
