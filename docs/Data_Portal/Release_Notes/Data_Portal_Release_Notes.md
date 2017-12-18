@@ -7,7 +7,7 @@
 
 ### New Features and Changes <!--REQ-322-->
 
-* Update UI to support SIFT and Polyphen annotations as well as annotations on all transcripts <!--PRTL-1404-->
+* Updated UI to support SIFT and Polyphen annotations as well as annotations on all transcripts <!--PRTL-1404-->
 * A `Sample Sheet` can now be created which allows easy association between file names and the case and sample submitter_id <!--PRTL-1872-->
 * Updated Advanced Search page to include options to `Add All Files to Cart`, `Download Manifest`, and `View X Cases in Exploration` <!--PRTL-1796-->
 * Provide clear message rather than blank screen if survival plots cannot be calculated for particular cohort comparison <!--PRTL-1842-->

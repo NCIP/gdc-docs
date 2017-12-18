@@ -11,7 +11,7 @@
 
 ### Bugs Fixed Since Last Release
 
-* Fixed submit project button on submission portal, which did not work for projects with large numbers of nodes <!--API-344-->
+* Updated submit project button on submission portal to work more quickly for projects with large numbers of nodes <!--API-344-->
 
 ### Known Issues and Workarounds
 
