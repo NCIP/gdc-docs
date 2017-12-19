@@ -27,6 +27,7 @@
 
 ### Known Issues and Workarounds
 
+*  Sample sheet will download with a file name including the date duplicated (e.g. gdc_sample_sheet_YYYY-MM-DD_HH-MM.tsv.YYYY-MM-DD_HH-MM.tsv)<!--SV-942-->
 *  Custom facet filters
     * Definitions are missing from the property list when adding custom facet file or case filters <!--SV-916-->
 *  Visualizations

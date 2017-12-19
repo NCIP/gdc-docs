@@ -20,6 +20,12 @@ None
 
 ### Known Issues and Workarounds
 
+* There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+* There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+* TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+* Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+* Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+* Some TARGET files are not connected to all related aliquots <!--SV-929-->
 * miRNA alignments include QC failed reads.  
 * Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
 * FM-AD clinical and biospecimen supplement files have incorrect data format.  They are listed as XLSX, but are in fact TSV files. <!--DAT-1123-->
