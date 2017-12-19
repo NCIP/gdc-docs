@@ -44,6 +44,7 @@ The Cart Items table shows the list of all the files that were added to the Cart
 
 There are a few buttons on the Cart page that allow users to download files.  The following download options are available:
 
+* __Sample Sheet__: Downloads a tab-separated file which contains the associated case/sample IDs and sample type for each file in the cart.
 * __Metadata__: GDC harmonized clinical, biospecimen, and file metadata associated with the files in the cart.
 * __Download Manifest__: Download a manifest file for use with the GDC Data Transfer Tool to download files.  A manifest file contains a list of the UUIDs that correspond to the files in the cart.
 * __Download Cart__: Download the files in the Cart directly through the browser. Users have to be cautious of the amount of data in the cart since this option will not optimize bandwidth and will not provide resume capabilities.
