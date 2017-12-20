@@ -86,11 +86,7 @@ Users can filter by:
     * COSMIC ID - COSM202522
     * List of any mutation UUIDs or DNA Change id's ('Mutation Set')
 * __Consequence Type__ - Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms
-* __Impact (VEP)__ - A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
-    * __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
-    * __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
-    * __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
-    * __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+* __Impact__ - A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html).
 * __Type__ - A general classification of the mutation
 * __Variant Caller__ - The variant caller used to identify the mutation
 * __COSMIC ID__ - The identifier of the gene or mutation maintained in COSMIC, the Catalogue Of Somatic Mutations In Cancer

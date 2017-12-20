@@ -56,11 +56,7 @@ A table is displayed below that lists information about each mutation including:
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
 * __# Affected Cases in Gene:__ The number of affected cases, expressed as number across all mutations within the Gene
 * __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project
-* __Impact (VEP):__ A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
-  - __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
-  - __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
-  - __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
-  - __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+* __Impact:__ A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html).
 
 *Note: The Mutation UUID can be displayed in this table by selecting it from the drop-down represented by three parallel lines*
 
@@ -79,11 +75,7 @@ Clicking the `Open in Exploration` button will navigate the user to the Explorat
   - __Type:__ A broad categorization of the mutation
   - __Reference Genome Assembly:__ The reference genome in which the chromosomal position refers to
   - __Allele in the Reference Assembly:__ The nucleotide(s) that compose the site in the reference assembly
-  - __Functional Impact (VEP):__ A subjective classification of the severity of the variant consequence. The categories are:
-    - __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
-    - __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
-    - __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
-    - __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+  - __Functional Impact:__ A subjective classification of the severity of the variant consequence.
 
 #### External References
 
