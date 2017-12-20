@@ -190,7 +190,7 @@ with open(file_name, "wb") as output_file:
 
 ### Passing a Token to Download a Controlled-Access File
 
-Here a token is passed to the script by specifying a plain text file that contains only the GDC token.  A token can be downloaded by logging into the GDC Data Portal. See the [Data Security](../../Data/Data_Security.md) documentation for more details.  
+Here a token is passed to the script by specifying a plain text file that contains only the GDC token.  A token can be downloaded by logging into the GDC Data Portal. See the [Data Security](../../../Data/Data_Security/Data_Security) documentation for more details.  
 
 ```TXT
 Choose the Python tab to view script.

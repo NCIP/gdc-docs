@@ -56,7 +56,7 @@ A table is displayed below that lists information about each mutation including:
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
 * __# Affected Cases in Gene:__ The number of affected cases, expressed as number across all mutations within the Gene
 * __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project
-* __Impact:__ A subjective classification of the severity of the variant consequence. This determined using [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html), [PolyPhen](http://genetics.bwh.harvard.edu/pph/), and [SIFT](http://sift.jcvi.org/). The categories are outlined [here](Mutation_Effects.md)
+* __Impact:__ A subjective classification of the severity of the variant consequence. This determined using [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html), [PolyPhen](http://genetics.bwh.harvard.edu/pph/), and [SIFT](http://sift.jcvi.org/). The categories are outlined [here](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Projects/Mutation_Effects/)
 
 *Note: The Mutation UUID can be displayed in this table by selecting it from the drop-down represented by three parallel lines*
 
