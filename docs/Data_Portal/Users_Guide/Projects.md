@@ -19,7 +19,7 @@ The right side of this page displays a few visualizations of the data (Top Mutat
 
 #### Top Mutated Cancer Genes in Selected Projects
 
-This dynamically generated bar graph shows the 20 genes with the most mutations across all projects. The genes are filtered by those that are part of the Cancer Gene Census and that have the following types of mutations: `missense_variant, frameshift_variant, start_lost, stop_lost, initiator_codon_variant, and stop_gained`. The bars represent the frequency of each mutation and is broken down into different colored segments by project and disease type. The graphic is updated as filters are applied for projects, programs, disease types, and data categories available in the project. Note, that due the these filters the number of cases displayed here will be less that the total number of cases per project. 
+This dynamically generated bar graph shows the 20 genes with the most mutations across all projects. The genes are filtered by those that are part of the Cancer Gene Census and that have the following types of mutations: `missense_variant, frameshift_variant, start_lost, stop_lost, initiator_codon_variant, and stop_gained`. The bars represent the frequency of each mutation and is broken down into different colored segments by project and disease type. The graphic is updated as filters are applied for projects, programs, disease types, and data categories available in the project. Note, that due the these filters the number of cases displayed here will be less that the total number of cases per project.
 
 Hovering the cursor over each bar will display information about the number of cases affected by the disease type and clicking on each bar will launch the Gene Summary Page page for the gene associated with the mutation.
 
@@ -146,11 +146,7 @@ A table is displayed below that lists information about each mutation:
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript).  A link to the Gene Summary Page for the gene affected by the mutation is included
 * __# Affected Cases in Project:__ The number of affected cases in the project expressed as a fraction and percentage
 * __# Affected Cases in Across the GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will display a breakdown of each affected project
-* __Impact (VEP):__ A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
-    * __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function, or triggering nonsense mediated decay
-    * __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
-    * __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
-    * __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+* __Impact:__ A subjective classification of the severity of the variant consequence. This determined using [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html), [PolyPhen](http://genetics.bwh.harvard.edu/pph/), and [SIFT](http://sift.jcvi.org/). The categories are outlined [here](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Projects/Mutation_Effects/)
 * __Survival Analysis:__ An icon that when clicked, will plot the survival rate between the gene's mutated and non-mutated cases
 
 ### Most Affected Cases
