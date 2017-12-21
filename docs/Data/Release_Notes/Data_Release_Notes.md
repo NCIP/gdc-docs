@@ -12,7 +12,7 @@
 5. Update VarScan VCF files <!--DAT-1020-->
 
 Updated files for this release are listed [here](DR10.0_files_swap.txt.gz).
-A complete list of files for DR9.0 are listed [here](gdc_manifest_20171024_data_release_10.0_active.txt.gz).
+A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20171221_data_release_10.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20171221_data_release_10.0_legacy.txt.gz).
 
 ### Bugs Fixed Since Last Release
 
@@ -20,7 +20,8 @@ None
 
 ### Known Issues and Workarounds
 
-* The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` do not contain indels.  However, the indels are found in the MAF files and are displayed in the Exploration section in the Data Portal.  These VCFs files will be replaced in a later release. <!--SV-950-->
+* The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` were not replaced in DR10.0 and thus do not contain indels.  However, the indels from this aliquot can be found in the MAF files and are displayed in the Exploration section in the Data Portal.  These VCFs files will be replaced in a later release.
+<!--SV-950-->
 * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
 * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
 * TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
