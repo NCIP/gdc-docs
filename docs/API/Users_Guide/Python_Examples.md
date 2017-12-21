@@ -1,10 +1,10 @@
 # Using Python to Query the GDC API
 
-Python can be a versatile tool for retrieving information from the GDC API and performing downstream processing. This page details some examples that demonstrate the basic methods for querying the API using Python. The examples in this guide will use the [requests](http://docs.python-requests.org/en/master/) Python library and should be compatible with Python3.
+Python can be a versatile tool for retrieving information from the GDC API and performing downstream processing. This page details some examples that demonstrate the basic API queries using Python. The examples in this guide will use the [requests](http://docs.python-requests.org/en/master/) Python library and should be compatible with Python3.
 
 ## Querying Metadata
 
-Python can be used with the GDC API to retrieve the metadata that is indexed in the GDC Database. See the [Search and Retrieval](Search_and_Retrieval.md) section of the API documentation for specific details about parameters and usage.
+Python can be used with the GDC API to retrieve metadata that is indexed in the GDC Database. See the [Search and Retrieval](Search_and_Retrieval.md) section of the API documentation for specific details about parameters and usage.
 
 ### A Basic Query
 
@@ -91,7 +91,7 @@ print(response.content)
 
 ### Complex Filters
 
-The following example uses the `and` operator in the filter to returns information about files that 1) come from RNA-Seq, 2) downloadable in BAM format, and 3) originate from lung cancer patients. Note that these three filters are nested within a list in the highest level `content` key.  
+The following example uses the `and` operator in the filter to returns information about files that 1) were produced using RNA-Seq, 2) are downloadable in BAM format, and 3) originate from lung cancer patients. Note that these three filters are nested within a list in the highest level `content` key.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -162,7 +162,7 @@ GDC files can also be downloaded from the API and saved locally using Python scr
 
 ### A Simple Download Request
 
-Here an open-access GDC file is downloaded by appending the file UUID to the `data` endpoint URL.  
+An open-access GDC file can be downloaded by appending the file UUID to the `data` endpoint URL.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -190,7 +190,7 @@ with open(file_name, "wb") as output_file:
 
 ### Passing a Token to Download a Controlled-Access File
 
-Here a token is passed to the script by specifying a plain text file that contains only the GDC token.  A token can be downloaded by logging into the GDC Data Portal. See the [Data Security](../../../Data/Data_Security/Data_Security) documentation for more details.  
+A token can be passed to the script by specifying a plain text file that contains only the GDC token. A token can be downloaded by logging into the GDC Data Portal. See the [Data Security](../../../Data/Data_Security/Data_Security) documentation for more details.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -266,7 +266,7 @@ with open(file_name, "wb") as output_file:
 
 ### Downloading a Set of Files Based on a Filter
 
-Here files based on a set of filters are downloaded.  First file UUIDs are retrieved based on the filters.  These UUIDs are then passed to the `data` endpoint to download the correct files.   
+Here a list of files based on a set of filters are downloaded.  File UUIDs are retrieved based on the filters. These UUIDs are then passed to the `data` endpoint to download the correct files.   
 
 ```TXT
 Choose the Python tab to view script.
@@ -346,7 +346,7 @@ with open(file_name, "wb") as output_file:
 
 ### BAM Slicing
 
-The [BAM Slicing](BAM_Slicing.md) feature can also be accessed through Python.  Below is an example of a basic BAM slicing command.  
+The GDC [BAM Slicing](BAM_Slicing.md) feature can also be accessed through Python. Below is an example of a basic BAM slicing command.  
 
 ```TXT
 Choose the Python tab to view script.
@@ -384,7 +384,7 @@ with open(file_name, "wb") as output_file:
 ```
 [Download Script](scripts/BAM_Slice.py)
 
-The retrieval of the same region(s) across multiple BAM files can be performed using a for-loop within a Python script.
+The same region(s) across multiple BAM files can be retrieved using a for-loop within a Python script.
 
 ```TXT
 Choose the Python tab to view script.
