@@ -1,3 +1,5 @@
+# Data Release Notes
+
 ## Data Release 10.0 <!--REQ-318-->
 
 * __GDC Product__: Data
@@ -123,13 +125,6 @@ None
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * Tumor grade property is not populated <!--SV-585-->
 * Progression_or_recurrence property is not populated <!--SV-584-->
-
-
-
-
-
-
-# Data Release Notes
 
 ## Data Release 8.0
 
