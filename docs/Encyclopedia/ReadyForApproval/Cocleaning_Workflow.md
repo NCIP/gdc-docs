@@ -2,7 +2,7 @@
 
 ## Description ##
 
-Cocleaning is the process in which Whole Exome Sequencing alignments are optimized by comparing paired tumor/normal samples. The WXS BAM files that are downloadable from the GDC Portal have been co-cleaned after alignment [1].  
+Cocleaning is the process in which Whole Exome Sequencing alignments are optimized by comparing paired tumor/normal samples. The WXS BAM files that are downloadable from the GDC Portal have been co-cleaned after alignment<sup>1</sup>.  
 
 ## Overview ##
 
@@ -12,7 +12,7 @@ The DNA-Seq alignment cocleaning workflow comprises two steps:
 
 ### Tools ###
 
-Both cocleaning steps are implemented using two functions of the Genome Analysis Toolkit (GATK): BaseRecalibrator and IndelRealigner [2].  
+Both cocleaning steps are implemented using two functions of the Genome Analysis Toolkit (GATK): BaseRecalibrator and IndelRealigner<sup>2</sup>.  
 
 ## References ##
 1. [GDC DNA-Seq Pipeline Documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/)
