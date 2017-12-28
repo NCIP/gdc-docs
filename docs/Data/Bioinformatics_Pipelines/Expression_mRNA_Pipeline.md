@@ -1,8 +1,7 @@
 # mRNA Analysis Pipeline
 
 ## Introduction
-The GDC mRNA quantification analysis pipeline measures gene level expression in [HT-Seq](http://www-huber.embl.de/HTSeq/doc/overview.html) raw mapping count, Fragments per Kilobase of transcript per Million mapped reads (FPKM) and FPKM-UQ (upper quartile normalization).  These values are generated through this pipeline by first aligning reads to the GRCh38 [reference genome](https://gdc.cancer.gov/download-gdc-reference-files) and then by quantifying the mapped reads. To facilitate harmonization across samples, all RNA-Seq reads are treated as unstranded during analyses.    
-
+The GDC mRNA quantification analysis pipeline measures gene level expression in [HT-Seq](http://www-huber.embl.de/HTSeq/doc/overview.html) raw read count, Fragments per Kilobase of transcript per Million mapped reads (FPKM), and FPKM-UQ (upper quartile normalization). These values are generated through this pipeline by first aligning reads to the GRCh38 [reference genome](https://gdc.cancer.gov/download-gdc-reference-files) and then by quantifying the mapped reads. To facilitate harmonization across samples, all RNA-Seq reads are treated as unstranded during analyses.    
 
 ## Data Processing Steps
 
@@ -124,7 +123,7 @@ STAR
 ### mRNA Expression Workflow
 Following alignment, BAM files are processed through the [RNA Expression Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=rna_expression_workflow).
 
-First the BAM files are filtered for reads that were aligned to protein-coding genes using the [samtools](http://samtools.sourceforge.net) view function. The reads mapped to each protein-coding gene are enumerated using HT-Seq count. Expression values are provided in a tab-delimited format. [GENCODE v22](http://www.gencodegenes.org/releases/22.html) was used for gene annotation.
+First the BAM files are filtered for aligned reads using the [samtools](http://samtools.sourceforge.net) view function. The reads mapped to each gene are enumerated using HT-Seq count. Expression values are provided in a tab-delimited format. [GENCODE v22](http://www.gencodegenes.org/releases/22.html) was used for gene annotation.
 
 [![Gene Expression Pipeline](images/gene-expression-quantification-pipeline.png)](images/gene-expression-quantification-pipeline.png "Click to see the full image.")
 
@@ -168,7 +167,7 @@ The upper quartile FPKM (FPKM-UQ) is a modified FPKM calculation in which the to
 - __RC<sub>g</sub>:__ Number of reads mapped to the gene
 - __RC<sub>pc</sub>:__ Number of reads mapped to all protein-coding genes
 - __RC<sub>g75</sub>:__ The 75th percentile read count value for genes in the sample
-- __L:__ Length of the gene in base pairs
+- __L:__ Length of the gene in base pairs; Calculated as the sum of all exons in a gene
 
 __Note:__ The read count is multiplied by a scalar (10<sup>9</sup>) during normalization to account for the kilobase and 'million mapped reads' units.
 
@@ -192,6 +191,6 @@ To facilitate the use of harmonized data in user-created pipelines, RNA-Seq gene
 | Type | Description | Format |
 |---|---|---|
 | RNA-Seq Alignment | RNA-Seq reads that have been aligned to the GRCh38 build. Reads that were not aligned are included to facilitate the availability of raw read sets  |  BAM |
-| Raw Read Counts | The number of reads aligned to each protein-coding gene, calculated by HT-Seq. |  TXT |
-| FPKM | A normalized expression value that takes into account each protein-coding gene length and the number of reads mappable to all protein-coding genes |  TXT |
+| Raw Read Counts | The number of reads aligned to each gene, calculated by HT-Seq |  TXT |
+| FPKM | A normalized expression value that takes into account each gene length and the number of reads mapped to all protein-coding genes |  TXT |
 | FPKM-UQ | A modified version of the FPKM formula in which the 75th percentile read count is used as the denominator in place of the total number of protein-coding reads |  TXT |

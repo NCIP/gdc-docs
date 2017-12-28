@@ -1419,23 +1419,24 @@ footer a:visited {
 }
 
 .loadingContainer {
-  width: 20rem;
-  height: 4rem;
   position: fixed;
-  left: 40%;
-  top: 61%;
-  margin-left: 5rem;
-  display: block;
-  z-index: 10000;
-  display: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: opacity 0.35s ease;
 }
 
 .spinParticleContainer {
-  position: fixed;
+  margin-right: 10px;
   width: 4rem;
   height: 4rem;
-  left: 40%;
-  top: 60%;
   display: block;
   -webkit-animation: Rotate 2.0s infinite linear;
   animation: Rotate 2.0s infinite linear;
@@ -1563,8 +1564,8 @@ footer a:visited {
   background-color: transparent;
   padding: 0rem 0rem;
   margin-bottom: 0rem;
-  margin-top: 0.5rem;
   position: relative;
+  height: 64px;
 }
 
 .gdc-app-list:hover {

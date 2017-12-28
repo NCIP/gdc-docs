@@ -1,5 +1,297 @@
 # Data Release Notes
 
+## Data Release 10.0 <!--REQ-318-->
+
+* __GDC Product__: Data
+* __Release Date__: December 21, 2017
+
+### New updates
+
+1. New TARGET files for all projects <!--DAT-1135-->
+2. TARGET updates for clinical and biospecimen data <!--DAT-1125, DAT-1153-->
+3. Replace corrupted .bai files <!--TT-109-->
+4. Update TCGA and TARGET MAF files to include VarScan2 indels and more information in all_effects column <!--DAT-987-->
+5. Update VarScan VCF files <!--DAT-1020-->
+
+Updated files for this release are listed [here](DR10.0_files_swap.txt.gz).
+A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20171221_data_release_10.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20171221_data_release_10.0_legacy.txt.gz).
+
+### Bugs Fixed Since Last Release
+
+None
+
+### Known Issues and Workarounds
+
+* The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` were not replaced in DR10.0 and thus do not contain indels.  However, the indels from this aliquot can be found in the MAF files and are displayed in the Exploration section in the Data Portal.  These VCFs files will be replaced in a later release.
+<!--SV-950-->
+* There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+* There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+* TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+* Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+* Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+* Some TARGET files are not connected to all related aliquots <!--SV-929-->
+* miRNA alignments include QC failed reads.  
+* Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+* FM-AD clinical and biospecimen supplement files have incorrect data format.  They are listed as XLSX, but are in fact TSV files. <!--DAT-1123-->
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+    *  All microarray data and metadata
+    *  All sequencing analyzed data and metadata
+    *  1180 of 12063 sequencing runs of raw data
+* Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+* There are 11 cases in project TCGA-DLBC that are known to have incorrect WXS data in the GDC Data Portal.  Impacted cases are listed below.  This affects the BAMs and VCFs associated with these cases in the GDC Data Portal.  Corrected BAMs can be found in the GDC Legacy Archive.  Variants from affected aliquots appear in the protected MAFs with GDC_FILTER=ContEst to indicate a sample contamination problem, but are removed during the generation of the Somatic MAF file.  In a later release we will supply corrected BAM, VCF, and MAF files for these cases.  In the mean time, we advise you not to use any of the WXS files associated with these cases in the GDC Data Portal.  A list of these files can be found here. [Download list of affected files](DLBC_Affected_Files.txt). <!-- Data-871-->
+    * TCGA-FF-8062
+    * TCGA-FM-8000
+    * TCGA-G8-6324
+    * TCGA-G8-6325
+    * TCGA-G8-6326
+    * TCGA-G8-6906
+    * TCGA-G8-6907
+    * TCGA-G8-6909
+    * TCGA-G8-6914
+    * TCGA-GR-7351
+    * TCGA-GR-7353
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MDLS is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+* SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* Tumor grade property is not populated <!--SV-585-->
+* Progression_or_recurrence property is not populated <!--SV-584-->
+
+
+
+
+
+
+
+## Data Release 9.0 <!--REQ-317-->
+
+* __GDC Product__: Data
+* __Release Date__: October 24, 2017
+
+### New updates
+
+1. Foundation Medicine Data Release
+* This includes controlled-access VCF and MAF files as well as clinical and biospecimen supplements and metadata.
+* Original Foundation Medicine supplied data can be found on the [Foundation Medicine Project Page](https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/foundation-medicine/foundation-medicine).
+2.  Updated RNA-Seq data for TARGET NBL  
+* Includes new BAM and count files
+
+Updated files for this release are listed [here](DR9.0_files_swap.txt.gz).
+A complete list of files for DR9.0 are listed [here](gdc_manifest_20171024_data_release_9.0_active.txt.gz).
+
+### Bugs Fixed Since Last Release
+
+None
+
+### Known Issues and Workarounds
+
+* miRNA alignments include QC failed reads.  
+* Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+* FM-AD clinical and biospecimen supplement files have incorrect data format.  They are listed as XLSX, but are in fact TSV files. <!--DAT-1123-->
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+    *  All microarray data and metadata
+    *  All sequencing analyzed data and metadata
+    *  1180 of 12063 sequencing runs of raw data
+* Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+* There are 11 cases in project TCGA-DLBC that are known to have incorrect WXS data in the GDC Data Portal.  Impacted cases are listed below.  This affects the BAMs and VCFs associated with these cases in the GDC Data Portal.  Corrected BAMs can be found in the GDC Legacy Archive.  Variants from affected aliquots appear in the protected MAFs with GDC_FILTER=ContEst to indicate a sample contamination problem, but are removed during the generation of the Somatic MAF file.  In a later release we will supply corrected BAM, VCF, and MAF files for these cases.  In the mean time, we advise you not to use any of the WXS files associated with these cases in the GDC Data Portal.  A list of these files can be found here. [Download list of affected files](DLBC_Affected_Files.txt). <!-- Data-871-->
+    * TCGA-FF-8062
+    * TCGA-FM-8000
+    * TCGA-G8-6324
+    * TCGA-G8-6325
+    * TCGA-G8-6326
+    * TCGA-G8-6906
+    * TCGA-G8-6907
+    * TCGA-G8-6909
+    * TCGA-G8-6914
+    * TCGA-GR-7351
+    * TCGA-GR-7353
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MDLS is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+* SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* Tumor grade property is not populated <!--SV-585-->
+* Progression_or_recurrence property is not populated <!--SV-584-->
+
+## Data Release 8.0
+
+* __GDC Product__: Data
+* __Release Date__: August 22, 2017
+
+### New updates
+
+1. Released updated miRNA quantification files to address double counting of some normalized counts described in DR7.0 release notes. <!--DAT-1, DAT-988-->
+
+Updated files for this release are listed [here](DR8.0_files_swap.txt).
+A Complete list of files for DR8.0 are listed [here](gdc_manifest_20170822_data_release_8.0_active.txt.gz).
+
+### Bugs Fixed Since Last Release
+
+None
+
+### Known Issues and Workarounds
+
+* TARGET-NBL RNA-Seq files were run as single ended even though they are derived from paired-end data.  These files will be rerun through the GDC RNA-Seq pipelines in a later release.  Impacted files can be found [here](https://portal.gdc.cancer.gov/repository?facetTab=files&files_offset=20&filters=~%28op~%27and~content~%28~%28op~%27in~content~%28field~%27cases.project.program.name~value~%28~%27TARGET%29%29%29~%28op~%27in~content~%28field~%27cases.project.project_id~value~%28~%27TARGET-NBL%29%29%29~%28op~%27in~content~%28field~%27files.data_format~value~%28~%27BAM%29%29%29~%28op~%27in~content~%28field~%27files.experimental_strategy~value~%28~%27RNA-Seq%29%29%29%29%29&searchTableTab=files).  Downstream count files are also affected.  Users may access original FASTQ files in the GDC Legacy Archive, which are not impacted by this issue.
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+    *  All microarray data and metadata
+    *  All sequencing analyzed data and metadata
+    *  1180 of 12063 sequencing runs of raw data
+* Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+* There are 11 cases in project TCGA-DLBC that are known to have incorrect WXS data in the GDC Data Portal.  Impacted cases are listed below.  This affects the BAMs and VCFs associated with these cases in the GDC Data Portal.  Corrected BAMs can be found in the GDC Legacy Archive.  Variants from affected aliquots appear in the protected MAFs with GDC_FILTER=ContEst to indicate a sample contamination problem, but are removed during the generation of the Somatic MAF file.  In a later release we will supply corrected BAM, VCF, and MAF files for these cases.  In the mean time, we advise you not to use any of the WXS files associated with these cases in the GDC Data Portal.  A list of these files can be found here. [Download list of affected files](DLBC_Affected_Files.txt). <!-- Data-871-->
+    * TCGA-FF-8062
+    * TCGA-FM-8000
+    * TCGA-G8-6324
+    * TCGA-G8-6325
+    * TCGA-G8-6326
+    * TCGA-G8-6906
+    * TCGA-G8-6907
+    * TCGA-G8-6909
+    * TCGA-G8-6914
+    * TCGA-GR-7351
+    * TCGA-GR-7353
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MDLS is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+* SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* Tumor grade property is not populated <!--SV-585-->
+* Progression_or_recurrence property is not populated <!--SV-584-->
+
+
+
+
+## Data Release 7.0
+
+* __GDC Product__: Data
+* __Release Date__: June 29, 2017
+
+### New updates
+
+1.  Updated public Mutation Annotation Format (MAF) files are now available. Updates include filtering to remove variants impacted by OxoG artifacts and those impacted by strand bias. <!--AP-29-->
+2.  Protected MAF files are updated to include flags for OxoG and strand bias. <!--AP-29-->
+2.  Annotated VCFs are updated to include flags for OxoG artifacts and strand bias. <!--DAT-874-->
+
+Updated files for this release are listed [here](DR7.0_files_swap.txt).
+A Complete list of files for DR7.0 are listed [here](gdc_manifest_20170629_data_release_7.0.txt.gz)
+
+### Bugs Fixed Since Last Release
+
+None
+
+### Known Issues and Workarounds
+
+* TARGET-NBL RNA-Seq files were run as single ended even though they are derived from paired-end data.  These files will be rerun through the GDC RNA-Seq pipelines in a later release.  Impacted files can be found [here](https://portal.gdc.cancer.gov/repository?facetTab=files&files_offset=20&filters=~%28op~%27and~content~%28~%28op~%27in~content~%28field~%27cases.project.program.name~value~%28~%27TARGET%29%29%29~%28op~%27in~content~%28field~%27cases.project.project_id~value~%28~%27TARGET-NBL%29%29%29~%28op~%27in~content~%28field~%27files.data_format~value~%28~%27BAM%29%29%29~%28op~%27in~content~%28field~%27files.experimental_strategy~value~%28~%27RNA-Seq%29%29%29%29%29&searchTableTab=files).  Downstream count files are also affected.  Users may access original FASTQ files in the GDC Legacy Archive, which are not impacted by this issue.
+* Reads that are mapped to multiple genomic locations are double counted in some of the GDC miRNA results.  The GDC will release updated files correcting the issue in an upcoming release.<!--SV-745-->  The specific impacts are described further below:
+    *  Isoform Expression Quantification files
+        *  Raw reads counts are accurate
+        *  Normalized counts are proportionally skewed (r^2=1.0)
+    *  miRNA Expression Quantification files
+        *  A small proportion of miRNA counts are overestimated (mean r^2=0.9999)
+        *  Normalized counts are proportionally skewed (mean r^2=0.9999)
+    * miRNA BAM files
+        * no impact
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+    *  All microarray data and metadata
+    *  All sequencing analyzed data and metadata
+    *  1180 of 12063 sequencing runs of raw data
+* Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+* There are 11 cases in project TCGA-DLBC that are known to have incorrect WXS data in the GDC Data Portal.  Impacted cases are listed below.  This affects the BAMs and VCFs associated with these cases in the GDC Data Portal.  Corrected BAMs can be found in the GDC Legacy Archive.  Variants from affected aliquots appear in the protected MAFs with GDC_FILTER=ContEst to indicate a sample contamination problem, but are removed during the generation of the Somatic MAF file.  In a later release we will supply corrected BAM, VCF, and MAF files for these cases.  In the mean time, we advise you not to use any of the WXS files associated with these cases in the GDC Data Portal.  A list of these files can be found here. [Download list of affected files](DLBC_Affected_Files.txt). <!-- Data-871-->
+    * TCGA-FF-8062
+    * TCGA-FM-8000
+    * TCGA-G8-6324
+    * TCGA-G8-6325
+    * TCGA-G8-6326
+    * TCGA-G8-6906
+    * TCGA-G8-6907
+    * TCGA-G8-6909
+    * TCGA-G8-6914
+    * TCGA-GR-7351
+    * TCGA-GR-7353
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MLDS is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+* SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* Tumor grade property is not populated <!--SV-585-->
+* Progression_or_recurrence property is not populated <!--SV-584-->
+
+
+
+
+## Data Release 6.0
+
+* __GDC Product__: Data
+* __Release Date__: May 9, 2017
+
+### New updates
+
+1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy, which results in more variants being recovered relative to the previous version. A detailed description of the new format can be found [here](../File_Formats/MAF_Format/). <!--DAT-572-->
+2.  Protected MAFs are updated to include additional variant annotation information <!--DAT-572-->
+3.  Some MuTect2 VCFs updated to include dbSNP and COSMIC annotations found in other VCFs <!--TT-21-->
+
+Updated files for this release are listed [here](DR6.0_files_swap.txt).
+
+### Bugs Fixed Since Last Release
+
+None
+
+### Known Issues and Workarounds
+
+* There are 11 cases in project TCGA-DLBC that are known to have incorrect WXS data in the GDC Data Portal.  Impacted cases are listed below.  This affects the BAMs and VCFs associated with these cases in the GDC Data Portal.  Corrected BAMs can be found in the GDC Legacy Archive.  Variants from affected aliquots appear in the protected MAFs with GDC_FILTER=ContEst to indicate a sample contamination problem, but are removed during the generation of the Somatic MAF file.  In a later release we will supply corrected BAM, VCF, and MAF files for these cases.  In the mean time, we advise you not to use any of the WXS files associated with these cases in the GDC Data Portal.  A list of these files can be found here. [Download list of affected files](DLBC_Affected_Files.txt). <!-- Data-871-->
+    * TCGA-FF-8062
+    * TCGA-FM-8000
+    * TCGA-G8-6324
+    * TCGA-G8-6325
+    * TCGA-G8-6326
+    * TCGA-G8-6906
+    * TCGA-G8-6907
+    * TCGA-G8-6909
+    * TCGA-G8-6914
+    * TCGA-GR-7351
+    * TCGA-GR-7353
+* Variants found in VCF and MAF files may contain OxoG artifacts, which are produced during library preparation and may result in the apparent substitutions of C to A or G to T in certain sequence contexts.  In the future we will plan to label potential oxoG artifacts in the MAF files.
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some validated somatic mutations may not be present in open-access MAF files.  Please review the protected MAF files in the GDC Data Portal if you are unable to find your mutation in the open-access files.
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MLDS is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+* SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* Tumor grade property is not populated <!--SV-585-->
+* Progression_or_recurrence property is not populated <!--SV-584-->
+
+
+Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_notes_manifest.txt)
+<br>
+
 ## Data Release 5.0
 
 * __GDC Product__: Data
@@ -8,6 +300,7 @@
 ### New updates
 
 1.  Additional annotations from TCGA DCC are available <!--DAT-52-->
+    * Complete list of updated TCGA files is found [here](DR5.0_CHANGES_TCGA.xlsx)
 2.  Clinical data added for TARGET ALL P1 and P2 <!--DAT-197-->
 3.  Pathology reports now have submitter IDs as assigned by the BCR <!--DAT-81-->
 4.  TARGET Data refresh
@@ -53,7 +346,7 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_no
 1.  TARGET ALL P1 and P2 biospecimen and molecular data are now available in the Legacy Archive.  Clinical data will be available in a later release. <!-- Dat-185, Dat-194-->
 2.  Methylation data from 27k/450k Arrays has been lifted over to hg38 and is now available in the GDC Data Portal <!-- Dat-109 -->
 3.  Public MAF files are now available for VarScan2, MuSE, and SomaticSniper.  MuTect2 MAFs were made available in a previous release. <!--DAT-235-->
-4.  Updated VCFs and MAF files are available for MuTect2 pipeline to compensate for WGA-related false positive indels.  See additional information on that change [here](https://gdc.cancer.gov/about-gdc/scientific-reports/known-mutect2-variant-artifacts). A listing of replaced files is provided [here](GDC_Data_v4_mapping_of_replaced_Mutect2_MAF_and_VCF_files.zip). <!-- Dat-145, Dat-260 -->
+4.  Updated VCFs and MAF files are available for MuTect2 pipeline to compensate for WGA-related false positive indels.  See additional information on that change [here](https://gdc.cancer.gov/content/mutect2-insertion-artifacts). A listing of replaced files is provided [here](GDC_Data_v4_mapping_of_replaced_Mutect2_MAF_and_VCF_files.zip). <!-- Dat-145, Dat-260 -->
 5.  Added submitter_id for Pathology Reports in Legacy Archive <!--DAT-81-->
 
 ### Bugs Fixed Since Last Release
@@ -189,36 +482,36 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_no
 Details are provided in [Data Release Manifest](Manifests/GDC_Data_v1_release_notes_manifest.txt)
 
 ### Download Open-access MAF files
-<a href="https://gdc-api.nci.nih.gov/data/abbe72a5-cb39-48e4-8df5-5fd2349f2bb2">TCGA.ACC.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/cb97ef6e-7a13-4d42-81b4-1510c00d6373">TCGA.BLCA.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/91ae5ca9-55c2-4c9c-929e-8638444dc7b5">TCGA.BRCA.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/fedc0e90-5070-41e4-993d-603b92f4ecfd">TCGA.CESC.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/f33fd38b-287c-4978-a1bb-a95bbfd4351a">TCGA.CHOL.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/bf1c53dc-79bb-43ae-88e4-23758853e5c6">TCGA.COAD.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/4835f959-6ab4-4ee8-901f-c92aaad4592d">TCGA.DLBC.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/150c6a9f-71cd-4710-9617-cd150498202e">TCGA.ESCA.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/4b176a7b-a5c3-457e-af95-992018b6f3d7">TCGA.GBM.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/64683606-b957-4478-a7d5-673de68b0341">TCGA.HNSC.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/a8dc2dd2-74b3-4035-9551-c0ae3f76293e">TCGA.KICH.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/0cf0f121-4f10-436e-bfc3-8fcfd5f78d0d">TCGA.KIRC.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/b1c13b93-7ad6-4d09-b613-84a7c55e61d9">TCGA.KIRP.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/bac5a617-5b1d-4c33-b9ac-b48bd7e4947a">TCGA.LAML.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/42ff7a98-5a9a-48ad-ad9d-d3a23c245296">TCGA.LGG.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/dc3f239a-ffc6-4e60-b5f5-9f365daaf60a">TCGA.LIHC.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/76b0eec4-bbb6-4340-972d-05a5aace63a4">TCGA.LUAD.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/846c4788-cda0-4f11-b240-a7ad977e032f">TCGA.LUSC.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/34a32349-bf87-4e96-86a5-ca23f0db475e">TCGA.MESO.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/bc5ee1aa-969d-472d-920b-0e654cc585fa">TCGA.OV.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/6f72cd49-6c0e-4409-8e94-26ea5d421bc8">TCGA.PAAD.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/e087cf64-b514-4e92-af9d-2b18341098d5">TCGA.PCPG.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/0d708001-437e-4b78-9ffa-bfafdfc10a28">TCGA.PRAD.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/221f1dec-b539-4345-b687-435659fc21af">TCGA.READ.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/84fad8c0-ac06-4181-92d9-0562392325ba">TCGA.SARC.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/4aee3e32-2802-4e1e-8577-d74b414f30f7">TCGA.SKCM.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/98d14107-5fb5-49bd-ac38-a52178838d6c">TCGA.STAD.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/c3155e81-df07-49c6-8502-ef6ebc60812e">TCGA.TGCT.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/3207f158-6f79-4636-81a1-ce1b30157925">TCGA.THCA.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/ea93d4df-5e76-484a-b7b8-93900ea1d61c">TCGA.THYM.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/a142d8b8-7741-4869-9ca4-0025890eee18">TCGA.UCEC.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/cfc3f9e4-ac0d-4133-b616-a7d2caf28e54">TCGA.UCS.mutect.somatic.maf.gz</a><br>
-<a href="https://gdc-api.nci.nih.gov/data/a96185ef-5b9b-4f0e-b437-f6a0f4f0892b">TCGA.UVM.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/abbe72a5-cb39-48e4-8df5-5fd2349f2bb2">TCGA.ACC.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/cb97ef6e-7a13-4d42-81b4-1510c00d6373">TCGA.BLCA.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/91ae5ca9-55c2-4c9c-929e-8638444dc7b5">TCGA.BRCA.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/fedc0e90-5070-41e4-993d-603b92f4ecfd">TCGA.CESC.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/f33fd38b-287c-4978-a1bb-a95bbfd4351a">TCGA.CHOL.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/bf1c53dc-79bb-43ae-88e4-23758853e5c6">TCGA.COAD.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/4835f959-6ab4-4ee8-901f-c92aaad4592d">TCGA.DLBC.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/150c6a9f-71cd-4710-9617-cd150498202e">TCGA.ESCA.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/4b176a7b-a5c3-457e-af95-992018b6f3d7">TCGA.GBM.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/64683606-b957-4478-a7d5-673de68b0341">TCGA.HNSC.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/a8dc2dd2-74b3-4035-9551-c0ae3f76293e">TCGA.KICH.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/0cf0f121-4f10-436e-bfc3-8fcfd5f78d0d">TCGA.KIRC.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/b1c13b93-7ad6-4d09-b613-84a7c55e61d9">TCGA.KIRP.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/bac5a617-5b1d-4c33-b9ac-b48bd7e4947a">TCGA.LAML.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/42ff7a98-5a9a-48ad-ad9d-d3a23c245296">TCGA.LGG.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/dc3f239a-ffc6-4e60-b5f5-9f365daaf60a">TCGA.LIHC.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/76b0eec4-bbb6-4340-972d-05a5aace63a4">TCGA.LUAD.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/846c4788-cda0-4f11-b240-a7ad977e032f">TCGA.LUSC.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/34a32349-bf87-4e96-86a5-ca23f0db475e">TCGA.MESO.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/bc5ee1aa-969d-472d-920b-0e654cc585fa">TCGA.OV.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/6f72cd49-6c0e-4409-8e94-26ea5d421bc8">TCGA.PAAD.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/e087cf64-b514-4e92-af9d-2b18341098d5">TCGA.PCPG.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/0d708001-437e-4b78-9ffa-bfafdfc10a28">TCGA.PRAD.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/221f1dec-b539-4345-b687-435659fc21af">TCGA.READ.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/84fad8c0-ac06-4181-92d9-0562392325ba">TCGA.SARC.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/4aee3e32-2802-4e1e-8577-d74b414f30f7">TCGA.SKCM.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/98d14107-5fb5-49bd-ac38-a52178838d6c">TCGA.STAD.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/c3155e81-df07-49c6-8502-ef6ebc60812e">TCGA.TGCT.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/3207f158-6f79-4636-81a1-ce1b30157925">TCGA.THCA.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/ea93d4df-5e76-484a-b7b8-93900ea1d61c">TCGA.THYM.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/a142d8b8-7741-4869-9ca4-0025890eee18">TCGA.UCEC.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/cfc3f9e4-ac0d-4133-b616-a7d2caf28e54">TCGA.UCS.mutect.somatic.maf.gz</a><br>
+<a href="https://api.gdc.cancer.gov/data/a96185ef-5b9b-4f0e-b437-f6a0f4f0892b">TCGA.UVM.mutect.somatic.maf.gz</a><br>

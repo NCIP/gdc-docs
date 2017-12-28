@@ -2,7 +2,7 @@
 
 ## Overview
 
-While browsing the GDC Data Portal, files can either be downloaded individually from [file detail pages](Cases_and_Files.md#file-detail-page) or collected in the file cart to be downloaded as a bundle.
+While browsing the GDC Data Portal, files can either be downloaded individually from [file detail pages](Repository.md#file-summary-page) or collected in the file cart to be downloaded as a bundle.  Clicking on the shopping cart icon that is next to any item in the GDC will add the item to your cart.
 
 ## GDC Cart
 
@@ -16,30 +16,37 @@ The cart page shows a summary of all files currently in the cart:
 * Number of cases associated with the files
 * Total file size
 
-The Cart page also displays two charts:
+The Cart page also displays two tables:
 
-* File count by project
-* File count by authorization level to those files: this number takes into account the user authorization to download a file upon his authentication to the GDC Data Portal.
+* __File count by project__: Breaks down the files and cases by each project
+* __File count by authorization level__: Breaks down the files in the cart by authorization level.  A user must be logged into the GDC in order to download 'Controlled-Access files'
 
-The charts can be converted to tables by clicking the table button in the top right corner of each chart.
+The cart also directs users how to download files in the cart.  For large data files, it is recommended that the GDC Data Transfer Tool be used.
 
-### Cart table
+### Cart Items
 
-The Cart table shows the list of all the files that were added to the Cart.
+[![Cart](images/gdc-cart-items.png)](images/gdc-cart-items.png "Click to see the full image.")
 
-The user can click on the links to get more information on each file, it will link to:
+The Cart Items table shows the list of all the files that were added to the Cart.  The table gives the folowing information for each file in the cart:
 
-* The file entity page
-* The case entity page
-* The project entity page
-
+* __Access__: Displays whether the file is open or controlled access.  Users must login to the GDC Portal and have the appropriate credentials to access these files.
+* __File Name__: Name of the file.  Clicking the link will bring the user to the file summary page.
+* __Cases__: How many cases does the file contain.  Clicking the link will bring the user to the case summary page.
+* __Project__: The Project that the file belongs to.  Clicking the link will bring the user to the Project summary page.
+* __Category__: Type of data
+* __Format__: The file format
+* __Size__: The size of the file
+* __Annotations__: Whether there are any annotations
 
 ## Download Options
 
-From the cart, the following download options are available:
+[![Cart](images/gdc-download-options.png)](images/gdc-download-options.png "Click to see the full image.")
 
+There are a few buttons on the Cart page that allow users to download files.  The following download options are available:
+
+* __Sample Sheet__: Downloads a tab-separated file which contains the associated case/sample IDs and sample type for each file in the cart.
 * __Metadata__: GDC harmonized clinical, biospecimen, and file metadata associated with the files in the cart.
-* __Download Manifest__: Download a manifest for use with the GDC Data Transfer Tool to download files.
+* __Download Manifest__: Download a manifest file for use with the GDC Data Transfer Tool to download files.  A manifest file contains a list of the UUIDs that correspond to the files in the cart.
 * __Download Cart__: Download the files in the Cart directly through the browser. Users have to be cautious of the amount of data in the cart since this option will not optimize bandwidth and will not provide resume capabilities.
 * __SRA XML, MAGE-TAB__: This option is available in the GDC Legacy Archive only. It is used to download metadata files associated with the files in the cart.
 
@@ -49,7 +56,7 @@ __Note__: when downloading multiple files from the cart, they are automatically 
 
 ### GDC Data Transfer Tool
 
-The "Download Manifest" button will download a manifest that can be imported into the GDC Data Transfer Tool.
+The `Download Manifest` button will download a manifest file that can be imported into the GDC Data Transfer Tool.   Below is an example of the contents of a manifest file used for download:
 
 ```manifest
 id	filename	md5	size	state
@@ -65,7 +72,6 @@ c57673ac-998a-4a50-a12b-4cac5dc3b72e	mdanderson.org_KIRP.MDA_RPPA_Core.mage-tab.
 The Manifest contains a list of the file UUIDs in the cart and can be used together with the GDC Data Transfer Tool to download all files.
 
 Information on the GDC Data Transfer Tool is available in the [GDC Data Transfer Tool User's Guide](/node/8196/).
-
 
 ### Individual Files Download
 

@@ -308,7 +308,7 @@
         var p = [],
             propertyName = propertyIDs[i],
             property = dictionaryProperties[propertyName],
-            description = _.get(dictionaryTerms, propertyName + '.description', false) || property.description,
+            description = _.get(property, 'term.description', false) || _.get(dictionaryTerms, propertyName + '.description', false),
             valueOrType = _getPropertyValueOrType(property),
             CDE = _.get(dictionaryTerms, propertyName + '.termDef'),
             isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';

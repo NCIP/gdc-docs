@@ -1,5 +1,45 @@
 # Data Submission Portal Release Notes
 
+## Release 1.7.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: November 16, 2017
+
+### New Features and Changes
+
+*  None
+
+### Bugs Fixed Since Last Release
+
+*  Fixed bug where error would be produced even while project was successfully submitted <!--SUBP-394-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
+
+## Release 1.6.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: August 22, 2017
+
+### New Features and Changes
+
+*	 Added ability to see metadata for particular harmonized data files in the Submission Portal <!--SUBP-393-->
+
+### Bugs Fixed Since Last Release
+
+None
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
+
 ## Release 1.5.1
 
 * __GDC Product__: GDC Data Submission Portal
@@ -7,8 +47,8 @@
 
 ### New Features and Changes
 
-*	 Added ability to delete an entity.  Read more about this [here](http://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Data_Upload_UG/#deleting-submitted-entities) <!-- SUBP-144 -->
-*  Added Project Reports in the projects list page.  Read more about this [here](http://gdc-docs.nci.nih.gov/Data_Submission_Portal/Users_Guide/Homepage/#reports). <!-- SUBP-281, DAT-286, DAT-287, DAT-289 -->
+*	 Added ability to delete an entity.  Read more about this [here](http://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Data_Upload_UG/#deleting-submitted-entities) <!-- SUBP-144 -->
+*  Added Project Reports in the projects list page.  Read more about this [here](http://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Homepage/#reports). <!-- SUBP-281, DAT-286, DAT-287, DAT-289 -->
 *  To avoid confusion, renamed "Status" to "State" in the Browse section <!-- SUBP-237 -->
 *  Added tooltip over Hierarchy title when reviewing an entity <!-- SUBP-238 -->
 *  Restrict the upload window to only supported data formats (JSON and TSV) <!-- SUBP-245 -->

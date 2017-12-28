@@ -70,22 +70,9 @@ window.onload = function() {
         body = jQuery('body'),
         previousView = null,
         mainContainer = jQuery('.main-container'),
-        loadingContainer = jQuery('#dictionary-loading-icon'),
-        loadingOffsetWidth = (mainContainer.outerWidth() - loadingContainer.outerWidth()) >> 1,
-        loadingOffsetHeight = mainContainer.outerHeight() + 50;
+        loadingContainer = jQuery('#dictionary-loading-icon');
 
     loadingContainer.fadeIn(100);
-
-    // Vertically/Horizontally Align the Loading Icon
-    loadingContainer.css({
-      left: loadingOffsetWidth,
-      top: loadingOffsetHeight
-    });
-
-    loadingContainer.find('.spinParticleContainer').css({
-      left: loadingOffsetWidth,
-      top: loadingOffsetHeight - 5
-    });
 
     var dictionaryOptions = {
       //dataSourceBaseHost: 'http://localhost:8080',

@@ -27,7 +27,7 @@ The following is an example of an HTTP POST request to the `files` endpoint of t
 
 #### Request
 
-	curl --request POST --header "Content-Type: application/json" --data @Payload 'https://gdc-api.nci.nih.gov/files' > response.tsv
+	curl --request POST --header "Content-Type: application/json" --data @Payload 'https://api.gdc.cancer.gov/files' > response.tsv
 
 #### Payload
 
@@ -67,7 +67,7 @@ Each component of the request is explained below.
 
 The above request can be executed as an HTTP GET:
 
-	https://gdc-api.nci.nih.gov/files?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.submitter_id%22%2C%22value%22%3A%5B%22TCGA-CK-4948%22%2C%22TCGA-D1-A17N%22%2C%22TCGA-4V-A9QX%22%2C%22TCGA-4V-A9QM%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_type%22%2C%22value%22%3A%22Gene%20Expression%20Quantification%22%7D%7D%5D%7D&format=tsv&fields=file_id,file_name,cases.submitter_id,cases.case_id,data_category,data_type,cases.samples.tumor_descriptor,cases.samples.tissue_type,cases.samples.sample_type,cases.samples.submitter_id,cases.samples.sample_id,analysis.workflow_type,cases.project.project_id,cases.samples.portions.analytes.aliquots.aliquot_id,cases.samples.portions.analytes.aliquots.submitter_id&size=1000
+	https://api.gdc.cancer.gov/files?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.submitter_id%22%2C%22value%22%3A%5B%22TCGA-CK-4948%22%2C%22TCGA-D1-A17N%22%2C%22TCGA-4V-A9QX%22%2C%22TCGA-4V-A9QM%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_type%22%2C%22value%22%3A%22Gene%20Expression%20Quantification%22%7D%7D%5D%7D&format=tsv&fields=file_id,file_name,cases.submitter_id,cases.case_id,data_category,data_type,cases.samples.tumor_descriptor,cases.samples.tissue_type,cases.samples.sample_type,cases.samples.submitter_id,cases.samples.sample_id,analysis.workflow_type,cases.project.project_id,cases.samples.portions.analytes.aliquots.aliquot_id,cases.samples.portions.analytes.aliquots.submitter_id&size=1000
 
 Each component of the request is explained below.
 
@@ -93,41 +93,53 @@ The `projects` endpoint provides access to project records, the highest level of
 This example is a query for projects contained in the GDC. It uses the [from](#from), [size](#size), [sort](#sort), and [pretty](#pretty) parameters, and returns the first two projects sorted by project id.
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=2&sort=project.project_id:asc&pretty=true'
+curl 'https://api.gdc.cancer.gov/projects?from=0&size=2&sort=project.project_id:asc&pretty=true'
 ```
 ``` Output
-
-	{
-	  "data": {
-	    "hits": [
-	      {
-	        "state": "legacy",
-	        "project_id": "TCGA-ACC",
-	        "primary_site": "Adrenal Gland",
-	        "disease_type": "Adrenocortical Carcinoma",
-	        "name": "Adrenocortical Carcinoma"
-	      },
-	      {
-	        "dbgap_accession_number": "phs000464",
-	        "disease_type": "Acute Lymphoblastic Leukemia",
-	        "state": "legacy",
-	        "primary_site": "Blood",
-	        "project_id": "TARGET-ALL-P2",
-	        "name": "Acute Lymphoblastic Leukemia - Phase II"
-	      }
-	    ],
-	    "pagination": {
-	      "count": 2,
-	      "sort": "project.project_id:asc",
-	      "from": 1,
-	      "pages": 22,
-	      "total": 44,
-	      "page": 1,
-	      "size": 2
-	    }
-	  },
-	  "warnings": {}
-	}
+{
+  "data": {
+    "hits": [
+      {
+        "dbgap_accession_number": null,
+        "disease_type": [
+          "Brain Lower Grade Glioma"
+        ],
+        "released": true,
+        "state": "legacy",
+        "primary_site": [
+          "Brain"
+        ],
+        "project_id": "TCGA-LGG",
+        "id": "TCGA-LGG",
+        "name": "Brain Lower Grade Glioma"
+      },
+      {
+        "dbgap_accession_number": null,
+        "disease_type": [
+          "Thyroid Carcinoma"
+        ],
+        "released": true,
+        "state": "legacy",
+        "primary_site": [
+          "Thyroid"
+        ],
+        "project_id": "TCGA-THCA",
+        "id": "TCGA-THCA",
+        "name": "Thyroid Carcinoma"
+      }
+    ],
+    "pagination": {
+      "count": 2,
+      "sort": "project.project_id:asc",
+      "from": 0,
+      "page": 1,
+      "total": 39,
+      "pages": 20,
+      "size": 2
+    }
+  },
+  "warnings": {}
+}
 ```
 
 #### Retrieval of project metadata using project_id
@@ -135,13 +147,15 @@ curl 'https://gdc-api.nci.nih.gov/projects?from=1&size=2&sort=project.project_id
 The `project` endpoint supports a simple query format that retrieves the metadata of a single project using its `project_id`:
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/projects/TARGET-NBL?expand=summary,summary.experimental_strategies,summary.data_categories&pretty=true'
+curl 'https://api.gdc.cancer.gov/projects/TARGET-NBL?expand=summary,summary.experimental_strategies,summary.data_categories&pretty=true'
 ```
 ```Response
 {
   "data": {
     "dbgap_accession_number": "phs000467",
-    "name": "Neuroblastoma",
+    "disease_type": [
+      "Neuroblastoma"
+    ],
     "summary": {
       "data_categories": [
         {
@@ -150,12 +164,17 @@ curl 'https://gdc-api.nci.nih.gov/projects/TARGET-NBL?expand=summary,summary.exp
           "data_category": "Transcriptome Profiling"
         },
         {
+          "case_count": 1127,
+          "file_count": 3,
+          "data_category": "Biospecimen"
+        },
+        {
           "case_count": 216,
-          "file_count": 1728,
+          "file_count": 1732,
           "data_category": "Simple Nucleotide Variation"
         },
         {
-          "case_count": 1120,
+          "case_count": 7,
           "file_count": 1,
           "data_category": "Clinical"
         },
@@ -165,12 +184,12 @@ curl 'https://gdc-api.nci.nih.gov/projects/TARGET-NBL?expand=summary,summary.exp
           "data_category": "Raw Sequencing Data"
         }
       ],
-      "case_count": 1120,
-      "file_count": 2799,
+      "case_count": 1127,
+      "file_count": 2806,
       "experimental_strategies": [
         {
           "case_count": 221,
-          "file_count": 2170,
+          "file_count": 2174,
           "experimental_strategy": "WXS"
         },
         {
@@ -179,13 +198,15 @@ curl 'https://gdc-api.nci.nih.gov/projects/TARGET-NBL?expand=summary,summary.exp
           "experimental_strategy": "RNA-Seq"
         }
       ],
-      "file_size": 8157089415961
+      "file_size": 8157614402888
     },
     "released": true,
     "state": "legacy",
-    "primary_site": "Nervous System",
+    "primary_site": [
+      "Nervous System"
+    ],
     "project_id": "TARGET-NBL",
-    "disease_type": "Neuroblastoma"
+    "name": "Neuroblastoma"
   },
   "warnings": {}
 }
@@ -193,64 +214,74 @@ curl 'https://gdc-api.nci.nih.gov/projects/TARGET-NBL?expand=summary,summary.exp
 
 ### Files Endpoint
 
-The GDC Files Endpoint `https://gdc-api.nci.nih.gov/files` enables search and retrieval of information relating to files stored in the GDC, including file properties such as `file_name`, `md5sum`, `data_format`, and others.
+The GDC Files Endpoint `https://api.gdc.cancer.gov/files` enables search and retrieval of information relating to files stored in the GDC, including file properties such as `file_name`, `md5sum`, `data_format`, and others.
 
 #### Example
 
 This example is a query for files contained in the GDC. It uses the [from](#from), [size](#size), [sort](#sort), and [pretty](#pretty) parameters, and returns only the first two files, sorted by file size, from smallest to largest.
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=true'
+curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=true'
 ```
 ``` Output
-	{
-	  "data": {
-	    "hits": [
-	      {
-	        "origin": "migrated",
-	        "data_type": "Raw microarray data",
-	        "platform": "HG-U133_Plus_2",
-	        "file_name": "TCGA-AB-2842-03A-01R-0757-21.CEL.README",
-	        "md5sum": "56f9a6d58b450bf7e9f6431a86220b9d",
-	        "data_format": "CEL",
-	        "acl": "open",
-	        "access": "open",
-	        "uploaded_datetime": 1425340539,
-	        "state": "live",
-	        "data_subtype": "Raw intensities",
-	        "file_id": "ca13321c-02aa-4141-bdb6-84d31e3c5711",
-	        "file_size": 43,
-	        "experimental_strategy": "Gene expression array"
-	      },
-	      {
-	        "origin": "migrated",
-	        "data_type": "Raw microarray data",
-	        "platform": "HG-U133_Plus_2",
-	        "file_name": "TCGA-AB-2809-03A-01R-0757-21.CEL.README",
-	        "md5sum": "56f9a6d58b450bf7e9f6431a86220b9d",
-	        "data_format": "CEL",
-	        "acl": "open",
-	        "access": "open",
-	        "uploaded_datetime": 1425340539,
-	        "state": "live",
-	        "data_subtype": "Raw intensities",
-	        "file_id": "299d500b-49e2-4c62-9111-c0691592dce1",
-	        "file_size": 43,
-	        "experimental_strategy": "Gene expression array"
-	      }
-	    ],
-	    "pagination": {
-	      "count": 2,
-	      "sort": "file_size:asc",
-	      "from": 1,
-	      "pages": 300936,
-	      "total": 601872,
-	      "page": 1,
-	      "size": 2
-	    }
-	  },
-	  "warnings": {}
-	}
+{
+  "data": {
+    "hits": [
+      {
+        "data_type": "Raw Simple Somatic Mutation",
+        "updated_datetime": "2017-03-04T16:45:40.925270-06:00",
+        "file_name": "9f78a291-2d50-472c-8f56-5f8fbd09ab2a.snp.Somatic.hc.vcf.gz",
+        "submitter_id": "TCGA-13-0757-01A-01W-0371-08_TCGA-13-0757-10A-01W-0371-08_varscan",
+        "file_id": "9f78a291-2d50-472c-8f56-5f8fbd09ab2a",
+        "file_size": 1120,
+        "id": "9f78a291-2d50-472c-8f56-5f8fbd09ab2a",
+        "created_datetime": "2016-05-04T14:50:54.560567-05:00",
+        "md5sum": "13c1ceb3519615e2c67128b350365fbf",
+        "data_format": "VCF",
+        "acl": [
+          "phs000178"
+        ],
+        "access": "controlled",
+        "state": "live",
+        "data_category": "Simple Nucleotide Variation",
+        "type": "simple_somatic_mutation",
+        "file_state": "submitted",
+        "experimental_strategy": "WXS"
+      },
+      {
+        "data_type": "Raw Simple Somatic Mutation",
+        "updated_datetime": "2017-03-04T16:45:40.925270-06:00",
+        "file_name": "7780009b-abb6-460b-903d-accdac626c2e.snp.Somatic.hc.vcf.gz",
+        "submitter_id": "TCGA-HC-8261-01A-11D-2260-08_TCGA-HC-8261-10A-01D-2260-08_varscan",
+        "file_id": "7780009b-abb6-460b-903d-accdac626c2e",
+        "file_size": 1237,
+        "id": "7780009b-abb6-460b-903d-accdac626c2e",
+        "created_datetime": "2016-05-08T13:54:38.369393-05:00",
+        "md5sum": "fd9bb46c8022b96af730c48dc00e2c41",
+        "data_format": "VCF",
+        "acl": [
+          "phs000178"
+        ],
+        "access": "controlled",
+        "state": "live",
+        "data_category": "Simple Nucleotide Variation",
+        "type": "simple_somatic_mutation",
+        "file_state": "submitted",
+        "experimental_strategy": "WXS"
+      }
+    ],
+    "pagination": {
+      "count": 2,
+      "sort": "file_size:asc",
+      "from": 0,
+      "page": 1,
+      "total": 274724,
+      "pages": 137362,
+      "size": 2
+    }
+  },
+  "warnings": {}
+}
 ```
 
 #### Retrieval of file metadata using individual UUIDs:
@@ -258,7 +289,7 @@ curl 'https://gdc-api.nci.nih.gov/files?from=1&size=2&sort=file_size:asc&pretty=
 The `files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID:
 
 ```Shell
-curl 'https://gdc-api.nci.nih.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pretty=true'
+curl 'https://api.gdc.cancer.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pretty=true'
 ```
 ```
 {
@@ -286,129 +317,11 @@ curl 'https://gdc-api.nci.nih.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pre
 }
 ```
 
-#### files/ids Endpoint
-
-The `files/ids` endpoint corresponds to the "Quick Search" functionality of the GDC Data Portal. The API response includes all files for which the query matches the beginning (or entirety) of any of the following fields:
-
-	project.project_id
-	project.name
-	project.disease_type.analyzed
-	project.primary_site.analyzed
-	case.aliquot_ids
-	case.submitter_aliquot_ids
-	case.analyte_ids
-	case.submitter_analyte_ids
-	case.case_id.raw
-	case.submitter_id.raw
-	case.portion_ids
-	case.submitter_portion_ids
-	case.sample_ids
-	case.slide_ids
-	case.submitter_slide_ids
-	case.submitter_sample_ids
-	file.file_id.raw
-	file.file_name.raw
-	file.submitter_id
-
-Requests to this endpoint must be in the format `files/ids?query=`, as provided in the example below. The endpoint returns up to 500 results, which cannot be adjusted with the `size` parameter.
-
-```shell
-curl 'https://gdc-api.nci.nih.gov/files/ids?query=nationwidechildrens.org_clinical.TCGA-EM&pretty=true'
-```
-``` Output
-{
-  "data": {
-    "pagination": {
-      "count": 5,
-      "sort": "",
-      "from": 1,
-      "page": 1,
-      "total": 81,
-      "pages": 17,
-      "size": 5
-    },
-    "hits": [
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A3FQ.xml",
-        "file_id": "efac6904-ac9f-4a44-bf9c-f7d9a822c127",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "fef9c64f-5959-4da0-aaa2-66b56fc7b4c3",
-            "submitter_id": "TCGA-EM-A3FQ"
-          }
-        ],
-        "_id": "efac6904-ac9f-4a44-bf9c-f7d9a822c127"
-      },
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A4FN.xml",
-        "file_id": "07add35d-66f0-4384-bb2c-9d86661f4073",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "f854ce67-c586-4424-a674-2dd67ad0ed7f",
-            "submitter_id": "TCGA-EM-A4FN"
-          }
-        ],
-        "_id": "07add35d-66f0-4384-bb2c-9d86661f4073"
-      },
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A3AN.xml",
-        "file_id": "889f222e-09d1-477c-a7b9-a514b65f322b",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "6491d025-c061-4180-bfd4-d7c6e6e55f66",
-            "submitter_id": "TCGA-EM-A3AN"
-          }
-        ],
-        "_id": "889f222e-09d1-477c-a7b9-a514b65f322b"
-      },
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A4FO.xml",
-        "file_id": "37db38d4-64ca-4cd4-9adc-d504b812997b",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "e0ab95ef-5c96-4d00-8950-04e26e3b4672",
-            "submitter_id": "TCGA-EM-A4FO"
-          }
-        ],
-        "_id": "37db38d4-64ca-4cd4-9adc-d504b812997b"
-      },
-      {
-        "_type": "file",
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EM-A3FN.xml",
-        "file_id": "e2d13acf-3121-4c7b-b2ec-28db49eff699",
-        "_score": 4.644438,
-        "cases": [
-          {
-            "case_id": "59cd0969-a798-4d19-95ed-a311f39d2f38",
-            "submitter_id": "TCGA-EM-A3FN"
-          }
-        ],
-        "_id": "e2d13acf-3121-4c7b-b2ec-28db49eff699"
-      }
-    ],
-    "_shards": {
-      "successful": 5,
-      "failed": 0,
-      "total": 5
-    },
-    "took": 9,
-    "timed_out": false
-  },
-  "warnings": {}
-}
-```
+__Note:__ The `file_size` field associated with each file is reported in bytes.  
 
 ### Cases Endpoint
 
-The GDC Cases Endpoint `https://gdc-api.nci.nih.gov/cases` enables search and retrieval of information related to a specific case.
+The GDC Cases Endpoint `https://api.gdc.cancer.gov/cases` enables search and retrieval of information related to a specific case.
 
 __Note:__ The `cases` endpoint is designed to retrieve the metadata associated with one or more cases, including all nested biospecimen entities. Filters can be applied to retrieve information for entire cases, but not for lower-level biospecimen entities. For example, a sample within a case cannot be used to query for aliquots that are associated only with that sample. All aliquots associated with the case would be retrieved.
 
@@ -422,120 +335,104 @@ This example is a query for files contained in GDC. It returns case where submit
 Command:
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22submitter_id%22%2C%22value%22%3A%5B%22TCGA-BH-A0EA%22%5D%7D%7D%5D%7D%0A%0A&pretty=true'
+curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22submitter_id%22%2C%22value%22%3A%5B%22TCGA-BH-A0EA%22%5D%7D%7D%5D%7D%0A%0A&pretty=true'
 ```
 ``` Output
 {
-"data": {
-	"hits": [
-		{
-			"sample_ids": [
-				"7f791228-dd77-4ab0-8227-d784a4c7fea1",
-				"9a6c71a6-82cd-42b1-a93f-f569370848d6"
-			],
-			"portion_ids": [
-				"cb6086d1-3416-4310-b109-e8fa6e8b72d4",
-				"8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
-				"ae4f5816-f97a-4605-9b05-9ab820467dee"
-			],
-			"submitter_portion_ids": [
-				"TCGA-BH-A0EA-01A-11",
-				"TCGA-BH-A0EA-01A-21-A13C-20",
-				"TCGA-BH-A0EA-10A-01"
-			],
-			"created_datetime": null,
-			"submitter_aliquot_ids": [
-				"TCGA-BH-A0EA-01A-11R-A114-13",
-				"TCGA-BH-A0EA-01A-11D-A111-01",
-				"TCGA-BH-A0EA-01A-11W-A12T-09",
-				"TCGA-BH-A0EA-01A-11R-A114-13",
-				"TCGA-BH-A0EA-01A-11R-A115-07",
-				"TCGA-BH-A0EA-01A-11D-A111-01",
-				"TCGA-BH-A0EA-01A-11D-A314-09",
-				"TCGA-BH-A0EA-01A-11D-A112-05",
-				"TCGA-BH-A0EA-01A-11D-A10Y-09",
-				"TCGA-BH-A0EA-01A-11D-A10X-02",
-				"TCGA-BH-A0EA-01A-11W-A12T-09",
-				"TCGA-BH-A0EA-01A-11D-A10X-02",
-				"TCGA-BH-A0EA-01A-11D-A10Y-09",
-				"TCGA-BH-A0EA-01A-11D-A314-09",
-				"TCGA-BH-A0EA-01A-11R-A115-07",
-				"TCGA-BH-A0EA-01A-11D-A112-05",
-				"TCGA-BH-A0EA-10A-01D-A110-09",
-				"TCGA-BH-A0EA-10A-01D-A113-01",
-				"TCGA-BH-A0EA-10A-01W-A12U-09",
-				"TCGA-BH-A0EA-10A-01D-A10Z-02",
-				"TCGA-BH-A0EA-10A-01D-A113-01",
-				"TCGA-BH-A0EA-10A-01D-A110-09",
-				"TCGA-BH-A0EA-10A-01W-A12U-09",
-				"TCGA-BH-A0EA-10A-01D-A10Z-02"
-			],
-			"updated_datetime": "2016-05-02T14:37:43.619198-05:00",
-			"submitter_analyte_ids": [
-				"TCGA-BH-A0EA-01A-11R",
-				"TCGA-BH-A0EA-01A-11D",
-				"TCGA-BH-A0EA-01A-11W",
-				"TCGA-BH-A0EA-10A-01W",
-				"TCGA-BH-A0EA-10A-01D"
-			],
-			"analyte_ids": [
-				"30cb470f-66d4-4085-8c30-83a42e8453d4",
-				"66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
-				"f19f408a-815f-43d9-8032-e9482b796371",
-				"69ddc092-88a0-4839-a2bb-9f1c9e760409",
-				"fe678556-acf4-4bde-a95e-860bb0150a95"
-			],
-			"submitter_id": "TCGA-BH-A0EA",
-			"case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
-			"state": null,
-			"aliquot_ids": [
-				"bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
-				"97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
-				"edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
-				"bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
-				"ca71ca96-cbb7-4eab-9487-251dda34e107",
-				"97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
-				"eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
-				"42d050e4-e8ee-4442-b9c0-0ee14706b138",
-				"561b8777-801a-49ed-a306-e7dafeb044b6",
-				"262715e1-835c-4f16-8ee7-6900e26f7cf5",
-				"edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
-				"262715e1-835c-4f16-8ee7-6900e26f7cf5",
-				"561b8777-801a-49ed-a306-e7dafeb044b6",
-				"eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
-				"ca71ca96-cbb7-4eab-9487-251dda34e107",
-				"42d050e4-e8ee-4442-b9c0-0ee14706b138",
-				"cfbd5476-e83a-401d-9f9a-639c73a0e35b",
-				"2beb34c4-d493-4a73-b21e-de77d43251ff",
-				"b1a3739d-d554-4202-b96f-f25a444e2042",
-				"cde982b7-3b0a-49eb-8710-a599cb0e44c1",
-				"2beb34c4-d493-4a73-b21e-de77d43251ff",
-				"cfbd5476-e83a-401d-9f9a-639c73a0e35b",
-				"b1a3739d-d554-4202-b96f-f25a444e2042",
-				"cde982b7-3b0a-49eb-8710-a599cb0e44c1"
-			],
-			"slide_ids": [
-				"90154ea1-6b76-4445-870e-d531d6fa1239",
-				"a0826f0d-986a-491b-8c6f-b34f8929f3ee"
-			],
-			"submitter_sample_ids": [
-				"TCGA-BH-A0EA-01A",
-				"TCGA-BH-A0EA-10A"
-			]
-		}
-	],
-	"pagination": {
-		"count": 1,
-		"sort": "",
-		"from": 1,
-		"page": 1,
-		"total": 1,
-		"pages": 1,
-		"size": 10
+	{
+	  "data": {
+	    "hits": [
+	      {
+	        "updated_datetime": "2017-03-04T16:39:19.244769-06:00",
+	        "submitter_analyte_ids": [
+	          "TCGA-BH-A0EA-01A-11R",
+	          "TCGA-BH-A0EA-10A-01W",
+	          "TCGA-BH-A0EA-01A-11W",
+	          "TCGA-BH-A0EA-01A-11D",
+	          "TCGA-BH-A0EA-10A-01D"
+	        ],
+	        "analyte_ids": [
+	          "fe678556-acf4-4bde-a95e-860bb0150a95",
+	          "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
+	          "f19f408a-815f-43d9-8032-e9482b796371",
+	          "69ddc092-88a0-4839-a2bb-9f1c9e760409",
+	          "30cb470f-66d4-4085-8c30-83a42e8453d4"
+	        ],
+	        "submitter_id": "TCGA-BH-A0EA",
+	        "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
+	        "id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
+	        "disease_type": "Breast Invasive Carcinoma",
+	        "sample_ids": [
+	          "9a6c71a6-82cd-42b1-a93f-f569370848d6",
+	          "7f791228-dd77-4ab0-8227-d784a4c7fea1"
+	        ],
+	        "portion_ids": [
+	          "cb6086d1-3416-4310-b109-e8fa6e8b72d4",
+	          "8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
+	          "ae4f5816-f97a-4605-9b05-9ab820467dee"
+	        ],
+	        "submitter_portion_ids": [
+	          "TCGA-BH-A0EA-01A-21-A13C-20",
+	          "TCGA-BH-A0EA-01A-11",
+	          "TCGA-BH-A0EA-10A-01"
+	        ],
+	        "created_datetime": null,
+	        "slide_ids": [
+	          "90154ea1-6b76-4445-870e-d531d6fa1239",
+	          "a0826f0d-986a-491b-8c6f-b34f8929f3ee"
+	        ],
+	        "state": "live",
+	        "aliquot_ids": [
+	          "eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
+	          "cde982b7-3b0a-49eb-8710-a599cb0e44c1",
+	          "b1a3739d-d554-4202-b96f-f25a444e2042",
+	          "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
+	          "561b8777-801a-49ed-a306-e7dafeb044b6",
+	          "42d050e4-e8ee-4442-b9c0-0ee14706b138",
+	          "ca71ca96-cbb7-4eab-9487-251dda34e107",
+	          "cfbd5476-e83a-401d-9f9a-639c73a0e35b",
+	          "edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
+	          "262715e1-835c-4f16-8ee7-6900e26f7cf5",
+	          "2beb34c4-d493-4a73-b21e-de77d43251ff",
+	          "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76"
+	        ],
+	        "primary_site": "Breast",
+	        "submitter_aliquot_ids": [
+	          "TCGA-BH-A0EA-10A-01D-A113-01",
+	          "TCGA-BH-A0EA-01A-11R-A115-07",
+	          "TCGA-BH-A0EA-01A-11D-A10Y-09",
+	          "TCGA-BH-A0EA-01A-11D-A314-09",
+	          "TCGA-BH-A0EA-01A-11R-A114-13",
+	          "TCGA-BH-A0EA-01A-11D-A111-01",
+	          "TCGA-BH-A0EA-01A-11D-A112-05",
+	          "TCGA-BH-A0EA-01A-11D-A10X-02",
+	          "TCGA-BH-A0EA-10A-01D-A110-09",
+	          "TCGA-BH-A0EA-10A-01W-A12U-09",
+	          "TCGA-BH-A0EA-10A-01D-A10Z-02",
+	          "TCGA-BH-A0EA-01A-11W-A12T-09"
+	        ],
+	        "submitter_sample_ids": [
+	          "TCGA-BH-A0EA-10A",
+	          "TCGA-BH-A0EA-01A"
+	        ],
+	        "submitter_slide_ids": [
+	          "TCGA-BH-A0EA-01A-01-MSA",
+	          "TCGA-BH-A0EA-01A-01-TSA"
+	        ]
+	      }
+	    ],
+	    "pagination": {
+	      "count": 1,
+	      "sort": "",
+	      "from": 0,
+	      "page": 1,
+	      "total": 1,
+	      "pages": 1,
+	      "size": 10
+	    }
+	  },
+	  "warnings": {}
 	}
-},
-"warnings": {}
-}
 ```
 
 #### Retrieval of case metadata using individual UUIDs:
@@ -543,7 +440,7 @@ curl 'https://gdc-api.nci.nih.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22con
 The `cases` endpoint supports a simple query format that retrieves the metadata of a single case using its UUID:
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pretty=true&expand=diagnoses'
+curl 'https://api.gdc.cancer.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pretty=true&expand=diagnoses'
 ```
 ```Response
 {
@@ -674,7 +571,7 @@ curl 'https://gdc-api.nci.nih.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pre
 
 ### Annotations Endpoint
 
-The GDC Annotation Endpoint `https://gdc-api.nci.nih.gov/annotations` enables search and retrieval of annotations stored in the GDC.
+The GDC Annotation Endpoint `https://api.gdc.cancer.gov/annotations` enables search and retrieval of annotations stored in the GDC.
 
 
 #### Example
@@ -704,62 +601,68 @@ The query uses the [filters](#filters) parameter to specify entity UUIDs. Code s
 %7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22entity_id%22%2C%22value%22%3A%5B%22e0d36cc0-652c-4224-bb10-09d15c7bd8f1%22%2C%2225ebc29a-7598-4ae4-ba7f-618d448882cc%22%2C%22fe660d7c-2746-4b50-ab93-b2ed99960553%22%5D%7D%7D
 ```
 ```shell
-curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22entity_id%22%2C%22value%22%3A%5B%22e0d36cc0-652c-4224-bb10-09d15c7bd8f1%22%2C%2225ebc29a-7598-4ae4-ba7f-618d448882cc%22%2C%22fe660d7c-2746-4b50-ab93-b2ed99960553%22%5D%7D%7D&pretty=true'
+curl 'https://api.gdc.cancer.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22entity_id%22%2C%22value%22%3A%5B%22e0d36cc0-652c-4224-bb10-09d15c7bd8f1%22%2C%2225ebc29a-7598-4ae4-ba7f-618d448882cc%22%2C%22fe660d7c-2746-4b50-ab93-b2ed99960553%22%5D%7D%7D&pretty=true'
 ```
 ``` Output
 {
   "data": {
     "hits": [
       {
-        "status": "Approved",
         "category": "Item flagged DNU",
+        "status": "Approved",
         "entity_id": "fe660d7c-2746-4b50-ab93-b2ed99960553",
         "classification": "CenterNotification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2015-09-28T13:39:13-04:00",
+        "entity_type": "aliquot",
+        "created_datetime": "2015-09-28T00:00:00",
         "annotation_id": "5ddadefe-8b57-5ce2-b8b2-918d63d99a59",
         "notes": "The aliquot failed Broad pipeline QC and not all files are suitable for use. Consult the SDRF file to determine which files are usable.",
-        "entity_type": "aliquot",
+        "updated_datetime": "2017-03-09T13:20:38.962182-06:00",
         "submitter_id": "29087",
+        "state": "submitted",
         "case_id": "41b59716-116f-4942-8b63-409870a87e26",
+        "case_submitter_id": "TCGA-DK-A3IM",
         "entity_submitter_id": "TCGA-DK-A3IM-10A-01D-A20B-01",
-        "case_submitter_id": "TCGA-DK-A3IM"
+        "id": "5ddadefe-8b57-5ce2-b8b2-918d63d99a59"
       },
       {
-        "status": "Approved",
         "category": "Item is noncanonical",
+        "status": "Approved",
         "entity_id": "25ebc29a-7598-4ae4-ba7f-618d448882cc",
         "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2012-07-12T15:00:15-04:00",
+        "entity_type": "sample",
+        "created_datetime": "2012-07-12T00:00:00",
         "annotation_id": "d6500f94-618f-5334-a810-ade76b887ec9",
         "notes": "No Matching Normal",
-        "entity_type": "sample",
+        "updated_datetime": "2017-03-09T13:47:18.182075-06:00",
         "submitter_id": "8009",
+        "state": "submitted",
         "case_id": "bd114e05-5a97-41e2-a0d5-5d39a1e9d461",
+        "case_submitter_id": "TCGA-08-0514",
         "entity_submitter_id": "TCGA-08-0514-01A",
-        "case_submitter_id": "TCGA-08-0514"
+        "id": "d6500f94-618f-5334-a810-ade76b887ec9"
       },
       {
-        "status": "Approved",
         "category": "Prior malignancy",
+        "status": "Approved",
         "entity_id": "e0d36cc0-652c-4224-bb10-09d15c7bd8f1",
         "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2013-03-12T10:05:14-04:00",
+        "entity_type": "case",
+        "created_datetime": "2013-03-12T00:00:00",
         "annotation_id": "33336cdf-2cf0-5af2-bb52-fecd3427f180",
         "notes": "Patient had a prior lymphoma. Unknown radiation or systemic chemotherapy.",
-        "entity_type": "case",
+        "updated_datetime": "2017-03-09T12:11:31.786013-06:00",
         "submitter_id": "15630",
+        "state": "submitted",
         "case_id": "e0d36cc0-652c-4224-bb10-09d15c7bd8f1",
+        "case_submitter_id": "TCGA-FS-A1ZF",
         "entity_submitter_id": "TCGA-FS-A1ZF",
-        "case_submitter_id": "TCGA-FS-A1ZF"
+        "id": "33336cdf-2cf0-5af2-bb52-fecd3427f180"
       }
     ],
     "pagination": {
       "count": 3,
       "sort": "",
-      "from": 1,
+      "from": 0,
       "page": 1,
       "total": 3,
       "pages": 1,
@@ -770,417 +673,9 @@ curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%
 }
 ```
 
-#### Example
-
-This example is a query for any annotations that are associated with the following *cases*, **directly or via a child entity**:
-
-* the case with UUID 513c5f34-dc6e-4caa-81cc-907fd6a825b1
-* the case with UUID 942c0088-c9a0-428c-a879-e16f8c5bfdb8
-
-The query uses the [filters](#filters) parameter to specify entity UUIDs. Code samples below include the bare and percent-encoded filter JSON.
-
-```Filter-JSON
-{
-   "op":"in",
-   "content":{
-      "field":"annotation.case_id",
-      "value":[
-         "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-         "942c0088-c9a0-428c-a879-e16f8c5bfdb8"
-      ]
-   }
-}
-```
-```Filter-JSON-percent-encoded
-%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22annotation.case_id%22%2C%22value%22%3A%5B%22513c5f34-dc6e-4caa-81cc-907fd6a825b1%22%2C%22942c0088-c9a0-428c-a879-e16f8c5bfdb8%22%5D%7D%7D
-```
-```shell
-curl 'https://gdc-api.nci.nih.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22annotation.case_id%22%2C%22value%22%3A%5B%22513c5f34-dc6e-4caa-81cc-907fd6a825b1%22%2C%22942c0088-c9a0-428c-a879-e16f8c5bfdb8%22%5D%7D%7D&pretty=true&size=30'
-```
-``` Output
-{
-  "data": {
-    "hits": [
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "39c2e6c5-379e-4ffa-b02c-e1db298b34f7",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:25-04:00",
-        "annotation_id": "8bed6748-11dd-5767-9a9c-577712f9b616",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "sample",
-        "submitter_id": "22104",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-10A",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "e2bca154-9ff3-42a6-a5bc-0daa14080c92",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:32-04:00",
-        "annotation_id": "a6997495-8544-58b1-81aa-7e628e46af7e",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "aliquot",
-        "submitter_id": "22118",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-01A-11D-2395-08",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "History of unacceptable prior treatment related to a prior/other malignancy",
-        "entity_id": "942c0088-c9a0-428c-a879-e16f8c5bfdb8",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2012-11-10T05:30:37-05:00",
-        "annotation_id": "6d57211a-402b-52c9-b857-665164c63339",
-        "notes": "Pt with synchronous B-cell lymphoma treated with cyclophosphamide, Adriamycin, vincristine, prednisone, and Rituxin prior to procurment of TCGA tumor.",
-        "entity_type": "case",
-        "submitter_id": "12063",
-        "case_id": "942c0088-c9a0-428c-a879-e16f8c5bfdb8",
-        "entity_submitter_id": "TCGA-CJ-4642",
-        "case_submitter_id": "TCGA-CJ-4642"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "265c0257-54b6-4b79-8c9a-d56ca8bbdb48",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:41-04:00",
-        "annotation_id": "0fe698fa-169a-51e2-b41b-6452d0b5cefc",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "aliquot",
-        "submitter_id": "22122",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-01A-11R-A28V-07",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "a4d9f761-ece9-4a6b-8818-ecf4a8f7d380",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:28-04:00",
-        "annotation_id": "6dd575b6-78a7-55ca-9dbe-654079eeca0f",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "analyte",
-        "submitter_id": "22110",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-10A-01D",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "a5370483-6bdd-4e2a-9b4b-ec1eb381052b",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:25-04:00",
-        "annotation_id": "3d268354-9193-50a9-a8b5-79f00d36d3c6",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "sample",
-        "submitter_id": "22103",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-01A",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "2aa6f51a-e0fa-4bdb-830c-80b79c59cfc9",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:32-04:00",
-        "annotation_id": "d4f40e94-f701-58d1-aa0c-b3d687844c7b",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "aliquot",
-        "submitter_id": "22117",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-01A-11D-2391-01",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "d9fffb10-ae12-43ad-983b-1e2336f915a3",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:43-04:00",
-        "annotation_id": "ab91b0d6-28fd-5600-8933-3457c0939687",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "aliquot",
-        "submitter_id": "22126",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-10A-01D-2395-08",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "7402c87f-c9b7-451f-9b8d-a8979bf0d98b",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:30-04:00",
-        "annotation_id": "b16b9f8f-adfd-5ab8-b10e-16b0ed277dbc",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "analyte",
-        "submitter_id": "22114",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-11A-01R",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "Synchronous malignancy",
-        "entity_id": "942c0088-c9a0-428c-a879-e16f8c5bfdb8",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2012-11-10T05:30:35-05:00",
-        "annotation_id": "b02b2a31-7c5a-5ff0-a2ea-6ab54b721a86",
-        "notes": "Pt with synchronous B-cell lymphoma treated with cyclophosphamide, Adriamycin, vincristine, prednisone, and Rituxin prior to procurment of TCGA tumor.",
-        "entity_type": "case",
-        "submitter_id": "12062",
-        "case_id": "942c0088-c9a0-428c-a879-e16f8c5bfdb8",
-        "entity_submitter_id": "TCGA-CJ-4642",
-        "case_submitter_id": "TCGA-CJ-4642"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "5a676d7d-0b8d-48fb-b898-0eb023a871e1",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:27-04:00",
-        "annotation_id": "96d82ca1-5e27-5048-82d5-ee5886437580",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "analyte",
-        "submitter_id": "22107",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-01A-11H",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "2327bab1-e352-4c43-ab40-6162e8632c26",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:26-04:00",
-        "annotation_id": "95873790-c215-5185-babe-0228e32d5689",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "analyte",
-        "submitter_id": "22106",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-01A-11D",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "258a054e-b0ec-4215-81c9-8e1c715abc9b",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:30-04:00",
-        "annotation_id": "f0a7ee98-09aa-5c46-b88a-66a09176c408",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "analyte",
-        "submitter_id": "22113",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-11A-01H",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "7c9e5386-1540-40f2-96ed-c06d752598df",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:45-04:00",
-        "annotation_id": "f34eb057-6f81-5d37-858c-9ed5cc8a2052",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "aliquot",
-        "submitter_id": "22129",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-11A-01D-2391-01",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "77eccef5-254d-4ddc-a70f-576436278e0a",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:46-04:00",
-        "annotation_id": "9bf047b4-bcfc-5bfc-bc42-584a1efd09b4",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "aliquot",
-        "submitter_id": "22131",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-11A-01H-2402-13",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T08:54:02-04:00",
-        "annotation_id": "53ccabc5-0c89-5e55-a267-130dd021d9ff",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "case",
-        "submitter_id": "22102",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "9fe04d07-57ba-434f-8254-184fe00ab23e",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:46-04:00",
-        "annotation_id": "100caf14-4fd6-51ef-8f3c-8e7ca62d0233",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "aliquot",
-        "submitter_id": "22132",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-11A-01R-A28V-07",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "26368154-1ed7-4471-87b9-d50d5fe8046b",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:26-04:00",
-        "annotation_id": "75e180f1-4216-591f-8bd4-426e923d0778",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "sample",
-        "submitter_id": "22105",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-11A",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "Prior malignancy",
-        "entity_id": "942c0088-c9a0-428c-a879-e16f8c5bfdb8",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2011-02-05T13:15:23-05:00",
-        "annotation_id": "59f7f353-2119-58f2-a340-34bc39c3d7ef",
-        "notes": "[intgen.org]: Prior Malignancy",
-        "entity_type": "case",
-        "submitter_id": "1272",
-        "case_id": "942c0088-c9a0-428c-a879-e16f8c5bfdb8",
-        "entity_submitter_id": "TCGA-CJ-4642",
-        "case_submitter_id": "TCGA-CJ-4642"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "51ded92f-852f-4445-96b2-dd9db1544a9d",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:27-04:00",
-        "annotation_id": "8ac6de9f-6b86-5421-a4be-e1fe8a4a8a38",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "analyte",
-        "submitter_id": "22108",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-01A-11R",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "Molecular analysis outside specification",
-        "entity_id": "942c0088-c9a0-428c-a879-e16f8c5bfdb8",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2010-10-29T00:00:00-04:00",
-        "annotation_id": "e0fcd5e3-02f0-52b4-b949-95ed4de324f6",
-        "notes": "Molecular results off spec",
-        "entity_type": "case",
-        "submitter_id": "831",
-        "case_id": "942c0088-c9a0-428c-a879-e16f8c5bfdb8",
-        "entity_submitter_id": "TCGA-CJ-4642",
-        "case_submitter_id": "TCGA-CJ-4642"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "3cffe6b0-3aef-413a-a9a9-4a2fcefff6ad",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:45-04:00",
-        "annotation_id": "dfad3f3e-9d62-51e0-a433-77f89b1c24ca",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "aliquot",
-        "submitter_id": "22130",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-11A-01D-2395-08",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "6f688bcb-0534-4a50-a39d-a3a149165694",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:33-04:00",
-        "annotation_id": "03716d9e-c294-570b-89ab-53af108850f3",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "aliquot",
-        "submitter_id": "22120",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-01A-11H-2402-13",
-        "case_submitter_id": "TCGA-56-8623"
-      },
-      {
-        "status": "Approved",
-        "category": "BCR Notification",
-        "entity_id": "f1090757-a85d-4702-a16f-0ee35284c45d",
-        "classification": "Notification",
-        "updated_datetime": "2016-05-01T15:00:21.638875-05:00",
-        "created_datetime": "2014-09-05T09:02:29-04:00",
-        "annotation_id": "84236594-5c53-504d-bd27-1e8415cb768a",
-        "notes": "Possible tumor/normal sample swap, cross-contamination, and/or sample purity issues. The sequencing and characterization centers have reported that molecular signature of the tumor DNA and RNA cluster with the normal controls. Their analysis suggests that the purity of the tumor is very low. Therefore, the data from this patient should be used with caution.",
-        "entity_type": "analyte",
-        "submitter_id": "22112",
-        "case_id": "513c5f34-dc6e-4caa-81cc-907fd6a825b1",
-        "entity_submitter_id": "TCGA-56-8623-11A-01D",
-        "case_submitter_id": "TCGA-56-8623"
-      }
-    ],
-    "pagination": {
-      "count": 24,
-      "sort": "",
-      "from": 1,
-      "page": 1,
-      "total": 24,
-      "pages": 1,
-      "size": 30
-    }
-  },
-  "warnings": {}
-}
-```
-
-
-
 ### \_mapping Endpoint
 
-Each search and retrieval endpoint is equipped with a ```_mapping``` endpoint that provides information about available fields. For example, `files/_mapping` endpoint provides information about fields and field groups available at the `files` endpoint: `https://gdc-api.nci.nih.gov/files/_mapping`.
+Each search and retrieval endpoint is equipped with a ```_mapping``` endpoint that provides information about available fields. For example, `files/_mapping` endpoint provides information about fields and field groups available at the `files` endpoint: `https://api.gdc.cancer.gov/files/_mapping`.
 
 The high-level structure of a response to a `_mapping` query is as follows:
 
@@ -1208,7 +703,7 @@ Each part of the response is described below:
 #### Example
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/projects/_mapping'
+curl 'https://api.gdc.cancer.gov/projects/_mapping'
 ```
 ```output
 {
@@ -1247,7 +742,7 @@ pretty | false | Returns response with indentations and line breaks in a human-r
 fields | null | Specifies which fields to include in the response
 expand | null | Returns multiple related fields
 size | 10 | Specifies the number of results to return
-from   | 1 | Specifies the first record to return from a set of search results
+from   | 0 | Specifies the first record to return from a set of search results
 sort | null | Specifies sorting for the search results
 facets | null | Provides all existing values for a given field and the number of records having this value.
 
@@ -1279,7 +774,7 @@ The following `filters` query operators are supported by the GDC API:
 
 The `field` operand specifies a field that corresponds to a property defined in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). A list of supported fields is provided in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint).
 
-The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://gdc-api.nci.nih.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`. See [Facets](#facets) for details.
+The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://api.gdc.cancer.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`. See [Facets](#facets) for details.
 
 A simple query with a single operator looks like this:
 
@@ -1334,19 +829,19 @@ The JSON object to be passed to the GDC API looks like:
 		  }
 	}
 
-URL-encoding the above JSON object using [Percent-(URL)-encoding tool](http://text-rescue.com/string-escape/percent-url-encoding-tool.html) results in the following string:
+URL-encoding the above JSON object using [Percent-(URL)-encoding tool](https://www.beautifyconverter.com/json-escape-unescape.php) results in the following string:
 
 	%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.clinical.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d
 
 The above string can now be passed to the GDC API using the `filters` parameter:
 
 ```shell
- curl  'https://gdc-api.nci.nih.gov/cases?filters=%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.demographic.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d&pretty=true'
+ curl  'https://api.gdc.cancer.gov/cases?filters=%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.demographic.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d&pretty=true'
 ```
 ```python
 import requests
 import json
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+cases_endpt = 'https://api.gdc.cancer.gov/cases'
 filt = {"op":"=",
         "content":{
             "field": "cases.demographic.gender",
@@ -2042,7 +1537,7 @@ print json.dumps(response.json(), indent=2)
     "pagination": {
       "count": 10,
       "sort": "",
-      "from": 1,
+      "from": 0,
       "page": 1,
       "total": 6340,
       "pages": 634,
@@ -2092,7 +1587,7 @@ The first step is to construct a JSON query object, including `filters`, `fields
 }
 ```
 ```Shell
-curl --request POST --header "Content-Type: application/json" --data @Payload.txt 'https://gdc-api.nci.nih.gov/files' > File_metadata.txt
+curl --request POST --header "Content-Type: application/json" --data @Payload.txt 'https://api.gdc.cancer.gov/files' > File_metadata.txt
 ```
 ```File_metadata_txt
 cases_0_submitter_id	cases_0_case_id	data_type	cases_0_samples_0_sample_type	cases_0_samples_0_tissue_type	file_name	cases_0_samples_0_submitter_id	cases_0_samples_0_portions_0_analytes_0_aliquots_0_aliquot_id	cases_0_samples_0_sample_id	file_id	data_category	cases_0_samples_0_tumor_descriptor	cases_0_samples_0_portions_0_analytes_0_aliquots_0_submitter_id
@@ -2121,12 +1616,12 @@ Specifies the format of the API response: JSON (default), `TSV` or `XML`.
 #### Examples
 
 ```shell1
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&size=5&format=TSV'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&size=5&format=TSV'
 ```
 ```python1
 import requests
 
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+cases_endpt = 'https://api.gdc.cancer.gov/cases'
 params = {'fields':'submitter_id',
           'format':'TSV'}
 response = requests.get(cases_endpt, params = params)
@@ -2141,12 +1636,12 @@ TCGA-BQ-5876
 TCGA-Z6-A9VB
 ```
 ```shell2
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&size=5&format=XML&pretty=true'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&size=5&format=XML&pretty=true'
 ```
 ```python2
 import requests
 
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+cases_endpt = 'https://api.gdc.cancer.gov/cases'
 params = {'fields':'submitter_id',
           'format':'XML',
           'pretty':'true'}
@@ -2177,7 +1672,7 @@ print response.content
 		<pagination>
 			<count>5</count>
 			<sort/>
-			<from>1</from>
+			<from>0</from>
 			<pages>2811</pages>
 			<total>14052</total>
 			<page>1</page>
@@ -2195,41 +1690,46 @@ Returns when the `pretty` parameter is set to `true`, the API response is format
 #### Example
 
 ```Request1
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5'
 ```
 ```Response1
-{"data": {"hits": [{"submitter_id": "TARGET-20-PABGKN"}, {"submitter_id": "TARGET-20-PABHET"}, {"submitter_id": "TARGET-20-PABHKY"}, {"submitter_id": "TARGET-20-PABLDZ"}, {"submitter_id": "TARGET-20-PACDZR"}], "pagination": {"count": 5, "sort": "submitter_id.raw:asc", "from": 1, "pages": 2811, "total": 14052, "page": 1, "size": 5}}, "warnings": {}}
+{"data": {"hits": [{"id": "f7af65fc-97e3-52ce-aa2c-b707650e747b", "submitter_id": "TARGET-00-NAAEMA"}, {"id": "513d0a2a-3c94-5a36-97a4-24c3656fc66e", "submitter_id": "TARGET-00-NAAEMB"}, {"id": "b5f20676-727b-50b0-9b5a-582cd8572d6d", "submitter_id": "TARGET-00-NAAEMC"}, {"id": "0c0b183f-0d4a-5a9d-9888-0617cebcc462", "submitter_id": "TARGET-20-PABGKN"}, {"id": "0f5ed7a7-226d-57bc-a4ce-8a6b18560c55", "submitter_id": "TARGET-20-PABHET"}], "pagination": {"count": 5, "sort": "submitter_id:asc", "from": 0, "page": 1, "total": 14551, "pages": 2911, "size": 5}}, "warnings": {}}
 ```
 ```Request2
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5&pretty=true'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5&pretty=true'
 ```
 ```Response2
 {
   "data": {
     "hits": [
       {
+        "id": "f7af65fc-97e3-52ce-aa2c-b707650e747b",
+        "submitter_id": "TARGET-00-NAAEMA"
+      },
+      {
+        "id": "513d0a2a-3c94-5a36-97a4-24c3656fc66e",
+        "submitter_id": "TARGET-00-NAAEMB"
+      },
+      {
+        "id": "b5f20676-727b-50b0-9b5a-582cd8572d6d",
+        "submitter_id": "TARGET-00-NAAEMC"
+      },
+      {
+        "id": "0c0b183f-0d4a-5a9d-9888-0617cebcc462",
         "submitter_id": "TARGET-20-PABGKN"
       },
       {
+        "id": "0f5ed7a7-226d-57bc-a4ce-8a6b18560c55",
         "submitter_id": "TARGET-20-PABHET"
-      },
-      {
-        "submitter_id": "TARGET-20-PABHKY"
-      },
-      {
-        "submitter_id": "TARGET-20-PABLDZ"
-      },
-      {
-        "submitter_id": "TARGET-20-PACDZR"
       }
     ],
     "pagination": {
       "count": 5,
-      "sort": "submitter_id.raw:asc",
-      "from": 1,
-      "pages": 2811,
-      "total": 14052,
+      "sort": "submitter_id:asc",
+      "from": 0,
       "page": 1,
+      "total": 14551,
+      "pages": 2911,
       "size": 5
     }
   },
@@ -2246,13 +1746,13 @@ This query parameter specifies which fields are to be included in the API respon
 The following example requests case submitter ID, file UUID, file name and file size from the `files` endpoint.
 
 ```shell
-curl 'https://gdc-api.nci.nih.gov/files?fields=cases.submitter_id,file_id,file_name,file_size&pretty=true'
+curl 'https://api.gdc.cancer.gov/files?fields=cases.submitter_id,file_id,file_name,file_size&pretty=true'
 ```
 ```python
 import requests
 import json
 
-files_endpt = 'https://gdc-api.nci.nih.gov/files'
+files_endpt = 'https://api.gdc.cancer.gov/files'
 params = {'fields':'cases.submitter_id,file_id,file_name,file_size'}
 response = requests.get(files_endpt, params = params)
 print json.dumps(response.json(), indent=2)
@@ -2365,7 +1865,7 @@ print json.dumps(response.json(), indent=2)
     "pagination": {
       "count": 10,
       "sort": "",
-      "from": 1,
+      "from": 0,
       "page": 1,
       "total": 216435,
       "pages": 21644,
@@ -2383,7 +1883,7 @@ The `expand` parameter provides a shortcut to request multiple related fields (f
 #### Example
 
 ```Shell
-curl 'https://gdc-api.nci.nih.gov/files/ac2ddebd-5e5e-4aea-a430-5a87c6d9c878?expand=cases.samples&pretty=true'
+curl 'https://api.gdc.cancer.gov/files/ac2ddebd-5e5e-4aea-a430-5a87c6d9c878?expand=cases.samples&pretty=true'
 ```
 ```
 {
@@ -2452,20 +1952,20 @@ GDC API provides a pagination feature that limits the number of results returned
 
 The `size` query parameter specifies the maximum number of results to return. Default `size` is 10. If the number of query results is greater than `size`, only some of the results will be returned.
 
-The `from` query parameter specifies the first record to return out of the set of results. For example, if there are 20 cases returned from the `cases` endpoint, then setting `from` to `11` will return results 11 to 20. The `from` parameter can be used in conjunction with the `size` parameter to return a specific subset of results.
+The `from` query parameter specifies the first record to return out of the set of results. For example, if there are 20 cases returned from the `cases` endpoint, then setting `from` to `11` will return results 12 to 20. The `from` parameter can be used in conjunction with the `size` parameter to return a specific subset of results.
 
 
 #### Example
 
 
 ``` Shell1
-curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&from=0&size=2&pretty=true'
+curl 'https://api.gdc.cancer.gov/files?fields=file_name&from=0&size=2&pretty=true'
 ```
 ``` Python1
 import requests
 import json
 
-files_endpt = 'https://gdc-api.nci.nih.gov/files'
+files_endpt = 'https://api.gdc.cancer.gov/files'
 params = {'fields':'file_name',
           'from':0, 'size':2}
 response = requests.get(files_endpt, params = params)
@@ -2486,7 +1986,7 @@ print json.dumps(response.json(), indent=2)
     "pagination": {
       "count": 2,
       "sort": "",
-      "from": 1,
+      "from": 0,
       "pages": 300936,
       "total": 601872,
       "page": 1,
@@ -2497,13 +1997,13 @@ print json.dumps(response.json(), indent=2)
 }
 ```
 ``` Shell2
-curl 'https://gdc-api.nci.nih.gov/files?fields=file_name&from=101&size=5&pretty=true'
+curl 'https://api.gdc.cancer.gov/files?fields=file_name&from=101&size=5&pretty=true'
 ```
 ``` Python2
 import requests
 import json
 
-files_endpt = 'https://gdc-api.nci.nih.gov/files'
+files_endpt = 'https://api.gdc.cancer.gov/files'
 params = {'fields':'file_name',
           'from':101, 'size':5}
 response = requests.get(files_endpt, params = params)
@@ -2514,28 +2014,33 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "file_name": "unc.edu.956590e9-4962-497b-a59f-81ee0a1c0caf.1379536.junction_quantification.txt"
+        "file_name": "OCULI_p_TCGA_159_160_SNP_N_GenomeWideSNP_6_E09_831242.grch38.seg.txt",
+        "id": "1d959137-d8e6-4336-b357-8ab9c88eeca8"
       },
       {
-        "file_name": "MATZO_p_TCGAb40_SNP_1N_GenomeWideSNP_6_G09_667760.ismpolish.data.txt"
+        "file_name": "jhu-usc.edu_SKCM.HumanMethylation450.3.lvl-3.TCGA-EE-A3JI-06A-11D-A21B-05.gdc_hg38.txt",
+        "id": "9c02ec95-4aa3-4112-8823-c0fa87f71773"
       },
       {
-        "file_name": "GIRTH_p_TCGA_b108_137_SNP_N_GenomeWideSNP_6_D06_787864.hg18.seg.txt"
+        "file_name": "jhu-usc.edu_LAML.HumanMethylation450.2.lvl-3.TCGA-AB-3002-03A-01D-0742-05.gdc_hg38.txt",
+        "id": "731c3560-bcef-4ebf-bfbc-7320399a5bcb"
       },
       {
-        "file_name": "PLENA_p_TCGAb63and64_SNP_N_GenomeWideSNP_6_B12_697382.CEL"
+        "file_name": "CUSKS_p_TCGAb47_SNP_1N_GenomeWideSNP_6_B03_628222.grch38.seg.txt",
+        "id": "a6f73a3e-faf8-49d9-9b68-77781bd302df"
       },
       {
-        "file_name": "TCGA-HU-8604-01A-11R-2402-13.isoform.quantification.txt"
+        "file_name": "5496e9f1-a383-4874-95bb-f4d1b33f4594.vcf",
+        "id": "5496e9f1-a383-4874-95bb-f4d1b33f4594"
       }
     ],
     "pagination": {
       "count": 5,
       "sort": "",
-      "from": 100,
-      "pages": 109553,
-      "total": 547761,
+      "from": 101,
       "page": 21,
+      "total": 274724,
+      "pages": 54945,
       "size": 5
     }
   },
@@ -2552,13 +2057,13 @@ The `sort` query parameter sorts the results by a specific field, and with the s
 Sort cases by `submitter_id` in ascending order:
 
 ``` shell
-curl  'https://gdc-api.nci.nih.gov/cases?fields=submitter_id&sort=submitter_id:asc&pretty=true'
+curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&pretty=true'
 ```
 ``` python
 import requests
 import json
 
-cases_endpt = 'https://gdc-api.nci.nih.gov/cases'
+cases_endpt = 'https://api.gdc.cancer.gov/cases'
 params = {'fields':'submitter_id',
           'sort':'submitter_id:asc'}
 response = requests.get(cases_endpt, params = params)
@@ -2570,43 +2075,53 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
+        "id": "f7af65fc-97e3-52ce-aa2c-b707650e747b",
+        "submitter_id": "TARGET-00-NAAEMA"
+      },
+      {
+        "id": "513d0a2a-3c94-5a36-97a4-24c3656fc66e",
+        "submitter_id": "TARGET-00-NAAEMB"
+      },
+      {
+        "id": "b5f20676-727b-50b0-9b5a-582cd8572d6d",
+        "submitter_id": "TARGET-00-NAAEMC"
+      },
+      {
+        "id": "0c0b183f-0d4a-5a9d-9888-0617cebcc462",
         "submitter_id": "TARGET-20-PABGKN"
       },
       {
+        "id": "0f5ed7a7-226d-57bc-a4ce-8a6b18560c55",
         "submitter_id": "TARGET-20-PABHET"
       },
       {
+        "id": "b2a560a4-5e52-5d78-90ef-d680fbaf44d0",
         "submitter_id": "TARGET-20-PABHKY"
       },
       {
+        "id": "1e5c8323-383d-51a0-9199-1b9504b29c7e",
         "submitter_id": "TARGET-20-PABLDZ"
       },
       {
+        "id": "c550a267-30bd-5bf3-9699-61341559e0d5",
         "submitter_id": "TARGET-20-PACDZR"
       },
       {
+        "id": "0fe29a81-74fc-5158-ae13-0437bc272805",
         "submitter_id": "TARGET-20-PACEGD"
       },
       {
+        "id": "dd2b23ec-46f4-56b2-9429-6015c6dc730f",
         "submitter_id": "TARGET-20-PADDXZ"
-      },
-      {
-        "submitter_id": "TARGET-20-PADYIR"
-      },
-      {
-        "submitter_id": "TARGET-20-PADZCG"
-      },
-      {
-        "submitter_id": "TARGET-20-PADZKD"
       }
     ],
     "pagination": {
       "count": 10,
-      "sort": "submitter_id.raw:asc",
-      "from": 1,
-      "pages": 1406,
-      "total": 14052,
+      "sort": "submitter_id:asc",
+      "from": 0,
       "page": 1,
+      "total": 14551,
+      "pages": 1456,
       "size": 10
     }
   },
@@ -2627,50 +2142,49 @@ The `facets` parameter can be used in conjunction with the `filters` parameter t
 This is an example of a request for a count of projects in each program.
 
 ```shell
-curl  'https://gdc-api.nci.nih.gov/projects?facets=program.name&from=1&size=0&sort=program.name:asc&pretty=true'
+curl  'https://api.gdc.cancer.gov/projects?facets=program.name&from=0&size=0&sort=program.name:asc&pretty=true'
 ```
 ```python
 import requests
 import json
 
-projects_endpt = 'https://gdc-api.nci.nih.gov/projects'
+projects_endpt = 'https://api.gdc.cancer.gov/projects'
 params = {'facets':'program.name',
-          'from':1, 'size':0,
+          'from':0, 'size':0,
           'sort':'program.name:asc'}
 response = requests.get(projects_endpt, params = params)
 print json.dumps(response.json(), indent=2)
 ```
 ```Response
-
-	{
-	  "data": {
-		"pagination": {
-		  "count": 0,
-		  "sort": "program.name:asc",
-		  "from": 1,
-		  "pages": 46,
-		  "total": 46,
-		  "page": 1,
-		  "size": 0
-		},
-		"hits": [],
-		"aggregations": {
-		  "program.name": {
-			"buckets": [
-			  {
-				"key": "TCGA",
-				"doc_count": 37
-			  },
-			  {
-				"key": "TARGET",
-				"doc_count": 9
-			  }
-			]
-		  }
-		}
-	  },
-	  "warnings": {}
-	}
+{
+  "data": {
+    "pagination": {
+      "count": 0,
+      "sort": "program.name:asc",
+      "from": 0,
+      "page": 1,
+      "total": 39,
+      "pages": 39,
+      "size": 0
+    },
+    "hits": [],
+    "aggregations": {
+      "program.name": {
+        "buckets": [
+          {
+            "key": "TCGA",
+            "doc_count": 33
+          },
+          {
+            "key": "TARGET",
+            "doc_count": 6
+          }
+        ]
+      }
+    }
+  },
+  "warnings": {}
+}
 ```
 
 #### Example
@@ -2704,7 +2218,7 @@ In this sample POST request, both `filters` and `facets` parameters are used. No
 }
 ```
 ```Shell
-curl --request POST --header "Content-Type: application/json" --data @Payload 'https://gdc-api.nci.nih.gov/v0/cases'
+curl --request POST --header "Content-Type: application/json" --data @Payload 'https://api.gdc.cancer.gov/v0/cases'
 ```
 ``` Response
 {
@@ -2712,7 +2226,7 @@ curl --request POST --header "Content-Type: application/json" --data @Payload 'h
     "pagination": {
       "count": 0,
       "sort": "",
-      "from": 1,
+      "from": 0,
       "page": 1,
       "total": 941,
       "pages": 941,
@@ -2838,9 +2352,123 @@ curl --request POST --header "Content-Type: application/json" --data @Payload 'h
 ## Alternative Request Format
 
 The GDC API also supports POST requests with `Content-Type: application/x-www-form-urlencoded` (curl default), which require payloads in the following format:
-
+```
 	filters=%7B%0A%20%20%20%20%22op%22%3A%22in%22%2C%0A%20%20%20%20%22content%22%3A%7B%0A%20%20%20%20%20%20%20%20%22field%22%3A%22files.file_id%22%2C%0A%20%20%20%20%20%20%20%20%22value%22%3A%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%220001801b-54b0-4551-8d7a-d66fb59429bf%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22002c67f2-ff52-4246-9d65-a3f69df6789e%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22003143c8-bbbf-46b9-a96f-f58530f4bb82%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%220043d981-3c6b-463f-b512-ab1d076d3e62%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22004e2a2c-1acc-4873-9379-ef1aa12283b6%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22005239a8-2e63-4ff1-9cd4-714f81837a61%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22006b8839-31e5-4697-b912-8e3f4124dd15%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22006ce9a8-cf38-462e-bb99-7f08499244ab%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22007ce9b5-3268-441e-9ffd-b40d1127a319%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%220084a614-780b-42ec-b85f-7a1b83128cd3%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200a5e471-a79f-4d56-8a4c-4847ac037400%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200ab2b5a-b59e-4ec9-b297-76f74ff1d3fb%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200c5f14e-a398-4076-95d1-25f320ee3a37%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200c74a8b-10aa-40cc-991e-3365ea1f3fce%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%2200df5a50-bce3-4edf-a078-641e54800dcb%22%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%7D%0A%7D&fields=file_id,file_name,cases.submitter_id,cases.case_id,data_category,data_type,cases.samples.tumor_descriptor,cases.samples.tissue_type,cases.samples.sample_type,cases.samples.submitter_id,cases.samples.sample_id&format=tsv&size=100
+```
+## Using Wildcards
 
+The GDC API supports the use of the wildcard character, an asterisk (\*), in the `value` fields of a JSON query.  For example, if a user wanted to retrieve information about projects with a disease type that ended in "Adenocarcinoma" a query for `"disease_type": "*Adenocarcinoma"` would be appropriate. See below:
+
+```
+{  
+   "size":"20000",
+   "pretty":"TRUE",
+   "fields":"submitter_id,disease_type",
+   "format":"TSV",
+   "filters":{  
+      "op":"=",
+      "content":{  
+         "field":"disease_type",
+         "value":"*Adenocarcinoma"
+      }
+   }
+}
+```
+
+## Quicksearch Endpoint
+
+The GDC Portal has a quicksearch functionality that allows for a project, case, or file to be queried from a search box. This function calls the `/v0/all` endpoint, which retrieves the top cases, files, and projects that match to the query. The quicksearch can also be used programmatically through the API.  For example, a search term of 'TCGA' would produce the following query:  
+
+```Shell
+curl "https://api.gdc.cancer.gov/v0/all?query=TCGA&size=5"
+```
+```Response
+{
+  "data": {
+    "query": {
+      "hits": [
+        {
+          "disease_type": [
+            "Esophageal Carcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUVTQ0E=",
+          "name": "Esophageal Carcinoma",
+          "primary_site": [
+            "Esophagus"
+          ],
+          "project_id": "TCGA-ESCA"
+        },
+        {
+          "disease_type": [
+            "Head and Neck Squamous Cell Carcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUhOU0M=",
+          "name": "Head and Neck Squamous Cell Carcinoma",
+          "primary_site": [
+            "Head and Neck"
+          ],
+          "project_id": "TCGA-HNSC"
+        },
+        {
+          "disease_type": [
+            "Liver Hepatocellular Carcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUxJSEM=",
+          "name": "Liver Hepatocellular Carcinoma",
+          "primary_site": [
+            "Liver"
+          ],
+          "project_id": "TCGA-LIHC"
+        },
+        {
+          "disease_type": [
+            "Colon Adenocarcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUNPQUQ=",
+          "name": "Colon Adenocarcinoma",
+          "primary_site": [
+            "Colorectal"
+          ],
+          "project_id": "TCGA-COAD"
+        },
+        {
+          "disease_type": [
+            "Adrenocortical Carcinoma"
+          ],
+          "id": "UHJvamVjdDpUQ0dBLUFDQw==",
+          "name": "Adrenocortical Carcinoma",
+          "primary_site": [
+            "Adrenal Gland"
+          ],
+          "project_id": "TCGA-ACC"
+        }
+      ]
+    }
+  }
+}
+```
+
+This endpoint can be used to quickly retrieve information about a file.  For example, if a user wanted to know the UUID for `nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml`, the following query could be used to quickly retrieve it programmatically:
+
+```Shell
+curl "https://api.gdc.cancer.gov/v0/all?query=nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml&size=5"
+```
+```Response
+{
+  "data": {
+    "query": {
+      "hits": [
+        {
+          "file_id": "2a7a354b-e497-4ae6-8a85-a170951596c1",
+          "file_name": "nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml",
+          "id": "RmlsZToyYTdhMzU0Yi1lNDk3LTRhZTYtOGE4NS1hMTcwOTUxNTk2YzE=",
+          "submitter_id": null
+        }
+      ]
+    }
+  }
+}
+```
 
 ## Additional Examples
 

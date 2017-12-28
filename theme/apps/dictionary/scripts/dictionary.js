@@ -424,15 +424,15 @@
     CATEGORY_TEMPLATE_DOWNLOAD_BLACKLIST: ['tbd', 'administrative', 'index_file', 'analysis', 'notation', 'generated_data_file'],
     CATEGORY_EXCLUDES: ['TBD'],
     CATEGORY_TEMPLATE_EXCLUDES: {
-      clinical: ['clinical'],
+      clinical: ['clinical', 'clinical_test'],
       annotation: ['analysis', 'archive', 'publication', 'slide']
     },
-    LINK_EXCLUDES: ['file', 'archive'],
+    LINK_EXCLUDES: ['file', 'archive', 'clinical_test'],
     PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles'],
     CATEGORY_TEMPLATE_INCLUDES: {
     },
     END_POINT: {
-      DEFAULT_URL: 'https://gdc-api.nci.nih.gov', // TODO: env variable? 'http://localhost:5000'
+      DEFAULT_URL: 'https://api.gdc.cancer.gov', // TODO: env variable? 'http://localhost:5000'
       CONTEXT_PROGRAM_PROJECT_PATTERN: '/v0/submission/${program}/${project}/_dictionary/${dictionary_name}',
       CONTEXT_PATTERN: '/v0/submission/_dictionary/${dictionary_name}',
       CONTEXT_TEMPLATE_PATTERN: '/v0/submission/template/${dictionary_name}',

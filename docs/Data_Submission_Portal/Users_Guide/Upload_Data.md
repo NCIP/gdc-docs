@@ -27,13 +27,20 @@ For example, a Demographic entity describes a Case entity. The user is required 
 
 For a new submission project, cases are the first entities to be created, and linked to the project. Other entities are then created according to the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md).
 
-## Download Previously Uploaded Files
+### Download Previously Uploaded Metadata Files
 
-The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
+The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download metadata files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
 
-__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.  
 
 [![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files_2.png)](images/GDC_Submission_Transactions_Original_Files_2.png "Click to see the full image.")
+
+### Download Previously Uploaded Files
+
+The only supported method to download case data files previously uploaded to the GDC Submission Portal is to use the data transfer tool. For more information on downloading data using the data transfer tool please refer to [Downloading data using GDC file UUIDs](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#downloading-data-using-gdc-file-uuids) BFrom the browse tab link located on the project's home page navigate to the "Submittable Data Files" section and click on the submitter id associated with the file.  The UUID associated file will appear under the "SUMMARY" section in the file's information pain located on the right site of the page. [Submission Portal Summary View](images/gdc-submission-portal_image_summary_submission_UUID.png)  
+
+For more information on downloading data using the data transfer tool with a UUID please refer to [Downloading data using GDC file UUIDs](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#downloading-data-using-gdc-file-uuids)
+
+__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.
 
 ## Deleting Previously Uploaded Files
 

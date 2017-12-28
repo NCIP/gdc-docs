@@ -12,13 +12,13 @@ This section describes the GDC API's submission functionality, including methods
 
 The endpoint for submitting data to a specific project in the GDC is constructed as follows:
 
-	https://gdc-api.nci.nih.gov/[API_version/]submission/Program.name/Project.code
+	https://api.gdc.cancer.gov/[API_version/]submission/Program.name/Project.code
 
 where __[API_version/]__ is the optional API version component (see [Getting Started](Getting_Started.md)).
 
 The values of `Program.name` and `Project.code` can be obtained from the project URL on the GDC Data Submission Portal:
 
-	https://gdc-portal.nci.nih.gov/submission/Program.name/Project.code/dashboard
+	https://portal.gdc.cancer.gov/submission/Program.name/Project.code/dashboard
 
 For more information about program name and project code see [The GDC Data Model  section](../../Data/Data_Model/GDC_Data_Model/#program-name-project-code-and-project-id).
 
@@ -26,9 +26,9 @@ For more information about program name and project code see [The GDC Data Model
 
 The following are URL examples for a project with `Program.name` "TCGA" and `Project.code` "ALCH":
 
-* Submission Portal URL: `https://gdc-portal.nci.nih.gov/submission/TCGA/ALCH/dashboard`
-* API submission endpoint (versioned): `https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH`
-* API submission endpoint (unversioned): `https://gdc-api.nci.nih.gov/submission/TCGA/ALCH`
+* Submission Portal URL: `https://portal.gdc.cancer.gov/submission/TCGA/ALCH/dashboard`
+* API submission endpoint (versioned): `https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH`
+* API submission endpoint (unversioned): `https://api.gdc.cancer.gov/submission/TCGA/ALCH`
 
 ## Submission Formats
 
@@ -52,8 +52,8 @@ While JSON and TSV are the recommended formats for submitting metadata, the GDC 
 
 To submit BCR XML, make `PUT` requests with the `Content-Type: application/xml` header to the following URLs, replacing Program.name and Project.code as desribed in [Submission Endpoint](#submission_endpoint) (above):
 
-0. For Biospecimen BCR XML: `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/biospecimen/bcr/`
-0. For Clinical BCR XML: `https://gdc-api.nci.nih.gov/v0/submission/Program.name/Project.code/xml/clinical/bcr/`.
+0. For Biospecimen BCR XML: `https://api.gdc.cancer.gov/v0/submission/Program.name/Project.code/xml/biospecimen/bcr/`
+0. For Clinical BCR XML: `https://api.gdc.cancer.gov/v0/submission/Program.name/Project.code/xml/clinical/bcr/`.
 
 Biospecimen BCR XML creates Case entities in the GDC Data Model, whereas Clinical BCR XML does not. Unless the associated cases already exist in the GDC, Biospecimen BCR XML must be uploaded before Clinical BCR XML.
 
@@ -61,7 +61,7 @@ BCR XML files can be submitted in dry run mode, described [below](#dry-run-trans
 
 The following is a sample shell command for submitting an XML file:
 
-	curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @biospecimen.xml 'https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/xml/biospecimen/bcr/_dry_run'
+	curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @biospecimen.xml 'https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/xml/biospecimen/bcr/_dry_run'
 
 **NOTE:** A typical BCR XML file contains more information than what is extracted and indexed by the GDC. XML files submitted to the above endpoints are not retained or distributed to GDC data users, so the same files should also be submitted as data files (i.e. as clinical or biospecimen supplements).
 
@@ -93,21 +93,53 @@ Submission templates are accessible programmatically at the `templates` endpoint
 
 For example, the JSON template for `case` entities can be obtained from:
 
-	https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json
+	https://api.gdc.cancer.gov/v0/submission/template/case?format=json
 
-A set of templates for all entities in the GDC Data Model can be downloaded from:
+In addition to `case`, templates for the following entities can be downloaded
 
-	https://gdc-api.nci.nih.gov/v0/submission/template/?format=json
+
+__Biospecimen:__
+```
+sample
+portion
+analyte
+aliquot
+read_group
+```
+__Clinical:__
+```
+slide
+demographic
+diagnosis
+exposure
+family_history
+treatment
+follow_up
+```
+
+__Data Files:__
+```
+analysis_metadata
+biospecimen_supplement
+clinical_supplement
+experiment_metadata
+pathology_report
+run_metadata
+slide_image
+submitted_unaligned_reads
+submitted_aligned_reads
+submitted_genomic_profile
+```
 
 #### Entity JSON Schemas
 
 The entire collection of GDC entity schemas can be downloaded from the `dictionary` endpoint:
 
-	https://gdc-api.nci.nih.gov/v0/submission/_dictionary/_all
+	https://api.gdc.cancer.gov/v0/submission/_dictionary/_all
 
 Individual schemas can be downloaded by specifying entity type. For example, the JSON schema for `case` entities can be found at:
 
-	https://gdc-api.nci.nih.gov/v0/submission/_dictionary/case
+	https://api.gdc.cancer.gov/v0/submission/_dictionary/case
 
 
 ## Making Requests to the Submission API
@@ -138,9 +170,9 @@ The following is an example of a POST request, that simulates creating an entity
 }
 ```
 ```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/_dry_run
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/_dry_run
 ```
 ```Response
 {
@@ -184,9 +216,9 @@ Note that the `commit` action is a separate transaction with its own transaction
 To commit a transaction, submit a POST or PUT request to `/submission/Program.name/Project.code/transactions/transaction_id/commit`, replacing `Program.name`, `Project.code`, and `transaction_id` with values associated with the transaction.
 
 ```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
 ```
 ```Response
 {
@@ -205,9 +237,9 @@ The GDC Submission API also provides a `close` action on `_dry_run` transactions
 To close a transaction, submit a POST or PUT request to `/submission/Program.name/Project.code/transactions/transaction_id/close`, replacing `Program.name`, `Project.code`, and `transaction_id` with values associated with the transaction.
 
 ```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/transactions/467/close
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/close
 ```
 ```Response
 {
@@ -237,9 +269,9 @@ The following is an example of a PUT request, that creates a case asynchronously
 }
 ```
 ```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH?async=true
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH?async=true
 ```
 ```Response
 {
@@ -306,7 +338,7 @@ The GDC suggests using POST for creating new entities, and using PUT only for up
 
 In this example, a case entity is created using POST. Then an attempt is made to create the same entity again using POST, resulting in an error. Then the originally created entity is updated (with the same information) using PUT.
 
-The JSON in the request was generated using the `case` JSON template that can be obtained from the [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) and from `https://gdc-api.nci.nih.gov/v0/submission/template/case?format=json`.
+The JSON in the request was generated using the `case` JSON template that can be obtained from the [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) and from `https://api.gdc.cancer.gov/v0/submission/template/case?format=json`.
 
 **Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
@@ -322,9 +354,9 @@ The JSON in the request was generated using the `case` JSON template that can be
 }
 ```
 ```Command1
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response1
 {
@@ -359,7 +391,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 }
 ```
 ```Command2
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response2
 {
@@ -402,7 +434,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 }
 ```
 ```Command3
-curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response3
 {
@@ -466,9 +498,9 @@ In this example, an `aliquot` entity and a `sample` entity are created in a sing
 ]
 ```
 ```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response
 {
@@ -553,9 +585,9 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 ]
 ```
 ```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
 ```
 ```Response
 {
@@ -625,7 +657,7 @@ sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleA	GDC-INTERNAL-000022	Additional M
 sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleB	GDC-INTERNAL-000022	Solid Tissue Normal	02
 ```
 ```Shell
-curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request PUT --data-binary @Samples.tsv 'https://gdc-api.nci.nih.gov/submission/GDC/INTERNAL/_dry_run'
+curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request PUT --data-binary @Samples.tsv 'https://api.gdc.cancer.gov/submission/GDC/INTERNAL/_dry_run'
 ```
 ```Response
 {
@@ -692,9 +724,9 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
 JSON objects representing submitted entities can be retrieved with a GET request to the `entities` endpoint. This endpoint retrieves entities by UUID. A single UUID or a comma-separated list of UUIDs can be passed to this endpoint as a query.
 
 ```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/entities/fbf69646-5904-4f95-92d6-692bde658f05
+curl --header "X-Auth-Token: $token" https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/entities/fbf69646-5904-4f95-92d6-692bde658f05
 ```
 ```Response
 {
@@ -728,10 +760,10 @@ The `export` endpoint provides additional functionality for exporting entities f
 
 
 ```Command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
 
-curl --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/export?ids=11f8321-832f-4a8b-8384-a2f6256557e0&format=json&with_children=with_children'
+curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/export?ids=11f8321-832f-4a8b-8384-a2f6256557e0&format=json&with_children=with_children'
 ```
 ```Response
 {
@@ -910,9 +942,9 @@ A subgraph (a parent along with all of its child entities) can be deleted in a s
 Entities in submitted state (assigned when the project has been submitted) cannot be deleted.
 
 ```Shell
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request DELETE https://gdc-api.nci.nih.gov/v0/submission/TCGA/ALCH/entities/67782964-0065-491d-b051-2ae404bb734d
+curl --header "X-Auth-Token: $token" --request DELETE https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/entities/67782964-0065-491d-b051-2ae404bb734d
 ```
 ```Response
 {
@@ -945,25 +977,28 @@ curl --header "X-Auth-Token: $token" --request DELETE https://gdc-api.nci.nih.go
 
 Experimental data files like BAM and FASTQ can be uploaded directly to the API using the `files` endpoint, by specifying the UUID of the corresponding `data_file` entity. Binary upload mode must be used if available. Uploading large files may be more efficiently performed using the [GDC Data Transfer Tool](/Data_Transfer_Tool/Users_Guide/Getting_Started.md).
 
-	export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+```
+token=$(<gdc-token-text-file.txt)
 
-	curl --header "X-Auth-Token: $token" --output needed_to_show_progress_bar.log --request PUT --data-binary @GDC-INTERNAL-000084-S1-Q1-RG1.fastq.zip https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/files/c414a205-376e-4993-af48-2a4689eb433e && rm needed_to_show_progress_bar.log
+curl --header "X-Auth-Token: $token" --output needed_to_show_progress_bar.log --request PUT --data-binary @GDC-INTERNAL-000084-S1-Q1-RG1.fastq.zip https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/files/c414a205-376e-4993-af48-2a4689eb433e && rm needed_to_show_progress_bar.log
 
 	# "&& rm needed_to_show_progress_bar.log" at the end of the command above
 	# removes the temporary file required to show upload progress bar. This
 	# will not work on Windows platforms. Windows users must remove this
 	# string and can delete the file manually.
-
+```
 
 #### Upload Manifest
 
 The `manifest` endpoint generates a manifest for uploading files using the GDC Data Transfer Tool. It requires a comma-separated list of file UUIDs to generate a manifest.
 
-	https://gdc-api.nci.nih.gov/v0/submission/PROGRAM/PROJECT/manifest?ids=bf0751ca-fc3b-4760-b876-0fefce040be5,90163202-cfd7-4f6a-8214-e7e4e924d3a6
+```
+https://api.gdc.cancer.gov/v0/submission/PROGRAM/PROJECT/manifest?ids=bf0751ca-fc3b-4760-b876-0fefce040be5,90163202-cfd7-4f6a-8214-e7e4e924d3a6
+```
 
 ### Downloading Files
 
-Files in file state = validated can be downloaded by the submitter using the API or the Data Transfer Tool. This is done in a similar manner as files available in the Data Portal, but will require submission access to the particular project in dbGaP as opposed to downloader access.  File UUIDs can be found in the original upload manifest file, the submission portal, or for API call.  See [Downloading Files](Downloading_Files.md) for details.
+Files in file state = validated can be downloaded by the submitter using the API or the Data Transfer Tool. This is done in a similar manner as files available in the Data Portal, but will require submission access to the particular project in dbGaP as opposed to downloader access.  File UUIDs can be found in the original upload manifest file, the submission portal, or by API calls.  See [Downloading Files](Downloading_Files.md) for details.
 
 ### Deleting Files
 
@@ -990,7 +1025,7 @@ Before interacting directly with the GDC Submission API's GraphQL endpoint, user
 
 GDC data submitters can access the GDC Submission API GraphQL endpoint at:
 
-	https://gdc-api.nci.nih.gov/[API_version/]submission/graphql
+	https://api.gdc.cancer.gov/[API_version/]submission/graphql
 
 where __[API_version/]__ is the optional API version component (see [Getting Started](Getting_Started.md)).
 
@@ -1045,7 +1080,7 @@ The bare query above can be used as is in the GraphQL IDE. In order to pass this
 
 Before a bare GraphQL query is passed to the GDC API, it must be processed as follows:
 
-1. [Escape](http://text-rescue.com/string-escape/json-escape-tool.html) the query using JSON string rules
+1. [Escape](https://www.freeformatter.com/json-escape.html) the query using JSON string rules
 2. Wrap the query in a ["query" JSON object](#constructing-a-query).
 3. Pass the query to the `graphql` endpoint in an HTTP POST request.
 
@@ -1071,9 +1106,9 @@ Using the `case` and `_case_count` example above as the starting point, the resu
 }
 ```
 ```Shell_command
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/v0/submission/graphql' --data-binary @Query_json
+curl --request POST --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/v0/submission/graphql' --data-binary @Query_json
 ```
 ```API_Response
 {
@@ -1189,7 +1224,7 @@ GraphQL query to find the file UUID based on file `submitter_id`:
 }
 ```
 ```Shell
-curl --request POST --header "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/v0/submission/graphql' --data-binary @escaped_GraphQL
+curl --request POST --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/v0/submission/graphql' --data-binary @escaped_GraphQL
 ```
 ```Response
 {

@@ -6,6 +6,7 @@ import yaml
 
 ABSFILEPATH = os.path.dirname(os.path.realpath(__file__))
 FILEARRAY = os.listdir(ABSFILEPATH + '/docs/Encyclopedia/pages')
+FILEARRAY = sorted(FILEARRAY, key=str.lower)
 
 with open(ABSFILEPATH + '/mkdocs.yml', 'r') as f:
     doc = yaml.load(f)
@@ -17,7 +18,7 @@ newlist = []
 
 for x in range(len(FILEARRAY)):
     if FILEARRAY[x][-3:] == ".md":
-        tempdict = {FILEARRAY[x][:-3]:"".join(['Encyclopedia/pages/', FILEARRAY[x][:-3], '.md'])}
+        tempdict = {FILEARRAY[x][:-3].replace("_"," "):"".join(['Encyclopedia/pages/', FILEARRAY[x][:-3], '.md'])}
         newlist.append(tempdict)
 
 encycdict['EncyclopediaEntries'] = newlist

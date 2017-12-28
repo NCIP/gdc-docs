@@ -46,17 +46,17 @@ Communicating with the GDC API involves making calls to API endpoints. Each GDC 
 | slicing | BAM Slicing | Allows remote slicing of BAM format objects |
 | submission | Submission | Returns the available resources at the top level above programs i.e., registered programs |
 
-The HTTP URL that corresponds to the latest version of a GDC API endpoint is `https://gdc-api.nci.nih.gov/<endpoint>`, where `<endpoint>` is the name of the endpoint.
+The HTTP URL that corresponds to the latest version of a GDC API endpoint is `https://api.gdc.cancer.gov/<endpoint>`, where `<endpoint>` is the name of the endpoint.
 
-The HTTP URL of an endpoint corresponding to a specific major version of the GDC API is `https://gdc-api.nci.nih.gov/<version>/<endpoint>`, where `<endpoint>` is the name of the endpoint and `<version>` is the GDC API version.
+The HTTP URL of an endpoint corresponding to a specific major version of the GDC API is `https://api.gdc.cancer.gov/<version>/<endpoint>`, where `<endpoint>` is the name of the endpoint and `<version>` is the GDC API version.
 
-For example, the address of the latest version of the `status` endpoint is `https://gdc-api.nci.nih.gov/status`, whereas the address of the `status` endpoint corresponding to version 0 of GDC API is `https://gdc-api.nci.nih.gov/v0/status`.
+For example, the address of the latest version of the `status` endpoint is `https://api.gdc.cancer.gov/status`, whereas the address of the `status` endpoint corresponding to version 0 of GDC API is `https://api.gdc.cancer.gov/v0/status`.
 
 ### GDC Legacy Archive
 
 To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL:
 
-	https://gdc-api.nci.nih.gov/<version>/legacy/<endpoint>
+	https://api.gdc.cancer.gov/<version>/legacy/<endpoint>
 
 ## Entity UUIDs
 
@@ -71,13 +71,13 @@ See [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md) for details.
 The following is an example of a request to the `files` endpoint, which retrieves information about a BAM file stored in the GDC.
 
 ``` shell
-curl https://gdc-api.nci.nih.gov/files/d853e541-f16a-4345-9f00-88e03c2dc0bc?pretty=true
+curl https://api.gdc.cancer.gov/files/d853e541-f16a-4345-9f00-88e03c2dc0bc?pretty=true
 ```
 ``` python
 import requests
 import json
 
-file_endpt = 'https://gdc-api.nci.nih.gov/files/'
+file_endpt = 'https://api.gdc.cancer.gov/files/'
 file_uuid = 'd853e541-f16a-4345-9f00-88e03c2dc0bc'
 response = requests.get(file_endpt + file_uuid)
 print json.dumps(response.json(), indent=2)
@@ -112,7 +112,7 @@ print json.dumps(response.json(), indent=2)
 
 Authentication is required for downloading controlled-access data, and for all data submission functionality. The GDC API uses tokens for authentication.
 
-Users can obtain authentication tokens from the [GDC Data Portal](https://gdc-portal.nci.nih.gov) and the [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) for instructions.
+Users can obtain authentication tokens from the [GDC Data Portal](https://portal.gdc.cancer.gov) and the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) for instructions.
 
 ### Using Authentication Tokens
 
@@ -121,9 +121,9 @@ All API requests that require authentication must include a token as an `X-Auth-
 In the following example, an authentication token is saved as an environment variable and passed to `curl` to download a controlled-access file:
 
 ``` shell
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+token=$(<gdc-token-text-file.txt)
 
-curl -O -J -H "X-Auth-Token: $token" 'https://gdc-api.nci.nih.gov/data/a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
+curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
 ```
 ```Output
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current

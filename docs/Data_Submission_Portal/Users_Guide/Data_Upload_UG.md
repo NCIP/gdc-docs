@@ -44,16 +44,16 @@ project.project_id = TCGA-BRCA
 
 [![GDC Data Model 2](images/GDC-Data-Model-Case.png)](images/GDC-Data-Model-Case.png "Click to see the full image.")
 
-The main entity of the GDC Data Model is the `case`, each of which must be registered beforehand with dbGaP under a unique `submitter_id`. The first step to submitting a `case` is to consult the [Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Dictionary entries are available for all entities in the GDC Data Model.
+The main entity of the GDC Data Model is the `case`, each of which must be registered beforehand with dbGaP under a unique `submitter_id`. The first step to submitting a `case` is to consult the [Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#data-dictionary-viewer), which details the fields that are associated with a `case`, the fields that are required to submit a `case`, and the values that can populate each field. Dictionary entries are available for all entities in the GDC Data Model.
 
 [![Dictionary Case](images/Dictionary_Case.png)](images/Dictionary_Case.png "Click to see the full image.")
 
-Submitting a [__Case__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=case) entity requires:
+Submitting a [__Case__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=case) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `case`
 * __`projects.code`:__ A link to the `project`
 
-The submitter ID is different from the universally unique identifier (UUID), which is based on the [UUID Version 4 Naming Convention](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29). The UUID can be accessed under the `<entity_type>_id` field for each entity. For example, the `case` UUID can be accessed under the `case_id` field. The UUID is either assigned to each entity automatically or can be submitted by the user.  See the [Data Model Users Guide](https://gdc-docs.nci.nih.gov/Data/Data_Model/GDC_Data_Model/#gdc-identifiers) for more details about GDC identifiers.
+The submitter ID is different from the universally unique identifier (UUID), which is based on the [UUID Version 4 Naming Convention](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29). The UUID can be accessed under the `<entity_type>_id` field for each entity. For example, the `case` UUID can be accessed under the `case_id` field. The UUID is either assigned to each entity automatically or can be submitted by the user. Submitter-generated UUIDs cannot be uploaded in `submittable_data_file` entity types. See the [Data Model Users Guide](https://docs.gdc.cancer.gov/Data/Data_Model/GDC_Data_Model/#gdc-identifiers) for more details about GDC identifiers.
 
 The `projects.code` field connects the `case` entity to the `project` entity.  The rest of the entity connections use the `submitter_id` field instead.  
 
@@ -118,7 +118,7 @@ If the upload contains invalid files, a transaction will appear with a FAILED st
 The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. See the [API Submission User Guide](API/Users_Guide/Submission/#creating-and-updating-entities) for a more detailed explanation and for the rest of the functionalities of the API. Generally, uploading an entity through the API can be performed using a command similar to the following:
 
 ```Shell
-curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
+curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
 ```
 CASE.json is detailed below.
 ```json
@@ -136,7 +136,7 @@ __Note:__ Submission of TSV files is also supported by the GDC API.
 Next, the file can either be committed (applied to the project) through the Data Submission Portal as before, or another API query can be performed that will commit the file to the project. The transaction number in the URL (467) is printed to the console during the first step of API submission and can also be retrieved from the 'Transactions' tab in the Data Submission Portal.
 
 ```Shell
-curl --header "X-Auth-Token: $token" --request POST https://gdc-api.nci.nih.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
 ```
 
 ## Clinical Submission
@@ -149,7 +149,7 @@ Typically a submission project will include additional information about a `case
 
 The `demographic` entity contains information that characterizes the `case` entity.  
 
-Submitting a [__Demographic__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=demographic) entity requires:
+Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=demographic) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `demographic` entity
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `demographic` entity to the `case`
@@ -178,7 +178,7 @@ demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian	1946
 
 ### Submitting a Diagnosis Entity to a Case
 
-Submitting a [__Diagnosis__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=diagnosis) entity requires:
+Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=diagnosis) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `diagnosis` entity
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `diagnosis` entity to the `case`
@@ -228,7 +228,7 @@ __Note:__ For information on submitting time-based data for patients over 90 yea
 
 ### Submitting an Exposure Entity to a Case
 
-Submitting an [__Exposure__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  The following fields are optionally included:  
+Submitting an [__Exposure__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=exposure) entity does not require any information besides a link to the `case` and a `submitter_id`.  The following fields are optionally included:  
 
 * __`alcohol_history`:__ A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime
 * __`alcohol_intensity`:__ Category to describe the patient's current level of alcohol use as self-reported by the patient
@@ -272,7 +272,7 @@ A `sample` submission has the same general structure as a `case` submission as i
 
 [![Dictionary Sample](images/Dictionary_Sample.png)](images/Dictionary_Sample.png "Click to see the full image.")
 
-Submitting a [__Sample__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=sample) entity requires:
+Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=sample) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `sample`
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `sample` to the `case`
@@ -302,7 +302,7 @@ sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Blood Derived Normal
 [![GDC Data Model 4](images/GDC-Data-Model-Aliquot.png)](images/GDC-Data-Model-Aliquot.png "Click to see the full image.")
 
 
-Submitting an [__Aliquot__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aliquot) entity requires:
+Submitting an [__Aliquot__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aliquot) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `aliquot`
 * __`analytes.submitter_id`:__ The unique key that was used for the `analyte` that links the `aliquot` to the `analyte`
@@ -324,7 +324,7 @@ aliquot	Blood-00021-aliquot55	Blood-00001SAMPLE_55
 
 __Note:__ `aliquot` entities can be directly linked to `sample` entities. The `portion` and `analyte` entities described below are not required for submission.
 
-Submitting a [__Portion__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=portion) entity requires:
+Submitting a [__Portion__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=portion) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `portion`
 * __`samples.submitter_id`:__ The unique key that was used for the `sample` that links the `portion` to the `sample`
@@ -344,7 +344,7 @@ type	submitter_id	samples.submitter_id
 portion	Blood-portion-000055	Blood-00001SAMPLE_55
 ```
 
-Submitting an [__Analyte__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=analyte) entity requires:
+Submitting an [__Analyte__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=analyte) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `analyte`
 * __`portions.submitter_id`:__ The unique key that was used for the `portion` that links the `analyte` to the `portion`
@@ -372,7 +372,7 @@ analyte	Blood-portion-000055	DNA	Blood-analyte-000055
 
 Because information about sequencing reads is necessary for downstream analysis, the `read_group` entity requires more fields than the other Biospecimen entities (`sample`, `portion`, `analyte`, `aliquot`).
 
-Submitting a [__Read Group__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) entity requires:
+Submitting a [__Read Group__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `read_group`
 * __`aliquot.submitter_id`:__ The unique key that was used for the `aliquot` that links the `read_group` to the `aliquot`
@@ -417,7 +417,7 @@ __Note:__ Submitting a biospecimen entity uses the same conventions as submittin
 
 Before the experiment data file can be submitted, the GDC requires that the user provides information about the file as a `submittable_data_file` entity. This includes file-specific data needed to validate the file and assess which analyses should be performed. Sequencing data files can be submitted as `submitted_aligned_reads` or `submitted_unaligned_reads`.
 
-Submitting a [__Submitted Aligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads) entity requires:
+Submitting a [__Submitted Aligned-Reads__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `submitted_aligned_reads`
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `submitted_aligned_reads` to the `read_group`
@@ -509,7 +509,7 @@ gdc-client upload -m manifest.yml -t $token
 __API Upload:__  A `submittable_data_file` can be uploaded through the API by using the `/submission/program/project/files` endpoint.  The following command would be typically used to upload a file:  
 
 ```Shell
-curl --request PUT --header "X-Auth-Token: $token" https://gdc-api.nci.nih.gov/v0/submission/PROJECT/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@$path_to_file
+curl --request PUT --header "X-Auth-Token: $token" https://api.gdc.cancer.gov/v0/submission/PROJECT/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@$path_to_file
 
 ```
 
@@ -523,7 +523,7 @@ For more details on how to upload a `submittable_data_file` to a project see the
 
 The `experiment_metadata` entity contains information about the experiment that was performed to produce each `read_group`. Unlike the previous two entities outlined, only information about the `experiment_metadata` file itself (SRA XML) is applied to the entity (indexed) and the `experiment_metadata` file is submitted in the same way that a BAM file would be submitted.
 
-Submitting an [__Experiment Metadata__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=experiment_metadata) entity requires:
+Submitting an [__Experiment Metadata__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=experiment_metadata) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `experiment_metadata` entity
 * __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `experiment_metadata` entity to the `read_group`
@@ -554,9 +554,17 @@ Submitting an [__Experiment Metadata__](https://gdc-docs.nci.nih.gov/Data_Dictio
 type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
 experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
 ```
+## Annotation Submission
+
+The GDC Data Portal supports the use of annotations for any submitted entity or file.  An annotation entity may include comments about why particular patients or samples are not present or why they may exhibit critical differences from others.  Annotations include information that cannot be submitted to the GDC through other existing nodes or properties.
+
+If a submitter would like to create an annotation please contact the GDC Support Team (support@nci-gdc.datacommons.io).
+
 ## Deleting Submitted Entities
 
-The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.
+The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. Files cannot be deleted while in the 'SUBMITTED' stated.  This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](../../API/Users_Guide/Submission/#deleting-entities) for specific instructions.
+
+__NOTE:__  Entities associated with files uploaded to the GDC object store cannot be deleted until the associated file has been deleted. Users must utilize the [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) to delete these files first.
 
 ### Simple Deletion
 
@@ -712,10 +720,20 @@ See the following example TSV files:
 * [Aliquots.tsv](Aliquots.tsv)
 * [Read-Groups.tsv](Readgroups.tsv)
 
-## Download Previously Uploaded Files
+### Download Previously Uploaded Metadata Files
 
-The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
+The [transaction](Transactions.md) page lists all previous transactions in the project. The user can download metadata files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
 
-__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.  
 
 [![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files_2.png)](images/GDC_Submission_Transactions_Original_Files_2.png "Click to see the full image.")
+
+### Download Previously Uploaded Data Files
+
+The only supported method to download data files previously uploaded to the GDC Submission Portal that have not been release yet is to use the API or the [Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/). To retrieve data previous upload to the submission portal you will need to retrieve the data file's UUID.  The UUIDs for submitted data files are located in the submission portal under the file's Summary section.    
+
+[![Submission Portal Summary View](images/gdc-submission__image2_submission_UUID.png)](images/gdc-submission__image2_submission_UUID.png "Click to see the full image.")  
+The UUIDs can also be found in the manifest file accessible from the manifest button located on the file's  Summary page.   
+
+Once the UUID(s) have been retrieved the download process is the same as it is for data on our main portal.  If the process is unfamiliar please refer to the [Downloading data using GDC file UUIDs](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#downloading-data-using-gdc-file-uuids) for downloading instructions.
+
+ __Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.
