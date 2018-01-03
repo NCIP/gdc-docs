@@ -466,59 +466,59 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.analytes.aliquots.annotations.notes |
 | files.cases.samples.portions.analytes.aliquots.annotations.state |
 | files.cases.samples.portions.analytes.aliquots.annotations.status |
-| files.cases.samples.portions.analytes.aliquots.annotations.submitter_id | Submitter supplied identifier information
+| files.cases.samples.portions.analytes.aliquots.annotations.submitter_id |
 | files.cases.samples.portions.analytes.aliquots.annotations.updated_datetime |
 | files.cases.samples.portions.analytes.aliquots.center.center_id |
 | files.cases.samples.portions.analytes.aliquots.center.center_type |
-| files.cases.samples.portions.analytes.aliquots.center.code |  Numeric code for the center
-| files.cases.samples.portions.analytes.aliquots.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
-| files.cases.samples.portions.analytes.aliquots.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
-| files.cases.samples.portions.analytes.aliquots.center.short_name |  Shortened name of the center (e.g. BI)
+| files.cases.samples.portions.analytes.aliquots.center.code |  
+| files.cases.samples.portions.analytes.aliquots.center.name |  
+| files.cases.samples.portions.analytes.aliquots.center.namespace |  
+| files.cases.samples.portions.analytes.aliquots.center.short_name |
 | files.cases.samples.portions.analytes.annotations.annotation_id |
 | files.cases.samples.portions.analytes.annotations.case_id |
-| files.cases.samples.portions.analytes.annotations.case_submitter_id | Submitter supplied identifier information
-| files.cases.samples.portions.analytes.annotations.category |  Top level characterization of the annotation
-| files.cases.samples.portions.analytes.annotations.classification |  Top level classification of the annotation
-| files.cases.samples.portions.analytes.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| files.cases.samples.portions.analytes.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
+| files.cases.samples.portions.analytes.annotations.case_submitter_id |
+| files.cases.samples.portions.analytes.annotations.category |
+| files.cases.samples.portions.analytes.annotations.classification |
+| files.cases.samples.portions.analytes.annotations.created_datetime |
+| files.cases.samples.portions.analytes.annotations.creator |
 | files.cases.samples.portions.analytes.annotations.entity_id |
-| files.cases.samples.portions.analytes.annotations.entity_submitter_id | Submitter supplied identifier information
+| files.cases.samples.portions.analytes.annotations.entity_submitter_id |
 | files.cases.samples.portions.analytes.annotations.entity_type |
-| files.cases.samples.portions.analytes.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| files.cases.samples.portions.analytes.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.samples.portions.analytes.annotations.legacy_created_datetime |
+| files.cases.samples.portions.analytes.annotations.legacy_updated_datetime |
 | files.cases.samples.portions.analytes.annotations.notes |
 | files.cases.samples.portions.analytes.annotations.state |
 | files.cases.samples.portions.analytes.annotations.status |
-| files.cases.samples.portions.analytes.annotations.submitter_id | Submitter supplied identifier information
+| files.cases.samples.portions.analytes.annotations.submitter_id |
 | files.cases.samples.portions.analytes.annotations.updated_datetime |
 | files.cases.samples.portions.annotations.annotation_id |
 | files.cases.samples.portions.annotations.case_id |
-| files.cases.samples.portions.annotations.case_submitter_id | Submitter supplied identifier information
-| files.cases.samples.portions.annotations.category |  Top level characterization of the annotation
-| files.cases.samples.portions.annotations.classification |  Top level classification of the annotation
-| files.cases.samples.portions.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| files.cases.samples.portions.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
+| files.cases.samples.portions.annotations.case_submitter_id |
+| files.cases.samples.portions.annotations.category |
+| files.cases.samples.portions.annotations.classification |
+| files.cases.samples.portions.annotations.created_datetime |
+| files.cases.samples.portions.annotations.creator |
 | files.cases.samples.portions.annotations.entity_id |
-| files.cases.samples.portions.annotations.entity_submitter_id | Submitter supplied identifier information
+| files.cases.samples.portions.annotations.entity_submitter_id |
 | files.cases.samples.portions.annotations.entity_type |
-| files.cases.samples.portions.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| files.cases.samples.portions.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.samples.portions.annotations.legacy_created_datetime |
+| files.cases.samples.portions.annotations.legacy_updated_datetime |
 | files.cases.samples.portions.annotations.notes |
 | files.cases.samples.portions.annotations.state |
 | files.cases.samples.portions.annotations.status |
-| files.cases.samples.portions.annotations.submitter_id | Submitter supplied identifier information
+| files.cases.samples.portions.annotations.submitter_id |
 | files.cases.samples.portions.annotations.updated_datetime |
 | files.cases.samples.portions.center.center_id |
 | files.cases.samples.portions.center.center_type |
-| files.cases.samples.portions.center.code |  Numeric code for the center
-| files.cases.samples.portions.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
-| files.cases.samples.portions.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
-| files.cases.samples.portions.center.short_name |  Shortened name of the center (e.g. BI)
-| files.cases.samples.portions.slides.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| files.cases.samples.portions.slides.number_proliferating_cells |  Numeric value that represents the count of proliferating cells determined during pathologic review of the sample slide(s)
-| files.cases.samples.portions.slides.percent_eosinophil_infiltration |  Numeric value that represents the count of proliferating cells determined during pathologic review of the sample slide(s).
+| files.cases.samples.portions.center.code |
+| files.cases.samples.portions.center.name |
+| files.cases.samples.portions.center.namespace |
+| files.cases.samples.portions.center.short_name |
+| files.cases.samples.portions.slides.created_datetime |
+| files.cases.samples.portions.slides.number_proliferating_cells |
+| files.cases.samples.portions.slides.percent_eosinophil_infiltration |
 | files.cases.samples.portions.slides.percent_granulocyte_infiltration |
-| files.cases.samples.portions.slides.percent_inflam_infiltration |  Numeric value to represent local response to cellular injury, marked by capillary dilatation, edema and leukocyte infiltration; clinically, inflammation is manifest by reddness, heat, pain, swelling and loss of function, with the need to heal damaged tissue
+| files.cases.samples.portions.slides.percent_inflam_infiltration |
 | files.cases.samples.portions.slides.percent_lymphocyte_infiltration |
 | files.cases.samples.portions.slides.percent_monocyte_infiltration |
 | files.cases.samples.portions.slides.percent_necrosis |
@@ -529,26 +529,26 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.slides.percent_tumor_nuclei |
 | files.cases.samples.portions.slides.section_location |
 | files.cases.samples.portions.slides.slide_id |
-| files.cases.samples.portions.slides.state |  The current state of the object
-| files.cases.samples.portions.slides.submitter_id |  The legacy barcode used before prior to the use UUIDs, varies by project
-| files.cases.samples.portions.slides.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\
+| files.cases.samples.portions.slides.state |
+| files.cases.samples.portions.slides.submitter_id |
+| files.cases.samples.portions.slides.updated_datetime |
 | files.cases.samples.portions.slides.annotations.annotation_id |
 | files.cases.samples.portions.slides.annotations.case_id |
-| files.cases.samples.portions.slides.annotations.case_submitter_id | Submitter supplied identifier information
-| files.cases.samples.portions.slides.annotations.category |  Top level characterization of the annotation
-| files.cases.samples.portions.slides.annotations.classification |  Top level classification of the annotation
-| files.cases.samples.portions.slides.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| files.cases.samples.portions.slides.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
+| files.cases.samples.portions.slides.annotations.case_submitter_id |
+| files.cases.samples.portions.slides.annotations.category |
+| files.cases.samples.portions.slides.annotations.classification |
+| files.cases.samples.portions.slides.annotations.created_datetime |
+| files.cases.samples.portions.slides.annotations.creator |
 | files.cases.samples.portions.slides.annotations.entity_id |
-| files.cases.samples.portions.slides.annotations.entity_submitter_id | Submitter supplied identifier information
+| files.cases.samples.portions.slides.annotations.entity_submitter_id |
 | files.cases.samples.portions.slides.annotations.entity_type |
-| files.cases.samples.portions.slides.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| files.cases.samples.portions.slides.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| files.cases.samples.portions.slides.annotations.notes |  Open entry for any further description or characterization of the data
-| files.cases.samples.portions.slides.annotations.state |  The current state of the object
-| files.cases.samples.portions.slides.annotations.status |  Status of the annotation
-| files.cases.samples.portions.slides.annotations.submitter_id | Submitter supplied identifier information
-| files.cases.samples.portions.slides.annotations.updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| files.cases.samples.portions.slides.annotations.legacy_created_datetime |
+| files.cases.samples.portions.slides.annotations.legacy_updated_datetime |
+| files.cases.samples.portions.slides.annotations.notes |
+| files.cases.samples.portions.slides.annotations.state |
+| files.cases.samples.portions.slides.annotations.status |
+| files.cases.samples.portions.slides.annotations.submitter_id |
+| files.cases.samples.portions.slides.annotations.updated_datetime |
 | files.cases.summary.file_count |
 | files.cases.summary.file_size |
 | files.cases.summary.data_categories.data_category |
@@ -562,15 +562,15 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.tissue_source_site.tissue_source_site_id |
 | files.center.center_id |
 | files.center.center_type |
-| files.center.code |  Numeric code for the center
-| files.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
-| files.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
-| files.center.short_name |  Shortened name of the center (e.g. BI)
+| files.center.code |
+| files.center.name |
+| files.center.namespace |
+| files.center.short_name |
 | files.downstream_analyses.analysis_id |
 | files.downstream_analyses.analysis_type |
 | files.downstream_analyses.created_datetime |
 | files.downstream_analyses.state |
-| files.downstream_analyses.submitter_id | Submitter supplied identifier information
+| files.downstream_analyses.submitter_id |
 | files.downstream_analyses.updated_datetime |
 | files.downstream_analyses.workflow_end_datetime |
 | files.downstream_analyses.workflow_link |
@@ -593,7 +593,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.downstream_analyses.output_files.revision |
 | files.downstream_analyses.output_files.state |
 | files.downstream_analyses.output_files.state_comment |
-| files.downstream_analyses.output_files.submitter_id | Submitter supplied identifier information
+| files.downstream_analyses.output_files.submitter_id |
 | files.downstream_analyses.output_files.updated_datetime |
 | files.index_files.access |
 | files.index_files.created_datetime |
@@ -611,7 +611,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.index_files.revision |
 | files.index_files.state |
 | files.index_files.state_comment |
-| files.index_files.submitter_id | Submitter supplied identifier information
+| files.index_files.submitter_id |
 | files.index_files.updated_datetime |
 | files.metadata_files.access |
 | files.metadata_files.created_datetime |
@@ -626,10 +626,10 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.metadata_files.md5sum |
 | files.metadata_files.state |
 | files.metadata_files.state_comment |
-| files.metadata_files.submitter_id | Submitter supplied identifier information
+| files.metadata_files.submitter_id |
 | files.metadata_files.type |
 | files.metadata_files.updated_datetime |
-| project.dbgap_accession_number |  The dbgap accession number provided for the program
+| project.dbgap_accession_number |
 | project.disease_type |
 | project.name |
 | project.primary_site |
@@ -657,7 +657,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.sample_type_id |
 | samples.shortest_dimension |
 | samples.state |
-| samples.submitter_id | Submitter supplied identifier information
+| samples.submitter_id |
 | samples.time_between_clamping_and_freezing |
 | samples.time_between_excision_and_freezing |
 | samples.tissue_type |
@@ -667,28 +667,28 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.updated_datetime |
 | samples.annotations.annotation_id |
 | samples.annotations.case_id |
-| samples.annotations.case_submitter_id | Submitter supplied identifier information
-| samples.annotations.category |  Top level characterization of the annotation
-| samples.annotations.classification |  Top level classification of the annotation
-| samples.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| samples.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
+| samples.annotations.case_submitter_id |
+| samples.annotations.category |
+| samples.annotations.classification |
+| samples.annotations.created_datetime |
+| samples.annotations.creator |
 | samples.annotations.entity_id |
-| samples.annotations.entity_submitter_id | Submitter supplied identifier information
+| samples.annotations.entity_submitter_id |
 | samples.annotations.entity_type |
-| samples.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| samples.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| samples.annotations.legacy_creat
+| samples.annotations.legacy_updated_datetime |
 | samples.annotations.notes |
 | samples.annotations.state |
 | samples.annotations.status |
-| samples.annotations.submitter_id | Submitter supplied identifier information
+| samples.annotations.submitter_id |
 | samples.annotations.updated_datetime |
 | samples.portions.created_datetime |
 | samples.portions.creation_datetime |
 | samples.portions.is_ffpe |
 | samples.portions.portion_id |
-| samples.portions.portion_number |  Numeric value that represents the sequential number assigned to a portion of the sample.
+| samples.portions.portion_number |
 | samples.portions.state |
-| samples.portions.submitter_id | Submitter supplied identifier information
+| samples.portions.submitter_id |
 | samples.portions.updated_datetime |
 | samples.portions.weight |
 | samples.portions.analytes.a260_a280_ratio |
@@ -700,7 +700,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.analytes.created_datetime |
 | samples.portions.analytes.spectrophotometer_method |
 | samples.portions.analytes.state |
-| samples.portions.analytes.submitter_id | Submitter supplied identifier information
+| samples.portions.analytes.submitter_id |
 | samples.portions.analytes.updated_datetime |
 | samples.portions.analytes.well_number |
 | samples.portions.analytes.aliquots.aliquot_id |
@@ -711,31 +711,31 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.analytes.aliquots.created_datetime |
 | samples.portions.analytes.aliquots.source_center |
 | samples.portions.analytes.aliquots.state |
-| samples.portions.analytes.aliquots.submitter_id | Submitter supplied identifier information
+| samples.portions.analytes.aliquots.submitter_id |
 | samples.portions.analytes.aliquots.updated_datetime |
 | samples.portions.analytes.aliquots.annotations.annotation_id |
 | samples.portions.analytes.aliquots.annotations.case_id |
-| samples.portions.analytes.aliquots.annotations.case_submitter_id | Submitter supplied identifier information
-| samples.portions.analytes.aliquots.annotations.category |  Top level characterization of the annotation
-| samples.portions.analytes.aliquots.annotations.classification |  Top level classification of the annotation
-| samples.portions.analytes.aliquots.annotations.created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| samples.portions.analytes.aliquots.annotations.creator |  Name of the person or entity responsible for the creation of the annotation
+| samples.portions.analytes.aliquots.annotations.case_submitter_id |
+| samples.portions.analytes.aliquots.annotations.category |
+| samples.portions.analytes.aliquots.annotations.classification |
+| samples.portions.analytes.aliquots.annotations.created_datetime |
+| samples.portions.analytes.aliquots.annotations.creator |
 | samples.portions.analytes.aliquots.annotations.entity_id |
-| samples.portions.analytes.aliquots.annotations.entity_submitter_id | Submitter supplied identifier information
+| samples.portions.analytes.aliquots.annotations.entity_submitter_id |
 | samples.portions.analytes.aliquots.annotations.entity_type |
-| samples.portions.analytes.aliquots.annotations.legacy_created_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-| samples.portions.analytes.aliquots.annotations.legacy_updated_datetime |  A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+| samples.portions.analytes.aliquots.annotations.legacy_created_datetime |
+| samples.portions.analytes.aliquots.annotations.legacy_updated_datetime |
 | samples.portions.analytes.aliquots.annotations.notes |
 | samples.portions.analytes.aliquots.annotations.state |
 | samples.portions.analytes.aliquots.annotations.status |
-| samples.portions.analytes.aliquots.annotations.submitter_id | Submitter supplied identifier information
+| samples.portions.analytes.aliquots.annotations.submitter_id |
 | samples.portions.analytes.aliquots.annotations.updated_datetime |
 | samples.portions.analytes.aliquots.center.center_id |
 | samples.portions.analytes.aliquots.center.center_type |
-| samples.portions.analytes.aliquots.center.code |  Numeric code for the center
-| samples.portions.analytes.aliquots.center.name |  Name of the center (e.g. Center For Data Intensive Science at the University of Chicago)
-| samples.portions.analytes.aliquots.center.namespace |  Domain name of the center (e.g. cdis.uchicago.edu)
-| samples.portions.analytes.aliquots.center.short_name |  Shortened name of the center (e.g. BI)
+| samples.portions.analytes.aliquots.center.code |
+| samples.portions.analytes.aliquots.center.name |
+| samples.portions.analytes.aliquots.center.namespace |
+| samples.portions.analytes.aliquots.center.short_name |
 | samples.portions.analytes.annotations.annotation_id |
 | samples.portions.analytes.annotations.case_id |
 | samples.portions.analytes.annotations.case_submitter_id | Submitter supplied identifier information
