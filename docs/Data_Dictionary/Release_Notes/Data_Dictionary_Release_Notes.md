@@ -1,5 +1,76 @@
 # Data Dictionary Release Notes
 
+## v.1.11 DRAFT
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: January 21st, 2018
+
+
+### New Features and Changes
+
+* Added a link between the Sample and Analyte entities in the data model <!--TT-260-->
+* Modified relationship between the `Submitted Genomic Profile` and `Read Group` to one-to-many <!--TT-75-->
+* Modified relationship of `rna_expression_workflow` to downstream entities from one-to-one to one-to-many <!--TT-171-->
+* Modified relationship of `alignment_workflow` to downstream entities from many-to-one to many-to-many <!--TT-174-->
+* Modified relationship between `projects` and `masked_somatic_mutations` from one-to-one to many_to_one <!--TT-172-->
+* Modified relationship between `projects` and `aggregated_somatic_mutations` from one-to-one to many_to_one <!--TT-173-->
+* Removed the `Exon Expression` entity <!--TT-203-->
+* Added tsv and MAF as a valid data_format for the `Submitted Genomic Profile` entity <!--TT-114--><!--TT-115-->
+* Enumerated case entity fields
+    - `primary_site` <!--TT-189-->
+* Enumerated diagnosis entity fields
+    - `primary_diagnosis` <!--TT-185-->
+    - `tissue_or_organ_of_origin` <!--TT-190-->
+    - `site_of_resection_or_biopsy` <!--TT-192-->
+    - `tumor_grade` <!--TT-193-->
+    - `morphology` <!--TT-186-->
+    - `year_of_diagnosis`: changed type to `int`<!--TT-121-->
+    - `age_at_diagnosis`: changed type to `int` <!--TT-121-->
+* Enumerated exposure entity fields
+    - `alcohol_intensity` <!--TT-191-->
+    - `alcohol_history` <!--TT-247-->
+* Enumerated exposure entity fields
+    - `cause_of_death` <!--TT-264-->
+* Enumerated demographic entity fields
+    - `comorbidity` <!--TT-290-->
+* Enumerated family history entity fields
+    - `relationship_primary_diagnosis` <!--TT-67-->
+    - `relationship_type` <!--TT-67-->
+* Enumerated treatment entity fields
+    - `treatment_anatomic_site` <!--TT-221-->
+    - `treatment_type` <!--TT-226-->
+    - `days_to_treatment`: changed type to `int`<!--TT-213-->
+    - `days_to_treatment_end`: changed type to `int`<!--TT-213-->
+    - `days_to_treatment_start`: changed type to `int`<!--TT-213-->
+* Added new demographic entity fields
+    - `age_at_index` <!--TT-181-->
+* Added new read_group entity fields <!--TT-200-->
+    - `fragment_minimum_length`
+    - `fragment_maximum_length`
+    - `fragment_mean_length`
+    - `fragment_standard_deviation_length`
+* Added new workflow types to the rna_expression_workflow <!--TT-202--> <!--TT-208-->
+    - RSEM - Quantification
+    - STAR - Counts
+    - RNA-SeQC - Counts
+    - RNA-SeQC - FPKM
+    - Kallisto - Quantification
+    - Kallisto - HDF5
+* Added new workflow types to the somatic_aggregation_workflow <!--TT-202--> <!--TT-208-->
+    - Pindel Variant Aggregation and Masking
+    - GENIE Variant Aggregation and Masking
+* Added new data types and formats to the gene_expression entity <!--TT-204-->
+    - New Data Types: `Isoform Expression Quantification` and `Exon Expression Quantification`
+    - New Data Format: `HDF5`
+
+
+### Bugs Fixed Since Last Release
+* Fixed issue when submitting tobacco_smoking_status via tsv <!--TT-205-->
+
+### Known Issues and Workarounds
+
+
+
 ## Release with API v1.10.0
 
 * __GDC Product__: GDC Data Dictionary
