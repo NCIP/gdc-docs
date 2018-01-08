@@ -15,7 +15,6 @@
 
 ### Known Issues and Workarounds
 
-* API queries to the cases or files endpoints will not return anything if the "size" parameter is set to over 10,000. For API queries expected to return results larger than 10,000 cases/files, use the "from" parameter to break up the results.  <!--SV-953-->
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
