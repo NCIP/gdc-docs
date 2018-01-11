@@ -1,6 +1,6 @@
 # Data Dictionary Release Notes
 
-## v.1.11 DRAFT
+## v.1.11
 
 * __GDC Product__: GDC Data Dictionary
 * __Release Date__: January 21st, 2018
@@ -8,18 +8,18 @@
 
 ### New Features and Changes
 
-* Added a link between the Sample and Analyte entities in the data model <!--TT-260--> <!--TT-259-->
-* Added a link between the Sample entity and other Sample entities in the data model <!--TT-261-->
+* Added a link between the `sample` and `analyte` entities in the data model <!--TT-260--> <!--TT-259-->
+* Added a link between the `sample` entity and other `sample` entities in the data model <!--TT-261-->
 * Created `structural_variant_calling_workflow` entity <!--TT-270-->
 * Created `structural_variation` entity <!--TT-207-->
 * Removed `clinical_test` entity  <!--TT-232-->
 * Removed `exon_expression` entity <!--TT-203-->
 * Modified relationships of entities
-    * Changed relationship between the `Submitted Genomic Profile` and `Read Group` to one-to-many <!--TT-75-->
-    * Changed relationship of `rna_expression_workflow` to downstream entities from one-to-one to one-to-many <!--TT-171-->
-    * Changed relationship of `alignment_workflow` to downstream entities from many-to-one to many-to-many <!--TT-174-->
+    * Changed relationship between `submitted_genomic_profile` and `read_group` to one-to-many <!--TT-75-->
     * Changed relationship between `projects` and `masked_somatic_mutations` from one-to-one to many_to_one <!--TT-172-->
     * Changed relationship between `projects` and `aggregated_somatic_mutations` from one-to-one to many_to_one <!--TT-173-->
+    * Changed relationship of `rna_expression_workflow` to downstream entities from one-to-one to one-to-many <!--TT-171-->
+    * Changed relationship of `alignment_workflow` to downstream entities from many-to-one to many-to-many <!--TT-174-->
 * Modified `project` entity
     - Added new property
         - `is_legacy` <!--TT-252-->
@@ -28,8 +28,8 @@
     - Added new fields <!--TT-267-->
         - `release_requested`
         - `awg_review`
-* Modified `clinical supplement` entity
-    - Added new `data_format` fields <!--TT-271-->
+* Modified `clinical_supplement` entity
+    - Added new `data_format` field <!--TT-271-->
         - `CDC JSON`
 * Modified `case` entity
     - Enumerated `primary_site` field <!--TT-189-->
@@ -118,9 +118,9 @@
     - Added new field
         - `date_time`
 * Modified `sample` entity
-    - Added new fields to property
+    - Added new fields to property <!--TT-274-->
         - `method_of_sample_procurement`
-          - `Autopsy`  <!--TT-274-->
+          - `Autopsy`  
     - Added new fields
         - `sample_type` <!--TT-257-->
         - `composition` <!--TT-258-->
@@ -163,7 +163,7 @@
 
 
 ### Bugs Fixed Since Last Release
-* Fixed issue when submitting tobacco_smoking_status via tsv <!--TT-205-->
+* Fixed issue when submitting `tobacco_smoking_status` via tsv <!--TT-205-->
 
 ### Known Issues and Workarounds
 
