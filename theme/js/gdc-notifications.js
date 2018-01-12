@@ -1,4 +1,5 @@
-(function (fetch, d3) {
+(function (fetch, d3, Remarkable) {
+
 
   var getNotifications = function() {
     var checkStatus = function(response) {
@@ -40,6 +41,7 @@
   var renderNotifications = function(notifications) {
     var container = d3.select('#notifications');
 
+    var markdownParser = new Remarkable();
     var bannerHTML = '<span class="fa icon"> \
       </span>\
       <span class="header-message"> \
@@ -69,7 +71,7 @@
       .classed('fa-exclamation-triangle', n.level === 'ERROR');
 
       banner.select('.header-message')
-            .text(n.message);
+            .html(markdownParser.render(n.message));
 
       banner.select('.header-banner-dismiss')
             .classed('hidden', !n.dismissible)
@@ -97,4 +99,4 @@
     }
   });
 
-})(window.fetch, d3);
+})(window.fetch, d3, Remarkable);
