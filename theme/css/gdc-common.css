@@ -368,7 +368,7 @@ code {
 
 
 .navbar-default .navbar-nav > .active > a {
-  background-color: rgba(91, 81, 81, 0.75);
+  background-color: rgb(61, 61, 61);
   color: #fff;
 }
 
@@ -1560,7 +1560,7 @@ footer a:visited {
 .gdc-app-list {
   list-style: none;
   display: inline-block;
-  color: #777;
+  color: rgb(118, 118, 118);
   background-color: transparent;
   padding: 0rem 0rem;
   margin-bottom: 0rem;
@@ -1764,7 +1764,6 @@ footer a:visited {
   background-color: #265986;
   color: white;
   padding: 1rem 0.5rem 1rem;
-  transition: all 0.25s ease;
   border-bottom: 1px solid #ebebeb;
   display: flex;
 }
@@ -1778,6 +1777,8 @@ footer a:visited {
 
 .header-banner.warning {
     background-color: #D39C3F;
+    color: #000000;
+    font-weight: bold;
 }
 
 .header-banner.error {
@@ -1801,6 +1802,21 @@ footer a:visited {
 
 .header-message {
   flex: 32;
+}
+
+.header-banner a, .header-banner a:visited {
+  color: white;
+  text-decoration: underline;
+}
+
+.header-banner.warning a, .header-banner.warning a:visited {
+  color: #000;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.header-banner p {
+  margin: 0;
 }
 
 .hidden {
