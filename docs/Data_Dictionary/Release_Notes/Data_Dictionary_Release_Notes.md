@@ -1,5 +1,179 @@
 # Data Dictionary Release Notes
 
+## v.1.11
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: January 21st, 2018
+
+
+### New Features and Changes
+
+* Added a link between the `sample` and `analyte` entities in the data model <!--TT-260--> <!--TT-259-->
+* Added a link between the `sample` entity and other `sample` entities in the data model <!--TT-261-->
+* Created `structural_variant_calling_workflow` entity <!--TT-270-->
+* Created `structural_variation` entity <!--TT-207-->
+* Removed `clinical_test` entity  <!--TT-232-->
+* Removed `exon_expression` entity <!--TT-203-->
+* Modified relationships of entities
+    * Changed relationship between `submitted_genomic_profile` and `read_group` to one-to-many <!--TT-75-->
+    * Changed relationship between `projects` and `masked_somatic_mutations` from one-to-one to many_to_one <!--TT-172-->
+    * Changed relationship between `projects` and `aggregated_somatic_mutations` from one-to-one to many_to_one <!--TT-173-->
+    * Changed relationship of `rna_expression_workflow` to downstream entities from one-to-one to one-to-many <!--TT-171-->
+    * Changed relationship of `alignment_workflow` to downstream entities from many-to-one to many-to-many <!--TT-174-->
+* Modified `project` entity
+    - Added new state
+        - `processed` <!--TT-266-->
+    - Added new fields
+        - `release_requested` <!--TT-267-->
+        - `awg_review` <!--TT-267-->
+        - `is_legacy` <!--TT-252-->
+* Modified `clinical_supplement` entity
+    - Added new `data_format` field <!--TT-271-->
+        - `CDC JSON`
+* Modified `case` entity
+    - Enumerated `primary_site` field <!--TT-189-->
+* Modified `diagnosis` entity
+    - Enumerated fields
+        - `primary_diagnosis` <!--TT-185-->
+        - `tissue_or_organ_of_origin` <!--TT-190-->
+        - `site_of_resection_or_biopsy` <!--TT-192-->
+        - `tumor_grade` <!--TT-193-->
+        - `morphology` <!--TT-186-->
+        - `ajcc_clinical_stage` <!--TT-238-->
+        - `ajcc_pathologic_stage` <!--TT-239-->
+        - `laterality` <!--TT-242-->
+        - `method_of_diagnosis` <!--TT-244-->
+    - Changed type of fields
+        - `year_of_diagnosis`: changed type to `int`<!--TT-121-->
+        - `age_at_diagnosis`: changed type to `int` <!--TT-121-->
+    - Added new permissible values to fields
+        - `figo_stage`
+            - `Stage IIC` <!--TT-241-->
+        - `lymphatic_invasion_present`
+            - `Not Reported` <!--TT-243-->
+        - `perineural_invasion_present`
+            - `Not Reported` <!--TT-245-->
+        - `ann_arbor_clinical_stage`
+            - `Not Reported` <!--TT-222-->  
+            - `Unknown`<!--TT-240-->
+        - `residual_disease`<!--TT-265-->
+            - `Not Reported`
+            - `Unknown`
+        - `vascular_invasion_type`<!--TT-246-->
+            - `Macro`
+            - `Micro`
+            - `No Vascular Invasion`
+            - `Not Reported`
+            - `Unknown`    
+* Modified `exposure` entity
+    - Enumerated fields
+        - `alcohol_intensity` <!--TT-191-->
+        - `alcohol_history` <!--TT-247-->
+        - `cause_of_death` <!--TT-264-->
+    - Removed `6` as a valid field from `tobacco_smoking_status` <!--TT-214-->
+* Modified `demographic` entity
+    - Enumerated field
+        - `comorbidity` <!--TT-290-->
+    - Added new permissible values to field
+        - `cause_of_death` <!--TT-264-->
+            - `Infection`
+            - `Toxicity`
+            - `Spinal Muscular Atrophy`
+            - `End-stage Renal Disease`
+* Modified `family history` entity
+    - Enumerated fields
+        - `relationship_primary_diagnosis` <!--TT-67-->
+        - `relationship_type` <!--TT-67-->
+* Modified `treatment` entity
+    - Enumerated fields
+        - `treatment_anatomic_site` <!--TT-221-->
+        - `treatment_type` <!--TT-226-->
+    - Changed type of fields
+        - `days_to_treatment`: changed type to `int`<!--TT-213-->
+        - `days_to_treatment_end`: changed type to `int`<!--TT-213-->
+        - `days_to_treatment_start`: changed type to `int`<!--TT-213-->
+* Modified `follow_up` entity
+    - Enumerated field
+        - `comorbidity` <!--TT-225-->
+    - Removed `None` as valid field from `comorbidity` <!--TT-290-->
+* Modified `demographic` entity
+    - Added new field
+        - `age_at_index` <!--TT-181-->
+* Modified read_group entity <!--TT-200-->
+    - Added new fields
+        - `fragment_minimum_length`
+        - `fragment_maximum_length`
+        - `fragment_mean_length`
+        - `fragment_standard_deviation_length`
+* Modified `slide image` entity <!--TT-262-->
+    - Added new data_formats
+        - `JPEG` and `TIFF`
+    - Added new data_type
+        - `Cell Culture`
+    - Added new experimental strategy
+        - `Cell Culture`
+    - Added new property
+        - `Magnification`
+    - Added new field
+        - `date_time`
+* Modified `sample` entity
+    - Added new permissible values to fields <!--TT-274-->
+        - `method_of_sample_procurement`
+            - `Autopsy`  
+        - `sample_type` <!--TT-257-->
+            - `2D Classical Conditionally Reprogrammed Cells`
+            - `2D Modified Conditionally Reprogrammed Cells`
+            - `3D Organoid`
+            - `3D Air-Liquid Interface Organoid`
+            - `3D Neurosphere`
+            - `Adherent Cell Line`
+            - `Liquid Suspension Cell Line`
+        - `composition` <!--TT-258-->
+            - `2D Classical Conditionally Reprogrammed Cells`
+            - `2D Modified Conditionally Reprogrammed Cells`
+            - `3D Organoid`
+            - `3D Air-Liquid Interface Organoid`
+            - `3D Neurosphere`
+            - `Adherent Cell Line`
+            - `Liquid Suspension Cell Line`
+* Modified `genomic_profile_harmonization_workflow` entity
+    - Added new permissible values to field
+        - `workflow_type` <!--TT-117-->
+            - `GENIE Simple Somatic Mutation`
+            - `GENIE Copy Number Variation`
+* Modified `somatic_mutation_calling_workflow` entity
+    - Added new permissible values to field
+        - `workflow_type`<!--TT-206-->
+            - `Pindel`
+* Modified `rna_expression_workflow` entity <!--TT-202--> <!--TT-208-->
+    - Added new permissible values to field
+        - `workflow_type`
+            - `RSEM - Quantification`
+            - `STAR - Counts`
+            - `RNA-SeQC - Counts`
+            - `RNA-SeQC - FPKM`
+            - `Kallisto - Quantification`
+            - `Kallisto - HDF5`
+* Modified `somatic_aggregation_workflow` <!--TT-202--> <!--TT-208-->
+    - Added new permissible values to field
+        - `workflow_type`
+            - `Pindel Variant Aggregation and Masking`
+            - `GENIE Variant Aggregation and Masking`
+* Modified `gene_expression entity` <!--TT-204-->
+    - Added new data_types
+        - `Isoform Expression Quantification`
+        - `Exon Expression Quantification`
+    - Added new data_format
+        - `HDF5`
+
+
+### Bugs Fixed Since Last Release
+* Fixed issue when submitting `tobacco_smoking_status` via tsv <!--TT-205-->
+
+### Known Issues and Workarounds
+
+
+
 ## Release with API v1.10.0
 
 * __GDC Product__: GDC Data Dictionary
