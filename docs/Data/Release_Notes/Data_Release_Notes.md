@@ -67,9 +67,6 @@ None
 
 
 
-
-
-
 ## Data Release 9.0 <!--REQ-317-->
 
 * __GDC Product__: Data

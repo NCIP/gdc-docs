@@ -3,7 +3,7 @@
 ## v.1.11
 
 * __GDC Product__: GDC Data Dictionary
-* __Release Date__: January 21st, 2018
+* __Release Date__: January 21, 2018
 
 
 ### New Features and Changes
