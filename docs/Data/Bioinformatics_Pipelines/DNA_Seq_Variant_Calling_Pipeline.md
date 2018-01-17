@@ -201,7 +201,8 @@ Basic outlines for the other three pipelines can be found here:
 - [SomaticSniper pipeline](https://gdc.cancer.gov/files/public/image/somaticsniper-variant-calling-pipeline.png)
 
 #### Indels
-Indel mutations that were generated with the MuTect2 pipeline are detected and reported in GDC VCF files. Indels detected with the VarScan pipeline are currently removed from the VCF output.
+
+Indel mutations that were generated with the MuTect2 and VarScan pipeline are detected and reported in GDC VCF files.
 
 #### Germline Variants
 At this time, germline variants are deliberately excluded as harmonized data. The GDC does not recommend using germline variants that were previously detected and stored in the Legacy Archive as they do not meet the GDC criteria for high-quality data.  
