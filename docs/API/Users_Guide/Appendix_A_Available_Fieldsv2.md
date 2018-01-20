@@ -7,7 +7,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 ### Project Fields
 
 | Field Name |
-| --- |
+| --- | -------- |
 | dbgap_accession_number |
 | disease_type |
 | name |  
@@ -34,7 +34,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 
 
 | Field Name |
-| --- |
+| --- | -------- |
 | aliquot_ids |
 | analyte_ids |
 | case_id |
@@ -827,7 +827,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 ### File Fields
 
 | Field Name |
-| --- |
+| --- | ------ |
 | access |
 | acl |
 | created_datetime |
@@ -1514,8 +1514,8 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 
 ### GDC Conventions Supplemental
 | Field Group Name |
-| --- | --- |
+| --- | -------- |
 | File size | Listed in bytes |
-| Submitter id | String supplied by submitter |
-| Datetime | Combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss |    
-| Id | GDC supplied UUID ID |  
+| Submitter id | Supplied string by submitter |
+| Datetime | A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] |
+| Id | Is the supplied GDC UUID |  

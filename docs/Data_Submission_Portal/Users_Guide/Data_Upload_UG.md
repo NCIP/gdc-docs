@@ -413,7 +413,7 @@ __Note:__ Submitting a biospecimen entity uses the same conventions as submittin
 
 ## Experiment Data Submission
 
-[![GDC Data Model 5](images/GDC-Data-Model-Reads.png)](images/GDC-Data-Model-Reads.png "Click to see the full image.")
+[![GDC Data Model 6](images/GDC-Data-Model-Reads.png)](images/GDC-Data-Model-Reads.png "Click to see the full image.")
 
 Before the experiment data file can be submitted, the GDC requires that the user provides information about the file as a `submittable_data_file` entity. This includes file-specific data needed to validate the file and assess which analyses should be performed. Sequencing data files can be submitted as `submitted_aligned_reads` or `submitted_unaligned_reads`.
 
