@@ -1,5 +1,46 @@
 # Data Portal Release Notes
 
+## Release 1.12.x
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: Month DD, 2018
+
+### New Features and Changes <!--REQ-322-->
+
+*  Provided the ability to export clinical and biospecimen data in a TSV format from the Case, Project, Exploration, Repository and Cart pages.<!--PRTL-1929-->
+*  Removed from the Project entity page the sections about Genes, Mutations and Affected Cases and replaced them with a button "Explore data" that will open the Exploration page filtered on the project. Added a breakdown of Cases per primary sites for a Project entity page with multiple primary sites (e.g. FM-AD). <!--PRTL-1903-->
+*  Added display of coding DNA change and impacts for all the transcripts (instead of canonical transcript only) in the Mutation entity page - Consequences section. In the Mutation table (e.g. in Repository), the impacts and consequences are displayed for the canonical transcript only. <!--PRTL-1927-->
+*  Replaced the suggested name when saving a set with a selected items, e.g. for a case set the list of case UUIDs is replaced by suggested name "Custom Case selection". <!--PRTL-1911-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed protein viewer to indicate when there are overlapping mutations. Mousing over the dot showing multiple mutations will open a right panel with the list of all the corresponding mutations.  <!--SV-750-->
+*  Fixed mutation entity page, in the Consequences Table: the "Coding DNA Change" column is now populated for all the rows. <!--SV-751-->
+*  Fixed download clinical and download biospecimen actions from TCGA-BRCA project. 
+*  Fixed facets behaviour that did not reset back to showing all options after pressing reset-arrow. <!--PRTL-1928-->
+*  Fixed error when user was trying to save a set with no value in the textbox "Save top:".  <!--PRTL-1909-->
+*  Removed mutation section from case entity page for cases with no open-access mutation data (e.g. FM-AD or TARGET cases). <!--PRTL-1926-->
+
+### Known Issues and Workarounds
+
+*  Sample sheet will download with a file name including the date duplicated (e.g. gdc_sample_sheet_YYYY-MM-DD_HH-MM.tsv.YYYY-MM-DD_HH-MM.tsv). <!--SV-942-->
+*  Custom facet filters
+    * Definitions are missing from the property list when adding custom facet file or case filters. <!--SV-916-->
+*  Visualizations
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 --> 
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
+
 ## Release 1.11.0
 
 * __GDC Product__: GDC Data Portal
