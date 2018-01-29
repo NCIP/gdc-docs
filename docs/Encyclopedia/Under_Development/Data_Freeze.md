@@ -9,6 +9,6 @@ A Data Freeze refers to a complete or partial ban imposed on data changes.
 1. N/A
 
 ## External Links ##
-* N/A
+* [Freeze](https://en.wikipedia.org/wiki/Freeze_(software_engineering) 
 
 Categories: Tool
