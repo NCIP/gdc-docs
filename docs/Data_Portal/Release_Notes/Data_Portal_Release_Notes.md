@@ -16,10 +16,11 @@
 
 *  Fixed protein viewer to indicate when there are overlapping mutations. Mousing over the dot showing multiple mutations will open a right panel with the list of all the corresponding mutations.  <!--SV-750-->
 *  Fixed mutation entity page, in the Consequences Table: the "Coding DNA Change" column is now populated for all the rows. <!--SV-751-->
-*  Fixed download clinical and download biospecimen actions from TCGA-BRCA project. 
+*  Fixed download clinical and download biospecimen actions from TCGA-BRCA project.
 *  Fixed facets behaviour that did not reset back to showing all options after pressing reset-arrow. <!--PRTL-1928-->
 *  Fixed error when user was trying to save a set with no value in the textbox "Save top:".  <!--PRTL-1909-->
 *  Removed mutation section from case entity page for cases with no open-access mutation data (e.g. FM-AD or TARGET cases). <!--PRTL-1926-->
+*  Fixed problem where a blank page appears after un-checking `Cancer Gene Census` mutation facet or clicking on a case id in the Advanced Search <!--PRTL-1933-->
 
 ### Known Issues and Workarounds
 
@@ -32,7 +33,7 @@
     *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
 *  Legacy Archive
     *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
-    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 --> 
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    

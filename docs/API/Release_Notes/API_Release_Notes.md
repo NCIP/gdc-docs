@@ -1,5 +1,22 @@
 # API Release Notes
 
+## v1.13.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: Month DD, 2018
+
+### New Features and Changes
+
+* None
+
+### Bugs Fixed Since Last Release
+
+* Reduced number of submission portal timeouts by optimizing graphql API requests <!--API-317-->
+
+### Known Issues and Workarounds
+
+* None
+
 ## v1.12.0
 
 * __GDC Product__: Application Programming Interface (API)
