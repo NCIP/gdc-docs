@@ -17,7 +17,7 @@
 *  Fixed protein viewer to indicate when there are overlapping mutations. Mousing over the dot showing multiple mutations will open a right panel with the list of all the corresponding mutations.  <!--SV-750-->
 *  Fixed mutation entity page, in the Consequences Table: the "Coding DNA Change" column is now populated for all the rows. <!--SV-751-->
 *  Fixed download clinical and download biospecimen actions from TCGA-BRCA project.
-*  Fixed facets behaviour that did not reset back to showing all options after pressing reset-arrow. <!--PRTL-1928-->
+*  Fixed facets behavior that did not reset back to showing all options after pressing reset-arrow. <!--PRTL-1928-->
 *  Fixed error when user was trying to save a set with no value in the textbox "Save top:".  <!--PRTL-1909-->
 *  Removed mutation section from case entity page for cases with no open-access mutation data (e.g. FM-AD or TARGET cases). <!--PRTL-1926-->
 *  Fixed problem where a blank page appears after un-checking `Cancer Gene Census` mutation facet or clicking on a case id in the Advanced Search <!--PRTL-1933-->

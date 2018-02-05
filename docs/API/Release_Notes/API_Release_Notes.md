@@ -7,11 +7,11 @@
 
 ### New Features and Changes
 
-* None
+* Reduced number of submission portal timeouts by optimizing graphql API requests <!--API-317-->
 
 ### Bugs Fixed Since Last Release
 
-* Reduced number of submission portal timeouts by optimizing graphql API requests <!--API-317-->
+* Fixed bug preventing submission of clinical data via BCR XML <!--SV-985-->
 
 ### Known Issues and Workarounds
 
