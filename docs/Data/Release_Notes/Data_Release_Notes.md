@@ -1,5 +1,64 @@
 # Data Release Notes
 
+## Data Release 10.1
+
+* __GDC Product__: Data
+* __Release Date__: February X, 2018
+
+### New updates
+
+1. Updated FM-AD clinical data to conform with Data Dictionary release v1.11
+
+### Bugs Fixed Since Last Release
+
+None
+
+### Known Issues and Workarounds
+
+* The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` were not replaced in DR10.0 and thus do not contain indels.  However, the indels from this aliquot can be found in the MAF files and are displayed in the Exploration section in the Data Portal.  These VCFs files will be replaced in a later release.
+<!--SV-950-->
+* There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+* There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+* TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+* Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+* Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+* Some TARGET files are not connected to all related aliquots <!--SV-929-->
+* miRNA alignments include QC failed reads.  
+* Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+* FM-AD clinical and biospecimen supplement files have incorrect data format.  They are listed as XLSX, but are in fact TSV files. <!--DAT-1123-->
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+    *  All microarray data and metadata
+    *  All sequencing analyzed data and metadata
+    *  1180 of 12063 sequencing runs of raw data
+* Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+* There are 11 cases in project TCGA-DLBC that are known to have incorrect WXS data in the GDC Data Portal.  Impacted cases are listed below.  This affects the BAMs and VCFs associated with these cases in the GDC Data Portal.  Corrected BAMs can be found in the GDC Legacy Archive.  Variants from affected aliquots appear in the protected MAFs with GDC_FILTER=ContEst to indicate a sample contamination problem, but are removed during the generation of the Somatic MAF file.  In a later release we will supply corrected BAM, VCF, and MAF files for these cases.  In the mean time, we advise you not to use any of the WXS files associated with these cases in the GDC Data Portal.  A list of these files can be found here. [Download list of affected files](DLBC_Affected_Files.txt). <!-- Data-871-->
+    * TCGA-FF-8062
+    * TCGA-FM-8000
+    * TCGA-G8-6324
+    * TCGA-G8-6325
+    * TCGA-G8-6326
+    * TCGA-G8-6906
+    * TCGA-G8-6907
+    * TCGA-G8-6909
+    * TCGA-G8-6914
+    * TCGA-GR-7351
+    * TCGA-GR-7353
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MDLS is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+* SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* Tumor grade property is not populated <!--SV-585-->
+* Progression_or_recurrence property is not populated <!--SV-584-->
+
+
+
 ## Data Release 10.0 <!--REQ-318-->
 
 * __GDC Product__: Data
