@@ -48,7 +48,7 @@ Clicking on `Submit` will filter the results in the Exploration Page by those ca
 
 The second tab of filters is for genes affected by mutations in the GDC.
 
-[![Exploration Gene Filters](images/Exploration-Gene-Filter.png)](images/Exploration-Gene-Filter.png "Click to see the full image.")
+[![Exploration Gene Filters](images/Exploration-Gene-Filter_v2.png)](images/Exploration-Gene-Filter_v2.png "Click to see the full image.")
 
 The second tab of filters are for specific genes.  Users can filter by:
 
