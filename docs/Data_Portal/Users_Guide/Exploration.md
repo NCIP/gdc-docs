@@ -110,14 +110,14 @@ Clicking on `Submit` will filter the results in the Exploration Page by those mu
 
 As users add filters to the data on the Exploration Page, the Results section will automatically be updated.  Results are divided into different tabs:  `Cases`, `Genes`, `Mutations`, and `OncoGrid`.  
 
-To illustrate these tabs, Case, Gene, and Mutation filters have been chosen ( Genes in the Cancer Gene Census, that have HIGH Impact for the TCGA-BRCA project) and a description of what each tab displays follows.
+To illustrate these tabs, Case, Gene, and Mutation filters have been chosen ( Genes in the Cancer Gene Census, that have HIGH VEP Impact for the TCGA-BRCA project) and a description of what each tab displays follows.
 
 
 #### Cases
 
 The `Cases` tab gives an overview of all the cases/patients who correspond to the filters chosen (Cohort).
 
-[![Exploration Case Example](images/Exploration-Case-Example.png)](images/Exploration-Case-Example.png "Click to see the full image.")
+[![Exploration Case Example](images/Exploration-Case-Example_v2.png)](images/Exploration-Case-Example_v2.png "Click to see the full image.")
 
 The top of this section contains a few pie graphs with categorical information regarding the Primary Site, Project, Disease Type, Gender, and Vital Status.
 
