@@ -14,11 +14,7 @@ __Upload ID Set:__ This feature is available in the "Manage Sets" link at the to
 
 \* This is referred to as a `submitter_id` in the GDC API, which is a non-UUID identifier such as a TCGA barcode.
 
-__Apply Filters in Exploration:__ Sets can be assembled using the existing filters in the Exploration page.  They can be saved by choosing the "Save/Edit Case Set" button under the pie charts for case sets. This will prompt a decision to:
-
-* Save as new case set
-* Add to existing case set
-* Remove from existing case set
+__Apply Filters in Exploration:__ Sets can be assembled using the existing filters in the Exploration page.  They can be saved by choosing the "Save/Edit Case Set" button under the pie charts for case sets. This will prompt a decision to save as new case set.
 
 Similarly, gene and mutation filters can be applied and saved in the Exploration page in the Genes and Mutations tab, respectively.
 
