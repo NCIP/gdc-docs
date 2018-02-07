@@ -183,8 +183,34 @@ Below these graphs is a tabular view of the genes affected, which includes the f
 * __Annotations:__ Includes a COSMIC symbol if the gene belongs to [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/)
 * __Survival Analysis:__ An icon that, when clicked, will plot the survival rate between cases in the project with mutated and non-mutated forms of the gene
 
+### Survival Analysis
 
+Survival analysis is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Survival analysis requires:
 
+*  Data on the time to a particular event (days to death or last follow up)
+    * Fields:  __diagnoses.days_to_death__ and __diagnoses.days_to_last_follow_up__
+*  Information on whether the event has occurred (alive/deceased)
+    * Fields:  __diagnoses.vital_status__
+*  Data split into different categories or groups (i.e. gender, etc.)
+    * Fields:  __demographic.gender__
+
+The survival analysis in the GDC uses a Kaplan-Meier estimator:
+
+[![Kaplan-Meier Estimator](images/gdc-kaplan-meier-estimator.png)](images/gdc-kaplan-meier-estimator "Click to see the full image.")
+
+Where:
+
+ * S(t<sub>i</sub>) is the estimated survival probability for any particular one of the t time periods
+ * n<sub>i</sub> is the number of subjects at risk at the beginning of time period t<sub>i</sub>
+ * and d<sub>i</sub> is the number of subjects who die during time period t<sub>i</sub>
+
+The table below is an example data set to calculate survival for a set of seven cases:
+
+[![Sample Survival Analysis Table](images/gdc-sample-survival-table.png)](images/gdc-sample-survival-table.png "Click to see the full image.")
+
+The calculated cumulated survival probability can be plotted against the interval to obtain a survival plot like the one shown below.
+
+[![Sample Survival Analysis Plot](images/gdc-survival-plot.png)](images/gdc-survival-plot.png "Click to see the full image.")
 
 #### Mutations
 
