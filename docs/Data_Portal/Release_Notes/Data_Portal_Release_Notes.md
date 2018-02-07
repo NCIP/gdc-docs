@@ -8,25 +8,26 @@
 ### New Features and Changes <!--REQ-322-->
 
 *  Provided the ability to export clinical and biospecimen data in a TSV format from the Case, Project, Exploration, Repository and Cart pages.<!--PRTL-1929-->
-*  Removed from the Project entity page the sections about Genes, Mutations and Affected Cases and replaced them with a button "Explore data" that will open the Exploration page filtered on the project. Added a breakdown of Cases per primary sites for a Project entity page with multiple primary sites (e.g. FM-AD). <!--PRTL-1903-->
-*  Added display of coding DNA change and impacts for all the transcripts (instead of canonical transcript only) in the Mutation entity page - Consequences section. In the Mutation table (e.g. in Repository), the impacts and consequences are displayed for the canonical transcript only. <!--PRTL-1927-->
-*  Replaced the suggested name when saving a set with a selected items, e.g. for a case set the list of case UUIDs is replaced by suggested name "Custom Case selection". <!--PRTL-1911-->
+*  Removed from the Project entity page the sections about mutated genes, somatic mutations and affected Cases and replaced with a button "Explore data" that will open the Exploration page filtered on the project. Indeed the Exploration page provides the same information.  Added a breakdown of cases per primary site for a Project entity page with multiple primary sites (e.g. FM-AD). <!--PRTL-1903-->
+*  Added display of coding DNA change and impacts for all the transcripts (instead of canonical transcript only) in the Mutation entity page - Consequences section. In the mutation table (e.g. in Repository), the impacts and consequences are displayed for the canonical transcript only. <!--PRTL-1927-->
 
 ### Bugs Fixed Since Last Release
 
-*  Fixed protein viewer to indicate when there are overlapping mutations. Mousing over the dot showing multiple mutations will open a right panel with the list of all the corresponding mutations.  <!--SV-750-->
-*  Fixed mutation entity page, in the Consequences Table: the "Coding DNA Change" column is now populated for all the rows. <!--SV-751-->
+*  Replaced the suggested set name when saving a set with selected items, e.g. for case set the suggested name is now "Custom Case selection". <!--PRTL-1911-->
+*  Fixed the protein viewer to indicate when there are overlapping mutations. Mousing over the dot showing multiple mutations will open a right panel with the list of all the corresponding mutations.  <!--SV-750-->
+*  Fixed Mutation entity page - Consequences table: the "Coding DNA Change" column is now populated for all the transcripts. <!--SV-751-->
 *  Fixed download clinical and download biospecimen actions from TCGA-BRCA project.
-*  Fixed facets behavior that did not reset back to showing all options after pressing reset-arrow. <!--PRTL-1928-->
+*  Fixed facet behavior that did not reset back to showing all options after pressing reset-arrow. <!--PRTL-1928-->
 *  Fixed error when user was trying to save a set with no value in the textbox "Save top:".  <!--PRTL-1909-->
-*  Removed mutation section from case entity page for cases with no open-access mutation data (e.g. FM-AD or TARGET cases). <!--PRTL-1926-->
-*  Fixed problem where a blank page appears after un-checking `Cancer Gene Census` mutation facet or clicking on a case id in the Advanced Search <!--PRTL-1933-->
+*  Removed somatic mutation section from Case entity page for cases with no open-access mutation data (e.g. FM-AD or TARGET cases). <!--PRTL-1926-->
+*  Fixed error where a blank page appears after unselecting `Cancer Gene Census` mutation facet. <!--PRTL-1933-->
+*  Fixed duplicated date in sample sheet name (e.g. gdc_sample_sheet_YYYY-MM-DD_HH-MM.tsv.YYYY-MM-DD_HH-MM.tsv). <!--SV-942-->
+*  Fixed error when annotations were not downloaded along with the file (in File entity page and Cart).  <!--SV-401-->
 
 ### Known Issues and Workarounds
 
-*  Sample sheet will download with a file name including the date duplicated (e.g. gdc_sample_sheet_YYYY-MM-DD_HH-MM.tsv.YYYY-MM-DD_HH-MM.tsv). <!--SV-942-->
 *  Custom facet filters
-    * Definitions are missing from the property list when adding custom facet file or case filters. <!--SV-916-->
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989--> 
 *  Visualizations
     *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
 *  Repository and Cart
