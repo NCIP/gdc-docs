@@ -154,6 +154,9 @@ Below these graphs is a tabular view of the genes affected, which includes the f
 * __Annotations:__ Includes a COSMIC symbol if the gene belongs to [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/)
 * __Survival Analysis:__ An icon that, when clicked, will plot the survival rate between cases in the project with mutated and non-mutated forms of the gene
 
+
+
+
 #### Mutations
 
 The `Mutations` tab will give an overview of all the mutations who match the criteria of the filters (Cohort).
