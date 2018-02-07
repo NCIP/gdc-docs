@@ -100,7 +100,7 @@ The list also includes a shopping cart button, allowing the user to add all file
 
 After utilizing the Repository Page to narrow down a specific set of cases, users can continue to explore the mutations and genes affected by these cases by clicking the `View Files in Repository` button as shown in the image below.
 
-[![Exploration File Navigation](images/gdc-view-in-exploration.png)](images/gdc-view-in-exploration.png "Click to see the full image.")
+[![Exploration File Navigation](images/gdc-view-in-exploration_v2.png)](images/gdc-view-in-exploration_v2.png "Click to see the full image.")
 
 Clicking this button will navigate the users to the Exploration Page, filtered by the cases within the cohort.
 
