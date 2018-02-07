@@ -209,7 +209,7 @@ A tool bar at the top right of the graphic allows the user to export the data as
 
 After utilizing the Exploration Page to narrow down a specific cohort, users can find the specific files that relate to this group by clicking on the `View Files in Repository` button as shown in the image below.
 
-[![Exploration File Navigation](images/Exploration-View-Files.png)](images/Exploration-View-Files.png "Click to see the full image.")
+[![Exploration File Navigation](images/Exploration-View-Files_v2.png)](images/Exploration-View-Files_v2.png "Click to see the full image.")
 
 Clicking this button will navigate the users to the Repository Page, filtered by the cases within the cohort.
 

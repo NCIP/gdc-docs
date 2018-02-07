@@ -73,34 +73,16 @@ For information on how to use facet filters, see [Getting Started](Getting_Start
 
 Each project has a summary page that provides an overview of all available cases, files, and annotations available. Clicking on the numbers in the summary table will display the corresponding data.
 
-[![Project Summary Page](images/gdc-project-entity-page.png)](images/gdc-project-entity-page.png "Click to see the full image.")
+[![Project Summary Page](images/gdc-project-entity-page_v2.png)](images/gdc-project-entity-page_v2.png "Click to see the full image.")
 
 Three download buttons in the top right corner of the screen allow the user to download the entire project dataset, along with the associated project metadata:
 
-* __Download Biospecimen__: Downloads biospecimen metadata associated with all cases in the project.
-* __Download Clinical__: Downloads clinical metadata about all cases in the project.
+* __Explore Project Data__: Opens Exploration page with project summary page project information.
+* __Download Biospecimen__: Downloads biospecimen metadata associated with all cases in the project in either TSV or JSON format.
+* __Download Clinical__: Downloads clinical metadata about all cases in the project in either TSV or JSON format.
 * __Download Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the GDC Data Transfer Tool to download the files.
 
-### Most Frequently Mutated Genes
 
-The Project Summary page also reports the genes that have somatic mutations in the greatest numbers of cases in a graphical and tabular format.
-
-[![Frequently Mutated Genes](images/gdc-frequently-mutated-genes.png)](images/gdc-frequently-mutated-genes.png "Click to see the full image.")
-
-The top of this section contains a bar graph of the most frequently mutated genes as well as a survival plot of all the cases within the specified project. Hovering over each bar in the plot will display information about the number of cases affected. Users may choose to download the underlying data in JSON or TSV format or an image of the graph in SVG or PNG format by clicking the `download` icon at the top of each graph.
-
-Also at the top of this section are two links: `OncoGrid` and `Open in Exploration`.  The `OncoGrid` button will take the user to the [OncoGrid](Exploration.md#OncoGrid) for this project on the [Exploration Page](Exploration.md).  `Open in Exploration` will take the user to the Exploration page with this filters applied for the current project selected.
-
-Below these graphs is a tabular view of the genes affected, which includes the following information:
-
-* __Symbol:__ The gene symbol, which links to the Gene Summary Page
-* __Name:__ Full name of the gene
-* __Cytoband:__ The location of the mutation on the chromosome in terms of Giemsa-stained samples.
-* __# Affected Cases in Project:__ The number of cases within the project that contain a mutation on this gene, which links to the Cases tab in the Exploration Page
-* __# Affected Cases Across the GDC:__ The number of cases within all the projects in the GDC that contain a mutation on this gene. Clicking the red arrow will display the cases broken down by project
-* __# Mutations:__ The number of SSMs (simple somatic mutations) detected in that gene, which links to the Mutation tab in the Exploration Page
-* __Annotations:__ Includes a COSMIC symbol if the gene belongs to [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/)
-* __Survival Analysis:__ An icon that, when clicked, will plot the survival rate between cases in the project with mutated and non-mutated forms of the gene
 
 ### Survival Analysis
 
