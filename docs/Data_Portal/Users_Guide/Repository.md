@@ -87,7 +87,7 @@ Users can add individual file(s) to the file cart using the cart button next to 
 
 The Cases tab on the right provides a list of available cases and select information about each case. If facet filters are applied, the list includes only matching cases. Otherwise, the list includes all cases available in the GDC Data Portal.
 
-[![Cases Tab](images/gdc-data-portal-data-cases.png)](images/gdc-data-portal-data-cases.png "Click to see the full image.")
+[![Cases Tab](images/gdc-data-portal-data-cases_v2.png)](images/gdc-data-portal-data-cases_v2.png "Click to see the full image.")
 
 The list includes links to [case summary pages](#case-summary-page) in the *Case UUID* column, the Submitter ID (i.e. TCGA Barcode), and counts of the available file types for each case. Clicking on a count will apply facet filters to display the corresponding files.
 
