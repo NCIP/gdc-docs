@@ -29,8 +29,10 @@
 *  Custom facet filters
     * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989--> 
 *  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the Export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990--> 
     *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
 *  Repository and Cart
+    *  When user is logged in and try to download a controlled file he does not have access to, he's prompted to log in. He should be promted to request access. <!-- PRTL-1937 -->
     *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
 *  Legacy Archive
     *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
