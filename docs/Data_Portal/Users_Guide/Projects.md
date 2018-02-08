@@ -77,7 +77,7 @@ Each project has a summary page that provides an overview of all available cases
 
 Three download buttons in the top right corner of the screen allow the user to download the entire project dataset, along with the associated project metadata:
 
-* __Explore Project Data__: Opens Exploration page with project summary page project information.
+* __Explore Project Data__: Opens Exploration page with summary project information.
 * __Download Biospecimen__: Downloads biospecimen metadata associated with all cases in the project in either TSV or JSON format.
 * __Download Clinical__: Downloads clinical metadata about all cases in the project in either TSV or JSON format.
 * __Download Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the GDC Data Transfer Tool to download the files.
