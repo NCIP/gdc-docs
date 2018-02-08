@@ -6,7 +6,7 @@ While browsing the GDC Data Portal, files can either be downloaded individually 
 
 ## GDC Cart
 
-[![Cart](images/cart-overview.png)](images/cart-overview.png "Click to see the full image.")
+[![Cart](images/cart-overview_v2.png)](images/cart-overview_v2.png "Click to see the full image.")
 
 ### Cart Summary
 
@@ -25,7 +25,7 @@ The cart also directs users how to download files in the cart.  For large data f
 
 ### Cart Items
 
-[![Cart](images/gdc-cart-items.png)](images/gdc-cart-items.png "Click to see the full image.")
+[![Cart](images/gdc-cart-items_v2.png)](images/gdc-cart-items_v2.png "Click to see the full image.")
 
 The Cart Items table shows the list of all the files that were added to the Cart.  The table gives the folowing information for each file in the cart:
 
@@ -40,7 +40,7 @@ The Cart Items table shows the list of all the files that were added to the Cart
 
 ## Download Options
 
-[![Cart](images/gdc-download-options.png)](images/gdc-download-options.png "Click to see the full image.")
+[![Cart](images/gdc-download-options_v2.png)](images/gdc-download-options_v2.png "Click to see the full image.")
 
 There are a few buttons on the Cart page that allow users to download files.  The following download options are available:
 
