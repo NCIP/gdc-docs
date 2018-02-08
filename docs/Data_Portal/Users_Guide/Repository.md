@@ -87,7 +87,7 @@ Users can add individual file(s) to the file cart using the cart button next to 
 
 The Cases tab on the right provides a list of available cases and select information about each case. If facet filters are applied, the list includes only matching cases. Otherwise, the list includes all cases available in the GDC Data Portal.
 
-[![Cases Tab](images/gdc-data-portal-data-cases.png)](images/gdc-data-portal-data-cases.png "Click to see the full image.")
+[![Cases Tab](images/gdc-data-portal-data-cases_v2.png)](images/gdc-data-portal-data-cases_v2.png "Click to see the full image.")
 
 The list includes links to [case summary pages](#case-summary-page) in the *Case UUID* column, the Submitter ID (i.e. TCGA Barcode), and counts of the available file types for each case. Clicking on a count will apply facet filters to display the corresponding files.
 
@@ -100,7 +100,7 @@ The list also includes a shopping cart button, allowing the user to add all file
 
 After utilizing the Repository Page to narrow down a specific set of cases, users can continue to explore the mutations and genes affected by these cases by clicking the `View Files in Repository` button as shown in the image below.
 
-[![Exploration File Navigation](images/gdc-view-in-exploration.png)](images/gdc-view-in-exploration.png "Click to see the full image.")
+[![Exploration File Navigation](images/gdc-view-in-exploration_v2.png)](images/gdc-view-in-exploration_v2.png "Click to see the full image.")
 
 Clicking this button will navigate the users to the Exploration Page, filtered by the cases within the cohort.
 
@@ -114,7 +114,7 @@ The Case Summary page displays case details including the project and disease in
 
 The page also provides clinical and biospecimen information about that case. Links to export clinical and biospecimen information in JSON format are provided.
 
-[![Case Page, Clinical and Biospecimen](images/gdc-case-clinical-biospecimen.png)](images/gdc-case-clinical-biospecimen.png "Click to see the full image.")
+[![Case Page, Clinical and Biospecimen](images/gdc-case-clinical-biospecimen_v3.png)](images/gdc-case-clinical-biospecimen_v3.png "Click to see the full image.")
 
 For clinical records that support multiple records of the same type (Diagnoses, Family Histories, or Exposures), a UUID of the record is provided on the left hand side of the corresponding tab, allowing the user to select the entry of interest.
 
@@ -122,7 +122,7 @@ For clinical records that support multiple records of the same type (Diagnoses, 
 
 A search filter just below the biospecimen section can be used to find and filter biospecimen data. The wildcard search will highlight entities in the tree that match the characters typed. This will search both the case submitter ID, as well as the additional metadata for each entity. For example, searching 'Primary Tumor' will highlight samples that match that type.
 
-[![Biospecimen Search](images/gdc-case-biospecimen-search.png)](images/gdc-case-biospecimen-search.png "Click to see the full image.")
+[![Biospecimen Search](images/gdc-case-biospecimen-search_v2.png)](images/gdc-case-biospecimen-search_v2.png "Click to see the full image.")
 
 ### Most Frequent Somatic Mutations
 

@@ -2,7 +2,7 @@
 
 The Exploration page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level. Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.  The Gene/Mutation data for these visualizations comes from the Open-Access MAF files on the GDC Portal.
 
-[![Exploration Page](images/GDC-Exploration-Page.png)](images/GDC-Exploration-Page.png "Click to see the full image.")
+[![Exploration Page](images/GDC-Exploration-Page_v4.png)](images/GDC-Exploration-Page_v4.png "Click to see the full image.")
 
 ## Filters / Facets
 On the left of this page, users can create advanced filters to narrow down results to create synthetic cohorts.
@@ -42,7 +42,7 @@ After supplying a list of cases, a table below will appear which indicates wheth
 
 Clicking on `Submit` will filter the results in the Exploration Page by those cases.
 
-[![Upload Case Set Results](images/case-set-filter.png)](images/case-set-filter.png "Click to see the full image.")
+[![Upload Case Set Results](images/case-set-filter_v2.png)](images/case-set-filter_v2.png "Click to see the full image.")
 
 ### Gene Filters
 
@@ -110,14 +110,14 @@ Clicking on `Submit` will filter the results in the Exploration Page by those mu
 
 As users add filters to the data on the Exploration Page, the Results section will automatically be updated.  Results are divided into different tabs:  `Cases`, `Genes`, `Mutations`, and `OncoGrid`.  
 
-To illustrate these tabs, Case, Gene, and Mutation filters have been chosen ( Genes in the Cancer Gene Census, that have HIGH Impact for the TCGA-BRCA project) and a description of what each tab displays follows.
+To illustrate these tabs, Case, Gene, and Mutation filters have been chosen ( Genes in the Cancer Gene Census, that have HIGH VEP Impact for the TCGA-BRCA project) and a description of what each tab displays follows.
 
 
 #### Cases
 
 The `Cases` tab gives an overview of all the cases/patients who correspond to the filters chosen (Cohort).
 
-[![Exploration Case Example](images/Exploration-Case-Example.png)](images/Exploration-Case-Example.png "Click to see the full image.")
+[![Exploration Case Example](images/Exploration-Case-Example_v2.png)](images/Exploration-Case-Example_v2.png "Click to see the full image.")
 
 The top of this section contains a few pie graphs with categorical information regarding the Primary Site, Project, Disease Type, Gender, and Vital Status.
 
@@ -153,6 +153,35 @@ Below these graphs is a tabular view of the genes affected, which includes the f
 * __# Mutations:__ The number of SSMs (simple somatic mutations) detected in that gene
 * __Annotations:__ Includes a COSMIC symbol if the gene belongs to [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/)
 * __Survival Analysis:__ An icon that, when clicked, will plot the survival rate between cases in the project with mutated and non-mutated forms of the gene
+
+#### Survival Analysis
+
+Survival analysis is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Survival analysis requires:
+
+*  Data on the time to a particular event (days to death or last follow up)
+    * Fields:  __diagnoses.days_to_death__ and __diagnoses.days_to_last_follow_up__
+*  Information on whether the event has occurred (alive/deceased)
+    * Fields:  __diagnoses.vital_status__
+*  Data split into different categories or groups (i.e. gender, etc.)
+    * Fields:  __demographic.gender__
+
+The survival analysis in the GDC uses a Kaplan-Meier estimator:
+
+[![Kaplan-Meier Estimator](images/gdc-kaplan-meier-estimator.png)](images/gdc-kaplan-meier-estimator "Click to see the full image.")
+
+Where:
+
+ * S(t<sub>i</sub>) is the estimated survival probability for any particular one of the t time periods
+ * n<sub>i</sub> is the number of subjects at risk at the beginning of time period t<sub>i</sub>
+ * and d<sub>i</sub> is the number of subjects who die during time period t<sub>i</sub>
+
+The table below is an example data set to calculate survival for a set of seven cases:
+
+[![Sample Survival Analysis Table](images/gdc-sample-survival-table.png)](images/gdc-sample-survival-table.png "Click to see the full image.")
+
+The calculated cumulated survival probability can be plotted against the interval to obtain a survival plot like the one shown below.
+
+[![Sample Survival Analysis Plot](images/gdc-survival-plot.png)](images/gdc-survival-plot.png "Click to see the full image.")
 
 #### Mutations
 
@@ -209,7 +238,7 @@ A tool bar at the top right of the graphic allows the user to export the data as
 
 After utilizing the Exploration Page to narrow down a specific cohort, users can find the specific files that relate to this group by clicking on the `View Files in Repository` button as shown in the image below.
 
-[![Exploration File Navigation](images/Exploration-View-Files.png)](images/Exploration-View-Files.png "Click to see the full image.")
+[![Exploration File Navigation](images/Exploration-View-Files_v2.png)](images/Exploration-View-Files_v2.png "Click to see the full image.")
 
 Clicking this button will navigate the users to the Repository Page, filtered by the cases within the cohort.
 
