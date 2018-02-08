@@ -2,7 +2,7 @@
 
 The Exploration page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level. Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.  The Gene/Mutation data for these visualizations comes from the Open-Access MAF files on the GDC Portal.
 
-[![Exploration Page](images/GDC-Exploration-Page.png)](images/GDC-Exploration-Page.png "Click to see the full image.")
+[![Exploration Page](images/GDC-Exploration-Page_v4.png)](images/GDC-Exploration-Page_v4.png "Click to see the full image.")
 
 ## Filters / Facets
 On the left of this page, users can create advanced filters to narrow down results to create synthetic cohorts.
@@ -42,13 +42,13 @@ After supplying a list of cases, a table below will appear which indicates wheth
 
 Clicking on `Submit` will filter the results in the Exploration Page by those cases.
 
-[![Upload Case Set Results](images/case-set-filter.png)](images/case-set-filter.png "Click to see the full image.")
+[![Upload Case Set Results](images/case-set-filter_v2.png)](images/case-set-filter_v2.png "Click to see the full image.")
 
 ### Gene Filters
 
 The second tab of filters is for genes affected by mutations in the GDC.
 
-[![Exploration Gene Filters](images/Exploration-Gene-Filter_v2.png)](images/Exploration-Gene-Filter_v2.png "Click to see the full image.")
+[![Exploration Gene Filters](images/Exploration-Gene-Filter.png)](images/Exploration-Gene-Filter.png "Click to see the full image.")
 
 The second tab of filters are for specific genes.  Users can filter by:
 
