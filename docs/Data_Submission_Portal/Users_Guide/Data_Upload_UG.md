@@ -617,6 +617,76 @@ Selecting the `DELETE ALL` button at the bottom of the list will delete all of t
 
 The `submittable_data_file` that were uploaded erroneously are deleted separately from their associated entity using the GDC Data Transfer Tool. See the section on [Deleting Data Files](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) in the Data Transfer Tool users guide for specific instructions.  
 
+## Updating Uploaded Entities
+
+Before harmonization occurs, entities can be modified to update, add, or delete information. Below, these methods are outlined.
+
+### Updating or Adding Fields
+
+Updated or additional fields can applied to entities by reuploading them through the submission portal or API. See below for an example of a case upload with a `primary_site` field being added and a `disease_type` field being updated.
+
+Existing Entity:
+
+```JSON
+{
+"type":"case",
+"submitter_id":"GDC-INTERNAL-000043",
+"projects":{
+  "code":"INTERNAL"
+},
+"disease_type": "Neuroblastoma"
+}
+```
+The following entity would be submitted to update the existing one:
+
+```JSON
+{
+"type":"case",
+"submitter_id":"GDC-INTERNAL-000043",
+"projects":{
+  "code":"INTERNAL"
+},
+"disease_type": "Germ Cell Neoplasms",
+"primary_site": "Pancreas"
+}
+```
+__Guidelines:__
+
+* The newly uploaded entity must contain the `submitter_id` of the existing entity so that the system updates the correct one.
+* All newly updated entities will be validated by the GDC Dictionary.  All required fields must be present in the newly updated entity.
+* Fields that are not required do not need to be re-uploaded and will remain unchanged in the entity unless they are updated.
+
+### Deleting Optional Fields
+
+It may be necessary to delete fields from uploaded entities. This can be performed through the API and can only be applied to optional fields. It also requires the UUID of the entity, which can be retrieved from the submission portal or using a GraphQL query.
+
+In the example below, the `primary_site` and `disease_type` fields are removed from a `case` entity:
+
+```Shell
+curl --header "X-Auth-Token: $token_string" --request DELETE  --header "Content-Type: application/json" "https://api.gdc.cancer.gov/v0/submission/EXAMPLE/PROJECT/entities/7aab7578-34ff-5651-89bb-57aefdc4c4f8?fields=primary_site,disease_type"
+```
+
+```Before
+{
+"type":"case",
+"submitter_id":"GDC-INTERNAL-000043",
+"projects":{
+  "code":"INTERNAL"
+},
+"disease_type": "Germ Cell Neoplasms",
+"primary_site": "Pancreas"
+}
+```
+```After
+{
+"type":"case",
+"submitter_id":"GDC-INTERNAL-000043",
+"projects":{
+  "code":"INTERNAL"
+}
+}
+```
+
 ## Strategies for Submitting in Bulk
 
 Each submission in the previous sections was broken down by component to demonstrate the GDC Data Model structure. However, the submission of multiple entities at once is supported and encouraged. Here two strategies for submitting data in an efficient manner are discussed.   
