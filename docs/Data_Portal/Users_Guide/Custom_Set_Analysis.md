@@ -10,7 +10,7 @@ Cohort sets are completely customizable and can be generated for cases, genes, o
 
 __Upload ID Set:__ This feature is available in the "Manage Sets" link at the top right of the Portal. Choose "Upload Set" and then select whether the set comprises cases, genes, or mutations. A set of IDs (IDs* or UUIDs) can then be uploaded in a text file or copied and pasted into the list of identifiers field along with a name identifying the set. Once the list of identifiers is uploaded, they are validated and grouped according to whether the identifier matched an existing GDC ID or did not match ("Unmatched").
 
-[![Upload Set](images/GDC-UploadSet-Cohort_v2.png)](images/GDC-UploadSet-Cohort_v2.png "Click to see the full image.")
+[![Upload Set](images/GDC-UploadSet-Cohort.png)](images/GDC-UploadSet-Cohort.png "Click to see the full image.")
 
 \* This is referred to as a `submitter_id` in the GDC API, which is a non-UUID identifier such as a TCGA barcode.
 
@@ -18,7 +18,7 @@ __Apply Filters in Exploration:__ Sets can be assembled using the existing filte
 
 Similarly, gene and mutation filters can be applied and saved in the Exploration page in the Genes and Mutations tab, respectively.
 
-[![Exploration Set](images/GDC-ExplorationSet-Cohort.png)](images/GDC-ExplorationSet-Cohort.png "Click to see the full image.")
+[![Exploration Set](images/GDC-ExplorationSet-Cohort_v2.png)](images/GDC-ExplorationSet-Cohort_v2.png "Click to see the full image.")
 
 ## Analysis Page
 Clicking on the `Analysis` button in the top toolbar will launch the Analysis Page which displays the various options available for comparing saved sets.
