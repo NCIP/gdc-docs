@@ -1,5 +1,50 @@
 # Data Portal Release Notes
 
+## Release 1.12.x
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: February 15, 2018
+
+### New Features and Changes <!--REQ-322-->
+
+*  Provided the ability to export clinical and biospecimen data in a TSV format from the Case, Project, Exploration, Repository and Cart pages.<!--PRTL-1929-->
+*  Removed from the Project entity page the sections about mutated genes, somatic mutations and affected Cases and replaced with a button "Explore data" that will open the Exploration page filtered on the project. Indeed the Exploration page provides the same information.  Added a breakdown of cases per primary site for a Project entity page with multiple primary sites (e.g. FM-AD). <!--PRTL-1903-->
+*  Added display of coding DNA change and impacts for all the transcripts (instead of canonical transcript only) in the Mutation entity page - Consequences section. In the mutation table (e.g. in Repository), the impacts and consequences are displayed for the canonical transcript only. <!--PRTL-1927-->
+
+### Bugs Fixed Since Last Release
+
+*  Replaced the suggested set name when saving a set with selected items, e.g. for case set the suggested name is now "Custom Case selection". <!--PRTL-1911-->
+*  Fixed the protein viewer to indicate when there are overlapping mutations. Mousing over the dot showing multiple mutations will open a right panel with the list of all the corresponding mutations.  <!--SV-750-->
+*  Fixed Mutation entity page - Consequences table: the "Coding DNA Change" column is now populated for all the transcripts. <!--SV-751-->
+*  Fixed download clinical and download biospecimen actions from TCGA-BRCA project.
+*  Fixed facet behavior that did not reset back to showing all options after pressing reset-arrow. <!--PRTL-1928-->
+*  Fixed error when user was trying to save a set with no value in the textbox "Save top:".  <!--PRTL-1909-->
+*  Removed somatic mutation section from Case entity page for cases with no open-access mutation data (e.g. FM-AD or TARGET cases). <!--PRTL-1926-->
+*  Fixed error where a blank page appears after unselecting `Cancer Gene Census` mutation facet. <!--PRTL-1933-->
+*  Fixed duplicated date in sample sheet name (e.g. gdc_sample_sheet_YYYY-MM-DD_HH-MM.tsv.YYYY-MM-DD_HH-MM.tsv). <!--SV-942-->
+*  Fixed error when annotations were not downloaded along with the file (in File entity page and Cart).  <!--SV-401-->
+
+### Known Issues and Workarounds
+
+*  Custom facet filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the Export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  When user is logged in and try to download a controlled file he does not have access to, he's prompted to log in. He should be promted to request access. <!-- PRTL-1937 -->
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
+
 ## Release 1.11.0
 
 * __GDC Product__: GDC Data Portal
