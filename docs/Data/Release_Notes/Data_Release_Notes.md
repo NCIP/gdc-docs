@@ -3,7 +3,7 @@
 ## Data Release 10.1
 
 * __GDC Product__: Data
-* __Release Date__: February X, 2018
+* __Release Date__: February 15, 2018
 
 ### New updates
 
