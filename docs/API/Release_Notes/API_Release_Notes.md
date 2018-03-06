@@ -1,5 +1,21 @@
 # API Release Notes
 
+| Version | Date |
+|---|---|
+| [v1.13.0](API_Release_Notes.md#v1130) | February 15, 2018 |
+| [v1.12.0](API_Release_Notes.md#v1120) | December 21, 2017 |
+| [v1.11.0](API_Release_Notes.md#v1110) | November 16, 2017 |
+| [v1.10.0](API_Release_Notes.md#v1100) | August 22, 2017 |
+| [v1.9.0](API_Release_Notes.md#v190) | June 29, 2017 |
+| [v1.8.0](API_Release_Notes.md#v180) | May 9, 2017 |
+| [v1.7.1](API_Release_Notes.md#v171) | March 16, 2017 |
+| [v1.5.0](API_Release_Notes.md#v150) | October 31, 2016 |
+| [v1.4.0](API_Release_Notes.md#v140) | September 23, 2016 |
+| [v1.3.1](API_Release_Notes.md#v131) | September 7, 2016 |
+| [v1.2.0](API_Release_Notes.md#v120) | August 9, 2016 |
+| [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
+| [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
+
 ## v1.13.0
 
 * __GDC Product__: Application Programming Interface (API)

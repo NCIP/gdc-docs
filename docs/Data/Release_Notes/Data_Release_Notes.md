@@ -1,5 +1,19 @@
 # Data Release Notes
 
+| Version | Date |
+|---|---|
+| [v10.1](Data_Release_Notes.md#data-release-101) | February 15, 2018 |
+| [v10.0](Data_Release_Notes.md#data-release-100) | December 21, 2017 |
+| [v9.0](Data_Release_Notes.md#data-release-90) | October 24, 2017 |
+| [v8.0](Data_Release_Notes.md#data-release-80) | August 22, 2017 |
+| [v7.0](Data_Release_Notes.md#data-release-70) | June 29, 2017 |
+| [v6.0](Data_Release_Notes.md#data-release-60) | May 9, 2017 |
+| [v5.0](Data_Release_Notes.md#data-release-50) | March 16, 2017 |
+| [v4.0](Data_Release_Notes.md#data-release-40) | October 31, 2016 |
+| [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
+| [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
+| [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
 ## Data Release 10.1
 
 * __GDC Product__: Data
