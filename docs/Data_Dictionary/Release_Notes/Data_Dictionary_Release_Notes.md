@@ -1,5 +1,14 @@
 # Data Dictionary Release Notes
 
+| Version | Date |
+|---|---|
+| v.1.11 | January 20, 2018 |
+| v1.10.0 | August 22, 2017 |
+| v1.7.1 | March 16, 2017 |
+| v1.3.1 | September 7, 2016 |
+
+---
+
 ## v.1.11
 
 * __GDC Product__: GDC Data Dictionary

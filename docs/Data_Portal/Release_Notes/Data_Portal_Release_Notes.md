@@ -1,5 +1,22 @@
 # Data Portal Release Notes
 
+| Version | Date |
+|---|---|
+| [v1.12.0](Data_Portal_Release_Notes.md#release-1120) | February 15, 2018 |
+| [v1.11.0](Data_Portal_Release_Notes.md#release-1110) | December 21, 2017 |
+| [v1.10.0](Data_Portal_Release_Notes.md#release-1100) | November 16, 2017 |
+| [v1.9.0](Data_Portal_Release_Notes.md#release-190) | October 24, 2017 |
+| [v1.8.0](Data_Portal_Release_Notes.md#release-180)| August 22, 2017 |
+| [v1.6.0](Data_Portal_Release_Notes.md#release-160) | June 29, 2017 |
+| [v1.5.2](Data_Portal_Release_Notes.md#release-152) | May 9, 2017 |
+| [v1.4.1](Data_Portal_Release_Notes.md#release-141) | October 31, 2016 |
+| [v1.3.0](Data_Portal_Release_Notes.md#release-130) | September 7, 2016 |
+| [v1.2.0](Data_Portal_Release_Notes.md#release-120) | August 9th, 2016 |
+| [v1.1.0](Data_Portal_Release_Notes.md#release-110) | June 1st, 2016 |
+| [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
+
+---
+
 ## Release 1.12.0
 
 * __GDC Product__: GDC Data Portal
