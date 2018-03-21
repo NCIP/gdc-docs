@@ -1,40 +1,23 @@
 # Projects
 
 ## Summary
-At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to look at particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC Data Portal allows users to access aggregate project-level information via the Projects Page and Project Summary pages.
+At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to look at particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC AWG Portal allows users to access aggregate project-level information via the Projects Page and Project Summary pages.
 
 ## Projects Page
 
-The Projects Page provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access Projects Page from the GDC Data Portal Home page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/projects](https://portal.gdc.cancer.gov/projects).
+The Projects Page provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access Projects from the Data Portal toolbar, or directly at [https://portal.awg.gdc.cancer.gov/projects](https://portal.awg.gdc.cancer.gov/projects).
 
 On the left, a panel of facets allow users to apply filters to find projects of interest. When facet filters are applied, the table and visualizations on the right are updated to display only the matching projects. When no filters are applied, all projects are displayed.
 
-The right side of this page displays a few visualizations of the data (Top Mutated Genes in Selected Projects and Case Distribution per Project). Below these graphs is a table that contains a list of projects and select details about each project, such as the number of cases and data files. The Graph tab provides a visual representation of this information.
+The right side of this page displays a table that contains a list of projects and select details about each project, such as the number of cases and data files. The Graph tab provides a visual representation of this information.
 
-[![Projects Page, Main Window (Table View)](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
-
-### Visualizations
-
-[![Projects Visualizations)](images/gdc-projects-visualizations.png)](images/gdc-projects-visualizations.png "Click to see the full image.")
-
-#### Top Mutated Cancer Genes in Selected Projects
-
-This dynamically generated bar graph shows the 20 genes with the most mutations across all projects. The genes are filtered by those that are part of the Cancer Gene Census and that have the following types of mutations: `missense_variant, frameshift_variant, start_lost, stop_lost, initiator_codon_variant, and stop_gained`. The bars represent the frequency of each mutation and is broken down into different colored segments by project and disease type. The graphic is updated as filters are applied for projects, programs, disease types, and data categories available in the project. Note, that due the these filters the number of cases displayed here will be less that the total number of cases per project.
-
-Hovering the cursor over each bar will display information about the number of cases affected by the disease type and clicking on each bar will launch the Gene Summary Page page for the gene associated with the mutation.
-
-Users can toggle the Y-Axis of this bar graph between a percentage or raw number of cases affected.
-
-#### Case Distribution per Project
-
-A pie chart displays the relative number of cases for each primary site (inner circle), which is further divided by project (outer circle). Hovering the cursor over each portion of the graph will display the primary site or project with the number of associated cases. Filtering projects at the left panel will update the pie chart.
-
+[![Projects Page, Main Window (Table View)](images/AWG_Projects.png)](images/AWG_Projects.png "Click to see the full image.")
 
 ### Projects Table
 
 The `Table` tab lists projects by Project ID and provides additional information about each project. If no facet filters have been applied, the table will display all available projects; otherwise it will display only those projects that match the selected criteria.
 
-[![Projects Table)](images/gdc-projects-table-view.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
+[![Projects Table)](images/AWG_Projects_Table.png)](images/AWG_Projects_Table.png "Click to see the full image.")
 
 The table provides links to Project Summary pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository Page](Repository.md).
 
@@ -52,7 +35,7 @@ Like the projects table, the graph will reflect any applied facet filters.
 
 Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the projects presented in the Table and Graph tabs as well as visualizations.
 
-[![Panel with Applied Filters](images/gdc-data-portal-project-page-facets.png)](images/gdc-data-portal-project-page-facets.png "Click to see the full image.")
+[![Panel with Applied Filters](images/AWG_Projects_Facets.png)](images/AWG_Projects_Facets.png "Click to see the full image.")
 
 Users can filter by the following facets:
 
@@ -77,7 +60,6 @@ Each project has a summary page that provides an overview of all available cases
 
 Three download buttons in the top right corner of the screen allow the user to download the entire project dataset, along with the associated project metadata:
 
-* __Explore Project Data__: Opens Exploration page with summary project information.
 * __Download Biospecimen__: Downloads biospecimen metadata associated with all cases in the project in either TSV or JSON format.
 * __Download Clinical__: Downloads clinical metadata about all cases in the project in either TSV or JSON format.
 * __Download Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the GDC Data Transfer Tool to download the files.

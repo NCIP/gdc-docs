@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GDC Data Portal provides granular metadata for all datasets available in the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC Data Portal also allows users to download open-access files without logging in. However, downloading of controlled-access files is restricted to authorized users and requires authentication.
+The GDC AWG Portal provides granular metadata for all datasets available in the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC AWG Portal also allows users to download open-access files without logging in. However, downloading of controlled-access files is restricted to authorized users and requires authentication.
 
 ## Logging into the GDC
 
@@ -12,17 +12,17 @@ To login to the GDC, users must click on the `Login` button on the top right of 
 
 After clicking Login, users authenticate themselves using their eRA Commons login and password.  If authentication is successful, the eRA Commons username will be displayed in the upper right corner of the screen, in place of the "Login" button.
 
-Upon successful authentication, GDC Data Portal users can:
+Upon successful authentication, GDC AWG Portal users can:
 
 - see which controlled-access files they have access to;
-- download controlled-access files directly from the GDC Data Portal;
+- download controlled-access files directly from the GDC AWG Portal;
 - download an authentication token for use with the GDC Data Transfer Tool or the GDC API.
 
 Controlled-access files are identified using a "lock" icon:
 
-[![GDC Data Portal Main Page](images/gdc-data-portal-controlled-files.png)](images/gdc-data-portal-controlled-files.png "Click to see the full image.")
+[![GDC AWG Portal Main Page](images/gdc-data-portal-controlled-files.png)](images/gdc-data-portal-controlled-files.png "Click to see the full image.")
 
-The rest of this section describes controlled data access features of the GDC Data Portal available to authorized users. For more information about open and controlled-access data, and about obtaining access to controlled data, see [Data Access Processes and Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
+The rest of this section describes controlled data access features of the GDC AWG Portal available to authorized users. For more information about open and controlled-access data, and about obtaining access to controlled data, see [Data Access Processes and Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
 
 ## User Profile
 
@@ -36,7 +36,7 @@ Clicking this button shows the list of projects.
 
 ## GDC Authentication Tokens
 
-The GDC Data Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
+The GDC AWG Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
 
 1. Log into the GDC using your eRA Commons credentials
 2. Click the username in the top right corner of the screen

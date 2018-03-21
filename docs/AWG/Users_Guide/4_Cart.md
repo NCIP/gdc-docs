@@ -2,11 +2,11 @@
 
 ## Overview
 
-While browsing the GDC Data Portal, files can either be downloaded individually from [file detail pages](Repository.md#file-summary-page) or collected in the file cart to be downloaded as a bundle.  Clicking on the shopping cart icon that is next to any item in the GDC will add the item to your cart.
+While browsing the GDC AWG Portal, files can either be downloaded individually from [file detail pages](Repository.md#file-summary-page) or collected in the file cart to be downloaded as a bundle.  Clicking on the shopping cart icon that is next to any item in the GDC will add the item to your cart.
 
 ## GDC Cart
 
-[![Cart](images/cart-overview_v2.png)](images/cart-overview_v2.png "Click to see the full image.")
+[![Cart](images/AWG_Cart.png)](images/AWG_Cart.png "Click to see the full image.")
 
 ### Cart Summary
 
@@ -81,6 +81,6 @@ Similar to the files page, each row contains a download button to download a par
 
 ## Controlled Files
 
-If a user tries to download a cart containing controlled files and without being authenticated, a pop-up will be displayed to offer the user either to download only open access files or to login into the GDC Data Portal through eRA Commons. See [Authentication](Authentication.md) for details.
+If a user tries to download a cart containing controlled files and without being authenticated, a pop-up will be displayed to offer the user either to download only open access files or to login into the GDC AWG Portal through eRA Commons. See [Authentication](Authentication.md) for details.
 
 [![Cart Page](images/gdc-data-portal-download-cart.png)](images/gdc-data-portal-download-cart.png "Click to see the full image.")
