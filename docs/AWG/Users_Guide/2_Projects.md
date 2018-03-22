@@ -19,7 +19,7 @@ The `Table` tab lists projects by Project ID and provides additional information
 
 [![Projects Table)](images/AWG_Projects_Table.png)](images/AWG_Projects_Table.png "Click to see the full image.")
 
-The table provides links to Project Summary pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository Page](Repository.md).
+The table provides links to Project Summary pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository Page](3_Repository.md).
 
 ### Projects Graph
 
@@ -27,7 +27,7 @@ The `Graph` tab contains an interactive view of information in the Table tab. Th
 
 [![Graph Mouseover](images/gdc-table-graph-mouse-over.png)](images/gdc-table-graph-mouse-over.png "Click to see the full image.")
 
-Most elements in the graph are clickable, allowing the user to open the associated cases or files in [Repository Page](Repository.md).
+Most elements in the graph are clickable, allowing the user to open the associated cases or files in [Repository Page](3_Repository.md).
 
 Like the projects table, the graph will reflect any applied facet filters.
 
@@ -50,7 +50,7 @@ Filters can be applied by selecting values of interest in the available facets, 
 
 [![Panel with Applied Filters](images/panel-with-applied-filters.png)](images/panel-with-applied-filters.png "Click to see the full image.")
 
-For information on how to use facet filters, see [Getting Started](Getting_Started.md#facet-filters).
+For information on how to use facet filters, see [Getting Started](1_Getting_Started.md#facet-filters).
 
 ## Project Summary Page
 

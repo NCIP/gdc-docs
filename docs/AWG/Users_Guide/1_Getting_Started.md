@@ -5,7 +5,7 @@
 
 The Genomic Data Commons (GDC) AWG Portal provides users with web-based access to pre-released data from cancer genomics studies that have been harmonized by the GDC, but not yet released in the main GDC Data Portal. Key GDC AWG Portal features include:
 
-*   Repository page for browsing data by project/file/case
+*   Repository page for browsing data by project / file / case
 *   File / case faceted searches to filter data
 *   Cart for collecting data files of interest
 *   Authentication using eRA Commons credentials for access to controlled data files
@@ -25,11 +25,11 @@ You must also connect to the correct VPN in order to have access.  Please contac
 
 The GDC AWG Portal provides 2 main navigation options (*Views*) for browsing available pre-release harmonized datasets:
 
-* __Repository__: The [Repository Page](Repository.md) displays data files available for download and provides file/case filters to narrow down a user's search.
+* __Repository__: The [Repository Page](3_Repository.md) displays data files available for download and provides file/case filters to narrow down a user's search.
 
 [![GDC Views](images/AWG_Portal.png)](images/WG_Portal.png "Click to see the full image.")
 
-* __Projects__: The [Projects Page](Projects.md) gives an overall summary of project-level information, including the available data for each project.
+* __Projects__: The [Projects Page](2_Projects.md) gives an overall summary of project-level information, including the available data for each project.
 
 [![GDC Views](images/AWG_Projects.png)](images/WG_Portal.png "Click to see the full image.")
 
@@ -43,11 +43,11 @@ The left portion of this toolbar provides access to the __Projects Page__ and __
 
 [![GDC Data Portal Toolbar (Left)](images/AWG_Left_Toolbar.png)](images/AWG_Left_Toolbar.png "Click to see the full image.")
 
-The right portion of this toolbar provides access to [quick search](#quick-search), [authentication functions](Authentication.md), the [cart](Cart.md), and the GDC Apps menu:
+The right portion of this toolbar provides access to [quick search](#quick-search), [authentication functions](Authentication.md), the [cart](4_Cart.md), and the GDC Apps menu:
 
 [![GDC Data Portal Toolbar (Left)](images/AWG_Right_Toolbar.png)](images/AWG_Right_Toolbar.png "Click to see the full image.")
 
-The GDC Apps menu provides links to all resources provided by the GDC, including the [GDC Legacy Archive](Legacy_Archive.md).
+The GDC Apps menu provides links to all resources provided by the GDC.
 
 [![GDC Apps](images/gdc-data-portal-gdc-apps.png)](images/gdc-data-portal-gdc-apps.png "Click to see the full image.")
 
@@ -82,11 +82,11 @@ In the Repository, Projects, and Annotations views, tables can be exported in ei
 
 ### Filtering and Searching
 
-The GDC AWG Portal offers three different means of searching and filtering the available data: facet filters, quick search, and advanced search.
+The GDC AWG Portal offers two different means of searching and filtering the available data: facet filters and quick search.
 
 #### Facet Filters
 
-Facets on the left of each view (Projects and Repository) represent properties of the data that can be used for filtering. Some of the available facets are project name, disease type, patient gender and age at diagnosis, and various data formats and categories. Each facet displays the name of the data property, the available values, and numbers of matching entities for each value (files, cases, mutations, genes, annotations, or projects, depending on the context).
+Facets on the left of each view (Projects and Repository) represent properties of the data that can be used for filtering. Some of the available facets are project name, disease type, patient gender and age at diagnosis, and various data formats and categories. Each facet displays the name of the data property, the available values, and numbers of matching entities for each value (files, cases, annotations, or projects, depending on the context).
 
 Below are two file facets available in the Repository view. A _Data Type_ facet filter is applied, filtering for "Aligned Reads" files.
 
@@ -96,7 +96,7 @@ Multiple selections within a facet are treated as an "OR" query: e.g. "Aligned R
 
 The information displayed in each facet reflects this: in the example above, marking the "Aligned Reads" checkbox does not change the numbers or the available values in the _Data Type_ facet where the checkbox is found, but it does change the values available in the _Experimental Strategy_ facet. The _Experimental Strategy_ facet now displays only values from files of _Data Type_ "Aligned Reads".
 
-Custom facet filters can be added in [Repository View](Repository.md) to expand the GDC AWG Portal's filtering capabilities.
+Custom facet filters can be added in [Repository View](3_Repository.md) to expand the GDC AWG Portal's filtering capabilities.
 
 #### Quick Search
 
