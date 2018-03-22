@@ -43,7 +43,7 @@ The left portion of this toolbar provides access to the __Projects Page__ and __
 
 [![GDC Data Portal Toolbar (Left)](images/AWG_Left_Toolbar.png)](images/AWG_Left_Toolbar.png "Click to see the full image.")
 
-The right portion of this toolbar provides access to [quick search](#quick-search), [authentication functions](Authentication.md), the [cart](4_Cart.md), and the GDC Apps menu:
+The right portion of this toolbar provides access to [quick search](#quick-search), [authentication functions](5_Authentication.md), the [cart](4_Cart.md), and the GDC Apps menu:
 
 [![GDC Data Portal Toolbar (Left)](images/AWG_Right_Toolbar.png)](images/AWG_Right_Toolbar.png "Click to see the full image.")
 
