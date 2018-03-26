@@ -29,7 +29,7 @@
     * The Case table in Exploration and Repository pages
     * The Repository page at the search level: ability to view all the slide images based on a query search
     * Directly in the File entity page for a slide image file <!--PRTL-2016-->
-    
+ *  Updated Gene summary page external link names
 
 ### Bugs Fixed Since Last Release
 
