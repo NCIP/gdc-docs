@@ -23,7 +23,7 @@
 ### New updates
 
 1. Updated miRNA files to remove QCFail reads <!--DAT-1246-->
-2. Slide images now available from main GDC Portal <!--DAT-1251-->
+2. TCGA Tissue slide images now available in GDC Data Portal.  Previously these were found only in the Legacy Archive <!--DAT-1251-->
 
 ### Bugs Fixed Since Last Release
 
