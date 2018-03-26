@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v11.0](Data_Release_Notes.md#data-release-110) | March 29, 2018 |
 | [v10.1](Data_Release_Notes.md#data-release-101) | February 15, 2018 |
 | [v10.0](Data_Release_Notes.md#data-release-100) | December 21, 2017 |
 | [v9.0](Data_Release_Notes.md#data-release-90) | October 24, 2017 |
@@ -13,6 +14,25 @@
 | [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
+## Data Release 11.0
+
+* __GDC Product__: Data
+* __Release Date__: March 29, 2018
+
+### New updates
+
+1. Updated miRNA files to remove QCFail reads <!--DAT-1246-->
+2. Slide images now available from main GDC Portal <!--DAT-1251-->
+
+### Bugs Fixed Since Last Release
+
+* N/A
+
+### Known Issues and Workarounds
+
+* N/A
+
 
 ## Data Release 10.1
 
