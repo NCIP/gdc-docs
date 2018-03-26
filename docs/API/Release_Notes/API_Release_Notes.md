@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v1.14.0](API_Release_Notes.md#v1140) | March 29, 2018 |
 | [v1.13.0](API_Release_Notes.md#v1130) | February 15, 2018 |
 | [v1.12.0](API_Release_Notes.md#v1120) | December 21, 2017 |
 | [v1.11.0](API_Release_Notes.md#v1110) | November 16, 2017 |
@@ -15,6 +16,24 @@
 | [v1.2.0](API_Release_Notes.md#v120) | August 9, 2016 |
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
+
+## v1.14.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: February 15, 2018
+
+### New Features and Changes
+
+* TBD
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
 ## v1.13.0
 
@@ -31,7 +50,8 @@
 
 ### Known Issues and Workarounds
 
-* None
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
 ## v1.12.0
 
