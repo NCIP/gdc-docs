@@ -21,7 +21,7 @@
 
 ### New Features and Changes
 
-*  None
+*  Added the ability to download all case metadata in the Browse Cases view <!--SUBP-443-->
 
 ### Bugs Fixed Since Last Release
 
@@ -30,6 +30,7 @@
 *  Windows - Scroll bar interfering with browser scroll bar <!--SUBP-424-->
 *  Donut "Cases with submittable data files" always shows 0 <!--SUBP-425-->
 *  For Biospecimen entities, the "Download all" button does not take filtering into account <!--SUBP-423-->
+*  For Clinical entities, the "Download all" button was downloading all clinical entities instead of selected clinical type <!--SUBP-442-->
 
 ### Known Issues and Workarounds
 
