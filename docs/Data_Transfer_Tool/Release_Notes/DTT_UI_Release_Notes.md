@@ -9,7 +9,7 @@
 * None
 
 ### Bugs Fixed Since Last Release
-* Download is now enabled for GDC reference and publication files.
+* Download is now enabled for GDC reference and publication files. <!--SV-1045, DTT-100-->
 
 ### Known Issues and Workarounds
 * None
