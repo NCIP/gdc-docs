@@ -312,7 +312,7 @@
         var p = [],
             propertyName = propertyIDs[i],
             property = dictionaryProperties[propertyName],
-            description = _.get(property, 'term.description', false) || _.get(dictionaryTerms, propertyName + '.description', false),
+            description = _.get(property, 'term.description', false) || _.get(property, 'description', false) || _.get(dictionaryTerms, propertyName + '.description', 'n/a'),
             valueOrType = _getPropertyValueOrType(property),
             CDE = _.get(dictionaryTerms, propertyName + '.termDef'),
             isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';
@@ -741,8 +741,6 @@
           return false;
         })
         .html(function(data, i) {
-
-
 
           switch (i) {
             case 0:

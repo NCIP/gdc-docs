@@ -428,7 +428,7 @@
       annotation: ['analysis', 'archive', 'publication', 'slide']
     },
     LINK_EXCLUDES: ['file', 'archive', 'clinical_test'],
-    PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles'],
+    PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles', 'batch_id'],
     CATEGORY_TEMPLATE_INCLUDES: {
     },
     END_POINT: {
@@ -846,7 +846,7 @@
         dictionary.ui_category = dictionary.category;
         if (dictionary.category === 'data_file' || dictionary.category === 'metadata_file') {
           if (dictionary.submittable) {
-            dictionary.ui_category = "sumbittable_data_file";
+            dictionary.ui_category = 'sumbittable_data_file';
             acc.dictionaryMapByCategory.submittable_data_file = acc.dictionaryMapByCategory.submittable_data_file.concat(dictionary);
           } else {
             dictionary.ui_category = 'generated_data_file';
