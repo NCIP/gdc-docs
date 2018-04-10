@@ -199,7 +199,11 @@
           switch (normalizedPropertyName) {
             case 'enum':
             case 'type':
-              value = {propertyName: normalizedPropertyName === 'enum' ? 'Enumeration' : propertyName, propertyValue: propertyVal};
+              value = {
+                propertyName: normalizedPropertyName === 'enum' ? 'Enumeration' :
+                  (propertyVal === 'boolean' ? 'boolean' : propertyName ),
+                propertyValue: propertyVal === 'boolean' ? ['true', 'false'] : propertyVal
+              };
               break;
             case 'anyof':
             case 'oneof':
@@ -439,7 +443,6 @@
           if (_.isString(data)) {
             return data;
           }
-
 
           if (data.propertyName === 'type') {
 
