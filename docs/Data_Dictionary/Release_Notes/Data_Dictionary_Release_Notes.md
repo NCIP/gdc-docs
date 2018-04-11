@@ -1,5 +1,327 @@
 # Data Dictionary Release Notes
 
+## v.1.12
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: January 20, 2018
+
+
+### New Features and Changes
+
+* Updates to data dictionary viewer:
+    - Data dictionary viewer displays `true/false` instead of `boolean` <!--DOC-75-->
+    - Updated `md5` description in data dictionary viewer to be more complete  <!--TT-400-->
+* Creation of new entities:
+    - `Copy Number Estimate` entity for copy number variation data <!--TT-439-->
+    - `Copy Number Variation Workflow` entity for copy number variation pipeline metadata <!--TT-440-->
+    - `Molecular Test` entity <!--TT-464-->
+* Updates to all entities:
+    - Updated all entities to include `batch_id` field for submission <!--TT-434-->
+    - Updated all entities to include `downloadable` field <!--TT-501-->
+    - Modified all file entities `file_size` field to be an integer <!--TT-457-->  <!--TT-403-->
+    - Added support for creation of annotations on all entities in data model <!--DAT-1331-->
+* Added new links / updated links between entities:
+    - Created optional link between `follow_up` and `diagnosis` entities <!--TT-401-->
+    - Created many-to-many link between `genomic_profile_harmonization_workflows` and `masked_somatic_mutations` <!--TT-530-->
+    - Remove the restriction that prevents having alignment workflows to point to both `submitted_aligned_reads` and `submitted_unaligned_reads` <!--TT-422-->
+* Updated the BCR XML endpoint to support submission of new entity relationships <!--DAT-1207-->
+* Fixed description of `prior_malignancy` on `diagnosis` entity <!--TT-412-->
+* Modified `sample` entity
+    - Added new fields  <!--TT-399-->
+        - `growth_rate`
+        - `passage_count`
+        - `catalog_reference`
+        - `distributor_reference`
+        - `distance_normal_to_tumor`
+        - `biospecimen_laterality`
+    - Added new permissible values to `composition` field  <!--TT-527-->
+        - `Sorted Cells`
+    - Added new permissible value to `sample_type` field <!--TT-509-->
+        - `Next Generation Cancer Model`
+    - Added new permissible values to `method_of_sample_procurement` field <!--TT-528-->
+        - `Pancreatectomy`
+        - `Whipple Procedure`
+        - `Paracentesis`
+    - Added new permissible values to `biospecimen_anatomic_site` field <!--TT-529-->
+        - `Esophageal; Distal`
+        - `Esophageal; Mid`
+        - `Esophageal; Proximal`
+        - `Hepatic Flexure`
+        - `Rectosigmoid Junction`
+    - Removed permissible values on `sample_type` <!--TT-510-->
+        - `2D Classical Conditionally Reprogrammed Cells`
+        - `2D Modified Conditionally Reprogrammed Cells`
+        - `3D Organoid`
+        - `3D Air-Liquid Interface Organoid`
+        - `3D Neurosphere`
+        - `Adherent Cell Line`
+        - `Liquid Suspension Cell Line`
+* Modified `aliquot` entity <!--TT-416-->
+    - Added new fields
+        - `no_matched_normal_wxs`
+        - `no_matched_normal_wgs`
+        - `no_matched_normal_targeted_sequencing`
+        - `no_matched_normal_low_pass_wgs`
+* Modified `read_group` entity
+    - Updated descriptions on `read_group` entity  <!--TT-463-->
+    - Added new field  <!--TT-415-->
+        - `target_capture_kit`
+    - Made `library_selection` a required field <!--TT-472-->
+    - Removed duplicate `validators` field  <!--TT-484-->
+    - Modified permissible values on `library_selection` field
+        - Replaced `Affinity_Enrichment` with `Affinity Enrichment` <!--TT-447-->
+        - Replaced `Poly-T_Enrichment` with `Poly-T Enrichment` <!--TT-449-->
+        - Replaced `Hybrid_Selection` with `Hybrid Selection` <!--TT-451-->
+        - Replaced `RNA_Depletion` with `rRNA Depletion` <!--TT-453-->
+        - Replaced `Targeted Sequencing` with `Hybrid Selection` for FM-AD  <!--TT-505-->
+    - Added new permissible value on `library_strand` field
+        - `Not Applicable` <!--TT-402-->
+    - Removed permissible values in `library_strategy` field <!--TT-442-->
+        - `Amplicon`
+        - `Validation`
+        - `Other`
+* Modified `diagnosis` entity
+    - Added new fields  <!--TT-380-->
+        - `ajcc_staging_system_edition`
+        - `anaplasia_present`
+        - `anaplasia_present_type`
+        - `child_pugh_classification`
+        - `cog_neuroblastoma_risk_group`
+        - `cog_rhabdomyosarcoma_risk_group`
+        - `enneking_msts_grade`
+        - `enneking_msts_metastasis`
+        - `enneking_msts_stage`
+        - `enneking_msts_tumor_site`
+        - `esophageal_columnar_dysplasia_degree`
+        - `esophageal_columnar_metaplasia_present`
+        - `first_symptom_prior_to_diagnosis`
+        - `gastric_esophageal_junction_involvement`
+        - `goblet_cells_columnar_mucosa_present`
+        - `inpc_grade`
+        - `inss_stage`
+        - `irs_group`
+        - `ishak_fibrosis_score`
+        - `micropapillary_features`
+        - `meduloblastoma_molecular_classification`
+        - `metastasis_at_diagnosis`
+        - `mitosis_karyorrhexis_index`
+        - `peripancreatic_lymph_nodes_positive`
+        - `peripancreatic_lymph_nodes_tested`
+        - `synchronous_malignancy`
+        - `supratentorial_localization`
+        - `tumor_confined_to_organ_of_origin`
+    - Added new permissible values to `vascular_invasion_present` field <!--TT-495-->
+        - `Extramural`
+        - `Intramural`
+    - Updated `ann_arbor_clinical_stage` and `ann_arbor_pathologic_stage` fields  <!--TT-524-->
+* Modified `aliquot` entity
+    - Added new fields <!--TT-425-->
+        - `selected_normal_wxs`
+        - `selected_normal_wgs`
+        - `selected_normal_targeted_sequencing`
+        - `selected_normal_low_pass_wgs`
+* Modified `project` entity
+    - Added new fields
+        - `request_submission`
+        - `in_review` <!--TT-428-->
+        - `submission_enabled` <!--TT-429-->
+    - Removed duplicate `intended_release_date` field <!--TT-483-->
+    - Made fields `not required` <!--TT-465-->
+        - `disease_type`
+        - `primary_site`
+* Modified `case` entity
+    - Updated descriptions  <!--TT-488-->
+        - `disease_type`
+        - `primary_site`
+* Modified `demographic` entity
+    - Added new fields <!--TT-379-->
+        - `premature_at_birth`
+        - `weeks_gestation_at_birth`
+    - Made `submitter_id` a required field <!--TT-544-->
+    - Changed type of `year_of_birth` from number to integer <!--TT-489-->
+    - Changed type of `year_of_death` from number to integer <!--TT-490-->
+* Modified `treatment` entity
+    - Updated CDE code for `treatment_anatomic_site` <!--TT-492-->
+    - Modified permissible values to `treatment_anatomic_site` field  <!--TT-493--> <!--TT-506-->
+    - Made `submitter_id` a required field <!--TT-544-->
+    - Added new permissible value to `treatment_intent_type` <!--TT-494-->
+        - `Neoadjuvant`
+    - Added new permissible value to `treatment_outcome` <!--TT-498-->
+        - `Very Good Partial Response`
+        - `Mixed Response`
+        - `No Response`
+    - Added new permissible value to `treatment_type` <!--TT-499-->
+        - `Brachytherapy, High Dose`
+        - `Brachytherapy, Low Dose`
+        - `Radiation, 2D Conventional`
+        - `Radiation, 3D Conformal`
+        - `Radiation, Intensity-Modulated Radiotherapy`
+        - `Radiation, Proton Beam`
+        - `Radiation, Stereotactic Body`
+        - `Radiation Therapy, NOS`
+        - `Stereotactic Radiosurgery`
+    - Removed field
+        - `days_to_treatment`
+    - Removed permissible values for `treatment_type` <!--TT-523-->
+        - `Radiation`
+        - `Radiation Therapy`
+* Modified `analyte` entity
+    - Removed duplicate `project` field <!--TT-486-->
+* Modified `follow_up` entity
+    - Added new permissible values to `comorbidity` field <!--TT-500-->
+    - Added new fields <!--TT-365-->
+        - `progression_or_recurrence_type`
+        - `diabetes_treatment_type`
+        - `reflux_treatment_type`
+        - `barretts_esophagus_goblet_cells_present`
+        - `karnofsky__performance_status`
+        - `menopause_status`
+        - `viral_hepatitis_serologies`
+        - `reflux_treatment`
+        - `pancreatitis_onset_year`
+        - `comorbidity_method_of_diagnosis`
+        - `risk_factor`
+    - Removed fields <!--TT-517-->
+        - `absolute_neutrophil`
+        - `albumin`
+        - `beta_2_microglobulin`
+        - `bun`
+        - `calcium`
+        - `cea_level`
+        - `colon_polyps_history`
+        - `creatinine`
+        - `crp`
+        - `days_to_hiv_diagnosis`
+        - `estrogen_receptor_percent_positive_ihc`
+        - `estrogen_receptor_result_ihc`
+        - `glucose`
+        - `hemoglobin`
+        - `her2_erbb2_percent_positive_ihc`
+        - `her2_erbb2_result_fish`
+        - `her2_erbb2_result_ihc`
+        - `hiv_positive`
+        - `hpv_status`
+        - `iga`
+        - `igg`
+        - `igl_kappa`
+        - `igl_lambda`
+        - `igm`
+        - `ldh_level`
+        - `ldh_normal_range_upper`
+        - `m_protein`
+        - `microsatellite_instability_abnormal`
+        - `platelet_count`
+        - `progesterone_receptor_percent_positive_ihc`
+        - `progesterone_receptor_result_ihc`
+        - `total_protein`
+        - `wbc`
+* Modified `exposure` entity
+    - Added new fields  <!--TT-383-->
+        - `alcohol_days_per week`
+        - `alcohol_drinks_per_day`
+* Modified `molecular_test` entity
+    - Added new fields  <!--TT-384-->
+        - `gene_symbol`
+        - `second_gene_symbol`
+        - `test_analyte_type`
+        - `test_result`
+        - `molecular_analysis_method`
+        - `variant_type`
+        - `molecular_consequence`
+        - `chromosome`
+        - `cytoband`
+        - `exon`
+        - `transcript`
+        - `locus`
+        - `dna_change`
+        - `aa_change`
+        - `rna_change`
+        - `zygosity`
+        - `histone_family`
+        - `histone_variant`
+        - `copy_number`
+        - `antigen`
+        - `test_value`
+        - `test_units`
+        - `specialized_molecular_test`
+        - `ploidy`
+        - `cell_count`
+        - `loci_count`
+        - `loci_abnormal_count`
+        - `mismatch_repair_mutation`
+        - `blood_test`
+        - `blood_test_normal_range_upper`
+        - `blood_test_normal_range_lower`
+* Modified `biospecimen_supplement` entity
+    - Added new permissible values to `data_format` field <!--TT-394-->
+        - `TSV`
+        - `BCR Biotab`
+        - `BCR SSF XML`
+        - `BCR PPS XML`
+        - `FoundationOne XML`
+        - `BCR Auxiliary XML`
+    - Removed permissible values on `data_format` field <!--TT-397-->
+        - `SSF`
+        - `PPS`
+* Modified `clinical_supplement` entity
+    - Added new permissible values to `data_format` field <!--TT-395-->
+        - `TSV`
+        - `BCR OMF XML`
+        - `BCR Biotab`
+    - Removed field
+        - `data_format`
+* Modified `submitted_aligned_reads` entity
+    - Added new permissible values to `experimental_strategy` field <!--TT-404-->
+        - `Targeted Sequencing`
+        - `Bisulfite-Seq`
+        - `ChIP-Seq`
+        - `ATAC-Seq`
+    - Removed permissible values from `experimental_strategy` field <!--TT-404-->
+        - `Validation`
+        - `Total RNA-Seq`
+* Modified `submitted_unaligned_reads` entity <!--TT-411-->
+    - Added new field
+        - `read_pair_number`
+    - Added new permissible values to `experimental_strategy` field <!--TT-405-->
+        - `Targeted Sequencing`
+        - `Bisulfite-Seq`
+        - `ChIP-Seq`
+        - `ATAC-Seq`
+* Modified `alignment_workflow` entity
+    - Added new permissible values to `workflow_type` field  
+        - `BWA with Mark Duplicates and BQSR` <!--TT-426-->
+        - `BWA with BQSR` <!--TT-479-->
+* Modified `copy_number_segment` entity
+    - Removed permissible values for `data_type` field  <!--TT-441-->
+        - `Gene Level Copy Number`
+        - `Gene Level Copy Number Scores`
+* Modified `submitted_genomic_profile` entity <!--TT-461-->
+    - Added new permissible values for `data_type`
+        - `Raw GCI Variant`
+    - Added new permissible values for `data_category`
+        - `Combined Nucleotide Variation`
+    - Added new permissible values for `experimental_strategy`
+        - `WGS`
+    - Added new permissible values for `data_format`
+        - `VCF`
+* Modified `genomic_profile_harmonization_workflow` entity  <!--TT-466-->
+    - Added new permissible value for `workflow_type`
+        - `VCF LiftOver`
+* Modified `simple_somatic_mutation` entity   <!--TT-467-->
+    - Added new permissible values for `data_type`
+        - `Raw GCI Variant`
+    - Added new permissible values for `data_category`
+        - `Combined Nucleotide Variation`
+* Modified `masked_somatic_mutations` entity
+    - Added new permissible value for `experimental_strategy` <!--TT-533-->
+        - `Targeted Sequencing`
+    - Removed permissible value for `experimental_strategy` <!--TT-532-->
+        - `Validation`
+
+### Bugs Fixed Since Last Release
+
+* Fixed issue when `file_size` is specified as a float in submitted json file
+
 ## v.1.11
 
 * __GDC Product__: GDC Data Dictionary

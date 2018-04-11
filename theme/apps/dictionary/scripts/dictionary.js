@@ -806,7 +806,32 @@
 
     // Build our data structures and corresponding caches
     var r = Object.keys(dictDataList).reduce(function (acc, dictionaryTitle) {
-      var dictionary = dictDataList[dictionaryTitle];
+      var unfilteredDict = dictDataList[dictionaryTitle];
+
+      // filter out deprecated enums and properties but not required and preferred
+      var dictionary = Object.assign(
+        unfilteredDict,
+        unfilteredDict.properties ? {
+          properties: Object.keys(unfilteredDict.properties).reduce(
+            (acc, key) => Object.assign(
+              acc,
+              ((unfilteredDict.deprecated || []).includes(key)
+                && !([].concat(unfilteredDict.required || [], unfilteredDict.preferred || [])).includes(key)) ?
+              {} : {[key]: Object.assign(
+                unfilteredDict.properties[key],
+                unfilteredDict.properties[key].enum ?
+                {
+                  enum: unfilteredDict.properties[key].enum.filter(
+                    en => !(unfilteredDict.properties[key].deprecated_enum || [])
+                    .map(dEn => dEn.toLowerCase())
+                    .includes(en.toLowerCase())
+                  )
+                } : {}
+              )}),
+            {})
+        } : {}
+      );
+
       if (dictionaryTitle[0] === '_') {
         // Add special private data prefixed with '_' to the dictionary data object top level
         acc[dictionaryTitle.substr(1)] = dictionary;
@@ -832,7 +857,7 @@
         }
       }
       return acc;
-    }, {dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {'submittable_data_file': [], 'generated_data_file': []}});
+    }, { dictionaries: [], dictionaryMap: dictDataList, dictionaryMapByCategory: {'submittable_data_file': [], 'generated_data_file': [] } });
     return r;
   }
   /////////////////////////////////////////////////////////
