@@ -8,22 +8,24 @@
 
 ### New Features and Changes
 
-* Data dictionary viewer now lists deprecated properties and values on entities in the data model <!--TT-418--> <!--TT-421-->
-* Created optional link between `follow_up` and `diagnosis` entities <!--TT-401-->
-* Created new `molecular_test` entity <!--TT-464-->
-* Created many-to-many link between `genomic_profile_harmonization_workflows` and `masked_somatic_mutations` <!--TT-530-->
+* Updates to data dictionary viewer:
+    - Data dictionary viewer displays `true/false` instead of `boolean` <!--DOC-75-->
+    - Updated `md5` description in data dictionary viewer to be more complete  <!--TT-400-->
+* Creation of new entities:
+    - `Copy Number Estimate` entity for copy number variation data <!--TT-439-->
+    - `Copy Number Variation Workflow` entity for copy number variation pipeline metadata <!--TT-440-->
+    - `Molecular Test` entity <!--TT-464-->
+* Updates to all entities:
+    - Updated all entities to include `batch_id` field for submission <!--TT-434-->
+    - Updated all entities to include `downloadable` field <!--TT-501-->
+    - Modified all file entities `file_size` field to be an integer <!--TT-457-->  <!--TT-403-->
+    - Added support for creation of annotations on all entities in data model <!--DAT-1331-->
+* Added new links / updated links between entities:
+    - Created optional link between `follow_up` and `diagnosis` entities <!--TT-401-->
+    - Created many-to-many link between `genomic_profile_harmonization_workflows` and `masked_somatic_mutations` <!--TT-530-->
+    - Remove the restriction that prevents having alignment workflows to point to both `submitted_aligned_reads` and `submitted_unaligned_reads` <!--TT-422-->
 * Updated the BCR XML endpoint to support submission of new entity relationships <!--DAT-1207-->
-* Updated data dictionary to display `true/false` instead of `boolean` <!--DOC-75-->
-* Added support for creation of annotations on all entities in data model <!--DAT-1331-->
-* Updated all entities to include `batch_id` field for submission <!--TT-434-->
-* Updated all entities to include `downloadable` field <!--TT-501-->
-* Updated `md5` description in data dictionary viewer to be more complete  <!--TT-400-->
-* Updated descriptions on `read_group` entity  <!--TT-463-->
 * Fixed description of `prior_malignancy` on `diagnosis` entity <!--TT-412-->
-* Modified all file entities `file_size` field to be an integer <!--TT-457-->  <!--TT-403-->
-* Created new `Copy Number Estimate` entity for copy number variation data <!--TT-439-->
-* Created new `Copy Number Variation Workflow` entity for copy number variation pipeline metadata <!--TT-440-->
-* Remove the restriction that prevents having alignment workflows to point to both `submitted_aligned_reads` and `submitted_unaligned_reads` <!--TT-422-->
 * Modified `sample` entity
     - Added new fields  <!--TT-399-->
         - `growth_rate`
@@ -61,6 +63,7 @@
         - `no_matched_normal_targeted_sequencing`
         - `no_matched_normal_low_pass_wgs`
 * Modified `read_group` entity
+    - Updated descriptions on `read_group` entity  <!--TT-463-->
     - Added new field  <!--TT-415-->
         - `target_capture_kit`
     - Made `library_selection` a required field <!--TT-472-->
@@ -79,7 +82,6 @@
         - `Other`
 * Modified `diagnosis` entity
     - Added new fields  <!--TT-380-->
-        - `primary_diagnosis`
         - `ajcc_staging_system_edition`
         - `anaplasia_present`
         - `anaplasia_present_type`
