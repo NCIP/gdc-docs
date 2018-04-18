@@ -219,7 +219,7 @@
     - Added new fields  <!--TT-383-->
         - `alcohol_days_per week`
         - `alcohol_drinks_per_day`
-* Modified `molecular_test` entity
+* Added `molecular_test` entity
     - Added new fields  <!--TT-384-->
         - `gene_symbol`
         - `second_gene_symbol`
