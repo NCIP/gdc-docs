@@ -1,5 +1,5 @@
 
-<!-- GDC APP -->
+<!-- GDCMVS APP -->
 
 <div class="search-box">
     <div class="search-bar">
@@ -47,4 +47,4 @@
 
 <div id="root"></div>
 
-<!-- END GDC APP -->
+<!-- END GDCMVS APP -->

@@ -268,106 +268,6 @@ a:hover, a:focus {
   background-color: #ffffff;
   border: 1px solid #cccccc; }
 
-.particle.grey {
-  background-color: #6b6262; }
-
-.particle.red {
-  background-color: #c31547; }
-
-.particle.blue {
-  background-color: #123e57; }
-
-.loadingContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  background-color: rgba(255, 255, 255, 0.8);
-  transition: opacity 0.35s ease; }
-
-.spinParticleContainer {
-  margin-right: 10px;
-  width: 4rem;
-  height: 4rem;
-  display: block;
-  -webkit-animation: Rotate 2.0s infinite linear;
-  animation: Rotate 2.0s infinite linear; }
-
-.spinParticle.endLoad {
-  -webkit-animation: BlowUp 1s 1 ease-out;
-  animation: BlowUp 1s 1 ease-out; }
-
-.spinParticle {
-  width: 4rem;
-  height: 4rem;
-  position: fixed;
-  left: 50%;
-  top: 40%;
-  z-index: 900000;
-  /* display: block; */
-  display: none;
-  -moz-animation: Rotate 2.0s infinite linear;
-  -webkit-animation: Rotate 2.0s infinite linear;
-  animation: Rotate 2.0s infinite linear; }
-
-.particle {
-  width: 60%;
-  height: 60%;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  background-color: #000;
-  border-radius: 100%;
-  -webkit-animation: Scale 2.0s infinite ease-in-out;
-  animation: Scale 2.0s infinite ease-in-out; }
-
-.other-particle {
-  top: auto;
-  bottom: 0;
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s; }
-
-.other-other-particle {
-  top: 0;
-  bottom: auto;
-  margin-left: 2.2rem;
-  -webkit-animation-delay: -1.2s;
-  animation-delay: -1.2s; }
-
-@-webkit-keyframes Rotate {
-  0% {
-    -webkit-transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(360deg); } }
-
-@keyframes Rotate {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg); } }
-
-@-webkit-keyframes Scale {
-  0%, 100% {
-    -webkit-transform: scale(0); }
-  50% {
-    -webkit-transform: scale(1.5); } }
-
-@keyframes Scale {
-  0%, 100% {
-    -webkit-transform: scale(0);
-    transform: scale(0); }
-  50% {
-    -webkit-transform: scale(1);
-    transform: scale(1); } }
-
 .ui-resizable {
   box-sizing: content-box; }
 
@@ -559,9 +459,6 @@ table.treetable tr.expanded span.indenter a {
 table.treetable tr.expanded span.indenter a:before {
   font-family: FontAwesome;
   content: "\F106"; }
-
-.property {
-  color: #3598db; }
 
 .search-bar {
   width: 60%;

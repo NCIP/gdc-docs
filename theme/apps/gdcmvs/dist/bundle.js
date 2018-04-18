@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -152,20 +152,205 @@ var func = {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = render;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__result_table___ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__props_table___ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__values_table___ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs___ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__(1);
+
+
+
+
+
+
+function render(keyword, option, items) {
+  var html = "";
+  if (items.length !== 0) {
+    var trsHtml = __WEBPACK_IMPORTED_MODULE_0__result_table___["a" /* default */].render(items);
+    trsHtml.active = false;
+    var psHtml = __WEBPACK_IMPORTED_MODULE_1__props_table___["a" /* default */].render(items);
+    psHtml.active = false;
+    var vsHtml = __WEBPACK_IMPORTED_MODULE_2__values_table___["a" /* default */].render(items);
+    vsHtml.active = false;
+    if (option.activeTab == 0) {
+      vsHtml.active = true;
+    } else if (option.activeTab == 1) {
+      psHtml.active = true;
+    } else {
+      trsHtml.active = true;
+    }
+    html = Object(__WEBPACK_IMPORTED_MODULE_3__tabs___["a" /* default */])(trsHtml, psHtml, vsHtml, keyword);
+  } else if (option.error == true) {
+    html = '<div class="indicator indicator--has-error">Please, enter a valid keyboard!</div>';
+  } else {
+    html = '<div class="indicator">Sorry, no results found for kerword: <span class="indicator__term">' + keyword + '</span></div>';
+  }
+
+  $("#root").html(html);
+
+  if ($("#tree_table").length) {
+    $("#tree_table").treetable({ expandable: true });
+    $("#tree_toggle").bind('click', function () {
+      var target = $(this);
+      if (target.attr("aria-pressed") == 'true') {
+        target.html('<i class="fa fa-angle-down"></i> Expand All');
+        $('#gdc-loading-icon').fadeIn(100);
+
+        setTimeout(function () {
+          $("#tree_table").find('a[title="Collapse"]').each(function () {
+            $(this).trigger("click");
+          });
+          $('#gdc-loading-icon').fadeOut('fast');
+        }, 1000);
+      } else {
+        target.html('<i class="fa fa-angle-up"></i>  Collapse All');
+        $('#gdc-loading-icon').fadeIn(100);
+
+        setTimeout(function () {
+          $("#tree_table").find('a[title="Expand"]').each(function () {
+            $(this).trigger("click");
+          });
+          $("#tree_table").find('a[title="Expand"]').each(function () {
+            $(this).trigger("click");
+          });
+          $("#tree_table").find('a[title="Expand"]').each(function () {
+            $(this).trigger("click");
+          });
+          $('#gdc-loading-icon').fadeOut('fast');
+        }, 1000);
+      }
+    });
+  }
+
+  $('a.redirect').bind('click', function (event) {
+    event.preventDefault();
+    if (window.location.href.indexOf('https://docs.gdc.cancer.gov/') < 0) {
+      var href = $(this).attr('href');
+      window.open('https://docs.gdc.cancer.gov' + href, '_blank');
+    }
+  });
+
+  $('#tab-values').bind('click', function () {
+    var option = JSON.parse(localStorage.getItem('option'));
+    option.activeTab = 0;
+    localStorage.setItem('option', JSON.stringify(option));
+  });
+
+  $('#tab-properties').bind('click', function () {
+    var option = JSON.parse(localStorage.getItem('option'));
+    option.activeTab = 1;
+    localStorage.setItem('option', JSON.stringify(option));
+  });
+
+  $('#tab-dictionary').bind('click', function () {
+    var option = JSON.parse(localStorage.getItem('option'));
+    option.activeTab = 2;
+    localStorage.setItem('option', JSON.stringify(option));
+  });
+
+  var htmlShow = '';
+
+  $('.show-more-less').click(function () {
+    var target = $(this);
+
+    var parentTable = $(this).parent().parent().parent();
+    var targets = parentTable.find('.table__row--toggle');
+    if (target.hasClass('more')) {
+      target.removeClass('more');
+      targets.slideToggle(350);
+      target.html(htmlShow == '' ? '<i class="fa fa-angle-down"></i> Show More' : htmlShow);
+    } else {
+      htmlShow = target.html();
+      target.addClass('more');
+      targets.slideToggle(350).css({ display: 'flex' });
+      target.html('<i class="fa fa-angle-up"></i> Show Less');
+    }
+  });
+
+  $('.collapser').click(function () {
+    var target = $(this);
+    var parentTable = $(this).parent().parent().parent();
+
+    var dataContainer = parentTable.find('#data-content');
+
+    dataContainer.slideToggle(400, function () {
+      if (dataContainer.is(":visible")) {
+        target.html('<i class="fa fa-minus"></i>');
+      } else {
+        target.html('<i class="fa fa-plus"></i>');
+      }
+    });
+  });
+
+  $('.gdc-details').click(function () {
+    var target = $(this);
+    var parentTarget = $(this).parent();
+    var gdcLinks = parentTarget.find('#gdc-links');
+    gdcLinks.slideToggle(350);
+  });
+
+  var hiddenRows = $('#tree_table').find('.data-hide');
+  $('#trs-checkbox').click(function () {
+    if (this.checked) {
+      hiddenRows.each(function () {
+        $(this).removeClass('hide');
+      });
+    } else {
+      hiddenRows.each(function () {
+        $(this).addClass('hide');
+      });
+    }
+  });
+
+  $('.cde-suggest').click(function () {
+    var alertSuggest = $('#alert-suggest');
+    alertSuggest.removeClass('animated fadeInDownUp').css({ 'display': 'none' });
+    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    alertSuggest.css({ 'display': 'block', 'top': __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* default */].headerOffset() + 20 + 'px' }).addClass('animated fadeInDownUp').one(animationEnd, function () {
+      alertSuggest.css({ 'display': 'none' });
+    });
+  });
+
+  var windowEl = $(window);
+
+  windowEl.resize(function () {
+    var heightSlider = $('.navbar .container').height();
+    var dialogs = $('#gdc_data, #gdc_syn_data, #compare_dialog, #caDSR_data, #compareGDC_dialog');
+    dialogs.each(function () {
+      var target = $(this).parent();
+      if (target.offset().top < heightSlider) {
+        target.css('top', heightSlider + 10 + "px");
+      } else if (windowEl.width() < target.offset().left + target.width()) {
+        target.css('left', windowEl.width() - target.width() - 10 + "px");
+      }
+    });
+  });
+
+  $('.tooltip-target').tooltip();
+}
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(3);
+__webpack_require__(4);
 module.exports = __webpack_require__(25);
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__search_bar___ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__search_bar___ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dialog___ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__render__ = __webpack_require__(2);
+
 
 
 
@@ -430,17 +615,48 @@ $(function () {
     $('#body a[href^="http"]').each(function () {
         var anchor = $(this);
         anchor.removeClass('external-link');
-        anchor.html($.trim(anchor[0].outerText));
+        anchor.html($.trim(anchor[0].innerText));
     });
+
+    if (localStorage.hasOwnProperty('keyword') || localStorage.hasOwnProperty('option') || localStorage.hasOwnProperty('items')) {
+
+        $('#gdc-loading-icon').fadeIn(100);
+
+        setTimeout(function () {
+
+            var keyword = localStorage.getItem('keyword');
+            var option = JSON.parse(localStorage.getItem('option'));
+            var items = JSON.parse(localStorage.getItem('items'));
+
+            if (keyword != null || option != null || items != null) {
+
+                $("#keywords").val(keyword);
+
+                if (option.match != 'partial') {
+                    $("#i_syn").prop('checked', true);
+                }
+                if (option.desc != false) {
+                    $("#i_desc").prop('checked', true);
+                }
+                if (option.syn != false) {
+                    $("#i_syn").prop('checked', true);
+                }
+
+                Object(__WEBPACK_IMPORTED_MODULE_2__render__["a" /* default */])(keyword, option, items);
+
+                $('#gdc-loading-icon').fadeOut('fast');
+            }
+        }, 100);
+    }
 });
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__render__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__render__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__view__ = __webpack_require__(14);
 
 
@@ -480,7 +696,12 @@ var func = {
         //todo:show progress bar
         $('#gdc-loading-icon').fadeIn(100);
         __WEBPACK_IMPORTED_MODULE_0__api__["a" /* default */].searchAll(keyword, option, function (keyword, option, items) {
-            //console.log(items);
+
+            //Save the data in localStorage
+            localStorage.setItem('keyword', keyword);
+            localStorage.setItem('option', JSON.stringify(option));
+            localStorage.setItem('items', JSON.stringify(items));
+
             Object(__WEBPACK_IMPORTED_MODULE_1__render__["a" /* default */])(keyword, option, items);
             //todo: close progress bar
             $('#gdc-loading-icon').fadeOut('fast');
@@ -553,163 +774,6 @@ var func = {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (func);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = render;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__result_table___ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__props_table___ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__values_table___ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs___ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__(1);
-
-
-
-
-
-
-function render(keyword, option, items) {
-  var html = "";
-  if (items.length !== 0) {
-    var trsHtml = __WEBPACK_IMPORTED_MODULE_0__result_table___["a" /* default */].render(items);
-    trsHtml.active = false;
-    var psHtml = __WEBPACK_IMPORTED_MODULE_1__props_table___["a" /* default */].render(items);
-    psHtml.active = false;
-    var vsHtml = __WEBPACK_IMPORTED_MODULE_2__values_table___["a" /* default */].render(items);
-    vsHtml.active = false;
-    if (option.activeTab == 0) {
-      vsHtml.active = true;
-    } else if (option.activeTab == 1) {
-      psHtml.active = true;
-    } else {
-      trsHtml.active = true;
-    }
-    html = Object(__WEBPACK_IMPORTED_MODULE_3__tabs___["a" /* default */])(trsHtml, psHtml, vsHtml, keyword);
-  } else if (option.error == true) {
-    html = '<div class="indicator indicator--has-error">Please, enter a valid keyboard!</div>';
-  } else {
-    html = '<div class="indicator">Sorry, no results found for kerword: <span class="indicator__term">' + keyword + '</span></div>';
-  }
-
-  $("#root").html(html);
-
-  if ($("#tree_table").length) {
-    $("#tree_table").treetable({ expandable: true });
-    $("#tree_toggle").bind('click', function () {
-      var target = $(this);
-      if (target.attr("aria-pressed") == 'true') {
-        target.html('<i class="fa fa-angle-down"></i> Expand All');
-        $('#gdc-loading-icon').fadeIn(100);
-
-        setTimeout(function () {
-          $("#tree_table").find('a[title="Collapse"]').each(function () {
-            $(this).trigger("click");
-          });
-          $('#gdc-loading-icon').fadeOut('fast');
-        }, 1000);
-      } else {
-        target.html('<i class="fa fa-angle-up"></i>  Collapse All');
-        $('#gdc-loading-icon').fadeIn(100);
-
-        setTimeout(function () {
-          $("#tree_table").find('a[title="Expand"]').each(function () {
-            $(this).trigger("click");
-          });
-          $("#tree_table").find('a[title="Expand"]').each(function () {
-            $(this).trigger("click");
-          });
-          $("#tree_table").find('a[title="Expand"]').each(function () {
-            $(this).trigger("click");
-          });
-          $('#gdc-loading-icon').fadeOut('fast');
-        }, 1000);
-      }
-    });
-  }
-
-  var htmlShow = '';
-
-  $('.show-more-less').click(function () {
-    var target = $(this);
-
-    var parentTable = $(this).parent().parent().parent();
-    var targets = parentTable.find('.table__row--toggle');
-    if (target.hasClass('more')) {
-      target.removeClass('more');
-      targets.slideToggle(350);
-      target.html(htmlShow == '' ? '<i class="fa fa-angle-down"></i> Show More' : htmlShow);
-    } else {
-      htmlShow = target.html();
-      target.addClass('more');
-      targets.slideToggle(350).css({ display: 'flex' });
-      target.html('<i class="fa fa-angle-up"></i> Show Less');
-    }
-  });
-
-  $('.collapser').click(function () {
-    var target = $(this);
-    var parentTable = $(this).parent().parent().parent();
-
-    var dataContainer = parentTable.find('#data-content');
-
-    dataContainer.slideToggle(400, function () {
-      if (dataContainer.is(":visible")) {
-        target.html('<i class="fa fa-minus"></i>');
-      } else {
-        target.html('<i class="fa fa-plus"></i>');
-      }
-    });
-  });
-
-  $('.gdc-details').click(function () {
-    var target = $(this);
-    var parentTarget = $(this).parent();
-    var gdcLinks = parentTarget.find('#gdc-links');
-    gdcLinks.slideToggle(350);
-  });
-
-  var hiddenRows = $('#tree_table').find('.data-hide');
-  $('#trs-checkbox').click(function () {
-    if (this.checked) {
-      hiddenRows.each(function () {
-        $(this).removeClass('hide');
-      });
-    } else {
-      hiddenRows.each(function () {
-        $(this).addClass('hide');
-      });
-    }
-  });
-
-  $('.cde-suggest').click(function () {
-    var alertSuggest = $('#alert-suggest');
-    alertSuggest.removeClass('animated fadeInDownUp').css({ 'display': 'none' });
-    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-    alertSuggest.css({ 'display': 'block', 'top': __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* default */].headerOffset() + 20 + 'px' }).addClass('animated fadeInDownUp').one(animationEnd, function () {
-      alertSuggest.css({ 'display': 'none' });
-    });
-  });
-
-  var windowEl = $(window);
-
-  windowEl.resize(function () {
-    var heightSlider = $('.navbar .container').height();
-    var dialogs = $('#gdc_data, #gdc_syn_data, #compare_dialog, #caDSR_data, #compareGDC_dialog');
-    dialogs.each(function () {
-      var target = $(this).parent();
-      if (target.offset().top < heightSlider) {
-        target.css('top', heightSlider + 10 + "px");
-      } else if (windowEl.width() < target.offset().left + target.width()) {
-        target.css('left', windowEl.width() - target.width() - 10 + "px");
-      }
-    });
-  });
-
-  $('.tooltip-target').tooltip();
-}
 
 /***/ }),
 /* 6 */
@@ -831,6 +895,9 @@ var func = {
             var count_s = 0;
             count++;
             p.id = count + "_" + source.name;
+            //link id
+            p.l_id = source.name;
+            p.parent_l_id = n.l_id;
             //may have highlighted terms in p.title and p.desc
             p.title = "name" in hl || "name.have" in hl ? hl["name"] || hl["name.have"] : source.name;
             p.desc = "desc" in hl ? hl["desc"] : source.desc;
@@ -960,7 +1027,7 @@ var func = {
 
 "use strict";
 
-var tmpl = '<div class="container table__container">' + '<div class="table__thead row">' + '<div class="col-xs-4"><div class="table__th">Name</div></div>' + '<div class="col-xs-4"><div class="table__th">Description</div></div>' + '<div class="col-xs-4"><div class="table__th table__th--right">' + '<div class="checkbox checkbox-th"><label class="checkbox__label">' + '<input class="checkbox__input" id="trs-checkbox" type="checkbox" value="">' + '<span class="checkbox__btn"><i class="checkbox__icon fa fa-check"></i></span> Show all values' + '</label></div>' + '<button type="button" id="tree_toggle" class="btn btn-th" data-toggle="button" aria-pressed="false" autocomplete="off">' + '<i class="btn-th__icon fa fa-angle-down"></i> Expand All' + '</button>' + '</div></div>' + '</div>' + '<div class="table__body table__body--overflow row" style="max-height: {{:mh}}px;">' + '<table class="treetable table" id="tree_table">' + '<tbody>' + '{{for trs}}' + '<tr key="{{:id}}" data-tt-id="{{:data_tt_id}}" data-tt-parent-id="{{:data_tt_parent_id}}" class="data-table-row {{:node}} {{if exist != true && type == "value"}}data-hide hide{{/if}}">' + '<td width="33%">' + '<span class="{{:type}} title table__td--word-break" style="display:inline-block; width: 70%;">' + '{{if type == "folder"}}' + '<a href="https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id={{:l_id}}" target="_blank">{{:title}} {{if len !== undefined}}({{:len}}){{/if}}</a>' + '{{else type == "link"}}' + '{{if l_type == "cde"}}' + 'No values in GDC, reference values in <a href="javascript:getCDEData(\'{{:l_id}}\');" class="table-td-link">caDSR</a>' + '{{else}}' + 'No values in GDC, concept referenced in <a target="_blank" href="{{:url}}" class="table-td-link">NCIt</a>' + '{{/if}}' + '{{else}}' + '{{:title}} {{if len && len !== 0}}({{:len}}){{/if}}' + '{{/if}}' + '</td>' + '<td width="66%">' + '{{:desc}}' + '</td>' + '</tr>' + '{{/for}}' + '</tbody>' + '</table>' + '</div>' + '</div>';
+var tmpl = '<div class="container table__container">' + '<div class="table__thead row">' + '<div class="col-xs-4"><div class="table__th">Name</div></div>' + '<div class="col-xs-4"><div class="table__th">Description</div></div>' + '<div class="col-xs-4"><div class="table__th table__th--right">' + '<div class="checkbox checkbox-th"><label class="checkbox__label">' + '<input class="checkbox__input" id="trs-checkbox" type="checkbox" value="">' + '<span class="checkbox__btn"><i class="checkbox__icon fa fa-check"></i></span> Show all values' + '</label></div>' + '<button type="button" id="tree_toggle" class="btn btn-th" data-toggle="button" aria-pressed="false" autocomplete="off">' + '<i class="btn-th__icon fa fa-angle-down"></i> Expand All' + '</button>' + '</div></div>' + '</div>' + '<div class="table__body table__body--overflow row" style="max-height: {{:mh}}px;">' + '<table class="treetable table" id="tree_table">' + '<tbody>' + '{{for trs}}' + '<tr key="{{:id}}" data-tt-id="{{:data_tt_id}}" data-tt-parent-id="{{:data_tt_parent_id}}" class="data-table-row {{:node}} {{if exist != true && type == "value"}}data-hide hide{{/if}}">' + '<td width="33%">' + '<span class="{{:type}} title table__td--word-break" style="display:inline-block; width: 70%;">' + '{{if type == "category"}}' + '<a class="redirect" href="/Data_Dictionary/viewer/#?view=table-entity-list&anchor={{:id}}">{{:title}} {{if len !== undefined}}({{:len}}){{/if}}</a>' + '{{else type == "folder"}}' + '<a class="redirect" href="/Data_Dictionary/viewer/#?view=table-definition-view&id={{:l_id}}">{{:title}} {{if len !== undefined}}({{:len}}){{/if}}</a>' + '{{else type == "property"}}' + '<a class="redirect" href="/Data_Dictionary/viewer/#?view=table-definition-view&id={{:parent_l_id}}&anchor={{:l_id}}">{{:title}} {{if len !== undefined}}({{:len}}){{/if}}</a>' + '{{else type == "link"}}' + '{{if l_type == "cde"}}' + 'No values in GDC, reference values in <a href="javascript:getCDEData(\'{{:l_id}}\');" class="table-td-link">caDSR</a>' + '{{else}}' + 'No values in GDC, concept referenced in <a target="_blank" href="{{:url}}" class="table-td-link">NCIt</a>' + '{{/if}}' + '{{else}}' + '{{:title}} {{if len && len !== 0}}({{:len}}){{/if}}' + '{{/if}}' + '</td>' + '<td width="66%">' + '{{:desc}}' + '</td>' + '</tr>' + '{{/for}}' + '</tbody>' + '</table>' + '</div>' + '</div>';
 
 /* harmony default export */ __webpack_exports__["a"] = (tmpl);
 
@@ -1005,6 +1072,7 @@ var func = {
         if (source.cde !== undefined && source.cde.dt !== undefined) {
           prop.type = source.cde.dt;
         }
+        prop.type = prop.type.toLowerCase();
         props.push(prop);
       }
     });
@@ -1016,7 +1084,6 @@ var func = {
       var offset = $('#root').offset().top;
       var h = window.innerHeight - offset - 300;
       h = h < 430 ? 430 : h;
-
       html = $.templates(__WEBPACK_IMPORTED_MODULE_0__view__["a" /* default */]).render({ mh: h, props: props });
     }
 
@@ -1035,7 +1102,7 @@ var func = {
 
 "use strict";
 
-var tmpl = '<div class="container table__container"><div class="table__thead row table__thead--padding-right">' + '<div class="table__th col-xs-2">Category / Node</div>' + '<div class="table__th col-xs-2">Property</div>' + '<div class="table__th col-xs-4">Description</div>' + '<div class="table__th col-xs-2">GDC Property Values</div>' + '<div class="table__th col-xs-2">caDSR CDE Reference</div>' + '</div>' + '<div class="table__body table__body--overflow row" style="max-height: {{:mh}}px;"><div class="col-xs-12">' + '{{for props}}' + '<div class="table__row row">' + '<div class="table__td col-xs-2">{{:ct}}<ul><li class="table__td--word-break">{{:nd}}</li></ul></div>' + '<div class="table__td col-xs-2 table__td--word-break">{{:nm}}</div>' + '<div class="table__td col-xs-4">{{:desc}}</div>' + '<div class="table__td col-xs-2">' + '{{if local}}' + '<a href="javascript:getGDCData(\'{{:ref}}\',null);">See All Values</a>' + '<br><a href="javascript:toCompare(\'{{:ref}}\');"> Compare with User List</a>' + '{{if syn}}' + '<br><a href="javascript:getGDCTerms(\'{{:ref}}\',null);">See All Terms</a>' + '{{else}}' + '{{/if}}' + '{{else}}' + 'type: {{:type}}' + '{{/if}}' + '</div>' + '<div class="table__td col-xs-2">' + '{{if cdeId == ""}}' + '' + '{{else}}' + '<a class="table-td-link" href="{{:cdeUrl}}" target="_blank">CDE</a>' + '{{if local && cdeLen}}' + ', <a class="table-td-link" href="javascript:getCDEData(\'{{:cdeId}}\',null);">Values</a>, <a class="table-td-link" href="javascript:compareGDC(\'{{:ref}}\',\'{{:cdeId}}\');"> Compare with GDC</a>' + '{{else cdeLen}}' + ', <a class="table-td-link" href="javascript:getCDEData(\'{{:cdeId}}\',null);">Values</a>' + '{{else}}' + '' + '{{/if}}' + '{{/if}}' + '</div>' + '</div>' + '{{/for}}</div></div></div>';
+var tmpl = '<div class="container table__container"><div class="table__thead row table__thead--padding-right">' + '<div class="table__th col-xs-2">Category / Node</div>' + '<div class="table__th col-xs-2">Property</div>' + '<div class="table__th col-xs-4">Description</div>' + '<div class="table__th col-xs-2">GDC Property Values</div>' + '<div class="table__th col-xs-2">caDSR CDE Reference</div>' + '</div>' + '<div class="table__body table__body--overflow row" style="max-height: {{:mh}}px;"><div class="col-xs-12">' + '{{for props}}' + '<div class="table__row row">' + '<div class="table__td col-xs-2">' + '<a class="redirect" href="/Data_Dictionary/viewer/#?view=table-entity-list&anchor={{:ct}}">{{:ct}}</a>' + '<ul><li class="table__td--word-break">' + '<a class="redirect" href="/Data_Dictionary/viewer/#?view=table-definition-view&id={{:nd}}">{{:nd}}</a>' + '</li></ul>' + '</div>' + '<div class="table__td col-xs-2 table__td--word-break">' + '<a class="redirect" href="/Data_Dictionary/viewer/#?view=table-definition-view&id={{:nd}}&anchor={{:nm}}">{{:nm}}</a>' + '</div>' + '<div class="table__td col-xs-4">{{:desc}}</div>' + '<div class="table__td col-xs-2">' + '{{if local}}' + '<a href="javascript:getGDCData(\'{{:ref}}\',null);">See All Values</a>' + '<br><a href="javascript:toCompare(\'{{:ref}}\');"> Compare with User List</a>' + '{{if syn}}' + '<br><a href="javascript:getGDCTerms(\'{{:ref}}\',null);">See All Terms</a>' + '{{else}}' + '{{/if}}' + '{{else}}' + 'type: {{:type}}' + '{{/if}}' + '</div>' + '<div class="table__td col-xs-2">' + '{{if cdeId == ""}}' + '' + '{{else}}' + '<a class="table-td-link" href="{{:cdeUrl}}" target="_blank">CDE</a>' + '{{if local && cdeLen}}' + ', <a class="table-td-link" href="javascript:getCDEData(\'{{:cdeId}}\',null);">Values</a>, <a class="table-td-link" href="javascript:compareGDC(\'{{:ref}}\',\'{{:cdeId}}\');"> Compare with GDC</a>' + '{{else cdeLen}}' + ', <a class="table-td-link" href="javascript:getCDEData(\'{{:cdeId}}\',null);">Values</a>' + '{{else}}' + '' + '{{/if}}' + '{{/if}}' + '</div>' + '</div>' + '{{/for}}</div></div></div>';
 
 /* harmony default export */ __webpack_exports__["a"] = (tmpl);
 
@@ -1362,7 +1429,7 @@ var tmpl = '<div class="container table__container"><div class="table__thead row
 
 "use strict";
 
-var tmpl = '<div class="results">' + '<div class="tab-nav">' + '<div class="tab-nav__text">Results for <span class="tab-nav__term">\'{{:keyword}}\'</span> in:</div>' + '<div id="tab" class="btn-group tab-nav__group" data-toggle="buttons">' + '<ul class="tab-nav__ul"role="tablist">' + '<li role="presentation" class="tab-nav__li{{if vs_active}} active{{else}}{{/if}}">' + '<div class="tab-nav__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" data-delay=\'{"show":"1000"}\' data-trigger="hover" title="Text will be provided to inform users on how to interpret content of tabs.">' + '<a href="#values" class="tab-nav__btn" aria-controls="values" role="tab" data-toggle="tab" aria-expanded="true">Values</a>' + '<span class="tab-nav__notification">{{:vs_len}}</span>' + '</div>' + '</li>' + '<li role="presentation" class="tab-nav__li{{if ps_active}} active{{else}}{{/if}}">' + '<div class="tab-nav__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" data-delay=\'{"show":"1000"}\' data-trigger="hover" title="Text will be provided to inform users on how to interpret content of tabs.">' + '<a href="#properties" class="tab-nav__btn" aria-controls="properties" role="tab" data-toggle="tab" aria-expanded="true">Properties</a>' + '<span class="tab-nav__notification">{{:ps_len}}</span>' + '</div>' + '</li>' + '<li role="presentation" class="tab-nav__li{{if trs_active}} active{{else}}{{/if}}">' + '<div class="tab-nav__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" data-delay=\'{"show":"1000"}\' data-trigger="hover" title="Text will be provided to inform users on how to interpret content of tabs.">' + '<a href="#dictionary" class="tab-nav__btn" aria-controls="dictionary" role="tab" data-toggle="tab" aria-expanded="true">Dictionary</a>' + '<span class="tab-nav__notification">{{:trs_len}}</span>' + '</div>' + '</li>' + '</ul>' + '</div></div>' + '<div class="tab-content"><div role="tabpanel" class="tab-pane {{if vs_active}}active{{else}}{{/if}}" id="values">{{:vsHtml}}</div>' + '<div role="tabpanel" class="tab-pane {{if ps_active}}active{{else}}{{/if}}" id="properties">{{:psHtml}}</div>' + '<div role="tabpanel" class="tab-pane {{if trs_active}}active{{else}}{{/if}}" id="dictionary">{{:trsHtml}}</div></div></div>';
+var tmpl = '<div class="results">' + '<div class="tab-nav">' + '<div class="tab-nav__text">Results for <span class="tab-nav__term">\'{{:keyword}}\'</span> in:</div>' + '<div id="tab" class="btn-group tab-nav__group" data-toggle="buttons">' + '<ul class="tab-nav__ul"role="tablist">' + '<li role="presentation" class="tab-nav__li{{if vs_active}} active{{else}}{{/if}}">' + '<div class="tab-nav__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" data-delay=\'{"show":"1000"}\' data-trigger="hover" title="Text will be provided to inform users on how to interpret content of tabs.">' + '<a id="tab-values" href="#values" class="tab-nav__btn" aria-controls="values" role="tab" data-toggle="tab" aria-expanded="true">Values</a>' + '<span class="tab-nav__notification">{{:vs_len}}</span>' + '</div>' + '</li>' + '<li role="presentation" class="tab-nav__li{{if ps_active}} active{{else}}{{/if}}">' + '<div class="tab-nav__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" data-delay=\'{"show":"1000"}\' data-trigger="hover" title="Text will be provided to inform users on how to interpret content of tabs.">' + '<a id="tab-properties" href="#properties" class="tab-nav__btn" aria-controls="properties" role="tab" data-toggle="tab" aria-expanded="true">Properties</a>' + '<span class="tab-nav__notification">{{:ps_len}}</span>' + '</div>' + '</li>' + '<li role="presentation" class="tab-nav__li{{if trs_active}} active{{else}}{{/if}}">' + '<div class="tab-nav__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" data-delay=\'{"show":"1000"}\' data-trigger="hover" title="Text will be provided to inform users on how to interpret content of tabs.">' + '<a id="tab-dictionary" href="#dictionary" class="tab-nav__btn" aria-controls="dictionary" role="tab" data-toggle="tab" aria-expanded="true">Dictionary</a>' + '<span class="tab-nav__notification">{{:trs_len}}</span>' + '</div>' + '</li>' + '</ul>' + '</div></div>' + '<div class="tab-content"><div role="tabpanel" class="tab-pane {{if vs_active}}active{{else}}{{/if}}" id="values">{{:vsHtml}}</div>' + '<div role="tabpanel" class="tab-pane {{if ps_active}}active{{else}}{{/if}}" id="properties">{{:psHtml}}</div>' + '<div role="tabpanel" class="tab-pane {{if trs_active}}active{{else}}{{/if}}" id="dictionary">{{:trsHtml}}</div></div></div>';
 
 /* harmony default export */ __webpack_exports__["a"] = (tmpl);
 
