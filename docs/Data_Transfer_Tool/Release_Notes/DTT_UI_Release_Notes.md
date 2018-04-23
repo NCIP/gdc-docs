@@ -1,8 +1,25 @@
 # Data Transfer Tool UI Release Notes
 
+<<<<<<< HEAD
 | Version | Date |
 |---|---|
 | [v0.5.3](DTT_UI_Release_Notes.md#v053) | December 14, 2017 |
+=======
+## v0.5.4
+* __GDC Product__: Data Transfer Tool UI
+* __Release Date__: April 5, 2018
+
+
+### New Features and Changes
+* None
+
+### Bugs Fixed Since Last Release
+* Download is now enabled for GDC reference and publication files. <!--SV-1045, DTT-100-->
+
+### Known Issues and Workarounds
+* None
+
+>>>>>>> develop
 
 ## v0.5.3
 * __GDC Product__: Data Transfer Tool UI
