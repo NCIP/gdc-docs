@@ -1,17 +1,17 @@
 # Data Dictionary Release Notes
 
-<<<<<<< HEAD
+
 | Version | Date |
 |---|---|
-| [v1.1.11](Data_Dictionary_Release_Notes.md#v1110) | January 20, 2018 |
+| [v1.1.12](Data_Dictionary_Release_Notes.md#v112) | April 23, 2018 |
+| [v1.1.11](Data_Dictionary_Release_Notes.md#v111) | January 20, 2018 |
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
----
 
-## v.1.11.0
-=======
+
+
 ## v.1.12
 
 * __GDC Product__: GDC Data Dictionary
@@ -335,7 +335,7 @@
 * Fixed issue when `file_size` is specified as a float in submitted json file
 
 ## v.1.11
->>>>>>> develop
+
 
 * __GDC Product__: GDC Data Dictionary
 * __Release Date__: January 20, 2018
