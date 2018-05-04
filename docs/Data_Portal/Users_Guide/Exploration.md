@@ -2,7 +2,7 @@
 
 The Exploration page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level. Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.  The Gene/Mutation data for these visualizations comes from the Open-Access MAF files on the GDC Portal.
 
-[![Exploration Page](images/GDC-Exploration-Page_v4.png)](images/GDC-Exploration-Page_v4.png "Click to see the full image.")
+[![Exploration Page](images/GDC-Exploration-Page_v5.png)](images/GDC-Exploration-Page_v4.png "Click to see the full image.")
 
 ## Filters / Facets
 On the left of this page, users can create advanced filters to narrow down results to create synthetic cohorts.
@@ -42,7 +42,7 @@ After supplying a list of cases, a table below will appear which indicates wheth
 
 Clicking on `Submit` will filter the results in the Exploration Page by those cases.
 
-[![Upload Case Set Results](images/case-set-filter_v2.png)](images/case-set-filter_v2.png "Click to see the full image.")
+[![Upload Case Set Results](images/case-set-filter_v3.png)](images/case-set-filter_v2.png "Click to see the full image.")
 
 ### Gene Filters
 
@@ -117,7 +117,7 @@ To illustrate these tabs, Case, Gene, and Mutation filters have been chosen ( Ge
 
 The `Cases` tab gives an overview of all the cases/patients who correspond to the filters chosen (Cohort).
 
-[![Exploration Case Example](images/Exploration-Case-Example_v2.png)](images/Exploration-Case-Example_v2.png "Click to see the full image.")
+[![Exploration Case Example](images/Exploration-Case-Example_v3.png)](images/Exploration-Case-Example_v2.png "Click to see the full image.")
 
 The top of this section contains a few pie graphs with categorical information regarding the Primary Site, Project, Disease Type, Gender, and Vital Status.
 
@@ -239,10 +239,10 @@ A tool bar at the top right of the graphic allows the user to export the data as
 
 After utilizing the Exploration Page to narrow down a specific cohort, users can find the specific files that relate to this group by clicking on the `View Files in Repository` button as shown in the image below.
 
-[![Exploration File Navigation](images/Exploration-View-Files_v2.png)](images/Exploration-View-Files_v2.png "Click to see the full image.")
+[![Exploration File Navigation](images/Exploration-View-Files_v3.png)](images/Exploration-View-Files_v2.png "Click to see the full image.")
 
 Clicking this button will navigate the users to the Repository Page, filtered by the cases within the cohort.
 
-[![Input Set Explanation](images/gdc-input-set.png)](images/gdc-input-set.png "Click to see the full image.")
+[![Input Set Explanation](images/gdc-input-set_v2.png)](images/gdc-input-set.png "Click to see the full image.")
 
 The filters chosen on the Exploration page are displayed as an `input set` on the Repository page.  Additional filters may be added on top of this `input set`, but the original set cannot be modified and instead must be created from scratch again.  
