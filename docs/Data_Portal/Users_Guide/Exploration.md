@@ -131,6 +131,7 @@ Below these pie charts is a tabular view of cases (which can be exported, sorted
 * __Available Files per Data Category:__ Five columns displaying the number of files available in each of the five data categories.  These link to the files for the specific case.
 * __# Mutations:__ The number of SSMs (simple somatic mutations) detected in that case
 * __# Genes:__ The number of genes affected by mutations in that case
+* __Slides:__ The total number of slides available for that case. 
 
 *Note: By default, the Case UUID is not displayed.  You can display the UUID of the case, but clicking on the icon with 3 parallel lines, and choose to display the Case UUID*
 
