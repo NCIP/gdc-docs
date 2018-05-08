@@ -652,6 +652,15 @@ table.treetable tr.expanded span.indenter a:before {
 .table__cde-values {
   border-bottom: 1px solid #ecf0f1; }
 
+.table__ico3-code {
+  color: #2a72a4; }
+
+.table__row-syn {
+  margin-bottom: 10px; }
+
+.table__row-syn:last-child {
+  margin-bottom: 0; }
+
 .table__ul {
   padding-left: 20px;
   list-style: none; }

@@ -227,8 +227,8 @@ function render(keyword, option, items) {
   }
 
   $('a.redirect').bind('click', function (event) {
-    event.preventDefault();
     if (window.location.href.indexOf('https://docs.gdc.cancer.gov/') < 0) {
+      event.preventDefault();
       var href = $(this).attr('href');
       window.open('https://docs.gdc.cancer.gov' + href, '_blank');
     }
@@ -1072,7 +1072,10 @@ var func = {
         if (source.cde !== undefined && source.cde.dt !== undefined) {
           prop.type = source.cde.dt;
         }
-        prop.type = prop.type.toLowerCase();
+        if (prop.type) {
+          prop.type = prop.type.toLowerCase();
+        }
+
         props.push(prop);
       }
     });
@@ -1115,274 +1118,346 @@ var tmpl = '<div class="container table__container"><div class="table__thead row
 
 
 var func = {
-	render: function render(items) {
-		//data preprocessing
+  render: function render(items) {
+    //data preprocessing
 
-		var values = [];
-		var len = 0;
-		items.forEach(function (item) {
-			var hl = item.highlight;
-			if (hl["enum.n"] == undefined && hl["enum.n.have"] == undefined && hl["enum.s"] == undefined && hl["enum.s.have"] == undefined && hl["cde_pv.n"] == undefined && hl["cde_pv.n.have"] == undefined && hl["cde_pv.ss.s"] == undefined && hl["cde_pv.ss.s.have"] == undefined && hl["enum.i_c.c"] == undefined && hl["enum.i_c.have"] == undefined) {
-				return;
-			}
-			var source = item._source;
-			var dict_enum_n = {};
-			var dict_enum_s = {};
-			var dict_cde_n = {};
-			var dict_cde_s = {};
-			var arr_enum_c = [];
-			var arr_enum_c_have = [];
-			//each row in the values tab will be put into values
-			var row = {};
-			row.category = source.category;
-			row.node = source.node;
-			row.name = source.name;
-			row.local = source.enum == undefined ? false : true;
-			row.syn = false;
-			if (source.enum !== undefined) {
-				//check if synonyms exists
-				source.enum.forEach(function (em) {
-					if (row.syn) return;
+    var values = [];
+    var len = 0;
+    items.forEach(function (item) {
+      var hl = item.highlight;
+      if (hl["enum.n"] == undefined && hl["enum.n.have"] == undefined && hl["enum.s"] == undefined && hl["enum.s.have"] == undefined && hl["cde_pv.n"] == undefined && hl["cde_pv.n.have"] == undefined && hl["cde_pv.ss.s"] == undefined && hl["cde_pv.ss.s.have"] == undefined && hl["enum.i_c.c"] == undefined && hl["enum.i_c.have"] == undefined) {
+        return;
+      }
+      var source = item._source;
+      var dict_enum_n = {};
+      var dict_enum_s = {};
+      var dict_cde_n = {};
+      var dict_cde_s = {};
+      var arr_enum_c = [];
+      var arr_enum_c_have = [];
+      //each row in the values tab will be put into values
+      var row = {};
+      row.category = source.category;
+      row.node = source.node;
+      row.name = source.name;
+      row.local = source.enum == undefined ? false : true;
+      row.syn = false;
+      if (source.enum !== undefined) {
+        //check if synonyms exists
+        source.enum.forEach(function (em) {
+          if (row.syn) return;
 
-					if (em.n_c !== undefined) {
-						row.syn = true;
-					}
-				});
-			}
-			row.ref = source.name + "@" + source.node + "@" + source.category;
-			row.cdeId = source.cde !== undefined ? source.cde.id : "";
-			row.cdeUrl = source.cde !== undefined ? source.cde.url : "";
-			row.cdeLen = source.cde_pv == undefined || source.cde_pv.length == 0 ? false : true;
-			//value informations in the subtable
-			row.vs = [];
-			row.tgts_enum_n = ""; //added
-			row.tgts_cde_n = "";
-			var enum_n = "enum.n" in hl || "enum.n.have" in hl ? hl["enum.n"] || hl["enum.n.have"] : [];
-			var enum_s = "enum.s" in hl || "enum.s.have" in hl ? hl['enum.s'] || hl["enum.s.have"] : [];
-			var cde_n = "cde_pv.n" in hl || "cde_pv.n.have" in hl ? hl["cde_pv.n"] || hl["cde_pv.n.have"] : [];
-			var cde_s = "cde_pv.ss.s" in hl || "cde_pv.ss.s.have" in hl ? hl["cde_pv.ss.s"] || hl["cde_pv.ss.s.have"] : [];
-			var enum_c = "enum.i_c.c" in hl ? hl["enum.i_c.c"] : [];
-			var enum_c_have = "enum.i_c.have" in hl ? hl["enum.i_c.have"] : [];
-			enum_n.forEach(function (n) {
-				var tmp = n.replace(/<b>/g, "").replace(/<\/b>/g, "");
-				dict_enum_n[tmp] = n;
-			});
-			enum_s.forEach(function (s) {
-				var tmp = s.replace(/<b>/g, "").replace(/<\/b>/g, "");
-				dict_enum_s[tmp] = s;
-			});
-			cde_n.forEach(function (pn) {
-				var tmp = pn.replace(/<b>/g, "").replace(/<\/b>/g, "");
-				dict_cde_n[tmp] = pn;
-			});
-			cde_s.forEach(function (ps) {
-				var tmp = ps.replace(/<b>/g, "").replace(/<\/b>/g, "");
-				dict_cde_s[tmp] = ps;
-			});
-			enum_c.forEach(function (c) {
-				var tmp = c.replace(/<b>/g, "").replace(/<\/b>/g, "");
-				if (arr_enum_c.indexOf(tmp) == -1) {
-					arr_enum_c.push(tmp);
-				}
-			});
-			enum_c_have.forEach(function (ch) {
-				var tmp = ch.replace(/<b>/g, "").replace(/<\/b>/g, "");
-				if (arr_enum_c_have.indexOf(tmp) == -1) {
-					arr_enum_c_have.push(tmp);
-				}
-			});
+          if (em.n_c !== undefined) {
+            row.syn = true;
+          }
+        });
+      }
+      row.ref = source.name + "@" + source.node + "@" + source.category;
+      row.cdeId = source.cde !== undefined ? source.cde.id : "";
+      row.cdeUrl = source.cde !== undefined ? source.cde.url : "";
+      row.cdeLen = source.cde_pv == undefined || source.cde_pv.length == 0 ? false : true;
+      //value informations in the subtable
+      row.vs = [];
+      row.tgts_enum_n = ""; //added
+      row.tgts_cde_n = "";
+      var enum_n = "enum.n" in hl || "enum.n.have" in hl ? hl["enum.n"] || hl["enum.n.have"] : [];
+      var enum_s = "enum.s" in hl || "enum.s.have" in hl ? hl['enum.s'] || hl["enum.s.have"] : [];
+      var cde_n = "cde_pv.n" in hl || "cde_pv.n.have" in hl ? hl["cde_pv.n"] || hl["cde_pv.n.have"] : [];
+      var cde_s = "cde_pv.ss.s" in hl || "cde_pv.ss.s.have" in hl ? hl["cde_pv.ss.s"] || hl["cde_pv.ss.s.have"] : [];
+      var enum_c = "enum.i_c.c" in hl ? hl["enum.i_c.c"] : [];
+      var enum_c_have = "enum.i_c.have" in hl ? hl["enum.i_c.have"] : [];
+      enum_n.forEach(function (n) {
+        var tmp = n.replace(/<b>/g, "").replace(/<\/b>/g, "");
+        dict_enum_n[tmp] = n;
+      });
+      enum_s.forEach(function (s) {
+        var tmp = s.replace(/<b>/g, "").replace(/<\/b>/g, "");
+        dict_enum_s[tmp] = s;
+      });
+      cde_n.forEach(function (pn) {
+        var tmp = pn.replace(/<b>/g, "").replace(/<\/b>/g, "");
+        dict_cde_n[tmp] = pn;
+      });
+      cde_s.forEach(function (ps) {
+        var tmp = ps.replace(/<b>/g, "").replace(/<\/b>/g, "");
+        dict_cde_s[tmp] = ps;
+      });
+      enum_c.forEach(function (c) {
+        var tmp = c.replace(/<b>/g, "").replace(/<\/b>/g, "");
+        if (arr_enum_c.indexOf(tmp) == -1) {
+          arr_enum_c.push(tmp);
+        }
+      });
+      enum_c_have.forEach(function (ch) {
+        var tmp = ch.replace(/<b>/g, "").replace(/<\/b>/g, "");
+        if (arr_enum_c_have.indexOf(tmp) == -1) {
+          arr_enum_c_have.push(tmp);
+        }
+      });
 
-			//check if there are any matches in the cde synonyms
-			var matched_pv = {};
-			if (source.cde_pv !== undefined && source.cde_pv.length > 0) {
-				source.cde_pv.forEach(function (pv) {
-					var exist = false;
-					var tmp_ss = [];
-					if (pv.ss !== undefined && pv.ss.length > 0) {
-						pv.ss.forEach(function (ss) {
-							var tmp_s = [];
-							var tmp_s_h = [];
-							//remove duplicate
-							var cache = {};
-							ss.s.forEach(function (s) {
-								var lc = s.trim().toLowerCase();
-								if (!(lc in cache)) {
-									cache[lc] = [];
-								}
-								cache[lc].push(s);
-							});
-							for (var idx in cache) {
-								//find the term with the first character capitalized
-								var word = findWord(cache[idx]);
-								tmp_s.push(word);
-							}
-							tmp_s.forEach(function (s) {
-								if (s in dict_cde_s) {
-									exist = true;
-									tmp_s_h.push(dict_cde_s[s]);
-								} else {
-									tmp_s_h.push(s);
-								}
-							});
-							tmp_ss.push({ c: ss.c, s: tmp_s_h });
-						});
-					}
-					exist = exist || pv.n in dict_cde_n;
-					if (exist) {
-						//matched_pv[pv.n.toLowerCase()] = tmp_ss;
-						matched_pv[pv.n.toLowerCase()] = { "pv": pv.n in dict_cde_n ? dict_cde_n[pv.n] : pv.n, "pvm": pv.m, "ss": tmp_ss };
-						pv.n = pv.n.replace(/\'/g, '^');
-						row.tgts_cde_n += pv.n + "#";
-					}
-				});
-			}
+      //check if there are any matches in the cde synonyms
+      var matched_pv = {};
+      if (source.cde_pv !== undefined && source.cde_pv.length > 0) {
+        source.cde_pv.forEach(function (pv) {
+          var exist = false;
+          var tmp_ss = [];
+          if (pv.ss !== undefined && pv.ss.length > 0) {
+            pv.ss.forEach(function (ss) {
+              var tmp_s = [];
+              var tmp_s_h = [];
+              //remove duplicate
+              var cache = {};
+              ss.s.forEach(function (s) {
+                var lc = s.trim().toLowerCase();
+                if (!(lc in cache)) {
+                  cache[lc] = [];
+                }
+                cache[lc].push(s);
+              });
+              for (var idx in cache) {
+                //find the term with the first character capitalized
+                var word = findWord(cache[idx]);
+                tmp_s.push(word);
+              }
+              tmp_s.forEach(function (s) {
+                if (s in dict_cde_s) {
+                  exist = true;
+                  tmp_s_h.push(dict_cde_s[s]);
+                } else {
+                  tmp_s_h.push(s);
+                }
+              });
+              tmp_ss.push({
+                c: ss.c,
+                s: tmp_s_h
+              });
+            });
+          }
+          exist = exist || pv.n in dict_cde_n;
+          if (exist) {
+            //matched_pv[pv.n.toLowerCase()] = tmp_ss;
+            matched_pv[pv.n.toLowerCase()] = {
+              "pv": pv.n in dict_cde_n ? dict_cde_n[pv.n] : pv.n,
+              "pvm": pv.m,
+              "ss": tmp_ss
+            };
+            pv.n = pv.n.replace(/\'/g, '^');
+            row.tgts_cde_n += pv.n + "#";
+          }
+        });
+      }
 
-			if (source.enum) {
-				source.enum.forEach(function (em) {
-					//check if there are any matches in local synonyms
-					var exist = false;
-					var tmp_s = [];
-					var t_s = [];
-					if (em.s) {
-						//remove depulicates in local synonyms
-						var cache = {};
-						em.s.forEach(function (s) {
-							var lc = s.trim().toLowerCase();
-							if (!(lc in cache)) {
-								cache[lc] = [];
-							}
-							cache[lc].push(s);
-						});
-						for (var idx in cache) {
-							//find the term with the first character capitalized
-							var word = findWord(cache[idx]);
-							t_s.push(word);
-						}
-						t_s.forEach(function (s) {
-							if (s in dict_enum_s) {
-								exist = true;
-								tmp_s.push(dict_enum_s[s]);
-							} else {
-								tmp_s.push(s);
-							}
-						});
-					}
-					//value to be put into the subtable
-					var v = {};
-					if (exist) {
-						//check if there is a match to the value name
-						if (em.n in dict_enum_n) {
-							v.n = dict_enum_n[em.n];
-						} else {
-							v.n = em.n;
-						}
-						v.ref = row.ref;
-						v.n_c = em.n_c;
-						v.s = tmp_s;
-					} else {
-						if (em.n in dict_enum_n) {
-							v.n = dict_enum_n[em.n];
-							v.ref = row.ref;
-							v.n_c = em.n_c;
-							//v.s = em.s;
-							v.s = tmp_s;
-						}
-					}
+      if (source.enum) {
+        source.enum.forEach(function (em) {
+          //check if there are any matches in local synonyms
+          var exist = false;
+          var tmp_s = [];
+          var t_s = [];
+          if (em.s) {
+            //remove depulicates in local synonyms
+            var cache = {};
+            em.s.forEach(function (s) {
+              var lc = s.trim().toLowerCase();
+              if (!(lc in cache)) {
+                cache[lc] = [];
+              }
+              cache[lc].push(s);
+            });
+            for (var idx in cache) {
+              //find the term with the first character capitalized
+              var word = findWord(cache[idx]);
+              t_s.push(word);
+            }
+            t_s.forEach(function (s) {
+              if (s in dict_enum_s) {
+                exist = true;
+                tmp_s.push(dict_enum_s[s]);
+              } else {
+                tmp_s.push(s);
+              }
+            });
+          }
+          //value to be put into the subtable
+          var v = {};
+          if (exist) {
+            //check if there is a match to the value name
+            if (em.n in dict_enum_n) {
+              v.n = dict_enum_n[em.n];
+            } else {
+              v.n = em.n;
+            }
+            v.ref = row.ref;
+            v.n_c = em.n_c;
+            v.s = tmp_s;
+          } else {
+            if (em.n in dict_enum_n) {
+              v.n = dict_enum_n[em.n];
+              v.ref = row.ref;
+              v.n_c = em.n_c;
+              //v.s = em.s;
+              v.s = tmp_s;
+            }
+          }
 
-					//check if it contains icd-0-3 codes.
-					if (em.i_c !== undefined) {
-						if (arr_enum_c.indexOf(em.i_c.c) >= 0) {
-							v.i_c = "<b>" + em.i_c.c + "</b>";
-							if (v.n == undefined) {
-								v.n = em.n;
-								v.ref = row.ref;
-								v.n_c = em.n_c;
-								//v.s = em.s;
-								v.s = tmp_s;
-							}
-						} else {
-							var has = false;
-							em.i_c.have.forEach(function (ch) {
-								if (has) return;
-								if (arr_enum_c_have.indexOf(ch) >= 0) {
-									has = true;
-								}
-							});
-							if (has) {
-								v.i_c = "<b>" + em.i_c.c + "</b>";
-								if (v.n == undefined) {
-									v.n = em.n;
-									v.ref = row.ref;
-									v.n_c = em.n_c;
-									//v.s = em.s;
-									v.s = tmp_s;
-								}
-							} else {
-								v.i_c = em.i_c.c;
-							}
-						}
-					}
+          //check if it contains icd-0-3 codes.
+          if (em.i_c !== undefined) {
+            if (arr_enum_c.indexOf(em.i_c.c) >= 0) {
+              v.i_c = "<b>" + em.i_c.c + "</b>";
+              if (v.n == undefined) {
+                v.n = em.n;
+                v.ref = row.ref;
+                v.n_c = em.n_c;
+                //v.s = em.s;
+                v.s = tmp_s;
+              }
+            } else {
+              var has = false;
+              em.i_c.have.forEach(function (ch) {
+                if (has) return;
+                if (arr_enum_c_have.indexOf(ch) >= 0) {
+                  has = true;
+                }
+              });
+              if (has) {
+                v.i_c = "<b>" + em.i_c.c + "</b>";
+                if (v.n == undefined) {
+                  v.n = em.n;
+                  v.ref = row.ref;
+                  v.n_c = em.n_c;
+                  //v.s = em.s;
+                  v.s = tmp_s;
+                }
+              } else {
+                v.i_c = em.i_c.c;
+              }
+            }
+          }
 
-					var lc = em.n.toLowerCase();
-					if (lc in matched_pv) {
-						if (v.n == undefined) {
-							v.n = em.n;
-							v.ref = row.ref;
-							v.n_c = em.n_c;
-							//v.s = em.s;
-							v.s = tmp_s;
-						}
+          var lc = em.n.toLowerCase();
+          if (lc in matched_pv) {
+            if (v.n == undefined) {
+              v.n = em.n;
+              v.ref = row.ref;
+              v.n_c = em.n_c;
+              //v.s = em.s;
+              v.s = tmp_s;
+            }
 
-						v.cde_s = matched_pv[lc].ss;
-						if (v.cde_s.length) {
-							v.cde_pv = matched_pv[lc].pv;
-							v.cde_pvm = matched_pv[lc].pvm;
-						}
-						delete matched_pv[lc];
-					} else {
-						v.cde_s = [];
-					}
+            v.cde_s = matched_pv[lc].ss;
+            if (v.cde_s.length) {
+              v.cde_pv = matched_pv[lc].pv;
+              v.cde_pvm = matched_pv[lc].pvm;
+            }
+            delete matched_pv[lc];
+          } else {
+            v.cde_s = [];
+          }
 
-					if (v.n !== undefined) {
-						var tmp = v.n.replace(/<b>/g, "").replace(/<\/b>/g, "");
-						row.tgts_enum_n += tmp + "#";
-						row.vs.push(v);
-					}
-				});
-			}
+          if (v.n !== undefined) {
+            var tmp = v.n.replace(/<b>/g, "").replace(/<\/b>/g, "");
+            row.tgts_enum_n += tmp + "#";
+            row.vs.push(v);
+          }
+        });
 
-			//add the rest of the matched cde_pvs to the subtables
-			for (var idx in matched_pv) {
-				var v = {};
-				v.n = "no match";
-				v.ref = row.ref;
-				v.n_c = "";
-				v.s = [];
-				v.cde_s = matched_pv[idx].ss;
-				if (v.cde_s.length) {
-					v.cde_pv = matched_pv[idx].pv;
-					v.cde_pvm = matched_pv[idx].pvm;
-				}
-				row.vs.push(v);
-			}
-			len += row.vs.length;
-			values.push(row);
-		});
-		var html = "";
-		if (values.length == 0) {
-			var keyword = $("#keywords").val();
-			html = '<div class="indicator">Sorry, no results found for kerword: <span class="indicator__term">' + keyword + '</span></div>';
-		} else {
-			var offset = $('#root').offset().top;
-			var h = window.innerHeight - offset - 300;
-			h = h < 430 ? 430 : h;
-			html = $.templates({ markup: __WEBPACK_IMPORTED_MODULE_0__view__["a" /* default */], allowCode: true }).render({ mh: h, values: values });
-		}
-		var result = {};
-		result.len = len;
-		result.html = html;
-		return result;
-	}
+        //add the rest of the matched cde_pvs to the subtables
+        for (var idx in matched_pv) {
+          var v = {};
+          v.n = "no match";
+          v.ref = row.ref;
+          v.n_c = "";
+          v.s = [];
+          v.cde_s = matched_pv[idx].ss;
+          if (v.cde_s.length) {
+            v.cde_pv = matched_pv[idx].pv;
+            v.cde_pvm = matched_pv[idx].pvm;
+          }
+          row.vs.push(v);
+        }
+        len += row.vs.length;
+
+        //reformat the icd-o-3 code data
+        if (row.vs) {
+          var temp_i_c = [];
+          var new_vs = [];
+          row.vs.forEach(function (item) {
+            if (item.i_c === undefined) {
+              return;
+            }
+            temp_i_c.push(item.i_c.replace(/<b>/g, "").replace(/<\/b>/g, ""));
+          });
+          var results = [];
+          temp_i_c.forEach(function (d) {
+            if (results.indexOf(d) == -1) {
+              results.push(d);
+            }
+          });
+
+          if (results) {
+            results.forEach(function (item) {
+
+              var tmp_data = {
+                i_c: {},
+                n: [],
+                ref: {},
+                n_t: [],
+                temp_n_c: []
+              };
+
+              row.vs.forEach(function (value) {
+                if (value.i_c.replace(/<b>/g, "").replace(/<\/b>/g, "") == item) {
+                  var temp_nt = {
+                    n_c: {},
+                    s: []
+                  };
+                  tmp_data.i_c = value.i_c;
+                  tmp_data.cde_s = value.cde_s;
+                  tmp_data.ref = value.ref;
+                  tmp_data.n.push(value.n);
+                  //tmp_data.ref.push(value.ref);
+                  if (value.n_c && tmp_data.temp_n_c.indexOf(value.n_c) == -1) {
+                    tmp_data.temp_n_c.push(value.n_c);
+                    temp_nt.n_c = value.n_c;
+                    value.s.forEach(function (syn) {
+                      temp_nt.s.push(syn);
+                    });
+
+                    tmp_data.n_t.push(temp_nt);
+                  }
+                }
+              });
+              new_vs.push(tmp_data);
+            });
+          }
+          if (new_vs.length !== 0) {
+            row.vs = new_vs;
+          }
+        }
+      }
+
+      values.push(row);
+    });
+    var html = "";
+    if (values.length == 0) {
+      var keyword = $("#keywords").val();
+      html = '<div class="indicator">Sorry, no results found for kerword: <span class="indicator__term">' + keyword + '</span></div>';
+    } else {
+      var offset = $('#root').offset().top;
+      var h = window.innerHeight - offset - 300;
+      h = h < 430 ? 430 : h;
+      html = $.templates({
+        markup: __WEBPACK_IMPORTED_MODULE_0__view__["a" /* default */],
+        allowCode: true
+      }).render({
+        mh: h,
+        values: values
+      });
+    }
+    var result = {};
+    result.len = len;
+    result.html = html;
+    return result;
+  }
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (func);
@@ -1393,7 +1468,7 @@ var func = {
 
 "use strict";
 
-var tmpl = '<div class="container table__container"><div class="table__thead row">' + '<div class="col-xs-3">' + '<div class="table__th">Category / Node / Property</div>' + '</div>' + '<div class="col-xs-9">' + '<div class="table__thead row">' + '<div class="table__th col-xs-6">Matched GDC Values <a class="table__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" title="Values that are found in the GDC dictionary and may be successfully submitted for the corresponding property."><i class="fa fa-info-circle"></i></a></div>' + '<div class="table__th col-xs-6">CDE Permissible Values <a class="table__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" title="For GDC dictionary properties that have a corresponding caDSR clinical data element (CDE), these values are part of that CDE\'s value domain in the caDSR. They may not currently be available in the GDC dictionary."><i class="fa fa-info-circle"></i></a></div>' + '</div>' + '</div>' + '</div>' + '<div id="table-body" class="table__body table__body--overflow row" style="max-height: {{:mh}}px;"><div class="col-xs-12">{{for values}}' + '<div class="table__row row table__row--striped table__row--flex">' + '<div class="table__td col-xs-3">' + '{{:category}}<ul class="table__ul">' + '<li class="table__li table__td--word-break">{{:node}}' + '<ul class="table__ul"><li class="table__li table__td--word-break">{{:name}}</li></ul>' + '</li></ul>' + '<a href="javascript:void(0)" class="gdc-details"><i class="fa fa-angle-down"></i> detail</a>' + '<div id="gdc-links" style="display: none;">' + '{{if local}}' + '<a href="javascript:getGDCData(\'{{:ref}}\',null);">See All Values</a></br>' + '<a href="javascript:toCompare(\'{{:ref}}\');"> Compare with User List</a></br>' + '{{/if}}' + '{{if syn}}' + '<a href="javascript:getGDCTerms(\'{{:ref}}\', \'{{:tgts_enum_n}}\');">See All Terms</a></br>' + '{{/if}}' + '{{if cdeId == ""}}' + '' + '{{else}}' + 'caDSR: <a class="table-td-link" href="{{:cdeUrl}}" target="_blank">CDE</a>' + '{{if local && cdeLen}}' + ' , <a class="table-td-link" href="javascript:getCDEData(\'{{:cdeId}}\', \'{{:tgts_cde_n}}\');">Values</a> , <a class="table-td-link" href="javascript:compareGDC(\'{{:ref}}\',\'{{:cdeId}}\');"> Compare with GDC</a>' + '{{else cdeLen}}' + ' , <a class="table-td-link" href="javascript:getCDEData(\'{{:cdeId}}\', \'{{:tgts_cde_n}}\');">Values</a>' + '{{else}}' + '' + '{{/if}}' + '{{/if}}' + '</div>' + '</div>' + '<div class="table__values col-xs-9"> {{for vs}}' + '<div class="row table__row--flex{{if #getIndex() >= 5}} table__row--toggle{{/if}}">' + '<div class="table__td table__gdc-values col-xs-6">' + '{{if n == "no match"}}' + '<div class="row">' + '<div class="col-xs-9">no match</div>' + '<div class="col-xs-3"><a href="javascript:void(0);" class="cde-suggest" style="float: right;">Suggest Item</a></div>' + '</div>' + '{{else}}' + '<div class="row">' + '<div class="col-xs-10"><a href="javascript:getGDCData(\'{{:ref}}\',\'{{:n}}\');">{{if i_c !== undefined }}{{:i_c}} {{:n}} (ICD-O-3){{else}}{{:n}}{{/if}}</a></div>' + '<div class="col-xs-2 table__collapser">{{if s.length }}<a href="javascript:void(0);" class="collapser" aria-label="collapser"><i class="fa fa-plus"></i></a>{{/if}}</div>' + '</div>' + '<div id="data-content" class="table__td" style="display: none;">' + '<div class="row">' + '<div class="col-xs-4">' + '{{* if((/^C[1-9]/g).test(data.n_c)) { }}<a class="table-td-link" href="javascript:getNCITDetails(\'{{:n_c}}\');">{{:n_c}}</a> (NCIt)' + '{{* } else { }} {{:c}} {{*: (/^[E]/g).test(data.n_c) ? "(CTCAE)" : "(NCIt)" }} {{* } }}' + '</div>' + '<div class="col-xs-8">{{for s}}{{:}}</br>{{/for}}</div>' + '</div>' + '</div>' + '{{/if}}' + '</div>' + '<div class="table__td table__cde-values col-xs-6">' + '{{if cde_s.length }}' + '<div class="row">' + '<div class="col-xs-10">{{:cde_pv}}</div>' + '<div class="col-xs-2 table__collapser">' + '<a href="javascript:void(0);" class="collapser" aria-label="collapser"><i class="fa fa-plus"></i></a>' + '</div>' + '</div>' + '<div id="data-content" class="table__td" style="display: none;">' + '<div class="row">' + '<div class="table__td col-xs-12">PV Meaning (caDSR): {{:cde_pvm}}</div>' + '</div>' + '{{for cde_s}}' + '<div class="row">' + '<div class="col-xs-4">' + '{{* if((/^C[1-9]/g).test(data.c)) { }}<a class="table-td-link" href="javascript:getNCITDetails(\'{{:c}}\');">{{:c}}</a> (NCIt)' + '{{* } else { }} {{:c}} {{*: (/^[E]/g).test(data.c) ? "(CTCAE)" : "(NCIt)" }} {{* } }}' + '</div>' + '<div class="col-xs-8">{{for s}}{{:}}</br>{{/for}}</div>' + '</div>' + '{{/for}}' + '</div>' + '{{/if}}' + '</div>' + '</div> {{/for}}' + '{{if vs.length > 5}}' + '<div class="row"><div class="table__td col-xs-12">' + '<a class="table-td-link show-more-less" href="javascript:void(0);"><i class="fa fa-angle-down"></i> Show More ({{:vs.length - 5}})</a>' + '</div></div>' + '{{/if}}' + '</div>' + '</div> {{/for}} </div></div></div>' + '<div id="alert-suggest" class="alert alert__suggest alert-info alert-dismissible" role="alert" style="display: none;">' + 'An email will be sucessfully sent to <strong>GDC</strong> and <strong>EVS</strong> team.' + '</div>';
+var tmpl = '<div class="container table__container"><div class="table__thead row">' + '<div class="col-xs-3">' + '<div class="table__th">Category / Node / Property</div>' + '</div>' + '<div class="col-xs-9">' + '<div class="table__thead row">' + '<div class="table__th col-xs-6">Matched GDC Values <a class="table__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" title="Values that are found in the GDC dictionary and may be successfully submitted for the corresponding property."><i class="fa fa-info-circle"></i></a></div>' + '<div class="table__th col-xs-6">CDE Permissible Values <a class="table__tooltip tooltip-target" data-toggle="tooltip" data-placement="bottom" title="For GDC dictionary properties that have a corresponding caDSR clinical data element (CDE), these values are part of that CDE\'s value domain in the caDSR. They may not currently be available in the GDC dictionary."><i class="fa fa-info-circle"></i></a></div>' + '</div>' + '</div>' + '</div>' + '<div id="table-body" class="table__body table__body--overflow row" style="max-height: {{:mh}}px;"><div class="col-xs-12">{{for values}}' + '<div class="table__row row table__row--striped table__row--flex">' + '<div class="table__td col-xs-3">' + '{{:category}}<ul class="table__ul">' + '<li class="table__li table__td--word-break">{{:node}}' + '<ul class="table__ul"><li class="table__li table__td--word-break">{{:name}}</li></ul>' + '</li></ul>' + '<a href="javascript:void(0)" class="gdc-details"><i class="fa fa-angle-down"></i> detail</a>' + '<div id="gdc-links" style="display: none;">' + '{{if local}}' + '<a href="javascript:getGDCData(\'{{:ref}}\',null);">See All Values</a></br>' + '<a href="javascript:toCompare(\'{{:ref}}\');"> Compare with User List</a></br>' + '{{/if}}' + '{{if syn}}' + '<a href="javascript:getGDCTerms(\'{{:ref}}\', \'{{:tgts_enum_n}}\');">See All Terms</a></br>' + '{{/if}}' + '{{if cdeId == ""}}' + '' + '{{else}}' + 'caDSR: <a class="table-td-link" href="{{:cdeUrl}}" target="_blank">CDE</a>' + '{{if local && cdeLen}}' + ' , <a class="table-td-link" href="javascript:getCDEData(\'{{:cdeId}}\', \'{{:tgts_cde_n}}\');">Values</a> , <a class="table-td-link" href="javascript:compareGDC(\'{{:ref}}\',\'{{:cdeId}}\');"> Compare with GDC</a>' + '{{else cdeLen}}' + ' , <a class="table-td-link" href="javascript:getCDEData(\'{{:cdeId}}\', \'{{:tgts_cde_n}}\');">Values</a>' + '{{else}}' + '' + '{{/if}}' + '{{/if}}' + '</div>' + '</div>' + '<div class="table__values col-xs-9"> {{for vs}}' + '<div class="row table__row--flex{{if #getIndex() >= 5}} table__row--toggle{{/if}}">' + '<div class="table__td table__gdc-values col-xs-6">' + '{{if n == "no match"}}' + '<div class="row">' + '<div class="col-xs-9">no match</div>' + '<div class="col-xs-3"><a href="javascript:void(0);" class="cde-suggest" style="float: right;">Suggest Item</a></div>' + '</div>' + '{{else}}' + '{{if i_c !== undefined }}' + '<div class="row">' + '<div class="col-xs-10">' + '<div class="row">' + '<div class="col-xs-2 table__ico3-code">' + '{{:i_c}}' + '</div>' + '<div class="col-xs-10">' + '{{for n ~ref=ref}}' + '<a href="javascript:getGDCData(\'{{:~ref}}\',\'{{:}}\');">{{:}} (ICD-O-3)</a><br>' + '{{/for}}' + '</div>' + '</div>' + '</div>' + '<div class="col-xs-2 table__collapser">{{if n_t.length }}<a href="javascript:void(0);" class="collapser" aria-label="collapser"><i class="fa fa-plus"></i></a>{{/if}}</div>' + '</div>' + '<div id="data-content" class="table__td" style="display: none;">' + '{{for n_t}}' + '<div class="row table__row-syn">' + '<div class="col-xs-4">' + '<a class="table-td-link" href="javascript:getNCITDetails(\'{{:n_c}}\');">{{:n_c}}</a> (NCIt)' + '</div>' + '<div class="col-xs-8">{{for s}}{{:}}</br>{{/for}}</div>' + '</div>' + '{{/for}}' + '</div>' + '{{else}}' + '<div class="row">' + '<div class="col-xs-10"><a href="javascript:getGDCData(\'{{:ref}}\',\'{{:n}}\');">' + '{{if i_c !== undefined }}{{:i_c}} {{:n}} (ICD-O-3){{else}}{{:n}}{{/if}}' + '</a></div>' + '<div class="col-xs-2 table__collapser">{{if s.length }}<a href="javascript:void(0);" class="collapser" aria-label="collapser"><i class="fa fa-plus"></i></a>{{/if}}</div>' + '</div>' + '<div id="data-content" class="table__td" style="display: none;">' + '<div class="row">' + '<div class="col-xs-4">' + '{{* if((/^C[1-9]/g).test(data.n_c)) { }}<a class="table-td-link" href="javascript:getNCITDetails(\'{{:n_c}}\');">{{:n_c}}</a> (NCIt)' + '{{* } else { }} {{:c}} {{*: (/^[E]/g).test(data.n_c) ? "(CTCAE)" : "(NCIt)" }} {{* } }}' + '</div>' + '<div class="col-xs-8">{{for s}}{{:}}</br>{{/for}}</div>' + '</div>' + '</div>' + '{{/if}}' + '{{/if}}' + '</div>' + '<div class="table__td table__cde-values col-xs-6">' + '{{if cde_s.length }}' + '<div class="row">' + '<div class="col-xs-10">{{:cde_pv}}</div>' + '<div class="col-xs-2 table__collapser">' + '<a href="javascript:void(0);" class="collapser" aria-label="collapser"><i class="fa fa-plus"></i></a>' + '</div>' + '</div>' + '<div id="data-content" class="table__td" style="display: none;">' + '<div class="row">' + '<div class="table__td col-xs-12">PV Meaning (caDSR): {{:cde_pvm}}</div>' + '</div>' + '{{for cde_s}}' + '<div class="row">' + '<div class="col-xs-4">' + '{{* if((/^C[1-9]/g).test(data.c)) { }}<a class="table-td-link" href="javascript:getNCITDetails(\'{{:c}}\');">{{:c}}</a> (NCIt)' + '{{* } else { }} {{:c}} {{*: (/^[E]/g).test(data.c) ? "(CTCAE)" : "(NCIt)" }} {{* } }}' + '</div>' + '<div class="col-xs-8">{{for s}}{{:}}</br>{{/for}}</div>' + '</div>' + '{{/for}}' + '</div>' + '{{/if}}' + '</div>' + '</div> {{/for}}' + '{{if vs.length > 5}}' + '<div class="row"><div class="table__td col-xs-12">' + '<a class="table-td-link show-more-less" href="javascript:void(0);"><i class="fa fa-angle-down"></i> Show More ({{:vs.length - 5}})</a>' + '</div></div>' + '{{/if}}' + '</div>' + '</div> {{/for}} </div></div></div>' + '<div id="alert-suggest" class="alert alert__suggest alert-info alert-dismissible" role="alert" style="display: none;">' + 'An email will be sucessfully sent to <strong>GDC</strong> and <strong>EVS</strong> team.' + '</div>';
 
 /* harmony default export */ __webpack_exports__["a"] = (tmpl);
 
