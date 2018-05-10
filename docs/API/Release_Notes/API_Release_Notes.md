@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v1.14.1](API_Release_Notes.md#v1140) | May X, 2018 |
 | [v1.14.0](API_Release_Notes.md#v1140) | April 23, 2018 |
 | [v1.13.0](API_Release_Notes.md#v1130) | February 15, 2018 |
 | [v1.12.0](API_Release_Notes.md#v1120) | December 21, 2017 |
@@ -18,14 +19,19 @@
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
 
-## v1.15.0
+## v1.14.1
 
 * __GDC Product__: Application Programming Interface (API)
 * __Release Date__: May X, 2018
 
 ### New Features and Changes
 
-* TBD
+* None
+
+### Bugs Fixed Since Last Release
+
+* Update to XML submission to correctly import biospecimen relationnships <!--TT-578-->
+* GraphQL submission queries return incorrect information <!--SV-1086-->
 
 ### Known Issues and Workarounds
 

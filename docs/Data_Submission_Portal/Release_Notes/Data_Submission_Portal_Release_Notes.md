@@ -2,8 +2,8 @@
 
 | Version | Date |
 |---|---|
-| [v1.9.0](Data_Submission_Portal_Release_Notes.md#release-170) | March 29, 2017 |
-| [v1.8.0](Data_Submission_Portal_Release_Notes.md#release-170) | February 15, 2017 |
+| [v1.9.0](Data_Submission_Portal_Release_Notes.md#release-170) | May X, 2018 |
+| [v1.8.0](Data_Submission_Portal_Release_Notes.md#release-170) | February 15, 2018 |
 | [v1.7.0](Data_Submission_Portal_Release_Notes.md#release-170) | November 16, 2017 |
 | [v1.6.0](Data_Submission_Portal_Release_Notes.md#release-160) | August 22, 2017 |
 | [v1.5.1](Data_Submission_Portal_Release_Notes.md#release-151) | March 16, 2017 |
@@ -14,10 +14,10 @@
 | [v0.3.21](Data_Submission_Portal_Release_Notes.md#release-0321) | January 27, 2016 |
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
 
-## Release 1.9.0
+## Release 1.8.1
 
 * __GDC Product__: GDC Data Submission Portal
-* __Release Date__: March 29, 2018
+* __Release Date__: May X, 2018
 
 ### New Features and Changes
 

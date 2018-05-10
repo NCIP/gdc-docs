@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v11.0](Data_Release_Notes.md#data-release-110) | March 29, 2018 |
+| [v11.0](Data_Release_Notes.md#data-release-110) | May X, 2018 |
 | [v10.1](Data_Release_Notes.md#data-release-101) | February 15, 2018 |
 | [v10.0](Data_Release_Notes.md#data-release-100) | December 21, 2017 |
 | [v9.0](Data_Release_Notes.md#data-release-90) | October 24, 2017 |
@@ -18,11 +18,11 @@
 ## Data Release 11.0
 
 * __GDC Product__: Data
-* __Release Date__: March 29, 2018
+* __Release Date__: May X, 2018
 
 ### New updates
 
-1. Updated miRNA files to remove QCFail reads <!--DAT-1246-->
+1. Updated miRNA files to remove QCFail reads.  This impacts BAM files and downstream count files <!--DAT-1246-->
 2. TCGA Tissue slide images now available in GDC Data Portal.  Previously these were found only in the Legacy Archive <!--DAT-1251-->
 
 ### Bugs Fixed Since Last Release
