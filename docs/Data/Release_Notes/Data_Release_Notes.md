@@ -22,7 +22,7 @@
 
 ### New updates
 
-1. Updated miRNA files to remove QCFail reads.  This impacts BAM files and downstream count files <!--DAT-1246-->
+1. Updated miRNA files to remove QCFail reads.  This included all BAM and downstream count files. <!--DAT-1246-->
 2. TCGA Tissue slide images now available in GDC Data Portal.  Previously these were found only in the Legacy Archive <!--DAT-1251-->
 
 ### Bugs Fixed Since Last Release
