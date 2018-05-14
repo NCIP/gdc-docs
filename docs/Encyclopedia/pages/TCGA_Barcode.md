@@ -17,11 +17,11 @@ FIX this below
 
 A TCGA barcode is composed of a collection of identifiers. Each specifically identifies a TCGA data element. Refer to the following figure for an illustration of how metadata identifiers comprise a barcode. An aliquot barcode, an example of which shows in the illustration, contains the highest number of identifiers.
 
-[![Reading Barcodes](images/barcode.png)](images/barcode.png "Click to see the full image.")
+[![Reading Barcodes](images/barcode.png)](images/barcode.png "Click to see the full image."")
 
 | Label | Identifier for | Value | Value Description | Possible Values |
 |---|---|---|---|---|
-| Analyte | Molecular type of analyte for analysis | D | The analyte is a DNA sample | See Code Tables Report |
+| Analyte | Molecular type of analyte for analysis | D | The analyte is a DNA sample | See Code Tables Report|
 | Plate | Order of plate in a sequence of 96-well plates | 182 | The 182nd plate | 4-digit alphanumeric value |
 | Portion | Order of portion in a sequence of 100 - 120 mg sample portions | 1 | The first portion of the sample | 01-99 |
 | Vial | Order of sample in a sequence of samples | C | The third vial | A to Z |
