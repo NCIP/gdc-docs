@@ -21,7 +21,7 @@ A TCGA barcode is composed of a collection of identifiers. Each specifically ide
 
 | Label | Identifier for | Value | Value Description | Possible Values |
 |---|---|---|---|---|
-| Analyte | Molecular type of analyte for analysis | D | The analyte is a DNA sample | See Code Tables Report|
+| Analyte | Molecular type of analyte for analysis | D | The analyte is a DNA sample | See Code Tables Report|
 | Plate | Order of plate in a sequence of 96-well plates | 182 | The 182nd plate | 4-digit alphanumeric value |
 | Portion | Order of portion in a sequence of 100 - 120 mg sample portions | 1 | The first portion of the sample | 01-99 |
 | Vial | Order of sample in a sequence of samples | C | The third vial | A to Z |
