@@ -1,5 +1,63 @@
 # Data Submission Portal Release Notes
 
+| Version | Date |
+|---|---|
+| [v1.9.0](Data_Submission_Portal_Release_Notes.md#release-170) | May X, 2018 |
+| [v1.8.0](Data_Submission_Portal_Release_Notes.md#release-170) | February 15, 2018 |
+| [v1.7.0](Data_Submission_Portal_Release_Notes.md#release-170) | November 16, 2017 |
+| [v1.6.0](Data_Submission_Portal_Release_Notes.md#release-160) | August 22, 2017 |
+| [v1.5.1](Data_Submission_Portal_Release_Notes.md#release-151) | March 16, 2017 |
+| [v1.3.0](Data_Submission_Portal_Release_Notes.md#release-130) | October 31, 2016 |
+| [v1.2.2](Data_Submission_Portal_Release_Notes.md#release-122) | September 23, 2016 |
+| [v1.1.0](Data_Submission_Portal_Release_Notes.md#release-110) | May 20th, 2016 |
+| [v0.3.24.1](Data_Submission_Portal_Release_Notes.md#release-03241) | February 26, 2016 |
+| [v0.3.21](Data_Submission_Portal_Release_Notes.md#release-0321) | January 27, 2016 |
+| [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
+
+## Release 1.8.1
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: May X, 2018
+
+### New Features and Changes
+
+*  Added the ability to download all case metadata in the Browse Cases view <!--SUBP-443-->
+
+### Bugs Fixed Since Last Release
+
+*  Time outs when loading submission portal project list <!--SUBP-407-->
+*  Missing PO reports for CPTAC-3 project <!--SUBP-407-->
+*  Windows - Scroll bar interfering with browser scroll bar <!--SUBP-424-->
+*  Donut "Cases with submittable data files" always shows 0 <!--SUBP-425-->
+*  For Biospecimen entities, the "Download all" button does not take filtering into account <!--SUBP-423-->
+*  For Clinical entities, the "Download all" button was downloading all clinical entities instead of selected clinical type <!--SUBP-442-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
+## Release 1.8.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: February 15, 2018
+
+### New Features and Changes
+
+*  Added the ability to support banners with hyperlinks <!--SUBP-411-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed 508 compliance issues <!--SUBP-408-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
+
+
 ## Release 1.7.0
 
 * __GDC Product__: GDC Data Submission Portal

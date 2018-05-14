@@ -124,3 +124,25 @@ Additional read group information will benefit data users.  Such information can
 ## Submission File Quality Control
 
 The GDC harmonization pipelines include multiple quality control steps to ensure the integrity of harmonized files and the efficient use of computational resources. For fastest turnaround of data processing we recommend that submitters perform basic QC of their data files prior to upload to identify any underlying data quality issues. This may include such tests as verifying expected genome coverage levels and sequencing quality.
+
+## Target Capture Kit Q and A
+
+1. What is a Target Capture Kit?  
+Target capture kits contain reagents designed to enrich for and thus increase sequencing depth in certain genomic regions before library preparation. Two of the major methods to enrich genomic regions are by Hybridization and by PCR (Amplicon).
+
+2. Why do we need Target Capture Kit information?  
+Target region information is important for DNA-Seq variant calling and filtering, and essential for Copy Number Alternation and other analyses. This information is only needed for the Experimental Strategies of WXS or Targeted Sequencing.
+
+3. How do submitters provide this information?  
+There are 3 steps  
+    * Step 1. The submitter should contact GDC User Service about any new Target Capture Kits that do not already exist in the GDC Dictionary. The GDC Bioinformatics and User Services teams will work together with the submitter to create a meaningful name for the kit, and import this name and Target Region Bed File into the GDC.
+    * Step 2. The submitter can then select one and only one GDC Target Capture Kit for each read group during molecular data submission.
+    * Step 3. The submitter should also selection the appropriate `library_strategy` and `library_selection` on the read_group entity.
+
+4. What is a Target Region Bed File?  
+A Target Region Bed File is tab-delimited file describing the kit target region in bed format (https://genome.ucsc.edu/FAQ/FAQformat.html#format1). The first 3 columns of such files are chrom, chromStart, and chromEnd.
+Note that by definition, bed files are 0-based or "left-open, right-closed", which means bed interval "chr1    10    20" only contains 10 bases on chr1, from the 11th to the 20th.
+In addition, submitters should also let GDC know the genome build (hg18, hg19 or GRCh38) of their bed files.
+
+5. Is a Target Capture Kit uniquely defined by its Target Region Bed File?  
+Not necessary. Sometimes, users or manufactures may want to augment an existing kit with additional probes, in order to capture more regions or simply improve the quality of existing regions. In the later case, the bed file stays the same, but it is now a different Target Capture Kit and should be registered separately as described in Step 3 above.

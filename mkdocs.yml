@@ -46,6 +46,8 @@ pages:
   - Advanced Search: Data_Portal/Users_Guide/Advanced_Search.md
   - Authentication: Data_Portal/Users_Guide/Authentication.md
   - Downloading Files: Data_Portal/Users_Guide/Cart.md
+  - File Cart: Data_Portal/Users_Guide/Cart.md
+  - Image Viewer: Data_Portal/Users_Guide/Image_viewer.md
   - Legacy Archive: Data_Portal/Users_Guide/Legacy_Archive.md
   - Release Notes: Data_Portal/Release_Notes/Data_Portal_Release_Notes.md
   - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
@@ -92,22 +94,27 @@ pages:
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: Data/PDF/index.md
 - Encyclopedia: Encyclopedia/index.md
 - EncyclopediaEntries:
+  - Affymetrix SNP 6.0: Encyclopedia/pages/Affymetrix_SNP_6.0.md
+  - Aggregated Somatic Mutation: Encyclopedia/pages/Aggregated_Somatic_Mutation.md
+  - Aliquot: Encyclopedia/pages/Aliquot.md
   - Biospecimen Data: Encyclopedia/pages/Biospecimen_Data.md
   - Case: Encyclopedia/pages/Case.md
+  - Cancer Genomics Hub: Encyclopedia/pages/Cancer_Genomics_Hub.md
   - Center for Cancer Genomics: Encyclopedia/pages/Center_for_Cancer_Genomics.md
   - Clinical Data: Encyclopedia/pages/Clinical_Data.md
   - Clinical Supplement: Encyclopedia/pages/Clinical_Supplement.md
   - Controlled Access: Encyclopedia/pages/Controlled_Access.md
+  - Data Access Policy: Encyclopedia/pages/Data_Access_Policy.md
   - Data Submitter: Encyclopedia/pages/Data_Submitter.md
   - dbGaP: Encyclopedia/pages/dbGaP.md
   - Entity: Encyclopedia/pages/Entity.md
   - GDC API: Encyclopedia/pages/GDC_API.md
-  - GDC cBioPortal: Encyclopedia/pages/GDC_cBioPortal.md
   - GDC Data Portal: Encyclopedia/pages/GDC_Data_Portal.md
   - GDC Data Submission Portal: Encyclopedia/pages/GDC_Data_Submission_Portal.md
   - GDC Data Transfer Tool: Encyclopedia/pages/GDC_Data_Transfer_Tool.md
   - GDC Documentation Site: Encyclopedia/pages/GDC_Documentation_Site.md
   - GDC Web Site: Encyclopedia/pages/GDC_Web_Site.md
+  - Genomic Data Analysis Network (GDAN): Encyclopedia/pages/Genomic_Data_Analysis_Network.md
   - Genomic Data Commons: Encyclopedia/pages/Genomic_Data_Commons.md
   - Harmonized Data: Encyclopedia/pages/Harmonized_Data.md
   - HTSeq-Counts: Encyclopedia/pages/HTSeq-Counts.md
@@ -115,12 +122,16 @@ pages:
   - HTSeq-FPKM: Encyclopedia/pages/HTSeq-FPKM.md
   - Latest Data: Encyclopedia/pages/Latest_Data.md
   - Manifest File: Encyclopedia/pages/Manifest_File.md
+  - MD5 Checksum: Encyclopedia/pages/MD5_Checksum.md
   - Mutation Annotation Format: Encyclopedia/pages/Mutation_Annotation_Format.md
   - Redaction: Encyclopedia/pages/Redaction.md
   - Release Number: Encyclopedia/pages/Release_Number.md
   - REST API: Encyclopedia/pages/REST_API.md
   - RNA-Seq: Encyclopedia/pages/RNA-Seq.md
+  - Sequence Trace File: Encyclopedia/pages/Sequence_Trace_File.md
   - SNP Array-Based Data: Encyclopedia/pages/SNP_Array-Based_Data.md
+  - TCGA Barcode: Encyclopedia/pages/TCGA_Barcode.md
+  - TCIA: Encyclopedia/pages/TCIA.md
   - UUID: Encyclopedia/pages/UUID.md
   - Variant Call Format: Encyclopedia/pages/Variant_Call_Format.md
   - Variant Type: Encyclopedia/pages/Variant_Type.md
