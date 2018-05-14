@@ -31,10 +31,10 @@ The list view is a paginated list of all entities corresponding to the selected 
 
 On the top-right section of the screen, the user can download data about all entities associated with the selected filter.
 
-* For the case filter, it will download all Clinical data.
+* For the case filter, it will download all Clinical data or all Metadata 
 * For all other filters, it will download the corresponding metadata (e.g., for the `demographic` filter, it will download all `demographic` data).
 
-[![GDC Submission Case Summary Download](images/GDC_Submission_Cases_Summary_Download_2.png)](images/GDC_Submission_Cases_Summary_Download_2.png "Click to see the full image.")
+[![GDC Submission Case Summary Download](images/GDC_Submission_Cases_Summary_Download_4.png)](images/GDC_Submission_Cases_Summary_Download_2.png "Click to see the full image.")
 
 ### Details Panel
 
