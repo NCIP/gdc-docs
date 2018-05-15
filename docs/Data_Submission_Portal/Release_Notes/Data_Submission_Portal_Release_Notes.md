@@ -2,8 +2,8 @@
 
 | Version | Date |
 |---|---|
-| [v1.9.0](Data_Submission_Portal_Release_Notes.md#release-170) | May X, 2018 |
-| [v1.8.0](Data_Submission_Portal_Release_Notes.md#release-170) | February 15, 2018 |
+| [v1.8.1](Data_Submission_Portal_Release_Notes.md#release-181) | May X, 2018 |
+| [v1.8.0](Data_Submission_Portal_Release_Notes.md#release-180) | February 15, 2018 |
 | [v1.7.0](Data_Submission_Portal_Release_Notes.md#release-170) | November 16, 2017 |
 | [v1.6.0](Data_Submission_Portal_Release_Notes.md#release-160) | August 22, 2017 |
 | [v1.5.1](Data_Submission_Portal_Release_Notes.md#release-151) | March 16, 2017 |

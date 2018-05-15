@@ -3,7 +3,8 @@
 
 | Version | Date |
 |---|---|
-| [v1.12.1](Data_Dictionary_Release_Notes.md#v112) | April 23, 2018 |
+| [v1.13](Data_Dictionary_Release_Notes.md#v113) | May X, 2018 |
+| [v1.12.1](Data_Dictionary_Release_Notes.md#v1121) | May X, 2018 |
 | [v1.12](Data_Dictionary_Release_Notes.md#v112) | April 23, 2018 |
 | [v1.11](Data_Dictionary_Release_Notes.md#v111) | January 20, 2018 |
 | [v10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
@@ -11,7 +12,7 @@
 | [v3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
 
-## v.1.12
+## v.1.13
 
 * __GDC Product__: GDC Data Dictionary
 * __Release Date__: May X, 2018
@@ -19,10 +20,24 @@
 ### New Features and Changes
 
 * Submitted Genomic Profile to Read Group relationship is updated to be many-to-many <!--DAT-1425-->
+* Added requirement for submitter_id on additional nodes <!--TT-609-->
 
 ### Bugs Fixed Since Last Release
 
 * None
+
+## v.1.12.1
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: April 26, 2018
+
+### New Features and Changes
+
+* None
+
+### Bugs Fixed Since Last Release
+
+* Moved read_pair_number from Read Group to Submitted Unaligned Reads node <!--SV-1089-->
 
 ## v.1.12
 
