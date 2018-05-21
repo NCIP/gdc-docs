@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v11.0](Data_Release_Notes.md#data-release-110) | May X, 2018 |
+| [v11.0](Data_Release_Notes.md#data-release-110) | May 21, 2018 |
 | [v10.1](Data_Release_Notes.md#data-release-101) | February 15, 2018 |
 | [v10.0](Data_Release_Notes.md#data-release-100) | December 21, 2017 |
 | [v9.0](Data_Release_Notes.md#data-release-90) | October 24, 2017 |
@@ -18,12 +18,16 @@
 ## Data Release 11.0
 
 * __GDC Product__: Data
-* __Release Date__: May X, 2018
+* __Release Date__: May 21, 2018
 
 ### New updates
 
 1. Updated miRNA files to remove QCFail reads.  This included all BAM and downstream count files. <!--DAT-1246-->
 2. TCGA Tissue slide images now available in GDC Data Portal.  Previously these were found only in the Legacy Archive <!--DAT-1251-->
+
+Updated files for this release are listed [here](DR11.0_files_swap.txt.gz).
+A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180521_data_release_11.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180521_data_release_11.0_legacy.txt.gz).
+
 
 ### Bugs Fixed Since Last Release
 
@@ -31,6 +35,7 @@
 
 ### Known Issues and Workarounds
 
+* Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * RNA-Seq files for TARGET-NBL are attached to the incorrect aliquot.  The BAM files contain the correct information in their header but the connection in the GDC to read groups and aliquots is incorrect.  The linked file below contains a mapping between aliquots where file are currently associated and the aliquot where they should instead be associated [(mapping file)](correct_aliquot_mappings.tsv). <!--SV-1097-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` were not replaced in DR10.0 and thus do not contain indels.  However, the indels from this aliquot can be found in the MAF files and are displayed in the Exploration section in the Data Portal.  These VCFs files will be replaced in a later release.
 <!--SV-950-->
