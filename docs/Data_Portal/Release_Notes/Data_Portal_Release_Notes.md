@@ -1,5 +1,47 @@
 # Data Portal Release Notes
 
+| Version | Date |
+|---|---|
+| [v1.13.0](Data_Portal_Release_Notes.md#release-1130) | March 29, 2018 |
+| [v1.12.0](Data_Portal_Release_Notes.md#release-1120) | February 15, 2018 |
+| [v1.11.0](Data_Portal_Release_Notes.md#release-1110) | December 21, 2017 |
+| [v1.10.0](Data_Portal_Release_Notes.md#release-1100) | November 16, 2017 |
+| [v1.9.0](Data_Portal_Release_Notes.md#release-190) | October 24, 2017 |
+| [v1.8.0](Data_Portal_Release_Notes.md#release-180)| August 22, 2017 |
+| [v1.6.0](Data_Portal_Release_Notes.md#release-160) | June 29, 2017 |
+| [v1.5.2](Data_Portal_Release_Notes.md#release-152) | May 9, 2017 |
+| [v1.4.1](Data_Portal_Release_Notes.md#release-141) | October 31, 2016 |
+| [v1.3.0](Data_Portal_Release_Notes.md#release-130) | September 7, 2016 |
+| [v1.2.0](Data_Portal_Release_Notes.md#release-120) | August 9th, 2016 |
+| [v1.1.0](Data_Portal_Release_Notes.md#release-110) | June 1st, 2016 |
+| [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
+
+---
+
+## Release 1.13.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: March 29, 2018
+
+### New Features and Changes <!--REQ-322-->
+
+*  Added new image viewer functionality for viewing tissue slide images <!--PRTL-2016-->
+
+
+### Bugs Fixed Since Last Release
+
+* Updated gene reference labels on gene entity page to adhere to preferred usage <!--PRTL-1911-->
+* Fixed issue with user profile displaying all projects twice <!--PRTL-2035-->
+
+
+### Known Issues and Workarounds
+
+* N/A
+
+
+
+Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
+
 ## Release 1.12.0
 
 * __GDC Product__: GDC Data Portal

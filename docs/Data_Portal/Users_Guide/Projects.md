@@ -73,7 +73,7 @@ For information on how to use facet filters, see [Getting Started](Getting_Start
 
 Each project has a summary page that provides an overview of all available cases, files, and annotations available. Clicking on the numbers in the summary table will display the corresponding data.
 
-[![Project Summary Page](images/gdc-project-entity-page_v2.png)](images/gdc-project-entity-page_v2.png "Click to see the full image.")
+[![Project Summary Page](images/gdc-project-entity-page_v3.png)](images/gdc-project-entity-page_v2.png "Click to see the full image.")
 
 Three download buttons in the top right corner of the screen allow the user to download the entire project dataset, along with the associated project metadata:
 
