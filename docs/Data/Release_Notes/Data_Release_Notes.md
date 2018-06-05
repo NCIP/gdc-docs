@@ -28,7 +28,7 @@
 2. All biospecimen and clinical supplement files for TCGA projects formerly only found in the Legacy Archive have been updated and transferred to the GDC Data Portal. Equivalent Legacy Archive files may no longer be up to date. <!--TT-327-->
 3. Diagnostic slides from TCGA are now available in the GDC Data Portal and Slide Image Viewer.  They were formerly only available in the Legacy Archive. <!--DAT-1316-->
 4. Updated Copy Number Segment and Masked Copy Number Segment files are now available.  These were generated using an improved mapping of hg38 coordinates for the Affymetrix SNP6.0 probe set. <!--DAT-1303-->
-5.  VCF files produced from WGS CGI data are available.  The variant calls in these files were produced by CGI and lifted over to hg38. <!--DAT-1281-->
+5.  VCF files containing SNVs produced from WGS CGI data are available.  The variant calls were initially produced by CGI and lifted over to hg38. <!--DAT-1281-->
 
 Updated files for this release are listed [here](DR11.0_files_swap.txt.gz).
 A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180521_data_release_11.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180521_data_release_11.0_legacy.txt.gz).
@@ -43,8 +43,8 @@ A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gd
 * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides.  The reflects how these original samples were handled. <!--SV-1111-->
 * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
-* The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` were not replaced in DR10.0 and thus do not contain indels.  However, the indels from this aliquot can be found in the MAF files and are displayed in the Exploration section in the Data Portal.  These VCFs files will be replaced in a later release.
-<!--SV-950-->
+* The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
+<!--TT-602, DAT-1489-->
 * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
 * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
 * TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
