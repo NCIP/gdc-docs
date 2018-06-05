@@ -40,6 +40,8 @@ A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gd
 
 ### Known Issues and Workarounds
 
+* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides.  The reflects how these original samples were handled. <!--SV-1111-->
+* 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` were not replaced in DR10.0 and thus do not contain indels.  However, the indels from this aliquot can be found in the MAF files and are displayed in the Exploration section in the Data Portal.  These VCFs files will be replaced in a later release.
 <!--SV-950-->
@@ -49,7 +51,6 @@ A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gd
 * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
 * Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
 * Some TARGET files are not connected to all related aliquots <!--SV-929-->
-* miRNA alignments include QC failed reads.  
 * Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
 * FM-AD clinical and biospecimen supplement files have incorrect data format.  They are listed as XLSX, but are in fact TSV files. <!--DAT-1123-->
 * Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
