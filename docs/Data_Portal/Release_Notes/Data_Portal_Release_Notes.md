@@ -26,12 +26,11 @@
 
 ### New Features and Changes <!--REQ-322-->
 
-TBD
-
+* Added new Experimental Strategies Diagnositic Slide Image, Bisulfite-Seq, ChIP-Seq, and ATAC-Seq to Case and Project entity pages.
 
 ### Bugs Fixed Since Last Release
 
-TBD
+* Fixed download of clinical and biospecimen data from the Repository when Case table rows are selected.
 
 
 ### Known Issues and Workarounds
