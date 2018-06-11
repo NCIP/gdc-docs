@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.14.0](Data_Portal_Release_Notes.md#release-1130) | June X, 2018 |
+| [v1.14.0](Data_Portal_Release_Notes.md#release-1130) | June 12, 2018 |
 | [v1.13.0](Data_Portal_Release_Notes.md#release-1130) | May 21, 2018 |
 | [v1.12.0](Data_Portal_Release_Notes.md#release-1120) | February 15, 2018 |
 | [v1.11.0](Data_Portal_Release_Notes.md#release-1110) | December 21, 2017 |
@@ -22,11 +22,11 @@
 ## Release 1.14.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: June X, 2018
+* __Release Date__: June 12, 2018
 
 ### New Features and Changes <!--REQ-322-->
 
-* Added new Experimental Strategies Diagnositic Slide Image, Bisulfite-Seq, ChIP-Seq, and ATAC-Seq to Case and Project entity pages.
+* Added new Experimental Strategies Diagnostic Slide Image, Bisulfite-Seq, ChIP-Seq, and ATAC-Seq to Case and Project entity pages.
 
 ### Bugs Fixed Since Last Release
 
