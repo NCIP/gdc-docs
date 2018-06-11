@@ -25,7 +25,7 @@
 ### New updates
 
 1. Updated clinical and biospecimen XML files for TCGA cases are available in the GDC Data Portal. Equivalent Legacy Archive files may no longer be up to date. <!--TT-328-->
-2. All biospecimen and clinical supplement files for TCGA projects formerly only found in the Legacy Archive have been updated and transferred to the GDC Data Portal. Equivalent Legacy Archive files may no longer be up to date. <!--TT-327-->
+2. All biospecimen and clinical supplement files for TCGA projects formerly only found in the Legacy Archive have been updated and transferred to the GDC Data Portal. Equivalent Legacy Archive files and metadata retrieved from the API may no longer be up to date. <!--TT-327-->
 3. Diagnostic slides from TCGA are now available in the GDC Data Portal and Slide Image Viewer.  They were formerly only available in the Legacy Archive. <!--DAT-1316-->
 4. Updated Copy Number Segment and Masked Copy Number Segment files are now available.  These were generated using an improved mapping of hg38 coordinates for the Affymetrix SNP6.0 probe set. <!--DAT-1303-->
 5.  VCF files containing SNVs produced from WGS CGI data are available.  The variant calls were initially produced by CGI and lifted over to hg38. <!--DAT-1281-->
@@ -40,7 +40,8 @@ A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gd
 
 ### Known Issues and Workarounds
 
-* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides.  The reflects how these original samples were handled. <!--SV-1111-->
+* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+* 36 Diagnostic TCGA slides are not yet available in the active GDC Portal. They are still available in the GDC Legacy Archive.  <!--SV-1109--> 
 * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
