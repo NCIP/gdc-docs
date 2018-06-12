@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v12.0](Data_Release_Notes.md#data-release-120) | June X, 2018 |
+| [v12.0](Data_Release_Notes.md#data-release-120) | June 13, 2018 |
 | [v11.0](Data_Release_Notes.md#data-release-110) | May 21, 2018 |
 | [v10.1](Data_Release_Notes.md#data-release-101) | February 15, 2018 |
 | [v10.0](Data_Release_Notes.md#data-release-100) | December 21, 2017 |
@@ -20,7 +20,7 @@
 ## Data Release 12.0
 
 * __GDC Product__: Data
-* __Release Date__: June X, 2018
+* __Release Date__: June 13, 2018
 
 ### New updates
 
@@ -30,8 +30,8 @@
 4. Updated Copy Number Segment and Masked Copy Number Segment files are now available.  These were generated using an improved mapping of hg38 coordinates for the Affymetrix SNP6.0 probe set. <!--DAT-1303-->
 5.  VCF files containing SNVs produced from WGS CGI data are available.  The variant calls were initially produced by CGI and lifted over to hg38. <!--DAT-1281-->
 
-Updated files for this release are listed [here](DR11.0_files_swap.txt.gz).
-A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180521_data_release_11.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180521_data_release_11.0_legacy.txt.gz).
+Updated files for this release are listed [here](DR12.0_files_swap.txt.gz).
+A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180612_data_release_12.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180612_data_release_12.0_legacy.txt.gz).
 
 
 ### Bugs Fixed Since Last Release
@@ -41,7 +41,7 @@ A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gd
 ### Known Issues and Workarounds
 
 * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
-* 36 Diagnostic TCGA slides are not yet available in the active GDC Portal. They are still available in the GDC Legacy Archive.  <!--SV-1109--> 
+* 36 Diagnostic TCGA slides are not yet available in the active GDC Portal. They are still available in the GDC Legacy Archive.  <!--SV-1109-->
 * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
