@@ -168,7 +168,7 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
     "ethnicity": "not hispanic or latino",
     "gender": "male",
     "race": "asian",
-    "year_of_birth": "1946"
+    "year_of_birth": 1946
 }
 ```
 ```TSV
@@ -202,27 +202,27 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
     "type": "diagnosis",
     "submitter_id": "PROJECT-INTERNAL-000055-DIAGNOSIS-1",
     "cases": {
-        "submitter_id": "PROJECT-INTERNAL-000055"
+        "submitter_id": "GDC-INTERNAL-000099"
     },
     "age_at_diagnosis": 10256,
     "classification_of_tumor": "not reported",
     "days_to_last_follow_up": 34,
     "days_to_last_known_disease_status": 34,
-    "days_to_recurrence": "45",
+    "days_to_recurrence": 45,
     "last_known_disease_status": "Tumor free",
     "morphology": "8260/3",
-    "primary_diagnosis": "c64.9",
+    "primary_diagnosis": "ACTH-producing tumor",
     "progression_or_recurrence": "no",
-    "site_of_resection_or_biopsy": "lung",
-    "tissue_or_organ_of_origin": "lung",
+    "site_of_resection_or_biopsy": "Lung, NOS",
+    "tissue_or_organ_of_origin": "Lung, NOS",
     "tumor_grade": "not reported",
-    "tumor_stage": "stage i",                        
+    "tumor_stage": "stage i",
     "vital_status": "alive"
 }
 ```
 ```TSV
 type	submitter_id	cases.submitter_id	age_at_diagnosis	classification_of_tumor	days_to_last_follow_up	days_to_last_known_disease_status	days_to_recurrence	last_known_disease_status	morphology	primary_diagnosis	progression_or_recurrence	site_of_resection_or_biopsy	tissue_or_organ_of_origin	tumor_grade	tumor_stage	vital_status
-diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	PROJECT-INTERNAL-000055	10256	not reported	34	34	45	Tumor free	8260/3	c64.9	no	lung	lung	not reported	stage i	alive
+diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	GDC-INTERNAL-000099	10256	not reported	34	34	45	Tumor free	8260/3	ACTH-producing tumor	no	Lung, NOS	Lung, NOS	not reported	stage i	alive
 ```
 __Note:__ For information on submitting time-based data for patients over 90 years old see the [GDC Submission Best Practices](Best_Practices.md) Guide.
 
@@ -384,7 +384,8 @@ Submitting a [__Read Group__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer
 * __`read_group_name`:__ The name of the `read_group`
 * __`read_length`:__ The length of the reads (integer)
 * __`sequencing_center`:__ Name of the center that provided the sequence files  
-
+* __`library_selection`:__ Library Selection Method
+* __`target_capture_kit`:__ Description that can uniquely identify a target capture kit. Suggested value is a combination of vendor, kit name, and kit version.
 ```JSON
 {
     "type": "read_group",
@@ -397,6 +398,8 @@ Submitting a [__Read Group__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer
     "read_group_name": "205DD.3-2",
     "read_length": 75,
     "sequencing_center": "BI",
+    "library_selection": "Hybrid Selection",
+    "target_capture_kit": "Custom MSK IMPACT Panel - 468 Genes",
     "aliquots":
         {
             "submitter_id": "Blood-00021-aliquot55"
@@ -405,8 +408,8 @@ Submitting a [__Read Group__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer
 
 ```
 ```TSV
-type	submitter_id	experiment_name	is_paired_end	library_name	library_strategy	platform	read_group_name	read_length	sequencing_center	aliquots.submitter_id
-read_group	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Resequencing	true	Solexa-34688	WXS	Illumina	205DD.3-2	75	BI	Blood-00021-aliquot55
+type	submitter_id	experiment_name	is_paired_end	library_name	library_strategy	platform	read_group_name	read_length	sequencing_center library_selection target_capture_kit	aliquots.submitter_id
+read_group	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Resequencing	true	Solexa-34688	WXS	Illumina	205DD.3-2	75	BI	Hybrid Selection Custom MSK IMPACT Panel - 468 Genes Blood-00021-aliquot55
 ```
 
 __Note:__ Submitting a biospecimen entity uses the same conventions as submitting a `case` entity (detailed above).
@@ -443,14 +446,14 @@ Submitting a [__Submitted Aligned-Reads__](https://docs.gdc.cancer.gov/Data_Dict
     "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1",
     "read_groups": [
         {
-            "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55"
+            "submitter_id": "Primary_Tumor_RG_86-1"
         }
     ]
 }
 ```
 ```TSV
 type	submitter_id	data_category	data_format	data_type	experimental_strategy	file_name	file_size	md5sum	read_groups.submitter_id#1
-submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Sequencing Data	BAM	Aligned Reads	WGS	test.bam	38	aa6e82d11ccd8452f813a15a6d84faf1	Blood-00001-aliquot_lane1_barcodeACGTAC_55
+submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Sequencing Data	BAM	Aligned Reads	WGS	test.bam	38	aa6e82d11ccd8452f813a15a6d84faf1	Primary_Tumor_RG_86-1
 ```
 
 Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) entity requires:
@@ -479,14 +482,15 @@ Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_D
     "md5sum": "901d48b862ea5c2bcdf376da82f2d22f",
     "read_groups": [
         {
-            "submitter_id": "Blood-00001-aliquot_lane2_barcodeACGTAC_55"
+            "submitter_id": "Primary_Tumor_RG_86-1"
         }
     ]
 }
 ```
 ```TSV
 type	submitter_id	data_category	data_format	data_type	experimental_strategy	file_name	file_size	md5sum	read_groups.submitter_id
-submitted_unaligned_reads	Blood-00001-aliquot_lane2_barcodeACGTAC_55.fastq	Raw Sequencing Data	FASTQ	Unaligned Reads	WGS	test.fastq	38	901d48b862ea5c2bcdf376da82f2d22f	Blood-00001-aliquot_lane2_barcodeACGTAC_55
+submitted_unaligned_reads	Blood-00001-aliquot_lane2_barcodeACGTAC_55.fastq	Raw Sequencing Data	FASTQ	Unaligned Reads	WGS	test.fastq	38	901d48b862ea5c2bcdf376da82f2d22f
+Primary_Tumor_RG_86-1
 ```
 
 __Note:__ For details on submitting experiment data associated with more than one `read_group` entity, see the [GDC Submission Best Practices](Best_Practices.md) Guide.    
@@ -537,22 +541,22 @@ Submitting an [__Experiment Metadata__](https://docs.gdc.cancer.gov/Data_Diction
 ```JSON
 {
     "type": "experiment_metadata",
-    "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1",
-    "cases": {
-        "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55"
+    "submitter_id": "Blood-001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1",
+    "read_groups": {
+        "submitter_id": "Primary_Tumor_RG_86-1"
     },
     "data_category": "Sequencing Data",
     "data_format": "SRA XML",
     "data_type": "Experiment Metadata",
     "file_name": "Experimental-data.xml",
     "file_size": 65498,
-    "md5sum": "d79997e4de03b5a0311f0f2fe608c11d",
+    "md5sum": "d79997e4de03b5a0311f0f2fe608c11d"
 }
 ```
 
 ```TSV
 type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
-experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
+experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Primary_Tumor_RG_86-1	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
 ```
 ## Annotation Submission
 

@@ -121,7 +121,7 @@ The quick search feature allows users to find cases, files, mutations, or genes 
 
 [![Quick Search](images/gdc-quick-search-home.png)](images/gdc-quick-search-home.png "Click to see the full image.")
 
-Search results are displayed as the user is typing, with labels indicating the type of each search result in the list (project, case, or file). Users users will see a brief description of the search results, which may include the UUID, submitter ID, or file name. Clicking on a selected result or pressing enter will open a detail page with additional information.
+Search results are displayed as the user is typing, with labels indicating the type of each search result in the list (project, case, or file). Users will see a brief description of the search results, which may include the UUID, submitter ID, or file name. Clicking on a selected result or pressing enter will open a detail page with additional information.
 
 __Home Page Quick Search:__
 
