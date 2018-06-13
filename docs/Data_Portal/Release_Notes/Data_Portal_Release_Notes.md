@@ -22,7 +22,7 @@
 ## Release 1.14.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: June 12, 2018
+* __Release Date__: June 13, 2018
 
 ### New Features and Changes <!--REQ-322-->
 
