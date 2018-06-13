@@ -31,7 +31,7 @@
 5.  VCF files containing SNVs produced from WGS CGI data are available.  The variant calls were initially produced by CGI and lifted over to hg38. <!--DAT-1281-->
 
 Updated files for this release are listed [here](DR12.0_files_swap.txt.gz).
-A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180612_data_release_12.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180612_data_release_12.0_legacy.txt.gz).
+A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180613_data_release_12.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180613_data_release_12.0_legacy.txt.gz).
 
 
 ### Bugs Fixed Since Last Release
