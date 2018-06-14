@@ -28,7 +28,7 @@
 2. All biospecimen and clinical supplement files for TCGA projects formerly only found in the Legacy Archive have been updated and transferred to the GDC Data Portal. Equivalent Legacy Archive files and metadata retrieved from the API may no longer be up to date. <!--TT-327-->
 3. Diagnostic slides from TCGA are now available in the GDC Data Portal and Slide Image Viewer.  They were formerly only available in the Legacy Archive. <!--DAT-1316-->
 4. Updated Copy Number Segment and Masked Copy Number Segment files are now available.  These were generated using an improved mapping of hg38 coordinates for the Affymetrix SNP6.0 probe set. <!--DAT-1303-->
-5.  VCF files containing SNVs produced from WGS CGI data are available.  The variant calls were initially produced by CGI and lifted over to hg38. <!--DAT-1281-->
+5.  VCF files containing SNVs produced from TARGET WGS CGI data are available.  The variant calls were initially produced by CGI and lifted over to hg38. <!--DAT-1281-->
 
 Updated files for this release are listed [here](DR12.0_files_swap.txt.gz).
 A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180613_data_release_12.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180613_data_release_12.0_legacy.txt.gz).
