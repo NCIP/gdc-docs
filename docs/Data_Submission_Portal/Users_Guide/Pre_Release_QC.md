@@ -4,35 +4,33 @@
 ## Getting Started
 
 
-### The GDC AWG Portal: An Overview
+### The GDC Pre-Release Data Portal: An Overview
 
-The Genomic Data Commons (GDC) AWG Portal provides users with web-based access to pre-released data from cancer genomics studies that have been harmonized by the GDC, but not yet released in the main GDC Data Portal. Key GDC AWG Portal features include:
+The Genomic Data Commons (GDC)  Portal provides users with web-based access to pre-released data from cancer genomics studies that have been harmonized by the GDC, but not yet released in the main GDC Data Portal. Key GDC Pre-Release Data Portal features include:
 
 *   Repository page for browsing data by project / file / case
 *   File / case faceted searches to filter data
 *   Cart for collecting data files of interest
 *   Authentication using eRA Commons credentials for access to controlled data files
 *   Secure data download directly from the cart or using the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
+*   Use of API for query and download
 
-### Accessing the GDC AWG Data Portal
 
-The GDC AWG Portal is accessible using a web browser such as Chrome, Internet Explorer, and Firefox at the following URL:
 
-[https://portal.awg.gdc.cancer.gov](https://portal.awg.gdc.cancer.gov)
 
-You must also connect to the correct VPN in order to have access.  Please contact GDC User Support ([support@nci-gdc.datacommons.io](mailto:support@nci-gdc.datacommons.io)) to assist in setting up VPN access.
+## Navigation
 
-### Navigation
+### Portal Features
 
 #### Views
 
-The GDC AWG Portal provides 2 main navigation options (*Views*) for browsing available pre-release harmonized datasets:
+The GDC Pre-Release Data Portal provides two main navigation options (*Views*) for browsing available pre-release harmonized datasets:
 
-* __Repository__: The [Repository Page](3_Repository.md) displays data files available for download and provides file/case filters to narrow down a user's search.
+* __Repository__: The [Repository Page](Pre_Release_QC/#repository) displays data files available for download and provides file/case filters to narrow down a user's search.
 
 [![GDC Views](images/AWG_Portal.png)](images/WG_Portal.png "Click to see the full image.")
 
-* __Projects__: The [Projects Page](2_Projects.md) gives an overall summary of project-level information, including the available data for each project.
+* __Projects__: The [Projects Page](Pre_Release_QC/#projects) gives an overall summary of project-level information, including the available data for each project.
 
 [![GDC Views](images/AWG_Projects.png)](images/WG_Portal.png "Click to see the full image.")
 
@@ -40,13 +38,13 @@ Each view provides a distinct representation of the same underlying set of GDC d
 
 #### Toolbar
 
-The toolbar available at the top of all pages in the GDC AWG Portal provides convenient navigation links to various pages.
+The toolbar available at the top of all pages in the GDC Pre-Release Data Portal provides convenient navigation links to various pages.
 
 The left portion of this toolbar provides access to the __Projects Page__ and __Repository Page__:
 
 [![GDC Data Portal Toolbar (Left)](images/AWG_Left_Toolbar.png)](images/AWG_Left_Toolbar.png "Click to see the full image.")
 
-The right portion of this toolbar provides access to [quick search](#quick-search), [authentication functions](5_Authentication.md), the [cart](4_Cart.md), and the GDC Apps menu:
+The right portion of this toolbar provides access to [quick search](#quick-search), [authentication functions](Pre_Release_QC/#authentication), the [cart](Pre_Release_QC/#cart-and-file-download), and the GDC Apps menu:
 
 [![GDC Data Portal Toolbar (Left)](images/AWG_Right_Toolbar.png)](images/AWG_Right_Toolbar.png "Click to see the full image.")
 
@@ -56,7 +54,7 @@ The GDC Apps menu provides links to all resources provided by the GDC.
 
 #### Tables
 
-Tabular listings are the primary method of representing available data in the GDC AWG Portal. Tables are available in all views and in the file cart. Users can customize each table by specifying columns, size, and sorting.
+Tabular listings are the primary method of representing available data in the GDC Pre-Release Data Portal. Tables are available in all views and in the file cart. Users can customize each table by specifying columns, size, and sorting.
 
 ##### Table Sort
 
@@ -85,7 +83,7 @@ In the Repository, Projects, and Annotations views, tables can be exported in ei
 
 #### Filtering and Searching
 
-The GDC AWG Portal offers two different means of searching and filtering the available data: facet filters and quick search.
+The GDC Pre-Release Data Portal offers two different means of searching and filtering the available data: facet filters and quick search.
 
 ##### Facet Filters
 
@@ -99,7 +97,7 @@ Multiple selections within a facet are treated as an "OR" query: e.g. "Aligned R
 
 The information displayed in each facet reflects this: in the example above, marking the "Aligned Reads" checkbox does not change the numbers or the available values in the _Data Type_ facet where the checkbox is found, but it does change the values available in the _Experimental Strategy_ facet. The _Experimental Strategy_ facet now displays only values from files of _Data Type_ "Aligned Reads".
 
-Custom facet filters can be added in [Repository View](3_Repository.md) to expand the GDC AWG Portal's filtering capabilities.
+Custom facet filters can be added in [Repository View](Pre_Release_QC/#repository) to expand the GDC Pre-Release Data Portal's filtering capabilities.
 
 ##### Quick Search
 
@@ -110,14 +108,14 @@ The quick search feature allows users to find cases or files using a search quer
 Search results are displayed as the user is typing, with labels indicating the type of each search result in the list (project, case, or file). Users users will see a brief description of the search results, which may include the UUID, submitter ID, or file name. Clicking on a selected result or pressing enter will open a detail page with additional information.
 
 
-## Projects
+### Projects
 
-### Summary
-At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to look at particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC AWG Portal allows users to access aggregate project-level information via the Projects Page and Project Summary pages.
+#### Summary
+At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to look at particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC Pre-Release Data Portal allows users to access aggregate project-level information via the Projects Page and Project Summary pages.
 
-### Projects Page
+#### Projects Page
 
-The Projects Page provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access Projects from the Data Portal toolbar, or directly at [https://portal.awg.gdc.cancer.gov/projects](https://portal.awg.gdc.cancer.gov/projects).
+The Projects Page provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access Projects from the Data Portal toolbar, or directly at [https://portal.Pre-Release Data.gdc.cancer.gov/projects](https://portal.Pre-Release Data.gdc.cancer.gov/projects).
 
 On the left, a panel of facets allow users to apply filters to find projects of interest. When facet filters are applied, the table and visualizations on the right are updated to display only the matching projects. When no filters are applied, all projects are displayed.
 
@@ -125,25 +123,25 @@ The right side of this page displays a table that contains a list of projects an
 
 [![Projects Page, Main Window (Table View)](images/AWG_Projects.png)](images/AWG_Projects.png "Click to see the full image.")
 
-#### Projects Table
+##### Projects Table
 
 The `Table` tab lists projects by Project ID and provides additional information about each project. If no facet filters have been applied, the table will display all available projects; otherwise it will display only those projects that match the selected criteria.
 
 [![Projects Table)](images/AWG_Projects_Table.png)](images/AWG_Projects_Table.png "Click to see the full image.")
 
-The table provides links to Project Summary pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository Page](3_Repository.md).
+The table provides links to Project Summary pages in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository Page](Pre_Release_QC/#repository).
 
-#### Projects Graph
+##### Projects Graph
 
 The `Graph` tab contains an interactive view of information in the Table tab. The numerical values in Case Count, File Count, and File Size columns are represented by bars of varying length according to size. These columns are sorted independently in descending order. Mousing over an element of the graph connects it to associated elements in other columns, including Project ID and Primary Site
 
 [![Graph Mouseover](images/gdc-table-graph-mouse-over.png)](images/gdc-table-graph-mouse-over.png "Click to see the full image.")
 
-Most elements in the graph are clickable, allowing the user to open the associated cases or files in [Repository Page](3_Repository.md).
+Most elements in the graph are clickable, allowing the user to open the associated cases or files in [Repository Page](Pre_Release_QC/#repository).
 
 Like the projects table, the graph will reflect any applied facet filters.
 
-#### Facets Panel
+##### Facets Panel
 
 Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the projects presented in the Table and Graph tabs as well as visualizations.
 
@@ -162,9 +160,9 @@ Filters can be applied by selecting values of interest in the available facets, 
 
 [![Panel with Applied Filters](images/panel-with-applied-filters.png)](images/panel-with-applied-filters.png "Click to see the full image.")
 
-For information on how to use facet filters, see [Getting Started](1_Getting_Started.md#facet-filters).
+For information on how to use facet filters, see [Getting Started](Pre_Release_QC/#facet-filters).
 
-### Project Summary Page
+#### Project Summary Page
 
 Each project has a summary page that provides an overview of all available cases, files, and annotations available. Clicking on the numbers in the summary table will display the corresponding data.
 
@@ -176,13 +174,13 @@ Three download buttons in the top right corner of the screen allow the user to d
 * __Download Clinical__: Downloads clinical metadata about all cases in the project in either TSV or JSON format.
 * __Download Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the GDC Data Transfer Tool to download the files.
 
-## Repository
+### Repository
 
-### Summary
+#### Summary
 
-The Repository Page is the primary method of accessing data in the GDC AWG Portal. It provides an overview of all cases and files and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the Repository Page from the Data Portal toolbar or directly at [https://portal.awg.gdc.cancer.gov/repository](https://portal.awg.gdc.cancer.gov/repository).
+The Repository Page is the primary method of accessing data in the GDC Pre-Release Data Portal. It provides an overview of all cases and files and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the Repository Page from the Data Portal toolbar or directly at [https://portal.Pre-Release Data.gdc.cancer.gov/repository](https://portal.Pre-Release Data.gdc.cancer.gov/repository).
 
-### Filters / Facets
+#### Filters / Facets
 On the left, a panel of data facets allows users to filter cases and files using a variety of criteria. If facet filters are applied, the tabs on the right will display information about matching cases and files. If no filters are applied, the tabs on the right will display information about all available data.
 
 On the right, two tabs contain information about available data:
@@ -196,13 +194,13 @@ The top of the Repository Page contains a few summary pie charts for Primary Sit
 
 [![Data View](images/AWG_Portal.png)](images/AWG_Portal.png "Click to see the full image.")
 
-#### Facets Panel
+##### Facets Panel
 
 Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the cases and files presented in the tabs on the right.
 
 The facets panel is divided into two tabs, with the Files tab containing facets pertaining to data files and experimental strategies, while the Cases tab containing facets pertaining to the cases and biospecimen information. Users can apply filters in both tabs simultaneously. The applied filters will be displayed in the banner above the tabs on the right.
 
-The [Getting Started](1_Getting_Started.md#facet-filters) section provides instructions on using facet filters. In the following example, a filter from the Cases tab ("primary site") and filters from the Files tab ("data category", "experimental strategy") are both applied:
+The [Getting Started](Pre_Release_QC/#facet-filters) section provides instructions on using facet filters. In the following example, a filter from the Cases tab ("primary site") and filters from the Files tab ("data category", "experimental strategy") are both applied:
 
 [![Facet Filters Applied in Data View](images/data-view-with-facet-filters-applied.png)](images/data-view-with-facet-filters-applied.png "Click to see the full image.")
 
@@ -234,7 +232,7 @@ The default set of facets is listed below.
 * __Race__: Race of the patient.
 * __Ethnicity__: Ethnicity of the patient.
 
-#### Adding Custom Facets
+##### Adding Custom Facets
 
 The Repository Page provides access to additional data facets beyond those listed above. Facets corresponding to additional properties listed in the [GDC Data Dictionary](../../Data_Dictionary/index.md) can be added using the "add a filter" links available at the top of the Cases and Files facet tabs:
 
@@ -247,11 +245,11 @@ The links open a search window that allows the user to find an additional facet 
 Newly added facets will show up at the top of the facets panel and can be removed individually by clicking on the red cross to the right of the facet name. The default set of facets can be restored by clicking "Reset".
 
 [![Customize Facet](images/gdc-data-portal-data-facet-tumor_stage.png)](images/gdc-data-portal-data-facet-tumor_stage.png "Click to see the full image.")
-### Results
+#### Results
 
-#### Files List
+##### Files List
 
-The Files tab on the right provides a list of available files and select information about each file. If facet filters are applied, the list includes only matching files. Otherwise, the list includes all data files available in the GDC AWG Portal.
+The Files tab on the right provides a list of available files and select information about each file. If facet filters are applied, the list includes only matching files. Otherwise, the list includes all data files available in the GDC Pre-Release Data Portal.
 
 [![Files Tab](images/gdc-data-portal-data-files.png)](images/gdc-data-portal-data-files.png "Click to see the full image.")
 
@@ -261,9 +259,9 @@ Users can add individual file(s) to the file cart using the cart button next to 
 
 [![Files Tab](images/gdc-data-portal-data-files-add-cart.png)](images/gdc-data-portal-data-files-add-cart.png "Click to see the full image.")
 
-#### Cases List
+##### Cases List
 
-The Cases tab on the right provides a list of available cases and select information about each case. If facet filters are applied, the list includes only matching cases. Otherwise, the list includes all cases available in the GDC AWG Portal.
+The Cases tab on the right provides a list of available cases and select information about each case. If facet filters are applied, the list includes only matching cases. Otherwise, the list includes all cases available in the GDC Pre-Release Data Portal.
 
 [![Cases Tab](images/gdc-data-portal-data-cases_v2.png)](images/gdc-data-portal-data-cases_v2.png "Click to see the full image.")
 
@@ -273,13 +271,13 @@ The list also includes a shopping cart button, allowing the user to add all file
 
 [![Cases Tab, Add to Cart](images/gdc-data-portal-data-case-add-cart.png)](images/gdc-data-portal-data-case-add-cart.png "Click to see the full image.")
 
-### Case Summary Page
+#### Case Summary Page
 
 The Case Summary page displays case details including the project and disease information, data files that are available for that case, and the experimental strategies employed. A button in the top-right corner of the page allows the user to add all files associated with the case to the file cart.
 
 [![Case Page](images/AWG_Case_Summary.png)](images/AWG_Case_Summary.png "Click to see the full image.")
 
-#### Clinical and Biospecimen Information
+##### Clinical and Biospecimen Information
 
 The page also provides clinical and biospecimen information about that case. Links to export clinical and biospecimen information in JSON format are provided.
 
@@ -287,13 +285,13 @@ The page also provides clinical and biospecimen information about that case. Lin
 
 For clinical records that support multiple records of the same type (Diagnoses, Family Histories, or Exposures), a UUID of the record is provided on the left hand side of the corresponding tab, allowing the user to select the entry of interest.
 
-#### Biospecimen Search
+##### Biospecimen Search
 
 A search filter just below the biospecimen section can be used to find and filter biospecimen data. The wildcard search will highlight entities in the tree that match the characters typed. This will search both the case submitter ID, as well as the additional metadata for each entity. For example, searching 'Primary Tumor' will highlight samples that match that type.
 
 [![Biospecimen Search](images/gdc-case-biospecimen-search_v2.png)](images/gdc-case-biospecimen-search_v2.png "Click to see the full image.")
 
-### File Summary Page
+#### File Summary Page
 
 The File Summary page provides information a data file, including file properties like size, md5 checksum, and data format; information on the type of data included; links to the associated case and biospecimen; and information about how the data file was generated or processed.
 
@@ -311,7 +309,7 @@ In the lower section of the screen, the following tables provide more details ab
 
 [![Files Entity Page](images/AWG_File_Details.png)](images/AWG_File_Details.png "Click to see the full image.")
 
-#### BAM Slicing
+##### BAM Slicing
 
 BAM file detail pages have a "BAM Slicing" button. This function allows the user to specify a region of a BAM file for download. Clicking on it will open the BAM slicing window:
 
@@ -319,17 +317,17 @@ BAM file detail pages have a "BAM Slicing" button. This function allows the user
 
 During preparation of the slice, the icon on the BAM Slicing button will be spinning, and the file will be offered for download to the user as soon as ready.
 
-## Cart and File Download
+### Cart and File Download
 
-### Overview
+#### Overview
 
-While browsing the GDC AWG Portal, files can either be downloaded individually from [file detail pages](Repository.md#file-summary-page) or collected in the file cart to be downloaded as a bundle.  Clicking on the shopping cart icon that is next to any item in the GDC will add the item to your cart.
+While browsing the GDC Pre-Release Data Portal, files can either be downloaded individually from [file detail pages](Pre_Release_QC/#file-summary-page) or collected in the file cart to be downloaded as a bundle.  Clicking on the shopping cart icon that is next to any item in the GDC will add the item to your cart.
 
-### GDC Cart
+#### GDC Cart
 
 [![Cart](images/AWG_Cart.png)](images/AWG_Cart.png "Click to see the full image.")
 
-#### Cart Summary
+##### Cart Summary
 
 The cart page shows a summary of all files currently in the cart:
 
@@ -344,7 +342,7 @@ The Cart page also displays two tables:
 
 The cart also directs users how to download files in the cart.  For large data files, it is recommended that the GDC Data Transfer Tool be used.
 
-#### Cart Items
+##### Cart Items
 
 [![Cart](images/gdc-cart-items_v2.png)](images/gdc-cart-items_v2.png "Click to see the full image.")
 
@@ -359,7 +357,7 @@ The Cart Items table shows the list of all the files that were added to the Cart
 * __Size__: The size of the file
 * __Annotations__: Whether there are any annotations
 
-### Download Options
+#### Download Options
 
 [![Cart](images/gdc-download-options_v2.png)](images/gdc-download-options_v2.png "Click to see the full image.")
 
@@ -377,7 +375,7 @@ The cart allows users to download up to 5 GB of data directly through the web br
 
 __Note__: when downloading multiple files from the cart, they are automatically bundled into one single Gzipped (.tar.gz) file.
 
-#### GDC Data Transfer Tool
+##### GDC Data Transfer Tool
 
 The `Download Manifest` button will download a manifest file that can be imported into the GDC Data Transfer Tool.   Below is an example of the contents of a manifest file used for download:
 
@@ -396,55 +394,63 @@ The Manifest contains a list of the file UUIDs in the cart and can be used toget
 
 Information on the GDC Data Transfer Tool is available in the [GDC Data Transfer Tool User's Guide](/node/8196/).
 
-#### Individual Files Download
+##### Individual Files Download
 
 Similar to the files page, each row contains a download button to download a particular file individually.
 
-### Controlled Files
+#### Controlled Files
 
-If a user tries to download a cart containing controlled files and without being authenticated, a pop-up will be displayed to offer the user either to download only open access files or to login into the GDC AWG Portal through eRA Commons. See [Authentication](Authentication.md) for details.
+If a user tries to download a cart containing controlled files and without being authenticated, a pop-up will be displayed to offer the user either to download only open access files or to login into the GDC Pre-Release Data Portal through eRA Commons. See [Authentication](Authentication.md) for details.
 
 [![Cart Page](images/gdc-data-portal-download-cart.png)](images/gdc-data-portal-download-cart.png "Click to see the full image.")
+
+### Annotations
+
+Annotations are notes added to individual cases, samples or files.
+
+#### Annotations View
+
+The Annotations View provides an overview of the available annotations and allows users to browse and filter the annotations based on a number of annotation properties (facets), such as the type of entity the annotation is attached to or the annotation category.
+
+The view presents a list of annotations in tabular format on the right, and a facet panel on the left that allows users to filter the annotations displayed in the table. If facet filters are applied, the tabs on the right will display only the matching annotations. If no filters are applied, the tabs on the right will display information about all available data.
+
+Clicking on an annotation ID in the annotations list will take the user to the [Annotation Detail Page](#annotation-detail-page).
+
+[![Annotations View](images/gdc-data-portal-annotations.png)](images/gdc-data-portal-annotations.png "Click to see the full image.")
+
+##### Facets Panel
+
+The following facets are available to search for annotations:
+
+* __Annotation ID__: Seach using annotation ID
+* __Entity ID__: Seach using entity ID
+* __Case UUID__: Seach using case UUID
+* __Primary Site__: Anatomical site of the cancer
+* __Project__: A cancer research project, typically part of a larger cancer research program
+* __Entity Type__: The type of entity the annotation is associated with: Patient, Sample, Portion, Slide, Analyte, Aliquot
+* __Annotation Category__: Search by annotation category.
+* __Annotation Created__: Search for annotations by date of creation.
+* __Annotation Classification__: Search by annotation classification.
+
+###### Annotation Categories and Classification
+
+For more details about categories and classifications please refer to the [TCGA Annotations page on NCI Wiki](https://wiki.nci.nih.gov/display/TCGA/Introduction+to+Annotations).
+
+#### Annotation Detail Page
+
+The annotation entity page provides more details about a specific annotation. It is available by clicking on an annotation ID in Annotations View.
+
+[![Annotation Entity Page](images/annotations-entity-page.png)](images/annotations-entity-page.png "Click to see the full image.")
 
 ## Authentication
 
 ### Overview
 
-The GDC AWG Portal provides granular metadata for all datasets available in the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC AWG Portal also allows users to download open-access files without logging in. However, downloading of controlled-access files is restricted to authorized users and requires authentication.
-
-### Logging into the GDC
-
-To login to the GDC, users must click on the `Login` button on the top right of the GDC website.
-
-![Login](images/gdc-login.png)
-
-After clicking Login, users authenticate themselves using their eRA Commons login and password.  If authentication is successful, the eRA Commons username will be displayed in the upper right corner of the screen, in place of the "Login" button.
-
-Upon successful authentication, GDC AWG Portal users can:
-
-- see which controlled-access files they have access to;
-- download controlled-access files directly from the GDC AWG Portal;
-- download an authentication token for use with the GDC Data Transfer Tool or the GDC API.
-
-Controlled-access files are identified using a "lock" icon:
-
-[![GDC AWG Portal Main Page](images/gdc-data-portal-controlled-files.png)](images/gdc-data-portal-controlled-files.png "Click to see the full image.")
-
-The rest of this section describes controlled data access features of the GDC AWG Portal available to authorized users. For more information about open and controlled-access data, and about obtaining access to controlled data, see [Data Access Processes and Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
-
-### User Profile
-
-After logging into the GDC Portal, users can view which projects they have access to by clicking the `User Profile` section in the dropdown menu in the top corner of the screen.
-
-[![User Profile Drop Down](images/gdc-user-profile-dropdown.png)](images/gdc-user-profile-dropdown.png "Click to see the full image.")
-
-Clicking this button shows the list of projects.
-
-[![User Profile](images/gdc-user-profile.png)](images/gdc-user-profile.png "Click to see the full image.")
+The GDC Pre-Release Data Portal provides access to datasets prior to release to a group of users specified by the submitter.  This area is only available to data submitters for reviewing pre-release data. User must be granted access as specified in the admin section and also have downloader access within dbGaP for the specified project.
 
 ### GDC Authentication Tokens
 
-The GDC AWG Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
+The GDC Pre-Release Data Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
 
 1. Log into the GDC using your eRA Commons credentials
 2. Click the username in the top right corner of the screen
@@ -464,56 +470,18 @@ To log out of the GDC, click the username in the top right corner of the screen,
 
 ![Logout link](images/gdc-data-portal-token-download.png)
 
-## Annotations
 
-Annotations are notes added to individual cases, samples or files.
-
-### Annotations View
-
-The Annotations View provides an overview of the available annotations and allows users to browse and filter the annotations based on a number of annotation properties (facets), such as the type of entity the annotation is attached to or the annotation category.
-
-The view presents a list of annotations in tabular format on the right, and a facet panel on the left that allows users to filter the annotations displayed in the table. If facet filters are applied, the tabs on the right will display only the matching annotations. If no filters are applied, the tabs on the right will display information about all available data.
-
-Clicking on an annotation ID in the annotations list will take the user to the [Annotation Detail Page](#annotation-detail-page).
-
-[![Annotations View](images/gdc-data-portal-annotations.png)](images/gdc-data-portal-annotations.png "Click to see the full image.")
-
-#### Facets Panel
-
-The following facets are available to search for annotations:
-
-* __Annotation ID__: Seach using annotation ID
-* __Entity ID__: Seach using entity ID
-* __Case UUID__: Seach using case UUID
-* __Primary Site__: Anatomical site of the cancer
-* __Project__: A cancer research project, typically part of a larger cancer research program
-* __Entity Type__: The type of entity the annotation is associated with: Patient, Sample, Portion, Slide, Analyte, Aliquot
-* __Annotation Category__: Search by annotation category.
-* __Annotation Created__: Search for annotations by date of creation.
-* __Annotation Classification__: Search by annotation classification.
-
-##### Annotation Categories and Classification
-
-For more details about categories and classifications please refer to the [TCGA Annotations page on NCI Wiki](https://wiki.nci.nih.gov/display/TCGA/Introduction+to+Annotations).
-
-### Annotation Detail Page
-
-The annotation entity page provides more details about a specific annotation. It is available by clicking on an annotation ID in Annotations View.
-
-[![Annotation Entity Page](images/annotations-entity-page.png)](images/annotations-entity-page.png "Click to see the full image.")
-
-
-## GDC AWG Admin Portal
+## GDC Pre-Release Data Admin Portal
 
 ### Overview
 
-The GDC AWG Admin Portal allows AWG Portal admins to create and maintain AWG Groups and associated projects, as well as grant appropriate access to users within these groups.
+The GDC Pre-Release Data Admin Portal allows Pre-Release Data Portal admins to create and maintain Pre-Release Data Groups and associated projects, as well as grant appropriate access to users within these groups.
 
-[![GDC AWG Portal Main Page](images/AWG_Admin.png)](images/AWG_Admin.png "Click to see the full image.")
+[![GDC Pre-Release Data Portal Main Page](images/AWG_Admin.png)](images/AWG_Admin.png "Click to see the full image.")
 
-The AWG Admin Portal is broken into two views on the left-most panel:
+The Pre-Release Data Admin Portal is broken into two views on the left-most panel:
 
-* __Users__: Allows admin to create, view, edit AWG Portal user profiles
+* __Users__: Allows admin to create, view, edit Pre-Release Data Portal user profiles
 * __Groups__: Allows admin to manage groups projects / users
 
 #### Definitions
@@ -521,20 +489,20 @@ The AWG Admin Portal is broken into two views on the left-most panel:
 | Entity | Definition |
 |---|---|
 | __User__  | An individual with an eRA Commons account. |
-| __Project__  | A  collection of files and observations that are contained in the GDC database and have been registered in dbGAP as a project. Only certain projects are designated as AWG projects.|
-| __Group__  | A collection of users and projects.  When a user is assigned to a group, they will have access to the projects in that group when they login to the AWG data portal as long as they have downloader access to the project in dbGaP.|
+| __Project__  | A  collection of files and observations that are contained in the GDC database and have been registered in dbGAP as a project. Only certain projects are designated as Pre-Release Data projects.|
+| __Group__  | A collection of users and projects.  When a user is assigned to a group, they will have access to the projects in that group when they login to the Pre-Release Data portal as long as they have downloader access to the project in dbGaP.|
 
 ### Users
 
-The __Users__ section of the GDC AWG Admin portal allows admins to manage and create AWG users.
+The __Users__ section of the GDC Pre-Release Data Admin portal allows admins to manage and create Pre-Release Data users.
 
-[![GDC AWG Portal Main Page](images/AWG_Admin.png)](images/AWG_Admin.png "Click to see the full image.")
+[![GDC Pre-Release Data Portal Main Page](images/AWG_Admin.png)](images/AWG_Admin.png "Click to see the full image.")
 
 #### Creating Users
 
-To create a new user in the AWG Admin Portal, click on the `Create` button on the far right panel.
+To create a new user in the Pre-Release Data Admin Portal, click on the `Create` button on the far right panel.
 
-[![GDC AWG Portal Main Page](images/AWG_Admin_Create_User.png)](images/AWG_Admin_Create_User.png "Click to see the full image.")
+[![GDC Pre-Release Data Portal Main Page](images/AWG_Admin_Create_User.png)](images/AWG_Admin_Create_User.png "Click to see the full image.")
 
 Then the following information must be supplied, before clicking the `Save` button:
 
@@ -544,19 +512,19 @@ Then the following information must be supplied, before clicking the `Save` butt
 
 After clicking `Save`, the user should appear in the list of users in the center panel.  Also clicking on the user in the list will display information about that user and gives the options to `Edit` the user profile, or `Delete` the user.
 
-[![GDC AWG Portal Main Page](images/AWG_Admin_New_User.png)](images/AWG_Admin_New_User.png "Click to see the full image.")
+[![GDC Pre-Release Data Portal Main Page](images/AWG_Admin_New_User.png)](images/AWG_Admin_New_User.png "Click to see the full image.")
 
 ### Groups
 
-The __Groups__ section of the GDC AWG Admin portal allows admins to manage and create groups for which users and projects may be added.
+The __Groups__ section of the GDC Pre-Release Data Admin portal allows admins to manage and create groups for which users and projects may be added.
 
-[![GDC AWG Portal Main Page](images/AWG_Admin_Group.png)](images/AWG_Admin_Group.png "Click to see the full image.")
+[![GDC Pre-Release Data Portal Main Page](images/AWG_Admin_Group.png)](images/AWG_Admin_Group.png "Click to see the full image.")
 
 #### Creating Groups
 
-To create a new group in the AWG Admin Portal, click on the `Create` button on the far right panel.
+To create a new group in the Pre-Release Data Admin Portal, click on the `Create` button on the far right panel.
 
-[![GDC AWG Portal Main Page](images/AWG_Admin_Groups_Add.png)](images/AWG_Admin_Groups_Add.png "Click to see the full image.")
+[![GDC Pre-Release Data Portal Main Page](images/AWG_Admin_Groups_Add.png)](images/AWG_Admin_Groups_Add.png "Click to see the full image.")
 
 Then the following information must be supplied, before clicking the `Save` button:
 
@@ -567,4 +535,11 @@ Then the following information must be supplied, before clicking the `Save` butt
 
 After clicking `Save`, the group should appear in the list of groups in the center panel.  Also clicking on the group in the list will display information about that group and gives the options to `Edit` or `Delete` the group.
 
-[![GDC AWG Portal Main Page](images/AWG_Admin_New_Group.png)](images/AWG_Admin_New_Group.png "Click to see the full image.")
+[![GDC Pre-Release Data Portal Main Page](images/AWG_Admin_New_Group.png)](images/AWG_Admin_New_Group.png "Click to see the full image.")
+
+## API
+
+API functionality is similar to what is available for the main GDC Data Portal.  You can read more about this in the [API section](API/Users_Guide/Getting_Started/).  Important differences include the following:
+
+*  The base URL is different. Always user https://api-awg.cancer.gov
+*  A authorization token must always be passed with every query
