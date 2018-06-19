@@ -24,7 +24,7 @@ The Genomic Data Commons (GDC)  Portal provides users with web-based access to p
 
 ### Portal Features
 
-General portal features can be reviewed in the [Data Portal User Guide](Data_Portal/Users_Guide/Getting_Started/#navigation).
+General portal features can be reviewed in the [Data Portal User Guide](/Data_Portal/Users_Guide/Getting_Started/#navigation).
 
 ### Projects
 
@@ -364,7 +364,7 @@ The annotation entity page provides more details about a specific annotation. It
 
 ### Overview
 
-The GDC Pre-Release Data Portal provides access to datasets prior to release to a group of users specified by the submitter.  This area is only available to data submitters for reviewing pre-release data. User must be granted access as specified in the admin section and also have downloader access within dbGaP for the specified project.
+The GDC Pre-Release Data Portal provides access to datasets prior to release to a group of users specified by the data submitter.  This area is only available to data submitters (or their designees) for reviewing pre-release data.  Users must be granted access as specified in the admin portal section and also have downloader access within dbGaP for the specified project.
 
 ### GDC Authentication Tokens
 
@@ -393,7 +393,7 @@ To log out of the GDC, click the username in the top right corner of the screen,
 
 ### Overview
 
-The GDC Pre-Release Data Admin Portal allows Pre-Release Data Portal admins to create and maintain Pre-Release Data Groups and associated projects, as well as grant appropriate access to users within these groups.
+The GDC Pre-Release Data Admin Portal allows Pre-Release Data Portal admins to create and maintain Pre-Release Data Groups and associated projects, as well as grant appropriate access to users within these groups. To gain access to the Pre-Release Data Admin Portal please contact the GDC Helpdesk (support@nci-gdc.datacommons.io).
 
 [![GDC Pre-Release Data Portal Main Page](images/AWG_Admin.png)](images/AWG_Admin.png "Click to see the full image.")
 
@@ -457,7 +457,7 @@ After clicking `Save`, the group should appear in the list of groups in the cent
 
 ## API
 
-API functionality is similar to what is available for the main GDC Data Portal.  You can read more about this in the [API section](API/Users_Guide/Getting_Started/).  Important differences include the following:
+API functionality is similar to what is available for the main GDC Data Portal.  You can read more about the GDC API in general in the [API User Guide](/API/Users_Guide/Getting_Started/).  Important differences for the AWG API include the following:
 
-*  The base URL is different. Always use https://api-awg.cancer.gov
+*  The base URL is different. Instead use https://api.awg.cancer.gov
 *  An authorization token must always be passed with every query rather than just for downloading controlled access data.
