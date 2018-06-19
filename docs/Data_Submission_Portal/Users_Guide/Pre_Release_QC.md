@@ -459,5 +459,5 @@ After clicking `Save`, the group should appear in the list of groups in the cent
 
 API functionality is similar to what is available for the main GDC Data Portal.  You can read more about the GDC API in general in the [API User Guide](/API/Users_Guide/Getting_Started/).  Important differences for the AWG API include the following:
 
-*  The base URL is different. Instead use https://api.awg.cancer.gov
+*  The base URL is different. Instead use https://api.awg.gdc.cancer.gov/
 *  An authorization token must always be passed with every query rather than just for downloading controlled access data.
