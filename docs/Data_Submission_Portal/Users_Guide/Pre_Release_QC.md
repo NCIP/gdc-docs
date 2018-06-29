@@ -51,6 +51,10 @@ For more information about authentication tokens, see [Data Security](../../Data
 
 **NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
 
+### Relationship between GDC Data Portal and Pre-Release Data Portal Tokens
+
+The tokens used to download files from the GDC Data Portal and Pre-Release Data Portal are related but distinct.  Specifically, the token generated in the Pre-Release data portal contains a longer version of the regular GDC Authentication Token downloaded from the GDC Data Portal. Because of this, the GDC Data Portal token will not function for downloading data from the Pre-release Data Portal environment using the Data Transfer Tool or API.  However, the Pre-Release Data Portal token will function for downloading data from the GDC Data Portal using the API or Data Transfer Tool.  Finally, if a new token is generated in the Pre-release Data Portal this will invalidate the token downloaded from the GDC Data Portal and vice versa.  
+
 ### Logging Out
 
 To log out of the GDC, click the username in the top right corner of the screen, and select the Logout option.

@@ -8,7 +8,7 @@
 
 ### New Features and Changes
 
-*  Support for group based Authorization in additional to dbGaP for all API and portal features
+*  Support for group based Authorization on top of dbGaP for all API and portal features
 *  Admin Portal for managing membership of groups
 *  Updated UI focused on repository capabilities
 
@@ -18,4 +18,5 @@
 
 ### Known Issues and Workarounds
 
-*  
+*  Cannot log into AWG Portal on Internet Explorer.  The workaround is to use Edge. <!--SV-1133-->
+*  The Project facet on the case panel will show access to more projects than the user has access to.  The user cannot see any further details of those project however. <!--PRTL-2194-->
