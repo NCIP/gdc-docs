@@ -19,6 +19,7 @@ pages:
   - Advanced Search: 'Data_Portal/Users_Guide/Advanced_Search.md'
   - Authentication: 'Data_Portal/Users_Guide/Authentication.md'
   - File Cart: 'Data_Portal/Users_Guide/Cart.md'
+  - Image Viewer: 'Data_Portal/Users_Guide/Image_viewer.md'
   - Legacy Archive: 'Data_Portal/Users_Guide/Legacy_Archive.md'
   - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
 extra:

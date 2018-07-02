@@ -10,13 +10,13 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | --- |
 | dbgap_accession_number |
 | disease_type |
-| name |
+| name |  
 | primary_site |
 | project_id |
 | released |
 | state |
 | program.dbgap_accession_number |
-| program.name |
+| program.name |  
 | program.program_id |
 | summary.case_count |
 | summary.file_count |
@@ -24,7 +24,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | summary.data_categories.case_count |
 | summary.data_categories.data_category |
 | summary.data_categories.file_count |
-| summary.experimental_strategies.case_count |
+| summary.experimental_strategies.case_count |  
 | summary.experimental_strategies.experimental_strategy |
 | summary.experimental_strategies.file_count |
 
@@ -38,8 +38,8 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | aliquot_ids |
 | analyte_ids |
 | case_id |
-| created_datetime |
-| days_to_index |
+| created_datetime |  
+| days_to_index |  
 | portion_ids |
 | sample_ids |
 | slide_ids |
@@ -50,7 +50,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | submitter_portion_ids |
 | submitter_sample_ids |
 | submitter_slide_ids |
-| updated_datetime |
+| updated_datetime |  
 | annotations.annotation_id |
 | annotations.case_id |
 | annotations.case_submitter_id |
@@ -122,7 +122,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | exposures.weight |
 | exposures.years_smoked |
 | family_histories.created_datetime |
-| family_histories.family_history_id |
+| family_histories.family_history_id |  
 | family_histories.relationship_age_at_diagnosis |
 | family_histories.relationship_gender |
 | family_histories.relationship_primary_diagnosis |
@@ -425,8 +425,8 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.is_ffpe |
 | files.cases.samples.portions.portion_id |
 | files.cases.samples.portions.portion_number |
-| files.cases.samples.portions.state |
-| files.cases.samples.portions.submitter_id |
+| files.cases.samples.portions.state |  
+| files.cases.samples.portions.submitter_id |  
 | files.cases.samples.portions.updated_datetime |
 | files.cases.samples.portions.weight |
 | files.cases.samples.portions.analytes.a260_a280_ratio |
@@ -470,9 +470,9 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.samples.portions.analytes.aliquots.annotations.updated_datetime |
 | files.cases.samples.portions.analytes.aliquots.center.center_id |
 | files.cases.samples.portions.analytes.aliquots.center.center_type |
-| files.cases.samples.portions.analytes.aliquots.center.code |
-| files.cases.samples.portions.analytes.aliquots.center.name |
-| files.cases.samples.portions.analytes.aliquots.center.namespace |
+| files.cases.samples.portions.analytes.aliquots.center.code |  
+| files.cases.samples.portions.analytes.aliquots.center.name |  
+| files.cases.samples.portions.analytes.aliquots.center.namespace |  
 | files.cases.samples.portions.analytes.aliquots.center.short_name |
 | files.cases.samples.portions.analytes.annotations.annotation_id |
 | files.cases.samples.portions.analytes.annotations.case_id |
@@ -675,7 +675,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.annotations.entity_id |
 | samples.annotations.entity_submitter_id |
 | samples.annotations.entity_type |
-| samples.annotations.legacy_created_datetime |
+| samples.annotations.legacy_creat
 | samples.annotations.legacy_updated_datetime |
 | samples.annotations.notes |
 | samples.annotations.state |
@@ -1511,3 +1511,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | --- |
 | project |
 | project.program |
+
+### GDC Conventions Supplemental
+| Field Group Name |
+| --- | --- |
+| File size | Listed in bytes |
+| Submitter id | String supplied by submitter |
+| Datetime | Combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss |    
+| Id | GDC supplied UUID ID |  

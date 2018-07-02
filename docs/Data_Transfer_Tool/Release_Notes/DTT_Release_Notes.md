@@ -1,5 +1,13 @@
 # Data Transfer Tool Release Notes
 
+| Version | Date |
+|---|---|
+| [v1.3.0](DTT_Release_Notes.md#v130) | August 22, 2017 |
+| [v1.2.0](DTT_Release_Notes.md#v120) | Oct 31, 2016 |
+| [v1.1.0](DTT_Release_Notes.md#v110) | September 7, 2016 |
+| [v1.0.1](DTT_Release_Notes.md#v101) | June 2, 2016 |
+| [v1.0.0](DTT_Release_Notes.md#v100) | May 26, 2016 |
+
 ## v1.3.0
 * __GDC Product__: Data Transfer Tool
 * __Release Date__: August 22, 2017
@@ -28,7 +36,7 @@
 
 ## v1.2.0
 * __GDC Product__: Data Transfer Tool
-* __Release Date__: August X, 2017
+* __Release Date__: Oct 19th 2016
 
 
 ### New Features and Changes
