@@ -1,16 +1,14 @@
-Mutation Annotation Format (MAF) Specification
+Mutation Annotation Format (MAF) Specification (TCGA)
 ==============================================
 
  
-
+This definition was taken from the previously public wiki hosted by TCGA and reflects the MAF format
+that was available during the active period of the TCGA project.  
  
 
 The spec has been reverted to the June 26th version (version 20). Additional
 changes are the removal of the "under construction" banner, changing all text to
 black, and fixing a typo in the link to the MAF 2.2 specification.
-
-**IMPORTANT**: MAF files can be submitted to the DCC **only** by following the
-procedure described [here](https://wiki.nci.nih.gov/x/yw7RB).
 
 **Document Information**
 
@@ -20,27 +18,27 @@ June 20, 2014
 
 **Contents**
 
--   1 [Current version changes](#MutationAnnotationFormat(MAF)Specificat)
+-   1 Current version changes
 
--   2 [About MAF specifications](#MutationAnnotationFormat(MAF)Specificat)
+-   2 About MAF specifications
 
-    -   2.1 [Definition of open access MAF
-        data](#MutationAnnotationFormat(MAF)Specificat)
+    -   2.1 Definition of open access MAF
+        data
 
-    -   2.2 [Somatic MAF vs. Protected
-        MAF](#MutationAnnotationFormat(MAF)Specificat)
+    -   2.2 Somatic MAF vs. Protected
+        MAF
 
--   3 [MAF file fields](#MutationAnnotationFormat(MAF)Specificat)
+-   3 MAF file fields
 
-    -   3.1 [Table 1 - File column
-        headers](#MutationAnnotationFormat(MAF)Specificat)
+    -   3.1 Table 1 - File column
+        headers
 
--   4 [MAF file checks](#MutationAnnotationFormat(MAF)Specificat)
+-   4 MAF file checks
 
--   5 [MAF naming convention](#MutationAnnotationFormat(MAF)Specificat)
+-   5 MAF naming convention
 
--   6 [Previous specification
-    versions](#MutationAnnotationFormat(MAF)Specificat)
+-   6 Previous specification
+    versions
 
 Current version changes
 =======================
