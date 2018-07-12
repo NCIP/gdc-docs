@@ -4,7 +4,7 @@
 ## Release 1.0
 
 * __GDC Product__: GDC Pre-Release Data Portal
-* __Release Date__: July 11, 2018
+* __Release Date__: July 12, 2018
 
 ### New Features and Changes
 
