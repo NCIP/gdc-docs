@@ -78,10 +78,11 @@ The following search and retrieval endpoints are available in the GDC API:
 
 | Endpoints | Description |
 | --- | --- |
-| files | Information about files stored in the GDC |
-| cases | Information related to cases, or sample donors. |
-| projects | Information about projects |
-| annotations | Information about annotations to GDC data |
+| [files](/API/Users_Guide/Search_and_Retrieval/#files-endpoint) | Information about files stored in the GDC |
+| [cases](/API/Users_Guide/Search_and_Retrieval/#cases-endpoint) | Information related to cases, or sample donors |
+| [history](/API/Users_Guide/Search_and_Retrieval/#history-endpoint) | Information related to file version history |
+| [projects](/API/Users_Guide/Search_and_Retrieval/#project-endpoint) | Information about projects |
+| [annotations](/API/Users_Guide/Search_and_Retrieval/#annotations-endpoint) | Information about annotations to GDC data |
 | \_mapping | Information about elements that can be used to query other endpoints |
 
 The choice of endpoint determines what is listed in the search results. The `files` endpoint will generate a list of files, whereas the `cases` endpoint will generate a list of cases. Each of the above endpoints, other than `_mapping`, can query and return any of the related fields in the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). So the `cases` endpoint can be queried for file fields (e.g. to look for cases that have certain types of experimental data), and the `files` endpoint can be queried for clinical metadata associated with a case (e.g. to look for files from cases diagnosed with a specific cancer type).
@@ -291,7 +292,7 @@ The `files` endpoint supports a simple query format that retrieves the metadata 
 ```Shell
 curl 'https://api.gdc.cancer.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pretty=true'
 ```
-```
+``` Output
 {
   "data": {
     "data_type": "Raw Simple Somatic Mutation",
@@ -318,6 +319,20 @@ curl 'https://api.gdc.cancer.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pret
 ```
 
 __Note:__ The `file_size` field associated with each file is reported in bytes.  
+
+
+#### Example of retrieving file version information:
+
+The `https://api.gdc.cancer.gov/files/versioning` enables search and retrieval of version information about a file.  A file may be versioned if a file is updated by the GDC (e.g. using a new alignment algorithm or fixing a file that contained an error). `Version` refers to the instance of a particular file.
+
+```Shell
+curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e88b06,2a03abac-f1a2-49a9-a57c-7543739dd862'
+```
+
+``` Output
+[{"latest_size": 332092, "latest_id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "latest_version": "1", "filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz", "state": "validated", "version": "1", "latest_filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "c2f9b196e154906a70c7ec46492a859d", "size": 332092, "id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "md5": "c2f9b196e154906a70c7ec46492a859d"}, {"latest_size": 6653119038, "latest_id": "2a03abac-f1a2-49a9-a57c-7543739dd862", "latest_version": "1", "filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam", "state": "validated", "version": "1", "latest_filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "48686fcd84ac713d44261ca9e26b89fb", "size": 6653119038, "id": "2a03abac-f1a2-49a9-a57c-7543739dd862", "md5": "48686fcd84ac713d44261ca9e26b89fb"}]
+```
+
 
 ### Cases Endpoint
 
@@ -672,6 +687,22 @@ curl 'https://api.gdc.cancer.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%2
   "warnings": {}
 }
 ```
+### History Endpoint
+
+The GDC History Endpoint `https://api.gdc.cancer.gov/history` enables search and retrieval of version and release information about a file.  A file may be versioned if a file is updated by the GDC (e.g. using a new alignment algorithm or fixing a file that contained an error). `Version` refers to the instance of a particular file. `Release` refers to which data release a file was part of.  A file may be a part of many different data releases with no change in version number or content.  
+
+#### Example
+
+This example is a query for versioning information associated with the follow with file `1dd28069-5777-4ff9-bd2b-d1ba68e88b06`.
+
+
+```shell
+curl 'https://api.gdc.cancer.gov/history/1dd28069-5777-4ff9-bd2b-d1ba68e88b06?format=tsv'
+```
+``` Output
+[{"release_date": "2018-07-23", "version": "1", "uuid": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "file_change": "released", "data_release": "13.0"}]
+```
+
 
 ### \_mapping Endpoint
 
