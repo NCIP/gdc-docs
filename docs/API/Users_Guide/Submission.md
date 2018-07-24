@@ -65,6 +65,7 @@ The following is a sample shell command for submitting an XML file:
 
 **NOTE:** A typical BCR XML file contains more information than what is extracted and indexed by the GDC. XML files submitted to the above endpoints are not retained or distributed to GDC data users, so the same files should also be submitted as data files (i.e. as clinical or biospecimen supplements).
 
+
 ### Data File Formats
 
 The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, clinical and biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [GDC website](https://gdc.cancer.gov/node/266/).
@@ -715,6 +716,123 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
   "transactional_errors": [],
   "updated_entity_count": 0
 }
+```
+### Example: Updating a Sample Entity (JSON)
+
+Entities can be updated using a very similar process to what is shown above.
+Updating an entity will work differently depending on whether a project is released or not.  
+
+#### Updating an unreleased sample
+
+After first creating the sample nodes as described above a user may need to make a small change
+
+```Request
+[
+  {
+    "type": "sample",
+    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001",
+    "sample_type": "Primary Tumor",
+    "sample_type_id": "01",
+    "cases": {
+      "submitter_id": "TCGA-ALCH-000001"
+    }
+  },
+  {
+    "type": "aliquot",
+    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001",
+    "samples": {
+      "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+    }
+  }
+]
+```
+```Command
+token=$(<gdc-token-text-file.txt)
+
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
+```
+```Response
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 201,
+  "created_entity_count": 2,
+  "entities": [
+    {
+      "action": "create",
+      "errors": [],
+      "id": "0da1d0c6-3cdf-41ec-9771-e77ad550cf08",
+      "related_cases": [
+        {
+          "id": "2abe8806-f018-4b18-8e20-245a03140213",
+          "submitter_id": "GDC-INTERNAL-000005"
+        }
+      ],
+      "type": "sample",
+      "unique_keys": [
+        {
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "50c319df-9ecb-4a84-bd78-53f3441f9d11",
+      "related_cases": [
+        {
+          "id": "2abe8806-f018-4b18-8e20-245a03140213",
+          "submitter_id": "GDC-INTERNAL-000005"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 971014,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 0
+}
+```
+
+#### Updating a released sample -UPDATE THIS
+
+
+```Request
+[TO UPDATE
+]
+```
+```Command
+TO UPDATE
+```
+```Response
+{TO UPDATE}
+```
+#### Updating a released sample using a BCR XML -UPDATE THIS
+
+Updating data using a BCR XML file is a special case since the original format includes a UUID for many of the nodes in the GDC.  In the initial submission these UUIDs are used as internal GDC UUIDs.  If the BCR XML endpoint is used to update biospecimen information of released data the update will occur based on submitter_id (barcode in the XML), but the UUID will change in the GDC.  Therefore UUIDs present in the XML may no longer be reflected in the GDC, but the submitter_id's will remain constant.
+
+
+
+```Command
+curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @biospecimen.xml 'https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/xml/biospecimen/bcr/_dry_run'
+```
+```Response
+{TO UPDATE}
 ```
 
 ## Retrieving Entities

@@ -107,13 +107,7 @@ The `read_group` entity requires a `read_group_name` field for submission.  If t
 
 In addition to the required properties on `read_group` we also recommend submitting `flow_cell_barcode`, `lane_number` and `multiplex_barcode`.  This information can be used by our bioinformatics team and data downloaders to construct a `Platform Unit` (`PU`), which is a universally unique identifier that can be used to model various sequencing technical artifacts.  More information can be found in the SAM specification (https://github.com/samtools/hts-specs/blob/master/SAMv1.pdf).
 
-For projects with library strategies of targeted sequencing or WXS we also require information on the target capture protocol or the following properties:
-
-* `target_capture_kit_catalog_number`
-* `target_capture_kit_name`
-* `target_capture_kit_target_region`
-* `target_capture_kit_vendor`
-* `target_capture_kit_version`
+For projects with library strategies of targeted sequencing or WXS we also require information on the target capture protocol included on `target_capture_kit`
 
 If this information is not provided it may cause a delay in the processing of submitted data.
 
@@ -146,3 +140,7 @@ In addition, submitters should also let GDC know the genome build (hg18, hg19 or
 
 5. Is a Target Capture Kit uniquely defined by its Target Region Bed File?  
 Not necessary. Sometimes, users or manufactures may want to augment an existing kit with additional probes, in order to capture more regions or simply improve the quality of existing regions. In the later case, the bed file stays the same, but it is now a different Target Capture Kit and should be registered separately as described in Step 3 above.
+
+## Clinical Data Requirements
+
+For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal cross-project GDC requirements include age, gender, and diagnosis information.  Other requirements may be added when the submitter is approved for submission to the GDC.
