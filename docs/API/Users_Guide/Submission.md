@@ -719,60 +719,61 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
 ```
 ### Example: Updating a Sample Entity (JSON)
 
-Entities can be updated using a very similar process to what is shown above.
-Updating an entity will work differently depending on whether a project is released or not.  
+Entities can be updated using a very similar process to what is shown above.  Updating an entity will work differently depending on whether a project is released or not.  For file_state: `validated`, updates will occur seamlessly and both the original UUID and submitter_id will be preserved.  For file_state:`submitted` updates will not be allowed as these nodes are currently being processed by the GDC.  For file_state:`released` updates will create a new node with a new UUID, but the submitter_id will remain constant.
 
 #### Updating an unreleased sample
 
-After first creating the sample nodes as described above a user may need to make a small change
+After first creating the sample nodes as shown in Request1 as user may commit the changes found in Request2.
 
-```Request
+```Request1
 [
-  {
+   {
+    "type": "case",
+    "submitter_id": "QA-REGRESSION-0002",  
+    "projects": {
+    "code": "REGRESSION"
+  }
+    },
+    {
     "type": "sample",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001",
+    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001",
     "sample_type": "Primary Tumor",
     "sample_type_id": "01",
     "cases": {
-      "submitter_id": "TCGA-ALCH-000001"
+      "submitter_id": "QA-REGRESSION-0002"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001",
     "samples": {
-      "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+      "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
     }
   }
 ]
 ```
-```Command
+```Command1
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
+curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION
 ```
-```Response
+```Response1
 {
   "cases_related_to_created_entities_count": 1,
   "cases_related_to_updated_entities_count": 0,
   "code": 201,
-  "created_entity_count": 2,
+  "created_entity_count": 3,
   "entities": [
     {
       "action": "create",
       "errors": [],
-      "id": "0da1d0c6-3cdf-41ec-9771-e77ad550cf08",
-      "related_cases": [
-        {
-          "id": "2abe8806-f018-4b18-8e20-245a03140213",
-          "submitter_id": "GDC-INTERNAL-000005"
-        }
-      ],
-      "type": "sample",
+      "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+      "related_cases": [],
+      "type": "case",
       "unique_keys": [
         {
-          "project_id": "GDC-INTERNAL",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "QA-REGRESSION-0002"
         }
       ],
       "valid": true,
@@ -781,18 +782,38 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "50c319df-9ecb-4a84-bd78-53f3441f9d11",
+      "id": "8a1872e6-c5e6-4f39-b9fe-15ecf45715c7",
       "related_cases": [
         {
-          "id": "2abe8806-f018-4b18-8e20-245a03140213",
-          "submitter_id": "GDC-INTERNAL-000005"
+          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+          "submitter_id": "QA-REGRESSION-0002"
+        }
+      ],
+      "type": "sample",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "e9279137-92b4-41ab-be28-a03e32e6fac7",
+      "related_cases": [
+        {
+          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+          "submitter_id": "QA-REGRESSION-0002"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "GDC-INTERNAL",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001"
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001"
         }
       ],
       "valid": true,
@@ -802,22 +823,151 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 971014,
+  "transaction_id": 920117,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
 }
 ```
+```Request2
+[
+   {
+    "type": "case",
+    "submitter_id": "QA-REGRESSION-0002",  
+    "projects": {
+    "code": "REGRESSION"
+  }
+    },
+    {
+    "type": "sample",
+    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001",
+    "sample_type": "Primary Tumor",
+    "days_to_collection":5,
+    "sample_type_id": "01",
+    "cases": {
+      "submitter_id": "QA-REGRESSION-0002"
+    }
+  },
+  {
+    "type": "aliquot",
+    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001",
+    "samples": {
+      "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+    }
+  }
+]
+```
+```Command2
+token=$(<gdc-token-text-file.txt)
 
-#### Updating a released sample -UPDATE THIS
+curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 1,
+  "code": 200,
+  "created_entity_count": 0,
+  "entities": [
+    {
+      "action": "update",
+      "errors": [],
+      "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+      "related_cases": [],
+      "type": "case",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "QA-REGRESSION-0002"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "update",
+      "errors": [],
+      "id": "8a1872e6-c5e6-4f39-b9fe-15ecf45715c7",
+      "related_cases": [
+        {
+          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+          "submitter_id": "QA-REGRESSION-0002"
+        }
+      ],
+      "type": "sample",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "update",
+      "errors": [],
+      "id": "e9279137-92b4-41ab-be28-a03e32e6fac7",
+      "related_cases": [
+        {
+          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+          "submitter_id": "QA-REGRESSION-0002"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 920120,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 3
+}
+```
 
+#### Updating a released sample
 
-```Request
-[TO UPDATE
+If a specific entity is already in file_state=`released`
+```Request2
+[
+   {
+    "type": "case",
+    "submitter_id": "QA-REGRESSION-0002",  
+    "projects": {
+    "code": "REGRESSION"
+  }
+    },
+    {
+    "type": "sample",
+    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001",
+    "sample_type": "Primary Tumor",
+    "days_to_collection":15,
+    "sample_type_id": "01",
+    "cases": {
+      "submitter_id": "QA-REGRESSION-0002"
+    }
+  },
+  {
+    "type": "aliquot",
+    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001",
+    "samples": {
+      "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+    }
+  }
 ]
 ```
 ```Command
-TO UPDATE
+curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION
 ```
 ```Response
 {TO UPDATE}
@@ -826,13 +976,586 @@ TO UPDATE
 
 Updating data using a BCR XML file is a special case since the original format includes a UUID for many of the nodes in the GDC.  In the initial submission these UUIDs are used as internal GDC UUIDs.  If the BCR XML endpoint is used to update biospecimen information of released data the update will occur based on submitter_id (barcode in the XML), but the UUID will change in the GDC.  Therefore UUIDs present in the XML may no longer be reflected in the GDC, but the submitter_id's will remain constant.
 
+Entities are created in Command1.  These entities are later released.  In Command2 I will update some information in the XML and submit again.
 
-
-```Command
-curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @biospecimen.xml 'https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/xml/biospecimen/bcr/_dry_run'
+```Command1
+curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @BCR_biospecimen.xml 'https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION/xml/biospecimen/bcr'
 ```
-```Response
-{TO UPDATE}
+```Response1
+{{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 28,
+  "entities": [
+    {
+      "action": "create",
+      "errors": [],
+      "id": "b69b96e0-4b45-5a99-b862-97ab9cdf0c88",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01D-2101-10"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "b1118ebf-7e66-5823-a6ce-eeeb7547aad7",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "slide",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01-TS1"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "d6a4b230-bbd6-5b1e-88ae-476ec1ade556",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01D-1422-02"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "9861336b-0359-521d-81d1-423262ef2560",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "analyte",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01D"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "151b99c8-16fa-5074-a2f5-2aef7c43d0ec",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "analyte",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01D"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "2baf9dc2-649b-5182-8592-feef9fb72b5a",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "portion",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "01d8e68d-7299-5b10-b545-afab0144ca1c",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01D-1423-01"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "e13264ea-2ff1-52d6-b781-65d21c2d24a9",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01R-1425-13"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "a7c6332c-04ad-5563-8ca6-51813122bc03",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01D-2101-10"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "69f19d8d-13a5-5f0d-ac82-d4de075fd51a",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01D-1429-08"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "11251eba-5a20-5747-8d30-0eec4d8fd8e2",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "analyte",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01W"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "2c038da9-5373-538a-bd15-38522ef49ab1",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "sample",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "d012beaf-5e0c-559a-b8d5-d4960912774b",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "sample",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "5ca816e8-1325-5986-beaf-8f300caa42c3",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "slide",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01-TS1"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "fe1047d0-82ae-513e-8b3c-353f5022ecc0",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "portion",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "6d4054dd-c30a-5572-af39-cb6910a67bcc",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01W-1477-10"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "6684b446-ece3-57c1-93b2-a4885f829707",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01D-1424-05"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "f52da5fd-2267-517c-b09c-d7d3074e4f13",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01D-1429-08"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "778d5545-f35d-54a1-bd7e-e148aa048046",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "portion",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-21-1740-20"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+      "related_cases": [],
+      "type": "case",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "e1a7ac18-8473-56f4-8f49-42c427f2b6ff",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01D-1422-02"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "f2531646-dc01-5d89-9ecb-3031716adb96",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01R-1426-07"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "9682a18b-7d3e-514b-9bf2-666b4f697140",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01D-1424-05"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "91bc6c5c-b340-52fb-9ab2-fec7e9312cf6",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "analyte",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01W"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "dadca81e-7a7d-5944-abc8-63c8acbdbfd6",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "analyte",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01R"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "15546b81-fe15-5838-aa1a-97ad29e36b15",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01D-1423-01"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "3a7c43e0-4582-57dd-8d2b-7b2a92c30b21",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "slide",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-01A-01-BS1"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "ab513f26-8cba-50f2-bac9-59fc50f5c201",
+      "related_cases": [
+        {
+          "id": "3128d9bf-71fd-4edb-8d07-98f53ef0432d",
+          "submitter_id": "QA-REGRESSION-0003"
+        }
+      ],
+      "type": "aliquot",
+      "unique_keys": [
+        {
+          "project_id": "QA-REGRESSION",
+          "submitter_id": "TCGA-BP-5184-11A-01W-1477-10"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 920139,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 0
+}}
+```
+```
+Command2
+curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @BCR_biospecimen_updated.xml 'https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION/xml/biospecimen/bcr'
 ```
 
 ## Retrieving Entities
