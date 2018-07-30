@@ -116,6 +116,7 @@ exposure
 family_history
 treatment
 follow_up
+molecular_test
 ```
 
 __Data Files:__
@@ -652,12 +653,12 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 
 In this example, a TSV file containing metadata for two samples is uploaded to the GDC in dry run mode.
 
-```Samples_tsv
+```Request
 type	project_id	submitter_id	cases.submitter_id	sample_type	sample_type_id	tumor_descriptor
 sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleA	GDC-INTERNAL-000022	Additional Metastatic	01
 sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleB	GDC-INTERNAL-000022	Solid Tissue Normal	02
 ```
-```Shell
+```Command
 curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request PUT --data-binary @Samples.tsv 'https://api.gdc.cancer.gov/submission/GDC/INTERNAL/_dry_run'
 ```
 ```Response
@@ -719,11 +720,12 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
 ```
 ### Example: Updating a Sample Entity (JSON)
 
-Entities can be updated using a very similar process to what is shown above.  Updating an entity will work differently depending on whether a project is released or not.  For file_state: `validated`, updates will occur seamlessly and both the original UUID and submitter_id will be preserved.  For file_state:`submitted` updates will not be allowed as these nodes are currently being processed by the GDC.  For file_state:`released` updates will create a new node with a new UUID, but the submitter_id will remain constant.
+Entities can be updated using a very similar process to what is shown above.  Updating an entity will work differently depending on whether a project is released or not.  For state `validated`, updates will occur seamlessly and both the original UUID and submitter_id will be preserved.  For state `submitted` updates will not be allowed as these nodes are currently being processed by the GDC.  For state `released` updates will create a new node with a new UUID, but the submitter_id will remain constant.
 
 #### Updating an unreleased sample
 
-After first creating the sample nodes as shown in Request1 as user may commit the changes found in Request2.
+New nodes are created in Request1.  Nodes in state `validated` are updated in Request2.
+
 
 ```Request1
 [
@@ -935,9 +937,10 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
 }
 ```
 
-#### Updating a released sample
+#### Updating a released sample -UPDATE THIS
 
-If a specific entity is already in file_state=`released`
+The example below shows how to update a sample that is in state `released`
+
 ```Request2
 [
    {
@@ -974,9 +977,9 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
 ```
 #### Updating a released sample using a BCR XML -UPDATE THIS
 
-Updating data using a BCR XML file is a special case since the original format includes a UUID for many of the nodes in the GDC.  In the initial submission these UUIDs are used as internal GDC UUIDs.  If the BCR XML endpoint is used to update biospecimen information of released data the update will occur based on submitter_id (barcode in the XML), but the UUID will change in the GDC.  Therefore UUIDs present in the XML may no longer be reflected in the GDC, but the submitter_id's will remain constant.
+Updating data using a BCR XML file is a special case since the original format includes a UUID for many of the nodes in the GDC.  In the initial submission these UUIDs are used as internal GDC UUIDs.  If the BCR XML endpoint is used to update biospecimen information of released data the update will occur based on submitter_id (i.e. barcode in the XML), but the UUID will change in the GDC.  Therefore UUIDs present in the XML may no longer be reflected in the GDC, but the submitter_id's will remain constant.
 
-Entities are created in Command1.  These entities are later released.  In Command2 I will update some information in the XML and submit again.
+Entities are created in Command1.  These entities are later released.  Command2 demonstrates updating entity information via XML submission.
 
 ```Command1
 curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @BCR_biospecimen.xml 'https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION/xml/biospecimen/bcr'
@@ -1556,6 +1559,8 @@ curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: appl
 ```
 Command2
 curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @BCR_biospecimen_updated.xml 'https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION/xml/biospecimen/bcr'
+```
+```Response2
 ```
 
 ## Retrieving Entities

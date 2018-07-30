@@ -28,7 +28,7 @@
 ### New Features and Changes
 
 * Added support for file versioning <!--TT-482-->
-* Added API endpoints in support of versioning  <!--PRTL-2015-->
+* Added new API endpoints in support of versioning: history, files/versions, and files/versions/manifest  <!--PRTL-2015-->
 * Updated the submit and release process <!--TT-249-->
 * Created admin endpoint to allow for modifying file and project flags and states <!--API-368-->
 * Populate version and release information for all existing files <!--TT-154-->
