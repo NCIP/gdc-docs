@@ -26,7 +26,7 @@
 
 ### New Features and Changes <!--REQ-329-->
 
-* File Versions are now visible in the "File Versions" section on the File Entity Page <!--PRTL-2015-->
+* File Versions are now visible in the "File Versions" section on the File Entity Page. <!--PRTL-2015-->
 * "View Files in Repository" and "View Cases in Repository" button methods were updated to work faster. <!--PRTL-2003 PRTL-2106 -->
 
 ### Bugs Fixed Since Last Release
