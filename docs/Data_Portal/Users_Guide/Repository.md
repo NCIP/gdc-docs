@@ -16,7 +16,7 @@ The banner above the tabs on the right displays any active facet filters and pro
 
 The top of the Repository Page contains a few summary pie charts for Primary Sites, Projects, Disease Type, Gender, and Vital Status.  These reflect all available data or, if facet filters are applied, only the data that matches the filters. Clicking on a specific slice in a pie chart, or on a number in a table, applies corresponding facet filters.
 
-[![Data View](images/gdc-data-portal-repository-view.png)](images/gdc-data-portal-repository-view.png "Click to see the full image.")
+[![Data View](images/gdc-data-portal-repository-view_v2.png)](images/gdc-data-portal-repository-view_v2.png "Click to see the full image.")
 
 ### Facets Panel
 
@@ -26,7 +26,7 @@ The facets panel is divided into two tabs, with the Files tab containing facets 
 
 The [Getting Started](Getting_Started.md#facet-filters) section provides instructions on using facet filters. In the following example, a filter from the Cases tab ("primary site") and filters from the Files tab ("data category", "experimental strategy") are both applied:
 
-[![Facet Filters Applied in Data View](images/data-view-with-facet-filters-applied.png)](images/data-view-with-facet-filters-applied.png "Click to see the full image.")
+[![Facet Filters Applied in Data View](images/data-view-with-facet-filters-applied_v2.png)](images/data-view-with-facet-filters-applied_v2.png "Click to see the full image.")
 
 The default set of facets is listed below.
 
@@ -87,7 +87,7 @@ Users can add individual file(s) to the file cart using the cart button next to 
 
 The Cases tab on the right provides a list of available cases and select information about each case. If facet filters are applied, the list includes only matching cases. Otherwise, the list includes all cases available in the GDC Data Portal.
 
-[![Cases Tab](images/gdc-data-portal-data-cases_v2.png)](images/gdc-data-portal-data-cases_v2.png "Click to see the full image.")
+[![Cases Tab](images/gdc-data-portal-data-cases_v3.png)](images/gdc-data-portal-data-cases_v3.png "Click to see the full image.")
 
 The list includes links to [case summary pages](#case-summary-page) in the *Case UUID* column, the Submitter ID (i.e. TCGA Barcode), and counts of the available file types for each case. Clicking on a count will apply facet filters to display the corresponding files.
 
@@ -100,7 +100,7 @@ The list also includes a shopping cart button, allowing the user to add all file
 
 After utilizing the Repository Page to narrow down a specific set of cases, users can continue to explore the mutations and genes affected by these cases by clicking the `View Files in Repository` button as shown in the image below.
 
-[![Exploration File Navigation](images/gdc-view-in-exploration_v2.png)](images/gdc-view-in-exploration_v2.png "Click to see the full image.")
+[![Exploration File Navigation](images/gdc-view-in-exploration_v3.png)](images/gdc-view-in-exploration_v3.png "Click to see the full image.")
 
 Clicking this button will navigate the users to the Exploration Page, filtered by the cases within the cohort.
 
@@ -163,7 +163,7 @@ In the lower section of the screen, the following tables provide more details ab
 * __File Versions__: List of all versions of the file.
 
 
-[![Files Entity Page](images/gdc-data-portal-files-entity-page-part2.png)](images/gdc-data-portal-files-entity-page-part2.png "Click to see the full image.")
+[![Files Entity Page](images/gdc-data-portal-files-entity-page-part2_v2.png)](images/gdc-data-portal-files-entity-page-part2_v2.png "Click to see the full image.")
 
 **Note**: *The Legacy Archive* will not display "Workflow, Reference Genome and Read Groups" sections (these sections are applicable to the GDC harmonization pipeline only). However it may provide information on Archives and metadata files like MAGE-TABs and SRA XMLs. For more information, please refer to the section [Legacy Archive](Legacy_Archive.md).
 
