@@ -326,18 +326,59 @@ __Note:__ The `file_size` field associated with each file is reported in bytes.
 The `https://api.gdc.cancer.gov/files/versions` enables search and retrieval of version information about a file.  A file may be versioned if a file is updated by the GDC (e.g. using a new alignment algorithm or fixing a file that contained an error). `Version` refers to the instance of a particular file.  Inputs can either be a list of UUIDs as shown in example 1 or a download manifest as shown in example 2.  Output includes information about the current and latest version for any given file.
 
 ```Shell1
-curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e88b06,2a03abac-f1a2-49a9-a57c-7543739dd862'
+curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e88b06,2a03abac-f1a2-49a9-a57c-7543739dd862?pretty=true'
 ```
 
 ``` Output1
-[{"latest_size": 332092, "latest_id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "latest_version": "1", "filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz", "state": "validated", "version": "1", "latest_filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "c2f9b196e154906a70c7ec46492a859d", "size": 332092, "id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "md5": "c2f9b196e154906a70c7ec46492a859d"}, {"latest_size": 6653119038, "latest_id": "2a03abac-f1a2-49a9-a57c-7543739dd862", "latest_version": "1", "filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam", "state": "validated", "version": "1", "latest_filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "48686fcd84ac713d44261ca9e26b89fb", "size": 6653119038, "id": "2a03abac-f1a2-49a9-a57c-7543739dd862", "md5": "48686fcd84ac713d44261ca9e26b89fb"}]
+[
+  {
+    "latest_size": 332092,
+    "latest_id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06",
+    "latest_version": "1",
+    "filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz",
+    "state": "validated",
+    "version": "1",
+    "latest_filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz",
+    "latest_release": [
+      "13.0"
+    ],
+    "latest_state": "validated",
+    "release": "13.0",
+    "latest_md5": "c2f9b196e154906a70c7ec46492a859d",
+    "size": 332092,
+    "id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06",
+    "md5": "c2f9b196e154906a70c7ec46492a859d"
+  },
+  {
+    "latest_size": 6653119038,
+    "latest_id": "2a03abac-f1a2-49a9-a57c-7543739dd862",
+    "latest_version": "1",
+    "filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam",
+    "state": "validated",
+    "version": "1",
+    "latest_filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam",
+    "latest_release": [
+      "13.0"
+    ],
+    "latest_state": "validated",
+    "release": "13.0",
+    "latest_md5": "48686fcd84ac713d44261ca9e26b89fb",
+    "size": 6653119038,
+    "id": "2a03abac-f1a2-49a9-a57c-7543739dd862",
+    "md5": "48686fcd84ac713d44261ca9e26b89fb"
+  }
+]
 ```
 ```Shell2
-curl https://api.gdc.cancer.gov/files/versions/manifest -F "file=@gdc_manifest_20180729_153730.tsv"
+curl https://api.gdc.cancer.gov/files/versions/manifest?format=tsv -F "file=@gdc_manifest_20180803_134210.txt"
 ```
 
 ``` Output2
-[{"latest_size": 332092, "latest_id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "latest_version": "1", "filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz", "state": "validated", "version": "1", "latest_filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "c2f9b196e154906a70c7ec46492a859d", "size": 332092, "id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "md5": "c2f9b196e154906a70c7ec46492a859d"}, {"latest_size": 195138121, "latest_id": "29d88d0e-c199-405c-a2b3-90c7eec6511c", "latest_version": "1", "filename": "C36BCACXX_5_CGATTA_gdc_realn.bam", "state": "validated", "version": "1", "latest_filename": "C36BCACXX_5_CGATTA_gdc_realn.bam", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "ea766faf63be4306ae5631156d9a7322", "size": 195138121, "id": "29d88d0e-c199-405c-a2b3-90c7eec6511c", "md5": "ea766faf63be4306ae5631156d9a7322"}, {"latest_size": 6653119038, "latest_id": "2a03abac-f1a2-49a9-a57c-7543739dd862", "latest_version": "1", "filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam", "state": "validated", "version": "1", "latest_filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "48686fcd84ac713d44261ca9e26b89fb", "size": 6653119038, "id": "2a03abac-f1a2-49a9-a57c-7543739dd862", "md5": "48686fcd84ac713d44261ca9e26b89fb"}, {"latest_size": 14834, "latest_id": "2e65fe34-77fd-4771-b47d-9516623d5b32", "latest_version": "1", "filename": "nationwidechildrens.org_ssf.TCGA-WX-AA44.xml", "state": "validated", "version": "1", "latest_filename": "nationwidechildrens.org_ssf.TCGA-WX-AA44.xml", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "726ec054ad7f65c4da8186cdd177237a", "size": 14834, "id": "2e65fe34-77fd-4771-b47d-9516623d5b32", "md5": "726ec054ad7f65c4da8186cdd177237a"}, {"latest_size": 122293, "latest_id": "874e71e0-83dd-4d3e-8014-10141b49f12c", "latest_version": "1", "filename": "874e71e0-83dd-4d3e-8014-10141b49f12c.vcf.gz", "state": "validated", "version": "1", "latest_filename": "874e71e0-83dd-4d3e-8014-10141b49f12c.vcf.gz", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "acf2929b1b825bcd1377023e8b8767ec", "size": 122293, "id": "874e71e0-83dd-4d3e-8014-10141b49f12c", "md5": "acf2929b1b825bcd1377023e8b8767ec"}, {"latest_size": 11389, "latest_id": "fbc8cfc3-8ba8-4923-acc6-566193c96e9e", "latest_version": "1", "filename": "fbc8cfc3-8ba8-4923-acc6-566193c96e9e.vep.vcf.gz", "state": "validated", "version": "1", "latest_filename": "fbc8cfc3-8ba8-4923-acc6-566193c96e9e.vep.vcf.gz", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "e3507a6ac1fe8fd56df7326e3d243b44", "size": 11389, "id": "fbc8cfc3-8ba8-4923-acc6-566193c96e9e", "md5": "e3507a6ac1fe8fd56df7326e3d243b44"}, {"latest_size": 817230, "latest_id": "fcc26ef6-5f9c-4ecc-8188-eb09e56d372d", "latest_version": "1", "filename": "fcc26ef6-5f9c-4ecc-8188-eb09e56d372d.vcf.gz", "state": "validated", "version": "1", "latest_filename": "fcc26ef6-5f9c-4ecc-8188-eb09e56d372d.vcf.gz", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "1c5b2885ee3923cea47b7193b2a41d68", "size": 817230, "id": "fcc26ef6-5f9c-4ecc-8188-eb09e56d372d", "md5": "1c5b2885ee3923cea47b7193b2a41d68"}]
+latest_size	latest_id	latest_version	filename	state	version	latest_filename	latest_release	latest_state	release	latest_md5	size	id	md5
+195138121	29d88d0e-c199-405c-a2b3-90c7eec6511c	1	C36BCACXX_5_CGATTA_gdc_realn.bam	validated	1	C36BCACXX_5_CGATTA_gdc_realn.bam	13.0	validated	13.0	ea766faf63be4306ae5631156d9a7322	195138121	29d88d0e-c199-405c-a2b3-90c7eec6511c	ea766faf63be4306ae5631156d9a7322
+14834	2e65fe34-77fd-4771-b47d-9516623d5b32	1	nationwidechildrens.org_ssf.TCGA-WX-AA44.xml	validated	1	nationwidechildrens.org_ssf.TCGA-WX-AA44.xml	13.0	validated	13.0	726ec054ad7f65c4da8186cdd177237a	14834	2e65fe34-77fd-4771-b47d-9516623d5b32	726ec054ad7f65c4da8186cdd177237a
+11389	fbc8cfc3-8ba8-4923-acc6-566193c96e9e	1	fbc8cfc3-8ba8-4923-acc6-566193c96e9e.vep.vcf.gz	validated	1	fbc8cfc3-8ba8-4923-acc6-566193c96e9e.vep.vcf.gz	13.0	validated	13.0	e3507a6ac1fe8fd56df7326e3d243b44	11389	fbc8cfc3-8ba8-4923-acc6-566193c96e9e	e3507a6ac1fe8fd56df7326e3d243b44
+817230	fcc26ef6-5f9c-4ecc-8188-eb09e56d372d	1	fcc26ef6-5f9c-4ecc-8188-eb09e56d372d.vcf.gz	validated	1	fcc26ef6-5f9c-4ecc-8188-eb09e56d372d.vcf.gz	13.0	validated	13.0	1c5b2885ee3923cea47b7193b2a41d68	817230	fcc26ef6-5f9c-4ecc-8188-eb09e56d372d	1c5b2885ee3923cea47b7193b2a41d68
 ```
 
 ### Cases Endpoint
