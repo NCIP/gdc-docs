@@ -102,7 +102,7 @@ UUID-compliance, VCF files should satisfy the following criteria.
 
 1.  SampleName is a required tag in \#\#SAMPLE declaration. The value assigned
     to SampleName should be a valid [aliquot
-    barcode](https://wiki.nci.nih.gov/x/cZdXAg)/[UUID](https://wiki.nci.nih.gov/x/JJhXAg)
+    barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/)/[UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
     in the database. (\#15b, \#15h)
 
 2.  Header declarations for INFO and FORMAT fields should match the values
