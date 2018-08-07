@@ -1,5 +1,5 @@
 # Release
-Project release occurs after the data has been harmonized and allows users to access this data with the GDC Data Portal. The GDC will release data according to [GDC Data Sharing Policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data may be released after six months from the date of upload, or the submitter may request earlier release using the "Release Project" function.  A project can only be released once. If additional data is added to the project after it is released, the data will be released automatically after harmonization.  
+Project release occurs after the data has been harmonized and allows users to access this data with the GDC Data Portal. The GDC will release data according to [GDC Data Sharing Policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data may be released after six months from the date of upload, or the submitter may request earlier release using the "Request Release" function.  A project can only be released once. If additional data is added to the project after it is released, the data will be released automatically after harmonization.  
 
 Upon release, harmonized data will be available to GDC users through the [GDC Data Portal](https://portal.gdc.cancer.gov/) and other [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
 
@@ -7,11 +7,11 @@ Upon release, harmonized data will be available to GDC users through the [GDC Da
 
 [![GDC Submission Release Tab](images/GDC_Submission_Landing_Submitter_3.png)](images/GDC_Submission_Landing_Submitter_3.png "Click to see the full image.")
 
-When the user clicks on the action _'Release'_, the following Release popup is displayed:
+When the user clicks on the action _'Request Release'_, the following Release popup is displayed:
 
 [![GDC Submission Release Popup](images/GDC_Submission_Submit_Release_Release_Popup.png)](images/GDC_Submission_Submit_Release_Release_Popup.png "Click to see the full image.")
 
-After the user clicks on "Release Submitted and Processed Data", the project release state becomes "Released":
+After the user clicks on "Release Submitted and Processed Data", the project release state becomes "Release Requested":
 
 [![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State_2.png)](images/GDC_Submission_Submit_Release_Project_State_2.png "Click to see the full image.")
 
