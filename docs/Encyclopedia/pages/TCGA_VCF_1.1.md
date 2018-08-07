@@ -73,9 +73,7 @@ validation steps that would have to be implemented at the DCC.
 Summary of current version changes
 ==================================
 
-Original feature requests for TCGA VCF 1.1 are available
-[here](https://wiki.nci.nih.gov/x/NoT_Ag). Following is a summary of
-additions/modifications for this version and the corresponding validation rule
+Following is a summary of additions/modifications for this version and the corresponding validation rule
 number is included in parentheses.
 
 **UUID compliance**: All TCGA data is currently in the process of being
@@ -102,7 +100,7 @@ UUID-compliance, VCF files should satisfy the following criteria.
 
 1.  SampleName is a required tag in \#\#SAMPLE declaration. The value assigned
     to SampleName should be a valid [aliquot
-    barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/)/[UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
+    barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) / [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
     in the database. (\#15b, \#15h)
 
 2.  Header declarations for INFO and FORMAT fields should match the values
@@ -513,7 +511,7 @@ For UUID-compliant files, following rules should be followed:
 File, Platform, Source, Accession
 
 -   Value assigned to "SampleUUID" should be a valid [aliquot
-    UUID](https://wiki.nci.nih.gov/x/JJhXAg) in the database.
+    UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/) in the database.
 
 -   Value assigned to "SampleTCGABarcode" should represent the aliquot-level
     metadata associated with SampleUUID. This metadata mapping is originally
@@ -532,7 +530,7 @@ line following the FORMAT column (Figure 1). Each of these samples should have
 its own HEADER declaration where the sample identifier in the column header
 should be the same as the value assigned to "ID" key in the corresponding
 declaration. Value assigned to "SampleName" should be a valid [aliquot
-barcode](https://wiki.nci.nih.gov/x/cZdXAg)/[UUID](https://wiki.nci.nih.gov/x/JJhXAg)
+barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) / [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
 in the database. The declaration lists information about the sample (source,
 platform, source file, etc.) and can also be used to indicate if the sample is a
 mixture of different kind of genomes. In the example below, "Genomes", "Mixture"
@@ -1138,7 +1136,7 @@ version is 1.1.
         double quotes where the string itself cannot contain a double quote.
 
     8.  The value assigned to "SampleName" must be a valid [aliquot
-        barcode](https://wiki.nci.nih.gov/x/cZdXAg)/[UUID](https://wiki.nci.nih.gov/x/JJhXAg)
+        barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) / [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
         in the database (TCGA VCF 1.1).
 
 19. \<TCGA-VCF\> Validation of
@@ -1342,9 +1340,9 @@ MergeSoftware=\<sw1,sw2\>,MergeParam=\<a1,a2;b1,b2\>,MergeVer=\<2.1,3.0\>,MergeC
 UUID-compliant files should satisfy the following criteria:
 
 1. The value assigned to "SampleUUID" must be a valid aliquot
-[UUID](https://wiki.nci.nih.gov/x/JJhXAg).
+[UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/).
 
--   The [metadata](https://wiki.nci.nih.gov/x/cZdXAg) represented by
+-   The [metadata](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) represented by
     "SampleTCGABarcode" must correspond to SampleUUID at the DCC.
 
 2. If \#\#INDIVIDUAL is declared in the header, then values assigned to
