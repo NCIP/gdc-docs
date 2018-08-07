@@ -38,10 +38,10 @@ Once the user submits data to the GDC, they __cannot upload additional data unti
 
 [![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC_v2.png)](images/GDC_SUBMIT_TO_GDC_v2.png "Click to see the full image.")
 
-When the user clicks on the action _'SUBMIT TO GDC'_ on the dashboard, the following submission popup is displayed:
+When the user clicks on the action _'Request Submission'_ on the dashboard, the following submission popup is displayed:
 
-[![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup.png)](images/GDC_Submission_Submit_Release_Submit_Popup.png "Click to see the full image.")
+[![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png)](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png "Click to see the full image.")
 
 
-After the user clicks on "Submit Validated Data to the GDC", the project state becomes "Submitted":
-[![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State.png)](images/GDC_Submission_Submit_Release_Project_State.png "Click to see the full image.")
+After the user clicks on "Submit Validated Data to the GDC", the project state becomes "Submission Requested":
+[![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State.png)](images/GDC_Submission_Submit_Release_Project_State_v2.png "Click to see the full image.")
