@@ -141,6 +141,26 @@ In addition, submitters should also let GDC know the genome build (hg18, hg19 or
 5. Is a Target Capture Kit uniquely defined by its Target Region Bed File?  
 Not necessary. Sometimes, users or manufactures may want to augment an existing kit with additional probes, in order to capture more regions or simply improve the quality of existing regions. In the later case, the bed file stays the same, but it is now a different Target Capture Kit and should be registered separately as described in Step 3 above.
 
+## Specifying Tumor Normal Pairs for analysis
+
+It is critical for many cancer bioinformatics pipelines to specify which normal sample to use to factor out germline variation.  In particular, this is a necessary specification for all tumor normal paired variant calling pipelines.  The following details describe how the GDC determines which normal sample to use for variant calling.
+
+*  Every tumor aliquot will be used for variant calling.  For example, if 10 WXS tumor aliquots are submitted, the GDC will produce 10 alignments and 10 VCFs for each variant calling pipeline.
+*  If there is only one normal we will use that normal for variant calling
+*  If there are multiple normals of the same experimental_strategy for a case:
+    *  Users can specify which normal to use by specifying on the aliquot.  To do so one of the following should be set to `TRUE` for the specified experimental strategy: `selected_normal_low_pass_wgs`, `selected_normal_targeted_sequencing`, `selected_normal_wgs`, or `selected_normal_wxs`.
+    *  Or if no normal is specified the GDC will select the best normal for that patient based on the following criteria:
+        * If a case has blood cancer we will use sample_type in the following priority order: Blood Derived Normal > Bone Marrow Normal > Mononuclear Cells from Bone Marrow Normal > Fibroblasts from Bone Marrow Normal > Lymphoid Normal > Buccal Cell Normal > Solid Tissue Normal > EBV Immortalized Normal
+        * If case does not have blood cancer we will use sample type in the following priority order:
+  Solid Tissue Normal > Buccal Cell Normal > Lymphoid Normal > Fibroblasts from Bone Marrow Normal > Mononuclear Cells from Bone Marrow Normal > Bone Marrow Normal > Blood Derived Normal > EBV Immortalized Normal
+        * If there are still ties we will choose the aliquot submitted first
+* If there are no normals
+    * The GDC will not run tumor only variant calling pipeline by default.  The submitter must specify one of the following properties as TRUE: `no_matched_normal_low_pass_wgs`, `no_matched_normal_targeted_sequencing`, `no_matched_normal_wgs`, `no_matched_normal_wxs`.
+Note that we will only run variant calling for a particular tumor aliquot once.  You must make sure that the appropriate normal control is uploaded to the GDC.  Uploading a different normal sample later will not result in reanalysis by the GDC.
+
+
+
+
 ## Clinical Data Requirements
 
 For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal cross-project GDC requirements include age, gender, and diagnosis information.  Other requirements may be added when the submitter is approved for submission to the GDC.
