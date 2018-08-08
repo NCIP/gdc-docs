@@ -2372,6 +2372,13 @@ The `manifest` endpoint generates a manifest for uploading files using the GDC D
 ```
 https://api.gdc.cancer.gov/v0/submission/PROGRAM/PROJECT/manifest?ids=bf0751ca-fc3b-4760-b876-0fefce040be5,90163202-cfd7-4f6a-8214-e7e4e924d3a6
 ```
+### Uploading New Versions of Data Files
+
+The GDC Submission system supports submitting updated versions of files.  For example, you may want to submit an updated version of a clinical supplement file that contains new clinical information about a patient.  If a file is file_state `validated` then you would simply delete and upload a new copy of this file.  No additional version of the file will be created in this case.  The UUID of the node stays the same.
+
+However, if a file is in file_state=`released` then a different process is required.  In this situation simply upload a new template containing updated metadata.  A new node (with a new UUID) will automatically be created that is linked to the previous version.  Once this new file is indexed and released to users they will be able to query the new UUID in the /files endpoint and both versions' UUID in the files/versions or /history endpoint.  In the example below we register a file, upload the file, register a new version of this file, and upload the new file.
+
+
 
 ### Downloading Files
 
