@@ -149,14 +149,15 @@ It is critical for many cancer bioinformatics pipelines to specify which normal 
 *  If there is only one normal we will use that normal for variant calling
 *  If there are multiple normals of the same experimental_strategy for a case:
     *  Users can specify which normal to use by specifying on the aliquot.  To do so one of the following should be set to `TRUE` for the specified experimental strategy: `selected_normal_low_pass_wgs`, `selected_normal_targeted_sequencing`, `selected_normal_wgs`, or `selected_normal_wxs`.
-    *  Or if no normal is specified the GDC will select the best normal for that patient based on the following criteria:
-        * If a case has blood cancer we will use sample_type in the following priority order: Blood Derived Normal > Bone Marrow Normal > Mononuclear Cells from Bone Marrow Normal > Fibroblasts from Bone Marrow Normal > Lymphoid Normal > Buccal Cell Normal > Solid Tissue Normal > EBV Immortalized Normal
+    *  Or if no normal is specified the GDC will select the best normal for that patient based on the following criteria.  This same logic will also be used if multiple normal are selected.
+        * If a case has blood cancer we will use sample type in the following priority order: Blood Derived Normal > Bone Marrow Normal > Mononuclear Cells from Bone Marrow Normal > Fibroblasts from Bone Marrow Normal > Lymphoid Normal > Buccal Cell Normal > Solid Tissue Normal > EBV Immortalized Normal
         * If case does not have blood cancer we will use sample type in the following priority order:
   Solid Tissue Normal > Buccal Cell Normal > Lymphoid Normal > Fibroblasts from Bone Marrow Normal > Mononuclear Cells from Bone Marrow Normal > Bone Marrow Normal > Blood Derived Normal > EBV Immortalized Normal
         * If there are still ties we will choose the aliquot submitted first
 * If there are no normals
     * The GDC will not run tumor only variant calling pipeline by default.  The submitter must specify one of the following properties as TRUE: `no_matched_normal_low_pass_wgs`, `no_matched_normal_targeted_sequencing`, `no_matched_normal_wgs`, `no_matched_normal_wxs`.
-Note that we will only run variant calling for a particular tumor aliquot once.  You must make sure that the appropriate normal control is uploaded to the GDC.  Uploading a different normal sample later will not result in reanalysis by the GDC.
+
+Note that we will only run variant calling for a particular tumor aliquot per experimental strategy once.  You must make sure that the appropriate normal control is uploaded to the GDC when Requesting Submission.  Uploading a different normal sample later will not result in reanalysis by the GDC.
 
 
 

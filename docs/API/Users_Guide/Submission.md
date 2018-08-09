@@ -2374,11 +2374,134 @@ https://api.gdc.cancer.gov/v0/submission/PROGRAM/PROJECT/manifest?ids=bf0751ca-f
 ```
 ### Uploading New Versions of Data Files
 
-The GDC Submission system supports submitting updated versions of files.  For example, you may want to submit an updated version of a clinical supplement file that contains new clinical information about a patient.  If a file is file_state `validated` then you would simply delete and upload a new copy of this file.  No additional version of the file will be created in this case.  The UUID of the node stays the same.
+The GDC Submission system supports submitting updated versions of files.  For example, you may want to submit an updated version of a clinical supplement file that contains new clinical information about a patient.  If a file is in file_state `validated` then you would simply delete and upload a new copy of this file.  No additional version of the file will be created in this case.  The UUID of the node stays the same.
 
-However, if a file is in file_state=`released` then a different process is required.  In this situation simply upload a new template containing updated metadata.  A new node (with a new UUID) will automatically be created that is linked to the previous version.  Once this new file is indexed and released to users they will be able to query the new UUID in the /files endpoint and both versions' UUID in the files/versions or /history endpoint.  In the example below we register a file, upload the file, register a new version of this file, and upload the new file.
+However, if a file is in file_state `submitted` or `validated` and state `released` then a different process is required.  In this situation simply upload a new template containing updated metadata (e.g. md5sum or file_size).  A new node (with a new UUID) will automatically be created that is linked to the previous version.  Once this new file is indexed and released to users they will be able to query the new UUID in the /files endpoint and both versions' UUID in the files/versions or /history endpoint.  In the example below we register a file, upload the file, and register a new version of this file.
 
-
+```Request
+[
+  {
+    "data_type": "Clinical Supplement",
+    "file_name": "nationwidechildrens.org_clinical.TCGA-4G-AAZT-.xml",
+    "md5sum": "ecaaa87613ba03c971bfefdb6f693959",
+    "data_format": "BCR XML",
+    "submitter_id": "nationwidechildrens.org_CHOL.bio.Level_1.428.25.0.tar.gz_nationwidechildrens.org_clinical.TCGA-4G-AAZT-.xml",
+    "archives": [],
+    "data_category": "Clinical",
+    "file_size": 39195,
+    "cases": [
+      {
+        "id": "b10c64c2-7fd2-4210-b975-034affb14b57",
+        "submitter_id": "TCGA-4G-AAZT"
+      }
+    ],
+    "project_id": "TCGA-CHOL",
+    "type": "clinical_supplement"
+  }
+]
+```
+```Command
+curl --header "X-Auth-Token: $token" --header 'Content-Type: json' --request PUT --data-binary @clin.json 'https://api.gdc.cancer.gov/submission/TCGA/CHOL'
+```
+```Response
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 1,
+  "entities": [
+    {
+      "action": "create",
+      "errors": [],
+      "id": "d65c15d9-9e33-4a0b-863d-605ad6155506",
+      "related_cases": [
+        {
+          "id": "b10c64c2-7fd2-4210-b975-034affb14b57",
+          "submitter_id": "TCGA-4G-AAZT"
+        }
+      ],
+      "type": "clinical_supplement",
+      "unique_keys": [
+        {
+          "project_id": "TCGA-CHOL",
+          "submitter_id": "nationwidechildrens.org_CHOL.bio.Level_1.428.25.0.tar.gz_nationwidechildrens.org_clinical.TCGA-4G-AAZT-.xml"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 922606,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 0
+}
+```
+```Request2
+[
+  {
+    "data_type": "Clinical Supplement",
+    "file_name": "nationwidechildrens.org_clinical.TCGA-4G-AAZT-.xml",
+    "md5sum": "93e306e5e621d3cacb363e2be96ca3cd",
+    "data_format": "BCR XML",
+    "submitter_id": "nationwidechildrens.org_CHOL.bio.Level_1.428.25.0.tar.gz_nationwidechildrens.org_clinical.TCGA-4G-AAZT-.xml",
+    "archives": [],
+    "data_category": "Clinical",
+    "file_size": 39197,
+    "cases": [
+      {
+        "id": "b10c64c2-7fd2-4210-b975-034affb14b57",
+        "submitter_id": "TCGA-4G-AAZT"
+      }
+    ],
+    "project_id": "TCGA-CHOL",
+    "type": "clinical_supplement"
+  }
+]
+```
+```Command2
+curl --header "X-Auth-Token: $token" --header 'Content-Type: json' --request PUT --data-binary @clin_v2.json 'https://api.gdc.cancer.gov/submission/TCGA/CHOL'
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 0,
+  "entities": [
+    {
+      "action": "version",
+      "errors": [],
+      "id": "32e9fd2c-877a-4700-a06f-bb34e0590ca5",
+      "related_cases": [
+        {
+          "id": "b10c64c2-7fd2-4210-b975-034affb14b57",
+          "submitter_id": "TCGA-4G-AAZT"
+        }
+      ],
+      "type": "clinical_supplement",
+      "unique_keys": [
+        {
+          "project_id": "TCGA-CHOL",
+          "submitter_id": "nationwidechildrens.org_CHOL.bio.Level_1.428.25.0.tar.gz_nationwidechildrens.org_clinical.TCGA-4G-AAZT-.xml"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 922607,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 0
+}
+```
 
 ### Downloading Files
 
