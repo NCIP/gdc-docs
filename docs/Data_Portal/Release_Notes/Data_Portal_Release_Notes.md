@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.15.0](Data_Portal_Release_Notes.md#release-1140) | , 2018 |
+| [v1.15.0](Data_Portal_Release_Notes.md#release-1140) | August X, 2018 |
 | [v1.14.0](Data_Portal_Release_Notes.md#release-1130) | June 13, 2018 |
 | [v1.13.0](Data_Portal_Release_Notes.md#release-1130) | May 21, 2018 |
 | [v1.12.0](Data_Portal_Release_Notes.md#release-1120) | February 15, 2018 |
@@ -22,7 +22,7 @@
 ## Release 1.15.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  
+* __Release Date__:  August X, 2018
 
 ### New Features and Changes <!--REQ-329-->
 
@@ -40,6 +40,8 @@
 
 ### Known Issues and Workarounds
 
+*  Advanced Search
+    * For advanced search and custom file facet filtering there are some properties that will appear as options that are no longer supported (e.g. file_state). <!--API-530-->
 *  Custom facet filters
     * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
 *  Visualizations
