@@ -6,51 +6,6 @@ TCGA Variant Call Format (VCF) 1.1 Specification
 **Specification for TCGA Variant Call Format (VCF)**  
 Version 1.1
 
-**Contents**
-
--   1 About TCGA VCF specification1.1
-
--   2 Summary of current version
-    changes
-
--   3 TCGA-specific customizations
-
--   4 File format
-
-    -   4.1 HEADER
-
-        -   4.1.1 Generic
-            meta-information
-
-        -   4.1.2 INFO/FORMAT/FILTER
-            meta-information
-
-        -   4.1.3 TCGA-specific
-            meta-information
-
-        -   4.1.4 Column header
-            meta-information
-
-    -   4.2 BODY
-
-        -   4.2.1 Variant records
-
--   5 Extensions for TCGA data
-
-    -   5.1 Structural variants
-
-    -   5.2 Complex rearrangements
-
-    -   5.3 RNA-Seq variants
-
-    -   5.4 Including validation status in VCF
-        file
-
--   6 Validation rules
-
-    -   6.1 Handling failed checks
-
-    -   6.2 Test files
 
 Please note that VCF files are treated as **protected** data and must be
 submitted to the DCC only in **Level 2** archives.
@@ -84,30 +39,30 @@ Non-UUID files will follow the specification described here but for
 UUID-compliance, VCF files should satisfy the following criteria.
 
 1.  **SampleUUID** and **SampleTCGABarcode**  are required tags in each
-    \#\#SAMPLE declaration. Please note that **SampleName** will not be a
+    ##SAMPLE declaration. Please note that **SampleName** will not be a
     required tag once submitting center has fully converted to UUIDs.
 
     1.  Metadata represented by SampleTCGABarcode at the DCC should correspond
         to the UUID assigned to SampleUUID.
 
-2.  **Individual** is not a required tag in \#\#SAMPLE declaration.
+2.  **Individual** is not a required tag in ##SAMPLE declaration.
 
-3.  If \#\#**INDIVIDUAL** is declared in the header, all SampleUUIDs in the
+3.  If ##**INDIVIDUAL** is declared in the header, all SampleUUIDs in the
     header must correspond to the same participant, and the corresponding TCGA
-    barcode for that participant should be assigned to \#\#INDIVIDUAL.
+    barcode for that participant should be assigned to ##INDIVIDUAL.
 
  
 
-1.  SampleName is a required tag in \#\#SAMPLE declaration. The value assigned
+1.  SampleName is a required tag in ##SAMPLE declaration. The value assigned
     to SampleName should be a valid [aliquot
     barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) / [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
-    in the database. (\#15b, \#15h)
+    in the database. (#15b, #15h)
 
 2.  Header declarations for INFO and FORMAT fields should match the values
-    defined in Tables 4 and 5 respectively. (\#7a)
+    defined in Tables 4 and 5 respectively. (#7a)
 
 3.  Following FORMAT fields are required for all variant records in a VCF file:
-    (\#10c)
+    (#10c)
 
     -   Genotype (**GT**)
 
@@ -120,22 +75,22 @@ UUID-compliance, VCF files should satisfy the following criteria.
     -   Somatic status of the variant (**SS**). SS can be 0, 1, 2, 3, 4 or 5
         depending on whether relative to normal the variant is wildtype,
         germline, somatic, LOH, post-transcriptional modification, or unknown
-        respectively. (\#23)
+        respectively. (#23)
 
 4.  Values for INFO field **VLS** (validation status relative to non-adjacent
     Normal) will be checked for validity. It can be 0, 1, 2, 3, 4, or 5 based on
     whether the mutation is wildtype, germline, somatic, LOH, post
-    transcriptional modification, or unknown respectively. (\#9c)
+    transcriptional modification, or unknown respectively. (#9c)
 
-5.  Validation of tags in PEDIGREE declaration has changed as follows: (\#16)
+5.  Validation of tags in PEDIGREE declaration has changed as follows: (#16)
 
     -   Name_0, Name_1, etc. do not have to be these literal strings but instead
         represent arbitrary strings.
 
-    -   The keys and values used in the \<Name_N=Value_N\> should be unique
+    -   The keys and values used in the <Name_N=Value_N> should be unique
         across assignments in any given PEDIGREE declaration.
 
-    -   Value assigned in \<Name_N=Value_N\> does not have to be defined as a
+    -   Value assigned in <Name_N=Value_N> does not have to be defined as a
         SAMPLE in a genotype column or in the header.
 
 TCGA-specific customizations
@@ -150,7 +105,7 @@ sample-specific metadata.
 
 All TCGA-specific additions and modifications in [validation
 steps](#TCGAVariantCallFormat(VCF)1.1Specificat) are prefixed with a
-\<TCGA-VCF\> tag for convenient comparison with 1000Genomes VCF 4.1. The
+<TCGA-VCF> tag for convenient comparison with 1000Genomes VCF 4.1. The
 following table summarizes TCGA-specific customizations that have been added to
 the VCF 4.1 specification. The first column, "Customization type", indicates
 whether a new validation step has been introduced or if an existing step has
@@ -158,9 +113,9 @@ been modified
 
 **Table 1: TCGA-specific validation steps**
 
-| **Customization type** | **Description**                                                                                                                                                              | **Validation step \# in TCGA-VCF 1.1 spec** | **Corresponding validation step \# in VCF 4.1 spec** |
+| **Customization type** | **Description**                                                                                                                                                              | **Validation step # in TCGA-VCF 1.1 spec** | **Corresponding validation step # in VCF 4.1 spec** |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|------------------------------------------------------|
-| New                    | Validate that file contains \#\#tcgaversion HEADER line. Its presence indicates that the file is TCGA VCF and the value assigned to the field contains format version number | \---                                        | \---                                                 |
+| New                    | Validate that file contains ##tcgaversion HEADER line. Its presence indicates that the file is TCGA VCF and the value assigned to the field contains format version number | \---                                        | \---                                                 |
 | New                    | Additional mandatory header lines (Please refer to [Table 2](#TCGAVariantCallFormat(VCF)1.1Specificat))                                                                      | \#1                                         | \#1                                                  |
 | New                    | Validation of SAMPLE meta-information lines                                                                                                                                  | \#15                                        | \---                                                 |
 | New                    | Validation of PEDIGREE meta-information lines                                                                                                                                | \#16                                        | \---                                                 |
@@ -204,22 +159,22 @@ about variants contained in BODY of the file. HEADER lines could be formatted in
 the following two ways:
 
 
-    \#\#key=value
+    ##key=value
 
     Example:
 
-    \#\#fileformat=VCFv4.1
+    ##fileformat=VCFv4.1
 
-    \#\#fileDate=20090805
+    ##fileDate=20090805
 
 
 or
 
-    \#\#FIELDTYPE=\<key1=value1,key2=value2,...\>
+    ##FIELDTYPE=<key1=value1,key2=value2,...>
 
     Example:
 
-    \#\#INFO=\<ID=AA,Number=1,Type=String,Description="Ancestral Allele"\>
+    ##INFO=<ID=AA,Number=1,Type=String,Description="Ancestral Allele">
 
 Meta-information could be applicable either to all variant records in the file
 (e.g., date of creation of file) or to individual variants (e.g., flag to
@@ -227,7 +182,7 @@ indicate whether a given variant exists in dbSNP).
 
 ### Generic meta-information
 
-**Format**: *\#\#key=value* OR *\#\#FIELDTYPE=\<key1=value1,key2=value2,...\>*
+**Format**: *##key=value* OR *##FIELDTYPE=<key1=value1,key2=value2,...>*
 
 The following table lists some of the reserved field names. Files can be
 customized to contain additional meta-information fields as long as they are not
@@ -236,36 +191,36 @@ is mandatory and lists the VCF version number of the file.
 
 **Table 2: Examples of generic meta-information fields**
 
-| **Field**     | **Case-Sensitive**    | **Description** |  **Sample values** |
-| ------------- | --------------------- | --------------- | ------------------ |
-| Fileformat    | No                 | Lists the VCF version number the file is based on; must be the first line in the file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | \#\#fileformat=VCFv4.1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Yes                                                                                                   |
-| fileDate      | No                 | Date file was created; should be in yyyymmdd format                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | \#\#fileDate=20090805                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Yes                                                                                                   |
-| Tcgaversion   | No                 | Indicates that the file follows TCGA-VCF specification. Format version number is assigned to the field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | \#\#tcgaversion=1.1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Yes                                                                                                   |
-| Reference     | No                 | Reference build used for variant calling and against which variant coordinates are shown                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | \#\#reference=1000GenomesPilot-NCBI36                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Yes                                                                                                   |
+| **Field**     | **Case-Sensitive**    | **Description** |  **Sample values** | Required (fields in red are TCGA-specific requirements)
+| ------------- | --------------------- | --------------- | ------------------ | ----------------------------------------------------- |
+| Fileformat    | No                 | Lists the VCF version number the file is based on; must be the first line in the file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ##fileformat=VCFv4.1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Yes                                                                                                   |
+| fileDate      | No                 | Date file was created; should be in yyyymmdd format                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | ##fileDate=20090805                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Yes                                                                                                   |
+| Tcgaversion   | No                 | Indicates that the file follows TCGA-VCF specification. Format version number is assigned to the field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | ##tcgaversion=1.1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Yes                                                                                                   |
+| Reference     | No                 | Reference build used for variant calling and against which variant coordinates are shown                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | ##reference=1000GenomesPilot-NCBI36                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Yes                                                                                                   |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | OR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                       |
-|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | \#\#reference=\<ID=hg18,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                       |
+|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | ##reference=<ID=hg18,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Source=<file://seq/references/1000GenomesPilot-NCBI36.fasta>                                                                                                                                                                                                                                                                                                                                                                                                                                              |                                                                                                       |
-| Assembly      | No                 | External assembly file. The field can be assigned a file name if assembly file is included in the archive submitted to the DCC or it can be a URL pointing to the file location.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | \#\#assembly=[ftp://ftp-trace.ncbi.nih.gov/](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/sv/breakpoint_assemblies.fasta)                                                                                                                                                                                                                                                                                                                                                                         | Yes                                                                                                   |
+| Assembly      | No                 | External assembly file. The field can be assigned a file name if assembly file is included in the archive submitted to the DCC or it can be a URL pointing to the file location.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | ##assembly=[ftp://ftp-trace.ncbi.nih.gov/](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/sv/breakpoint_assemblies.fasta)                                                                                                                                                                                                                                                                                                                                                                         | Yes                                                                                                   |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [1000genomes/ftp/release/sv/breakpoint_assemblies.fasta](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/sv/breakpoint_assemblies.fasta)                                                                                                                                                                                                                                                                                                                                                             | (if a contig from an assembly file is being referred to in the VCF file, especially for breakends)    |
-| center        | No                 | Name of the center where VCF file is generated. A comma-separated list can be provided if files from multiple centers are merged.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | \#\#center="Broad"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Yes                                                                                                   |
+| center        | No                 | Name of the center where VCF file is generated. A comma-separated list can be provided if files from multiple centers are merged.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | ##center="Broad"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Yes                                                                                                   |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | OR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                       |
-|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | \#\#center="Broad,UCSC,BCM"                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                       |
-| phasing       | No                 | Indicates whether genotype calls are partially phased (phasing=partial) or unphased (phasing=none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | \#\#phasing=none                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Yes                                                                                                   |
-| geneAnno      | No                 | URL of the gene annotation source e.g., Generic Annotation File (GAF)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | \#\#geneAnno=[http://tcga-data.nci.nih.gov/docs/GAF](http://tcga-data.nci.nih.gov/docs/GAF/GAF_bundle_Feb2011/outputs/TCGA.hg18.Feb2011.gaf)                                                                                                                                                                                                                                                                                                                                                              | Yes                                                                                                   |
-|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [/GAF_bundle_Feb2011/outputs/TCGA.hg18.Feb2011.gaf](http://tcga-data.nci.nih.gov/docs/GAF/GAF_bundle_Feb2011/outputs/TCGA.hg18.Feb2011.gaf)                                                                                                                                                                                                                                                                                                                                                               | (if annotation tags like GENE, SID and RGN are used)                                                  |
-| vcfProcessLog | No                 | Lists algorithm, version and settings used to generate variant calls in a VCF file. If multiple VCF files are processed to produce a single merged file, the field records attributes for individual VCF files and the programs used to merge the files along with the associated version, parameters and contact information of the person who produced the merged file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | \#\#vcfProcessLog=\<InputVCF=\<file1.vcf\>,                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Yes                                                                                                   |
-|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | InputVCFSource=\<varCaller1\>,                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                                                                                       |
+|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | ##center="Broad,UCSC,BCM"                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                       |
+| phasing       | No                 | Indicates whether genotype calls are partially phased (phasing=partial) or unphased (phasing=none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | ##phasing=none                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Yes                                                                                                   |
+| geneAnno      | No                 | URL of the gene annotation source e.g., Generic Annotation File (GAF)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ##geneAnno=[http://tcga-data.nci.nih.gov/docs/GAF](https://api.gdc.cancer.gov/legacy/data/95c3618c-bd9e-4df4-96e4-ef8d54710e51)                                                                                                                                                                                                                                                                                                                                                              | Yes                                                                                                   |
+|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [/GAF_bundle_Feb2011/outputs/TCGA.hg18.Feb2011.gaf](https://api.gdc.cancer.gov/legacy/data/95c3618c-bd9e-4df4-96e4-ef8d54710e51)                                                                                                                                                                                                                                                                                                                                                               | (if annotation tags like GENE, SID and RGN are used)                                                  |
+| vcfProcessLog | No                 | Lists algorithm, version and settings used to generate variant calls in a VCF file. If multiple VCF files are processed to produce a single merged file, the field records attributes for individual VCF files and the programs used to merge the files along with the associated version, parameters and contact information of the person who produced the merged file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ##vcfProcessLog=<InputVCF=<file1.vcf>,                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Yes                                                                                                   |
+|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | InputVCFSource=<varCaller1>,                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                                                                                       |
 |               |                    | **Note**: If VCF file does not represent a set of merged files, *MergeSoftware*, *MergeParam*, *MergeVer* and *MergeContact* tags will not be applicable and can be omitted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | InputVCFVer=\<1.0\>,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | InputVCFParam=\<a1,c2\>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                       |
 |               |                    | **Note**: If multiple parameters need to be declared in *InputVCFParam*, key=value pairs can be used to name these parameters. For example:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | InputVCFgeneAnno=\<anno1.gaf\>\>                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                       |
 |               |                    | InputVCFParam=\<key1=value1,key2=value2\>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                       |
 |               |                    | If there are multiple files for which parameters have to be declared, following format can be used:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | OR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                       |
 |               |                    | InputVCFParam=\<key1_1=value1_1,key1_2=value1_2;key2_1=value2_1,key2_2=value2_2\>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                       |
-|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | \#\#vcfProcessLog=\<InputVCF=\<file1.vcf,file2.vcf,file3.vcf\>,                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                       |
+|               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | ##vcfProcessLog=<InputVCF=<file1.vcf,file2.vcf,file3.vcf>,                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | InputVCFSource=\<varCaller1,varCaller2,varCaller3\>,                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | InputVCFVer=\<1.0,2.1,2.0\>,                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | InputVCFParam=\<a1,c2;a1,b1;a1,b1\>,                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                       |
@@ -274,11 +229,11 @@ is mandatory and lists the VCF version number of the file.
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | MergeParam=\<a1,a2;b1,b2\>,                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | MergeVer=\<2.1,3.0\>,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                       |
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | MergeContact=\<johndoe\@xyz.edu\>\>                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                       |
-| INDIVIDUAL    | No                 | Specifies the individual for which data is presented in the file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | \#\#INDIVIDUAL=TCGA-24-0980                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | No                                                                                                    |
+| INDIVIDUAL    | No                 | Specifies the individual for which data is presented in the file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | ##INDIVIDUAL=TCGA-24-0980                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | No                                                                                                    |
 
 ### INFO/FORMAT/FILTER meta-information
 
-**Format**: *\#\#FIELDTYPE=\<key1=value1,key2=value2,...\>*
+**Format**: *##FIELDTYPE=<key1=value1,key2=value2,...>*
 
 INFO, FORMAT and FILTER (case-sensitive values) are optional fields that have to
 be declared in the HEADER if they are being referred to in BODY of the file.
@@ -289,7 +244,7 @@ definitions for further details.
 **Important**: TCGA VCF 1.1 requires all VCF files to follow consistent header
 declarations for standard INFO and FORMAT sub-fields. Please refer to Tables 4
 and 5 for details. If a sub-field exists in these tables and is used in a TCGA
-VCF file, then all \<key=value\> pairs in the definition should match entries in
+VCF file, then all <key=value> pairs in the definition should match entries in
 the corresponding table for the file to pass validation.
 
 **Table 3: Description of keys used in INFO/FORMAT/FILTER meta-information
@@ -308,7 +263,7 @@ declarations**
 
 #### INFO lines
 
-**Format**: *\#\#INFO=\<key1=value1,key2=value2,...\>*  
+**Format**: *##INFO=<key1=value1,key2=value2,...>*  
 **Required keys**: ID, Type, Number, Description
 
 INFO fields are optional and contain additional annotations for a variant.
@@ -318,19 +273,19 @@ requirements as long as they do not use the reserved field names. If an INFO
 field is declared in the header, it needs to be described further using the
 following format:
 
-    \#\#INFO=\<ID=ID,Number=number,Type=type,Description=”description”\>
+    ##INFO=<ID=ID,Number=number,Type=type,Description=”description”>
 
     Example:
 
-    \#\#INFO=\<ID=AA,Number=1,Type=String,Description="Ancestral Allele"\>
+    ##INFO=<ID=AA,Number=1,Type=String,Description="Ancestral Allele">
 
-    \#\#INFO=\<ID=AF,Number=A,Type=Float,Description="Allele Frequ
+    ##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequ
 
-    ency"\>
+    ency">
 
 #### FORMAT lines
 
-**Format**: *\#\#FORMAT=\<key1=value1,key2=value2,...\>*  
+**Format**: *##FORMAT=<key1=value1,key2=value2,...>*  
 **Required keys**: ID, Type, Number, Description
 
 FORMAT declaration lines are used when annotations need to be added for
@@ -338,13 +293,13 @@ individual genotypes associated with each sample in the file. FORMAT sub-fields
 are declared precisely as the INFO sub-fields with the exception that a FORMAT
 sub-field cannot be assigned a "Flag" *Type.*
 
-    \#\#FORMAT=\<ID=ID,Number=number,Type=type,Description=”description”\>
+    ##FORMAT=<ID=ID,Number=number,Type=type,Description=”description”>
 
     Example:
 
-    \#\#FORMAT=\<ID=GT,Number=1,Type=String,Description="Genotype"\>
+    ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 
-    \#\#FORMAT=\<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality"\>
+    ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
 
 **Important**: TCGA VCF 1.1 requires the following FORMAT sub-fields to be
 defined for all variant records. Therefore, these FORMAT lines are not optional
@@ -371,7 +326,7 @@ value.
 
 #### FILTER lines
 
-**Format**: *\#\#FILTER=\<key1=value1,key2=value2,...\>*  
+**Format**: *##FILTER=<key1=value1,key2=value2,...>*  
 **Required keys**: ID, Description
 
 FILTER fields are defined to list filtering criteria used for generating variant
@@ -380,13 +335,13 @@ HEADER. FILTERs that have been applied to the data should be described as
 follows. Please note that FILTER declarations do not include *Type* or *Number*
 keys.
 
-    \#\#FILTER=\<ID=ID,Description=”description”\>
+    ##FILTER=<ID=ID,Description=”description”>
 
     Example:
 
-    \#\#FILTER=\<ID=q10,Description="Quality below 10"\>
+    ##FILTER=<ID=q10,Description="Quality below 10">
 
-    \#\#FILTER=\<ID=s50,Description="Less than 50% of samples have data"\>
+    ##FILTER=<ID=s50,Description="Less than 50% of samples have data">
 
 #### Consistent definitions for reserved INFO and FORMAT fields
 
@@ -402,48 +357,48 @@ given field is interpreted the same way across all centers and that same
 
 | **Sub-field** | **Source** | **Formatted declaration**                                                                                                                                                                           |
 |---------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AA            | VCF        | \#\#INFO=\<ID=AA,Number=1,Type=String,Description="Ancestral Allele"\>                                                                                                                              |
-| AC            | VCF        | \#\#INFO=\<ID=AC,Number=.,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed"\>                                                                  |
-| AF            | VCF        | \#\#INFO=\<ID=AF,Number=.,Type=Float,Description="Allele Frequency in primary data, for each ALT allele, in the same order as listed"\>                                                             |
-| AN            | VCF        | \#\#INFO=\<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes"\>                                                                                                  |
-| BQ            | VCF        | \#\#INFO=\<ID=BQ,Number=1,Type=Integer,Description="RMS base quality"\>                                                                                                                             |
-| CIGAR         | VCF        | \#\#INFO=\<ID=CIGAR,Number=1,Type=Integer,Description="Cigar string describing how to align an alternate allele to the reference allele"\>                                                          |
-| DB            | VCF        | \#\#INFO=\<ID=DB,Number=0,Type=Flag,Description="dbSNP membership"\>                                                                                                                                |
-| DP            | VCF        | \#\#INFO=\<ID=DP,Number=1,Type=Integer,Description="Total Depth across samples"\>                                                                                                                   |
-| END           | VCF        | \#\#INFO=\<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record"\>                                                                                        |
-| H2            | VCF        | \#\#INFO=\<ID=H2,Number=0,Type=Flag,Description="HapMap2 membership"\>                                                                                                                              |
-| H3            | VCF        | \#\#INFO=\<ID=H3,Number=0,Type=Flag,Description="HapMap3 membership"\>                                                                                                                              |
-| MQ            | VCF        | \#\#INFO=\<ID=MQ,Number=1,Type=Integer,Description="RMS Mapping Quality"\>                                                                                                                          |
-| MQ0           | VCF        | \#\#INFO=\<ID=MQ0,Number=1,Type=Integer,Description="Total Mapping Quality Zero Reads"\>                                                                                                            |
-| NS            | VCF        | \#\#INFO=\<ID=NS,Number=1,Type=Integer,Description="Number of Samples With Data"\>                                                                                                                  |
-| SB            | VCF        | \#\#INFO=\<ID=SB,Number=1,Type=Float,Description="Strand bias"\>                                                                                                                                    |
-| SOMATIC       | VCF        | \#\#INFO=\<ID=SOMATIC,Number=0,Type=Flag,Description="Indicates if record is a somatic mutation"\>                                                                                                  |
-| VALIDATED     | VCF        | \#\#INFO=\<ID=VALIDATED,Number=0,Type=Flag,Description="Indicates if variant has been validated by follow-up experiment"\>                                                                          |
-| 1000G         | VCF        | \#\#INFO=\<ID=1000G,Number=0,Type=Flag,Description="Indicates membership in 1000Genomes"\>                                                                                                          |
-| IMPRECISE     | VCF        | \#\#INFO=\<ID=IMPRECISE,Number=0,Type=Flag,Description="Imprecise structural variation"\>                                                                                                           |
-| NOVEL         | VCF        | \#\#INFO=\<ID=NOVEL,Number=0,Type=Flag,Description="Indicates a novel structural variation"\>                                                                                                       |
-| SVTYPE        | VCF        | \#\#INFO=\<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant"\>                                                                                                                |
-| SVLEN         | VCF        | \#\#INFO=\<ID=SVLEN,Number=.,Type=Integer,Description="Difference in length between REF and ALT alleles"\>                                                                                          |
-| CIPOS         | VCF        | \#\#INFO=\<ID=CIPOS,Number=2,Type=Integer,Description="Confidence interval around POS for imprecise variants"\>                                                                                     |
-| CIEND         | VCF        | \#\#INFO=\<ID=CIEND,Number=2,Type=Integer,Description="Confidence interval around END for imprecise variants"\>                                                                                     |
-| HOMLEN        | VCF        | \#\#INFO=\<ID=HOMLEN,Number=.,Type=Integer,Description="Length of base pair identical micro-homology at event breakpoints"\>                                                                        |
-| HOMSEQ        | VCF        | \#\#INFO=\<ID=HOMSEQ,Number=.,Type=String,Description="Sequence of base pair identical micro-homology at event breakpoints"\>                                                                       |
-| BKPTID        | VCF        | \#\#INFO=\<ID=BKPTID,Number=.,Type=String,Description="ID of the assembled alternate allele in the assembly file"\>                                                                                 |
-| MEINFO        | VCF        | \#\#INFO=\<ID=MEINFO,Number=4,Type=String,Description="Mobile element info of the form NAME,START,END,POLARITY"\>                                                                                   |
-| METRANS       | VCF        | \#\#INFO=\<ID=METRANS,Number=4,Type=String,Description="Mobile element transduction info of the form CHR,START,END,POLARITY"\>                                                                      |
-| DGVID         | VCF        | \#\#INFO=\<ID=DGVID,Number=1,Type=String,Description="ID of this element in Database of Genomic Variation"\>                                                                                        |
-| DBVARID       | VCF        | \#\#INFO=\<ID=DBVARID,Number=1,Type=String,Description="ID of this element in DBVAR"\>                                                                                                              |
-| DBRIPID       | VCF        | \#\#INFO=\<ID=DBRIPID,Number=1,Type=String,Description="ID of this element in DBRIP"\>                                                                                                              |
-| MATEID        | VCF        | \#\#INFO=\<ID=MATEID,Number=.,Type=String,Description="ID of mate breakends"\>                                                                                                                      |
-| PARID         | VCF        | \#\#INFO=\<ID=PARID,Number=1,Type=String,Description="ID of partner breakend"\>                                                                                                                     |
-| EVENT         | VCF        | \#\#INFO=\<ID=EVENT,Number=1,Type=String,Description="ID of event associated to breakend"\>                                                                                                         |
-| CILEN         | VCF        | \#\#INFO=\<ID=CILEN,Number=2,Type=Integer,Description="Confidence interval around the length of the inserted material between breakends"\>                                                          |
-| DPADJ         | VCF        | \#\#INFO=\<ID=DPADJ,Number=.,Type=Integer,Description="Read Depth of adjacency"\>                                                                                                                   |
-| CN            | VCF        | \#\#INFO=\<ID=CN,Number=1,Type=Integer,Description="Copy number of segment containing breakend"\>                                                                                                   |
-| CNADJ         | VCF        | \#\#INFO=\<ID=CNADJ,Number=.,Type=Integer,Description="Copy number of adjacency"\>                                                                                                                  |
-| CICN          | VCF        | \#\#INFO=\<ID=CICN,Number=2,Type=Integer,Description="Confidence interval around copy number for the segment"\>                                                                                     |
-| CICNADJ       | VCF        | \#\#INFO=\<ID=CICNADJ,Number=.,Type=Integer,Description="Confidence interval around copy number for the adjacency"\>                                                                                |
-| VLS           | TCGA-VCF   | \#\#INFO=\<ID=VLS,Number=1,Type=Integer,Description="Final validation status relative to non-adjacent Normal,0=wildtype,1=germline,2=somatic,3=LOH,4=post transcriptional modification,5=unknown"\> |
+| AA            | VCF        | ##INFO=<ID=AA,Number=1,Type=String,Description="Ancestral Allele"\>                                                                                                                              |
+| AC            | VCF        | ##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed"\>                                                                  |
+| AF            | VCF        | ##INFO=<ID=AF,Number=.,Type=Float,Description="Allele Frequency in primary data, for each ALT allele, in the same order as listed"\>                                                             |
+| AN            | VCF        | ##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes"\>                                                                                                  |
+| BQ            | VCF        | ##INFO=<ID=BQ,Number=1,Type=Integer,Description="RMS base quality"\>                                                                                                                             |
+| CIGAR         | VCF        | ##INFO=<ID=CIGAR,Number=1,Type=Integer,Description="Cigar string describing how to align an alternate allele to the reference allele"\>                                                          |
+| DB            | VCF        | ##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership"\>                                                                                                                                |
+| DP            | VCF        | ##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth across samples"\>                                                                                                                   |
+| END           | VCF        | ##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record"\>                                                                                        |
+| H2            | VCF        | ##INFO=<ID=H2,Number=0,Type=Flag,Description="HapMap2 membership"\>                                                                                                                              |
+| H3            | VCF        | ##INFO=<ID=H3,Number=0,Type=Flag,Description="HapMap3 membership"\>                                                                                                                              |
+| MQ            | VCF        | ##INFO=<ID=MQ,Number=1,Type=Integer,Description="RMS Mapping Quality"\>                                                                                                                          |
+| MQ0           | VCF        | ##INFO=<ID=MQ0,Number=1,Type=Integer,Description="Total Mapping Quality Zero Reads"\>                                                                                                            |
+| NS            | VCF        | ##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With Data"\>                                                                                                                  |
+| SB            | VCF        | ##INFO=<ID=SB,Number=1,Type=Float,Description="Strand bias"\>                                                                                                                                    |
+| SOMATIC       | VCF        | ##INFO=<ID=SOMATIC,Number=0,Type=Flag,Description="Indicates if record is a somatic mutation"\>                                                                                                  |
+| VALIDATED     | VCF        | ##INFO=<ID=VALIDATED,Number=0,Type=Flag,Description="Indicates if variant has been validated by follow-up experiment"\>                                                                          |
+| 1000G         | VCF        | ##INFO=<ID=1000G,Number=0,Type=Flag,Description="Indicates membership in 1000Genomes"\>                                                                                                          |
+| IMPRECISE     | VCF        | ##INFO=<ID=IMPRECISE,Number=0,Type=Flag,Description="Imprecise structural variation"\>                                                                                                           |
+| NOVEL         | VCF        | ##INFO=<ID=NOVEL,Number=0,Type=Flag,Description="Indicates a novel structural variation"\>                                                                                                       |
+| SVTYPE        | VCF        | ##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant"\>                                                                                                                |
+| SVLEN         | VCF        | ##INFO=<ID=SVLEN,Number=.,Type=Integer,Description="Difference in length between REF and ALT alleles"\>                                                                                          |
+| CIPOS         | VCF        | ##INFO=<ID=CIPOS,Number=2,Type=Integer,Description="Confidence interval around POS for imprecise variants"\>                                                                                     |
+| CIEND         | VCF        | ##INFO=<ID=CIEND,Number=2,Type=Integer,Description="Confidence interval around END for imprecise variants"\>                                                                                     |
+| HOMLEN        | VCF        | ##INFO=<ID=HOMLEN,Number=.,Type=Integer,Description="Length of base pair identical micro-homology at event breakpoints"\>                                                                        |
+| HOMSEQ        | VCF        | ##INFO=<ID=HOMSEQ,Number=.,Type=String,Description="Sequence of base pair identical micro-homology at event breakpoints"\>                                                                       |
+| BKPTID        | VCF        | ##INFO=<ID=BKPTID,Number=.,Type=String,Description="ID of the assembled alternate allele in the assembly file"\>                                                                                 |
+| MEINFO        | VCF        | ##INFO=<ID=MEINFO,Number=4,Type=String,Description="Mobile element info of the form NAME,START,END,POLARITY"\>                                                                                   |
+| METRANS       | VCF        | ##INFO=<ID=METRANS,Number=4,Type=String,Description="Mobile element transduction info of the form CHR,START,END,POLARITY"\>                                                                      |
+| DGVID         | VCF        | ##INFO=<ID=DGVID,Number=1,Type=String,Description="ID of this element in Database of Genomic Variation"\>                                                                                        |
+| DBVARID       | VCF        | ##INFO=<ID=DBVARID,Number=1,Type=String,Description="ID of this element in DBVAR"\>                                                                                                              |
+| DBRIPID       | VCF        | ##INFO=<ID=DBRIPID,Number=1,Type=String,Description="ID of this element in DBRIP"\>                                                                                                              |
+| MATEID        | VCF        | ##INFO=<ID=MATEID,Number=.,Type=String,Description="ID of mate breakends"\>                                                                                                                      |
+| PARID         | VCF        | ##INFO=<ID=PARID,Number=1,Type=String,Description="ID of partner breakend"\>                                                                                                                     |
+| EVENT         | VCF        | ##INFO=<ID=EVENT,Number=1,Type=String,Description="ID of event associated to breakend"\>                                                                                                         |
+| CILEN         | VCF        | ##INFO=<ID=CILEN,Number=2,Type=Integer,Description="Confidence interval around the length of the inserted material between breakends"\>                                                          |
+| DPADJ         | VCF        | ##INFO=<ID=DPADJ,Number=.,Type=Integer,Description="Read Depth of adjacency"\>                                                                                                                   |
+| CN            | VCF        | ##INFO=<ID=CN,Number=1,Type=Integer,Description="Copy number of segment containing breakend"\>                                                                                                   |
+| CNADJ         | VCF        | ##INFO=<ID=CNADJ,Number=.,Type=Integer,Description="Copy number of adjacency"\>                                                                                                                  |
+| CICN          | VCF        | ##INFO=<ID=CICN,Number=2,Type=Integer,Description="Confidence interval around copy number for the segment"\>                                                                                     |
+| CICNADJ       | VCF        | ##INFO=<ID=CICNADJ,Number=.,Type=Integer,Description="Confidence interval around copy number for the adjacency"\>                                                                                |
+| VLS           | TCGA-VCF   | ##INFO=<ID=VLS,Number=1,Type=Integer,Description="Final validation status relative to non-adjacent Normal,0=wildtype,1=germline,2=somatic,3=LOH,4=post transcriptional modification,5=unknown"\> |
 | SID           | TCGA-VCF   | \#\#INFO=\<ID=SID,Number=.,Type=String,Description="Unique identifier from gene annotation source or unknown"\>                                                                                     |
 | GENE          | TCGA-VCF   | \#\#INFO=\<ID=GENE,Number=.,Type=String,Description="HUGO gene symbol or Unknown"\>                                                                                                                 |
 | RGN           | TCGA-VCF   | \#\#INFO=\<ID=RGN,Number=.,Type=String,Description="Region where nucleotide variant occurs in relation to a gene"\>                                                                                 |
@@ -454,26 +409,26 @@ given field is interpreted the same way across all centers and that same
 
 | **Sub-field** | **Source** | **Formatted declaration**                                                                                                                                                                   |
 |---------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GT            | VCF        | \#\#FORMAT=\<ID=GT,Number=1,Type=String,Description="Genotype"\>                                                                                                                            |
-| DP            | VCF        | \#\#FORMAT=\<ID=DP,Number=1,Type=Integer,Description="Read depth at this position in the sample"\>                                                                                          |
-| FT            | VCF        | \#\#FORMAT=\<ID=FT,Number=1,Type=String,Description="Sample genotype filter"\>                                                                                                              |
-| GL            | VCF        | \#\#FORMAT=\<ID=GL,Number=.,Type=Float,Description="Genotype likelihoods"\>                                                                                                                 |
-| PL            | VCF        | \#\#FORMAT=\<ID=PL,Number=3,Type=Integer,Description="Normalized, Phred-scaled likelihoods for AA,AB,BB genotypes where A=ref and B=alt; not applicable if site is not biallelic"\>         |
-| GP            | VCF        | \#\#FORMAT=\<ID=GP,Number=.,Type=Float,Description="Phred-scaled genotype posterior probabilities"\>                                                                                        |
-| GQ            | VCF        | \#\#FORMAT=\<ID=GQ,Number=.,Type=Integer,Description="Conditional Phred-scaled genotype quality"\>                                                                                          |
-| HQ            | VCF        | \#\#FORMAT=\<ID=HQ,Number=2,Type=Integer,Description="Haplotype qualities, two comma separated phred qualities"\>                                                                           |
-| CN            | VCF        | \#\#FORMAT=\<ID=CN,Number=1,Type=Integer,Description="Copy number genotype for imprecise events"\>                                                                                          |
-| CNQ           | VCF        | \#\#FORMAT=\<ID=CNQ,Number=1,Type=Float,Description="Copy number genotype quality for imprecise events"\>                                                                                   |
-| CNL           | VCF        | \#\#FORMAT=\<ID=CNL,Number=.,Type=Float,Description="Copy number genotype likelihood for imprecise events"\>                                                                                |
-| MQ            | VCF        | \#\#FORMAT=\<ID=MQ,Number=1,Type=Integer,Description="Phred style probability score that the variant is novel with respect to the genome's ancestor"\>                                      |
-| HAP           | VCF        | \#\#FORMAT=\<ID=HAP,Number=1,Type=Integer,Description="Unique haplotype identifier"\>                                                                                                       |
-| AHAP          | VCF        | \#\#FORMAT=\<ID=AHAP,Number=1,Type=Integer,Description="Unique identifier of ancestral haplotype"\>                                                                                         |
-| SS            | TCGA-VCF   | \#\#FORMAT=\<ID=SS,Number=1,Type=Integer,Description="Variant status relative to non-adjacent Normal,0=wildtype,1=germline,2=somatic,3=LOH,4=post-transcriptional modification,5=unknown"\> |
-| TE            | TCGA-VCF   | \#\#FORMAT=\<ID=TE,Number=.,Type=String,Description="Translational effect of the variant in a codon"\>                                                                                      |
-| AD            | TCGA-VCF   | \#\#FORMAT=\<ID=AD,Number=.,Type=Integer,Description="Depth of reads supporting alleles 0/1/2/3..."\>                                                                                       |
-| DP4           | TCGA-VCF   | \#\#FORMAT=\<ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward, ref-reverse, alt-forward and alt-reverse bases"\>                                                |
-| BQ            | TCGA-VCF   | \#\#FORMAT=\<ID=BQ,Number=.,Type=Integer,Description="Average base quality for reads supporting alleles"\>                                                                                  |
-| VAQ           | TCGA-VCF   | \#\#FORMAT=\<ID=VAQ,Number=1,Type=Integer,Description="Variant allele quality"\>                                                                                                            |
+| GT            | VCF        | ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">                                                                                                                            |
+| DP            | VCF        | ##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read depth at this position in the sample">                                                                                          |
+| FT            | VCF        | ##FORMAT=<ID=FT,Number=1,Type=String,Description="Sample genotype filter">                                                                                                              |
+| GL            | VCF        | ##FORMAT=<ID=GL,Number=.,Type=Float,Description="Genotype likelihoods">                                                                                                                 |
+| PL            | VCF        | ##FORMAT=<ID=PL,Number=3,Type=Integer,Description="Normalized, Phred-scaled likelihoods for AA,AB,BB genotypes where A=ref and B=alt; not applicable if site is not biallelic">         |
+| GP            | VCF        | ##FORMAT=<ID=GP,Number=.,Type=Float,Description="Phred-scaled genotype posterior probabilities">                                                                                        |
+| GQ            | VCF        | ##FORMAT=<ID=GQ,Number=.,Type=Integer,Description="Conditional Phred-scaled genotype quality">                                                                                          |
+| HQ            | VCF        | ##FORMAT=<ID=HQ,Number=2,Type=Integer,Description="Haplotype qualities, two comma separated phred qualities">                                                                           |
+| CN            | VCF        | ##FORMAT=<ID=CN,Number=1,Type=Integer,Description="Copy number genotype for imprecise events">                                                                                          |
+| CNQ           | VCF        | ##FORMAT=<ID=CNQ,Number=1,Type=Float,Description="Copy number genotype quality for imprecise events">                                                                                   |
+| CNL           | VCF        | ##FORMAT=<ID=CNL,Number=.,Type=Float,Description="Copy number genotype likelihood for imprecise events">                                                                                |
+| MQ            | VCF        | ##FORMAT=<ID=MQ,Number=1,Type=Integer,Description="Phred style probability score that the variant is novel with respect to the genome's ancestor">                                      |
+| HAP           | VCF        | ##FORMAT=<ID=HAP,Number=1,Type=Integer,Description="Unique haplotype identifier">                                                                                                       |
+| AHAP          | VCF        | ##FORMAT=<ID=AHAP,Number=1,Type=Integer,Description="Unique identifier of ancestral haplotype">                                                                                         |
+| SS            | TCGA-VCF   | ##FORMAT=<ID=SS,Number=1,Type=Integer,Description="Variant status relative to non-adjacent Normal,0=wildtype,1=germline,2=somatic,3=LOH,4=post-transcriptional modification,5=unknown"> |
+| TE            | TCGA-VCF   | ##FORMAT=<ID=TE,Number=.,Type=String,Description="Translational effect of the variant in a codon">                                                                                      |
+| AD            | TCGA-VCF   | ##FORMAT=<ID=AD,Number=.,Type=Integer,Description="Depth of reads supporting alleles 0/1/2/3...">                                                                                       |
+| DP4           | TCGA-VCF   | ##FORMAT=<ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward, ref-reverse, alt-forward and alt-reverse bases">                                                |
+| BQ            | TCGA-VCF   | ##FORMAT=<ID=BQ,Number=.,Type=Integer,Description="Average base quality for reads supporting alleles">                                                                                  |
+| VAQ           | TCGA-VCF   | ##FORMAT=<ID=VAQ,Number=1,Type=Integer,Description="Variant allele quality">                                                                                                            |
 
  
 
@@ -483,7 +438,7 @@ given field is interpreted the same way across all centers and that same
 
 #### PEDIGREE lines
 
-**Format**: *\#\#PEDIGREE=\<key1=value1,key2=value2,...\>*  
+**Format**: *##PEDIGREE=<key1=value1,key2=value2,...>*  
 **Required keys**: Name_0,..,Name_N where N \>= 1;
 
 PEDIGREE lines are used to specify derivation relationships between different
@@ -492,17 +447,17 @@ genomes. *Name_0* is associated with the derived genome and *Name_1* through
 clonal populations, one population is clonally derived from another. In the
 example below, PRIMARY-TUMOR-GENOME is derived from GERMLINE-GENOME.
 
-    \#\#PEDIGREE=\<Name_0=\<G0-ID\>,Name_1=\<G1-ID\>,...,Name_N=\<GN-ID\>\>
+    ##PEDIGREE=<Name_0=<G0-ID>,Name_1=<G1-ID>,...,Name_N=<GN-ID>>
 
     where N is \>= 1;
 
     Example:
 
-    \#\#PEDIGREE=\<Name_0=PRIMARY-TUMOR-GENOME,Name_1=GERMLINE-GENOME\>
+    ##PEDIGREE=<Name_0=PRIMARY-TUMOR-GENOME,Name_1=GERMLINE-GENOME>
 
 #### SAMPLE lines
 
-**Format**: *\#\#SAMPLE=\<key1=value1,key2=value2,...\>*  
+**Format**: *##SAMPLE=<key1=value1,key2=value2,...>*  
 **Required keys**: ID, SampleName, Individual, File, Platform, Source, Accession
 
 For UUID-compliant files, following rules should be followed:
@@ -538,14 +493,14 @@ and 'Genome_Description" tags represent comma-separated list of different
 genomes that a sample contains, proportion of each genome in the sample, and a
 brief description of each genome respectively.
 
-\#\#SAMPLE=\<ID=id,SampleName=sampleName,Individual=individual,Description="description",
-File=bamfile,Platform=platformName,Source=source,Accession=acc,Genomes=\<G1-ID,G2-ID,..,GK-ID\>,Mixture=
-\<N1,N2,..,NK\>,Genome_Description=\<"S1","S2",..,"SK"\>\>
+##SAMPLE=<ID=id,SampleName=sampleName,Individual=individual,Description="description",
+File=bamfile,Platform=platformName,Source=source,Accession=acc,Genomes=<G1-ID,G2-ID,..,GK-ID>,Mixture=
+<N1,N2,..,NK>,Genome_Description=<"S1","S2",..,"SK">>
 
 Example:
 
-\#\#SAMPLE=\<ID=NORMAL,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Normal",File=TCGA-06-0881-10A-01W-0421-09.bam,Platform=Illumina,Source=dbGAP,Accession=1234,Genomes=\<Germline,Tumor\>,Mixture=\<0.1,0.9\>,Genome_Description=\<"Germline
-contamination","Tumor genome"\>\>
+##SAMPLE=<ID=NORMAL,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Normal",File=TCGA-06-0881-10A-01W-0421-09.bam,Platform=Illumina,Source=dbGAP,Accession=1234,Genomes=<Germline,Tumor>,Mixture=<0.1,0.9>,Genome_Description=<"Germline
+contamination","Tumor genome">>
 
 -   "Description" field for genome mixture has been renamed to
     "Genome_Description" to distinguish it from sample description.
@@ -555,15 +510,15 @@ contamination","Tumor genome"\>\>
 
 ### Column header meta-information
 
-**Format**: Tab-delimited line starting with "\#" and containing headers for all
+**Format**: Tab-delimited line starting with "#" and containing headers for all
 columns in the BODY as shown below.
 
 This is a mandatory header line where the first 8 fields are fixed and have to
 defined in the column header. "FORMAT" onwards are optional and are included to
 encapsulate per-sample/genome genotype data.
 
-\#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT \<SAMPLE1 or GENOME1\> \<SAMPLE2
-or GENOME2\> ...
+#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT <SAMPLE1 or GENOME1> <SAMPLE2
+or GENOME2> ...
 
 BODY
 ### Variant records
@@ -652,13 +607,13 @@ corresponding mates and partners respectively.
 
 | **Field:Sub-field** | **Description** | **Declaration in HEADER** | **Required** | **(Sample values in BODY)** |
 | ------------------- | --------------- | ------------------------- | ------------ | --------------------------- |
-| INFO:**SVTYPE**     | Type of structural variant; SVTYPE is set to "BND" for breakend records | \#\#INFO=\<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant"\>             | Yes                                  |
+| INFO:**SVTYPE**     | Type of structural variant; SVTYPE is set to "BND" for breakend records | ##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">             | Yes                                  |
 |                     |                                                                         | *SVTYPE=BND*                                                                                     | (SVTYPE=BND for breakend records)    |
-| INFO:**MATEID**     | ID of corresponding mate of the breakend record                         | \#\#INFO=\<ID=MATEID,Number=.,Type=String,Description="ID of mate breakend"\>                    | No                                   |
+| INFO:**MATEID**     | ID of corresponding mate of the breakend record                         | ##INFO=<ID=MATEID,Number=.,Type=String,Description="ID of mate breakend">                    | No                                   |
 |                     |                                                                         | *MATEID=bnd_U*                                                                                   |                                      |
-| INFO:**PARID**      | ID of corresponding partner of the breakend record                      | \#\#INFO=\<ID=PARID,Number=.,Type=String,Description="ID of partner breakend"\>                  | No                                   |
+| INFO:**PARID**      | ID of corresponding partner of the breakend record                      | ##INFO=<ID=PARID,Number=.,Type=String,Description="ID of partner breakend">                  | No                                   |
 |                     |                                                                         | *PARID=bnd_V*                                                                                    |                                      |
-| INFO:**EVENT**      | ID of event associated to breakend                                      | \#\#INFO=\<ID=EVENT,Number=.,Type=String,Description="ID of breakend event"\>                    | No                                   |
+| INFO:**EVENT**      | ID of event associated to breakend                                      | ##INFO=<ID=EVENT,Number=.,Type=String,Description="ID of breakend event">                    | No                                   |
 |                     |                                                                         | *EVENT=RR0*                                                                                      |                                      |
 
 The specification for ALT field deviates from the standard format for breakend
@@ -700,7 +655,7 @@ since they can be different from those observed in DNA-Seq.
 
 | **Field:Sub-field** | **Description** | **Declaration in HEADER** | **Required** |
 | ------------------- | --------------- | ------------------------- | ------------ |
-| INFO:**SVTYPE**     | Type of structural variant; SVTYPE is set to "FND" for breakends associated with RNA-Seq | \#\#INFO=\<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant"\>             | Yes                                                    |
+| INFO:**SVTYPE**     | Type of structural variant; SVTYPE is set to "FND" for breakends associated with RNA-Seq | ##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">             | Yes                                                    |
 |                     |                                                                                          | *SVTYPE=FND*                                                                                     | (required for RNA-Seq breakend records; SVTYPE=FND)    |
 
 VCF files for RNA-Seq variants may include gene-related annotations. However,
@@ -713,15 +668,15 @@ expressed nucleotide variants (Table 8a).
 
 | **Field:Sub-field** | **Description** | **Declaration in HEADER** | **Required** |
 | ------------------- | --------------- | ------------------------- | ------------ |
-| INFO:**SID**        | Unique identifiers from the gene annotation source as specified in \#\#geneAnno; "unknown" should be used if identifier is not known; comma-separated list of IDs can be used if variant overlaps with multiple features | \#\#INFO=\<ID=SID,Number=.,Type=String,Description=”Unique identifier from gene annotation source or unknown”\>                     | No           |
+| INFO:**SID**        | Unique identifiers from the gene annotation source as specified in ##geneAnno; "unknown" should be used if identifier is not known; comma-separated list of IDs can be used if variant overlaps with multiple features | ##INFO=<ID=SID,Number=.,Type=String,Description=”Unique identifier from gene annotation source or unknown”>                     | No           |
 |                     |                                                                                                                                                                                                                          | *SID=13,198*                                                                                                                        |              |
-| INFO:**GENE**       | HUGO gene symbol; "unknown" should be used when gene symbol is unknown; comma-separated list of genes can be used if variant overlaps with multiple transcripts/genes                                                    | \#\#INFO=\<ID=GENE,Number=.,Type=String,Description=”HUGO gene symbol”\>                                                            | No           |
+| INFO:**GENE**       | HUGO gene symbol; "unknown" should be used when gene symbol is unknown; comma-separated list of genes can be used if variant overlaps with multiple transcripts/genes                                                    | ##INFO=<ID=GENE,Number=.,Type=String,Description=”HUGO gene symbol”>                                                            | No           |
 |                     |                                                                                                                                                                                                                          | *GENE=ERBB2,ERBB2*                                                                                                                  |              |
-| INFO:**RGN**        | Region where a nucleotide variant occurs in relation to a gene                                                                                                                                                           | \#\#INFO=\<ID=RGN,Number=.,Type=String,Description=”Region where nucleotide variant occurs in relation to a gene”\>                 | No           |
+| INFO:**RGN**        | Region where a nucleotide variant occurs in relation to a gene                                                                                                                                                           | ##INFO=<ID=RGN,Number=.,Type=String,Description=”Region where nucleotide variant occurs in relation to a gene”>                 | No           |
 |                     |                                                                                                                                                                                                                          | *RGN=exon,3_utr*                                                                                                                    |              |
-| INFO:**RE**         | Flag to indicate if position is known to have RNA-edits occur                                                                                                                                                            | \#\#INFO=\<ID=RE,Number=0,Type=Flag,Description=”Position known to have RNA-edits to occur”\>                                       | No           |
+| INFO:**RE**         | Flag to indicate if position is known to have RNA-edits occur                                                                                                                                                            | ##INFO=<ID=RE,Number=0,Type=Flag,Description=”Position known to have RNA-edits to occur”>                                       | No           |
 |                     |                                                                                                                                                                                                                          | *RE*                                                                                                                                |              |
-| FORMAT:**TE**       | Translational effect of a nucleotide variant in a codon                                                                                                                                                                  | \#\#FORMAT=\<ID=TE,Number=.,Type=String,Description="Translational                                                                  | No           |
+| FORMAT:**TE**       | Translational effect of a nucleotide variant in a codon                                                                                                                                                                  | ##FORMAT=<ID=TE,Number=.,Type=String,Description="Translational                                                                  | No           |
 |                     |                                                                                                                                                                                                                          | effect of the variant in a codon"\>                                                                                                 |              |
 |                     |                                                                                                                                                                                                                          | *MIS,NA*                                                                                                                            |              |
 
@@ -756,50 +711,50 @@ header declarations are correct.
 
 **Sample TCGA VCF file with validation status**
 
-Line1 \#\#fileformat=VCFv4.1
+Line1 ##fileformat=VCFv4.1
 
-Line2 \#\#tcgaversion=1.1
+Line2 ##tcgaversion=1.1
 
-Line3 \#\#fileDate=20120205
+Line3 ##fileDate=20120205
 
-Line4 \#\#reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
+Line4 ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
 
-Line5 \#\#FORMAT=\<ID=GT,Number=1,Type=String,Description="Genotype"\>
+Line5 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 
-Line6 \#\#FORMAT=\<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality"\>
+Line6 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
 
-Line7 \#\#FORMAT=\<ID=SS,Number=1,Type=Integer,Description="Variant status
+Line7 ##FORMAT=<ID=SS,Number=1,Type=Integer,Description="Variant status
 relative to non-adjacent Normal,
-0=wildtype,1=germline,2=somatic,3=LOH,4=unknown"\>
+0=wildtype,1=germline,2=somatic,3=LOH,4=unknown">
 
-Line8 \#\#INFO=\<ID=VLS,Number=1,Type=Integer,Description="Final validation
+Line8 ##INFO=<ID=VLS,Number=1,Type=Integer,Description="Final validation
 status relative to non-adjacent Normal,
-0=wildtype,1=germline,2=somatic,3=LOH,4=unknown"\>
+0=wildtype,1=germline,2=somatic,3=LOH,4=unknown">
 
-Line9 \#\#FILTER=\<ID=q10,Description="Quality below 10"\>
+Line9 ##FILTER=<ID=q10,Description="Quality below 10">
 
 Line10
-\#\#SAMPLE=\<ID=NORMAL,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Normal",File=TCGA-06-0881-10A-01W-0421-09_illumina.bam,Platform=Illumina,Source=dbGAP,Accession=1234\>
+##SAMPLE=<ID=NORMAL,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Normal",File=TCGA-06-0881-10A-01W-0421-09_illumina.bam,Platform=Illumina,Source=dbGAP,Accession=1234>
 
 Line11
-\#\#SAMPLE=\<ID=NORMAL_454,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Validation
+##SAMPLE=<ID=NORMAL_454,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Validation
 normal sample tested with
-454",File=TCGA-06-0881-10A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=245\>
+454",File=TCGA-06-0881-10A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=245>
 
 Line12
-\#\#SAMPLE=\<ID=TUMOR,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Tumor",File=TCGA-06-0881-01A-01W-0421-09.bam,Platform=Illumina,Source=dbGAP,Accession=1234\>
+##SAMPLE=<ID=TUMOR,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Tumor",File=TCGA-06-0881-01A-01W-0421-09.bam,Platform=Illumina,Source=dbGAP,Accession=1234>
 
 Line13
-\#\#SAMPLE=\<ID=TUMOR_454,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
+##SAMPLE=<ID=TUMOR_454,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
 tumor sample tested with
-454",File=TCGA-06-0881-01A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=3456\>
+454",File=TCGA-06-0881-01A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=3456>
 
 Line14
-\#\#SAMPLE=\<ID=TUMOR_Sanger,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
+##SAMPLE=<ID=TUMOR_Sanger,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
 tumor sample tested with Sanger
-seq",File=.,Platform=Sanger_PCR,Source=.,Accession=.\>
+seq",File=.,Platform=Sanger_PCR,Source=.,Accession=.>
 
-Line15 \#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT NORMAL TUMOR NORMAL_454
+Line15 #CHROM POS ID REF ALT QUAL FILTER INFO FORMAT NORMAL TUMOR NORMAL_454
 TUMOR_454 TUMOR_Sanger
 
 Line16 20 14370 var1 G A 29 PASS VLS=2 GT:GQ:SS 0/0:48:. 0/1:50:2 0/0:20:.
@@ -822,11 +777,11 @@ The format follows these guidelines:
 
     -   The validation platform name is appended to the original sample to
         distinguish the validation results from primary sequencing.
-        \<Sample\>_\<Platform\> is used in the example above.
+        <Sample>_<Platform> is used in the example above.
 
         -   **Note**: \<Platform\> can be obtained from DCC [Code Tables
             Report](http://tcga-data.nci.nih.gov/datareports/codeTablesReport.htm).
-            The \#\#SAMPLE meta-information line also includes a 'Platform' tag
+            The ##SAMPLE meta-information line also includes a 'Platform' tag
             where platform name is defined.
 
     -   Each new genotype column header added to the file (e.g., TUMOR_454,
@@ -871,37 +826,37 @@ listed validation steps. Please note that line numbers in the file segment below
 are added for illustration purposes alone and are not expected to be found in an
 actual VCF file.
 
-Line1 \#\#fileformat=VCFv4.1
+Line1 ##fileformat=VCFv4.1
 
-Line2 \#\#fileDate=20090805
+Line2 ##fileDate=20090805
 
-Line3 \#\#source=myImputationProgramV3.1
+Line3 ##source=myImputationProgramV3.1
 
-Line4 \#\#reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
+Line4 ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
 
-Line5 \#\#INFO=\<ID=NS,Number=1,Type=Integer,Description="Number of Samples With
-Data"\>
+Line5 ##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With
+Data">
 
-Line6 \#\#INFO=\<ID=DB,Number=0,Type=Flag,Description="dbSNP membership"\>
+Line6 ##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership">
 
-Line7 \#\#FORMAT=\<ID=GT,Number=1,Type=String,Description="Genotype"\>
+Line7 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 
-Line8 \#\#FORMAT=\<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality"\>
+Line8 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
 
-Line9 \#\#FORMAT=\<ID=DP,Number=1,Type=Integer,Description="Read Depth"\>
+Line9 ##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
 
-Line10 \#\#FORMAT=\<ID=PL,Number=3,Type=Integer,Description=" Normalized
-Phred-scaled likelihoods for AA, AB, BB genotypes "\>
+Line10 ##FORMAT=<ID=PL,Number=3,Type=Integer,Description=" Normalized
+Phred-scaled likelihoods for AA, AB, BB genotypes ">
 
-Line11 \#\#FILTER=\<ID=q10,Description="Quality below 10"\>
+Line11 ##FILTER=<ID=q10,Description="Quality below 10">
 
-Line12 \#\#FILTER=\<ID=s50,Description="Less than 50% of samples have data"\>
+Line12 ##FILTER=<ID=s50,Description="Less than 50% of samples have data">
 
-Line13 FILTER=\<ID=c10,Description="Shallow coverage below 10x"\>
+Line13 FILTER=<ID=c10,Description="Shallow coverage below 10x">
 
-Line14 \#\#ALT=\<ID=DEL:ME:ALU,Description="Deletion of ALU element"\>
+Line14 ##ALT=<ID=DEL:ME:ALU,Description="Deletion of ALU element">
 
-Line15 \#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT TCGA-02-0001-01
+Line15 #CHROM POS ID REF ALT QUAL FILTER INFO FORMAT TCGA-02-0001-01
 TCGA-02-0001-02
 
 Line16 20 14370 var1 G A 29 q10 NS=2;DP=14 GT:GQ:DP 0\|0:48 0\|1:48:3
@@ -917,7 +872,7 @@ Line20 9 13567 . A \<DUP\> 20 PASS NS=3 GT:GQ:PL 0/1:49:42,3 1/1:38:96,47/70
 Line21 3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1
 
 **Important**: A file will be validated as a TCGA VCF file only if it contains
-\#\#tcgaversion HEADER line (e.g., \#\#tcgaversion=1.1). The current acceptable
+##tcgaversion HEADER line (e.g., ##tcgaversion=1.1). The current acceptable
 version is 1.1.
 
 1.  Mandatory [header lines](#TCGAVariantCallFormat(VCF)1.1Specificat) should be
@@ -929,9 +884,9 @@ version is 1.1.
     prefixed with "\#". A VCF file can contain only a single column header line
     that must contain all required field names.
 
-4.  Any line lacking the "\#\#" or "\#" prefix will be assumed to be a BODY data
+4.  Any line lacking the "##" or "#" prefix will be assumed to be a BODY data
     line and will have to follow the specified format. For example, Line13 leads
-    to a violation as it lacks "\#\#" or "\#" but is not a tab-delimited row
+    to a violation as it lacks "##" or "#" but is not a tab-delimited row
     containing variant information.
 
 5.  HEADER lines cannot be present within the BODY of a file and vice-versa.
@@ -942,11 +897,11 @@ version is 1.1.
     the format below where all keys are required but the order of keys is
     irrelevant.
 
-7.  \#\#INFO=\<ID=id,Number=number,Type=type,Description="description"\>
+7.  ##INFO=<ID=id,Number=number,Type=type,Description="description">
 
-8.  \#\#FORMAT=\<ID=id,Number=number,Type=type,Description="description"\>
+8.  ##FORMAT=<ID=id,Number=number,Type=type,Description="description">
 
-9.  \#\#FILTER=\<ID=id,Description="description"\>
+9.  ##FILTER=<ID=id,Description="description">
 
 10. Values assigned to *ID, Number, Type* and *Description* in INFO, FORMAT or
     FILTER declarations should follow the rules listed below. A detailed
@@ -1115,13 +1070,13 @@ version is 1.1.
     2.  Declaration must contain all required fields.
 
     3.  Genome mixture tags (Genomes, Mixture, Genome_Description) are enclosed
-        within angle brackets (\<\>) and can have multiple comma-separated
+        within angle brackets (<>) and can have multiple comma-separated
         values.
 
     4.  If more than one of the genome mixture tags (Genomes, Mixture,
         Genome_Description) are defined in a SAMPLE meta-information line, then
         number of comma-separated values should be the same for all defined
-        tags. For example, "Genomes=\<G1,G2\>,Mixture=\<0.1,0.8,0.1\>" would
+        tags. For example, "Genomes=<G1,G2>,Mixture=<0.1,0.8,0.1>" would
         lead to a violation as Mixture has 3 values while Genomes has only 2
         values.
 
@@ -1129,7 +1084,7 @@ version is 1.1.
         angle brackets.
 
     6.  Individual values in "Mixture" represent proportion (floating point
-        number \>= 0 and \<= 1) of each genome in the sample and all
+        number >= 0 and <= 1) of each genome in the sample and all
         comma-separated values should add up to a sum of 1.
 
     7.  Individual values in "Genome_Description" are strings surrounded by
@@ -1139,12 +1094,12 @@ version is 1.1.
         barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) / [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
         in the database (TCGA VCF 1.1).
 
-19. \<TCGA-VCF\> Validation of
+19. <TCGA-VCF> Validation of
     [PEDIGREE](#TCGAVariantCallFormat(VCF)1.1Specificat) meta-information lines:
 
     1.  Declaration line should follow the format:
 
-    2.  \#\#PEDIGREE=\<Name_0=G0-ID,Name_1=G1-ID,...,Name_N=GN-ID\>
+    2.  ##PEDIGREE=<Name_0=G0-ID,Name_1=G1-ID,...,Name_N=GN-ID>
 
 >   where:
 
@@ -1156,9 +1111,9 @@ version is 1.1.
 -   G0-ID through GN-ID are strings that cannot contain white-space, comma, or
     angle brackets. Each of these should be a header for the genotype columns
     immediately after FORMAT column and should be defined using "ID" tag in the
-    corresponding \#\#SAMPLE meta-information line. (TCGA VCF 1.1)
+    corresponding ##SAMPLE meta-information line. (TCGA VCF 1.1)
 
--   The keys and values used in the \<Name_N=Value_N\> should be unique across
+-   The keys and values used in the <Name_N=Value_N> should be unique across
     assignments in any given PEDIGREE declaration.
 
 1.  Validation of custom meta-information fields:
@@ -1168,20 +1123,20 @@ version is 1.1.
         in this specification, the line should be validated to ensure it follows
         one of the following two formats:
 
-    2.  \#\#key=value
+    2.  ##key=value
 
     3.  Example:
 
-    4.  \#\#\<INDIVIDUAL=TCGA-24-0980\>
+    4.  ##<INDIVIDUAL=TCGA-24-0980>
 
     5.  OR
 
-    6.  \#\#FIELDTYPE=\<key1=value1,key2=value2,...\>
+    6.  ##FIELDTYPE=<key1=value1,key2=value2,...>
 
     7.  Example:
 
-    8.  \#\#contig=\<ID=20,length=62435964,assembly=B36,md5=f126cdf8a6e0c7f379d618ff66beb2da,species="Homo
-        sapiens",taxonomy=x\>
+    8.  ##contig=<ID=20,length=62435964,assembly=B36,md5=f126cdf8a6e0c7f379d618ff66beb2da,species="Homo
+        sapiens",taxonomy=x>
 
 >   where:
 
@@ -1195,26 +1150,26 @@ version is 1.1.
     value identifiers. Please refer to [Table
     6](#TCGAVariantCallFormat(VCF)1.1Specificat) for acceptable values.
 
-    1.  \<TCGA-VCF\> *CHROM* is in {[1-22], X, Y, MT,\<chr_ID\>} where chr_ID
-        cannot contain whitespace or \<\>
+    1.  <TCGA-VCF> *CHROM* is in {[1-22], X, Y, MT,<chr_ID>} where chr_ID
+        cannot contain whitespace or <>
 
-    2.   If CHROM == \<chr_ID\> then the VCF file MUST have a declaration for
+    2.   If CHROM == <chr_ID> then the VCF file MUST have a declaration for
         assembly file in the HEADER. Please note that values assigned to the
         field are currently not being validated.
 
-    3.  \#\#assembly=url or filename
+    3.  ##assembly=url or filename
 
     4.  Example:
 
-    5.  \#\#assembly=ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/sv/breakpoint_assemblies.fasta
+    5.  ##assembly=ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/sv/breakpoint_assemblies.fasta
 
-    6.  \#\#assembly=breakpoint_assemblies.fasta
+    6.  ##assembly=breakpoint_assemblies.fasta
 
     7.  *POS* is a non-negative integer
 
     8.  *REF* =\~ /[ACGTN]+/
 
-2.  \<TCGA-VCF\> *ALT* is in {[ACGTN]+, ".", \<ID\>, **SV_ALT**};
+2.  <TCGA-VCF> *ALT* is in {[ACGTN]+, ".", <ID>, **SV_ALT**};
 
     1.  String SV_ALT can be in one of the following four formats and can be
         used in the *ALT*field ONLY when the corresponding INFO field has the
@@ -1238,15 +1193,15 @@ version is 1.1.
 
 -   *pos* is a non-negative integer
 
-1.  Similar to 18b, if chr == \<chr_ID\> (where *chr_ID* is a string) then the
-    VCF file must have an \#\#assembly declaration in the HEADER.
+1.  Similar to 18b, if chr == <chr_ID> (where *chr_ID* is a string) then the
+    VCF file must have an ##assembly declaration in the HEADER.
 
-2.  If *ALT* is assigned a value in \<ID\> format, (e.g., rs123 in Line19),
-    \<ID\> should be defined in the HEADER as
-    \#\#ALT=\<ID=*ID*,Description="*Description*"\> (Line14) where ID cannot
+2.  If *ALT* is assigned a value in <ID> format, (e.g., rs123 in Line19),
+    <ID> should be defined in the HEADER as
+    ##ALT=<ID=*ID*,Description="*Description*"> (Line14) where ID cannot
     contain white-space or angle brackets. Line20 shows a violation of this rule
-    as *ALT==*\<DUP\> but there is no corresponding *ALT* declaration in the
-    HEADER with \<ID=DUP\>.
+    as *ALT==*<DUP> but there is no corresponding *ALT* declaration in the
+    HEADER with <ID=DUP>.
 
 3.  ALT can contain multiple comma-separated values. No other character can be
     used as a separator.
@@ -1259,31 +1214,31 @@ version is 1.1.
 
 5.  *QUAL* field can only contain non-negative integers or "." (missing value).
 
-6.  \<TCGA-VCF\> If INFO sub-field "VT" is declared and used in the BODY, its
+6.  <TCGA-VCF> If INFO sub-field "VT" is declared and used in the BODY, its
     value can only be in {SNP, INS, DEL}
 
-7.  \<TCGA-VCF\> If FORMAT sub-field "SS" is declared and used in the BODY, its
+7.  <TCGA-VCF> If FORMAT sub-field "SS" is declared and used in the BODY, its
     value can be 0, 1, 2, 3, 4 or 5 depending on whether relative to normal the
     variant is wildtype, germline, somatic, LOH, post-transcriptional
     modification, or unknown respectively.
 
-8.  \<TCGA-VCF\> "DP" sub-field for read depth can be defined in INFO (combined
+8.  <TCGA-VCF> "DP" sub-field for read depth can be defined in INFO (combined
     depth across all samples) or FORMAT (depth in a specific sample) field. If
     both INFO and FORMAT have values for the sub-field, then sum of DP values
     across all FORMAT sample columns should be equal to DP value in the INFO
     field.
 
-9.  \<TCGA-VCF\> Validation of **complex rearrangement** records:
+9.  <TCGA-VCF> Validation of **complex rearrangement** records:
 
     1.  If INFO field includes key-value pairs "SVTYPE=BND" or "SVTYPE=FND" and
         has values for "MATEID" and/or "PARID", then the value (or multiple
         comma-separated values) assigned to MATEID or PARID should exist in the
         file as "ID" field for another variant record.
 
-10. \<TCGA-VCF\> Validation of RNA-Seq **annotation fields**:
+10. <TCGA-VCF> Validation of RNA-Seq **annotation fields**:
 
     1.  If INFO field includes "SID", "GENE" or "RGN" keys with associated
-        values, then file MUST contain a declaration for \#\#geneAnno in the
+        values, then file MUST contain a declaration for ##geneAnno in the
         HEADER.
 
     2.  Number of comma-separated values in the optional INFO sub-fields "SID",
@@ -1300,26 +1255,26 @@ version is 1.1.
         would lead to a violation as the 2nd value for RGN is "intron" but the
         corresponding TE value is "SIL" instead of "NA".
 
-11. \<TCGA-VCF\> Validation of
+11. <TCGA-VCF> Validation of
     [vcfProcessLog](#TCGAVariantCallFormat(VCF)1.1Specificat) tags:
 
-\#\#vcfProcessLog=\<InputVCF=\<file1.vcf\>,InputVCFSource=\<varCaller1\>,InputVCFVer=\<1.0\>,InputVCFParam=\<a1,c2\>,InputVCFgeneAnno=\<anno1.gaf\>\>
+##vcfProcessLog=<InputVCF=<file1.vcf>,InputVCFSource=<varCaller1>,InputVCFVer=<1.0>,InputVCFParam=<a1,c2>,InputVCFgeneAnno=<anno1.gaf>>
 
 OR
 
-\#\#vcfProcessLog=\<InputVCF=\<file1.vcf,file2.vcf,file3.vcf\>,InputVCFSource=\<varCaller1,varCaller2,varCaller3\>,InputVCFVer=\<1.0,2.1,2.0\>,
+##vcfProcessLog=<InputVCF=<file1.vcf,file2.vcf,file3.vcf>,InputVCFSource=<varCaller1,varCaller2,varCaller3>,InputVCFVer=<1.0,2.1,2.0>,
 
-InputVCFParam=\<a1,c2;a1,b1;a1,b1\>,InputVCFgeneAnno=\<anno1.gaf,anno2.gaf,anno3.gaf\>,
+InputVCFParam=<a1,c2;a1,b1;a1,b1>,InputVCFgeneAnno=<anno1.gaf,anno2.gaf,anno3.gaf>,
 
-MergeSoftware=\<sw1,sw2\>,MergeParam=\<a1,a2;b1,b2\>,MergeVer=\<2.1,3.0\>,MergeContact=\<johndoe\@xyz.edu\>\>
+MergeSoftware=<sw1,sw2>,MergeParam=<a1,a2;b1,b2>,MergeVer=<2.1,3.0>,MergeContact=<johndoe@xyz.edu>>
 
-1.  Individual values for each tag are enclosed within angle brackets (\<\>)
+1.  Individual values for each tag are enclosed within angle brackets (<>)
     instead of double quotes.
 
     1.  If a field contains multiple values, they are separated by comma.
         **Exception**: Separator for multiple values in *InputVCFParam* and
         *MergeParam* is a ";" instead of ",". Individual values within these
-        tags can contain comma-separated parameters (e.g., \<a1,c2;a1,b1;a1,b1
+        tags can contain comma-separated parameters (e.g., <a1,c2;a1,b1;a1,b1
         in the example given above).
 
     2.  If *InputVCF* tag has multiple comma-separated values assigned to it
@@ -1345,10 +1300,10 @@ UUID-compliant files should satisfy the following criteria:
 -   The [metadata](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) represented by
     "SampleTCGABarcode" must correspond to SampleUUID at the DCC.
 
-2. If \#\#INDIVIDUAL is declared in the header, then values assigned to
-SampleUUID in all \#\#SAMPLE declarations should correspond to the same
+2. If ##INDIVIDUAL is declared in the header, then values assigned to
+SampleUUID in all ##SAMPLE declarations should correspond to the same
 participant ID, and the TCGA barcode for the participant should be assigned to
-\#\#INDIVIDUAL.
+##INDIVIDUAL.
 
  
 
