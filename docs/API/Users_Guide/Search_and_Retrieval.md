@@ -78,10 +78,11 @@ The following search and retrieval endpoints are available in the GDC API:
 
 | Endpoints | Description |
 | --- | --- |
-| files | Information about files stored in the GDC |
-| cases | Information related to cases, or sample donors. |
-| projects | Information about projects |
-| annotations | Information about annotations to GDC data |
+| [files](/API/Users_Guide/Search_and_Retrieval/#files-endpoint) | Information about files stored in the GDC |
+| [cases](/API/Users_Guide/Search_and_Retrieval/#cases-endpoint) | Information related to cases, or sample donors |
+| [history](/API/Users_Guide/Search_and_Retrieval/#history-endpoint) | Information related to file version history |
+| [projects](/API/Users_Guide/Search_and_Retrieval/#project-endpoint) | Information about projects |
+| [annotations](/API/Users_Guide/Search_and_Retrieval/#annotations-endpoint) | Information about annotations to GDC data |
 | \_mapping | Information about elements that can be used to query other endpoints |
 
 The choice of endpoint determines what is listed in the search results. The `files` endpoint will generate a list of files, whereas the `cases` endpoint will generate a list of cases. Each of the above endpoints, other than `_mapping`, can query and return any of the related fields in the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). So the `cases` endpoint can be queried for file fields (e.g. to look for cases that have certain types of experimental data), and the `files` endpoint can be queried for clinical metadata associated with a case (e.g. to look for files from cases diagnosed with a specific cancer type).
@@ -228,46 +229,48 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
   "data": {
     "hits": [
       {
+        "data_release": "13.0",
         "data_type": "Raw Simple Somatic Mutation",
-        "updated_datetime": "2017-03-04T16:45:40.925270-06:00",
-        "file_name": "9f78a291-2d50-472c-8f56-5f8fbd09ab2a.snp.Somatic.hc.vcf.gz",
-        "submitter_id": "TCGA-13-0757-01A-01W-0371-08_TCGA-13-0757-10A-01W-0371-08_varscan",
-        "file_id": "9f78a291-2d50-472c-8f56-5f8fbd09ab2a",
-        "file_size": 1120,
-        "id": "9f78a291-2d50-472c-8f56-5f8fbd09ab2a",
-        "created_datetime": "2016-05-04T14:50:54.560567-05:00",
-        "md5sum": "13c1ceb3519615e2c67128b350365fbf",
+        "updated_datetime": "2018-07-20T22:27:55.342974+00:00",
+        "file_name": "333193d5-ca9a-4262-81f5-e9f3b44358fe.vcf.gz",
+        "submitter_id": "AD19_SimpleSomaticMutation",
+        "file_id": "333193d5-ca9a-4262-81f5-e9f3b44358fe",
+        "file_size": 866,
+        "id": "333193d5-ca9a-4262-81f5-e9f3b44358fe",
+        "created_datetime": "2017-09-10T19:16:02.549312-05:00",
+        "md5sum": "e33e95edb778fe67643162ef0ae3297e",
         "data_format": "VCF",
         "acl": [
-          "phs000178"
+          "phs001179"
         ],
         "access": "controlled",
-        "state": "live",
+        "state": "released",
+        "version": "1",
         "data_category": "Simple Nucleotide Variation",
         "type": "simple_somatic_mutation",
-        "file_state": "submitted",
-        "experimental_strategy": "WXS"
+        "experimental_strategy": "Targeted Sequencing"
       },
       {
+        "data_release": "13.0",
         "data_type": "Raw Simple Somatic Mutation",
-        "updated_datetime": "2017-03-04T16:45:40.925270-06:00",
-        "file_name": "7780009b-abb6-460b-903d-accdac626c2e.snp.Somatic.hc.vcf.gz",
-        "submitter_id": "TCGA-HC-8261-01A-11D-2260-08_TCGA-HC-8261-10A-01D-2260-08_varscan",
-        "file_id": "7780009b-abb6-460b-903d-accdac626c2e",
-        "file_size": 1237,
-        "id": "7780009b-abb6-460b-903d-accdac626c2e",
-        "created_datetime": "2016-05-08T13:54:38.369393-05:00",
-        "md5sum": "fd9bb46c8022b96af730c48dc00e2c41",
+        "updated_datetime": "2018-07-20T22:27:55.342974+00:00",
+        "file_name": "d9114e23-0f62-4979-aefc-0dd4d5eb891b.vcf.gz",
+        "submitter_id": "AD116_SimpleSomaticMutation",
+        "file_id": "d9114e23-0f62-4979-aefc-0dd4d5eb891b",
+        "file_size": 866,
+        "id": "d9114e23-0f62-4979-aefc-0dd4d5eb891b",
+        "created_datetime": "2017-09-10T21:53:02.376246-05:00",
+        "md5sum": "95bbfd0586d3c284e9f88edf3bf26065",
         "data_format": "VCF",
         "acl": [
-          "phs000178"
+          "phs001179"
         ],
         "access": "controlled",
-        "state": "live",
+        "state": "released",
+        "version": "1",
         "data_category": "Simple Nucleotide Variation",
         "type": "simple_somatic_mutation",
-        "file_state": "submitted",
-        "experimental_strategy": "WXS"
+        "experimental_strategy": "Targeted Sequencing"
       }
     ],
     "pagination": {
@@ -275,8 +278,8 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
       "sort": "file_size:asc",
       "from": 0,
       "page": 1,
-      "total": 274724,
-      "pages": 137362,
+      "total": 356381,
+      "pages": 178191,
       "size": 2
     }
   },
@@ -286,31 +289,32 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
 
 #### Retrieval of file metadata using individual UUIDs:
 
-The `files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID:
+The `files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID.  Note that the `files` endpoint is inactive when querying for early file versions.  In that case, the `history` endpoint should be used instead.
 
 ```Shell
-curl 'https://api.gdc.cancer.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pretty=true'
+curl 'https://api.gdc.cancer.gov/files/874e71e0-83dd-4d3e-8014-10141b49f12c?pretty=true'
 ```
-```
+``` Output
 {
   "data": {
+    "data_release": "13.0",
     "data_type": "Raw Simple Somatic Mutation",
-    "updated_datetime": "2016-06-04T23:42:25.428738-05:00",
-    "created_datetime": "2016-06-03T19:04:32.950673-05:00",
-    "file_name": "000225ad-497b-4a8c-967e-a72159c9b3c9.snp.Somatic.hc.vcf.gz",
-    "md5sum": "bbe8a7157acbfc9133e47898650b5437",
+    "updated_datetime": "2018-07-20T22:27:55.342974+00:00",
+    "created_datetime": "2016-06-03T17:03:06.608739-05:00",
+    "file_name": "874e71e0-83dd-4d3e-8014-10141b49f12c.vcf.gz",
+    "md5sum": "acf2929b1b825bcd1377023e8b8767ec",
     "data_format": "VCF",
     "acl": [
       "phs000178"
     ],
     "access": "controlled",
-    "state": "submitted",
-    "file_id": "000225ad-497b-4a8c-967e-a72159c9b3c9",
+    "state": "live",
+    "version": "1",
+    "file_id": "874e71e0-83dd-4d3e-8014-10141b49f12c",
     "data_category": "Simple Nucleotide Variation",
-    "file_size": 19690,
-    "submitter_id": "TCGA-VR-A8ET-01A-11D-A403-09_TCGA-VR-A8ET-10B-01D-A403-09_varscan",
+    "file_size": 122293,
+    "submitter_id": "TCGA-V4-A9EZ-01A-11D-A39W-08_TCGA-V4-A9EZ-10A-01D-A39Z-08_mutect",
     "type": "simple_somatic_mutation",
-    "file_state": "processed",
     "experimental_strategy": "WXS"
   },
   "warnings": {}
@@ -318,6 +322,63 @@ curl 'https://api.gdc.cancer.gov/files/000225ad-497b-4a8c-967e-a72159c9b3c9?pret
 ```
 
 __Note:__ The `file_size` field associated with each file is reported in bytes.  
+
+
+#### Example of retrieving file version information:
+
+The `https://api.gdc.cancer.gov/files/versions` enables search and retrieval of version information about a file.  A file may be versioned if a file is updated by the GDC (e.g. using a new alignment algorithm or fixing a file that contained an error). `Version` refers to the instance of a particular file.  Inputs can either be a list of UUIDs as shown in example 1 or a download manifest as shown in example 2.  Output includes information about the current and latest version for any given file.  While /files also returns information about a file version this endpoint will only work for the most recent version of a file where as /files/versions will work for all previous and current versions of a file.
+
+```Shell1
+curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e88b06,2a03abac-f1a2-49a9-a57c-7543739dd862?pretty=true'
+```
+
+``` Output1
+[
+  {
+    "latest_size": 332092,
+    "latest_id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06",
+    "latest_version": "1",
+    "filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz",
+    "state": "validated",
+    "version": "1",
+    "latest_filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz",
+    "latest_release": [
+      "13.0"
+    ],
+    "latest_state": "validated",
+    "release": "13.0",
+    "latest_md5": "c2f9b196e154906a70c7ec46492a859d",
+    "size": 332092,
+    "id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06",
+    "md5": "c2f9b196e154906a70c7ec46492a859d"
+  },
+  {
+    "latest_size": 6653119038,
+    "latest_id": "2a03abac-f1a2-49a9-a57c-7543739dd862",
+    "latest_version": "1",
+    "filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam",
+    "state": "validated",
+    "version": "1",
+    "latest_filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam",
+    "latest_release": [
+      "13.0"
+    ],
+    "latest_state": "validated",
+    "release": "13.0",
+    "latest_md5": "48686fcd84ac713d44261ca9e26b89fb",
+    "size": 6653119038,
+    "id": "2a03abac-f1a2-49a9-a57c-7543739dd862",
+    "md5": "48686fcd84ac713d44261ca9e26b89fb"
+  }
+]
+```
+```Shell2
+curl --request POST --header "Content-Type: text/tsv"  https://api.gdc.cancer.gov/files/versions/manifest --data-binary @gdc_manifest_20180809_154816.txt
+```
+
+``` Output2
+[{"latest_size": 44857, "latest_id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22", "latest_version": "1", "filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml", "state": "validated", "version": "1", "latest_filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "597aa4df24c4d544b6c25cbd8b25a33e", "size": 44857, "id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22", "md5": "597aa4df24c4d544b6c25cbd8b25a33e"}, {"latest_size": 27620, "latest_id": "3edc7084-013c-4493-8507-c00b0e9962d8", "latest_version": "1", "filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt", "state": "validated", "version": "1", "latest_filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "35a18d990a05eedfaf96e753bee0b96d", "size": 27620, "id": "3edc7084-013c-4493-8507-c00b0e9962d8", "md5": "35a18d990a05eedfaf96e753bee0b96d"}, {"latest_size": 2346, "latest_id": "a22f5e32-b16e-458f-a412-7e438056ece6", "latest_version": "1", "filename": "a22f5e32-b16e-458f-a412-7e438056ece6.vep.vcf.gz", "state": "validated", "version": "1", "latest_filename": "a22f5e32-b16e-458f-a412-7e438056ece6.vep.vcf.gz", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "68b2433b31679bbbc6681919a1b81762", "size": 2346, "id": "a22f5e32-b16e-458f-a412-7e438056ece6", "md5": "68b2433b31679bbbc6681919a1b81762"}, {"latest_size": 35411, "latest_id": "ac7d2078-bd6b-446e-b30a-d889da5624b6", "latest_version": "1", "filename": "CYANS_p_TCGAb_422_423_424_NSP_GenomeWideSNP_6_G12_1513758.nocnv_grch38.seg.v2.txt", "state": "validated", "version": "1", "latest_filename": "CYANS_p_TCGAb_422_423_424_NSP_GenomeWideSNP_6_G12_1513758.nocnv_grch38.seg.v2.txt", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "6338826b620773062232830fad51ae64", "size": 35411, "id": "ac7d2078-bd6b-446e-b30a-d889da5624b6", "md5": "6338826b620773062232830fad51ae64"}]
+```
 
 ### Cases Endpoint
 
@@ -672,6 +733,22 @@ curl 'https://api.gdc.cancer.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%2
   "warnings": {}
 }
 ```
+### History Endpoint
+
+The GDC History Endpoint `https://api.gdc.cancer.gov/history` enables search and retrieval of version and release information about a file.  This endpoint will return the entire provenance of all versions of a file.  A file may be versioned if a file is updated by the GDC (e.g. using a new alignment algorithm or fixing a file that contained an error). `Version` refers to the instance of a particular file. `Release` refers to which data release a file was part of.  A file may be a part of many different data releases with no change in version number or content.  
+
+#### Example
+
+This example is a query for versioning information associated with the follow with file `1dd28069-5777-4ff9-bd2b-d1ba68e88b06`.
+
+
+```shell
+curl 'https://api.gdc.cancer.gov/history/1dd28069-5777-4ff9-bd2b-d1ba68e88b06'
+```
+``` Output
+[{"release_date": "2018-07-23", "version": "1", "uuid": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "file_change": "released", "data_release": "13.0"}]
+```
+
 
 ### \_mapping Endpoint
 
