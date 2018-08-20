@@ -16,7 +16,7 @@ The GDC requests that users submit their data to the GDC within six months from 
 
 To review and submit data to the GDC, the user must have release privileges. The user will be able to view the section below on the dashboard. The "REVIEW" button is available only if the project is in "OPEN" state.
 
-[![GDC Submission Review Tab](images/GDC_Submission_Submit_Release_Review_tab_2_v2.png)](images/GDC_Submission_Submit_Release_Review_tab_2_v2.png "Click to see the full image.")
+[![GDC Submission Review Tab](images/GDC_Submission_Submit_Release_Review_tab_2.png)](images/GDC_Submission_Submit_Release_Review_tab_2.png "Click to see the full image.")
 
 Reviewing the project will prevent other users from uploading data to the project. Once the review is complete, the user can submit data to the GDC.
 
@@ -28,20 +28,20 @@ Once the user clicks on "REVIEW", the project state will change to "REVIEW":
 
 ### Submit to the GDC
 
-The _'Request Submission'_ button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to request submission of the data to the GDC. When the project is in "REVIEW" the following panel appears on the dashboard:
+The _'Submit'_ button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to submit the data to the GDC. When the project is in "REVIEW" the following panel appears on the dashboard:
 
 
 
-[![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab_2_v3.png)](images/GDC_Submission_Submit_Release_Submit_tab_2_v3.png "Click to see the full image.")
+[![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab_2.png)](images/GDC_Submission_Submit_Release_Submit_tab_2.png "Click to see the full image.")
 
 Once the user submits data to the GDC, they __cannot upload additional data until the harmonization process is complete__.
 
-[![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC_v2.png)](images/GDC_SUBMIT_TO_GDC_v2.png "Click to see the full image.")
+[![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC.png)](images/GDC_SUBMIT_TO_GDC.png "Click to see the full image.")
 
-When the user clicks on the action _'Request Submission'_ on the dashboard, the following submission popup is displayed:
+When the user clicks on the action _'SUBMIT TO GDC'_ on the dashboard, the following submission popup is displayed:
 
-[![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png)](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png "Click to see the full image.")
+[![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup.png)](images/GDC_Submission_Submit_Release_Submit_Popup.png "Click to see the full image.")
 
 
-After the user clicks on "Submit Validated Data to the GDC", the project state becomes "Submission Requested":
-[![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State.png)](images/GDC_Submission_Submit_Release_Project_State_v2.png "Click to see the full image.")
+After the user clicks on "Submit Validated Data to the GDC", the project state becomes "Submitted":
+[![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State.png)](images/GDC_Submission_Submit_Release_Project_State.png "Click to see the full image.")

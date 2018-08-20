@@ -4,7 +4,7 @@
 
 After [authentication](Authentication.md), users are redirected to a homepage. The homepage acts as the entry point for GDC data submission and provides submitters with access to a list of authorized projects, reports, and transactions.
 
-[![GDC Submitter Home Page](images/GDC-HomePage-Submit_v2.png)](images/GDC-HomePage-Submit_v2.png "Click to see the full image.")
+[![GDC Submitter Home Page](images/GDC-HomePage-Submit.png)](images/GDC-HomePage-Submit.png "Click to see the full image.")
 
 Content on the homepage varies based on the user profile (e.g. submitter, program office).
 

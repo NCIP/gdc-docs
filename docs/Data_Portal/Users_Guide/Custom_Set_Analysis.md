@@ -10,7 +10,7 @@ Cohort sets are completely customizable and can be generated for cases, genes, o
 
 __Upload ID Set:__ This feature is available in the "Manage Sets" link at the top right of the Portal. Choose "Upload Set" and then select whether the set comprises cases, genes, or mutations. A set of IDs (IDs* or UUIDs) can then be uploaded in a text file or copied and pasted into the list of identifiers field along with a name identifying the set. Once the list of identifiers is uploaded, they are validated and grouped according to whether the identifier matched an existing GDC ID or did not match ("Unmatched").
 
-[![Upload Set](images/GDC-UploadSet-Cohort_v2.png)](images/GDC-UploadSet-Cohort_v2.png "Click to see the full image.")
+[![Upload Set](images/GDC-UploadSet-Cohort.png)](images/GDC-UploadSet-Cohort.png "Click to see the full image.")
 
 \* This is referred to as a `submitter_id` in the GDC API, which is a non-UUID identifier such as a TCGA barcode.
 

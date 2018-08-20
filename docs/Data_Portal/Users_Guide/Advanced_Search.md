@@ -2,7 +2,7 @@
 
 Only available in the Repository view, the Advanced Search page offers complex query building capabilities to identify specific set of cases and files.
 
-[![Access to Advanced Search from Data View](images/gdc-data-portal-access-advanced-search-data-view_v2.png)](images/gdc-data-portal-access-advanced-search-data-view.png "Click to see the full image.")
+[![Access to Advanced Search from Data View](images/gdc-data-portal-access-advanced-search-data-view.png)](images/gdc-data-portal-access-advanced-search-data-view.png "Click to see the full image.")
 
 
 ## Overview: GQL
