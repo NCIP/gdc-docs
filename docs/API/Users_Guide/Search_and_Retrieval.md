@@ -289,7 +289,7 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
 
 #### Retrieval of file metadata using individual UUIDs:
 
-The `files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID.  Note that the `files` endpoint is inactive when querying for early file versions.  In that case, the `history` endpoint should be used instead.
+The `\files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID.  Note that the `\files` endpoint is inactive when querying for earlier file versions.  In that case, the `\history` or `/files/versions` endpoints should be used instead.
 
 ```Shell
 curl 'https://api.gdc.cancer.gov/files/874e71e0-83dd-4d3e-8014-10141b49f12c?pretty=true'
@@ -326,7 +326,7 @@ __Note:__ The `file_size` field associated with each file is reported in bytes.
 
 #### Example of retrieving file version information:
 
-The `https://api.gdc.cancer.gov/files/versions` enables search and retrieval of version information about a file.  A file may be versioned if a file is updated by the GDC (e.g. using a new alignment algorithm or fixing a file that contained an error). `Version` refers to the instance of a particular file.  Inputs can either be a list of UUIDs as shown in example 1 or a download manifest as shown in example 2.  Output includes information about the current and latest version for any given file.  While /files also returns information about a file version this endpoint will only work for the most recent version of a file where as /files/versions will work for all previous and current versions of a file.
+The `https://api.gdc.cancer.gov/files/versions` endpoint enables search and retrieval of version information about a file.  A file may be versioned if a file is updated by the GDC (e.g. using a new alignment algorithm or fixing a file that contained an error). `Version` refers to the instance of a particular file.  Inputs can either be a list of UUIDs as shown in example 1 or a download manifest as shown in example 2.  Output includes information about the current and latest version for any given file.  While `/files` also returns information about a file version this endpoint will only work for the most recent version of a file whereas `/files/versions` will work for all previous and current versions of a file.  In both examples below the output format can be modified by adding the `format=tsv` parameter.
 
 ```Shell1
 curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e88b06,2a03abac-f1a2-49a9-a57c-7543739dd862?pretty=true'
@@ -373,11 +373,79 @@ curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e8
 ]
 ```
 ```Shell2
-curl --request POST --header "Content-Type: text/tsv"  https://api.gdc.cancer.gov/files/versions/manifest --data-binary @gdc_manifest_20180809_154816.txt
+curl --request POST --header "Content-Type: text/tsv"  https://api.gdc.cancer.gov/files/versions/manifest?pretty=true --data-binary @gdc_manifest_20180809_154816.txt
 ```
 
 ``` Output2
-[{"latest_size": 44857, "latest_id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22", "latest_version": "1", "filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml", "state": "validated", "version": "1", "latest_filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "597aa4df24c4d544b6c25cbd8b25a33e", "size": 44857, "id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22", "md5": "597aa4df24c4d544b6c25cbd8b25a33e"}, {"latest_size": 27620, "latest_id": "3edc7084-013c-4493-8507-c00b0e9962d8", "latest_version": "1", "filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt", "state": "validated", "version": "1", "latest_filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "35a18d990a05eedfaf96e753bee0b96d", "size": 27620, "id": "3edc7084-013c-4493-8507-c00b0e9962d8", "md5": "35a18d990a05eedfaf96e753bee0b96d"}, {"latest_size": 2346, "latest_id": "a22f5e32-b16e-458f-a412-7e438056ece6", "latest_version": "1", "filename": "a22f5e32-b16e-458f-a412-7e438056ece6.vep.vcf.gz", "state": "validated", "version": "1", "latest_filename": "a22f5e32-b16e-458f-a412-7e438056ece6.vep.vcf.gz", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "68b2433b31679bbbc6681919a1b81762", "size": 2346, "id": "a22f5e32-b16e-458f-a412-7e438056ece6", "md5": "68b2433b31679bbbc6681919a1b81762"}, {"latest_size": 35411, "latest_id": "ac7d2078-bd6b-446e-b30a-d889da5624b6", "latest_version": "1", "filename": "CYANS_p_TCGAb_422_423_424_NSP_GenomeWideSNP_6_G12_1513758.nocnv_grch38.seg.v2.txt", "state": "validated", "version": "1", "latest_filename": "CYANS_p_TCGAb_422_423_424_NSP_GenomeWideSNP_6_G12_1513758.nocnv_grch38.seg.v2.txt", "latest_release": ["13.0"], "latest_state": "validated", "release": "13.0", "latest_md5": "6338826b620773062232830fad51ae64", "size": 35411, "id": "ac7d2078-bd6b-446e-b30a-d889da5624b6", "md5": "6338826b620773062232830fad51ae64"}]
+[{
+  "latest_size": 44857,
+  "state": "validated",
+  "latest_version": "1",
+  "filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml",
+  "latest_id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22",
+  "version": "1",
+  "latest_filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml",
+  "latest_release": [
+    "12.0"
+  ],
+  "latest_state": "validated",
+  "release": "12.0",
+  "latest_md5": "597aa4df24c4d544b6c25cbd8b25a33e",
+  "md5": "597aa4df24c4d544b6c25cbd8b25a33e",
+  "id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22",
+  "size": 44857
+},{
+  "latest_size": 27620,
+  "state": "validated",
+  "latest_version": "1",
+  "filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt",
+  "latest_id": "3edc7084-013c-4493-8507-c00b0e9962d8",
+  "version": "1",
+  "latest_filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt",
+  "latest_release": [
+    "12.0"
+  ],
+  "latest_state": "validated",
+  "release": "12.0",
+  "latest_md5": "35a18d990a05eedfaf96e753bee0b96d",
+  "md5": "35a18d990a05eedfaf96e753bee0b96d",
+  "id": "3edc7084-013c-4493-8507-c00b0e9962d8",
+  "size": 27620
+},{
+  "latest_size": 2346,
+  "state": "validated",
+  "latest_version": "1",
+  "filename": "a22f5e32-b16e-458f-a412-7e438056ece6.vep.vcf.gz",
+  "latest_id": "a22f5e32-b16e-458f-a412-7e438056ece6",
+  "version": "1",
+  "latest_filename": "a22f5e32-b16e-458f-a412-7e438056ece6.vep.vcf.gz",
+  "latest_release": [
+    "12.0"
+  ],
+  "latest_state": "validated",
+  "release": "12.0",
+  "latest_md5": "68b2433b31679bbbc6681919a1b81762",
+  "md5": "68b2433b31679bbbc6681919a1b81762",
+  "id": "a22f5e32-b16e-458f-a412-7e438056ece6",
+  "size": 2346
+},{
+  "latest_size": 35411,
+  "state": "validated",
+  "latest_version": "1",
+  "filename": "CYANS_p_TCGAb_422_423_424_NSP_GenomeWideSNP_6_G12_1513758.nocnv_grch38.seg.v2.txt",
+  "latest_id": "ac7d2078-bd6b-446e-b30a-d889da5624b6",
+  "version": "1",
+  "latest_filename": "CYANS_p_TCGAb_422_423_424_NSP_GenomeWideSNP_6_G12_1513758.nocnv_grch38.seg.v2.txt",
+  "latest_release": [
+    "12.0"
+  ],
+  "latest_state": "validated",
+  "release": "12.0",
+  "latest_md5": "6338826b620773062232830fad51ae64",
+  "md5": "6338826b620773062232830fad51ae64",
+  "id": "ac7d2078-bd6b-446e-b30a-d889da5624b6",
+  "size": 35411
+}]
 ```
 
 ### Cases Endpoint
