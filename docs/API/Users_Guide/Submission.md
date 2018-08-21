@@ -2524,7 +2524,7 @@ Unlike the methods outlined in [Search and Retrieval](Search_and_Retrieval.md), 
 
 ### GraphQL IDE
 
-The GDC GraphQL IDE is an instance of [GraphiQL](https://github.com/graphql/graphiql), an in-browser GraphQL IDE that facilitates construction and execution of GraphQL queries. The GDC GraphQL IDE provides tab-completion and syntax checking using schema from the GDC Data Dictionary. It can be found at [https://gdc-portal.nci.nih.gov/submission/graphiql](https://gdc-portal.nci.nih.gov/submission/graphiql).
+The GDC GraphQL IDE is an instance of [GraphiQL](https://github.com/graphql/graphiql), an in-browser GraphQL IDE that facilitates construction and execution of GraphQL queries. The GDC GraphQL IDE provides tab-completion and syntax checking using schema from the GDC Data Dictionary. It can be found at [https://portal.gdc.cancer.gov/submission/graphiql](https://portal.gdc.cancer.gov/submission/graphiql).
 
 Before interacting directly with the GDC Submission API's GraphQL endpoint, users are encouraged to become familiar with executing queries using the GDC GraphQL IDE.
 
