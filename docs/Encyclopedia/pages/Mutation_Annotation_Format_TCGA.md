@@ -1,16 +1,18 @@
-Mutation Annotation Format (MAF) Specification (TCGA)
+Mutation Annotation Format (MAF) - Legacy TCGA Specification
 ==============================================
 
  
-This definition was taken from the previously public wiki hosted by TCGA and reflects the MAF format
-that was available during the active period of the TCGA project.  
+*This definition was taken from the previously public wiki hosted by TCGA and reflects the MAF format
+that was available during the active period of the TCGA project.*  
  
+
+
+
+**Document Information**
 
 The spec has been reverted to the June 26th version (version 20). Additional
 changes are the removal of the "under construction" banner, changing all text to
 black, and fixing a typo in the link to the MAF 2.2 specification.
-
-**Document Information**
 
 **Specification for Mutation Annotation Format**  
 Version 2.4.1  
