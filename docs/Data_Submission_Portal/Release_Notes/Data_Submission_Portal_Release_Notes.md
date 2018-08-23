@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v2.0.0](Data_Submission_Portal_Release_Notes.md#release-200) |  2018 |
+| [v2.0.0](Data_Submission_Portal_Release_Notes.md#release-200) | August 23, 2018 |
 | [v1.9.0](Data_Submission_Portal_Release_Notes.md#release-190) | May 21, 2018 |
 | [v1.8.0](Data_Submission_Portal_Release_Notes.md#release-180) | February 15, 2018 |
 | [v1.7.0](Data_Submission_Portal_Release_Notes.md#release-170) | November 16, 2017 |
@@ -18,13 +18,13 @@
 ## Release 2.0.0
 
 * __GDC Product__: GDC Data Submission Portal
-* __Release Date__: 
+* __Release Date__: August 23, 2018
 
 ### New Features and Changes
 
 * The submission process has been updated to request submission and release. <!--SUBP-443-->
-   * Users can "Request Submission" once data has been reviewed.  Previously the button that said "Submit" now says "Request Submission". 
-   * Users can "Request Release" once data has processed by the GDC.  Previously the button that said "Release" now says "Request Release". 
+   * Users can "Request Submission" once data has been reviewed.  Previously the button that said "Submit" now says "Request Submission".
+   * Users can "Request Release" once data has processed by the GDC.  Previously the button that said "Release" now says "Request Release".
 
 ### Bugs Fixed Since Last Release
 
