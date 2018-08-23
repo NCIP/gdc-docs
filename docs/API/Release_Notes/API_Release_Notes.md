@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v1.15.0](API_Release_Notes.md#v1150) | August 23, 2018 |
 | [v1.14.1](API_Release_Notes.md#v1141) | May 21, 2018 |
 | [v1.14.0](API_Release_Notes.md#v1140) | April 23, 2018 |
 | [v1.13.0](API_Release_Notes.md#v1130) | February 15, 2018 |
@@ -18,6 +19,29 @@
 | [v1.2.0](API_Release_Notes.md#v120) | August 9, 2016 |
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
+
+## v1.15.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__: August 23, 2018
+
+### New Features and Changes
+
+* Added support for file versioning <!--TT-482-->
+* Added new API endpoints in support of versioning: history, files/versions, and files/versions/manifest  <!--PRTL-2015-->
+* Updated the submit and release process <!--TT-249-->
+* Created admin endpoint to allow for modifying file and project flags and states <!--API-368-->
+* Populate version and release information for all existing files <!--TT-154-->
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
 
 ## v1.14.1
 
@@ -35,6 +59,7 @@
 
 ### Known Issues and Workarounds
 
+* The error message for not including a token is incorrect for controlled access API requests (e.g. bam slicing).  It states that your token is invalid, but it should request that a token be supplied. <!--API-495-->
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
