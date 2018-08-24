@@ -8,7 +8,7 @@ Variants are discovered by aligning DNA sequences derived from tumor samples and
 MAF files are generated at the GDC using the Variant Aggregation pipeline<sup>2</sup> by aggregating case-level VCF files on a project and pipeline level (one protected MAF per project per pipeline). Protected MAF files are further processed into open-access somatic MAF files by removing low quality or germline mutations.
 
 ### Structure ###
-The structure of the MAF is available in the [GDC MAF Specification](https://gdc-docs.nci.nih.gov/Data/File_Formats/MAF_Format/) along with descriptions for each field<sup>3</sup>.
+The structure of the MAF is available in the [GDC MAF Specification](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/) along with descriptions for each field<sup>3</sup>.
 
 ## References ##
 1. [GDC DNA-Seq Analysis](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/)
