@@ -125,6 +125,7 @@ pages:
   - Manifest File: Encyclopedia/pages/Manifest_File.md
   - MD5 Checksum: Encyclopedia/pages/MD5_Checksum.md
   - Mutation Annotation Format: Encyclopedia/pages/Mutation_Annotation_Format.md
+  - Mutation Annotation Format (MAF) - Legacy TCGA Secification: Encyclopedia/pages/Mutation_Annotation_Format_TCGA.md
   - Redaction: Encyclopedia/pages/Redaction.md
   - Release Number: Encyclopedia/pages/Release_Number.md
   - REST API: Encyclopedia/pages/REST_API.md
