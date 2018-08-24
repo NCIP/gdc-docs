@@ -13,10 +13,8 @@ The structure of the MAF is available in the [GDC MAF Specification](https://gdc
 ## References ##
 1. [GDC DNA-Seq Analysis](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/)
 2. [GDC-Dictionary: Somatic Aggregation Pipeline](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_aggregation_workflow)
-3. [GDC MAF Format](https://gdc-docs.nci.nih.gov/Data/File_Formats/MAF_Format/)
+3. [GDC MAF Format](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/)
 
-## External Links ##
-* [TCGA MAF specification](https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification)
 
 
 Categories: Data Format
