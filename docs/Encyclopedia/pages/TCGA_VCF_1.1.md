@@ -248,7 +248,7 @@ declarations**
 
 #### INFO lines
 
-**Format**: `*##INFO=<key1=value1,key2=value2,...>*`  
+**Format**: `##INFO=<key1=value1,key2=value2,...>`  
 **Required keys**: ID, Type, Number, Description
 
 INFO fields are optional and contain additional annotations for a variant.
@@ -269,7 +269,7 @@ following format:
 
 #### FORMAT lines
 
-**Format**: `*##FORMAT=<key1=value1,key2=value2,...>*`  
+**Format**: `##FORMAT=<key1=value1,key2=value2,...>`  
 **Required keys**: ID, Type, Number, Description
 
 FORMAT declaration lines are used when annotations need to be added for
@@ -310,7 +310,7 @@ value.
 
 #### FILTER lines
 
-**Format**: `*##FILTER=<key1=value1,key2=value2,...>*`  
+**Format**: `##FILTER=<key1=value1,key2=value2,...>`  
 **Required keys**: ID, Description
 
 FILTER fields are defined to list filtering criteria used for generating variant
@@ -520,7 +520,7 @@ are optional.
 | **Index** | **Field**  | **Case-sensitive** | **Description** | **Data type** | **Sample values**     | **Required\*** | **Additional notes** |
 | --------- | ---------- | ------------------ | --------------- | ------------- | --------------------- | -------------- | -------------------- |
 | 1         | CHROM      | Yes                                                                        | *Chromosome*: an identifier from the reference genome or the assembly file defined in the HEADER.                                                                                                                                                                                                                            | Alphanumeric string                                                                      | 20                    | Yes            | Chromosome name should not contain "chr" prefix, e.g., "chr10" will be an invalid entry                                                                                                                                                                                                                                                                                                                                                                              |
-|           |            |                                                                            |                                                                                                                                                                                                                                                                                                                              | *([1-22], X, Y, MT, <ID>)*                                                             | <ctg1>              |                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|           |            |                                                                            |                                                                                                                                                                                                                                                                                                                              | `*([1-22], X, Y, MT, <ID>)*`                                                             | <ctg1>              |                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | 2         | POS        | Yes                                                                        | *Position*: The reference position, with the 1st base having position 1.                                                                                                                                                                                                                                                     | Non-negative integer                                                                     | 1110696               | Yes            | \---                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | 3         | ID         | Yes                                                                        | *Identifier*: Semi-colon separated list of unique identifiers if available.                                                                                                                                                                                                                                                  | String, no white-space or semi-colons                                                    | rs6054257_66370       | No             | **Important**: When using an rsID as the variant identifier, please append chromosomal location of the variant to the ID. For example, if the variant is at chr7:6013153 and the corresponding rsID is rs10000, then the variant ID should be rs10000_6013153. This is to ensure that there is a consistent rule for satisfying the condition for unique IDs even if a file contains single rsID that maps to multiple variants.                                     |
 | 4         | REF        | Yes                                                                        | *Reference allele(s)*: Reference allele at the position.                                                                                                                                                                                                                                                                     | String                                                                                   | GTCT                  | Yes            | Value in POS field refers to the position of the first base in the REF string.                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -591,40 +591,40 @@ corresponding mates and partners respectively.
 
 | **Field:Sub-field** | **Description** | **Declaration in HEADER** | **Required** | **(Sample values in BODY)** |
 | ------------------- | --------------- | ------------------------- | ------------ | --------------------------- |
-| INFO:**SVTYPE**     | Type of structural variant; SVTYPE is set to "BND" for breakend records | ##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">             | Yes                                  |
+| INFO:**SVTYPE**     | Type of structural variant; SVTYPE is set to "BND" for breakend records | `##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">`             | Yes                                  |
 |                     |                                                                         | *SVTYPE=BND*                                                                                     | (SVTYPE=BND for breakend records)    |
-| INFO:**MATEID**     | ID of corresponding mate of the breakend record                         | ##INFO=<ID=MATEID,Number=.,Type=String,Description="ID of mate breakend">                    | No                                   |
+| INFO:**MATEID**     | ID of corresponding mate of the breakend record                         | `##INFO=<ID=MATEID,Number=.,Type=String,Description="ID of mate breakend">`                    | No                                   |
 |                     |                                                                         | *MATEID=bnd_U*                                                                                   |                                      |
-| INFO:**PARID**      | ID of corresponding partner of the breakend record                      | ##INFO=<ID=PARID,Number=.,Type=String,Description="ID of partner breakend">                  | No                                   |
+| INFO:**PARID**      | ID of corresponding partner of the breakend record                      | `##INFO=<ID=PARID,Number=.,Type=String,Description="ID of partner breakend">`                  | No                                   |
 |                     |                                                                         | *PARID=bnd_V*                                                                                    |                                      |
-| INFO:**EVENT**      | ID of event associated to breakend                                      | ##INFO=<ID=EVENT,Number=.,Type=String,Description="ID of breakend event">                    | No                                   |
+| INFO:**EVENT**      | ID of event associated to breakend                                      | `##INFO=<ID=EVENT,Number=.,Type=String,Description="ID of breakend event">`                    | No                                   |
 |                     |                                                                         | *EVENT=RR0*                                                                                      |                                      |
 
 The specification for ALT field deviates from the standard format for breakend
 records. ALT field for a breakend record can be represented in four possible
 ways based on the type of replacement.
 
-REF ALT Description
+    REF ALT Description
 
-s t[p[ piece extending to the right of p is joined after t
+    s t[p[ piece extending to the right of p is joined after t
 
-s t]p] reverse comp piece extending left of p is joined after t
+    s t]p] reverse comp piece extending left of p is joined after t
 
-s ]p]t piece extending to the left of p is joined before t
+    s ]p]t piece extending to the left of p is joined before t
 
-s [p[t reverse comp piece extending right of p is joined before t
+    s [p[t reverse comp piece extending right of p is joined before t
 
-Legend:
+    Legend:
 
-s: sequence of REF bases beginning at position POS
+    s: sequence of REF bases beginning at position POS
 
-t: sequence of bases that replaces "s"
+    t: sequence of bases that replaces "s"
 
-p: position of the breakend mate indicating the first mapped base that joins at
-the adjacency; represented as a string of the form "chr:pos"
+    p: position of the breakend mate indicating the first mapped base that joins at
+    the adjacency; represented as a string of the form "chr:pos"
 
-[]: square brackets indicate direction that the joined sequence continues in,
-starting from p
+    []: square brackets indicate direction that the joined sequence continues in,
+    starting from p
 
 RNA-Seq variants
 ----------------
@@ -639,7 +639,7 @@ since they can be different from those observed in DNA-Seq.
 
 | **Field:Sub-field** | **Description** | **Declaration in HEADER** | **Required** |
 | ------------------- | --------------- | ------------------------- | ------------ |
-| INFO:**SVTYPE**     | Type of structural variant; SVTYPE is set to "FND" for breakends associated with RNA-Seq | ##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">             | Yes                                                    |
+| INFO:**SVTYPE**     | Type of structural variant; SVTYPE is set to "FND" for breakends associated with RNA-Seq | `##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">`             | Yes                                                    |
 |                     |                                                                                          | *SVTYPE=FND*                                                                                     | (required for RNA-Seq breakend records; SVTYPE=FND)    |
 
 VCF files for RNA-Seq variants may include gene-related annotations. However,
@@ -652,15 +652,15 @@ expressed nucleotide variants (Table 8a).
 
 | **Field:Sub-field** | **Description** | **Declaration in HEADER** | **Required** |
 | ------------------- | --------------- | ------------------------- | ------------ |
-| INFO:**SID**        | Unique identifiers from the gene annotation source as specified in ##geneAnno; "unknown" should be used if identifier is not known; comma-separated list of IDs can be used if variant overlaps with multiple features | ##INFO=<ID=SID,Number=.,Type=String,Description=”Unique identifier from gene annotation source or unknown”>                     | No           |
+| INFO:**SID**        | Unique identifiers from the gene annotation source as specified in ##geneAnno; "unknown" should be used if identifier is not known; comma-separated list of IDs can be used if variant overlaps with multiple features | `##INFO=<ID=SID,Number=.,Type=String,Description=”Unique identifier from gene annotation source or unknown”>`                     | No           |
 |                     |                                                                                                                                                                                                                          | *SID=13,198*                                                                                                                        |              |
-| INFO:**GENE**       | HUGO gene symbol; "unknown" should be used when gene symbol is unknown; comma-separated list of genes can be used if variant overlaps with multiple transcripts/genes                                                    | ##INFO=<ID=GENE,Number=.,Type=String,Description=”HUGO gene symbol”>                                                            | No           |
+| INFO:**GENE**       | HUGO gene symbol; "unknown" should be used when gene symbol is unknown; comma-separated list of genes can be used if variant overlaps with multiple transcripts/genes                                                    | `##INFO=<ID=GENE,Number=.,Type=String,Description=”HUGO gene symbol”>`                                                            | No           |
 |                     |                                                                                                                                                                                                                          | *GENE=ERBB2,ERBB2*                                                                                                                  |              |
-| INFO:**RGN**        | Region where a nucleotide variant occurs in relation to a gene                                                                                                                                                           | ##INFO=<ID=RGN,Number=.,Type=String,Description=”Region where nucleotide variant occurs in relation to a gene”>                 | No           |
+| INFO:**RGN**        | Region where a nucleotide variant occurs in relation to a gene                                                                                                                                                           | `##INFO=<ID=RGN,Number=.,Type=String,Description=”Region where nucleotide variant occurs in relation to a gene”>`                 | No           |
 |                     |                                                                                                                                                                                                                          | *RGN=exon,3_utr*                                                                                                                    |              |
-| INFO:**RE**         | Flag to indicate if position is known to have RNA-edits occur                                                                                                                                                            | ##INFO=<ID=RE,Number=0,Type=Flag,Description=”Position known to have RNA-edits to occur”>                                       | No           |
+| INFO:**RE**         | Flag to indicate if position is known to have RNA-edits occur                                                                                                                                                            | `##INFO=<ID=RE,Number=0,Type=Flag,Description=”Position known to have RNA-edits to occur”>`                                       | No           |
 |                     |                                                                                                                                                                                                                          | *RE*                                                                                                                                |              |
-| FORMAT:**TE**       | Translational effect of a nucleotide variant in a codon                                                                                                                                                                  | ##FORMAT=<ID=TE,Number=.,Type=String,Description="Translational                                                                  | No           |
+| FORMAT:**TE**       | Translational effect of a nucleotide variant in a codon                                                                                                                                                                  | `##FORMAT=<ID=TE,Number=.,Type=String,Description="Translational`                                                                  | No           |
 |                     |                                                                                                                                                                                                                          | effect of the variant in a codon">                                                                                                 |              |
 |                     |                                                                                                                                                                                                                          | *MIS,NA*                                                                                                                            |              |
 
@@ -695,59 +695,59 @@ header declarations are correct.
 
 **Sample TCGA VCF file with validation status**
 
-Line1 ##fileformat=VCFv4.1
+    Line1 ##fileformat=VCFv4.1
 
-Line2 ##tcgaversion=1.1
+    Line2 ##tcgaversion=1.1
 
-Line3 ##fileDate=20120205
+    Line3 ##fileDate=20120205
 
-Line4 ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
+    Line4 ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
 
-Line5 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+    Line5 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 
-Line6 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+    Line6 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
 
-Line7 ##FORMAT=<ID=SS,Number=1,Type=Integer,Description="Variant status
-relative to non-adjacent Normal,
-0=wildtype,1=germline,2=somatic,3=LOH,4=unknown">
+    Line7 ##FORMAT=<ID=SS,Number=1,Type=Integer,Description="Variant status
+    relative to non-adjacent Normal,
+    0=wildtype,1=germline,2=somatic,3=LOH,4=unknown">
 
-Line8 ##INFO=<ID=VLS,Number=1,Type=Integer,Description="Final validation
-status relative to non-adjacent Normal,
-0=wildtype,1=germline,2=somatic,3=LOH,4=unknown">
+    Line8 ##INFO=<ID=VLS,Number=1,Type=Integer,Description="Final validation
+    status relative to non-adjacent Normal,
+    0=wildtype,1=germline,2=somatic,3=LOH,4=unknown">
 
-Line9 ##FILTER=<ID=q10,Description="Quality below 10">
+    Line9 ##FILTER=<ID=q10,Description="Quality below 10">
 
-Line10
-##SAMPLE=<ID=NORMAL,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Normal",File=TCGA-06-0881-10A-01W-0421-09_illumina.bam,Platform=Illumina,Source=dbGAP,Accession=1234>
+    Line10
+    ##SAMPLE=<ID=NORMAL,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Normal",File=TCGA-06-0881-10A-01W-0421-09_illumina.bam,Platform=Illumina,Source=dbGAP,Accession=1234>
 
-Line11
-##SAMPLE=<ID=NORMAL_454,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Validation
-normal sample tested with
-454",File=TCGA-06-0881-10A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=245>
+    Line11
+    ##SAMPLE=<ID=NORMAL_454,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Validation
+    normal sample tested with
+    454",File=TCGA-06-0881-10A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=245>
 
-Line12
-##SAMPLE=<ID=TUMOR,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Tumor",File=TCGA-06-0881-01A-01W-0421-09.bam,Platform=Illumina,Source=dbGAP,Accession=1234>
+    Line12
+    ##SAMPLE=<ID=TUMOR,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Tumor",File=TCGA-06-0881-01A-01W-0421-09.bam,Platform=Illumina,Source=dbGAP,Accession=1234>
 
-Line13
-##SAMPLE=<ID=TUMOR_454,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
-tumor sample tested with
-454",File=TCGA-06-0881-01A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=3456>
+    Line13
+    ##SAMPLE=<ID=TUMOR_454,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
+    tumor sample tested with
+    454",File=TCGA-06-0881-01A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=3456>
 
-Line14
-##SAMPLE=<ID=TUMOR_Sanger,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
-tumor sample tested with Sanger
-seq",File=.,Platform=Sanger_PCR,Source=.,Accession=.>
+    Line14
+    ##SAMPLE=<ID=TUMOR_Sanger,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
+    tumor sample tested with Sanger
+    seq",File=.,Platform=Sanger_PCR,Source=.,Accession=.>
 
-Line15 #CHROM POS ID REF ALT QUAL FILTER INFO FORMAT NORMAL TUMOR NORMAL_454
-TUMOR_454 TUMOR_Sanger
+    Line15 #CHROM POS ID REF ALT QUAL FILTER INFO FORMAT NORMAL TUMOR NORMAL_454
+    TUMOR_454 TUMOR_Sanger
 
-Line16 20 14370 var1 G A 29 PASS VLS=2 GT:GQ:SS 0/0:48:. 0/1:50:2 0/0:20:.
-0/1:20:2 0/1:.:2
+    Line16 20 14370 var1 G A 29 PASS VLS=2 GT:GQ:SS 0/0:48:. 0/1:50:2 0/0:20:.
+    0/1:20:2 0/1:.:2
 
-Line17 5 15000 var2 T C 35 PASS VLS=1 GT:GQ:SS 0/1:48:. 1/1:51:3 0/1:60:.
-0/1:50:1 0/1:13:1
+    Line17 5 15000 var2 T C 35 PASS VLS=1 GT:GQ:SS 0/1:48:. 1/1:51:3 0/1:60:.
+    0/1:50:1 0/1:13:1
 
-Line18 3 170089 var2 G T 30 PASS . GT:GQ:SS 0/1:48:. 0/1:51:1 .:.:. .:.:. .:.:.
+    Line18 3 170089 var2 G T 30 PASS . GT:GQ:SS 0/1:48:. 0/1:51:1 .:.:. .:.:. .:.:.
 
 The format follows these guidelines:
 
@@ -761,7 +761,7 @@ The format follows these guidelines:
 
     -   The validation platform name is appended to the original sample to
         distinguish the validation results from primary sequencing.
-        <Sample>_<Platform> is used in the example above.
+        `<Sample>_<Platform>` is used in the example above.
 
         -   **Note**: \<Platform\> can be obtained from DCC [Code Tables
             Report](http://tcga-data.nci.nih.gov/datareports/codeTablesReport.htm).
