@@ -218,7 +218,7 @@ is mandatory and lists the VCF version number of the file.
 
 ### INFO/FORMAT/FILTER meta-information
 
-**Format**: *##FIELDTYPE=<key1=value1,key2=value2,...>*
+**Format**: `*##FIELDTYPE=<key1=value1,key2=value2,...>*`
 
 INFO, FORMAT and FILTER (case-sensitive values) are optional fields that have to
 be declared in the HEADER if they are being referred to in BODY of the file.
@@ -229,7 +229,7 @@ definitions for further details.
 **Important**: TCGA VCF 1.1 requires all VCF files to follow consistent header
 declarations for standard INFO and FORMAT sub-fields. Please refer to Tables 4
 and 5 for details. If a sub-field exists in these tables and is used in a TCGA
-VCF file, then all <key=value> pairs in the definition should match entries in
+VCF file, then all `<key=value>` pairs in the definition should match entries in
 the corresponding table for the file to pass validation.
 
 **Table 3: Description of keys used in INFO/FORMAT/FILTER meta-information
@@ -248,7 +248,7 @@ declarations**
 
 #### INFO lines
 
-**Format**: *##INFO=<key1=value1,key2=value2,...>*  
+**Format**: `*##INFO=<key1=value1,key2=value2,...>*`  
 **Required keys**: ID, Type, Number, Description
 
 INFO fields are optional and contain additional annotations for a variant.
@@ -264,13 +264,12 @@ following format:
 
     ##INFO=<ID=AA,Number=1,Type=String,Description="Ancestral Allele">
 
-    ##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequ
+    ##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
 
-    ency">
 
 #### FORMAT lines
 
-**Format**: *##FORMAT=<key1=value1,key2=value2,...>*  
+**Format**: `*##FORMAT=<key1=value1,key2=value2,...>*`  
 **Required keys**: ID, Type, Number, Description
 
 FORMAT declaration lines are used when annotations need to be added for
@@ -311,7 +310,7 @@ value.
 
 #### FILTER lines
 
-**Format**: *##FILTER=<key1=value1,key2=value2,...>*  
+**Format**: `*##FILTER=<key1=value1,key2=value2,...>*`  
 **Required keys**: ID, Description
 
 FILTER fields are defined to list filtering criteria used for generating variant
@@ -342,7 +341,7 @@ given field is interpreted the same way across all centers and that same
 
 | **Sub-field** | **Source** | **Formatted declaration**                                                                                                                                                                           |
 |---------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AA            | VCF        | ##INFO=<ID=AA,Number=1,Type=String,Description="Ancestral Allele">                                                                                                                              |
+| AA            | VCF        | `##INFO=<ID=AA,Number=1,Type=String,Description="Ancestral` Allele">                                                                                                                              |
 | AC            | VCF        | ##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">                                                                  |
 | AF            | VCF        | ##INFO=<ID=AF,Number=.,Type=Float,Description="Allele Frequency in primary data, for each ALT allele, in the same order as listed">                                                             |
 | AN            | VCF        | ##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">                                                                                                  |
