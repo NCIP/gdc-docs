@@ -184,7 +184,7 @@ indicate whether a given variant exists in dbSNP).
 
 ### Generic meta-information
 
-**Format**: *##key=value* OR *##FIELDTYPE=<key1=value1,key2=value2,...>*
+**Format**: `##key=value` OR `##FIELDTYPE=<key1=value1,key2=value2,...>`
 
 The following table lists some of the reserved field names. Files can be
 customized to contain additional meta-information fields as long as they are not
@@ -218,7 +218,7 @@ is mandatory and lists the VCF version number of the file.
 
 ### INFO/FORMAT/FILTER meta-information
 
-**Format**: `*##FIELDTYPE=<key1=value1,key2=value2,...>*`
+**Format**: `##FIELDTYPE=<key1=value1,key2=value2,...>`
 
 INFO, FORMAT and FILTER (case-sensitive values) are optional fields that have to
 be declared in the HEADER if they are being referred to in BODY of the file.
@@ -652,7 +652,7 @@ expressed nucleotide variants (Table 8a).
 
 | **Field:Sub-field** | **Description** | **Declaration in HEADER** | **Required** |
 | ------------------- | --------------- | ------------------------- | ------------ |
-| INFO:**SID**        | Unique identifiers from the gene annotation source as specified in ##geneAnno; "unknown" should be used if identifier is not known; comma-separated list of IDs can be used if variant overlaps with multiple features | `##INFO=<ID=SID,Number=.,Type=String,Description=”Unique identifier from gene annotation source or unknown”>`                     | No           |
+| INFO:**SID**        | Unique identifiers from the gene annotation source as specified in ##geneAnno; "unknown" should be used if identifier is not known; comma-separated list of IDs can be used if variant overlaps with multiple features | `##INFO=<ID=SID,Number=.,Type=String,Description=”Unique identifier from gene annotation source or unknown\”>`                    | No           |
 |                     |                                                                                                                                                                                                                          | *SID=13,198*                                                                                                                        |              |
 | INFO:**GENE**       | HUGO gene symbol; "unknown" should be used when gene symbol is unknown; comma-separated list of genes can be used if variant overlaps with multiple transcripts/genes                                                    | `##INFO=<ID=GENE,Number=.,Type=String,Description=”HUGO gene symbol”>`                                                            | No           |
 |                     |                                                                                                                                                                                                                          | *GENE=ERBB2,ERBB2*                                                                                                                  |              |
