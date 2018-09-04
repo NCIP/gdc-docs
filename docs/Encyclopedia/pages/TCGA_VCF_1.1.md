@@ -525,7 +525,7 @@ are optional.
 | 3         | ID         | Yes                                                                        | *Identifier*: Semi-colon separated list of unique identifiers if available.                                                                                                                                                                                                                                                  | String, no white-space or semi-colons                                                    | rs6054257_66370       | No             | **Important**: When using an rsID as the variant identifier, please append chromosomal location of the variant to the ID. For example, if the variant is at chr7:6013153 and the corresponding rsID is rs10000, then the variant ID should be rs10000_6013153. This is to ensure that there is a consistent rule for satisfying the condition for unique IDs even if a file contains single rsID that maps to multiple variants.                                     |
 | 4         | REF        | Yes                                                                        | *Reference allele(s)*: Reference allele at the position.                                                                                                                                                                                                                                                                     | String                                                                                   | GTCT                  | Yes            | Value in POS field refers to the position of the first base in the REF string.                                                                                                                                                                                                                                                                                                                                                                                       |
 |           |            |                                                                            |                                                                                                                                                                                                                                                                                                                              | *([ACGTN]+* )                                                                            |                       |                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| 5         | ALT        | Yes                                                                        | *Alternate allele(s)*: Comma separated list of alternate non-reference alleles called on at least one of the samples. Angle-bracketed ID String (”`<ID>`”) can also be used for symbolically representing alternate alleles.                                                                                                 | String; no whitespace, commas, or angle-brackets in the ID string                        | G,GTCT                | No             | if `ALT==<ID>`, ID needs to be defined in the header as                                                                                                                                                                                                                                                                                                                                                                                                              |
+| 5         | ALT        | Yes                                                                        | *Alternate allele(s)*: Comma separated list of alternate non-reference alleles called on at least one of the samples. Angle-bracketed ID String ("`<ID>`") can also be used for symbolically representing alternate alleles.                                                                                                 | String; no whitespace, commas, or angle-brackets in the ID string                        | G,GTCT                | No             | if `ALT==<ID>`, ID needs to be defined in the header as                                                                                                                                                                                                                                                                                                                                                                                                              |
 |           |            |                                                                            |                                                                                                                                                                                                                                                                                                                              | *([ACGTN]+, `<ID>`, .)*                                                                  | .                     |                | `##ALT=<ID=*Id*,Description=*"description"*>`                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |           |            |                                                                            |                                                                                                                                                                                                                                                                                                                              |                                                                                          | <INS:ME:ALU>        |                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | 6         | QUAL       | Yes                                                                        | *Quality score*: Phred-scaled quality score for the assertion made in ALT.                                                                                                                                                                                                                                                   | Integer \>= 0                                                                            | 50                    | No             | Scores should be non-negative integers or missing values                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -818,51 +818,51 @@ Line3 ##source=myImputationProgramV3.1
 
 Line4 ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
 
-Line5 ##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With
-Data">
+Line5 `##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With
+Data">`
 
-Line6 ##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership">
+Line6 `##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership">`
 
-Line7 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+Line7 `##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">`
 
-Line8 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+Line8 `##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">`
 
-Line9 ##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+Line9 `##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">`
 
-Line10 ##FORMAT=<ID=PL,Number=3,Type=Integer,Description=" Normalized
-Phred-scaled likelihoods for AA, AB, BB genotypes ">
+Line10 `##FORMAT=<ID=PL,Number=3,Type=Integer,Description=" Normalized
+Phred-scaled likelihoods for AA, AB, BB genotypes ">`
 
-Line11 ##FILTER=<ID=q10,Description="Quality below 10">
+Line11 `##FILTER=<ID=q10,Description="Quality below 10">`
 
-Line12 ##FILTER=<ID=s50,Description="Less than 50% of samples have data">
+Line12 `##FILTER=<ID=s50,Description="Less than 50% of samples have data">`
 
-Line13 FILTER=<ID=c10,Description="Shallow coverage below 10x">
+Line13 `FILTER=<ID=c10,Description="Shallow coverage below 10x">`
 
-Line14 ##ALT=<ID=DEL:ME:ALU,Description="Deletion of ALU element">
+Line14 `##ALT=<ID=DEL:ME:ALU,Description="Deletion of ALU element">`
 
-Line15 #CHROM POS ID REF ALT QUAL FILTER INFO FORMAT TCGA-02-0001-01
-TCGA-02-0001-02
+Line15 `#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT TCGA-02-0001-01
+TCGA-02-0001-02`
 
-Line16 20 14370 var1 G A 29 q10 NS=2;DP=14 GT:GQ:DP 0|0:48 0|1:48:3
+Line16 `20 14370 var1 G A 29 q10 NS=2;DP=14 GT:GQ:DP 0|0:48 0|1:48:3`
 
-Line17 19 15000 var2 G A 35 q10;s50 NS=2.5 GQ:GT 48:0|0 51:0|1
+Line17 `19 15000 var2 G A 35 q10;s50 NS=2.5 GQ:GT 48:0|0 51:0|1`
 
-Line18 19 16000 var3 C T 30 q10;s10 NS=2 GT:GQ:DP 0/2:48:3 0/1:51:4
+Line18 `19 16000 var3 C T 30 q10;s10 NS=2 GT:GQ:DP 0/2:48:3 0/1:51:4`
 
-Line19 2 14477 rs123 C \<DEL:ME:ALU\> 12 PASS NS=3;DB GT:GQ 0/1:50 1/1:40
+Line19 `2 14477 rs123 C <DEL:ME:ALU> 12 PASS NS=3;DB GT:GQ 0/1:50 1/1:40`
 
-Line20 9 13567 . A \<DUP\> 20 PASS NS=3 GT:GQ:PL 0/1:49:42,3 1/1:38:96,47/70
+Line20 `9 13567 . A <DUP> 20 PASS NS=3 GT:GQ:PL 0/1:49:42,3 1/1:38:96,47/70`
 
-Line21 3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1
+Line21 `3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1`
 
-**Important**: A file will be validated as a TCGA VCF file only if it contains
-##tcgaversion HEADER line (e.g., ##tcgaversion=1.1). The current acceptable
-version is 1.1.
+    **Important**: A file will be validated as a TCGA VCF file only if it contains
+    ##tcgaversion HEADER line (e.g., ##tcgaversion=1.1). The current acceptable
+    version is 1.1.
 
 1.  Mandatory [header lines](#TCGAVariantCallFormat(VCF)1.1Specificat) should be
     present.
 
-2.  All meta-information header lines should be prefixed with "\#\#".
+2.  All meta-information header lines should be prefixed with "##".
 
 3.  [Column header](#TCGAVariantCallFormat(VCF)1.1Specificat) line should be
     prefixed with "\#". A VCF file can contain only a single column header line
@@ -881,11 +881,11 @@ version is 1.1.
     the format below where all keys are required but the order of keys is
     irrelevant.
 
-7.  ##INFO=<ID=id,Number=number,Type=type,Description="description">
+7.  `##INFO=<ID=id,Number=number,Type=type,Description="description">`
 
-8.  ##FORMAT=<ID=id,Number=number,Type=type,Description="description">
+8.  `##FORMAT=<ID=id,Number=number,Type=type,Description="description">`
 
-9.  ##FILTER=<ID=id,Description="description">
+9.  `##FILTER=<ID=id,Description="description">`
 
 10. Values assigned to *ID, Number, Type* and *Description* in INFO, FORMAT or
     FILTER declarations should follow the rules listed below. A detailed
