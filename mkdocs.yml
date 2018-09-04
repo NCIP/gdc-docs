@@ -52,6 +52,7 @@ pages:
   - Release Notes: Data_Portal/Release_Notes/Data_Portal_Release_Notes.md
   - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
 - Data Submission Portal:
+  - Before Submitting Data to the GDC Portal: Checklist.md
   - Getting Started: Data_Submission_Portal/Users_Guide/Getting_Started.md
   - Submission Workflow: Data_Submission_Portal/Users_Guide/Submission_Workflow.md
   - Authentication: Data_Submission_Portal/Users_Guide/Authentication.md
