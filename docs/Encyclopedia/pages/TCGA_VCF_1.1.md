@@ -763,7 +763,7 @@ The format follows these guidelines:
         distinguish the validation results from primary sequencing.
         `<Sample>_<Platform>` is used in the example above.
 
-        -   **Note**: \<Platform\> can be obtained from DCC [Code Tables
+        -   **Note**: <Platform> can be obtained from DCC [Code Tables
             Report](http://tcga-data.nci.nih.gov/datareports/codeTablesReport.htm).
             The ##SAMPLE meta-information line also includes a 'Platform' tag
             where platform name is defined.
@@ -810,50 +810,50 @@ listed validation steps. Please note that line numbers in the file segment below
 are added for illustration purposes alone and are not expected to be found in an
 actual VCF file.
 
-Line1 ##fileformat=VCFv4.1
+    Line1 ##fileformat=VCFv4.1
 
-Line2 ##fileDate=20090805
+    Line2 ##fileDate=20090805
 
-Line3 ##source=myImputationProgramV3.1
+    Line3 ##source=myImputationProgramV3.1
 
-Line4 ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
+    Line4 ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
 
-Line5 `##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With
-Data">`
+    Line5 `##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With
+    Data">`
 
-Line6 `##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership">`
+    Line6 `##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership">`
 
-Line7 `##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">`
+    Line7 `##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">`
 
-Line8 `##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">`
+    Line8 `##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">`
 
-Line9 `##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">`
+    Line9 `##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">`
 
-Line10 `##FORMAT=<ID=PL,Number=3,Type=Integer,Description=" Normalized
-Phred-scaled likelihoods for AA, AB, BB genotypes ">`
+    Line10 `##FORMAT=<ID=PL,Number=3,Type=Integer,Description=" Normalized
+    Phred-scaled likelihoods for AA, AB, BB genotypes ">`
 
-Line11 `##FILTER=<ID=q10,Description="Quality below 10">`
+    Line11 `##FILTER=<ID=q10,Description="Quality below 10">`
 
-Line12 `##FILTER=<ID=s50,Description="Less than 50% of samples have data">`
+    Line12 `##FILTER=<ID=s50,Description="Less than 50% of samples have data">`
 
-Line13 `FILTER=<ID=c10,Description="Shallow coverage below 10x">`
+    Line13 `FILTER=<ID=c10,Description="Shallow coverage below 10x">`
 
-Line14 `##ALT=<ID=DEL:ME:ALU,Description="Deletion of ALU element">`
+    Line14 `##ALT=<ID=DEL:ME:ALU,Description="Deletion of ALU element">`
 
-Line15 `#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT TCGA-02-0001-01
-TCGA-02-0001-02`
+    Line15 `#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT TCGA-02-0001-01
+    TCGA-02-0001-02`
 
-Line16 `20 14370 var1 G A 29 q10 NS=2;DP=14 GT:GQ:DP 0|0:48 0|1:48:3`
+    Line16 `20 14370 var1 G A 29 q10 NS=2;DP=14 GT:GQ:DP 0|0:48 0|1:48:3`
 
-Line17 `19 15000 var2 G A 35 q10;s50 NS=2.5 GQ:GT 48:0|0 51:0|1`
+    Line17 `19 15000 var2 G A 35 q10;s50 NS=2.5 GQ:GT 48:0|0 51:0|1`
 
-Line18 `19 16000 var3 C T 30 q10;s10 NS=2 GT:GQ:DP 0/2:48:3 0/1:51:4`
+    Line18 `19 16000 var3 C T 30 q10;s10 NS=2 GT:GQ:DP 0/2:48:3 0/1:51:4`
 
-Line19 `2 14477 rs123 C <DEL:ME:ALU> 12 PASS NS=3;DB GT:GQ 0/1:50 1/1:40`
+    Line19 `2 14477 rs123 C <DEL:ME:ALU> 12 PASS NS=3;DB GT:GQ 0/1:50 1/1:40`
 
-Line20 `9 13567 . A <DUP> 20 PASS NS=3 GT:GQ:PL 0/1:49:42,3 1/1:38:96,47/70`
+    Line20 `9 13567 . A <DUP> 20 PASS NS=3 GT:GQ:PL 0/1:49:42,3 1/1:38:96,47/70`
 
-Line21 `3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1`
+    Line21 `3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1`
 
     **Important**: A file will be validated as a TCGA VCF file only if it contains
     ##tcgaversion HEADER line (e.g., ##tcgaversion=1.1). The current acceptable
@@ -921,7 +921,7 @@ Line21 `3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1`
 12. Validation of **INFO** sub-fields:
 
     1.  An INFO sub-field should be included for a variant record in the BODY as
-        *\<key=value\>* (e.g., NS=2) where *key*is the "ID" value of the
+        *<key=value>* (e.g., NS=2) where *key*is the "ID" value of the
         sub-field in the HEADER declaration.
 
         -   **Exception**: An INFO field of "Flag" *Type* will not be assigned a
@@ -1044,7 +1044,7 @@ Line21 `3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1`
         declaration in the HEADER. Line18 shows a violation as "q10" does not
         have an associated definition in the HEADER.
 
-18. \<TCGA-VCF\> Validation of
+18. <TCGA-VCF> Validation of
     [SAMPLE](#TCGAVariantCallFormat(VCF)1.1Specificat) meta-information lines:
 
     1.  Each sample ID in the column header (immediately after FORMAT column)
