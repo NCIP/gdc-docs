@@ -40,18 +40,18 @@ adhere to UUID-based specification whereas some may still have barcodes.
 Non-UUID files will follow the specification described here but for
 UUID-compliance, VCF files should satisfy the following criteria.
 
-1.  **SampleUUID** and **SampleTCGABarcode**  are required tags in each
-    ##SAMPLE declaration. Please note that **SampleName** will not be a
-    required tag once submitting center has fully converted to UUIDs.
+    1.  SampleUUID and SampleTCGABarcode  are required tags in each
+        ##SAMPLE declaration. Please note that SampleName will not be a
+        required tag once submitting center has fully converted to UUIDs.`
 
-    1.  Metadata represented by SampleTCGABarcode at the DCC should correspond
+        a.  Metadata represented by SampleTCGABarcode at the DCC should correspond
         to the UUID assigned to SampleUUID.
 
-2.  **Individual** is not a required tag in ##SAMPLE declaration.
+    2.  Individual is not a required tag in ##SAMPLE declaration.
 
-3.  If ##**INDIVIDUAL** is declared in the header, all SampleUUIDs in the
-    header must correspond to the same participant, and the corresponding TCGA
-    barcode for that participant should be assigned to ##INDIVIDUAL.
+    3.  If ##INDIVIDUAL is declared in the header, all SampleUUIDs in the
+        header must correspond to the same participant, and the corresponding TCGA
+        barcode for that participant should be assigned to ##INDIVIDUAL.
 
  
 
@@ -67,18 +67,14 @@ UUID-compliance, VCF files should satisfy the following criteria.
     (#10c)
 
     -   Genotype (**GT**)
-
     -   Read depth (**DP**)
-
     -   Reads supporting ALT (**AD** or **DP4**)
-
     -   Average base quality for reads supporting alleles (**BQ**)
-
     -   Somatic status of the variant (**SS**). SS can be 0, 1, 2, 3, 4 or 5
         depending on whether relative to normal the variant is wildtype,
         germline, somatic, LOH, post-transcriptional modification, or unknown
         respectively. (#23)
-
+        
 4.  Values for INFO field **VLS** (validation status relative to non-adjacent
     Normal) will be checked for validity. It can be 0, 1, 2, 3, 4, or 5 based on
     whether the mutation is wildtype, germline, somatic, LOH, post
