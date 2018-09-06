@@ -60,9 +60,7 @@ UUID-compliance, VCF files should satisfy the following criteria.
     barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) / [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
     in the database. (#15b, #15h)
 
-2.  Header declarations for INFO and FORMAT fields should match the values
-    defined in Tables 4 and 5 respectively. (#7a)
-
+2.  Header declarations for INFO and FORMAT fields should match the values defined in Tables 4 and 5 respectively. (#7a)
 3.  Following FORMAT fields are required for all variant records in a VCF file:
     (#10c)
 
@@ -81,7 +79,6 @@ UUID-compliance, VCF files should satisfy the following criteria.
     transcriptional modification, or unknown respectively. (#9c)
 
 5.  Validation of tags in PEDIGREE declaration has changed as follows: (#16)
-
     -   Name_0, Name_1, etc. do not have to be these literal strings but instead
         represent arbitrary strings.
     -   The keys and values used in the `<Name_N=Value_N>` should be unique
@@ -114,7 +111,7 @@ been modified
 | **Customization type** | **Description**                                                                                                                                                              | **Validation step # in TCGA-VCF 1.1 spec** | **Corresponding validation step # in VCF 4.1 spec** |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|------------------------------------------------------|
 | New                    | Validate that file contains ##tcgaversion HEADER line. Its presence indicates that the file is TCGA VCF and the value assigned to the field contains format version number | \---                                        | \---                                                 |
-| New                    | Additional mandatory header lines (Please refer to [Table 2](#Table_2)                                                                      | \#1                                         | \#1                                                  |
+| New                    | Additional mandatory header lines (Please refer to  [Table 2](#Table_2))                                                 | \#1                                         | \#1                                                  |
 | New                    | Validation of SAMPLE meta-information lines                                                                                                                                  | \#15                                        | \---                                                 |
 | New                    | Validation of PEDIGREE meta-information lines                                                                                                                                | \#16                                        | \---                                                 |
 | Modification           | Acceptable value set for CHROM has been modified                                                                                                                             | \#18a,b                                     | \#16a                                                |
