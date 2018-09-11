@@ -125,6 +125,7 @@ pages:
   - Manifest File: Encyclopedia/pages/Manifest_File.md
   - MD5 Checksum: Encyclopedia/pages/MD5_Checksum.md
   - Mutation Annotation Format: Encyclopedia/pages/Mutation_Annotation_Format.md
+  - Mutation Annotation Format (MAF) - Legacy TCGA Secification: Encyclopedia/pages/Mutation_Annotation_Format_TCGA.md
   - Redaction: Encyclopedia/pages/Redaction.md
   - Release Number: Encyclopedia/pages/Release_Number.md
   - REST API: Encyclopedia/pages/REST_API.md
@@ -135,6 +136,7 @@ pages:
   - TCIA: Encyclopedia/pages/TCIA.md
   - UUID: Encyclopedia/pages/UUID.md
   - Variant Call Format: Encyclopedia/pages/Variant_Call_Format.md
+  - Variant Call Format (TCGA): Encyclopedia/pages/TCGA_VCF_1.1.md
   - Variant Type: Encyclopedia/pages/Variant_Type.md
 repo_url: https://github.com/NCI-GDC/gdc-docs
 site_name: GDC Docs
