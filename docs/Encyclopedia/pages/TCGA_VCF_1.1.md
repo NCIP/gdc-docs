@@ -209,7 +209,7 @@ is mandatory and lists the VCF version number of the file. <a name="Table_2"></a
 | vcfProcessLog <a id="vcfProcessLog"></a>| No                 | Lists algorithm, version and settings used to generate variant calls in a VCF file. If multiple VCF files are processed to produce a single merged file, the field records attributes for individual VCF files and the programs used to merge the files along with the associated version, parameters and contact information of the person who produced the merged file. **Note**: If VCF file does not represent a set of merged files, *MergeSoftware*, *MergeParam*, *MergeVer* and *MergeContact* tags will not be applicable and can be omitted.  Note: If multiple parameters need to be declared in InputVCFParam, key=value pairs can be used to name these parameters.  For example: `InputVCFParam=<key1=value1,key2=value2> ` If there are multiple files for which parameters have to be declared, following format can be used: `InputVCFParam=<key1_1=value1_1,key1_2=value1_2;key2_1=value2_1,key2_2=value2_2>` | `##vcfProcessLog=<InputVCF=<file1.vcf>`, `InputVCFSource=<varCaller1>`,`InputVCFVer=<1.0>`, `InputVCFParam=<a1,c2>` `InputVCFgeneAnno=<anno1.gaf>>`  OR   `##vcfProcessLog=<InputVCF=<file1.vcf,file2.vcf,file3.vcf>`, `InputVCFSource=<varCaller1,varCaller2,varCaller3>,` `InputVCFVer=<1.0,2.1,2.0>,` `InputVCFParam=<a1,c2;a1,b1;a1,b1>,` `InputVCFgeneAnno=<anno1.gaf,anno2.gaf,anno3.gaf>,` `MergeSoftware=<sw1,sw2>,` `MergeParam=<a1,a2;b1,b2>,` `MergeVer=<2.1,3.0>,` `MergeContact=<johndoe@xyz.edu>>` |  Yes  |                                                                                                                                                                                                                                                                                                          
 | INDIVIDUAL    | No                 | Specifies the individual for which data is presented in the file      | ##INDIVIDUAL=TCGA-24-0980                 | No                             |
 
-<a name="INFO-FORMAT-FILTER"></a>
+<a name="INFOFORMATFILTER"></a>
 ### INFO/FORMAT/FILTER meta-information
 
 **Format**: `##FIELDTYPE=<key1=value1,key2=value2,...>`
@@ -442,21 +442,19 @@ example below, PRIMARY-TUMOR-GENOME is derived from GERMLINE-GENOME.
 
 For UUID-compliant files, following rules should be followed:
 
-**Required keys**: ID, SampleName, Individual, SampleUUID, SampleTCGABarcode,
+**Required keys**: ID, <s>SampleName, Individual</s>, SampleUUID, SampleTCGABarcode,
 File, Platform, Source, Accession
 
 -   Value assigned to "SampleUUID" should be a valid [aliquot
     UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/) in the database.
-
 -   Value assigned to "SampleTCGABarcode" should represent the aliquot-level
     metadata associated with SampleUUID. This metadata mapping is originally
     received by the DCC from BCR.
 
->   Example:
+``` Example
 
->            
-    ##SAMPLE=<ID=NORMAL,SampleUUID=151626d0-a650-447a-a2b0-1df53c31c682,SampleTCGABarcode=TCGA-A1-A0SD-01A-11R-A114-13,Individual=TCGA-A1-A0SD,Description="Normal",File=TCGA-A1-A0SD-01A-11R-A114-13.bam,SequenceSource=Exome,Platform=Illumina,Source=dbGAP,Accession=1234,Genomes=<Germline,Tumor>,Mixture=<0.1,0.9>,Genome_Description=<"Germline contamination","Tumor genome">>
-
+##SAMPLE=<ID=NORMAL,SampleUUID=151626d0-a650-447a-a2b0-1df53c31c682,SampleTCGABarcode=TCGA-A1-A0SD-01A-11R-A114-13,Individual=TCGA-A1-A0SD,Description="Normal",File=TCGA-A1-A0SD-01A-11R-A114-13.bam,SequenceSource=Exome,Platform=Illumina,Source=dbGAP,Accession=1234,Genomes=<Germline,Tumor>,Mixture=<0.1,0.9>,Genome_Description=<"Germline contamination","Tumor genome">>
+```
 
  
 
@@ -474,18 +472,17 @@ and 'Genome_Description" tags represent comma-separated list of different
 genomes that a sample contains, proportion of each genome in the sample, and a
 brief description of each genome respectively.
 
-    ##SAMPLE=<ID=id,SampleName=sampleName,Individual=individual,Description="description",
-    File=bamfile,Platform=platformName,Source=source,Accession=acc,Genomes=<G1-ID,G2-ID,..,GK-ID>,Mixture=
-    <N1,N2,..,NK>,Genome_Description=<"S1","S2",..,"SK">>
 
-Example:
+      ##SAMPLE=<ID=id,SampleName=sampleName,Individual=individual,Description="description",
+      File=bamfile,Platform=platformName,Source=source,Accession=acc,Genomes=<G1-ID,G2-ID,..,GK-ID>,Mixture=
+      <N1,N2,..,NK>,Genome_Description=<"S1","S2",..,"SK">>
 
+    Example:
     ##SAMPLE=<ID=NORMAL,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Normal",File=TCGA-06-0881-10A-01W-0421-09.bam,Platform=Illumina,Source=dbGAP,Accession=1234,Genomes=<Germline,Tumor>,Mixture=<0.1,0.9>,Genome_Description=<"Germline
     contamination","Tumor genome">>
 
 -   "Description" field for genome mixture has been renamed to
     "Genome_Description" to distinguish it from sample description.
-
 -   Values for tags related to genome mixture (Genomes, Mixture,
     Genome_Description) are within angle brackets.
 
@@ -671,15 +668,12 @@ considered while including validation status in VCF file:
 -   A single VCF file will contain sequence data for a single case. The file
     could be the result of merging calls from different centers so validation
     can be performed on a set of variants reported in a merged VCF file.
-
 -   Validation with secondary technology is performed after obtaining results
     from primary sequencing method. Therefore, validation is a confirmation step
     and may or may not be performed before a first-pass VCF file with all
     candidate mutations is generated and submitted to the DCC.
-
 -   A single mutation can be verified with multiple independent methods and the
     results may or may not be in agreement.
-
 -   If results from different methods are in conflict, the final validation
     status of the variant call needs to be inferred based on available
     information. This could be done manually or programatically.
@@ -693,57 +687,40 @@ header declarations are correct.
 **Sample TCGA VCF file with validation status**
 
     Line1 ##fileformat=VCFv4.1
-
     Line2 ##tcgaversion=1.1
-
     Line3 ##fileDate=20120205
-
     Line4 ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
-
     Line5 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-
     Line6 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
-
     Line7 ##FORMAT=<ID=SS,Number=1,Type=Integer,Description="Variant status
     relative to non-adjacent Normal,
     0=wildtype,1=germline,2=somatic,3=LOH,4=unknown">
-
     Line8 ##INFO=<ID=VLS,Number=1,Type=Integer,Description="Final validation
     status relative to non-adjacent Normal,
     0=wildtype,1=germline,2=somatic,3=LOH,4=unknown">
-
     Line9 ##FILTER=<ID=q10,Description="Quality below 10">
-
     Line10
     ##SAMPLE=<ID=NORMAL,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Normal",File=TCGA-06-0881-10A-01W-0421-09_illumina.bam,Platform=Illumina,Source=dbGAP,Accession=1234>
-
     Line11
     ##SAMPLE=<ID=NORMAL_454,SampleName=TCGA-06-0881-10A-01W,Individual=TCGA-06-0881,Description="Validation
     normal sample tested with
     454",File=TCGA-06-0881-10A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=245>
-
     Line12
     ##SAMPLE=<ID=TUMOR,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Tumor",File=TCGA-06-0881-01A-01W-0421-09.bam,Platform=Illumina,Source=dbGAP,Accession=1234>
-
     Line13
     ##SAMPLE=<ID=TUMOR_454,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
     tumor sample tested with
     454",File=TCGA-06-0881-01A-01W-0421-09_454.bam,Platform=454,Source=dbGAP,Accession=3456>
-
     Line14
     ##SAMPLE=<ID=TUMOR_Sanger,SampleName=TCGA-06-0881-01A-01W,Individual=TCGA-06-0881,Description="Validation
     tumor sample tested with Sanger
     seq",File=.,Platform=Sanger_PCR,Source=.,Accession=.>
-
     Line15 #CHROM POS ID REF ALT QUAL FILTER INFO FORMAT NORMAL TUMOR NORMAL_454
     TUMOR_454 TUMOR_Sanger
-
     Line16 20 14370 var1 G A 29 PASS VLS=2 GT:GQ:SS 0/0:48:. 0/1:50:2 0/0:20:.
     0/1:20:2 0/1:.:2
-
     Line17 5 15000 var2 T C 35 PASS VLS=1 GT:GQ:SS 0/1:48:. 1/1:51:3 0/1:60:.
     0/1:50:1 0/1:13:1
-
     Line18 3 170089 var2 G T 30 PASS . GT:GQ:SS 0/1:48:. 0/1:51:1 .:.:. .:.:. .:.:.
 
 The format follows these guidelines:
@@ -808,49 +785,29 @@ are added for illustration purposes alone and are not expected to be found in an
 actual VCF file.
 
     Line1 ##fileformat=VCFv4.1
-
     Line2 ##fileDate=20090805
-
     Line3 ##source=myImputationProgramV3.1
-
     Line4 ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
-
-    Line5 `##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With
-    Data">`
-
-    Line6 `##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership">`
-
-    Line7 `##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">`
-
-    Line8 `##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">`
-
-    Line9 `##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">`
-
-    Line10 `##FORMAT=<ID=PL,Number=3,Type=Integer,Description=" Normalized
-    Phred-scaled likelihoods for AA, AB, BB genotypes ">`
-
-    Line11 `##FILTER=<ID=q10,Description="Quality below 10">`
-
-    Line12 `##FILTER=<ID=s50,Description="Less than 50% of samples have data">`
-
-    Line13 `FILTER=<ID=c10,Description="Shallow coverage below 10x">`
-
-    Line14 `##ALT=<ID=DEL:ME:ALU,Description="Deletion of ALU element">`
-
-    Line15 `#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT TCGA-02-0001-01
-    TCGA-02-0001-02`
-
-    Line16 `20 14370 var1 G A 29 q10 NS=2;DP=14 GT:GQ:DP 0|0:48 0|1:48:3`
-
-    Line17 `19 15000 var2 G A 35 q10;s50 NS=2.5 GQ:GT 48:0|0 51:0|1`
-
-    Line18 `19 16000 var3 C T 30 q10;s10 NS=2 GT:GQ:DP 0/2:48:3 0/1:51:4`
-
-    Line19 `2 14477 rs123 C <DEL:ME:ALU> 12 PASS NS=3;DB GT:GQ 0/1:50 1/1:40`
-
-    Line20 `9 13567 . A <DUP> 20 PASS NS=3 GT:GQ:PL 0/1:49:42,3 1/1:38:96,47/70`
-
-    Line21 `3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1`
+    Line5 ##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With
+    Data">
+    Line6 ##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership">
+    Line7 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+    Line8 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+    Line9 ##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+    Line10 ##FORMAT=<ID=PL,Number=3,Type=Integer,Description=" Normalized
+    Phred-scaled likelihoods for AA, AB, BB genotypes ">
+    Line11 ##FILTER=<ID=q10,Description="Quality below 10">
+    Line12 ##FILTER=<ID=s50,Description="Less than 50% of samples have data">
+    Line13 FILTER=<ID=c10,Description="Shallow coverage below 10x">
+    Line14 ##ALT=<ID=DEL:ME:ALU,Description="Deletion of ALU element">
+    Line15 #CHROM POS ID REF ALT QUAL FILTER INFO FORMAT TCGA-02-0001-01
+    TCGA-02-0001-02
+    Line16 20 14370 var1 G A 29 q10 NS=2;DP=14 GT:GQ:DP 0|0:48 0|1:48:3
+    Line17 19 15000 var2 G A 35 q10;s50 NS=2.5 GQ:GT 48:0|0 51:0|1
+    Line18 19 16000 var3 C T 30 q10;s10 NS=2 GT:GQ:DP 0/2:48:3 0/1:51:4
+    Line19 2 14477 rs123 C <DEL:ME:ALU> 12 PASS NS=3;DB GT:GQ 0/1:50 1/1:40
+    Line20 9 13567 . A <DUP> 20 PASS NS=3 GT:GQ:PL 0/1:49:42,3 1/1:38:96,47/70
+    Line21 3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1
 
     **Important**: A file will be validated as a TCGA VCF file only if it contains
     ##tcgaversion HEADER line (e.g., ##tcgaversion=1.1). The current acceptable
@@ -858,20 +815,15 @@ actual VCF file.
 
 1.  Mandatory [header lines](#header) should be
     present.
-
 2.  All meta-information header lines should be prefixed with "##".
-
 3.  [Column header](#Column_Header) line should be
     prefixed with "\#". A VCF file can contain only a single column header line
     that must contain all required field names.
-
 4.  Any line lacking the "##" or "#" prefix will be assumed to be a BODY data
     line and will have to follow the specified format. For example, Line13 leads
     to a violation as it lacks "##" or "#" but is not a tab-delimited row
     containing variant information.
-
 5.  HEADER lines cannot be present within the BODY of a file and vice-versa.
-
 6.  [INFO](#INFO),
     [FORMAT](#FORMAT) and
     [FILTER](#FILTER) declarations should follow
@@ -882,11 +834,10 @@ actual VCF file.
     ##FORMAT=<ID=id,Number=number,Type=type,Description="description">
     ##FILTER=<ID=id,Description="description">
 ```    
-
 7. Values assigned to *ID, Number, Type* and *Description* in INFO, FORMAT or
     FILTER declarations should follow the rules listed below. A detailed
     description of the declaration format is provided
-    [here](##INFO-FORMAT-FILTER).
+    [here](#INFOFORMATFILTER).
 
     1.  If an INFO or FORMAT sub-field exists in Table 4 or 5 respectively (i.e.
         ID of the sub-field matches value in "Sub-field" column of the table)
@@ -909,15 +860,16 @@ actual VCF file.
 
     7.  If ID == "FORMAT", then Type != "Flag"
 
-8. Any INFO, FORMAT or FILTER sub-fields used in the BODY are required to be
+
+`8.` Any INFO, FORMAT or FILTER sub-fields used in the BODY are required to be
     defined in the HEADER. For example, var1 (Line16) shows an example of a
     violation as read depth "DP" is assigned a value (DP=14) without being
     defined as an INFO sub-field in the HEADER.
 
-9. Validation of **INFO** sub-fields:
+`9.` Validation of **INFO** sub-fields:
 
-    1.  An INFO sub-field should be included for a variant record in the BODY as
-        `<key=value>` (e.g., NS=2) where *key*is the "ID" value of the
+    a.  An INFO sub-field should be included for a variant record in the BODY as
+        <key=value> (e.g., NS=2) where *key*is the "ID" value of the
         sub-field in the HEADER declaration.
 
         -   **Exception**: An INFO field of "Flag" *Type* will not be assigned a
@@ -927,15 +879,15 @@ actual VCF file.
             entry in the INFO column. "DB" in the INFO column indicates that the
             variant exists in dbSNP.
 
-    2.  Multiple INFO sub-fields can be associated with a single variant record
+    b.  Multiple INFO sub-fields can be associated with a single variant record
         using ";" as a separator (e.g., Line16). Line21 has a violation as "/"
         is used as a separator in INFO column.
 
-    3.  If INFO field "VLS" is defined for a record, its value can only be 0, 1,
+    c.  If INFO field "VLS" is defined for a record, its value can only be 0, 1,
         2, 3, 4, or 5 based on whether the mutation is wildtype, germline,
         somatic, LOH, post-transcriptional modification, or unknown.
 
-10. Validation of **FORMAT** sub-fields:
+`10.` Validation of **FORMAT** sub-fields:
 
     a.  FORMAT column for a variant record contains a colon-separated list of
         all pre-defined FORMAT sub-fields (identified by "ID" value in the
@@ -950,7 +902,7 @@ actual VCF file.
 
     c.  Following FORMAT fields are required for all variant records in a VCF
         file. Missing value (".") is allowed for these fields.
-<lo type=I>
+<ol type=I>
         <li>Genotype (**GT**)</li>
         <li>Read depth (**DP**)</li>
         <li>Reads supporting ALT (**AD** or **DP4**)</li>
@@ -959,43 +911,43 @@ actual VCF file.
             5 depending on whether relative to normal the variant is wildtype,
             germline, somatic, LOH, post-transcriptional modification, or
             unknown respectively</li>
-</lo>
+</ol>
     d.  *GT* must be the first sub-field in the string FORMAT. For example, var2
         (Line17) violates this rule as GT is not the first sub-field even though
         it is present in the FORMAT field.
+<ol type=I>
+<li>GT is a required sub field for all variants. Missing value (".") is
+allowed for GT. <s> GT is not a required sub field and can be omitted
+for a variant row if none of the samples have genotype calls
+available (TCGA VCF 1.1) </s></li>
 
-        -   GT is a required sub field for all variants. Missing value (".") is
-            allowed for GT. <s>GT is not a required sub field and can be omitted
-            for a variant row if none of the samples have genotype calls
-            available (TCGA VCF 1.1)</s>
+<li>*GT* represents the genotype, encoded as allele values separated by
+    either of ”/” (genotype unphased) or “|” (genotype phased). The
+    allele values are 0 for the reference allele (in REF field), 1 for
+    the first allele listed in ALT, 2 for the second allele list in ALT
+    and so on. Examples: 0/1, 1|0, or 1/2, etc.</li>
 
-        -   *GT* represents the genotype, encoded as allele values separated by
-            either of ”/” (genotype unphased) or “\|” (genotype phased). The
-            allele values are 0 for the reference allele (in REF field), 1 for
-            the first allele listed in ALT, 2 for the second allele list in ALT
-            and so on. Examples: 0/1, 1\|0, or 1/2, etc.
+<li><s>*GT*is assigned only one allele value for haploid calls (e.g. on Y
+chromosome). Therefore, if CHROM=="Y" then*GT*should have only one
+allele value assigned to it (e.g., "1", "0", ".", etc.) instead of
+two alleles (e.g., "1/1", "0\|0"). If CHROM=="MT" then </s>There is no
+constraint on the number of alleles as long as the number is bounded
+within the alleles listed in REF and/or ALT (e.g., 0/1, 0/1/2, 1 are
+all valid values for MT if REF and ALT have one and two allele
+values respectively).</li>
 
-        -   <s>*GT*is assigned only one allele value for haploid calls (e.g. on Y
-            chromosome). Therefore, if CHROM=="Y" then*GT*should have only one
-            allele value assigned to it (e.g., "1", "0", ".", etc.) instead of
-            two alleles (e.g., "1/1", "0\|0"). If CHROM=="MT" then </s>There is no
-            constraint on the number of alleles as long as the number is bounded
-            within the alleles listed in REF and/or ALT (e.g., 0/1, 0/1/2, 1 are
-            all valid values for MT if REF and ALT have one and two allele
-            values respectively).
+<li>All samples should have values assigned to *GT* for any given
+variant. If an allele cannot be called for a sample at a given
+locus, ”.” will be specified for each missing allele in the *GT*
+field (for example "./." for a diploid genotype and "." for haploid
+genotype).</li>
 
-        -   All samples should have values assigned to *GT* for any given
-            variant. If an allele cannot be called for a sample at a given
-            locus, ”.” will be specified for each missing allele in the *GT*
-            field (for example "./." for a diploid genotype and "." for haploid
-            genotype).
-
-        -   Validation should include ensuring that allele number in *GT* is
-            within the range of alleles specified in ALT and REF. For example,
-            var3 (Line18) violates this rule as it lists GT as "0/2" for sample
-            TCGA-02-0001-01 but ALT contains only one allele so the only
-            acceptable allele numbers are 0 (REF) and 1 (ALT).
-
+<li>Validation should include ensuring that allele number in *GT* is
+within the range of alleles specified in ALT and REF. For example,
+var3 (Line18) violates this rule as it lists GT as "0/2" for sample
+TCGA-02-0001-01 but ALT contains only one allele so the only
+acceptable allele numbers are 0 (REF) and 1 (ALT).</li>
+</ol>
 11. If an INFO or FORMAT sub-field is declared in the header AND is assigned a
     value for a variant record in the body, the data type should be consistent
     with the expected type defined in the *Type*key of the corresponding
@@ -1003,74 +955,74 @@ actual VCF file.
     for "NS" INFO sub-field states the data type is integer whereas the variant
     record contains a float value (2.5) assigned to the sub-field.
 
-    1.  **Exception**: The rule does not apply if *Type* of a field is not
-        defined or is incorrectly defined (e.g., field not declared in HEADER,
-        *Type* not included in declaration, incorrect value for *Type)*. It also
-        does not apply to any missing values (denoted with ".") in the record as
-        they do not have an associated data type.
+       - Exception: The rule does not apply if Type of a field is not
+         defined or is incorrectly defined (e.g., field not declared in HEADER,
+         Type not included in declaration, incorrect value for Type). It also
+         does not apply to any missing values (denoted with ".") in the record as
+         they do not have an associated data type.
 
-12. Multiple comma-separated values (corresponding to value assigned to *Number*
+`12.` Multiple comma-separated values (corresponding to value assigned to *Number*
     key in declaration) can be specified for an INFO or FORMAT sub-field for a
     variant record. No other character can be used as separator. Line20 shows a
     violation as a "/" is used as separator between 2nd and 3rd values for
     *"PL"* FORMAT sub-field in the second sample column.
 
-13. If *Number* tag is assigned a known bounded value (an integer, "A", "G") for
+`13.` If *Number* tag is assigned a known bounded value (an integer, "A", "G") for
     an INFO/FORMAT sub-field, it should be consistent with number of values
     specified for any variant record in BODY of file. For example, Line20 shows
     a violation as *"PL"* is associated with 3 integer values (Line10) but the
     variant record has only 2 comma-separated integer values (42,3) for
     TCGA-02-0001-01.
 
-14. Validation of **FILTER** sub-fields:
+`14.` Validation of **FILTER** sub-fields:
 
-    1.  Valid values for FILTER column are "PASS" or a code for the filter that
+    a.  Valid values for FILTER column are "PASS" or a code for the filter that
         the variant call fails (e.g., "q10" in Line16). The code must correspond
         to the "ID" value of the corresponding FILTER declaration.
 
-    2.  If a call fails multiple filters, FILTER column should contain
+    b.  If a call fails multiple filters, FILTER column should contain
         semicolon-separated list of all failed filter codes (e.g., "q10;s50" in
         Line17). A ";" is the only valid separator.
 
-    3.  All codes listed in the FILTER column must have a well-formed
+    c.  All codes listed in the FILTER column must have a well-formed
         declaration in the HEADER. Line18 shows a violation as "q10" does not
         have an associated definition in the HEADER.
 
-15. `<TCGA-VCF>` Validation of
+`15.` `<TCGA-VCF>` Validation of
     [SAMPLE](#SAMPLE) meta-information lines:
 
-    1.  Each sample ID in the column header (immediately after FORMAT column)
+    a.  Each sample ID in the column header (immediately after FORMAT column)
         must have an associated HEADER declaration where value assigned to "ID"
         tag in the declaration is the same as sample ID used in the column name.
 
-    2.  Declaration must contain all required fields.
+    b.  Declaration must contain all required fields.
 
-    3.  Genome mixture tags (Genomes, Mixture, Genome_Description) are enclosed
+    c.  Genome mixture tags (Genomes, Mixture, Genome_Description) are enclosed
         within angle brackets (<>) and can have multiple comma-separated
         values.
 
-    4.  If more than one of the genome mixture tags (Genomes, Mixture,
+    d.  If more than one of the genome mixture tags (Genomes, Mixture,
         Genome_Description) are defined in a SAMPLE meta-information line, then
         number of comma-separated values should be the same for all defined
         tags. For example, "Genomes=<G1,G2>,Mixture=<0.1,0.8,0.1>" would
         lead to a violation as Mixture has 3 values while Genomes has only 2
         values.
 
-    5.  Individual values in "Genomes" are strings without white-space, comma or
+    e.  Individual values in "Genomes" are strings without white-space, comma or
         angle brackets.
 
-    6.  Individual values in "Mixture" represent proportion (floating point
+    f.  Individual values in "Mixture" represent proportion (floating point
         number >= 0 and <= 1) of each genome in the sample and all
         comma-separated values should add up to a sum of 1.
 
-    7.  Individual values in "Genome_Description" are strings surrounded by
+    g.  Individual values in "Genome_Description" are strings surrounded by
         double quotes where the string itself cannot contain a double quote.
 
-    8.  The value assigned to "SampleName" must be a valid [aliquot
+    h.  The value assigned to "SampleName" must be a valid [aliquot
         barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) / [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
         in the database (TCGA VCF 1.1).
 
-16. `<TCGA-VCF>` Validation of
+`16.` `<TCGA-VCF>` Validation of
     [PEDIGREE](#PEDIGREE) meta-information lines:
 
     a.  Declaration line should follow the format:
@@ -1093,6 +1045,7 @@ actual VCF file.
     <li>The keys and values used in the <Name_N=Value_N> should be unique across
     assignments in any given PEDIGREE declaration.</li>
 </ol>
+
 17.  Validation of custom meta-information fields:
 
     a.  If a user-created custom meta-information declaration is encountered and
@@ -1111,8 +1064,8 @@ actual VCF file.
 
     where:
 <ol type=I>
-    <li>key !\~ /(\\s\|,\|=\|;)/</li>
-    <li>value !\~ /(\\s\|,\|=\|;)/ UNLESS *value* is within double quotes, in which
+    <li>key !\~ /(\s|,|=|;)/</li>
+    <li>value !\~ /(\s|,|=|;)/ UNLESS *value* is within double quotes, in which
     case it cannot itself contain a double quote or leading/trailing whitespace
     OR if *value* is within angle brackets.</li>
 </ol>
@@ -1138,7 +1091,7 @@ actual VCF file.
 
 2.  `<TCGA-VCF>` *ALT* is in {[ACGTN]+, ".", `<ID>`, **SV_ALT**};
 
-    1.  String SV_ALT can be in one of the following four formats and can be
+    a.  String SV_ALT can be in one of the following four formats and can be
         used in the *ALT*field ONLY when the corresponding INFO field has the
         key-value pair "SVTYPE=BND" or "SVTYPE=FND".
 
@@ -1158,38 +1111,38 @@ actual VCF file.
   <li>*pos* is a non-negative integer</li>
 </ol>
 b.  Similar to 18b, if chr == `<chr_ID>` (where *chr_ID* is a string) then the
-    VCF file must have an ##assembly declaration in the HEADER.
+    VCF file must have an ##assembly declaration in the HEADER.<br>
 c.  If *ALT* is assigned a value in `<ID>` format, (e.g., rs123 in Line19),
     `<ID>` should be defined in the HEADER as
     ##ALT=<ID=*ID*,Description="*Description*"> (Line14) where ID cannot
     contain white-space or angle brackets. Line20 shows a violation of this rule
     as *ALT==*<DUP> but there is no corresponding *ALT* declaration in the
-    HEADER with `<ID=DUP>`.
+    HEADER with `<ID=DUP>`.<br>
 d.  ALT can contain multiple comma-separated values. No other character can be
     used as a separator.
 
-20. No two records are allowed to have the the same *ID* value. Two records can,
+`20.`No two records are allowed to have the the same *ID* value. Two records can,
     however, have the same *CHROM* and *POS*values.
      **Exception**: Multiple records in a file are allowed to have the same
-     missing value identifier (".") as *ID*.
-21.  *QUAL* field can only contain non-negative integers or "." (missing value).
-22.  `<TCGA-VCF>` If INFO sub-field "VT" is declared and used in the BODY, its
-    value can only be in {SNP, INS, DEL}
-23.  `<TCGA-VCF>` If FORMAT sub-field "SS" is declared and used in the BODY, its
+     missing value identifier (".") as *ID*.<br>
+`21.`*QUAL* field can only contain non-negative integers or "." (missing value).<br>
+`22.<TCGA-VCF>` If INFO sub-field "VT" is declared and used in the BODY, its
+    value can only be in {SNP, INS, DEL}<br>
+`23.<TCGA-VCF>` If FORMAT sub-field "SS" is declared and used in the BODY, its
     value can be 0, 1, 2, 3, 4 or 5 depending on whether relative to normal the
     variant is wildtype, germline, somatic, LOH, post-transcriptional
-    modification, or unknown respectively.
-24.  `<TCGA-VCF>` "DP" sub-field for read depth can be defined in INFO (combined
+    modification, or unknown respectively.<br>
+`24.<TCGA-VCF>` "DP" sub-field for read depth can be defined in INFO (combined
     depth across all samples) or FORMAT (depth in a specific sample) field. If
     both INFO and FORMAT have values for the sub-field, then sum of DP values
     across all FORMAT sample columns should be equal to DP value in the INFO
-    field.
-25.  `<TCGA-VCF>` Validation of **complex rearrangement** records:
+    field.<br>
+`25.<TCGA-VCF>` Validation of **complex rearrangement** records:
     a.  If INFO field includes key-value pairs "SVTYPE=BND" or "SVTYPE=FND" and
         has values for "MATEID" and/or "PARID", then the value (or multiple
         comma-separated values) assigned to MATEID or PARID should exist in the
-        file as "ID" field for another variant record.
-26. `<TCGA-VCF>` Validation of RNA-Seq **annotation fields**:
+        file as "ID" field for another variant record.<br>
+`26.<TCGA-VCF>` Validation of RNA-Seq **annotation fields**:
     a.  If INFO field includes "SID", "GENE" or "RGN" keys with associated
         values, then file MUST contain a declaration for ##geneAnno in the
         HEADER.
@@ -1204,7 +1157,7 @@ d.  ALT can contain multiple comma-separated values. No other character can be
         would lead to a violation as the 2nd value for RGN is "intron" but the
         corresponding TE value is "SIL" instead of "NA".
 
-27. `<TCGA-VCF>` Validation of
+`27.<TCGA-VCF>` Validation of
     [vcfProcessLog](#vcfProcessLog) tags:
 
 `##vcfProcessLog=<InputVCF=<file1.vcf>,InputVCFSource=<varCaller1>,InputVCFVer=<1.0>,InputVCFParam=<a1,c2>,InputVCFgeneAnno=<anno1.gaf>>`
@@ -1216,6 +1169,7 @@ OR
 `InputVCFParam=<a1,c2;a1,b1;a1,b1>,InputVCFgeneAnno=<anno1.gaf,anno2.gaf,anno3.gaf>,`
 
 `MergeSoftware=<sw1,sw2>,MergeParam=<a1,a2;b1,b2>,MergeVer=<2.1,3.0>,MergeContact=<johndoe@xyz.edu>>`
+
     a.  Individual values for each tag are enclosed within angle brackets (<>)
         instead of double quotes.
 
@@ -1240,18 +1194,18 @@ OR
         *MergeParam* and *MergeVer* should contain the same number of values.
         There is no such constraint for *MergeContact.*
 
-    UUID-compliant files should satisfy the following criteria:
+UUID-compliant files should satisfy the following criteria:
 
-    1. The value assigned to "SampleUUID" must be a valid aliquot
-    [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/).
+1. The value assigned to "SampleUUID" must be a valid aliquot [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/).
 
--   The [metadata](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) represented by
-    "SampleTCGABarcode" must correspond to SampleUUID at the DCC.
+
+      The [metadata](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) represented by
+      "SampleTCGABarcode" must correspond to SampleUUID at the DCC.
 
 2. If ##INDIVIDUAL is declared in the header, then values assigned to
 SampleUUID in all ##SAMPLE declarations should correspond to the same
 participant ID, and the TCGA barcode for the participant should be assigned to
-##INDIVIDUAL.
+ ##INDIVIDUAL.
 
  
 
@@ -1260,7 +1214,6 @@ Handling failed checks
 
 -   A VCF file would be required to pass ALL the checks listed above and any
     violation will lead to a "Failed" validation.
-
 -   Even if a failure is encountered, the file would still need to go through
     all other checks for validation to be complete. Exception to this
     requirement would include cases where execution of one validation check is
@@ -1268,7 +1221,6 @@ Handling failed checks
     of values associated with a FORMAT field for a variant record cannot be
     validated if the field itself is not declared in the HEADER or has a missing
     *Number* tag.
-
 -   A summary of all failed checks should be provided as an output.
 
 Test files
