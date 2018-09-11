@@ -33,12 +33,12 @@ Summary of current version changes
 Following is a summary of additions/modifications for this version and the corresponding validation rule
 number is included in parentheses.
 
-**UUID compliance**: All TCGA data is currently in the process of being
-converted to be UUID-compliant. Until the conversion is complete and all centers
-are prepared to start submitting UUID-compliant data, some of the VCF files may
-adhere to UUID-based specification whereas some may still have barcodes.
-Non-UUID files will follow the specification described here but for
-UUID-compliance, VCF files should satisfy the following criteria.
+    **UUID compliance**: All TCGA data is currently in the process of being
+    converted to be UUID-compliant. Until the conversion is complete and all centers
+    are prepared to start submitting UUID-compliant data, some of the VCF files may
+    adhere to UUID-based specification whereas some may still have barcodes.
+    Non-UUID files will follow the specification described here but for
+    UUID-compliance, VCF files should satisfy the following criteria.
 
     1.  SampleUUID and SampleTCGABarcode  are required tags in each
         ##SAMPLE declaration. Please note that SampleName will not be a
@@ -238,9 +238,9 @@ declarations**
 |             |                    |                                                                                                  |                                                                                                                                                          | ".", if number of values varies, is unknown, or is unbounded                                                                                                                                                 |
 | Type        | Yes                | indicates data type of the value associated with the field                                       | Set                                                                                                                                                      | "Flag" type indicates that the field does not contain a value entry, and hence the *Number* should be 0 in this case. FORMAT fields cannot have a "Flag" *Type* assigned to them.                            |
 |             |                    |                                                                                                  | *(Integer, Float, Flag, Character, String)*                                                                                                              |                                                                                                                                                                                                              |
-| Description | Yes                | provides a brief description of the field                                                        | String, surrounded by double-quotes, cannot itself contain a double-quote, cannot contain trailing whitespace at the end of string before closing quotes | \---                                                                                                                                                                                                         |
-<a name="INFO"></a>
-#### INFO lines
+| Description | Yes                | provides a brief description of the field                                                        | String, surrounded by double-quotes, cannot itself contain a double-quote, cannot contain trailing whitespace at the end of string before closing quotes | \---                                                                                                                                                                                                         
+
+#### INFO lines <a name="INFO"></a>
 
 **Format**: `##INFO=<key1=value1,key2=value2,...>`  
 **Required keys**: ID, Type, Number, Description
