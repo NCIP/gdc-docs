@@ -300,7 +300,7 @@ The Genomic Data Commons (GDC)  Portal provides users with web-based access to p
 
 Pre-Release Data Portal features are a subset of what can be found in the GDC Data Portal.  For more information on any of these general features please review the [Data Portal User Guide](/Data_Portal/Users_Guide/Getting_Started/#navigation).
 
-[![GDC Views](images/AWG_Portal.png)](images/WG_Portal.png "Click to see the full image.")
+[![GDC Views](images/AWG_Portal.png)](images/AWG_Portal.png "Click to see the full image.")
 
 ## Authentication
 
