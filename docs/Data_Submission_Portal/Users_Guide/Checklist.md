@@ -7,29 +7,15 @@ The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission P
 The following tasks are required to submit data to the [GDC Data Portal](https://portal.gdc.cancer.gov/).
 
 
-* __Step 1:__ Complete the GDC Data [Submission Request Form](https://gdc.cancer.gov/data-submission-request-form). After submission, the requst will be reviewed by the GDC. 
+1.  Complete the GDC Data [Submission Request Form](https://gdc.cancer.gov/data-submission-request-form). After submission, the requst will reviewed by the GDC Data Submission Review Committee. Durring this time create an [eRA Commons account](https://era.nih.gov/registration_accounts.cfm) if you do not already have one.
 
-   * __Step 1a:__ Durring this time create an eRA Commons account if you do not already have one. Follow the instructions found at the [NIH eRA Commons](https://era.nih.gov/registration_accounts.cfm).
+2.  If the study is approved, contact a [Genomic Program Administrator (GPA)](https://osp.od.nih.gov/genomic-program-administrators/) to register the approved study in [dbGaP](https://www.ncbi.nlm.nih.gov/sra/docs/submitdbgap).  This includes registering the project as a GDC Trusted Partner study, registering cases, and adding authorized data submitters.
 
+3.  Contact the GDC to create a submission project.  The User Services team will require a project ID, which is a two part identifiier, where the first portion is the __Program__ followed by a hyphen (__-__) and the second portion is the __Project__.  This must be alphanumeric and all caps only.  You must also create a project name, which can be longer and has fewer requirements on length or character usage.
 
-* __Step 2:__ If the study is approved, contact a [Genomic Program Administrator (GPA)](https://osp.od.nih.gov/genomic-program-administrators/) to register the approved study in dbGaP.
+4.  Familiarize yourself with the [Data Model](Data_Submission_Walkthrough.md) and [Data Dictionary](../../Data_Dictionary/viewer.md) to understand how different data relate to each other and what data is permissible.
 
-   * __Step 2a__: Work with the GPA to register the study at the NCBI [database of Genotypes and Phenotypes (dbGaP)](https://www.ncbi.nlm.nih.gov/sra/docs/submitdbgap) as a trusted partner. When creating a project, give the project a two part identifiier, where the first portion is the __Program__ followed by a hyphen (__-__) and the second portion is the __Project__. 
-
-   >*Example: The project __TCGA-BRCA__, the __Program__ is The Cancer Genome Atlas (__TCGA__), and their __Project__ is Breast Invasive Carcinoma (__BRCA__)*.
-
-   * __Step 2b__: Provide the GPA with the approved final version of the [Institutional Certification](https://osp.od.nih.gov/scientific-sharing/institutional-certifications/), this will be passed onto dbGaP.
-
-   * __Step 3b__: You may also provide the GPA with a list of Approved Data Submitters with eRA Common usernames.
-
-
-* __Step 3:__ Accept the invitation to the dbGaP submission protal. Submit the study configuration file and subject IDs to the dbGaP study. When this is complete, the study will have a phs number.
-
-* __Step 4:__ Before uploading data, familiarize yourself with the [data model](INSERT_URL) and [Data Dictionary](../../Data_Dictionary/viewer.md) to understand how different data relate to each other and where each data type is located.
-
-* __Step 5:__ Go to the [GDC Data Portal](https://portal.gdc.cancer.gov/) and login by clicking the login button in the upper right hand corner. A pop up window will appear asking for eRA Commons Account credentials.
-
-* __Step 6:__ Go to the [Data Submission Portal](https://portal.gdc.cancer.gov/submission/) to start uploading and validating data. For more information on this subject, go to [Data Submission Process](INSERT_URL).
+5.   Begin uploading data to the GDC.  You may use the [GDC Data Portal](https://portal.gdc.cancer.gov/submission/) or the the [API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) for uploading metadata.  Data files must be transferred using the [Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/) or the [API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/).
 
 ## Key Features
 The GDC Data Submission Portal is a platform that allows researchers to submit and release data to the GDC. The key features of the GDC Data Submission Portal are:
