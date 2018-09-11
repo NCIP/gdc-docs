@@ -9,7 +9,7 @@ The following tasks are required to submit data to the [GDC Data Portal](https:/
 
 1.  Complete the GDC Data [Submission Request Form](https://gdc.cancer.gov/data-submission-request-form). After submission, the requst will reviewed by the GDC Data Submission Review Committee. Durring this time create an [eRA Commons account](https://era.nih.gov/registration_accounts.cfm) if you do not already have one.
 
-2.  If the study is approved, contact a [Genomic Program Administrator (GPA)](https://osp.od.nih.gov/genomic-program-administrators/) to register the approved study in [dbGaP](https://www.ncbi.nlm.nih.gov/sra/docs/submitdbgap).  This includes registering the project as a GDC Trusted Partner study, registering cases, and adding authorized data submitters.
+2.  If the study is approved, contact a [Genomic Program Administrator (GPA)](https://osp.od.nih.gov/genomic-program-administrators/) to register the approved study in [dbGaP](https://www.ncbi.nlm.nih.gov/sra/docs/submitdbgap).  This includes registering the project as a GDC Trusted Partner study, registering cases, and adding authorized data submitters. For more information, see [Data Submission Process](https://gdc.cancer.gov/submit-data/data-submission-processes-and-tools).
 
 3.  Contact the GDC to create a submission project.  The User Services team will require a project ID, which is a two part identifiier, where the first portion is the __Program__ followed by a hyphen (__-__) and the second portion is the __Project__.  This must be alphanumeric and all caps only.  You must also create a project name, which can be longer and has fewer requirements on length or character usage.
 
