@@ -2,7 +2,8 @@ TCGA Variant Call Format (VCF) 1.1 Specification
 ================================================
 
 **Document Information**
-This document is retained here for reference purposes and should not be considered the current standard.  
+This document is retained here for reference purposes and should not be considered the current standard.
+Document was adapted from https://wiki.nci.nih.gov/pages/viewpage.action?spaceKey=TCGA&title=TCGA+Variant+Call+Format+%28VCF%29+1.1+Specification  
 
 
 **Specification for TCGA Variant Call Format (VCF)**  
