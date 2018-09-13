@@ -20,6 +20,7 @@
 ### New Features and Changes
 
 * Added description and type information to generic properties <!--TT-1347-->
+* Modify the dictionary viewer to be case sensitive for deprecated fields <!--PRTL-2180-->
 * Deleted `sample_level_maf` entity  <!--TT-666-->
 * Added new field for all nodes: <!--TT-556-->
     - `previous_versions_downloadable`
