@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v13.0](Data_Release_Notes.md#data-release-120) | September , 2018 |
+| [v13.0](Data_Release_Notes.md#data-release-120) | September xx, 2018 |
 | [v12.0](Data_Release_Notes.md#data-release-120) | June 13, 2018 |
 | [v11.0](Data_Release_Notes.md#data-release-110) | May 21, 2018 |
 | [v10.1](Data_Release_Notes.md#data-release-101) | February 15, 2018 |
@@ -21,7 +21,7 @@
 ## Data Release 13.0
 
 * __GDC Product__: Data
-* __Release Date__: September X, 2018
+* __Release Date__: September XX, 2018
 
 ### New updates
 
@@ -42,7 +42,13 @@ A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gd
 
 ### Known Issues and Workarounds
 
-
+* TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and re­-concatenated into their original composite BAM files by CGHub.
+    * TARGET-20-PASJGZ-04A-02D
+    * TARGET-30-PAPTLY-01A-01D
+    * TARGET-20-PAEIKD-09A-01D
+    * TARGET-20-PASMYS-14A-02D
+    * TARGET-20-PAMYAS-14A-02D
+    * TARGET-10-PAPZST-09A-01D
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
 * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
 * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
