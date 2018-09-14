@@ -53,10 +53,10 @@ pages:
   - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
 - Data Submission Portal:
   - Before Submitting Data to the GDC Portal: Data_Submission_Portal/Users_Guide/Checklist.md
-  - States of Data Submission: Data_Submission_Portal/Users_Guide/Data_Submission_Overview.md
+  - Submission Process: Data_Submission_Portal/Users_Guide/Data_Submission_Overview.md
   - Data Submission Portal: Data_Submission_Portal/Users_Guide/Data_Submission_Process.md
   - Data Submission Walkthrough: Data_Submission_Portal/Users_Guide/Data_Submission_Walkthrough.md
-  - Data Pre-Release Portal: Data_Submission_Portal/Users_Guide/Pre_Release_QC.md
+  - Pre-Release Data Portal: Data_Submission_Portal/Users_Guide/Pre_Release_QC.md
   - Release Notes: Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md
   - fa-file-text Download PDF /Data_Submission_Portal/PDF/Data_Submission_Portal_UG.pdf: Data_Submission_Portal/PDF/index.md
 - Data Transfer Tool:
