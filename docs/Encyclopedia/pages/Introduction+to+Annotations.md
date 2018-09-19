@@ -89,34 +89,6 @@ base and are ‘unofficial’”.
 | Observation                   | General                                                                     | Authorized User | Any                                      |                                                                                                                                                                      |
 | Observation                   | New observation type                                                        | Authorized User | Any                                      | user-suggested observation type                                                                                                                                      |
 
-Logging In
-----------
-
-You can perform a search for annotations without logging in. To generate
-annotations, you must log into the application.
-
-To log in, click **Login** in the upper-right corner of the page. Enter your
-authorized user name and password and click **Login**. Click **Reset** to clear
-the fields or **Cancel** to abort the login.
-
-Once you have logged in, Annotations Manager displays your LDAP user name in the
-upper right hand corner of the page. When you are ready to log out, click your
-name, revealing the **Logout** button.
-
-Obtaining an account
-
-To obtain authorization, you must have an NIH LDAP username and password. Send
-inquiries about obtaining an NIH username for annotations purposes to
-<TCGA-DCC-BINF-L@LIST.NIH.GOV>. If you already have an account, send your
-username to <TCGA-DCC-BINF-L@LIST.NIH.GOV> with a request to be added to the
-Annotations Manager application.
-
-Annotations Home Page
----------------------
-
-Whether or not you are logged in to Annotations determines what you see on the
-Annotations home page. You only see the Add New Annotation tab when you are
-logged in. 
 
  
 
