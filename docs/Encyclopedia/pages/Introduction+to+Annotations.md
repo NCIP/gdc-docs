@@ -8,11 +8,9 @@ This section includes the following topics.
 **Contents of this page**
 
 -   Annotations Overview
--   Annotation Classification and
-    Categories
+-   Annotation Classification and Categories
 
  
-
 Annotations Overview
 --------------------
 

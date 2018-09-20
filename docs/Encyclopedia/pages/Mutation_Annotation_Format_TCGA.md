@@ -1,7 +1,5 @@
 Mutation Annotation Format (MAF) - Legacy TCGA Specification
 ==============================================
-
- 
 *This definition was taken from the previously public wiki hosted by TCGA and reflects the MAF format
 that was available during the active period of the TCGA project.*  
  
