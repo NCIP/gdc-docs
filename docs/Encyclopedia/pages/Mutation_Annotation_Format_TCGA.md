@@ -108,10 +108,7 @@ data should:
 
 -  **include** all unvalidated somatic mutation calls that overlap with a coding region or splice site
 
--   **exclude**  all other types of mutation calls (i.e., non-somatic calls
-    (validated or not), unvalidated somatic calls that are not in coding region
-    or splice sites, and dbSNP sites that are not annotated as somatic in dbSNP,
-    COSMIC or OMIM)
+-   **exclude**  all other types of mutation calls (i.e., non-somatic calls (validated or not), unvalidated somatic calls that are not in coding region or splice sites, and dbSNP sites that are not annotated as somatic in dbSNP,COSMIC or OMIM
 
  
 
