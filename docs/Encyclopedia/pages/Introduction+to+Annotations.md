@@ -1,7 +1,7 @@
 Introduction to Annotations
 ===========================
 This document is retained here for reference purposes and should not be considered the current standard.
-Document was adapted from https://wiki.nci.nih.gov/pages/viewpage.action?spaceKey=TCGA&title=Introduction+to+Annotations  
+Document was adapted from https://wiki.nci.nih.gov/pages/viewpage.action?spaceKey=TCGA&title=Introduction+to+Annotations
 
 This section includes the following topics.
 
@@ -10,7 +10,7 @@ This section includes the following topics.
 -   Annotations Overview
 -   Annotation Classification and Categories
 
- 
+
 Annotations Overview
 --------------------
 
