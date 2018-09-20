@@ -112,11 +112,7 @@ data should:
 
 ### Somatic MAF vs. Protected MAF
 
-Centers will submit to the DCC MAF archives that contain Somatic MAF
-(named **.somatic.maf**) for open access data and an all-inclusive Protected MAF
-(named **.protected.maf**) that does not filter any data out and represents the
-original super-set of mutation calls. The files will be formatted using the
-Mutation Annotation Format (MAF).
+Centers will submit to the DCC MAF archives that contain Somatic MAF (named **.somatic.maf**) for open access data and an all-inclusive Protected MAF (named **.protected.maf**) that does not filter any data out and represents the original super-set of mutation calls. The files will be formatted using the Mutation Annotation Format (MAF).
 
 The following table lists some of the critical attributes of somatic and
 protected MAF files and provides a comparison.
