@@ -126,7 +126,7 @@ protected MAF files and provides a comparison.
 |                        | There is no such constraint for experimentally validated (Validation_Status is Valid) somatic mutations.                                                                   |                                                                                                                                                |
 |                        |                                                                                |                                                                                                                                                |
 |   | dbSNP sites that are not annotated as somatic in dbSNP, COSMIC or OMIM must be removed from somatic MAFs.                                                                         |                                                                                                                                                |
-|Access level| These files are deployed as open access data.    | These files are deployed as protected data.                                                                                                    |
+|Access level| These files are deployed as open access data.    | These files are deployed as protected data.                                                                                                  |
 
 MAF file fields
 ===============
