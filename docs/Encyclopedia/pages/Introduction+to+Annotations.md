@@ -55,7 +55,7 @@ classification. For example, Redactions and Notifications possess Program Office
 level authority; they are 'official', while Observations are notes from the user
 base and are 'unofficial'".
 
-| **Annotation Classification** | **Annotation Category ** | **Authority**   | **Admissible for Items** | **Usage notes** |
+| **Annotation Classification** | **Annotation Category** | **Authority**   | **Admissible for Items** | **Usage notes** |
 |-------------------------------|-----------------------------------------------------------------------------|-----------------|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Redaction                     | Tumor tissue origin incorrect                                               | BCR             | Patient, Sample                          | Use Annotation Note to indicate details, e.g. "Case was of non-ovarian origin"                                                                                       |
 | Redaction                     | Tumor type incorrect                                                        | BCR             | Patient, Sample                          | Applies to mislabeling of a disease study, organ or tissue                                                                                                           |
