@@ -86,10 +86,3 @@ base and are 'unofficial'".
 | Observation                   | Item may not meet study protocol                                            | Authorized User | Any                                      |                                                                                                                                                                      |
 | Observation                   | General                                                                     | Authorized User | Any                                      |                                                                                                                                                                      |
 | Observation                   | New observation type                                                        | Authorized User | Any                                      | user-suggested observation type                                                                                                                                      |
-
-
- 
-
- 
-
- 
