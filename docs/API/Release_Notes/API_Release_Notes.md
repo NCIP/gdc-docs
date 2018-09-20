@@ -21,7 +21,7 @@
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
 
-## v1.15.0
+## v1.16.0
 
 * __GDC Product__: Application Programming Interface (API)
 * __Release Date__: September xx, 2018

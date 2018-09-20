@@ -25,7 +25,7 @@
 
 ### New updates
 
-1. Three new projects are released to the GDC (VAREPOP-APOLLO, CTSP-DLBCL1, NCICCR-DLBCL) <!--SPT-136,SPT-145,SPT-84-->
+1. Three new projects are released to the GDC (VAREPOP-APOLLO (phs001374), CTSP-DLBCL1 (phs001184), NCICCR-DLBCL (phs001444) <!--SPT-136,SPT-145,SPT-84-->
 2. TARGET WGS alignments are released. VCFs will be provided in a later release <!--DAT-1699-->
 3. Clinical data was harmonized with ICD-O-3 terminology for TCGA properties case.primary_site, case.disease_type, diagnosis.primary_diagnosis, diagnosis.site_of_resection_or_biopsy, diagnosis.tissue_or_organ_of_origin <!--DAT-1512-->
 4. Redaction annotations applied to 11 aliquots in TCGA-DLBC <!--DAT-1169, Data-871-->
