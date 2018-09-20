@@ -106,7 +106,7 @@ data should:
 
 -   **include**  all validated somatic mutation calls
 
--   **include**  all unvalidated somatic mutation calls that overlap with a
+-   **include** all unvalidated somatic mutation calls that overlap with a
     coding region or splice site
 
 -   **exclude**  all other types of mutation calls (i.e., non-somatic calls
