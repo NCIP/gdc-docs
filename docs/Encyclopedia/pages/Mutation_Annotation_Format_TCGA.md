@@ -104,7 +104,7 @@ minimize germline contamination in putative (unvalidated) somatic calls, certain
 filtering criteria have been imposed. Based on current policy, open access MAF
 data should:
 
--   **include**  all validated somatic mutation calls
+-   **include**  all validated somatic mutation calls
 
 -   **include**  all unvalidated somatic mutation calls that overlap with a
     coding region or splice site

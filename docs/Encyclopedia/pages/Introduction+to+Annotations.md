@@ -52,8 +52,8 @@ Annotation authority
 If an annotation appears, it appears under the authority of a certain component
 of TCGA. The authorizing group can be determined from the annotation
 classification. For example, Redactions and Notifications possess Program Office
-level authority; they are ‘official’, while Observations are notes from the user
-base and are ‘unofficial’”.
+level authority; they are 'official', while Observations are notes from the user
+base and are 'unofficial'".
 
 | **Annotation Classification** | **Annotation Category **                                                    | **Authority**   | **Admissible for Items**                 | **Usage notes**                                                                                                                                                      |
 |-------------------------------|-----------------------------------------------------------------------------|-----------------|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
