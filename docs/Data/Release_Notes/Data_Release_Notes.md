@@ -42,7 +42,7 @@ A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gd
 
 ### Known Issues and Workarounds
 
-* TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and re­-concatenated into their original composite BAM files by CGHub.
+* TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and re­concatenated into their original composite BAM files by CGHub.
     * TARGET-20-PASJGZ-04A-02D
     * TARGET-30-PAPTLY-01A-01D
     * TARGET-20-PAEIKD-09A-01D
