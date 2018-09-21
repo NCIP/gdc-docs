@@ -206,13 +206,12 @@ Actual calendar dates are not reported in GDC clinical fields but the lengths of
 
 >__Note:__ The day-based fields take leap years into account.  
 
-### Patients Older than 90 Years
 
-Because of the low population number within the demographic of patients over 90 years old, it becomes more likely that patients can potentially be identified by a combination of their advanced age and publicly available clinical data. Because of this, patients over 90 years old are reported as exactly 90 years or 32,872 days old.
+### Patients Older than 90 Years and Clinical Events 
 
-### Clinical Events After a Patient Turns 90 Years Old
+Because of the low population number within the demographic of patients over 90 years old, it becomes more likely that patients can potentially be identified by a combination of their advanced age and publicly available clinical data. Because of this, patients over 90 years old are reported as exactly 90 years or 32,872 days old. 
 
-Clinical events that occur over 32,872 days after an event also have the potential to reveal the age and identity of an individual over the age of 90. Following this, all timelines are capped at 32,872 days. When timelines are capped, the priority should be to shorten the post-diagnosis values to preserve the accuracy of the age of the patient (except for patients who were diagnosed at over 90 years old). Values such as `days_to_death` and `days_to_recurrence` should be compressed before `days_to_birth` is compressed.
+Following this, clinical events that occur over 32,872 days are also capped at 32,872 days. When timelines are capped, the priority should be to shorten the post-diagnosis values to preserve the accuracy of the age of the patient (except for patients who were diagnosed at over 90 years old). Values such as `days_to_death` and `days_to_recurrence` should be compressed before `days_to_birth` is compressed.
 
 ### Examples Timelines
 
