@@ -62,18 +62,18 @@ Choosing _'UPLOAD'_ from the project dashboard will open the Upload Data Wizard.
 
 [![GDC Submission Wizard Upload Files](images/GDC_Submission_Wizard_Upload_2.png)](images/GDC_Submission_Wizard_Upload_2.png "Click to see the full image.")
 
-Files containing one or more entities can be added either by clicking on _'CHOOSE FILE(S)'_ or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the garbage can icon next to the file.
+Files containing one or more entities can be added either by clicking on "_CHOOSE FILE(S)_" or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the garbage can icon next to the file.
 
 #### 2. Validate Entities
 
 The __Validate Entities__ stage acts as a safeguard against submitting incorrectly formatted data to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of uploaded entities against the Data Dictionary to detect potential errors. Invalid entities will not be processed and must be corrected by the user and re-uploaded before being accepted. A validation error report provided by the system can be used to isolate and correct errors.
 
-When the first file is added, the wizard will move to the _'VALIDATE'_ section and the user can continue to add files. When all files have been added, choosing _'VALIDATE'_ will run a test to check if the entities are valid for submission.
+When the first file is added, the wizard will move to the Validate section and the user can continue to add files. When all files have been added, choosing "_VALIDATE_" will run a test to check if the entities are valid for submission.
 
 [![GDC Submission Wizard Validate Files](images/GDC_Submission_Portal_Validate.png)](images/GDC_Submission_Portal_Validate.png "Click to see the full image.")
 
 #### 3. Commit or Discard Files
-If the upload contains valid entities, a new transaction will appear in the latest transactions panel with the option to _'COMMIT'_ or _'DISCARD'_ the data. Entities contained in these files can be committed (applied) to the project or discarded using these two buttons.
+If the upload contains valid entities, a new transaction will appear in the latest transactions panel with the option to "_COMMIT_" or "_DISCARD_" the data. Entities contained in these files can be committed (applied) to the project or discarded using these two buttons.
 
 If the upload contains invalid files, a transaction will appear with a FAILED status. Invalid files will need to be either corrected and re-uploaded or removed from the submission. If more than one file is uploaded and at least one is not valid, the validation step will fail for all files.  
 

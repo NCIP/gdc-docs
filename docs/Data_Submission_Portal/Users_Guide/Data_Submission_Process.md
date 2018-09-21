@@ -97,15 +97,15 @@ The GDC Data Submission process is detailed on the [Data Submission Processes an
 
 The submitter is responsible for reviewing the data uploaded to the project workspace (see [Data Submission Walkthrough](Data_Submission_Walkthrough.md)), and ensuring that it is ready for processing by the GDC [Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization). 
 
-The user will be able to view the section below on the dashboard. The "REVIEW" button is available only if the project is in "OPEN" state.
+The user will be able to view the section below on the dashboard. The "_REVIEW_" button is available only if the project is in "OPEN" state.
 
 [![GDC Submission Review Tab](images/GDC_Submission_Submit_Release_Review_tab_2_v2.png)](images/GDC_Submission_Submit_Release_Review_tab_2_v2.png "Click to see the full image.")
 
-Setting the project to the 'REVIEW' state will lock the project and prevent users from uploading additional data. Only users with release privileges will be able to review and submit. During this period, the submitter can browse the data in the Submission Portal or download it.
+Setting the project to the "REVIEW" state will lock the project and prevent users from uploading additional data. Only users with release privileges will be able to review and submit. During this period, the submitter can browse the data in the Submission Portal or download it.
 
 Reviewing the project will prevent other users from uploading data to the project. Once the review is complete, the user can submit data to the GDC.
 
-Once the user clicks on "REVIEW", the project state will change to "REVIEW":
+Once the user clicks on "_REVIEW_", the project state will change to "REVIEW":
 
 [![GDC Submission Review State](images/GDC_Submission_Submit_Release_Project_State_Review_3.png)](images/GDC_Submission_Submit_Release_Project_State_Review_3.png "Click to see the full image.")
 
@@ -113,7 +113,7 @@ Once the user clicks on "REVIEW", the project state will change to "REVIEW":
 
 When the project is ready for processing, the submitter will request to submit data to the GDC. If the project is not ready for processing, the project can be re-opened. Then the submitter will be able to upload more data to the project workspace.
 
-The _'Request Submission'_ button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to request submission of the data to the GDC. When the project is in "REVIEW" the following panel appears on the dashboard:
+The "_REQUEST SUBMISSION_" button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to request submission of the data to the GDC. When the project is in "REVIEW" the following panel appears on the dashboard:
 
 [![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab_2_v3.png)](images/GDC_Submission_Submit_Release_Submit_tab_2_v3.png "Click to see the full image.")
 
@@ -121,12 +121,12 @@ Once the user submits data to the GDC, they __cannot upload additional data unti
 
 [![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC_v2.png)](images/GDC_SUBMIT_TO_GDC_v2.png "Click to see the full image.")
 
-When the user clicks on the action _'Request Submission'_ on the dashboard, the following submission popup is displayed:
+When the user clicks on the action "_REQUEST SUBMISSION_" on the dashboard, the following submission popup is displayed:
 
 [![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png)](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png "Click to see the full image.")
 
 
-After the user clicks on "Submit Validated Data to the GDC", the project state becomes "Submission Requested":
+After the user clicks on "_SUBMIT VALIDATED DATA TO THE GDCC_," the project state becomes "Submission Requested":
 [![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State.png)](images/GDC_Submission_Submit_Release_Project_State_v2.png "Click to see the full image.")
 
 The GDC requests that users submit their data to the GDC within six months from the first upload to the project workspace.
@@ -138,11 +138,11 @@ Project release occurs after the data has been harmonized, and allows users to a
 
 [![GDC Submission Release Tab](images/GDC_Submission_Landing_Submitter_4.png)](images/GDC_Submission_Landing_Submitter_4.png "Click to see the full image.")
 
-When the user clicks on the action _'Request Release'_, the following Release popup is displayed:
+When the user clicks on the action "_REQUEST RELEASE_," the following Release popup is displayed:
 
 [![GDC Submission Release Popup](images/GDC_Submission_Submit_Release_Release_Popup.png)](images/GDC_Submission_Submit_Release_Release_Popup.png "Click to see the full image.")
 
-After the user clicks on "Release Submitted and Processed Data", the project release state becomes "Release Requested":
+After the user clicks on "_RELEASE SUBMITTED AND PROCESSED DATA_," the project release state becomes "Release Requested":
 
 [![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State_3.png)](images/GDC_Submission_Submit_Release_Project_State_3.png "Click to see the full image.")
 
