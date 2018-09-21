@@ -62,18 +62,18 @@ Choosing _'UPLOAD'_ from the project dashboard will open the Upload Data Wizard.
 
 [![GDC Submission Wizard Upload Files](images/GDC_Submission_Wizard_Upload_2.png)](images/GDC_Submission_Wizard_Upload_2.png "Click to see the full image.")
 
-Files containing one or more entities can be added either by clicking on "_CHOOSE FILE(S)_" or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the garbage can icon next to the file.
+Files containing one or more entities can be added either by clicking on `CHOOSE FILE(S)` or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the garbage can icon next to the file.
 
 #### 2. Validate Entities
 
 The __Validate Entities__ stage acts as a safeguard against submitting incorrectly formatted data to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of uploaded entities against the Data Dictionary to detect potential errors. Invalid entities will not be processed and must be corrected by the user and re-uploaded before being accepted. A validation error report provided by the system can be used to isolate and correct errors.
 
-When the first file is added, the wizard will move to the Validate section and the user can continue to add files. When all files have been added, choosing "_VALIDATE_" will run a test to check if the entities are valid for submission.
+When the first file is added, the wizard will move to the Validate section and the user can continue to add files. When all files have been added, choosing `VALIDATE` will run a test to check if the entities are valid for submission.
 
 [![GDC Submission Wizard Validate Files](images/GDC_Submission_Portal_Validate.png)](images/GDC_Submission_Portal_Validate.png "Click to see the full image.")
 
 #### 3. Commit or Discard Files
-If the upload contains valid entities, a new transaction will appear in the latest transactions panel with the option to "_COMMIT_" or "_DISCARD_" the data. Entities contained in these files can be committed (applied) to the project or discarded using these two buttons.
+If the upload contains valid entities, a new transaction will appear in the latest transactions panel with the option to `COMMIT` or `DISCARD` the data. Entities contained in these files can be committed (applied) to the project or discarded using these two buttons.
 
 If the upload contains invalid files, a transaction will appear with a FAILED status. Invalid files will need to be either corrected and re-uploaded or removed from the submission. If more than one file is uploaded and at least one is not valid, the validation step will fail for all files.  
 
@@ -504,7 +504,7 @@ gdc-client upload -m manifest.yml -t $token
 __API Upload:__  A `submittable_data_file` can be uploaded through the API by using the `/submission/$PROGRAM/$PROJECT/files` endpoint.  The following command would be typically used to upload a file:  
 
 ```Shell
-curl --request PUT --header "X-Auth-Token: $token" https://api.gdc.cancer.gov/v0/submission/PROJECT/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d@$path_to_file
+curl --request PUT --header "X-Auth-Token: $token" https://api.gdc.cancer.gov/v0/submission/PROJECT/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d $path_to_file
 
 ```
 
@@ -557,7 +557,7 @@ If a submitter would like to create an annotation please contact the GDC Support
 
 ## Deleting Submitted Entities
 
-The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. Files cannot be deleted while in the 'SUBMITTED' stated.  This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#deleting-entities) for specific instructions.
+The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. Files cannot be deleted while in the "SUBMITTED" state.  This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#deleting-entities) for specific instructions.
 
 >__NOTE:__  Entities associated with files uploaded to the GDC object store cannot be deleted until the associated file has been deleted. Users must utilize the [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) to delete these files first.
 
@@ -583,7 +583,7 @@ If an entity has related entities, such as a `case` with multiple `samples` and 
 [![GDC Delete Associated Case](images/GDC-Delete-Case-Associated.png)](images/GDC-Delete-Case-Associated.png "Click to see the full image.")
 
 
-Follow the 'Simple Deletion' method until the end. This action will appear in the [Transactions](Data_Submission_Process.md#transactions) tab as "Delete" with a "FAILED" state.  
+Follow the [Simple Deletion](Data_Submission_Walkthrough.md#simple-deletion) method until the end. This action will appear in the [Transactions](Data_Submission_Process.md#transactions) tab as "Delete" with a "FAILED" state.  
 
 
 [![GDC Delete Failed](images/GDC-Failed-Transaction.png)](images/GDC-Failed-Transaction.png "Click to see the full image.")
