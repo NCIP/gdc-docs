@@ -4,7 +4,7 @@ The GDC API implements file download functionality using `data` and `manifest` e
 
 **Note:** Downloading controlled access data requires the use of an authentication token. See [Getting Started: Authentication](Getting_Started.md#authentication) for details.
 
-**Note:** Requests to download data from the GDC Legacy Archive must be directed to `legacy/data`. See [Getting Started: Legacy Archive](Getting_Started.md#gdc-legacy-archive) for details.
+**Note:** Requests to download data from the GDC Legacy Archive may be directed to `legacy/data` or `data`. See [Getting Started: Legacy Archive](Getting_Started.md#gdc-legacy-archive) for details.
 
 ## Data endpoint
 
@@ -12,17 +12,6 @@ To download a file, users can pass UUID(s) to the `data` endpoint.  If a single 
 
 The `data` endpoint supports GET and POST requests as demonstrated in the following examples.
 
-
-### Related Files
-
-If the `related_files=true` parameter is specified, the following related files, if available, will be included in the download package by the GDC API:
-
-* BAM index files (BAI files)
-* Metadata files (such as SRA XML or MAGE-TAB files)
-
-For example, this request will download a legacy copy number segmentation file and its associated MAGE-TAB metadata file:
-
-	https://api.gdc.cancer.gov/legacy/data/7efc039a-fde3-4bc1-9433-2fc6b5e3ffa5?related_files=true
 
 ### Downloading a Single File using GET
 
@@ -37,6 +26,25 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/5b2974a
 100 6111k  100 6111k    0     0   414k      0  0:00:14  0:00:14 --:--:--  412k
 curl: Saved to filename '14-3-3_beta-R-V_GBL1112940.tif'
 ```
+### Related Files
+
+If the `related_files=true` parameter is specified, the following related files, if available, will be included in the download package by the GDC API:
+
+* BAM index files (BAI files)
+* Metadata files (such as SRA XML or MAGE-TAB files)
+
+For example, this request will download a legacy copy number segmentation file and its associated MAGE-TAB metadata file:
+
+```shell
+curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/7efc039a-fde3-4bc1-9433-2fc6b5e3ffa5?related_files=true'
+```
+```Output
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+															 Dload  Upload   Total   Spent    Left  Speed
+100 65353    0 65353    0     0  65353      0 --:--:-- --:--:-- --:--:--  102k
+curl: Saved to filename 'gdc_download_20180830_131817.826097.tar.gz'
+```
+
 
 ### Downloading Multiple Files using GET
 
@@ -65,8 +73,6 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/1da7105
 
 The following two examples demonstrate downloading multiple files from the GDC using a POST request that contains a payload in one of two formats: percent-encoded form data or JSON. The GDC API returns a `.tar.gz` archive containing the downloaded files.
 
-As noted above, both the `data` and `legacy/data` endpoints accept POST requests.
-
 #### POST request with form data payload
 
 POST requests that carry a payload of percent-encoded form data must include the HTTP header `Content-Type: application/x-www-form-urlencoded`.
@@ -83,13 +89,13 @@ In this example we use `curl` to download a set of files from the GDC Legacy Arc
 ids=556e5e3f-0ab9-4b6c-aa62-c42f6a6cf20c&ids=e0de63e2-02f3-4309-9b24-69f4c24e85fc&ids=f1a06178-2ec2-4b06-83f3-3aedac332cfe&ids=11a8aca0-c8e6-4ff8-8ab6-fe18a1b8ba82&ids=69a69c84-00de-45ff-b397-fd2b6713ed4f&ids=9ec48233-395d-401e-b205-951c971f8dd4&ids=93129547-378c-4b69-b858-532abfff678e&ids=8d4277e9-a472-4590-886d-24dc2538ea65&ids=6733b412-56da-4f1c-a12b-ff804cb656d7&ids=a72eec98-c5e0-4866-8953-765780acb6c1&ids=e77b2294-1bdd-4fba-928a-d81d2622312f&ids=965e01fc-318e-4c02-a801-d6fad60bfae4&ids=21ad5409-fe0b-4728-97e4-15520b9fc287&ids=1a777521-277c-4aeb-baf1-66871a7c2d2a&ids=c13a3449-9e0d-45a9-bcc0-518f55e45c8a&ids=5f2d329b-d59d-4112-b490-5114b830e34d&ids=bb966617-6c1f-4bb0-a1ed-ceb37ecade67&ids=05d11519-2b33-4742-aa87-3934632f2f2b&ids=39bfafe2-9628-434e-bd72-148051a47477&ids=481bea69-3cd5-45f3-8a52-2d4cc8fc8df7&ids=f95e407b-de69-416c-920c-6be8c9414862&ids=75940293-8fa6-47f9-ad5d-155b61933fdc&ids=e8e84ccf-f8a8-4551-9257-ef731d02116f&ids=e4991159-f088-4a2a-88b7-38d6ac47c6bc
 ```
 ```Shell
-curl --remote-name --remote-header-name --request POST 'https://api.gdc.cancer.gov/legacy/data' --data @Payload
+curl --remote-name --remote-header-name --request POST 'https://api.gdc.cancer.gov/data' --data @Payload
 ```
 ```Output
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 2562k    0 2561k  100   983   880k    337  0:00:02  0:00:02 --:--:--  880k
-curl: Saved to filename 'gdc_download_20160701_011153.tar.gz'
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+															 Dload  Upload   Total   Spent    Left  Speed
+100 2563k    0 2562k  100   983   854k    327  0:00:03  0:00:03 --:--:--  776k
+curl: Saved to filename 'gdc_download_20180830_132402.379282.tar.gz'
 ```
 
 #### POST request with JSON payload
@@ -144,7 +150,7 @@ In this example we use `curl` to download a set of files from the GDC Legacy Arc
 }
 ```
 ```Shell
-curl --remote-name --remote-header-name --request POST --header 'Content-Type: application/json' --data @request.txt 'https://api.gdc.cancer.gov/legacy/data'
+curl --remote-name --remote-header-name --request POST --header 'Content-Type: application/json' --data @request.txt 'https://api.gdc.cancer.gov/data'
 ```
 ```Output
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
