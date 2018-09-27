@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.16.0](Data_Portal_Release_Notes.md#release-1140) | September xx, 2018 |
+| [v1.16.0](Data_Portal_Release_Notes.md#release-1140) | September 27, 2018 |
 | [v1.15.0](Data_Portal_Release_Notes.md#release-1140) | August 23, 2018 |
 | [v1.14.0](Data_Portal_Release_Notes.md#release-1130) | June 13, 2018 |
 | [v1.13.0](Data_Portal_Release_Notes.md#release-1130) | May 21, 2018 |
@@ -24,7 +24,7 @@
 ## Release 1.16.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  September 26, 2018
+* __Release Date__:  September 27, 2018
 
 ### New Features and Changes <!--REQ-333-->
 

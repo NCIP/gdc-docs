@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v13.0](Data_Release_Notes.md#data-release-120) | September xx, 2018 |
+| [v13.0](Data_Release_Notes.md#data-release-120) | September 27, 2018 |
 | [v12.0](Data_Release_Notes.md#data-release-120) | June 13, 2018 |
 | [v11.0](Data_Release_Notes.md#data-release-110) | May 21, 2018 |
 | [v10.1](Data_Release_Notes.md#data-release-101) | February 15, 2018 |
@@ -21,7 +21,7 @@
 ## Data Release 13.0
 
 * __GDC Product__: Data
-* __Release Date__: September XX, 2018
+* __Release Date__: September 27, 2018
 
 ### New updates
 
@@ -31,8 +31,10 @@
 4. Redaction annotations applied to 11 aliquots in TCGA-DLBC <!--DAT-1169, Data-871-->
 5. Redaction annotations applied to incorrectly trimmed miRNA file in the Legacy Achive <!--SV-653-->
 
-Updated files for this release are listed [here](DR13.0_files_swap.txt.gz).
-A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180613_data_release_13.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180613_data_release_13.0_legacy.txt.gz).
+A complete list of files for DR13.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+* [gdc_manifest_20180927_data_release_13.0_active.txt.gz](gdc_manifest_20180927_data_release_13.0_active.txt.gz)
+* [gdc_manifest_20180927_data_release_13.0_legacy.txt.gz](gdc_manifest_20180927_data_release_13.0_legacy.txt.gz).
 
 
 ### Bugs Fixed Since Last Release
@@ -99,7 +101,7 @@ A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gd
 5.  VCF files containing SNVs produced from TARGET WGS CGI data are available.  The variant calls were initially produced by CGI and lifted over to hg38. <!--DAT-1281-->
 
 Updated files for this release are listed [here](DR12.0_files_swap.txt.gz).
-A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180613_data_release_12.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180613_data_release_12.0_legacy.txt.gz).
+A complete list of files for DR12.0 are listed for the GDC Data Portal [here](gdc_manifest_20180613_data_release_12.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180613_data_release_12.0_legacy.txt.gz).
 
 
 ### Bugs Fixed Since Last Release
@@ -169,7 +171,7 @@ A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gd
 2. TCGA Tissue slide images now available in GDC Data Portal.  Previously these were found only in the Legacy Archive <!--DAT-1251-->
 
 Updated files for this release are listed [here](DR11.0_files_swap.txt.gz).
-A complete list of files for DR10.0 are listed for the GDC Data Portal [here](gdc_manifest_20180521_data_release_11.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180521_data_release_11.0_legacy.txt.gz).
+A complete list of files for DR11.0 are listed for the GDC Data Portal [here](gdc_manifest_20180521_data_release_11.0_active.txt.gz) and the GDC Legacy Archive [here](gdc_manifest_20180521_data_release_11.0_legacy.txt.gz).
 
 
 ### Bugs Fixed Since Last Release
