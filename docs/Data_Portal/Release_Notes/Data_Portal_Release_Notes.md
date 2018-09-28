@@ -2,9 +2,9 @@
 
 | Version | Date |
 |---|---|
-| [v1.16.0](Data_Portal_Release_Notes.md#release-1140) | September 27, 2018 |
-| [v1.15.0](Data_Portal_Release_Notes.md#release-1140) | August 23, 2018 |
-| [v1.14.0](Data_Portal_Release_Notes.md#release-1130) | June 13, 2018 |
+| [v1.16.0](Data_Portal_Release_Notes.md#release-1160) | September 27, 2018 |
+| [v1.15.0](Data_Portal_Release_Notes.md#release-1150) | August 23, 2018 |
+| [v1.14.0](Data_Portal_Release_Notes.md#release-1140) | June 13, 2018 |
 | [v1.13.0](Data_Portal_Release_Notes.md#release-1130) | May 21, 2018 |
 | [v1.12.0](Data_Portal_Release_Notes.md#release-1120) | February 15, 2018 |
 | [v1.11.0](Data_Portal_Release_Notes.md#release-1110) | December 21, 2017 |
