@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v13.0](Data_Release_Notes.md#data-release-120) | September 27, 2018 |
+| [v13.0](Data_Release_Notes.md#data-release-130) | September 27, 2018 |
 | [v12.0](Data_Release_Notes.md#data-release-120) | June 13, 2018 |
 | [v11.0](Data_Release_Notes.md#data-release-110) | May 21, 2018 |
 | [v10.1](Data_Release_Notes.md#data-release-101) | February 15, 2018 |
