@@ -162,7 +162,7 @@ The upper quartile FPKM (FPKM-UQ) is a modified FPKM calculation in which the to
 
 ### Calculations
 
-[![FPKM Calculations](images/Calc_FPKM_andUQ.png)](images/Calc_FPKM_andUQ.png "Click to see the full image.")
+[![FPKM Calculations](images/Calc_FPKM_andUQ.png)](images/fpkm.gif "Click to see the full image.")
 
 - __RC<sub>g</sub>:__ Number of reads mapped to the gene
 - __RC<sub>pc</sub>:__ Number of reads mapped to all protein-coding genes
