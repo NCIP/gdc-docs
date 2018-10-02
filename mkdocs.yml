@@ -54,7 +54,7 @@ pages:
 - Data Submission Portal:
   - Before Submitting Data to the GDC Portal: Data_Submission_Portal/Users_Guide/Checklist.md
   - Submission Process: Data_Submission_Portal/Users_Guide/Data_Submission_Overview.md
-  - Data Submission Portal: Data_Submission_Portal/Users_Guide/Data_Submission_Process.md
+  - Data Submission Process: Data_Submission_Portal/Users_Guide/Data_Submission_Process.md
   - Data Submission Walkthrough: Data_Submission_Portal/Users_Guide/Data_Submission_Walkthrough.md
   - Pre-Release Data Portal: Data_Submission_Portal/Users_Guide/Pre_Release_QC.md
   - Release Notes: Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md
