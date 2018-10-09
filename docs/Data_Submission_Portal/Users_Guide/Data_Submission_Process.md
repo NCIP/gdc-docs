@@ -2,7 +2,11 @@
 
 # Overview
 
-This section will walk users through the submission process using the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/).
+This section will walk users through the submission process using the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/). The diagram below describes this process for uploading and validating data in the GDC Data Submission Portal. 
+
+The submitter uploads Clinical and Biospecimen data to the project workspace using GDC templates that are available in the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/). The GDC validates the uploaded data against the GDC Data Dictionary. To upload submittable data files, such as sequence data in BAM or FASTQ format, the submitter must register file metadata with the GDC using a method similar to uploading Clinical and Biospecimen data. When files are registered, the submitter downloads a manifest from the GDC Data Submission Portal and uses it with the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) to upload the files. Finally, the submitter will request submission, and after harmonization, the submitter will review and eventually release their data.
+
+[![GDC Data Submission Portal Workflow Upload](images/gdc-submission-portal-data-upload-workflow.png)](images/gdc-submission-portal-data-upload-workflow.png "Click to see the full image.")
 
 # Authentication
 
@@ -40,21 +44,19 @@ To log out of the GDC, click the username in the top right corner of the screen,
 
 After authentication, users are redirected to a homepage. The homepage acts as the entry point for GDC data submission and provides submitters with access to a list of authorized projects, reports, and transactions. Content on the homepage varies based on the user profile (e.g. submitter, program office).
 
-
 [![GDC Submitter Home Page](images/GDC-HomePage-Submit_v2.png)](images/GDC-HomePage-Submit_v2.png "Click to see the full image.")
-
 
 ## Reports
 
 Project summary reports can be downloaded at the Submission Portal homepage at three different levels: CASE OVERVIEW, ALIQUOT OVERVIEW, and DATA VALIDATION.  Each report is generated in tab-delimited format in which each row represents an active project.  
 
-* __CASE OVERVIEW:__ This report describes the number of cases with associated biospecimen data, clinical data, or submittable data files (broken down by type) for each project.
+* __CASE OVERVIEW:__ This report describes the number of cases with associated biospecimen data, clinical data, or submittable data files (broken down by data type) for each project.
 * __ALIQUOT OVERVIEW:__ This report describes the number of aliquots in a project with associated data files. Aliquot numbers are broken down by tissue sample type.
 * __DATA VALIDATION:__ This report categorizes all submittable data files associated with a project by their file status.
 
 ## Projects
 
-The projects section in the homepage lists the projects that the user has access to along with basic information about each. For users with access to a large number of projects, this table can be filtered with the 'FILTER PROJECTS' field. Selecting a project ID will direct the user to the project's [Dashboard](#dashboard). The button used to release data for each project is also located on this screen, see [Data Release](#release) for details.
+The projects section in the homepage lists the projects that the user has access to along with basic information about each project. For users with access to a large number of projects, this table can be filtered using the 'FILTER PROJECTS' field. Selecting a project ID will direct the user to the project's [Dashboard](#dashboard). The button used to release data for each project is also located on this screen, see [Release](#release) for details.
 
 # Dashboard
 
@@ -84,7 +86,7 @@ The _'DOWNLOAD MANIFEST'_ button below this status chart allows the user to down
 
 There are two action panels available below the Project Overview.
 
-* [UPLOAD DATA TO YOUR WORKSPACE](Data_Submission_Walkthrough.md): Allows a submitter to upload project data to the GDC project workspace. The GDC will validate the uploaded data against the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/). This panel also contains a table that displays details about the five latest transactions. Clicking the IDs in the first column will bring up a window with details about the transaction, which are documented in the [transactions](#transactions) page. This panel will also allow the user to commit file submissions to the project.
+* [UPLOAD DATA TO YOUR WORKSPACE](Data_Submission_Walkthrough.md): Allows a submitter to upload project data to the GDC project workspace. The GDC will validate the uploaded data against the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/). This panel also contains a table that displays details about the five latest transactions. Clicking the IDs in the first column will bring up a window with details about the transaction, which are documented in the [transactions](#transactions) page. This panel will also allow the user to commit file uploads to the project.
 * [REVIEW AND SUBMIT YOUR WORKSPACE DATA TO THE GDC](#submit-your-workspace-data-to-the-gdc): Allows a submitter to review project data which will lock the project to ensure that additional data cannot be uploaded while in review. Once the review is complete, the data can be submitted to the GDC for processing through the [GDC Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization).
 
 These actions and associated features are further detailed in their respective sections of the documentation.
@@ -101,9 +103,9 @@ The user will be able to view the section below on the dashboard. The `REVIEW` b
 
 [![GDC Submission Review Tab](images/GDC_Submission_Submit_Release_Review_tab_2_v2.png)](images/GDC_Submission_Submit_Release_Review_tab_2_v2.png "Click to see the full image.")
 
-Setting the project to the "REVIEW" state will lock the project and prevent users from uploading additional data. Only users with release privileges will be able to review and submit. During this period, the submitter can browse the data in the Submission Portal or download it.
+Setting the project to the "REVIEW" state will lock the project and prevent users from uploading additional data. Only users with release privileges will be able to review and submit. During this period, the submitter can browse the data in the Data Submission Portal or download it.
 
-Reviewing the project will prevent other users from uploading data to the project. Once the review is complete, the user can submit data to the GDC.
+Reviewing the project will prevent other users from uploading data to the project. Once the review is complete, the user can request to submit data to the GDC.
 
 Once the user clicks on `REVIEW`, the project state will change to "REVIEW":
 
@@ -117,7 +119,7 @@ The `REQUEST SUBMISSION` button is available only if the project is in "REVIEW" 
 
 [![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab_2_v3.png)](images/GDC_Submission_Submit_Release_Submit_tab_2_v3.png "Click to see the full image.")
 
-Once the user submits data to the GDC, they __cannot upload additional data until the harmonization process is complete__.
+Once the user submits data to the GDC, they cannot modify the submitted nodes and files while harmonization is underway.  Additional project data can be added during this period and will be considered a separate batch.  To process an additional batch the user must again review the data and select `Request Submission`.
 
 [![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC_v2.png)](images/GDC_SUBMIT_TO_GDC_v2.png "Click to see the full image.")
 
@@ -126,15 +128,14 @@ When the user clicks on the action `REQUEST SUBMISSION` on the dashboard, the fo
 [![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png)](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png "Click to see the full image.")
 
 
-After the user clicks on `SUBMIT VALIDATED DATA TO THE GDCC`, the project state becomes "Submission Requested":
+After the user clicks on `SUBMIT VALIDATED DATA TO THE GDC`, the project state becomes "Submission Requested":
+
 [![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State.png)](images/GDC_Submission_Submit_Release_Project_State_v2.png "Click to see the full image.")
 
-The GDC requests that users submit their data to the GDC within six months from the first upload to the project workspace.
+The GDC requests that users submit their data to the GDC within six months from the first upload of data to the project workspace.
 
 # Release
-Project release occurs after the data has been harmonized, and allows users to access this data with the [GDC Data Portal](https://portal.gdc.cancer.gov/) and other [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools). The GDC will release data according to [GDC Data Sharing Policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data may be released after six months from the date of upload, or the submitter may request earlier release using the "Request Release" function.  A project can only be released once. If additional data is added to the project after it is released, the data will be released automatically after harmonization.  
-
->**Note:** To release data to the GDC Data Portal, the user must have release privileges.
+Project release occurs after the data has been harmonized, and allows users to access this data with the [GDC Data Portal](https://portal.gdc.cancer.gov/) and other [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools). The GDC will release data according to [GDC Data Sharing Policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data must be released within six months after GDC data processing has been completed, or the submitter may request earlier release using the "Request Release" function.  A project can only be released once.
 
 [![GDC Submission Release Tab](images/GDC_Submission_Landing_Submitter_4.png)](images/GDC_Submission_Landing_Submitter_4.png "Click to see the full image.")
 
@@ -157,7 +158,7 @@ The transactions page lists all of the project's transactions. The transactions 
 
 The types of transactions are the following:
 
-* __Upload:__ The user uploads data to the project workspace. Note that submittable data files uploaded using the GDC Data Transfer tool do not appear as transactions. Uploaded submittable can be viewed in the Browse tab.
+* __Upload:__ The user uploads data to the project workspace. Note that submittable data files uploaded using the GDC Data Transfer tool do not appear as transactions. Uploaded submittable data can be viewed in the Browse tab.
 * __Review:__ The user reviews the project before submitting data to the GDC.
 * __Open:__ The user re-opens the project if it was under review. This allows the upload of new data to the project workspace.
 * __Submit:__ The user submits uploaded data to the GDC. This triggers the data harmonization process.
@@ -171,7 +172,7 @@ The transactions list view displays the following information:
 | --- | --- |
 | __ID__ | Identifier of the transaction |
 | __Type__ | Type of the transaction (see the list of transaction types in the previous section)|
-| __Step__ | The step of the submission process that each file is currently in. This can be Validate or Commit. "Validate" represents files that have not yet been committed but have been submitted using the submission portal or the API . |
+| __Step__ | The step of the submission process that each file is currently in. This can be Validate or Commit. "Validate" represents files that have not yet been committed but have been submitted using the submission portal or the API. |
 | __DateTime__ | Date and Time that the transaction was initiated |
 | __User__ | The username of the submitter that performed the transaction |
 | __Status__ | 	Indicates the status of the transaction: `SUCCEEDED`, `PENDING`, or `FAILED` |
@@ -179,7 +180,7 @@ The transactions list view displays the following information:
 
 ## Transaction Filters
 
-Choosing the radio buttons at the top of the table allows the transactions to be filtered by those that are in progress, to be committed, succeeded, failed, or discarded. The drop-down menu also allows for the transactions to be filtered by type.  
+Choosing from the drop-down menu at the top of the table allows the transactions to be filtered by those that are in progress, to be committed, succeeded, failed, or discarded. The drop-down menu also allows for the transactions to be filtered by type.  
 
 ## Transactions Details
 
@@ -232,11 +233,12 @@ Current filters are:
 
 |Filter|Description|
 | --- | --- |
-| __Cases__ | Display all `cases` associated with the project. |
-| __Clinical Entities__ | Display all Clinical data uploaded to the project workspace. This is divided into subgroups including `demographics`, `diagnoses`, `exposures`, `family histories`, and `treatments`. |
-| __Biospecimen Data__ | Display all Biospecimen data uploaded to the project workspace. This is divided into subgroups including `samples`, `portions`, `analytes`, `aliquots`, and `read groups`. |
+| __Cases__ | Display all `Cases` associated with the project. |
+| __Clinical Entities__ | Display all Clinical data uploaded to the project workspace. This is divided into subgroups including `Demographics`, `Diagnoses`, `Exposures`, `Family Histories`, `Follow_up`, `Molecular_tests`, and `Treatments`. |
+| __Biospecimen Data__ | Display all Biospecimen data uploaded to the project workspace. This is divided into subgroups including `Samples`, `Portions`, `Analytes`, `Aliquots`, and `Read Groups`. |
 | __Submittable Data Files__ | Displays all data files that have been registered with the project. This includes files that have been uploaded and those that have been registered but not uploaded yet. This category is divided into groups by file type. |
 | __Annotations__ | Lists all annotations associated with the project. An annotation provides an explanatory comment associated with data in the project. |
+| __Harmonized Data Files__ | Lists all data files that have been harmonized by the GDC. This category is divided into groups by generated data. |
 
 
 ### List View

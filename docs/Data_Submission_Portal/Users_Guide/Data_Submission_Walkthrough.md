@@ -1,10 +1,10 @@
-# Data Submission Walkthrough
+# Data Upload Walkthrough
 
-This guide details step-by-step procedures for different aspects of the GDC Data Submission process and how they relate to the GDC Data Model and structure. The first sections of this guide break down the submission process and associate each step with the Data Model. Additional sections are detailed below for strategies on expediting data submission, using features of the Submission Portal, and best practices used by the GDC.
+This guide details step-by-step procedures for different aspects of the GDC Data Submission process and how they relate to the GDC Data Model and structure. The first sections of this guide break down the submission process and associate each step with the Data Model. Additional sections are detailed below for strategies on expediting data submission, using features of the GDC Data Submission Portal, and best practices used by the GDC.
 
 ## GDC Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. Each entity type is represented with an oval in the graphic. All submitted entities require a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier. This walkthrough will go through the submission of different entities, which the completed (submitted) portion of the entity process will be highlighted in __blue__. 
+Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. Each entity type is represented with an oval in the graphic. All submitted entities require a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier. This walkthrough will go through the submission of different entities. The completed (submitted) portion of the entity process will be highlighted in __blue__. 
 
 [![GDC Data Model 1](images/GDC-Data-Model-None.png)](images/GDC-Data-Model-None.png "Click to see the full image.")
 
@@ -50,9 +50,9 @@ case  PROJECT-INTERNAL-000055 INTERNAL
 
 ## Uploading the Case Submission File
 
-The file detailed above can be uploaded using the Data Submission Portal and the API as described below:
+The file detailed above can be uploaded using the GDC Data Submission Portal and the GDC API as described below:
 
-### Upload - Data Submission Portal
+### Upload Using the GDC Data Submission Portal
 
 An example of a `case` upload is detailed below. The [GDC Data Submission Portal](https://gdc.cancer.gov/submit-data/gdc-data-submission-portal) is equipped with a wizard window to facilitate the upload and validation of entities. 
 
@@ -62,7 +62,7 @@ Choosing _'UPLOAD'_ from the project dashboard will open the Upload Data Wizard.
 
 [![GDC Submission Wizard Upload Files](images/GDC_Submission_Wizard_Upload_2.png)](images/GDC_Submission_Wizard_Upload_2.png "Click to see the full image.")
 
-Files containing one or more entities can be added either by clicking on `CHOOSE FILE(S)` or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the garbage can icon next to the file.
+Files containing one or more entities can be added either by clicking on `CHOOSE FILE(S)` or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the garbage can icon that is displayed next to the file after the file is selected for upload.
 
 #### 2. Validate Entities
 
@@ -80,7 +80,7 @@ If the upload contains invalid files, a transaction will appear with a FAILED st
 [![Commit_Discard](images/GDC_Submission_CommitDiscard.png)](images/GDC_Submission_CommitDiscard.png "Click to see the full image.")
 
 
-### Upload - API
+### Upload Using the GDC API
 
 The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. See the [API Submission User Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#creating-and-updating-entities) for a more detailed explanation and for the rest of the functionalities of the API. Generally, uploading an entity through the API can be performed using a command similar to the following:
 
@@ -98,6 +98,8 @@ CASE.json is detailed below.
 }
 ```
 
+In this example, the `_dry_run` marker is used to determine if the entities can be validated, but without committing any information. If a command passed through the `_dry_run` works, the command will work when it is changed to `commit`. For more information please go to [Dry Run Transactions](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#dry-run-transactions).
+
 >__Note:__ Submission of TSV files is also supported by the GDC API.
 
 Next, the file can either be committed (applied to the project) through the Data Submission Portal as before, or another API query can be performed that will commit the file to the project. The transaction number in the URL (467) is printed to the console during the first step of API submission and can also be retrieved from the ['Transactions'](Data_Submission_Process.md#transactions) tab in the Data Submission Portal.
@@ -112,7 +114,7 @@ Typically a submission project will include additional information about a `case
 
 ### Clinical Data Requirements
 
-For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal cross-project GDC requirements include age, gender, and diagnosis information.  Other requirements may be added when the submitter is approved for submission to the GDC.
+For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal GDC requirements for each project includes age, gender, and diagnosis information.  Other [requirements](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=clinical) may be added when the submitter is approved for submission to the GDC.
 
 [![GDC Data Model Clinical](images/GDC-Data-Model-Clinical.png)](images/GDC-Data-Model-Clinical.png "Click to see the full image.")
 
@@ -289,7 +291,7 @@ exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes	27.5	20	
 
 # Biospecimen Submission
 
-One of the main features of the GDC is the genomic data harmonization workflow. Genomic data is connected the the case through biospecimen entities.  The `sample` entity describes a biological piece of matter that originated from a `case`.  Subsets of the `sample` such as `portions` and `analytes` can optionally be described.  The `aliquot` originates from a `sample` or `analyte` and describes the nucleic acid extract that was sequenced. The `read_group` entity describes the resulting set of reads from one sequencing lane.
+One of the main features of the GDC is the genomic data harmonization workflow. Genomic data is connected the case through biospecimen entities.  The `sample` entity describes a biological piece of matter that originated from a `case`.  Subsets of the `sample` such as `portions` and `analytes` can optionally be described.  The `aliquot` originates from a `sample` or `analyte` and describes the nucleic acid extract that was sequenced. The `read_group` entity describes the resulting set of reads from one sequencing lane.
 
 ## Sample Submission
 
@@ -442,7 +444,7 @@ read_group	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Resequencing	true	Solexa-3
 
 # Experiment Data Submission
 
-Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with the `read_group` entity. While the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these file types are described in their respective entity submission and are uploaded separately using the [API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) or the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).  
+Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with the `read_group` entity. While the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these file types are described in their respective entity submission and are uploaded separately using the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) or the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).  
 
 [![GDC Data Model 6](images/GDC-Data-Model-Reads.png)](images/GDC-Data-Model-Reads.png "Click to see the full image.")
 
@@ -484,19 +486,23 @@ type	submitter_id	data_category	data_format	data_type	experimental_strategy	file
 submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Sequencing Data	BAM	Aligned Reads	WGS	test.bam	38	aa6e82d11ccd8452f813a15a6d84faf1	Primary_Tumor_RG_86-1
 ```
 
->__Note:__ For details on submitting experiment data associated with more than one `read_group` entity, see the [Submitting Complex Data Model Relationships](#submitting-complex-data-model-relationships) section.    
+>__Note:__ For details on submitting experiment data associated with more than one `read_group` entity, see the [Tips for Complex Submissions](#submitting-complex-data-model-relationships) section.    
 
 ## Uploading the Submittable Data File to the GDC
 
-The submittable data file can be uploaded when it is registered with the GDC. An submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. Uploading the file can be performed with either the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) or the [API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/). Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the GDC [Submitted Data Types and File Formats](https://gdc.cancer.gov/about-data/data-types-and-file-formats/submitted-data-types-and-file-formats) website.
+The submittable data file can be uploaded when it is registered with the GDC. An submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. Uploading the file can be performed with either the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/). Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the GDC [Submitted Data Types and File Formats](https://gdc.cancer.gov/about-data/data-types-and-file-formats/submitted-data-types-and-file-formats) website.
 
-__GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the portal or API) once it is registered. The following command can be used to upload the file:
+__GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the GDC Submission Portal or API) once it is registered. 
+
+[![UUID Location](images/GDC_Submission_UUID_location.png)](images/GDC_Submission_UUID_location.png "Click to see the full image.")
+
+The following command can be used to upload the file:
 
 ```Shell
 gdc-client upload --project-id PROJECT-INTERNAL --identifier a053fad1-adc9-4f2d-8632-923579128985 -t $token -f $path_to_file
 ```   
 
-Additionally a manifest can be downloaded from the Submission Portal and passed to the Data Transfer Tool, this will allow for the upload of more than one `submittable_data_file`:
+Additionally a manifest can be downloaded from the Submission Portal and passed to the Data Transfer Tool. This will allow for the upload of more than one `submittable_data_file`:
 
 ```Shell
 gdc-client upload -m manifest.yml -t $token
@@ -509,45 +515,6 @@ curl --request PUT --header "X-Auth-Token: $token" https://api.gdc.cancer.gov/v0
 ```
 
 For more details on how to upload a `submittable_data_file` to a project see the [API Users Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/) and the [Data Transfer Tool Users Guide](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/).  
-
-## Metadata File Submission
-
-[![GDC Data Model Metadata](images/GDC-Data-Model-Metadata.png)](images/GDC-Data-Model-Metadata.png "Click to see the full image.")
-
-
-The `experiment_metadata` entity contains information about the experiment that was performed to produce each `read_group`. Unlike the previous two entities outlined, only information about the `experiment_metadata` file itself (SRA XML) is applied to the entity (indexed) and the `experiment_metadata` file is submitted in the same way that a BAM file would be submitted.
-
-Submitting an [__Experiment Metadata__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=experiment_metadata) entity requires:
-
-* __`submitter_id`:__ A unique key to identify the `experiment_metadata` entity.
-* __`read_groups.submitter_id`:__ The unique key that was used for the `read_group` that links the `experiment_metadata` entity to the `read_group`.
-* __`data_category`:__ Broad categorization of the contents of the data file.
-* __`data_format`:__ Format of the data files. (must be "SRA XML").
-* __`data_type`:__ Specific contents of the data file. (must be "Experiment Metadata").
-* __`file_name`:__ The name (or part of a name) of a file (of any type).
-* __`file_size`:__ The size of the data file (object) in bytes.
-* __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
-
-```JSON
-{
-    "type": "experiment_metadata",
-    "submitter_id": "Blood-001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1",
-    "read_groups": {
-        "submitter_id": "Primary_Tumor_RG_86-1"
-    },
-    "data_category": "Sequencing Data",
-    "data_format": "SRA XML",
-    "data_type": "Experiment Metadata",
-    "file_name": "Experimental-data.xml",
-    "file_size": 65498,
-    "md5sum": "d79997e4de03b5a0311f0f2fe608c11d"
-}
-```
-
-```TSV
-type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
-experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Primary_Tumor_RG_86-1	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
-```
 
 ## Annotation Submission
 
@@ -600,15 +567,15 @@ Selecting the `DELETE ALL` button at the bottom of the list will delete all of t
 
 ### Submitted Data File Deletion
 
-The [`submittable_data_file`](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=submittable_data_file) that were uploaded erroneously are deleted separately from their associated entity using the GDC Data Transfer Tool. See the section on [Deleting Data Files](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) in the Data Transfer Tool users guide for specific instructions.  
+The [`submittable_data_files`](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=submittable_data_file) that were uploaded erroneously are deleted separately from their associated entity using the GDC Data Transfer Tool. See the section on [Deleting Data Files](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) in the Data Transfer Tool users guide for specific instructions.  
 
 ## Updating Uploaded Entities
 
-Before harmonization occurs, entities can be modified to update, add, or delete information. Below, these methods are outlined.
+Before harmonization occurs, entities can be modified to update, add, or delete information. These methods are outlined below.
 
 ### Updating or Adding Fields
 
-Updated or additional fields can applied to entities by reuploading them through the submission portal or API. See below for an example of a case upload with a `primary_site` field being added and a `disease_type` field being updated.
+Updated or additional fields can be applied to entities by re-uploading them through the GDC Data Submission portal or API. See below for an example of a case upload with a `primary_site` field being added and a `disease_type` field being updated.
 
 ```Before
 {
@@ -667,6 +634,9 @@ curl --header "X-Auth-Token: $token_string" --request DELETE  --header "Content-
 }
 }
 ```
+
+### Versioning
+Changes to entities will create versions. For more information on this, please go to [Uploading New Versions of Data Files](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#uploading-new-versions-of-data-files).
 
 ## Strategies for Submitting in Bulk
 
@@ -789,7 +759,7 @@ Once the UUID(s) have been retrieved, the download process is the same as it is 
  >__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.
 
 
-# Submission Best Practices
+# Tips for Complex Submissions
 
 Because of the data types and relationships included in the GDC, data submission can become a complex procedure. The purpose of this section is to present guidelines that will aid in the incorporation and harmonization of submitters' data. Please contact the GDC Help Desk at __support@nci-gdc.datacommons.io __ if you have any questions or concerns regarding a submission project.
 
@@ -864,7 +834,7 @@ In addition, submitters should also let GDC know the genome build (hg18, hg19 or
 5. Is a Target Capture Kit uniquely defined by its Target Region Bed File?  
 Not necessarily. Sometimes, users or manufactures may want to augment an existing kit with additional probes, in order to capture more regions or simply improve the quality of existing regions. In the latter case, the bed file stays the same, but it is now a different Target Capture Kit and should be registered separately as described in Step 3 above.
 
-## Specifying Tumor Normal Pairs for analysis
+## Specifying Tumor Normal Pairs for Analysis
 
 It is critical for many cancer bioinformatics pipelines to specify which normal sample to use to factor out germline variation.  In particular, this is a necessary specification for all tumor normal paired variant calling pipelines.  The following details describe how the GDC determines which normal sample to use for variant calling.
 
