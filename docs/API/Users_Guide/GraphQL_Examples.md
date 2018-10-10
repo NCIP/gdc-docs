@@ -1,9 +1,11 @@
-Introduction to GDC GraphQL #
+# Introduction to GDC GraphQL
 [GraphQL](https://graphql.org/) is a query language for APIs. The [GDC REST API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) has structured and specifically defined query parameters as well as endpoints that have set requests and responses. The GDC GraphQL provides advanced GDC developers greater flexibility to specify the data they would like to be returned. This allows queries to be cleaner and easier to understand, especially when combining multiple queries into one request.
 
-## Using GDC GraphQL vs GDC REST API?
+To produce queries in a visual interface, the GDC recommends using [GraphiQL](XXXX). See below for the correct endpoint URLs.
 
-If the use case does not require all of the data to be returned, GDC GraphQL may speed up requests as GraphQL queries return only the specified data, therefore this may require less work on the GDC server-side to fulfill those requests. Conversely, if you need all of the data in each request, GDC REST API may be a better fit. Either way,the data itself returned from the GDC REST API or the GraphQL query will be identical.
+## Using GDC GraphQL vs GDC REST API
+
+If the query does not require all of the data to be returned, GDC GraphQL may speed up requests as GraphQL queries return only the specified data. This may require less work on the GDC server-side to fulfill those requests. Conversely, if all of the data is required for each request, GDC REST API may be a better fit. No matter which method is used, the data returned by the GDC REST API and the GraphQL query will be identical.
 
 ##  GDC GraphQL Overview ##
 [GraphQL](http://graphql.org/) is not a storage model or a database query language. The graph refers to graph structures defined in the schema, where nodes define objects and edges define relationships between objects. The API traverses and returns application data based on the schema definitions, independent of how the data is stored. In other words:
@@ -11,8 +13,10 @@ If the use case does not require all of the data to be returned, GDC GraphQL may
 ## GDC GraphQL Endpoints
 
 The GDC GraphQL has only two endpoints:
-__GDC Search & Retrieval Endpoint:__ https://api.gdc.cancer.com/v0/graphql
+__GDC Search and Retrieval Endpoint:__ https://api.gdc.cancer.com/v0/graphql
 __GDC Submission Endpoint:__ https://api.gdc.cancer.com/v0/submission/graphql
+
+This page covers the search and retrieval endpoint, see the [GDC Submission API](XXXX) for additional details on the submission endpoint.
 
 ## GDC GraphQL Schema ##
 All GDC GraphQL queries are validated and executed against the [[GDC GraphQL schema]( https://github.com/NCI-GDC/portal-ui/blob/92f0dfa17838746093c3c011141d08391016da91/data/schema.graphql). Since GraphQL is introspective the GDC GraphQL schema can be queried for details about itself.
@@ -162,5 +166,5 @@ Run in Explorer```
       }
     }
 	variable:
-    {"filters_2": {"op":"and","content":[{"op":"in","content":{"field":"consequence.transcript.gene.gene_id","value":["ENSG00000155657"]}}]}}```
-
+    {"filters_2": {"op":"and","content":[{"op":"in","content":{"field":"consequence.transcript.gene.gene_id","value":["ENSG00000155657"]}}]}}
+    ```
