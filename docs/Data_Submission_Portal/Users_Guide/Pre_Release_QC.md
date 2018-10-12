@@ -1,20 +1,22 @@
 # Pre-Release Data Portal
 
-The Genomic Data Commons (GDC)  Portal provides users with web-based access to pre-released data from cancer genomics studies that have been harmonized by the GDC, but not yet released in the main GDC Data Portal.
+The GDC Pre-Release Data Portal provides users with web-based access to pre-released data from cancer genomics studies that have been harmonized by the GDC, but not yet released in the main GDC Data Portal.
 
 ## Navigation
 
-Pre-Release Data Portal features are a subset of what can be found in the GDC Data Portal.  For more information on any of these general features please review the [Data Portal User Guide](/Data_Portal/Users_Guide/Getting_Started/#navigation).
+Pre-Release Data Portal will appear similar to the GDC Active Portal, but the Pre-Release Data Portal features are a subset of what can be found in the GDC Data Portal.
 
 [![GDC Views](images/AWG_Portal.png)](images/AWG_Portal.png "Click to see the full image.")
+
+For more information on any of these general features please review the [GDC Data Portal User Guide](/Data_Portal/Users_Guide/Getting_Started/#navigation).
 
 ## Authentication
 
 ### Relationship between GDC Data Portal and Pre-Release Data Portal Tokens
 
-The GDC Pre-Release Data Portal provides access to datasets prior to release to a group of users specified by the data submitter.  This area is only available to data submitters (or their designees) for reviewing pre-release data.  Users must be granted access as specified in the admin portal section and also have downloader access within dbGaP for the specified project. To learn more about obtaining the required credentials and authorization, see [Obtaining Access to Submit Data]( https://gdc.cancer.gov/submit-data/obtaining-access-submit-data).
+The GDC Pre-Release Data Portal provides access to datasets prior to release to a group of users specified by the data submitter.  This area is only available to data submitters (or their designees) for reviewing pre-release data.  Users must be granted access as specified in the GDC Pre-Release Data Admin Portal section and have downloader access within dbGaP for the specified project. To learn more about obtaining the required credentials and authorization, see [Obtaining Access to Submit Data]( https://gdc.cancer.gov/submit-data/obtaining-access-submit-data).
 
-The tokens used to download files from the GDC Data Portal and Pre-Release Data Portal are related but distinct. Specifically, the token generated in the Pre-Release data portal contains a longer version of the regular GDC Authentication Token downloaded from the GDC Data Portal. Because of this, the GDC Data Portal token will not function for downloading data from the Pre-release Data Portal environment using the Data Transfer Tool or API. However, the Pre-Release Data Portal token will function for downloading data from the GDC Data Portal using the API or Data Transfer Tool. Finally, if a new token is generated in the Pre-release Data Portal this will invalidate the token downloaded from the GDC Data Portal and vice versa.  
+The tokens used to download files from the GDC Data Portal and Pre-Release Data Portal are related but distinct. Specifically, the token generated in the Pre-Release Data Portal contains a longer version of the regular GDC Authentication Token downloaded from the GDC Data Portal. Because of this, the GDC Data Portal token will not function for downloading data from the Pre-release Data Portal environment using the Data Transfer Tool or API. However, the Pre-Release Data Portal token will function for downloading data from the GDC Data Portal using the API or Data Transfer Tool. Finally, if a new token is generated in the Pre-release Data Portal this will invalidate the token downloaded from the GDC Data Portal and vice versa.  
 
 ## Data Transfer Tool
 
@@ -36,7 +38,7 @@ The Pre-Release Data Admin Portal is broken into two views on the left-most pane
 | Entity | Definition |
 |---|---|
 | __User__  | An individual with an eRA Commons account. |
-| __Project__  | A  collection of files and observations that are contained in the GDC database and have been registered in dbGAP as a project. Only certain projects are designated as Pre-Release Data projects.|
+| __Project__  | A collection of files and observations that are contained in the GDC database and have been registered in dbGaP as a project. Only certain projects are designated as Pre-Release Data projects.|
 | __Group__  | A collection of users and projects.  When a user is assigned to a group, they will have access to the projects in that group when they login to the Pre-Release Data portal as long as they have downloader access to the project in dbGaP.|
 
 ### Users
@@ -47,7 +49,7 @@ The __Users__ section of the GDC Pre-Release Data Admin portal allows admins to 
 
 #### Creating Users
 
-To create a new user in the Pre-Release Data Admin Portal, click on the `Create` button on the far right panel.
+To create a new user in the Pre-Release Data Admin Portal, click on the `Create` button on the far-right panel.
 
 [![GDC Pre-Release Data Portal Main Page](images/AWG_Admin_Create_User.png)](images/AWG_Admin_Create_User.png "Click to see the full image.")
 
@@ -69,7 +71,7 @@ The __Groups__ section of the GDC Pre-Release Data Admin portal allows admins to
 
 #### Creating Groups
 
-To create a new group in the Pre-Release Data Admin Portal, click on the `Create` button on the far right panel.
+To create a new group in the Pre-Release Data Admin Portal, click on the `Create` button on the far-right panel.
 
 [![GDC Pre-Release Data Portal Main Page](images/AWG_Admin_Groups_Add.png)](images/AWG_Admin_Groups_Add.png "Click to see the full image.")
 
@@ -84,9 +86,9 @@ After clicking `Save`, the group should appear in the list of groups in the cent
 
 [![GDC Pre-Release Data Portal Main Page](images/AWG_Admin_New_Group.png)](images/AWG_Admin_New_Group.png "Click to see the full image.")
 
-## API
+## AWG API
 
-API functionality is similar to what is available for the main GDC Data Portal.  You can read more about the GDC API in general in the [API User Guide](/API/Users_Guide/Getting_Started/).  Important differences for the AWG API include the following:
+API functionality is similar to what is available for the main GDC Data Portal.  You can read more about the GDC API in general in the [API User Guide](/API/Users_Guide/Getting_Started/).  Important differences for the Analysis Working Group (AWG) API include the following:
 
 *  The base URL is different. Instead use https://api.awg.gdc.cancer.gov/
 *  An authorization token must always be passed with every query rather than just for downloading controlled access data.
