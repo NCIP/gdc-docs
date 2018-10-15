@@ -13,8 +13,8 @@ GraphQL is not a storage model or a database query language. The graph refers to
 ## GDC GraphQL Endpoints
 
 The GDC GraphQL has only two endpoints:
-__GDC Search and Retrieval Endpoint:__ https://api.gdc.cancer.com/v0/graphql
-__GDC Submission Endpoint:__ https://api.gdc.cancer.com/v0/submission/graphql
+__GDC Search and Retrieval Endpoint:__ https://api.gdc.cancer.gov/v0/graphql
+__GDC Submission Endpoint:__ https://api.gdc.cancer.gov/v0/submission/graphql
 
 This page covers the search and retrieval endpoint, see the [GDC Submission API](Submission.md) for additional details on the submission endpoint.
 
