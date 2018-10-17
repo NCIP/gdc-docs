@@ -20,7 +20,7 @@
 * Enable download file versioning feature <!--DTT-112-->     
 
 ### Bugs Fixed Since Last Release
-* Download flag --no-related-files bug preventing files downloads fixed <!--DTT-94-->
+* Download flag --no-related-files bug preventing file downloads fixed <!--DTT-94-->
 * File name handling with back slashes bug fixed <!--DTT-99-->
 * Download flag --no-segment-md5sums bug fixed. <!--DTT-11-->
 
