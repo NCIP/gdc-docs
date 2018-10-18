@@ -127,12 +127,6 @@
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
 	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
 
-
-
-
-
-
-
 ## v1.0.0
 
 * __GDC Product__: Data Transfer Tool
