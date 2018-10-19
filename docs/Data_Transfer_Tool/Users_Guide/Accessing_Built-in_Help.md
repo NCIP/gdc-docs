@@ -10,7 +10,7 @@ The GDC Data Transfer Tool comes with built-in help menus. These menus are displ
 gdc-client --help
 ```
 ``` Output
-usage: gdc-client [-h] [--version] {download,upload,interactive} ...
+usage: gdc-client [-h] [--version] {download,upload,settings} ...
 
 The Genomic Data Commons Command Line Client
 
@@ -23,7 +23,7 @@ commands:
                         for more information, specify -h after a command
     download            download data from the GDC
     upload              upload data to the GDC
-    interactive         run in interactive mode
+    settings            display default settings
 ```
 
  The available menus are provided below.
@@ -36,7 +36,7 @@ The GDC Data Transfer Tool displays the following output when executed without a
 gdc-client
 ```
 ```Output
-usage: gdc-client [-h] [--version] {download,upload,interactive} ...
+usage: gdc-client [-h] [--version] {download,upload,settings} ...
 gdc-client: error: too few arguments
 ```
 
@@ -74,8 +74,8 @@ optional arguments:
   -d DIR, --dir DIR     Directory to download files to. Defaults to current dir
   -s server, --server server
                       The TCP server address server[:port]
-  --no-segment-md5sums  Do not calculate inbound segment md5sumsand/or do not
-                      verify md5sums on restart
+  --no-segment-md5sums  Do not calculate inbound segment md5sums and/or do not
+                        verify md5sums on restart
   --no-file-md5sum      Do not verify file md5sum after download
   -n N_PROCESSES, --n-processes N_PROCESSES
                         Number of client connections.
