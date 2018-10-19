@@ -5,7 +5,8 @@
 <div class="search-box">
     <div class="search-bar">
       <div class="input-group search-bar__input">
-        <input id="keywords" type="text" class="form-control" aria-label="keywords" placeholder="Please enter a single keyword">
+        <input id="keywords" type="text" class="form-control" aria-label="keywords" placeholder="Please enter keyword">
+        <a href="#" id="searchclear" class="search-bar__clear" aria-label="clear search bar" style="display: none;"><i class="fa fa-times"></i></a>
         <span class="input-group-btn">
           <button id="search" class="btn search-bar__btn" type="button">Search</button>
         </span>
@@ -47,6 +48,7 @@
 
 <div id="root"></div>
 
-<div class="version-content">GDC Dictionary Version – Gack Prerelease</div>
+<div class="version-content">GDC Dictionary Version – Jibboo</div>
+<div id="alert-error" class="alert alert__error alert-info alert-dismissible" role="alert" style="display: none;">Error: Undefined</div>
 
 <!-- END GDCMVS APP -->
