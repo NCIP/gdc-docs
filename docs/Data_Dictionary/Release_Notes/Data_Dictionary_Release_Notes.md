@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v.1.14](Data_Dictionary_Release_Notes.md#v114) | September 27, 2018 |
 | [v1.13](Data_Dictionary_Release_Notes.md#v113) | May 21, 2018 |
 | [v1.12.1](Data_Dictionary_Release_Notes.md#v1121) | April 26, 2018 |
 | [v1.12](Data_Dictionary_Release_Notes.md#v112) | April 23, 2018 |
@@ -11,6 +12,210 @@
 | [v7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
+## v.1.14
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: September 27, 2018
+
+### New Features and Changes
+
+* Added description and type information to generic properties <!--TT-1347-->
+* Modify the dictionary viewer to be case sensitive for deprecated fields <!--PRTL-2180-->
+* Deleted `sample_level_maf` entity  <!--TT-666-->
+* Added new field for all nodes: <!--TT-556-->
+    - `previous_versions_downloadable`
+* Modified `molecular_test` entity
+    - Migrated data from `blood_test` to `laboratory_test` and `biospecimen_type` <!--TT-754-->
+    - Added new fields: <!--DAT-1644-->
+        - `laboratory_test`
+        - `biospecimen_type`
+    - Added new permissible values for `gene_symbol` fields <!--DAT-1553-->
+        - `Not Applicable`
+    - Deleted field `blood_test` <!--DAT-1639-->
+    - Add new permissible values for `antigen` field <!--DAT-1662-->
+    - Add new permissible values to `molecular_analysis_method` <!--DAT-1663-->
+    - Add new permissible values for `variant_type` field <!--DAT-1664-->
+    - Add new permissible values to `test_result` <!--DAT-1665-->
+* Modified `case` entity
+    - Modified permissible values on `index_date`
+        - Added new value `Initial Genomic Sequencing` <!--TT-1461-->
+    - Updated CDE codes for properties <!--DAT-1590-->
+    - Add new permissible value to `index_date` <!--DAT-1669-->
+        - `Sample Procurement` <!--TT-678-->
+* Modified `aliquot` entity
+    - Changed `exclusive` to `True` <!--DAT-1519-->
+* Modified `read_group_qc` entity
+    - Made following fields not `required` and added `Unknown`/`Not Reported` as permissible values: <!--DAT-1519--><!--DAT-1525-->
+        - `adapter_content`
+        - `basic_statistics`
+        - `encoding`
+        - `kmer_content`
+        - `overrepresented_sequences`
+        - `per_base_sequence_quality`
+        - `per_tile_sequence_quality`
+        - `per_sequence_quality_score`
+        - `per_base_sequence_content`
+        - `per_sequence_gc_content`
+        - `per_base_n_content`
+        - `percent_gc_content`
+        - `sequence_length_distribution`
+        - `sequence_duplication_levels`
+        - `total_sequences`
+* Modified `aligned_reads` entity
+    - Added new permissible values to `experimental_strategy` field <!--DAT-1526-->
+        - `Targeted Sequencing`
+        - `Bisulfite-Seq`
+        - `ChIP-Seq`
+        - `ATAC-Seq`
+* Modified `read_group` entity
+    - Added new field `days_to_sequencing` <!--DAT-1533-->
+    - Add new permissible values to `target_capture_kit` <!--DAT-667-->
+        - `Custom Personalis ACEcp VAREPOP-APOLLO Panel v2`
+        - `xGen Exome Research Panel v1.0`
+        - `SureSelect Human All Exon v5 + UTR`
+* Modified `treatment` entity
+    - Updated CDE codes for properties <!--DAT-1596-->
+    - Updated description for `treatment_or_therapy` <!--DAT-1548-->
+    - Updated description for `therapeutic_agents` <!--DAT-1549-->
+    - Added new field:
+        - `initial_disease_status` <!--DAT-1647-->
+    - Updated permissible values for `treatment_type` <!--TT-672-->
+    - Added new permissible values for `treatment_outcome`  <!--TT-680-->
+        - `No Measurable Disease`
+        - `Persistent Disease`
+    - Deleted values from `treatment_intent_type`  <!--TT-681-->
+* Modified `annotated_somatic_mutation` entity
+    - Added new permissible values to `experimental_strategy` field <!--DAT-1554-->
+        - `RNA-Seq`
+        - `miRNA-Seq`
+        - `Bisulfite-Seq`
+        - `ChIP-Seq`
+        - `ATAC-Seq`
+    - Add new permissible value to `data_format` <!--TT-663-->
+        - `MAF`
+    - Add new permissible value to `data_type` <!--TT-665-->
+        - `Masked Annotated Somatic Mutation`
+* Modified `masked_somatic_mutation` entity
+    - Added new permissible values to `experimental_strategy` field <!--DAT-1555-->
+        - `RNA-Seq`
+        - `miRNA-Seq`
+        - `Bisulfite-Seq`
+        - `ChIP-Seq`
+        - `ATAC-Seq`
+    - Removed `Validation` as permissible from `experimental_strategy` <!--TT-532-->
+* Modified `simple_germlne_variation` entity
+    - Added new permissible values to `experimental_strategy` field <!--DAT-1556-->
+        - `RNA-Seq`
+        - `miRNA-Seq`
+        - `Bisulfite-Seq`
+        - `ChIP-Seq`
+        - `ATAC-Seq`
+* Modified `simple_somatic_mutation` entity
+    - Added new permissible values to `experimental_strategy` field <!--DAT-1558-->
+        - `RNA-Seq`
+        - `miRNA-Seq`
+        - `Bisulfite-Seq`
+        - `ChIP-Seq`
+        - `ATAC-Seq`    
+* Modified `submitted_genomic_profile` entity
+    - Added new permissible values to `experimental_strategy` field <!--DAT-1558-->
+        - `WXS`
+        - `Low Pass WGS`
+        - `RNA-Seq`
+        - `miRNA-Seq`
+        - `Bisulfite-Seq`
+        - `ChIP-Seq`
+        - `ATAC-Seq`
+* Modified `diagnosis` entity
+    - Updated CDE codes for properties <!--DAT-1592-->
+    - Corrected the reference to `ubiquitous_properties` <!--DAT-1634-->
+    - Deleted permissible values from `vascular_invasion_present` field <!--DAT-1560-->
+        - `Extramural`
+        - `Intramural`
+    - Added permissible value to `ajcc_clinical_stage` <!--DAT-1571-->
+        - `Stage IIIC1`
+    - Added permissible values to `method_of_diagnosis` <!--DAT-1567-->
+        - `Imaging`
+        - `Physical Exam`
+        - `Pathologic Review`
+    - Added permissible value to `vascular_invasion_type` <!--DAT-1579-->
+        - `Extramural`
+        - `Intramural`  
+    - Added permissible value to `metastasis_at_diagnosis_site`  <!--TT-673-->
+    - Updated deprecated values list <!--TT-682-->
+    - Deleted field `ldh_level` <!--TT-686-->
+* Modified `follow_up` entity
+    - Updated CDE codes for properties <!--DAT-1594-->
+    - Added permissible value to `progression_or_recurrence_type` <!--DAT-1581-->
+        - `Biochemical`
+    - Added permissible values to `hpv_positive_type` <!--DAT-1583-->
+        - `63`
+        - `70`
+    - Added permissible value to `disease_response` <!--DAT-1584-->
+        - `BED-Biochemical Evidence of Disease`
+        - `PDM-Persistent Distant Metastasis`
+        - `PLD-Persistent Locoregional Disease`
+        - `TF-Tumor Free`
+        - `WT-With Tumor`
+    - Added permissible value to `comorbidity` <!--DAT-1585-->
+        - `Hepatitis A Infection`
+        - `Herpes`      
+    - Added permissible values to `risk_factor` field  <!--TT-674-->
+* Modified `demographic` entity
+    - Updated CDE codes for properties <!--DAT-1591-->
+    - Modified permissible values for `cause_of_death` field   <!--TT-676-->
+        - `Cardiovascular Disorder, NOS`
+        - `Renal Disorder, NOS`
+        - `Surgical Complications`
+    - Updated `days_to` descriptions  <!--TT-683-->
+* Modified `family_history` entity
+    - Updated CDE codes for properties <!--DAT-1635-->
+    - Added new fields: <!--DAT-1635-->
+        - `relationship_primary_diagnosis`
+        - `relationship_gender`
+    - Updated CDE for field `relative_with_cancer_history` <!--TT-254-->
+* Modified `submitted_unaligned_reads` entity
+    - Make field `read_pair_number` required  <!--DAT-1648-->
+    - Added permissible values to `read_pair_number` <!--DAT-1651-->
+        - ` Not Applicable`
+* Modified `aligned_reads` entity <!--DAT-1668-->
+    - Added new fields:
+        - `average_base_quality`
+        - `average_insert_size`
+        - `average_read_length`
+        - `mean_coverage`
+        - `pairs_on_diff_chr`
+        - `proportion_base_mismatch`
+        - `proportion_coverage_10X`
+        - `proportion_coverage_30X`
+        - `proportion_reads_duplicated`
+        - `proportion_reads_mapped`
+        - `proportion_targets_no_coverage`
+        - `total_reads`
+    - Changed nodes with `experimental_strategy` as `Validation` to `Targeted Sequencing` <!--TT-704-->
+* Modified `sample` entity
+    - Made `tissue_type` a required field <!--TT-657-->
+    - Populated `tissue_type` with `Not Reported` for all nodes with no value  <!--TT-658-->
+* Modified `alignment_workflow` entity
+    - Added new field to `workflow_type` <!--TT-659-->
+        - `STAR 2-Pass Chimeric`
+* Modified `rna_expression_workflow` entity
+    - Added new field to `workflow_type` <!--TT-660-->
+        - `STAR - FPKM`
+* Modified `gene_expression` entity
+    - Add new permissible value to `data_type` <!--TT-663-->
+        - `Splice Junction Quantification`
+* Modified `aggregated_somatic_mutation` entity
+    - Updated field `experimental_strategy` <!--TT-694-->
+* Modified `somatic_mutation_calling_workflow` entity
+    - Added `workflow_type` field <!--TT-661-->
+* Modified `somatic_annotation_workflow` entity
+    - Added `workflow_type` field <!--TT-662-->
+
+
+### Bugs Fixed Since Last Release
+
+* N/A
 
 ## v.1.13
 

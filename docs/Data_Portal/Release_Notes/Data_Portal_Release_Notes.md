@@ -2,7 +2,9 @@
 
 | Version | Date |
 |---|---|
-| [v1.14.0](Data_Portal_Release_Notes.md#release-1130) | June 13, 2018 |
+| [v1.16.0](Data_Portal_Release_Notes.md#release-1160) | September 27, 2018 |
+| [v1.15.0](Data_Portal_Release_Notes.md#release-1150) | August 23, 2018 |
+| [v1.14.0](Data_Portal_Release_Notes.md#release-1140) | June 13, 2018 |
 | [v1.13.0](Data_Portal_Release_Notes.md#release-1130) | May 21, 2018 |
 | [v1.12.0](Data_Portal_Release_Notes.md#release-1120) | February 15, 2018 |
 | [v1.11.0](Data_Portal_Release_Notes.md#release-1110) | December 21, 2017 |
@@ -18,6 +20,80 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+
+## Release 1.16.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  September 27, 2018
+
+### New Features and Changes <!--REQ-333-->
+
+* Updated Human Body Image to aggregate all current primary sites to available Major Primary Sites <!--PRTL-2248-->
+
+
+### Bugs Fixed Since Last Release
+
+* Fixed link on cart download error popup <!--PRTL-2284-->
+* Updated Cancer Distribution table to have dropdown menus for primary_site and disease_type <!--PRTL-2286-->
+* Updated Y-axis label on `Top Mutated Cancer Genes in Selected Projects Graph` <!--PRTL-2264-->
+* Updated Set Operation Image to remove stray text <!--PRTL-2214-->
+
+### Known Issues and Workarounds
+
+*  Advanced Search
+    * For advanced search and custom file facet filtering there are some properties that will appear as options that are no longer supported (e.g. file_state). <!--API-530-->
+*  Custom facet filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the Export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+
+## Release 1.15.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  August 23, 2018
+
+### New Features and Changes <!--REQ-329-->
+
+* File Versions are now visible in the "File Versions" section on the File Entity Page. <!--PRTL-2015-->
+* "View Files in Repository" and "View Cases in Repository" button methods were updated to work faster. <!--PRTL-2003 PRTL-2106 -->
+
+### Bugs Fixed Since Last Release
+
+* Fixed warning messages that prompted users to login even when already logged in.  Error warnings now correctly prompt users to reference dbGAP for data access if already signed in. <!--PRTL-1937-->
+* Fixed error where you could click Go on Case ID wildcard facet before inputting any data. <!--PRTL-2083-->
+* Fixed cart header to be a consistent color for the whole table. <!--PRTL-1943-->
+* Fixed error where you could save a set with no name or items, which resulted in an infinite spinner. <!--PRTL-2218--> <!--PRTL-1858-->
+* Fixed table width issue when FM-AD was selected as a filter. <!--PRTL-2054-->
+* Updated broken help link on Advanced Query. <!--PRTL-2218-->
+
+### Known Issues and Workarounds
+
+*  Advanced Search
+    * For advanced search and custom file facet filtering there are some properties that will appear as options that are no longer supported (e.g. file_state). <!--API-530-->
+*  Custom facet filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the Export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
 
 ## Release 1.14.0
 
@@ -49,7 +125,6 @@
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
-
 
 
 Release details are maintained in the [GDC Data Portal Change Log](https://github.com/NCI-GDC/portal-ui/blob/master/CHANGELOG.md).
