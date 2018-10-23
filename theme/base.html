@@ -5,7 +5,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
+        <meta name="viewport" content="width=1024">
+        {% else %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% endif %}
          {% if page_description %}<meta name="description" content="{{ page_description }}">{% endif %}
         {% if site_author %}<meta name="author" content="{{ site_author }}">{% endif %}
         {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
@@ -36,6 +40,12 @@
                 {% endfor %}
             {% endif %}
         {% endfor %}
+
+        {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
+        <!-- GDCMVS CSS-->
+        <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/lib/css/jquery-ui.min.css" />
+        <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/dist/styles.css" />
+        {% endif %}
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -69,7 +79,7 @@
         <!-- div id="sliding-drawer-container" class="sliding-drawer-container">
         </div -->
         <div class="parent-container">
-          {% if current_page.title != config.extra.dictionary_viewer_page_id %}
+          {% if current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != config.extra.gdcmvs_viewer_page_id %}
             <div class="spinParticle">
                 <div class="particle red"></div>
                 <div class="particle grey other-particle"></div>
@@ -79,14 +89,14 @@
             {% include "nav.html" %}
 
             <div id="docs-container" class="container">
-                <div data-current-page="{{current_page.title}}"id="body">
+                <div data-current-page="{{current_page.title}}" id="body">
                 <!-- {% if toc and ((toc | first) is defined) and current_page.title != config.extra.dictionary_viewer_page_id %}
                 <div class="col-md-3 toc-container" role="navigation" aria-label="In-Page Navigation">{% include "toc.html" %}</div>
                 {% endif %} -->
 
                 {% if "/Encyclopedia" in current_page.abs_url %}
                   {% include "encyclopedia/menu.html" %}
-                {% elif current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != 'Home' %}
+                {% elif current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != 'Home' and current_page.title != config.extra.gdcmvs_viewer_page_id %}
                   {% include "nav-section-map.html" %}
                 {% elif current_page.title == 'Home' %}
                   {% if toc and ((toc | first) is defined) %}
@@ -94,7 +104,7 @@
                   {% endif %}
                 {% endif %}
 
-                {% if current_page.title == config.extra.dictionary_viewer_page_id%}
+                {% if current_page.title == config.extra.dictionary_viewer_page_id or current_page.title == config.extra.gdcmvs_viewer_page_id %}
                 <div class="col-md-12 main-container" role="main" id="main" tabindex="-1">
                 {% else %}
                 <div class="col-md-9 main-container fadeInBlurIntroOld loading-content-old" role="main" id="main" tabindex="-1">
@@ -107,12 +117,12 @@
                 </div>
                     {% if next_page or previous_page %}
                     <div class="history-nav-control-container clearfix" role="navigation" aria-label="footer navigation">
-                        {% if next_page.ancestors and next_page.ancestors[0].active and current_page.title != config.extra.dictionary_viewer_page_id  %}
+                        {% if next_page.ancestors and next_page.ancestors[0].active and current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != config.extra.gdcmvs_viewer_page_id %}
                         <a href="{{ next_page.url }}" class="btn pull-right indicate-right" title="Click to go to the Next Page: {{ next_page.title }}">
                             <span class="btn-nav-text">Next:</span> {{next_page.title}} <span class="fa fa-chevron-right"></span>
                         </a>
                         {% endif %}
-                        {% if previous_page.ancestors and previous_page.ancestors[0].active and current_page.title != config.extra.dictionary_viewer_page_id %}
+                        {% if previous_page.ancestors and previous_page.ancestors[0].active and current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != config.extra.gdcmvs_viewer_page_id %}
                         <a href="{{ previous_page.url }}" class="btn pull-left indicate-left" title="Click to go to the Previous Page: {{ previous_page.title }}">
                             <span class="fa fa-chevron-left"></span> <span class="btn-nav-text">Previous:</span> {{previous_page.title}}</a>
                         {% endif %}
@@ -171,6 +181,12 @@
 
             {% if current_page.title == config.extra.encyclopedia_page_title %}
                 <script src="/js/encyclopedia.js"></script>
+            {% endif %}
+            {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
+            <!-- GDCMVS JS-->
+            <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/lib/js/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/lib/js/jsrender.min.js"></script>
+            <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/dist/bundle.js"></script>
             {% endif %}
         </div>
     </body>
