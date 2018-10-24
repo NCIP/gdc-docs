@@ -289,7 +289,7 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
 
 #### Retrieval of file metadata using individual UUIDs:
 
-The `\files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID.  Note that the `\files` endpoint is inactive when querying for earlier file versions.  In that case, the `\history` or `/files/versions` endpoints should be used instead.
+The `/files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID.  Note that the `/files` endpoint is inactive when querying for earlier file versions.  In that case, the `/history` or `/files/versions` endpoints should be used instead.
 
 ```Shell
 curl 'https://api.gdc.cancer.gov/files/874e71e0-83dd-4d3e-8014-10141b49f12c?pretty=true'
