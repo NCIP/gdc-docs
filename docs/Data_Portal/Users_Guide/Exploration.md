@@ -210,11 +210,11 @@ A table is displayed below that lists information about each mutation:
 
 #### OncoGrid
 
-The Exploration page includes an OncoGrid plot of the cases with the most mutations, for the top 50 mutated genes affected by high impact mutations. Genes displayed on the left of the grid (Y-axis) correspond to individual cases on the bottom of the grid (X-axis).  
+The Exploration page includes an OncoGrid plot of the cases with the most mutations, for the top 50 mutated genes affected by high impact mutations. Genes displayed on the left of the grid (Y-axis) correspond to individual cases on the bottom of the grid (X-axis). Additionally, the plot also indicates in each cell any CNV events detected for these top mutated cases and genes.
 
-[![Exploration Oncogrid Example](images/Exploration-Oncogrid-Example.png)](images/Exploration-Oncogrid-Example.png "Click to see the full image.")
+[![Exploration Oncogrid Example](images/Exploration-Oncogrid-Example_v2.png)](images/Exploration-Oncogrid-Example_v2.png "Click to see the full image.")
 
-The grid is color-coded with a legend at the top left which describes what type of mutation consequence is observed for each gene/case combination. Clinical information and the available data for each case are available at the bottom of the grid.
+The grid is color-coded with a legend at the top which describes what type of mutation consequence and CNV event is observed for each gene/case combination. Clinical information and the available data for each case are available at the bottom of the grid.
 
 The right side of the grid displays additional information about the genes:
 
@@ -227,6 +227,7 @@ To facilitate readability and comparisons, drag-and-drop can be used to reorder 
 
 A tool bar at the top right of the graphic allows the user to export the data as a JSON object, PNG image, or SVG image.  Seven buttons are available in this toolbar:
 
+* __Customize Colors:__ Users can customize the colors that represent mutation consequence types and CNV gains/losses
 * __Download:__ Users can choose to export the contents either to a static image file (PNG or SVG format) or the underlying data in JSON format
 * __Reload Grid:__ Sets all OncoGrid rows, columns, and zoom levels back to their initial positions
 * __Cluster Data:__ Clusters the rows and columns to place mutated genes with the same cases and cases with the same mutated genes together
@@ -234,6 +235,15 @@ A tool bar at the top right of the graphic allows the user to export the data as
 * __Toggle Gridlines:__ Turn the gridlines on and off
 * __Toggle Crosshairs:__ Turns crosshairs on, so that users can zoom into specific sections of the OncoGrid
 * __Fullscreen:__ Turns Fullscreen mode on/off
+
+#### OncoGrid Color Picker
+
+To customize the colors for mutation consequence types and CNV gains/losses, a user can click the color picker icon in the OncoGrid toolbar.  
+
+* __Customize Colors:__ Opens a control where the user can pick their own colors or apply a suggested theme and save their changes
+* __Reset to Default:__ Resets all colors to the defaults initially used by OncoGrid
+
+[![Exploration Oncogrid Color Picker](images/Exploration-Oncogrid-Color-Picker.png)](images/Exploration-Oncogrid-Color-Picker.png "Click to see the full image.")
 
 ### File Navigation
 
