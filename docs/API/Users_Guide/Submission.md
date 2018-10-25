@@ -63,7 +63,7 @@ The following is a sample shell command for submitting an XML file:
 
 	curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @biospecimen.xml 'https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/xml/biospecimen/bcr/_dry_run'
 
-**NOTE:** A typical BCR XML file contains more information than what is extracted and indexed by the GDC. XML files submitted to the above endpoints are not retained or distributed to GDC data users, so the same files should also be submitted as data files (i.e. as clinical or biospecimen supplements).
+>**NOTE:** A typical BCR XML file contains more information than what is extracted and indexed by the GDC. XML files submitted to the above endpoints are not retained or distributed to GDC data users, so the same files should also be submitted as data files (i.e. as clinical or biospecimen supplements).
 
 
 ### Data File Formats
@@ -82,7 +82,7 @@ Submitters can assign UUIDs to all submittable entities other than those that co
 
 In addition to `id`, many entities also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the entity. Typically this string identifies a corresponding entry in submitter's records. The GDC's only requirement with respect to `submitter_id` is that it be a string that is unique for all entities within a project. The GDC Submission API requires a `submitter_id` for most entities.
 
-**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
+>**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
 ### GDC Data Dictionary Endpoints
 
@@ -321,7 +321,7 @@ The following transaction fields can be queried using [GraphQL](#querying-submit
 |`state`|String|Indicates the state of the transaction: `PENDING`, `SUCCEEDED`, `FAILED` (due to user error), or `ERRORED` (due to system error)|
 |`committed_by`|ID|The ID of the transaction that committed this transaction|
 
-**Note:** To check whether a dry run transaction was committed successfully, check the `state` of the transaction that executed the commit. The `state` of the dry run transaction itself does not represent the status of a subsequent commit.
+>**Note:** To check whether a dry run transaction was committed successfully, check the `state` of the transaction that executed the commit. The `state` of the dry run transaction itself does not represent the status of a subsequent commit.
 
 ## Creating and Updating Entities
 
@@ -333,7 +333,7 @@ The GDC Submission API supports HTTP POST and HTTP PUT methods for creating enti
 
 The GDC suggests using POST for creating new entities, and using PUT only for updating entities. This helps to avoid inadvertent entity updates that can occur when using PUT for creating entities.
 
-**Note:** Once a relationship has been created between two entities, it cannot be removed by updating an entity. To remove a relationship, the child entity must be [deleted](#deleting-entities).
+>**Note:** Once a relationship has been created between two entities, it cannot be removed by updating an entity. To remove a relationship, the child entity must be [deleted](#deleting-entities).
 
 
 ### Example: Creating and Updating Case Entities (JSON)
@@ -342,7 +342,7 @@ In this example, a case entity is created using POST. Then an attempt is made to
 
 The JSON in the request was generated using the `case` JSON template that can be obtained from the [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) and from `https://api.gdc.cancer.gov/v0/submission/template/case?format=json`.
 
-**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
+>**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
 
 ```Request1
@@ -2505,7 +2505,7 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: json' --request PUT
 
 ### Downloading Files
 
-Files in file state = validated can be downloaded by the submitter using the API or the Data Transfer Tool. This is done in a similar manner as files available in the Data Portal, but will require submission access to the particular project in dbGaP as opposed to downloader access.  File UUIDs can be found in the original upload manifest file, the submission portal, or by API calls.  See [Downloading Files](Downloading_Files.md) for details.
+Files in `file_state = validated` can be downloaded by the submitter using the API or the Data Transfer Tool. This is done in a similar manner as files available in the Data Portal, but will require submission access to the particular project in dbGaP as opposed to downloader access.  File UUIDs can be found in the original upload manifest file, the submission portal, or by API calls.  See [Downloading Files](Downloading_Files.md) for details.
 
 ### Deleting Files
 
@@ -2519,7 +2519,7 @@ Uploaded files can be deleted by deleting the entity that corresponds to the fil
 
 Unlike the methods outlined in [Search and Retrieval](Search_and_Retrieval.md), which provide access to public releases (or snapshots) of GDC data, the `/graphql` endpoint of GDC Submission API makes it possible for submitters to access "live" data, which provides a real-time view of the state of entities in a project.
 
-**NOTE:** Access to GDC Submission API GraphQL service is limited to authorized and authenticated submitters. Submitters may only access data in their own project using GraphQL.
+>**NOTE:** Access to GDC Submission API GraphQL service is limited to authorized and authenticated submitters. Submitters may only access data in their own project using GraphQL.
 
 
 ### GraphQL IDE
@@ -2536,7 +2536,7 @@ GDC data submitters can access the GDC Submission API GraphQL endpoint at:
 
 where __[API_version/]__ is the optional API version component (see [Getting Started](Getting_Started.md)).
 
-**NOTE:** An authentication token is required for all requests to the `graphql` endpoint. Queries are restricted to those projects for which the submitter has obtained authorization.
+>**NOTE:** An authentication token is required for all requests to the `graphql` endpoint. Queries are restricted to those projects for which the submitter has obtained authorization.
 
 
 ### Constructing a Query

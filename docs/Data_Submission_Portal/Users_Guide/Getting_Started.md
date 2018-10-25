@@ -9,10 +9,9 @@ The GDC Data Submission Portal is a platform that allows researchers to submit a
 * __Upload and Validate Data__: Project data can be uploaded to the GDC project workspace. The GDC will validate the data against the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/).
 * __Review and Submit Data__: Prior to submission, data can be reviewed to check for accuracy. Once the review is complete, the data can be submitted to the GDC for processing through [Data Harmonization](https://gdc.cancer.gov/submit-data/gdc-data-harmonization).
 * __Release Data__: After harmonization, data can be released to the research community for access through [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
-* __Download Data__: Data that has been uploaded into the project workspace can be downloaded for review or update. Data can then be re-uploaded before it is released for access through [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
-* __Browse Data__: Data that has been uploaded to the project workspace can be browsed to ensure that the project is ready for processing.
+* __Browse and Download Data__: Data that has been uploaded into the project workspace can be browsed to ensure that the data is ready for processing and downloaded for review or update. Data can then be re-uploaded before it is released for access through [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
 * __Status and Alerts__: Visual cues are implemented to easily identify incomplete submissions.
-
+* __Transactions__: List of all actions performed in a project are displayed along with details about each transaction.
 
 ## Key Features
 
@@ -35,14 +34,11 @@ If the project is ready for processing, data can be submitted to the GDC. If the
 
 ### Release Data
 
-The GDC will release data according to [GDC data sharing policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data may be released after six months from the date of upload, or the submitter may request earlier release using the "Request Release" function.
+The GDC will release data according to [GDC data sharing policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data must be released within six months after GDC data processing has been completed, or the submitter may request earlier release using the "Request Release" function.
 
 Upon release, harmonized data will be available to GDC users through the [GDC Data Portal](https://portal.gdc.cancer.gov/) and other [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
 
-
-### Redaction
-
-Data uploaded to the GDC can be updated before it is submitted for processing and harmonization. After harmonized data is released, it can only be redacted by GDC administrators under certain conditions. To request redaction of released data, please contact [GDC User Services](https://gdc.cancer.gov/support#gdc-help-desk).
+After harmonized data is released, it can only be redacted by GDC administrators under certain conditions. To request redaction of released data, please contact [GDC User Services](https://gdc.cancer.gov/support#gdc-help-desk).
 
 ### Browse and Download Data
 
@@ -56,10 +52,6 @@ The GDC Data Submission Portal Dashboard and navigation panel displays a summary
 ### Transactions
 
 Submitters can access a list of all actions performed in a project by clicking on the Transactions tab on the dashboard. This will display a list of all past transactions for the selected project. Users can access details about each transaction. The most recent transactions are also displayed on the dashboard.
-
-### Submission Project Examples
-
-Step-by-step instructions on GDC data submission and their relationship to the GDC Data Model are detailed in the [Upload Data](Data_Upload_UG.md) guide.
 
 ## Release Notes
 
