@@ -236,6 +236,13 @@ A tool bar at the top right of the graphic allows the user to export the data as
 * __Toggle Crosshairs:__ Turns crosshairs on, so that users can zoom into specific sections of the OncoGrid
 * __Fullscreen:__ Turns Fullscreen mode on/off
 
+#### OncoGrid Color Picker
+
+To customize the colors for mutation consequence types and CNV gains/losses, a user can click the color picker icon in the OncoGrid toolbar.  
+
+* __Customize Colors:__ Opens a control where the user can pick their own colors or apply a suggested theme and save their changes
+* __Reset to Default:__ Resets all colors to the defaults initially used by OncoGrid
+
 ### File Navigation
 
 After utilizing the Exploration Page to narrow down a specific cohort, users can find the specific files that relate to this group by clicking on the `View Files in Repository` button as shown in the image below.
