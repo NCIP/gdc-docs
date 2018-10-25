@@ -243,6 +243,8 @@ To customize the colors for mutation consequence types and CNV gains/losses, a u
 * __Customize Colors:__ Opens a control where the user can pick their own colors or apply a suggested theme and save their changes
 * __Reset to Default:__ Resets all colors to the defaults initially used by OncoGrid
 
+[![Exploration Oncogrid Color Picker](images/Exploration-Oncogrid-Color-Picker.png)](images/Exploration-Oncogrid-Color-Picker.png "Click to see the full image.")
+
 ### File Navigation
 
 After utilizing the Exploration Page to narrow down a specific cohort, users can find the specific files that relate to this group by clicking on the `View Files in Repository` button as shown in the image below.
