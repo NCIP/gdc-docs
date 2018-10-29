@@ -28,7 +28,9 @@ Masked copy number segments are generated using the same method except that a fi
 Numeric focal-level Copy Number Alteration (CNA) values were generated with "Masked Copy Number Segment" files from tumor aliquots using GISTIC2 [[2]](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2011-12-4-r41), [[3]](https://www.nature.com/articles/nature08822) on a project level. Only protein-coding genes were kept, and their numeric CNA values were further thresholded by a noise cutoff of 0.3:
 * Genes with focal CNA values smaller than -0.3 are categorized as a "loss" (-1)
 * Genes with  focal CNA values larger than 0.3 are categorized as a "gain" (+1)
-* Genes with focal CNV values between and including -0.3 and 0.3 are categorized as "neutral" (0).
+* Genes with focal CNA values between and including -0.3 and 0.3 are categorized as "neutral" (0).
+
+Values are reported in a project-level TSV file. Each row represents a gene, which is reported as an Ensembl ID and associated cytoband.  The columns represent aliquots, which are associated with CNA value categorizations (0/1/-1) for each gene.
 
 | I/O | Entity | Format |
 |---|---|---|
