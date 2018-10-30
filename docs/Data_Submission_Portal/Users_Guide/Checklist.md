@@ -35,6 +35,10 @@ The GDC Data Submission Portal is a platform that allows researchers to submit a
 * [__Data Submission Walkthrough__](Data_Submission_Walkthrough.md): Step-by-step instructions on GDC data submission and their relationship to the GDC Data Model.
 * [__Pre-Release Data Portal__](Pre_Release_QC.md): Instructions on how to use the Pre-Release Data Portal for projects that have been harmonized but not released.
 
+## HIPAA Compliance
+
+The GDC strives to be a HIPAA compliant entity by requiring date obfucation to protect the idenity of all patients. The GDC will not accept any data for patients age 90 and over including any follow-up events in which the event occurs after a patient turns 90 to ensure that HIPAA compliance is maintained. Please see the [Date Obfuscation](Data_Submission_Walkthrough.md#date-obfuscation) section for more information.
+
 ## Release Notes
 
 The [Release Notes](../../Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md) section of this User's Guide contains details about new features, bug fixes, and known issues.
