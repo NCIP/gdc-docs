@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.17.0](Data_Portal_Release_Notes.md#release-1170) | October -- , 2018 |
+| [v1.17.0](Data_Portal_Release_Notes.md#release-1170) | October x , 2018 |
 | [v1.16.0](Data_Portal_Release_Notes.md#release-1160) | September 27, 2018 |
 | [v1.15.0](Data_Portal_Release_Notes.md#release-1150) | August 23, 2018 |
 | [v1.14.0](Data_Portal_Release_Notes.md#release-1140) | June 13, 2018 |
@@ -24,16 +24,18 @@
 ## Release 1.17.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  October --, 2018
+* __Release Date__:  October x, 2018
 
 ### New Features and Changes <!--REQ-334-->
 
 * Copy Number Variation (CNV) data is are now available in the portal:
 	* View number of CNV events on a gene in a cohort in the Explore Gene table tab <!-- PRTL-2259, PRTL-2328 -->
 	* Explore CNVs associated with a gene on the Gene Entity Page <!-- PRTL-2252,PRTL-2273,PRTL-2344 -->
-	* Explore CNVs concurrently with mutations on the Oncogrid with new vizualization <!-- PRTL-2244,PRTL-2251,PRTL-2256,PRTL-2257,PRTL-2275,PRTL-2276, PRTL-2214, PRTL-2314, PRTL-2315, PRTL-2317, PRTL-2319, PRTL-2325, PRTL-2326, PRTL-2327,PRTL-2266  -->
+	* Explore CNVs concurrently with mutations on the Oncogrid with new visualization <!-- PRTL-2244,PRTL-2251,PRTL-2256,PRTL-2257,PRTL-2275,PRTL-2276, PRTL-2214, PRTL-2314, PRTL-2315, PRTL-2317, PRTL-2319, PRTL-2325, PRTL-2326, PRTL-2327,PRTL-2266  -->
 
 ### Bugs Fixed Since Last Release
+
+*  None
 
 ### Known Issues and Workarounds
 

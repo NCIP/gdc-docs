@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.17.0](API_Release_Notes.md#v1160) |  |
+| [v1.17.0](API_Release_Notes.md#v1160) | October x, 2018 |
 | [v1.16.0](API_Release_Notes.md#v1160) | September 27, 2018 |
 | [v1.15.0](API_Release_Notes.md#v1150) | August 23, 2018 |
 | [v1.14.1](API_Release_Notes.md#v1141) | May 21, 2018 |
@@ -25,17 +25,17 @@
 ## v1.17.0
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__:
+* __Release Date__:  October x, 2018
 
 ### New Features and Changes
 
-* Create new index cnv_centric <!--TT743-->
-* Create new index cnv_occurrence_centric <!--TT-744-->	
-* Create new REST API endpoint for CNV <!--TT-757-->
-* Create mapping from aliquot to case for occurrence on cnv_centric <!--TT-762-->
-* Create new graphql endpoints for CNV <!--TT-769-->
-* Update index case_centric to add cnv <!--TT-745-->
-* Update index gene_centric to add cnv <!--TT-747-->
+* Created new index cnv_centric <!--TT743-->
+* Created new index cnv_occurrence_centric <!--TT-744-->
+* Created new REST API endpoints for CNV <!--TT-757-->
+* Created mapping from aliquot to case for occurrence on cnv_centric <!--TT-762-->
+* Created new graphql endpoints for CNV <!--TT-769-->
+* Updated index case_centric to add cnv <!--TT-745-->
+* Updated index gene_centric to add cnv <!--TT-747-->
 
 ### Bugs Fixed Since Last Release
 
