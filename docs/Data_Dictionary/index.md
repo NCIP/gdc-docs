@@ -12,6 +12,15 @@ The [GDC Data Dictionary Viewer](viewer.md) is a user-friendly interface for acc
 *   _Links to semantic resources:_ Links to semantic data resources that define [Common Data Elements (CDEs)](http://cde.nih.gov) used in the dictionary
 *   _Submission templates:_ Generation JSON and TSV templates for use in GDC data submission.
 
+## GDC Metadata Validation Service
+
+The MVS tool enables easier query of the GDC Data Dictionary for data submitters and recommends GDC properties and values based on user-supplied synonyms.  Created by the NCI CBIIT EVS Team, it leverages NCI vocabulary systems caDSR and NCI Thesaurus. Below are some of the features included in the MVS tool:
+
+*   Users can complete partial or exact match searches
+*   Searches can include terms that are synonymous to the GDC allowable values
+*   Users can compare their list of values to the GDC allowable values
+*   Dictionary paths are described so users can find the specific node where a property is located
+
 ## Entity JSON Schemas
 
 In technical terms, the dictionary is a set of YAML files that define JSON schemas for each entity in the dictionary. The files are available [on GitHub](https://github.com/NCI-GDC/gdcdictionary/tree/develop/gdcdictionary/schemas).
