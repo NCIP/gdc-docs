@@ -123,4 +123,4 @@ API responses will contain a status for each entity specified in the request:
 
 **`error`**: The desired transaction was not sucessful, and the transaction was aborted because of this entity. This entity did not pass validation or an internal error occured when attempting to complete the transaction. The error state will be accompanied by a list of errors recorded about the entity (see label-error-messages).
 
-**Note:** GDC API requests are transactional. An error with processing a node specified in the transaction will abort the transaction and will result in no changes being applied for any node involved in the transaction.
+>**Note:** GDC API requests are transactional. An error with processing a node specified in the transaction will abort the transaction and will result in no changes being applied for any node involved in the transaction.

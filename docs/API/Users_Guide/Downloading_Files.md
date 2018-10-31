@@ -2,9 +2,9 @@
 
 The GDC API implements file download functionality using `data` and `manifest` endpoints. The `data` endpoint allows users to download files stored in the GDC by specifying file UUID(s). The `manifest` endpoint generates a download manifest file that can be used with the GDC Data Transfer Tool to transfer large volumes of data.
 
-**Note:** Downloading controlled access data requires the use of an authentication token. See [Getting Started: Authentication](Getting_Started.md#authentication) for details.
+>**Note:** Downloading controlled access data requires the use of an authentication token. See [Getting Started: Authentication](Getting_Started.md#authentication) for details.
 
-**Note:** Requests to download data from the GDC Legacy Archive may be directed to `legacy/data` or `data`. See [Getting Started: Legacy Archive](Getting_Started.md#gdc-legacy-archive) for details.
+>**Note:** Requests to download data from the GDC Legacy Archive may be directed to `legacy/data` or `data`. See [Getting Started: Legacy Archive](Getting_Started.md#gdc-legacy-archive) for details.
 
 ## Data endpoint
 
@@ -60,7 +60,7 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/e322802
 curl: Saved to filename 'gdc_download_064d1aa8cc8cbab33e93979bebbf7d6af2d6a802.tar.gz'
 ```
 
-**Note:** This method supports downloading a limited number of files at one time. To download a large number of files, please use [POST](#downloading-multiple-files-using-post).
+>**Note:** This method supports downloading a limited number of files at one time. To download a large number of files, please use [POST](#downloading-multiple-files-using-post).
 
 #### Downloading an Uncompressed Group of Files
 
@@ -177,7 +177,8 @@ curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.t
 
 ## Manifest endpoint
 
-The `manifest` endpoint generates a download manifest file that can be used with the GDC Data Transfer Tool. The Data Transfer Tool is recommended for transferring large volumes of data. The GDC API can also generate a download manifest from a list of results that match a [Search and Retrieval](Search_and_Retrieval.md) query. To do this, append `&return_type=manifest` to the end of the query.
+The `manifest` endpoint generates a download manifest file that can be used with the [GDC Data Transfer Tool](../../Data_Transfer_Tool/Users_Guide/Getting_Started.md). The Data Transfer Tool is recommended for transferring large volumes of data. The GDC API can also generate a download manifest from a list of results that match a [Search and Retrieval](Search_and_Retrieval.md) query. To do this, append `&return_type=manifest` to the end of the query.
+
 
 ### Using the manifest endpoint
 

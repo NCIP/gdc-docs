@@ -48,7 +48,7 @@
 
 <div id="root"></div>
 
-<div class="version-content">GDC Dictionary Version – Jibboo</div>
+<div class="version-content">GDC Dictionary Version - Jibboo</div>
 <div id="alert-error" class="alert alert__error alert-info alert-dismissible" role="alert" style="display: none;">Error: Undefined</div>
 
 <!-- END GDCMVS APP -->

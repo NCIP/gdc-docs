@@ -139,7 +139,7 @@ Below these pie charts is a tabular view of cases (which can be exported, sorted
 
 The `Genes` tab will give an overview of all the genes that match the criteria of the filters (Cohort).
 
-[![Exploration Gene Example](images/Exploration-Gene-Example.png)](images/Exploration-Gene-Example.png "Click to see the full image.")
+[![Exploration Gene Example](images/Exploration-Gene-Example_v2.png)](images/Exploration-Gene-Example_v2.png "Click to see the full image.")
 
 The top of this section contains a survival plot of all the cases within the specified Exploration page search, in addition to a bar graph of the most frequently mutated genes. Hovering over each bar in the plot will display information about the percentage of cases affected. Users may choose to download the underlying data in JSON or TSV format or an image of the graph in SVG or PNG format by clicking the `download` icon at the top of each graph.
 
@@ -147,10 +147,10 @@ Below these graphs is a tabular view of the genes affected, which includes the f
 
 * __Symbol:__ The gene symbol, which links to the Gene Summary Page
 * __Name:__ Full name of the gene
-* __Cytoband:__ The location of the mutation on the chromosome in terms of Giemsa-stained samples.
-* __Type:__ The type of gene
-* __# Affected Cases in Cohort:__ The number of cases affected in the Cohort
-* __# Affected Cases Across all Projects:__ The number of cases within all the projects in the GDC that contain a mutation on this gene.  Clicking the red arrow will display the cases broken down by project
+* __# SSM Affected Cases in Cohort:__ The number of cases affected by SSMs (simple somatic mutations) in the Cohort
+* __# SSM Affected Cases Across the GDC:__ The number of cases within all the projects in the GDC that contain a mutation on this gene.  Clicking the red arrow will display the cases broken down by project
+* __# CNV Gain:__ The number of CNV (copy number variation) events detected in that gene which resulted in an increase (gain) in the gene's copy number
+* __# CNV Loss:__ The number of CNV events detected in that gene which resulted in a decrease (loss) in the gene's copy number
 * __# Mutations:__ The number of SSMs (simple somatic mutations) detected in that gene
 * __Annotations:__ Includes a COSMIC symbol if the gene belongs to [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/)
 * __Survival Analysis:__ An icon that, when clicked, will plot the survival rate between cases in the project with mutated and non-mutated forms of the gene
@@ -210,11 +210,11 @@ A table is displayed below that lists information about each mutation:
 
 #### OncoGrid
 
-The Exploration page includes an OncoGrid plot of the cases with the most mutations, for the top 50 mutated genes affected by high impact mutations. Genes displayed on the left of the grid (Y-axis) correspond to individual cases on the bottom of the grid (X-axis).  
+The Exploration page includes an OncoGrid plot of the cases with the most mutations, for the top 50 mutated genes affected by high impact mutations. Genes displayed on the left of the grid (Y-axis) correspond to individual cases on the bottom of the grid (X-axis). Additionally, the plot also indicates in each cell any CNV events detected for these top mutated cases and genes.
 
-[![Exploration Oncogrid Example](images/Exploration-Oncogrid-Example.png)](images/Exploration-Oncogrid-Example.png "Click to see the full image.")
+[![Exploration Oncogrid Example](images/Exploration-Oncogrid-Example_v2.png)](images/Exploration-Oncogrid-Example_v2.png "Click to see the full image.")
 
-The grid is color-coded with a legend at the top left which describes what type of mutation consequence is observed for each gene/case combination. Clinical information and the available data for each case are available at the bottom of the grid.
+The grid is color-coded with a legend at the top which describes what type of mutation consequence and CNV event is observed for each gene/case combination. Clinical information and the available data for each case are available at the bottom of the grid.
 
 The right side of the grid displays additional information about the genes:
 
@@ -227,6 +227,7 @@ To facilitate readability and comparisons, drag-and-drop can be used to reorder 
 
 A tool bar at the top right of the graphic allows the user to export the data as a JSON object, PNG image, or SVG image.  Seven buttons are available in this toolbar:
 
+* __Customize Colors:__ Users can customize the colors that represent mutation consequence types and CNV gains/losses
 * __Download:__ Users can choose to export the contents either to a static image file (PNG or SVG format) or the underlying data in JSON format
 * __Reload Grid:__ Sets all OncoGrid rows, columns, and zoom levels back to their initial positions
 * __Cluster Data:__ Clusters the rows and columns to place mutated genes with the same cases and cases with the same mutated genes together
@@ -234,6 +235,15 @@ A tool bar at the top right of the graphic allows the user to export the data as
 * __Toggle Gridlines:__ Turn the gridlines on and off
 * __Toggle Crosshairs:__ Turns crosshairs on, so that users can zoom into specific sections of the OncoGrid
 * __Fullscreen:__ Turns Fullscreen mode on/off
+
+#### OncoGrid Color Picker
+
+To customize the colors for mutation consequence types and CNV gains/losses, a user can click the color picker icon in the OncoGrid toolbar.  
+
+* __Customize Colors:__ Opens a control where the user can pick their own colors or apply a suggested theme and save their changes
+* __Reset to Default:__ Resets all colors to the defaults initially used by OncoGrid
+
+[![Exploration Oncogrid Color Picker](images/Exploration-Oncogrid-Color-Picker.png)](images/Exploration-Oncogrid-Color-Picker.png "Click to see the full image.")
 
 ### File Navigation
 

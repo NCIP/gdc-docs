@@ -54,9 +54,11 @@ For example, the address of the latest version of the `status` endpoint is `http
 
 ### GDC Legacy Archive
 
-To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL:
+To interact with data in the GDC Legacy Archive, add `legacy` to the endpoint URL before the `<endpoint>`:
 
-	https://api.gdc.cancer.gov/<version>/legacy/<endpoint>
+	https://api.gdc.cancer.gov/legacy/<endpoint>
+
+> __NOTE:__ The version can also be applied to a Legacy Archive search by placing the `<version>` before "/legacy/"
 
 ## Entity UUIDs
 
@@ -112,7 +114,7 @@ print json.dumps(response.json(), indent=2)
 
 Authentication is required for downloading controlled-access data, and for all data submission functionality. The GDC API uses tokens for authentication.
 
-Users can obtain authentication tokens from the [GDC Data Portal](https://portal.gdc.cancer.gov) and the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) for instructions.
+Users can obtain authentication tokens from the [GDC Data Portal](https://portal.gdc.cancer.gov) and the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Data_Submission_Process.md#authentication) for instructions.
 
 ### Using Authentication Tokens
 
@@ -134,4 +136,4 @@ curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.t
 
 For more information about authentication tokens, including token expiration and rotation, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
 
-**NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
+>**NOTE:** The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
