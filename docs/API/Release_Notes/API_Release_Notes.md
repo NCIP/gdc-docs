@@ -39,8 +39,7 @@
 
 ### Bugs Fixed Since Last Release
 
-* None
-
+* Fixed bug to prevent users from deleting files in state submitted or released <!--API-560-->
 
 ### Known Issues and Workarounds
 
