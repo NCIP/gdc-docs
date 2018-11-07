@@ -8,9 +8,9 @@
 | [v1.12.1](Data_Dictionary_Release_Notes.md#v1121) | April 26, 2018 |
 | [v1.12](Data_Dictionary_Release_Notes.md#v112) | April 23, 2018 |
 | [v1.11](Data_Dictionary_Release_Notes.md#v111) | January 20, 2018 |
-| [v10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
-| [v7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
-| [v3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+| [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
+| [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
+| [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
 ## v.1.14
 
