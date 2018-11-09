@@ -1,6 +1,6 @@
 
 
-## Help Menus
+## Help  Menus
 
 The GDC Data Transfer Tool comes with built-in help menus. These menus are displayed when the GDC Data Transfer Tool is run with flags -h or --help for any of the main arguments to the tool. Running the GDC Data Transfer Tool without argument or flag will present a list of available command options.
 
@@ -19,7 +19,7 @@ optional arguments:
   --version             show program's version number and exit
 
 commands:
-  {download,upload,interactive}
+  {download,upload,settings}
                         for more information, specify -h after a command
     download            download data from the GDC
     upload              upload data to the GDC
