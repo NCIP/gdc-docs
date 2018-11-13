@@ -133,8 +133,8 @@ usage: gdc-client upload [-h] [--debug]
                                             [--manifest MANIFEST]
                                             [--config FILE]
                                             [file_id [file_id ...]]
-                                            positional arguments:
-                                              file_id               The GDC UUID of the file(s) to upload
+positional arguments:
+ file_id               The GDC UUID of the file(s) to upload
 
 optional arguments:
  -h, --help            show this help message and exit
