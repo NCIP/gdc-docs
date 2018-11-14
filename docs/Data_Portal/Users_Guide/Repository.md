@@ -2,15 +2,15 @@
 
 ## Summary
 
-The Repository Page is the primary method of accessing data in the GDC Data Portal. It provides an overview of all cases and files available in the GDC and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the Repository Page from the GDC Data Portal front page, from the Data Portal toolbar, or directly at [https://portal.gdc.cancer.gov/repository](https://portal.gdc.cancer.gov/repository).
+The Repository Page is the primary method of accessing data in the GDC Data Portal. It provides an overview of all cases and files available in the GDC and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the [Repository Page](https://portal.gdc.cancer.gov/repository) from the GDC Data Portal front page, from the Data Portal toolbar.
 
 ## Filters / Facets
 On the left, a panel of data facets allows users to filter cases and files using a variety of criteria. If facet filters are applied, the tabs on the right will display information about matching cases and files. If no filters are applied, the tabs on the right will display information about all available data.
 
 On the right, two tabs contain information about available data:
 
-* *`Files` tab* provides a list of files, select information about each file, and links to individual file detail pages.
-* *`Cases` tab* provides a list of cases, select information about each case, and links to individual case summary pages
+* `Files` tab provides a list of files, select information about each file, and links to individual file detail pages.
+* `Cases` tab provides a list of cases, select information about each case, and links to individual case summary pages.
 
 The banner above the tabs on the right displays any active facet filters and provides access to advanced search.
 
@@ -22,9 +22,7 @@ The top of the Repository Page contains a few summary pie charts for Primary Sit
 
 Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the cases and files presented in the tabs on the right.
 
-The facets panel is divided into two tabs, with the Files tab containing facets pertaining to data files and experimental strategies, while the Cases tab containing facets pertaining to the cases and biospecimen information. Users can apply filters in both tabs simultaneously. The applied filters will be displayed in the banner above the tabs on the right, with the option to open the filter in [Advanced Search](Advanced_Search.md) to further refine the query.
-
-The [Getting Started](Getting_Started.md#facet-filters) section provides instructions on using facet filters. In the following example, a filter from the Cases tab ("primary site") and filters from the Files tab ("data category", "experimental strategy") are both applied:
+The facets panel is divided into two tabs, with the `Files` tab containing facets pertaining to data files and experimental strategies, while the `Cases` tab containing facets pertaining to the cases and biospecimen information. Users can apply filters in both tabs simultaneously. The applied filters will be displayed in the banner above the tabs on the right, with the option to open the filter in [Advanced Search](Advanced_Search.md) to further refine the query.
 
 [![Facet Filters Applied in Data View](images/data-view-with-facet-filters-applied_v2.png)](images/data-view-with-facet-filters-applied_v2.png "Click to see the full image.")
 
@@ -58,26 +56,49 @@ The default set of facets is listed below.
 
 ### Adding Custom Facets
 
-The Repository Page provides access to additional data facets beyond those listed above. Facets corresponding to additional properties listed in the [GDC Data Dictionary](../../Data_Dictionary/index.md) can be added using the "add a filter" links available at the top of the Cases and Files facet tabs:
+The Repository page provides access to additional data facets beyond the automatically listed group filters. Facets corresponding to additional properties listed in the [GDC Data Dictionary](../../Data_Dictionary/index.md) can be added using the "Add a Filter" link available at the top of the `Cases` and `Files` facet tabs:
 
 [![Add a Facet](images/gdc-data-portal-data-add-facet.png)](images/gdc-data-portal-data-add-facet.png "Click to see the full image.")
 
-The links open a search window that allows the user to find an additional facet by name or description. Not all facets have values available for filtering; checking the "Only show fields with values" checkbox will limit the search results to only those that do. Selecting a facet from the list of search results below the search box will add it to the facets panel.
+The link opens a search window that allows the user to find an additional facet by name or description. Not all facets have values available for filtering; checking the "Only show fields with values" checkbox will limit the search results to only those that do. Selecting a facet from the list of search results below the search box will add it to the facets panel.
 
 [![Search for a Facet](images/gdc-data-portal-data-facet-search.png)](images/gdc-data-portal-data-facet-search.png "Click to see the full image.")
 
-Newly added facets will show up at the top of the facets panel and can be removed individually by clicking on the red cross to the right of the facet name. The default set of facets can be restored by clicking "Reset".
+Newly added facets will show up at the top of the facets panel and can be removed individually by clicking on the "__x__" to the right of the facet name. The default set of facets can be restored by clicking "Reset".
 
 [![Customize Facet](images/gdc-data-portal-data-facet-tumor_stage.png)](images/gdc-data-portal-data-facet-tumor_stage.png "Click to see the full image.")
+
+## Annotations View
+
+The Annotations View provides an overview of the available annotations and allows users to browse and filter the annotations based on a number of annotation properties (facets), such as the type of entity the annotation is attached to or the annotation category. This page can be found by clicking on the [Browse Annotations](https://portal.gdc.cancer.gov/annotations) link, located at the top right of the repository page.
+
+[![Annotations View](images/Browse_Annotations.png)](images/Browse_Annotations.png "Click to see the full image.")
+
+The view presents a list of annotations in tabular format on the right, and a facet panel on the left that allows users to filter the annotations displayed in the table. If facet filters are applied, the tabs on the right will display only the matching annotations. If no filters are applied, the tabs on the right will display information about all available data.
+
+[![Annotations View](images/gdc-data-portal-annotations.png)](images/gdc-data-portal-annotations.png "Click to see the full image.")
+
+Clicking on an annotation ID in the annotations list will take the user to the Annotation Detail Page. The annotation entity page provides more details about a specific annotation.
+
+[![Annotation Entity Page](images/annotations-entity-page.png)](images/annotations-entity-page.png "Click to see the full image.")
+
 ## Results
+
+## Navigation
+
+After utilizing the Repository Page to narrow down a specific set of cases, users can choose to continue to explore the mutations and genes affected by these cases by clicking the `View Files in Exploration` button as shown in the image below.
+
+[![Exploration File Navigation](images/gdc-view-in-exploration_v3.png)](images/gdc-view-in-exploration_v3.png "Click to see the full image.")
+
+Clicking this button will navigate the users to the [Exploration Page](Exploration.md), filtered by the cases within the cohort.
 
 ### Files List
 
-The Files tab on the right provides a list of available files and select information about each file. If facet filters are applied, the list includes only matching files. Otherwise, the list includes all data files available in the GDC Data Portal.
+The `Files` tab on the right provides a list of available files and select information about each file. If facet filters are applied, the list includes only matching files. Otherwise, the list includes all data files available in the GDC Data Portal.
 
 [![Files Tab](images/gdc-data-portal-data-files.png)](images/gdc-data-portal-data-files.png "Click to see the full image.")
 
-The *File Name* column includes links to [file detail pages](#file-detail-page) where the user can learn more about each file.
+The "*File Name*" column includes links to [file summary pages](Supplemental_Information_Pages.md#file-summary-page) where the user can learn more about each file.
 
 Users can add individual file(s) to the file cart using the cart button next to each file. Alternatively, all files that match the current facet filters can be added to the cart using the menu in the top left corner of the table:
 
@@ -85,92 +106,154 @@ Users can add individual file(s) to the file cart using the cart button next to 
 
 ### Cases List
 
-The Cases tab on the right provides a list of available cases and select information about each case. If facet filters are applied, the list includes only matching cases. Otherwise, the list includes all cases available in the GDC Data Portal.
+The `Cases` tab on the right provides a list of available cases and select information about each case. If facet filters are applied, the list includes only matching cases. Otherwise, the list includes all cases available in the GDC Data Portal.
 
 [![Cases Tab](images/gdc-data-portal-data-cases_v3.png)](images/gdc-data-portal-data-cases_v3.png "Click to see the full image.")
 
-The list includes links to [case summary pages](#case-summary-page) in the *Case UUID* column, the Submitter ID (i.e. TCGA Barcode), and counts of the available file types for each case. Clicking on a count will apply facet filters to display the corresponding files.
+The list includes links to [case summary pages](Supplemental_Information_Pages.md#case-summary-page) in the *Case UUID* column, the Submitter ID (i.e. TCGA Barcode), and counts of the available file types for each case. Clicking on a count will apply facet filters to display the corresponding files.
 
 The list also includes a shopping cart button, allowing the user to add all files associated with a case to the file cart for downloading at a later time:
 
 [![Cases Tab, Add to Cart](images/gdc-data-portal-data-case-add-cart.png)](images/gdc-data-portal-data-case-add-cart.png "Click to see the full image.")
 
+## Cart and File Download
 
-## Navigation
+While browsing the GDC Data Portal, files can either be downloaded individually from [file summary pages](Supplemental_Information_Pages.md#file-summary-page) or collected in the file cart to be downloaded as a bundle.  Clicking on the shopping cart icon that is next to any item in the GDC will add the item to your cart.
 
-After utilizing the Repository Page to narrow down a specific set of cases, users can continue to explore the mutations and genes affected by these cases by clicking the `View Files in Repository` button as shown in the image below.
+### GDC Cart
 
-[![Exploration File Navigation](images/gdc-view-in-exploration_v3.png)](images/gdc-view-in-exploration_v3.png "Click to see the full image.")
+[![Cart](images/cart-overview_v2.png)](images/cart-overview_v2.png "Click to see the full image.")
 
-Clicking this button will navigate the users to the Exploration Page, filtered by the cases within the cohort.
+### Cart Summary
 
-## Case Summary Page
+The cart page shows a summary of all files currently in the cart:
 
-The Case Summary page displays case details including the project and disease information, data files that are available for that case, and the experimental strategies employed. A button in the top-right corner of the page allows the user to add all files associated with the case to the file cart.
+* Number of files
+* Number of cases associated with the files
+* Total file size
 
-[![Case Page](images/gdc-case-entity-page.png)](images/gdc-case-entity-page.png "Click to see the full image.")
+The Cart page also displays two tables:
 
-### Clinical and Biospecimen Information
+* __File count by project__: Breaks down the files and cases by each project.
+* __File count by authorization level__: Breaks down the files in the cart by authorization level.  A user must be logged into the GDC in order to download 'Controlled-Access files'.
 
-The page also provides clinical and biospecimen information about that case. Links to export clinical and biospecimen information in JSON format are provided.
+The cart also directs users how to download files in the cart.  For large data files, it is recommended that the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) be used.
 
-[![Case Page, Clinical and Biospecimen](images/gdc-case-clinical-biospecimen_v3.png)](images/gdc-case-clinical-biospecimen_v3.png "Click to see the full image.")
+### Cart Items
 
-For clinical records that support multiple records of the same type (Diagnoses, Family Histories, or Exposures), a UUID of the record is provided on the left hand side of the corresponding tab, allowing the user to select the entry of interest.
+[![Cart](images/gdc-cart-items_v2.png)](images/gdc-cart-items_v2.png "Click to see the full image.")
 
-### Biospecimen Search
+The Cart Items table shows the list of all the files that were added to the Cart.  The table gives the folowing information for each file in the cart:
 
-A search filter just below the biospecimen section can be used to find and filter biospecimen data. The wildcard search will highlight entities in the tree that match the characters typed. This will search both the case submitter ID, as well as the additional metadata for each entity. For example, searching 'Primary Tumor' will highlight samples that match that type.
+* __Access__: Displays whether the file is open or controlled access.  Users must login to the GDC Portal and have the appropriate credentials to access these files.
+* __File Name__: Name of the file.  Clicking the link will bring the user to the [file summary page](Supplemental_Information_Pages.md#file-summary-page).
+* __Cases__: How many cases does the file contain.  Clicking the link will bring the user to the [case summary page](Supplemental_Information_Pages.md#case-summary-page).
+* __Project__: The Project that the file belongs to.  Clicking the link will bring the user to the [Project summary page](Supplemental_Information_Pages.md#project-summary-page).
+* __Category__: Type of data.
+* __Format__: The file format.
+* __Size__: The size of the file.
+* __Annotations__: Whether there are any annotations.
 
-[![Biospecimen Search](images/gdc-case-biospecimen-search_v2.png)](images/gdc-case-biospecimen-search_v2.png "Click to see the full image.")
+## Download Options
 
-### Most Frequent Somatic Mutations
+[![Cart](images/gdc-download-options_v2.png)](images/gdc-download-options_v2.png "Click to see the full image.")
 
-The case entity page also lists the mutations found in that particular case.
+There are a few buttons on the Cart page that allow users to download files.  The following download options are available:
 
-[![Case Page](images/gdc-case-entity-mfm.png)](images/gdc-case-entity-mfm.png "Click to see the full image.")
+* __Biospecimen__: Downloads bioscpecimen data related to files in the cart in either TSV or JSON format.
+* __Clinical__: Downloads clinical data related to files in the cart in either TSV or JSON format.
+* __Sample Sheet__: Downloads a tab-separated file which contains the associated case/sample IDs and the sample type (Tumor/Normal) for each file in the cart.
+* __Metadata__: GDC harmonized clinical, biospecimen, and file metadata associated with the files in the cart.
+* __Download Manifest__: Download a manifest file for use with the GDC Data Transfer Tool to download files.  A manifest file contains a list of the UUIDs that correspond to the files in the cart.
+* __Download Cart__: Download the files in the Cart directly through the browser. Users have to be cautious of the amount of data in the cart since this option will not optimize bandwidth and will not provide resume capabilities.
+* __SRA XML, MAGE-TAB__: This option is available in the GDC Legacy Archive only. It is used to download metadata files associated with the files in the cart.
 
-The table lists the following information for each mutation
+The cart allows users to download up to 5 GB of data directly through the web browser. This is not recommended for downloading large volumes of data, in particular due to the absence of a retry/resume mechanism. For downloads over 5 GB we recommend using the `Download Manifest` button and download a manifest file that can be imported into [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/).
 
-* __DNA Change:__ The chromosome and starting coordinates of the mutation are displayed along with the nucleotide differences between the reference and tumor allele
-* __Type:__ A general classification of the mutation
-* __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
-* __# Affected Cases in Project:__ The number of affected cases, expressed as number across all mutations within the Project
-* __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project
-* __Impact (VEP):__ A subjective classification of the severity of the variant consequence. This information comes from the [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html). The categories are:
-  - __HIGH (H)__: The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
-  - __MODERATE (M)__: A non-disruptive variant that might change protein effectiveness
-  - __LOW (L)__: Assumed to be mostly harmless or unlikely to change protein behavior
-  - __MODIFIER (MO)__: Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
+>__Note__: when downloading multiple files from the cart, they are automatically bundled into one single Gzipped (.tar.gz) file.
 
-Clicking on the `Open in Exploration` button at the top right of this section will navigate the user to the Exploration page, filtered on this case.
+### [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
 
-## File Summary Page
+The `Download Manifest` button will download a manifest file that can be imported into the GDC Data Transfer Tool.   Below is an example of the contents of a manifest file used for download:
 
-The File Summary page provides information a data file, including file properties like size, md5 checksum, and data format; information on the type of data included; links to the associated case and biospecimen; and information about how the data file was generated or processed.
+```manifest
+id	filename	md5	size	state
+4ea9c657-8f85-44d0-9a77-ad59cced8973	mdanderson.org_ESCA.MDA_RPPA_Core.mage-tab.1.1.0.tar.gz		2516051	live
+b8342cd5-330e-440b-b53a-1112341d87db	mdanderson.org_SARC.MDA_RPPA_Core.mage-tab.1.1.0.tar.gz		4523632	live
+c57673ac-998a-4a50-a12b-4cac5dc3b72e	mdanderson.org_KIRP.MDA_RPPA_Core.mage-tab.1.2.0.tar.gz		4195746	live
+3f22dd8d-59c8-43a4-89cf-3b595f2e5a06	14-3-3_beta-R-V_GBL1112940.tif	56df0e4b4fc092fc3643bd2e316ac05b	6257840	live
+7ce05059-9197-4d38-830f-04356f5f851a	14-3-3_beta-R-V_GBL11066140.tif	6abfee483974bc2e61a37b5499ae9a07	6261580	live
+8e00d22a-ca6f-4da8-a1c3-f23144cb21b7	14-3-3_beta-R-V_GBL1112940.tif	56df0e4b4fc092fc3643bd2e316ac05b	6257840	live
+96487cd7-8fa8-4bee-9863-17004a70b2e9	14-3-3_beta-R-V_GBL1112940.tif	56df0e4b4fc092fc3643bd2e316ac05b	6257840	live
+```
 
-The page also includes buttons to download the file, add it to the file cart, or (for BAM files) utilize the BAM slicing function.
+The Manifest contains a list of the file UUIDs in the cart and can be used together with the GDC Data Transfer Tool to download all files.
 
-[![Files Detail Page](images/gdc-data-portal-files-entity-page.png)](images/gdc-data-portal-files-entity-page.png "Click to see the full image.")
+Information on the GDC Data Transfer Tool is available in the [GDC Data Transfer Tool User's Guide](../../Data_Transfer_Tool/Users_Guide/Getting_Started.md).
 
-In the lower section of the screen, the following tables provide more details about the file and its characteristics:
+### Individual Files Download
 
-* __Associated Cases / Biospecimen__: List of Cases or biospecimen the file is directly attached to.
-* __Analysis and Reference Genome__: Information on the workflow and reference genome used for file generation.
-* __Read Groups__: Information on the read groups associated with the file.
-* __Metadata Files__: Experiment metadata, run metadata and analysis metadata associated with the file.
-* __Downstream Analysis Files__: List of downstream analysis files generated by the file.
-* __File Versions__: List of all versions of the file.
+Similar to the files page, each row contains a download button to download a particular file individually.
 
+## Controlled Files
 
-[![Files Entity Page](images/gdc-data-portal-files-entity-page-part2_v2.png)](images/gdc-data-portal-files-entity-page-part2_v2.png "Click to see the full image.")
+If a user tries to download a cart containing controlled files and without being authenticated, a pop-up will be displayed to offer the user either to download only open access files or to login into the GDC Data Portal through eRA Commons. 
 
-**Note**: *The Legacy Archive* will not display "Workflow, Reference Genome and Read Groups" sections (these sections are applicable to the GDC harmonization pipeline only). However it may provide information on Archives and metadata files like MAGE-TABs and SRA XMLs. For more information, please refer to the section [Legacy Archive](Legacy_Archive.md).
+[![Cart Page](images/gdc-data-portal-download-cart.png)](images/gdc-data-portal-download-cart.png "Click to see the full image.")
 
-### BAM Slicing
+## Authentication
 
-BAM file detail pages have a "BAM Slicing" button. This function allows the user to specify a region of a BAM file for download. Clicking on it will open the BAM slicing window:
+The GDC Data Portal provides granular metadata for all datasets available in the GDC. Any user can see a listing of all available data files, including controlled-access files. The GDC Data Portal also allows users to download open-access files without logging in. However, downloading of controlled-access files is restricted to authorized users and requires authentication.
 
-[![BAM Slicing Window](images/gdc-data-portal-bam-slicing.png)](images/gdc-data-portal-bam-slicing.png "Click to see the full image.")
+### Logging into the GDC
 
-During preparation of the slice, the icon on the BAM Slicing button will be spinning, and the file will be offered for download to the user as soon as ready.
+To login to the GDC, users must click on the `Login` button on the top right of the GDC website.
+
+![Login](images/gdc-login.png)
+
+After clicking Login, users authenticate themselves using their eRA Commons login and password.  If authentication is successful, the eRA Commons username will be displayed in the upper right corner of the screen, in place of the "Login" button.
+
+Upon successful authentication, GDC Data Portal users can:
+
+- See which controlled-access files they can access.
+- Download controlled-access files directly from the GDC Data Portal.
+- Download an authentication token for use with the GDC Data Transfer Tool or the GDC API.
+
+Controlled-access files are identified using a "lock" icon:
+
+[![GDC Data Portal Main Page](images/gdc-data-portal-controlled-files.png)](images/gdc-data-portal-controlled-files.png "Click to see the full image.")
+
+The rest of this section describes controlled data access features of the GDC Data Portal available to authorized users. For more information about open and controlled-access data, and about obtaining access to controlled data, see [Data Access Processes and Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
+
+### User Profile
+
+After logging into the GDC Portal, users can view which projects they have access to by clicking the `User Profile` section in the dropdown menu in the top corner of the screen.
+
+[![User Profile Drop Down](images/gdc-user-profile-dropdown.png)](images/gdc-user-profile-dropdown.png "Click to see the full image.")
+
+Clicking this button shows the list of projects.
+
+[![User Profile](images/gdc-user-profile.png)](images/gdc-user-profile.png "Click to see the full image.")
+
+### GDC Authentication Tokens
+
+The GDC Data Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
+
+1. Log into the GDC using your eRA Commons credentials.
+2. Click the username in the top right corner of the screen.
+3. Select the "Download token" option.
+
+![Token Download Button](images/gdc-data-portal-token-download.png)
+
+A new token is generated each time the `Download Token` button is clicked.
+
+For more information about authentication tokens, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
+
+>__Note:__ The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
+
+### Logging Out
+
+To log out of the GDC, click the username in the top right corner of the screen, and select the Logout option.
+
+![Logout link](images/gdc-data-portal-token-download.png)
+

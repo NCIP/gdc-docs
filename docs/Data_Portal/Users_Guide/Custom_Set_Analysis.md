@@ -8,15 +8,11 @@ Note that saving a set only saves the type of entity included in the set. For ex
 
 Cohort sets are completely customizable and can be generated for cases, genes, or mutations using the following methods:
 
-__Upload ID Set:__ This feature is available in the "Manage Sets" link at the top right of the Portal. Choose "Upload Set" and then select whether the set comprises cases, genes, or mutations. A set of IDs (IDs* or UUIDs) can then be uploaded in a text file or copied and pasted into the list of identifiers field along with a name identifying the set. Once the list of identifiers is uploaded, they are validated and grouped according to whether the identifier matched an existing GDC ID or did not match ("Unmatched").
+__Upload ID Set:__ This feature is available in the "Manage Sets" link at the top right of the Portal. Choose "Upload Set" and then select whether the set comprises cases, genes, or mutations. A set of IDs or UUIDs can then be uploaded in a text file or copied and pasted into the list of identifiers field along with a name identifying the set. Once the list of identifiers is uploaded, the IDs are validated and grouped according to whether or not the identifier matched an existing GDC ID.
 
 [![Upload Set](images/GDC-UploadSet-Cohort_v2.png)](images/GDC-UploadSet-Cohort_v2.png "Click to see the full image.")
 
-\* This is referred to as a `submitter_id` in the GDC API, which is a non-UUID identifier such as a TCGA barcode.
-
-__Apply Filters in Exploration:__ Sets can be assembled using the existing filters in the Exploration page.  They can be saved by choosing the "Save/Edit Case Set" button under the pie charts for case sets. This will prompt a decision to save as new case set.
-
-Similarly, gene and mutation filters can be applied and saved in the Exploration page in the Genes and Mutations tab, respectively.
+__Apply Filters in Exploration:__ Sets can be assembled using the existing filters in the Exploration page.  They can be saved by choosing the "Save/Edit Case Set" button under the pie charts for case sets. This will prompt a decision to save as new case set. The same can be done for both gene and mutation filters, and can be applied and saved in the Genes and Mutations tab, respectively.
 
 [![Exploration Set](images/GDC-ExplorationSet-Cohort_v2.png)](images/GDC-ExplorationSet-Cohort_v2.png "Click to see the full image.")
 
@@ -27,8 +23,8 @@ Clicking on the `Analysis` button in the top toolbar will launch the Analysis Pa
 
 There are two tabs on this page:
 
-* __Launch Analysis__: Where users can select either to do `Set Operations` or `Cohort Comparison`
-* __Results__: Where users can view the results of current or previous set analyses
+* __Launch Analysis__: Where users can select either to do `Set Operations` or `Cohort Comparison`.
+* __Results__: Where users can view the results of current or previous set analyses.
 
 ## Analysis Page: Set Operations
 
@@ -38,7 +34,7 @@ Up to three sets of the same set type can be compared and exported based on comp
 
 * __Venn Diagram:__ Visually displays the overlapping items included within the three sets. Subsets based on overlap can be selected by clicking one or many sections of the Venn diagram. As sections of the Venn Diagram become highlighted in blue, their corresponding row in the overlap table becomes highlighted.  
 
-* __Summary Table:__ Displays the alias, item type, and name for each set included in this analysis
+* __Summary Table:__ Displays the alias, item type, and name for each set included in this analysis.
 
 * __Overlap Table:__ Displays the number of overlapping items with set operations rather than a visual diagram. Subsets can be selected by checking boxes in the "Select" column, which will highlight the corresponding section of the Venn Diagram. As rows are selected, the "Union of selected sets" row is populated. Each row has an option to save the subset as a new set,  export the set as a TSV, or view files in the repository. The links that correspond to the number of items in each row will open the cohort in the Exploration page.  
 
@@ -47,11 +43,11 @@ Up to three sets of the same set type can be compared and exported based on comp
 
 The "Cohort Comparison" analysis displays a series of graphs and tables that demonstrate the similarities and differences between two case sets. The following features are displayed for each two sets:
 
-* A key detailing the number of cases in each cohort and the color that represents each (blue/gold)
+* A key detailing the number of cases in each cohort and the color that represents each (blue/gold).
 
-* A Venn diagram, which shows the overlap between the two cohorts.  The Venn diagram can be opened in a 'Set Operations' tab by choosing "Open venn diagram in new tab"
+* A Venn diagram, which shows the overlap between the two cohorts.  The Venn diagram can be opened in a 'Set Operations' tab by choosing "Open venn diagram in new tab".
 
-* A selectable [survival plot](Projects/#survival-analysis) that compares both sets with information about the percentage of represented cases
+* A selectable [survival plot](Exploration.md#survival-analysis) that compares both sets with information about the percentage of represented cases.
 
 [![Top Cohort](images/GDC-Cohort-Comparison-Top.png)](images/GDC-Cohort-Comparison-Top.png "Click to see the full image.")
 

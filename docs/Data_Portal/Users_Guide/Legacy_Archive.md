@@ -20,7 +20,7 @@ The GDC Legacy Archive contains a limited set of features of the GDC Data Portal
 
 ### File Page
 
-The file page of the GDC Legacy Archive is similar to the [file page of the GDC Data Portal](Repository.md#file-summary-page). It does not include the Workflow, Reference Genome, and Read Groups sections as these are only applicable to harmonized data available in the GDC Data Portal. The Legacy Archive includes additional archive information as described below.
+The file page of the GDC Legacy Archive is similar to the [file page of the GDC Data Portal](Supplemental_Information_Pages.md#file-summary-page). It does not include the Workflow, Reference Genome, and Read Groups sections as these are only applicable to harmonized data available in the GDC Data Portal. The Legacy Archive includes additional archive information as described below.
 
 [![Files Entity Page](images/gdc-data-portal-files-entity-page-Archive-MagTab.png)](images/gdc-data-portal-files-entity-page-Archive-MagTab.png "Click to see the full image.")
 
@@ -34,4 +34,4 @@ If a file has any associated MAGE-TAB or SRA XML metadata files, these files wil
 
 ### File Cart
 
-The file cart in the GDC Legacy Archive is analogous to the [file cart of the GDC Data Portal](Cart.md). It provides an additional button to download any SRA-XML and MAGE-TAB metadata files associated with the files in the cart.
+The file cart in the GDC Legacy Archive is analogous to the [file cart of the GDC Data Portal](Repository.md#cart-and-file-download). It provides an additional button to download any SRA-XML and MAGE-TAB metadata files associated with the files in the cart.
