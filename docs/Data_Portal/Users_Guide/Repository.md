@@ -1,7 +1,5 @@
 # Repository
 
-## Summary
-
 The Repository Page is the primary method of accessing data in the GDC Data Portal. It provides an overview of all cases and files available in the GDC and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the [Repository Page](https://portal.gdc.cancer.gov/repository) from the GDC Data Portal front page, from the Data Portal toolbar.
 
 ## Filters / Facets
@@ -9,8 +7,8 @@ On the left, a panel of data facets allows users to filter cases and files using
 
 On the right, two tabs contain information about available data:
 
-* `Files` tab provides a list of files, select information about each file, and links to individual file detail pages.
-* `Cases` tab provides a list of cases, select information about each case, and links to individual case summary pages.
+* `Files` tab provides a list of files, select information about each file, and links to [individual file detail pages](#file-summary-page).
+* `Cases` tab provides a list of cases, select information about each case, and links to [individual case summary pages](Exploration.md#case-summary-page).
 
 The banner above the tabs on the right displays any active facet filters and provides access to advanced search.
 
@@ -82,9 +80,61 @@ Clicking on an annotation ID in the annotations list will take the user to the A
 
 [![Annotation Entity Page](images/annotations-entity-page.png)](images/annotations-entity-page.png "Click to see the full image.")
 
+## Image Viewer
+
+The Image viewer allows users to visualize tissue slide images.
+
+[![Image Viewer](images/Image_viewer_browser.png)](images/Image_viewer_browser.png "Click to see the full image.")
+
+### How to access the image viewer
+
+The image viewer is available from:
+
+* __Repository page - main search__: After selecting your query, click on "View images" in Repository. It will display the tissue slide images of all the cases resulting from the query.
+
+[![Image Viewer](images/Image_Viewer_from_Repository.png)](images/Image_Viewer_from_Repository.png "Click to see the full image.")
+
+* __Case table in Exploration and Repository pages__: Click on the image viewer icon in the Case table. It will display in the image viewer all the tissue slide images attached to the Case.
+
+ [![Image Viewer](images/Image_viewer_Case_table.png)](images/Image_viewer_Case_table.png "Click to see the full image.")
+
+* __Case entity page__: Click on the image viewer icon in the Case summary section or in the Biospecimen section - Slides detail. It will display in the image viewer the tissue slide images attached to the Case.
+
+ [![Image Viewer](images/Image_viewer_case_summary.png)](images/Image_viewer_case_summary.png "Click to see the full image.")
+ [![Image Viewer](images/Image_viewer_case_slide_section.png)](images/Image_viewer_case_slide_section.png "Click to see the full image.")
+
+* __Directly in the File entity page__: You can visualize the tissue slide image directly in the file entity page.
+
+[![Image Viewer](images/Image_viewer_File_entity.png)](images/Image_viewer_File_entity.png "Click to see the full image.")
+
+
+### Image viewer features
+In the image viewer, you can:
+
+* Zoom in and zoom out by clicking on + and - icons.
+* Reset to default display by clicking on the Home icon.
+* Display the image in full screen mode by clicking on the Expand icon.
+* View the slide detail by clicking on "Details" button.
+* Selecting the area of interest with the thumbnail at the top-right corner.
+
+[![Image Viewer](images/Image_viewer_features.png)](images/Image_viewer_features.png "Click to see the full image.")
+
+
+### Example of navigation to the image viewer
+
+1. Go to Repository - Case facet and click on Add a Case/Biospecimen filter
+2. In the search box of the filter pop-up, look to percent_tumor_cells and add this filter to the Repository
+3. Enter a percentage between 60% and 80% then click on Go!
+4. Click on "View Images" button
+
+__Result__: The images displayed on the image viewer are filtered based on your query.
+
+[![Image Viewer](images/Image_viewer_example-1.png)](images/Image_viewer_example-1.png "Click to see the full image.")
+[![Image Viewer](images/Image_viewer_example-2.png)](images/Image_viewer_example-2.png "Click to see the full image.")
+
 ## Results
 
-## Navigation
+### Navigation
 
 After utilizing the Repository Page to narrow down a specific set of cases, users can choose to continue to explore the mutations and genes affected by these cases by clicking the `View Files in Exploration` button as shown in the image below.
 
@@ -98,11 +148,41 @@ The `Files` tab on the right provides a list of available files and select infor
 
 [![Files Tab](images/gdc-data-portal-data-files.png)](images/gdc-data-portal-data-files.png "Click to see the full image.")
 
-The "*File Name*" column includes links to [file summary pages](Supplemental_Information_Pages.md#file-summary-page) where the user can learn more about each file.
+The "*File Name*" column includes links to [file summary pages](#file-summary-page) where the user can learn more about each file.
 
 Users can add individual file(s) to the file cart using the cart button next to each file. Alternatively, all files that match the current facet filters can be added to the cart using the menu in the top left corner of the table:
 
 [![Files Tab](images/gdc-data-portal-data-files-add-cart.png)](images/gdc-data-portal-data-files-add-cart.png "Click to see the full image.")
+
+## File Summary Page
+
+The File Summary page provides information a data file, including file properties like size, md5 checksum, and data format; information on the type of data included; links to the associated case and biospecimen; and information about how the data file was generated or processed.
+
+The page also includes buttons to download the file, add it to the file cart, or (for BAM files) utilize the BAM slicing function.
+
+[![Files Detail Page](images/gdc-data-portal-files-entity-page.png)](images/gdc-data-portal-files-entity-page.png "Click to see the full image.")
+
+In the lower section of the screen, the following tables provide more details about the file and its characteristics:
+
+* __Associated Cases / Biospecimen__: List of Cases or biospecimen the file is directly attached to.
+* __Analysis and Reference Genome__: Information on the workflow and reference genome used for file generation.
+* __Read Groups__: Information on the read groups associated with the file.
+* __Metadata Files__: Experiment metadata, run metadata and analysis metadata associated with the file.
+* __Downstream Analysis Files__: List of downstream analysis files generated by the file.
+* __File Versions__: List of all versions of the file.
+
+
+[![Files Entity Page](images/gdc-data-portal-files-entity-page-part2_v2.png)](images/gdc-data-portal-files-entity-page-part2_v2.png "Click to see the full image.")
+
+>**Note**: *The Legacy Archive* will not display "Workflow, Reference Genome and Read Groups" sections (these sections are applicable to the GDC harmonization pipeline only). However it may provide information on Archives and metadata files like MAGE-TABs and SRA XMLs. For more information, please refer to the section [Legacy Archive](Legacy_Archive.md).
+
+### BAM Slicing
+
+BAM file detail pages have a "BAM Slicing" button. This function allows the user to specify a region of a BAM file for download. Clicking on it will open the BAM slicing window:
+
+[![BAM Slicing Window](images/gdc-data-portal-bam-slicing.png)](images/gdc-data-portal-bam-slicing.png "Click to see the full image.")
+
+During preparation of the slice, the icon on the BAM Slicing button will be spinning, and the file will be offered for download to the user as soon as ready.
 
 ### Cases List
 
@@ -110,7 +190,7 @@ The `Cases` tab on the right provides a list of available cases and select infor
 
 [![Cases Tab](images/gdc-data-portal-data-cases_v3.png)](images/gdc-data-portal-data-cases_v3.png "Click to see the full image.")
 
-The list includes links to [case summary pages](Supplemental_Information_Pages.md#case-summary-page) in the *Case UUID* column, the Submitter ID (i.e. TCGA Barcode), and counts of the available file types for each case. Clicking on a count will apply facet filters to display the corresponding files.
+The list includes links to [case summary pages](Exploration.md#case-summary-page) in the *Case UUID* column, the Submitter ID (i.e. TCGA Barcode), and counts of the available file types for each case. Clicking on a count will apply facet filters to display the corresponding files.
 
 The list also includes a shopping cart button, allowing the user to add all files associated with a case to the file cart for downloading at a later time:
 
@@ -118,7 +198,7 @@ The list also includes a shopping cart button, allowing the user to add all file
 
 ## Cart and File Download
 
-While browsing the GDC Data Portal, files can either be downloaded individually from [file summary pages](Supplemental_Information_Pages.md#file-summary-page) or collected in the file cart to be downloaded as a bundle.  Clicking on the shopping cart icon that is next to any item in the GDC will add the item to your cart.
+While browsing the GDC Data Portal, files can either be downloaded individually from [file summary pages](#file-summary-page) or collected in the file cart to be downloaded as a bundle.  Clicking on the shopping cart icon that is next to any item in the GDC will add the item to your cart.
 
 ### GDC Cart
 
@@ -146,9 +226,9 @@ The cart also directs users how to download files in the cart.  For large data f
 The Cart Items table shows the list of all the files that were added to the Cart.  The table gives the folowing information for each file in the cart:
 
 * __Access__: Displays whether the file is open or controlled access.  Users must login to the GDC Portal and have the appropriate credentials to access these files.
-* __File Name__: Name of the file.  Clicking the link will bring the user to the [file summary page](Supplemental_Information_Pages.md#file-summary-page).
-* __Cases__: How many cases does the file contain.  Clicking the link will bring the user to the [case summary page](Supplemental_Information_Pages.md#case-summary-page).
-* __Project__: The Project that the file belongs to.  Clicking the link will bring the user to the [Project summary page](Supplemental_Information_Pages.md#project-summary-page).
+* __File Name__: Name of the file.  Clicking the link will bring the user to the [file summary page](#file-summary-page).
+* __Cases__: How many cases does the file contain.  Clicking the link will bring the user to the [case summary page](Exploration.md#case-summary-page).
+* __Project__: The Project that the file belongs to.  Clicking the link will bring the user to the [project summary page](Projects.md#project-summary-page).
 * __Category__: Type of data.
 * __Format__: The file format.
 * __Size__: The size of the file.

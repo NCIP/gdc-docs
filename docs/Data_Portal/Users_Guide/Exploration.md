@@ -30,21 +30,6 @@ These criteria limit the results only to specific cases within the GDC. The defa
 
 In addition to the defaults, users can add additional case filters by clicking on the link titled ["Add a Case Filter"](Repository.md#adding-custom-facets).
 
-
-#### Upload Case Set
-
-In the `Cases` filters panel, instead of supplying cases one-by-one, users can supply a list of cases.  Clicking on the `Upload Case Set` button will launch a dialog as shown below, where users can supply a list of cases or upload a comma-separated text file of cases.
-
-[![Upload Case Set](images/gdc-exploration-case-set.png)](images/gdc-exploration-case-set.png "Click to see the full image.")
-
-After supplying a list of cases, a table below will appear which indicates whether the case was found.
-
-[![Upload Case Set Validation](images/gdc-exploration-case-set-validation.png)](images/gdc-exploration-case-set-validation.png "Click to see the full image.")
-
-Clicking on `Submit` will filter the results in the Exploration Page by those cases.
-
-[![Upload Case Set Results](images/case-set-filter_v3.png)](images/case-set-filter_v2.png "Click to see the full image.")
-
 ### Gene Filters
 
 The second tab of filters is for genes affected by mutations in the GDC.
@@ -61,18 +46,6 @@ The second tab of filters are for specific genes.  Users can filter by:
     * __Short noncoding:__ miRNA, miRNA_pseudogene, miscRNA, miscRNA pseudogene, Mt rRNA, Mt tRNA, rRNA, scRNA, snlRNA, snoRNA, snRNA, tRNA, tRNA_pseudogene.
 * __Is Cancer Gene Census -__ Whether or not a gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/).
 
-#### Upload Gene Set
-
-In the `Genes` filters panel, instead of supplying genes one-by-one, users can supply a list of genes.  Clicking on the `Upload Gene Set` button will launch a dialog as shown below, where users can supply a list of genes or upload a comma-separated text file of genes.
-
-[![Upload Gene Set](images/Exploration-Upload-Gene-Set.png)](images/Exploration-Upload-Gene-Set.png "Click to see the full image.")
-
-After supplying a list of genes, a table below will appear which indicates whether the gene was found.
-
-[![Upload Gene Set Validation](images/Exploration-Upload-Gene-Set-Validation.png)](images/Exploration-Upload-Gene-Set-Validation.png "Click to see the full image.")
-
-Clicking on `Submit` will filter the results in the Exploration Page by those genes.
-
 ### Mutation Filters
 
 The final tab of filters is for specific mutations.
@@ -87,28 +60,26 @@ Users can filter by:
     * COSMIC ID - COSM202522
     * List of any mutation UUIDs or DNA Change id's ('Mutation Set').
 * __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms.
-* __Impact:__  A [subjective classification](Supplemental_Information_Pages.md#most-frequent-somatic-mutations) of the severity of the variant consequence. This is determined by three different tools:
-    * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html)__
-    * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/)__
-    * __[SIFT](http://sift.jcvi.org/)__
+* __Impact:__ A subjective classification of the severity of the variant consequence. These scores are determined using the three following tools:
+    * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html):__
+        * __HIGH (H):__ The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay.
+        * __MODERATE (M):__ A non-disruptive variant that might change protein effectiveness.
+        * __LOW (L):__ Assumed to be mostly harmless or unlikely to change protein behavior.
+        * __MODIFIER (MO):__ Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact.
+    * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/):__
+        * __probably damaging (PR):__ It is with high confidence supposed to affect protein function or structure.
+        * __possibly damaging (PO):__ It is supposed to affect protein function or structure.
+        * __benign (BE):__ Most likely lacking any phenotypic effect.
+        * __unknown (UN):__ When in some rare cases, the lack of data does not allow PolyPhen to make a prediction.
+    * __[SIFT](http://sift.jcvi.org/):__
+        * __tolerated:__ Not likely to have a phenotypic effect.
+        * __tolerated_low_confidence:__ More likely to have a phenotypic effect than 'tolerated'.
+        * __deleterious:__ Likely to have a phenotypic effect.
+        * __deleterious_low_confidence:__ Less likely to have a phenotypic effect than 'deleterious'.
 * __Type:__  A general classification of the mutation.
 * __Variant Caller:__  The variant caller used to identify the mutation.
 * __COSMIC ID:__  The identifier of the gene or mutation maintained in COSMIC, the Catalogue Of Somatic Mutations In Cancer.
 * __dbSNP rs ID:__  The reference SNP identifier maintained in dbSNP.
-
-#### Upload Mutation Set
-
-In the `Mutations` filters panel, instead of supplying mutation id's one-by-one, users can supply a list of mutations.  Clicking on the `Upload Mutation Set` button will launch a dialog as shown below, where users can supply a list of mutations or upload a comma-separated text file of mutations.
-
-[![Upload Case Set](images/gdc-exploration-mutation-set.png)](images/gdc-exploration-mutation-set.png "Click to see the full image.")
-
-After supplying a list of mutations, a table below will appear which indicates whether the mutation was found.
-
-[![Upload Case Set Validation](images/gdc-exploration-mutation-set-validation.png)](images/gdc-exploration-mutation-set-validation.png "Click to see the full image.")
-
-Clicking on `Submit` will filter the results in the Exploration Page by those mutations.
-
-[![Upload Case Set Results](images/mutation-set-filter.png)](images/mutation-set-filter.png "Click to see the full image.")
 
 ## Results
 
@@ -131,12 +102,40 @@ Below these pie charts is a tabular view of cases, which can be exported, sorted
 * __Primary Site:__ The primary site of the cancer/project.
 * __Gender:__ The gender of the case.
 * __Files:__ The total number of files available for that case.
-* __Available Files per Data Category:__ Five columns displaying the number of files available in each of the five data categories.  These link to the files for the specific case.
+* __Available Files per Data Category:__ Seven columns displaying the number of files available in each of the seven data categories.  These link to the files for the specific case.
 * __# Mutations:__ The number of SSMs (simple somatic mutations) detected in that case.
 * __# Genes:__ The number of genes affected by mutations in that case.
 * __Slides:__ The total number of slides available for that case. 
 
->__Note__: By default, the Case UUID is not displayed.  You can display the UUID of the case, but clicking on the icon with 3 parallel lines, and choose to display the Case UUID.
+>__Note__: By default, the UUID is not displayed on summary page tables. You can display the UUID by clicking on the icon with 3 parallel lines and checking the UUID option.
+
+### Case Summary Page
+
+The Case Summary page displays case details including the project and disease information, data files that are available for that case, and the experimental strategies employed. A button in the top-right corner of the page allows the user to add all files associated with the case to the file cart.
+
+[![Case Page](images/gdc-case-entity-page.png)](images/gdc-case-entity-page.png "Click to see the full image.")
+
+#### Clinical and Biospecimen Information
+
+The page also provides clinical and biospecimen information about that case. Links to export clinical and biospecimen information in JSON format are provided.
+
+[![Case Page, Clinical and Biospecimen](images/gdc-case-clinical-biospecimen_v3.png)](images/gdc-case-clinical-biospecimen_v3.png "Click to see the full image.")
+
+For clinical records that support multiple records of the same type (Diagnoses, Family Histories, or Exposures), a UUID of the record is provided on the left hand side of the corresponding tab, allowing the user to select the entry of interest.
+
+#### Biospecimen Search
+
+A search filter just below the biospecimen section can be used to find and filter biospecimen data. The wildcard search will highlight entities in the tree that match the characters typed. This will search both the case submitter ID, as well as the additional metadata for each entity. For example, searching 'Primary Tumor' will highlight samples that match that type.
+
+[![Biospecimen Search](images/gdc_case_biospecimen_search_v3.png)](images/gdc_case_biospecimen_search_v3.png "Click to see the full image.")
+
+#### Most Frequent Somatic Mutations for a Case
+
+The case entity page also lists the mutations found in that particular case.
+
+[![Case Page](images/gdc-case-entity-mfm.png)](images/gdc-case-entity-mfm.png "Click to see the full image.")
+
+For more information, please go to the [Most Frequent Somatic Mutation](#most-frequent-somatic-mutations) section.
 
 ### Genes
 
@@ -158,7 +157,149 @@ Below these graphs is a tabular view of the genes affected, which includes the f
 * __Annotations:__ Includes a COSMIC symbol if the gene belongs to [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/).
 * __Survival Analysis:__ An icon that, when clicked, will plot the survival rate between cases in the project with mutated and non-mutated forms of the gene.
 
-### Survival Analysis
+### Gene Summary Page
+
+Gene Summary Pages describe each gene with mutation data and provides results related to the analyses that are performed on these genes.  
+
+The summary section of the gene page contains the following information:
+
+[![Gene Summary](images/GDC-Gene-Summary.png)](images/GDC-Gene-Summary.png "Click to see the full image.")
+
+* __Symbol:__ The gene symbol.
+* __Name:__ Full name of the gene.
+* __Synonyms:__ Synonyms of the gene name or symbol, if available.
+* __Type:__ A broad classification of the gene.
+* __Location:__ The chromosome on which the gene is located and its coordinates.
+* __Strand:__ If the gene is located on the forward (+) or reverse (-) strand.
+* __Description:__ A description of gene function and downstream consequences of gene alteration.
+- __Annotation:__ A notation/link that states whether the gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/).
+
+#### External References
+
+A list with links that lead to external databases with additional information about each gene is displayed here. These external databases include:
+
+*  [Entrez](https://www.ncbi.nlm.nih.gov/gquery/)
+*  [Uniprot](http://www.uniprot.org/)
+*  [Hugo Gene Nomenclature Committee](http://www.genenames.org/)
+*  [Online Mendelian Inheritance in Man](https://www.omim.org/)
+*  [Ensembl](http://may2015.archive.ensembl.org/index.html)
+
+#### Cancer Distribution
+
+A table and two bar graphs show how many cases are affected by mutations and copy number variation within the gene as a ratio and percentage. Each row/bar represents the number of cases for each project.  The final column in the table lists the number of unique mutations observed on the gene for each project.
+
+[![Cancer Distribution](images/GDC-Gene-CancerDist.png)](images/GDC-Gene-CancerDist.png "Click to see the full image.")
+
+#### Protein Viewer
+
+Mutations and their frequency across cases are mapped to a graphical visualization of protein-coding regions with a lollipop plot. Pfam domains are highlighted along the x-axis to assign functionality to specific protein-coding regions. The bottom track represents a view of the full gene length. Different transcripts can be selected by using the drop-down menu above the plot.  
+
+[![Protein Plot](images/GDC-Gene-ProteinGraph.png)](images/GDC-Gene-ProteinGraph.png "Click to see the full image.")
+
+The panel to the right of the plot allows the plot to be filtered by mutation consequences or impact. The plot will dynamically change as filters are applied.  Mutation consequence and impact is denoted in the plot by color.
+
+>__Note__: The impact filter on this panel will not display the annotations for alternate transcripts.
+
+The plot can be viewed at different zoom levels by clicking and dragging across the x-axis, clicking and dragging across the bottom track, or double clicking the pfam domain IDs. The `Reset` button can be used to bring the zoom level back to its original position. The plot can also be exported as a PNG image, SVG image or as JSON formatted text by choosing the `Download` button above the plot.
+
+#### Most Frequent Somatic Mutations
+
+The 20 most frequent mutations in the gene are displayed as a bar graph that indicates the number of cases that share each mutation.  
+
+[![Gene MFM](images/GDC-Gene-MFM.png)](images/GDC-Gene-MFM.png "Click to see the full image.")
+
+A table is displayed below that lists information about each mutation including:
+
+* __DNA Change:__ The chromosome and starting coordinates of the mutation are displayed along with the nucleotide differences between the reference and tumor allele.
+* __Type:__ A general classification of the mutation.
+* __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript).
+* __# Affected Cases in Gene:__ The number of affected cases, expressed as number across all mutations within the selected Gene.
+* __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project.
+* __Impact:__  A [subjective classification](#mutation-filters) of the severity of the variant consequence. This is determined by three different tools:
+    * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html)__
+    * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/)__
+    * __[SIFT](http://sift.jcvi.org/)__
+
+
+Clicking the `Open in Exploration` button will navigate the user to the Exploration page, showing the same results in the table (mutations filtered by the gene).
+
+### Mutations
+
+The `Mutations` tab will give an overview of all the mutations who match the criteria of the filters (Cohort).
+
+[![Exploration Mutation Example](images/Exploration-Mutation-Example.png)](images/Exploration-Mutation-Example.png "Click to see the full image.")
+
+At the top of this tab is a survival plot of all the cases within the specified exploration page filters.
+
+A table is displayed below that lists information about each mutation:
+
+* __DNA Change:__ The chromosome and starting coordinates of the mutation are displayed along with the nucleotide differences between the reference and tumor allele.
+* __Type:__ A general classification of the mutation.
+* __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript).  A link to the [Gene Summary Page](Exploration.md#gene-summary-page) for the gene affected by the mutation is included.
+* __# Affected Cases in Cohort:__ The number of affected cases in the Cohort as a fraction and as a percentage.
+* __# Affected Cases in Across all Projects:__ The number of affected cases, expressed as number across all projects. Clicking the arrow next to the percentage will display a breakdown of each affected project.
+* __Impact:__  A [subjective classification](#mutation-filters) of the severity of the variant consequence. This is determined by three different tools:
+    * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html)__
+    * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/)__
+    * __[SIFT](http://sift.jcvi.org/)__
+* __Survival Analysis:__ An icon that when clicked, will plot the survival rate between the gene's mutated and non-mutated cases.
+
+### Mutation Summary Page
+
+  The Mutation Summary Page contains information about one somatic mutation and how it affects the associated gene. Each mutation is identified by its chromosomal position and nucleotide-level change.
+
+  [![Mutation Summary](images/GDC-Mutation-Summary.png)](images/GDC-Mutation-Summary.png "Click to see the full image.")
+
+  - __ID:__ A unique identifier (UUID) for this mutation.
+  - __DNA Change:__ Denotes the chromosome number, position, and nucleotide change of the mutation.
+  - __Type:__ A broad categorization of the mutation.
+  - __Reference Genome Assembly:__ The reference genome in which the chromosomal position refers to.
+  - __Allele in the Reference Assembly:__ The nucleotide(s) that compose the site in the reference assembly.
+  - __Functional Impact:__ A subjective classification of the severity of the variant consequence.
+
+#### External References
+
+  A separate panel contains links to databases that contain information about the specific mutation. These include [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/) and [COSMIC](http://cancer.sanger.ac.uk/cosmic).
+
+#### Consequences
+
+The consequences of the mutation are displayed in a table.  The set of consequence terms, defined by the [Sequence Ontology](http://www.sequenceontology.org).
+
+  [![Mutation Consequences](images/GDC-Mutation-Consequences.png)](images/GDC-Mutation-Consequences.png "Click to see the full image.")
+
+The fields that describe each consequence are listed below:
+
+  * __Gene:__ The symbol for the affected gene.
+  * __AA Change:__ Details on the amino acid change, including compounds and position, if applicable.
+  * __Consequence:__ The biological consequence of each mutation.
+  * __Coding DNA Change:__ The specific nucleotide change and position of the mutation within the gene.
+* __Impact:__  A [subjective classification](#mutation-filters) of the severity of the variant consequence. This is determined by three different tools:
+    * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html)__
+    * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/)__
+    * __[SIFT](http://sift.jcvi.org/)__
+  * __Strand:__ If the gene is located on the forward (+) or reverse (-) strand.
+  * __Transcript(s):__ The transcript(s) affected by the mutation. Each contains a link to the [Ensembl](https://www.ensembl.org) entry for the transcript.
+
+#### Cancer Distribution
+
+A table and bar graph shows how many cases are affected by the particular mutation. Each row/bar represents the number of cases for each project.
+
+  [![Mutation Distribution](images/GDC-Mutation-CancerDist.png)](images/GDC-Mutation-CancerDist.png "Click to see the full image.")
+
+The table contains the following fields:
+
+  * __Project ID__: The ID for a specific project.
+  * __Disease Type__: The disease associated with the project.
+  * __Site__: The anatomical site affected by the disease.
+  * __# Affected Cases__: The number of affected cases and total number of cases displayed as a fraction and percentage.
+
+#### Protein Viewer
+
+The protein viewer displays a plot representing the position of mutations along the polypeptide chain. The y-axis represents the number of cases that exhibit each mutation, whereas the x-axis represents the polypeptide chain sequence. [Pfam domains](http://pfam.xfam.org/) that were identified along the polypeptide chain are identified with colored rectangles labeled with pfam IDs. See the [Gene Summary Page](#gene-summary-page) for additional details about the [protein viewer](#protein-viewer).
+
+  [![Mutation Protein Graph](images/GDC-Mutation-ProteinGraph.png)](images/GDC-Mutation-ProteinGraph.png "Click to see the full image.")
+
+## Survival Analysis
 
 Survival analysis is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Survival analysis requires:
 
@@ -187,30 +328,7 @@ The calculated cumulated survival probability can be plotted against the interva
 
 [![Sample Survival Analysis Plot](images/gdc-survival-plot.png)](images/gdc-survival-plot.png "Click to see the full image.")
 
-### Mutations
-
-The `Mutations` tab will give an overview of all the mutations who match the criteria of the filters (Cohort).
-
-[![Exploration Mutation Example](images/Exploration-Mutation-Example.png)](images/Exploration-Mutation-Example.png "Click to see the full image.")
-
-At the top of this tab is a survival plot of all the cases within the specified exploration page filters.
-
-A table is displayed below that lists information about each mutation:
-
-* __DNA Change:__ The chromosome and starting coordinates of the mutation are displayed along with the nucleotide differences between the reference and tumor allele.
-* __Type:__ A general classification of the mutation.
-* __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript).  A link to the [Gene Summary Page](Supplemental_Information_Pages.md#gene-summary-page) for the gene affected by the mutation is included.
-* __# Affected Cases in Cohort:__ The number of affected cases in the Cohort as a fraction and as a percentage.
-* __# Affected Cases in Across all Projects:__ The number of affected cases, expressed as number across all projects. Clicking the arrow next to the percentage will display a breakdown of each affected project.
-* __Impact:__  A [subjective classification](Supplemental_Information_Pages.md#most-frequent-somatic-mutations) of the severity of the variant consequence. This is determined by three different tools:
-    * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html)__
-    * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/)__
-    * __[SIFT](http://sift.jcvi.org/)__
-* __Survival Analysis:__ An icon that when clicked, will plot the survival rate between the gene's mutated and non-mutated cases.
-
-> __Note:__ By default, the Mutation UUID is not displayed.  You can display the UUID of the case, but clicking on the icon with 3 parallel lines, and choose to display the Mutation UUID.
-
-### OncoGrid
+## OncoGrid
 
 The Exploration page includes an OncoGrid plot of the cases with the most mutations, for the top 50 mutated genes affected by high impact mutations. Genes displayed on the left of the grid (Y-axis) correspond to individual cases on the bottom of the grid (X-axis). Additionally, the plot also indicates in each cell any CNV events detected for these top mutated cases and genes.
 

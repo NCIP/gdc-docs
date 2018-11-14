@@ -1,6 +1,5 @@
 # Getting Started
 
-
 ## The GDC Data Portal: An Overview
 
 The Genomic Data Commons (GDC) Data Portal provides users with web-based access to data from cancer genomics studies. Key GDC Data Portal features include:
@@ -41,7 +40,7 @@ The GDC Data Portal provides five navigation options (*Views*) for browsing avai
 
 * __Repository__: The Repository link directs users to the [Repository Page](Repository.md).  Here users can see the data files available for download at the GDC and apply file/case filters to narrow down their search.
 
-* __Image Viewer__: The [Image viewer](Supplemental_Information_Pages.md#image-viewer) allows users to visualize tissue slide images.
+* __Image Viewer__: The [Image viewer](Repository.md#image-viewer) allows users to visualize tissue slide images.
 
 * __Human Outline__: The home page displays a human anatomical outline that can be used to refine their search. Choosing an associated organ will direct the user to a listing of all projects associated with that primary site. For example, clicking on the human brain will show only cases and projects associated with brain cancer (TCGA-GBM and TCGA-LGG).  The number of cases associated with each primary site is also displayed here and separated by project.
 
