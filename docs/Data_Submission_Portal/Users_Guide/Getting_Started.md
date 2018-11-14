@@ -1,58 +1,174 @@
 # Getting Started
 
-## Overview
 
-The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission Portal User's Guide is the companion documentation for the [GDC Data Submission Portal](https://gdc.cancer.gov/submit-data/gdc-data-submission-portal) and provides detailed information and instructions for its use.
+## The GDC Data Portal: An Overview
 
-The GDC Data Submission Portal is a platform that allows researchers to submit and release data to the GDC. The key features of the GDC Data Submission Portal are:
+The Genomic Data Commons (GDC) Data Portal provides users with web-based access to data from cancer genomics studies. Key GDC Data Portal features include:
 
-* __Upload and Validate Data__: Project data can be uploaded to the GDC project workspace. The GDC will validate the data against the [GDC Data Dictionary](https://gdc-docs.nci.nih.gov/Data_Dictionary/).
-* __Review and Submit Data__: Prior to submission, data can be reviewed to check for accuracy. Once the review is complete, the data can be submitted to the GDC for processing through [Data Harmonization](https://gdc.cancer.gov/submit-data/gdc-data-harmonization).
-* __Release Data__: After harmonization, data can be released to the research community for access through [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
-* __Browse and Download Data__: Data that has been uploaded into the project workspace can be browsed to ensure that the data is ready for processing and downloaded for review or update. Data can then be re-uploaded before it is released for access through [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
-* __Status and Alerts__: Visual cues are implemented to easily identify incomplete submissions.
-* __Transactions__: List of all actions performed in a project are displayed along with details about each transaction.
+*   Open, granular access to information about all datasets available in the GDC.
+*   Advanced search and visualization-assisted filtering of data files.
+*   Data visualization tools to support the analysis and exploration of data (including on a gene and mutation level from Open-Access MAF files).
+*   Cart for collecting data files of interest.
+*   Authentication using eRA Commons credentials for access to controlled data files.
+*   Secure data download directly from the cart or using the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).
 
-## Key Features
-
-### Upload and Validate Data
-To submit data to the GDC, the user will prepare the data and upload it to the project workspace.
-
-The main categories of data that can be uploaded include:
-
-* __Clinical Data__: Elements such as `gender`, `age`, `diagnosis`, etc. as defined in the GDC Data Dictionary.
-* __Biospecimen Data__: Information about entities such as `samples`, `aliquots`, etc. as defined in the GDC Data Dictionary.
-* __Submittable Data Files__: Sequencing data such as BAM and FASTQ files, slide images, and other experimental data collected by the study.
-
-The [GDC Data Dictionary Viewer](../../Data_Dictionary/viewer.md) outlines the minimum field requirements for each of the three categories listed above.
-
-### Review and Submit Data
-
-Once data is uploaded to the project workspace, it can be reviewed to ensure that the data is ready for processing through the [GDC Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization). The review will lock the project to ensure that additional data cannot be uploaded while in review. During this period the data can be browsed or downloaded in the Data Submission Portal.
-
-If the project is ready for processing, data can be submitted to the GDC. If the project is not ready for processing, the project can be re-opened. This will allow for additional data to be uploaded to the project workspace.
-
-### Release Data
-
-The GDC will release data according to [GDC data sharing policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data must be released within six months after GDC data processing has been completed, or the submitter may request earlier release using the "Request Release" function.
-
-Upon release, harmonized data will be available to GDC users through the [GDC Data Portal](https://portal.gdc.cancer.gov/) and other [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
-
-After harmonized data is released, it can only be redacted by GDC administrators under certain conditions. To request redaction of released data, please contact [GDC User Services](https://gdc.cancer.gov/support#gdc-help-desk).
-
-### Browse and Download Data
-
-Authorized submitters can browse and retrieve data submitted to their project using the Data Submission Portal.  Retrieval of data submitted to the submission portal can be accomplished by using the API or the Data Transfer Tool.  UUIDs of submitted files can be retrieved from the submission portal or with a [GraphQL](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#querying-submitted-data-using-graphql) query.   Please see the [API](https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/) documentation for more information about downloads.
+For more information about available datasets, see the [GDC Website](https://gdc.cancer.gov/about-data).
 
 
-### Status and Alerts
 
-The GDC Data Submission Portal Dashboard and navigation panel displays a summary of submitted data and associated data elements, such as the number of cases with Clinical data or Biospecimen data.
+## Accessing the GDC Data Portal
 
-### Transactions
+The GDC Data Portal is accessible using a web browser such as Chrome, Firefox, and Internet Explorer at the following URL:
 
-Submitters can access a list of all actions performed in a project by clicking on the Transactions tab on the dashboard. This will display a list of all past transactions for the selected project. Users can access details about each transaction. The most recent transactions are also displayed on the dashboard.
+[https://portal.gdc.cancer.gov](https://portal.gdc.cancer.gov)
 
-## Release Notes
+The front page displays a summary of all available datasets:
 
-The [Release Notes](../../Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md) section of this User's Guide contains details about new features, bug fixes, and known issues.
+[![GDC Home Page](images/GDC-Home-Page.png)](images/GDC-Home-Page.png "Click to see the full image.")
+
+
+## Views
+
+The GDC Data Portal provides five navigation options (*Views*) for browsing available harmonized datasets:
+
+[![GDC Views](images/gdc-home-view-options.png)](images/gdc-home-view-options.png "Click to see the full image.")
+
+* __Projects__: The Projects link directs users to the [Projects Page](Projects.md), which gives an overall summary of project-level information, including the available data for each project.
+
+* __Exploration__: The Exploration link takes users to the [Exploration Page](Exploration.md), which allows users to explore data by utilizing various case, genes and mutation filters.
+
+* __Analysis__: The Analysis link directs users to the [Analysis Page](Custom_Set_Analysis.md).  This page has features available for users to compare different cohorts.  These cohorts can either be generated with existing filters (e.g. males with lung cancer) or through custom selection.
+
+* __Repository__: The Repository link directs users to the [Repository Page](Repository.md).  Here users can see the data files available for download at the GDC and apply file/case filters to narrow down their search.
+
+* __Image Viewer__: The [Image viewer](Supplemental_Information_Pages.md#image-viewer) allows users to visualize tissue slide images.
+
+* __Human Outline__: The home page displays a human anatomical outline that can be used to refine their search. Choosing an associated organ will direct the user to a listing of all projects associated with that primary site. For example, clicking on the human brain will show only cases and projects associated with brain cancer (TCGA-GBM and TCGA-LGG).  The number of cases associated with each primary site is also displayed here and separated by project.
+
+Each view provides a distinct representation of the same underlying set of GDC data and metadata. The GDC also provides access to certain unharmonized data files generated by GDC-hosted projects. These files and their associated metadata are not represented in the views above; instead they can be found in the [GDC Legacy Archive](Legacy_Archive.md).
+
+The Projects, Exploration, Analysis and Repository pages can be accessed from the GDC Data Portal front page and from the toolbar (see below). The annotations view is accessible from Repository view. A link to the GDC Legacy Archive is available on the GDC Data Portal front page and in the GDC Apps menu (see below).
+
+## Toolbar
+
+The toolbar available at the top of all pages in the GDC Data Portal provides convenient navigation links and access to authentication and quick search.
+
+The left portion of this toolbar provides access to the __Home Page__, __Projects Page__, __Exploration Page__, __Analysis Page__, and a link to __Repository Page__:
+
+[![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-left.png)](images/gdc-data-portal-top-menu-bar-left.png "Click to see the full image.")
+
+The right portion of this toolbar provides access to [quick search](#quick-search), [manage sets](#manage-sets), [authentication functions](Repository.md#authentication), the [cart](Repository.md#cart-and-file-download), and the GDC Apps menu:
+
+[![GDC Data Portal Toolbar (Left)](images/gdc-data-portal-top-menu-bar-right.png)](images/gdc-data-portal-top-menu-bar-right.png "Click to see the full image.")
+
+The GDC Apps menu provides links to all resources provided by the GDC, including the [GDC Legacy Archive](Legacy_Archive.md).
+
+[![GDC Apps](images/gdc-data-portal-gdc-apps.png)](images/gdc-data-portal-gdc-apps.png "Click to see the full image.")
+
+## Tables
+
+Tabular listings are the primary method of representing available data in the GDC Data Portal. Tables are available in all views and in the file cart. Users can customize each table by specifying columns, size, and sorting.
+
+
+### Table Sort
+
+The sort button is available in the top right corner of each table. To sort by a column, place a checkmark next to it and select the preferred sort direction. If multiple columns columns are selected for sorting, data is sorted column-by-column in the order that columns appear in the sort menu: the topmost selected column becomes the primary sorting parameter; the selected column below it is used for secondary sort, etc.
+
+[![Sorting a table](images/gdc-data-portal-table-sort.png)](images/gdc-data-portal-table-sort.png "Click to see the full image.")
+
+### Table Arrangement
+
+The arrange button allows users to adjust the order of columns in the table and select which columns are displayed.
+
+![Selecting table columns](images/gdc-data-portal-table-column-selection.png)
+
+### Table Size
+
+Table size can be adjusted using the menu in the bottom left corner of the table. The menu sets the maximum number of rows to display. If the number of entries to be displayed exceeds the maximum number of rows, then the table will be paginated, and navigation buttons will be provided in the bottom right corner of the table to navigate between pages.
+
+![Specifying table size](images/gdc-data-portal-table-size-and-pagination.png)
+
+### Table Export
+
+In the Repository, Projects, and Annotations views, tables can be exported in either a JSON or TSV format. The `JSON` button will export the entire table's contents into a JSON file.  The `TSV` button will export the current view of the table into a TSV file.
+
+[![Table Columns Filtering](images/gdc-data-portal-table-export.png)](images/gdc-data-portal-table-export.png "Click to see the full image.")
+
+
+## Filtering and Searching
+
+The GDC Data Portal offers three different means of searching and filtering the available data: facet filters, quick search, and advanced search.
+
+### Facet Filters
+
+Facets on the left of each view (Projects, Exploration, and Repository) represent properties of the data that can be used for filtering. Some of the available facets are project name, disease type, patient gender and age at diagnosis, and various data formats and categories. Each facet displays the name of the data property, the available values, and numbers of matching entities for each value (files, cases, mutations, genes, annotations, or projects, depending on the context).
+
+Below are two file facets available in the Repository view. A _Data Type_ facet filter is applied, filtering for "Aligned Reads" files.
+
+![Facets (no filter applied)](images/gdc-data-portal-facet-selection.png)
+
+Multiple selections within a facet are treated as an "OR" query: e.g. "Aligned Reads" OR "Annotated Somatic Mutation". Selections in different facets are treated as "AND" queries: e.g. Data Type: "Aligned Reads" AND Experimental Strategy: "RNA-Seq".
+
+The information displayed in each facet reflects this: in the example above, marking the "Aligned Reads" checkbox does not change the numbers or the available values in the _Data Type_ facet where the checkbox is found, but it does change the values available in the _Experimental Strategy_ facet. The _Experimental Strategy_ facet now displays only values from files of _Data Type_ "Aligned Reads".
+
+Custom facet filters can be added in the [Repository View](Repository.md) to expand the GDC Data Portal's filtering capabilities.
+
+### Quick Search
+
+The quick search feature allows users to find cases, files, mutations, or genes using a search query (i.e. UUID, filename, gene name, DNA Change, project name, id, disease type or primary site). Quick search is available by clicking on the magnifier in the right section of the toolbar (which appears on every page) or by using the search bar on the Home Page.
+
+[![Quick Search](images/gdc-quick-search-home.png)](images/gdc-quick-search-home.png "Click to see the full image.")
+
+Search results are displayed as the user is typing, with labels indicating the type of each search result in the list (project, case, or file). Users will see a brief description of the search results, which may include the UUID, submitter ID, or file name. Clicking on a selected result or pressing enter will open a detail page with additional information.
+
+__Home Page Quick Search:__
+
+[![Quick Search, Searching for an Entity](images/gdc-quick-search-results.png)](images/gdc-quick-search-results.png "Click to see the full image.")
+
+__Toolbar Quick Search:__
+
+[![Quick Search, Searching for an Entity](images/gdc-quick-search2.png)](images/gdc-quick-search2.png "Click to see the full image.")
+
+### Advanced Search
+
+Advanced Search is available in Repository View. It allows users to construct complex queries with a custom query language and auto-complete suggestions. See [Advanced Search](Advanced_Search.md) for details.
+
+## Manage Sets
+The `Manage Sets` button at the top of the GDC Portal stores sets of cases, genes, or mutations of interest.  On this page, users can review the sets that have been saved as well as upload new sets and delete existing sets.
+
+[![Manage Sets](images/gdc-manage-sets.png)](images/gdc-manage-sets.png "Click to see the full image.")
+
+### Upload Sets
+
+Clicking the `Upload Set` button shows options for creating Case, Gene, or Mutation sets.  
+
+[![Upload Sets](images/gdc-upload-sets.png)](images/gdc-upload-sets.png "Click to see the full image.")
+
+Upon clicking one of the menu items, users are shown a dialog where they can enter unique identifiers (i.e. UUIDs, TCGA Barcodes, gene symbols, mutation UUIDs, etc.) that describe the set.
+
+[![Manage Sets Gene](images/gdc-manage-set-gene.png)](images/gdc-manage-sets.png "Click to see the full image.")
+
+Clicking the `Submit` button will add the set of items to the list of sets on the Manage Sets page.
+
+[![New Sets Gene](images/gdc-new-set.png)](images/gdc-manage-sets.png "Click to see the full image.")
+
+### Export Sets
+
+Users can export selected sets on this page by first clicking the checkboxes next to each set, then clicking the `Export selected` button at the top of the table.
+
+[![Export Sets](images/gdc-export-sets.png)](images/gdc-export-sets.png "Click to see the full image.")
+
+A text file containing the UUID of each case, gene or mutation is downloaded after clicking this button.
+
+### Review Sets
+
+There are a few buttons in the list of sets that allows a user to get further information about each one.
+
+* __# Items__: Clicking the link under the # Items column navigates the user to the Exploration page using the set as a filter.
+
+* __Download/View__: To the right of the # Items column are buttons that will download the list as a tsv or open the cases in the Repository page.
+
+### Creating Sets from GDC Portal Filters
+Many pages on the GDC Portal have an option called `Save Sets` that allows users to save a group of cases, mutations, or genes for further analysis.  After using the filtering options on the `Exploration` page as an example, users can click the `Save Case/Gene/Mutation Set` button to save this set.
+
+[![Save Sets](images/gdc-exploration-save-sets.png)](images/gdc-quick-search2.png "Click to see the full image.")
