@@ -1,12 +1,12 @@
-##Data Transfer Tool Configuration File  
-The DTT allows the ability to save configuration parameters in the format of a flat text file.
+###Data Transfer Tool Configuration File  
+The DTT has the ability to save configuration parameters in the format of a flat text file.
 
 
 Example usage:
 
     gdc-client download d45ec02b-13c3-4afa-822d-443ccd3795ca --config my-dtt-config.dtt
 
-Example of Configuration File:
+Example of configuration file:
 
     [upload]
     path = /some/upload/path
