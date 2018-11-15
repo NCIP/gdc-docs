@@ -114,7 +114,7 @@ print json.dumps(response.json(), indent=2)
 
 Authentication is required for downloading controlled-access data, and for all data submission functionality. The GDC API uses tokens for authentication.
 
-Users can obtain authentication tokens from the [GDC Data Portal](https://portal.gdc.cancer.gov) and the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Authentication.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Data_Submission_Process.md#authentication) for instructions.
+Users can obtain authentication tokens from the [GDC Data Portal](https://portal.gdc.cancer.gov) and the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission). See the [GDC Data Portal User's Guide](../../Data_Portal/Users_Guide/Repository.md#gdc-authentication-tokens) and the [GDC Data Submission Portal User's Guide](../../Data_Submission_Portal/Users_Guide/Data_Submission_Process.md#authentication) for instructions.
 
 ### Using Authentication Tokens
 
