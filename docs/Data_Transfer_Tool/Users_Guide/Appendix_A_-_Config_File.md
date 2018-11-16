@@ -1,5 +1,5 @@
 ###Data Transfer Tool Configuration File  
-The DTT has the ability to save configuration parameters in the format of a flat text file.
+The DTT has the ability to save and reuse configuration parameters in the format of a flat text file via a command line argument.  A simple text file needs to be create first with an extension of either txt or dtt.  The supported section headers are upload and download which can be used independently of each other or used in the same configuration file.  Each section header corresponds to the main functions of the application which are to either download data from the GDC portals or to upload data to the submission system of the GDC.  The configurable parameters are those listed in the help menus under either download or upload.             
 
 
 Example usage:
