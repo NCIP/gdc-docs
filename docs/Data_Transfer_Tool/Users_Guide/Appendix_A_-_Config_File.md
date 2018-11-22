@@ -6,7 +6,7 @@ Example usage:
 
     gdc-client download d45ec02b-13c3-4afa-822d-443ccd3795ca --config my-dtt-config.dtt
 
-Example of configuration file:
+Example of configuration file example:
 
     [upload]
     path = /some/upload/path
@@ -20,7 +20,7 @@ Example of configuration file:
 
 Display Config Parameters:
 
-    gdc-client settings download --config myconf.dtt
+    gdc-client settings download --config my-dtt-config.dtt
     [download]
     no_auto_retry = False
     no_file_md5sum = False
