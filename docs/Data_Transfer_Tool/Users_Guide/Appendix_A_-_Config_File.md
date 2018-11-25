@@ -18,7 +18,9 @@ Example of configuration file example:
     http_chunk_size = 2048
     retry_amount = 6
 
-Display Config Parameters:
+
+###Display Config Parameters
+This command line flag can be used with either the download or upload application feature to display what settings are active within a custom data transfer tool configuration file.  
 
     gdc-client settings download --config my-dtt-config.dtt
     [download]
