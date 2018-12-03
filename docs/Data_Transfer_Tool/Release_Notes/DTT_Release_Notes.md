@@ -16,8 +16,8 @@
 ### New Features and Changes
 * Removal of Interactive mode <!--DTT-30--><!--DTT-105-->
 * Replace Interactive mode with setting flag <!--DTT-30--><!--DTT-105-->
-* Upload and download menus standardized to same wording per feature functions <!--DTT-95-->
-* Enable download file versioning feature <!--DTT-112-->     
+* Upload and download help menus standardized <!--DTT-95-->
+* Enable download latest file version feature <!--DTT-112-->     
 
 ### Bugs Fixed Since Last Release
 * Download flag --no-related-files bug preventing file downloads fixed <!--DTT-94-->
