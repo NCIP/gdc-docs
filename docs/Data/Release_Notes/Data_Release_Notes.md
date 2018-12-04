@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v14.0](Data_Release_Notes.md#data-release-130) | December X, 2018 |
 | [v13.0](Data_Release_Notes.md#data-release-130) | September 27, 2018 |
 | [v12.0](Data_Release_Notes.md#data-release-120) | June 13, 2018 |
 | [v11.0](Data_Release_Notes.md#data-release-110) | May 21, 2018 |
@@ -16,6 +17,64 @@
 | [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
+## Data Release 14.0 <!--REQ-335-->
+
+* __GDC Product__: Data
+* __Release Date__: December x, 2018
+
+### New updates
+
+1. Copy Number Variation (CNV) data derived from GISTIC results are now available for download for TCGA projects <!--DAT-1681-->
+2.  New miRNA data available for 181 aliquots for TARGET and TCGA <!--DAT-1823-->
+3.  Released two SNP6 files (6cd4ef5e-324a-4ace-8779-7a33bd559c83, dfa89ee9-6ee5-460b-bd58-b5ca0e9cb7ac) <!--DAT-1805-->
+
+
+### Bugs Fixed Since Last Release
+
+*  FM-AD clinial and biospecimen supplements are now correctly labeled as TSV rather than XLSX <!--DAT-1681,DAT-1681 -->
+
+### Known Issues and Workarounds
+
+* TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and concatenated into their original composite BAM files by CGHub.
+    * TARGET-20-PASJGZ-04A-02D
+    * TARGET-30-PAPTLY-01A-01D
+    * TARGET-20-PAEIKD-09A-01D
+    * TARGET-20-PASMYS-14A-02D
+    * TARGET-20-PAMYAS-14A-02D
+    * TARGET-10-PAPZST-09A-01D
+* Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
+* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+* 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+* Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+* The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
+<!--TT-602, DAT-1489-->
+* There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+* There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+* TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+* Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+* Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+* Some TARGET files are not connected to all related aliquots <!--SV-929-->
+* Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+    *  All microarray data and metadata
+    *  All sequencing analyzed data and metadata
+    *  1180 of 12063 sequencing runs of raw data
+* Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MDLS is available.
+* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+* SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+* Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+* SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* Tumor grade property is not populated <!--SV-585-->
+* Progression_or_recurrence property is not populated <!--SV-584-->
+
 
 
 ## Data Release 13.0
@@ -47,7 +106,7 @@ A complete list of files for DR13.0 are listed for the GDC Data Portal and the G
 * 506 Copy Number Segment and 36 Slide Image files are designated as controlled-access on the GDC Data Portal.  These files are actually open-access and will be downloadable without a token using [this manifest](gdc_manifest_20181003_data_release_13.0_cnv_slides.txt).  <!--DAT-1804-->
 * 2 Copy Number Segment files from TCGA-TGCT do not appear on the GDC Portal. They can be downloaded using the Data Transfer Tool using the following UUIDs. <!--DAT-1805-->
     * 6cd4ef5e-324a-4ace-8779-7a33bd559c83 - RAMPS_p_TCGA_Batch_430_NSP_GenomeWideSNP_6_E07_1538238.nocnv_grch38.seg.v2.txt
-    * dfa89ee9-6ee5-460b-bd58-b5ca0e9cb7ac - RAMPS_p_TCGA_Batch_430_NSP_GenomeWideSNP_6_E07_1538238.grch38.seg.v2.txt 
+    * dfa89ee9-6ee5-460b-bd58-b5ca0e9cb7ac - RAMPS_p_TCGA_Batch_430_NSP_GenomeWideSNP_6_E07_1538238.grch38.seg.v2.txt
 * TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and concatenated into their original composite BAM files by CGHub.
     * TARGET-20-PASJGZ-04A-02D
     * TARGET-30-PAPTLY-01A-01D
