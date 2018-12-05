@@ -31,7 +31,7 @@
 
 * A new data access message has been added when downloading controlled data.  Users must agree to abide by data access control policies when downloading controlled data. <!--PRTL-2324,PRTL-2370,-->
 * In the Mutation free-text search in Exploration, mutatation display now includes the uuid, genomic location, and matched search term for easier mutation searching. <!--PRTL-1996, PRTL-2367-->
-* The ability to sort on ranked columns has been made avaialble <!--PRTL-2274,PRTL-2336,PRTL-2365-->
+* The ability to sort on ranked columns has been made available. <!--PRTL-2274,PRTL-2336,PRTL-2365-->
 
 ### Bugs Fixed Since Last Release
 
