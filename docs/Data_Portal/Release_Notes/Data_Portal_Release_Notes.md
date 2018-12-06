@@ -30,14 +30,14 @@
 ### New Features and Changes <!--REQ-335-->
 
 * A new data access message has been added when downloading controlled data.  Users must agree to abide by data access control policies when downloading controlled data. <!--PRTL-2324,PRTL-2370,-->
-* In the Mutation free-text search in Exploration, mutatation display now includes the uuid, genomic location, and matched search term for easier mutation searching. <!--PRTL-1996, PRTL-2367-->
+* In the Mutation free-text search in Exploration, mutation display now includes the UUID, genomic location, and matched search term for easier mutation searching. <!--PRTL-1996, PRTL-2367-->
 * The ability to sort on ranked columns has been made available. <!--PRTL-2274,PRTL-2336,PRTL-2365-->
 
 ### Bugs Fixed Since Last Release
 
 *  In some cases, text was being cut off on the Project page visualization tab.  Text is no longer cut off. <!--PRTL-2290-->
 *  HGNC link on Gene page broke as the source format url changed; The format was updated and the link is now functional <!--PRTL-2380-->
-*  In the biospeciment details on the Case page, the cart icon would disappear once clicked.  It now is always visible. <!--PRTL-2282-->
+*  In the biospecimen details on the Case page, the cart icon would disappear once clicked.  It now is always visible. <!--PRTL-2282-->
 
 ### Known Issues and Workarounds
 
@@ -54,7 +54,7 @@
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
-    
+
 ## Release 1.17.0
 
 * __GDC Product__: GDC Data Portal
