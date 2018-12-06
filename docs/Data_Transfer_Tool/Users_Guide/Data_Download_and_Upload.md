@@ -27,7 +27,7 @@ The GDC Data Transfer Tool supports resumption of interrupted downloads. To resu
 	gdc-client download f80ec672-d00f-42d5-b5ae-c7e06bc39da1
 
 ### Download Latest Version of a File
-The GDC Data Transfer Tool supports file versioning.  Our backend data storage supports multiple file versions so older and current versions can be accessible to our users.  For information about accessing file versioning information with our API and finding older UUID information from current UUIDs please check out the [EXAMPLE OF RETRIEVING FILE VERSION INFORMATION](https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/#example-of-retrieving-file-version-information) section in our api documentation.  When working with older manifests or older lists of UUIDs the latest version of a file can always be download with the --latest flag.   
+The GDC Data Transfer Tool supports file versioning.  Our backend data storage supports multiple file versions so older and current versions can be accessible to our users.  For information about accessing file versioning information with our API and finding older UUID information from current UUIDs please check out the [the API User Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/#example-of-retrieving-file-version-information) section in our API documentation.  When working with older manifests or older lists of UUIDs the latest version of a file can always be download with the --latest flag.   
 
 ```Shell
 gdc-client download 426de656-7e34-4a49-b87e-6e2563fa3cdd --latest -t gdc-user-token.2018.txt
