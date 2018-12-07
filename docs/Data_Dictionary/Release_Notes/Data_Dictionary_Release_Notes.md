@@ -22,6 +22,7 @@
 ### New Features and Changes
 
 * Removed `Raw Sequencing Data` and `Sequencing Data` as permissible values from `submitted_aligned_reads`, `submitted_unaligned_reads`, and `aligned_reads` <!--DAT-42-->
+* Migrated a few unsupported values for sample.pathology_report_uuid, read_group.adapter_sequence, read_group.multiplex_barcode
 * Deleted `aligned_reads_metrics` entity <!--DAT-1754-->
 * Created new `raw_methylation_array` entity <!--DAT-1854-->
 * Add regex validation to property `md5sum` for following entities: <!--DAT-1899-->
@@ -39,6 +40,7 @@
   - `submitted_unaligned_reads`
 * Modified `molecular_test` entity
   - Migrated data from `blood_test` to `laboratory_test` and `biospecimen_type` for all entities<!--TT-754-->
+  - Added new property `intron` <!--DAT-1847-->
   - Deleted `blood_test` entity <!--DAT-1639-->
   - Added new permissible values for `gene_symbol`<!--DAT-1553-->
   - Added new permissible values for `antigen`<!--DAT-1662-->
@@ -46,7 +48,9 @@
   - Added new permissible values for `variant_type` <!--DAT-1664-->
   - Added new permissible values for `test_result` <!--DAT-1665-->
   - Added new permissible values for `molecular_consequence` <!--DAT-1666-->
-  - Added regex validation to property `transcript`
+  - Added regex validation to property `transcript` <!--DAT-1916-->
+  - Added regex validation to property `locus` <!--DAT-1874-->
+  - Changed data type of `exon` property to be `string` <!--DAT-1890-->
 * Modified `diagnosis` entity
     - Added new fields
       - `pathology_details`<!--DAT-1856-->
@@ -94,9 +98,10 @@
 * Modified `exposure` entity
   - Added new properties
     - `asbestos_exposure` <!-- DAT-1836-->
-    - `radon_exposure` <!-- DAT-1836-->
+    - `radon_exposure` <!-- DAT-1837-->
 * Modified `sample` entity
   - Add new permissible values to `method_of_sample_procurement` <!--DAT-1849-->
+  - Added regex validation to `pathology_report_uuid` <!--DAT-1893-->
   - Change type from string to number for properties:
     - `intermediate_dimension` <!--DAT-1861-->
     - `longest_dimension` <!--DAT-1863-->

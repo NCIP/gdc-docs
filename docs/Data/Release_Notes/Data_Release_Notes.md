@@ -29,6 +29,7 @@
 2.  New miRNA data available for 181 aliquots for TARGET and TCGA <!--DAT-1823-->
 3.  Released two SNP6 files (6cd4ef5e-324a-4ace-8779-7a33bd559c83, dfa89ee9-6ee5-460b-bd58-b5ca0e9cb7ac) <!--DAT-1805-->
 4.  New versions of TCGA biospecimen supplements are available <!--DAT-1776-->
+5.  Updated primary site for `TCGA-AG-388` to `Unknown` <!--DAT-1853-->
 
 
 ### Bugs Fixed Since Last Release
