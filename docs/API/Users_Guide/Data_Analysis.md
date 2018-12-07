@@ -6,7 +6,7 @@ The GDC DAVE tools use the same API as the rest of the Data Portal and takes adv
 
 The following data analysis endpoints are available from the GDC API:
 
-|Node| __Endpoint__ | __Description__ |
+|__Node__| __Endpoint__ | __Description__ |
 |---|---|---|
 |__Genes__| __/genes__ | Allows users to access summary information about each gene using its Ensembl ID. |
 |__SSMS__| __/ssms__ | Allows users to access information about each somatic mutation. For example, a `ssm` would represent the transition of C to T at position 52000 of chromosome 1. |
