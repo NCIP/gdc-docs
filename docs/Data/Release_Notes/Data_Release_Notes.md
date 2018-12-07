@@ -28,11 +28,12 @@
 1. Copy Number Variation (CNV) data derived from GISTIC results are now available for download for TCGA projects <!--DAT-1681-->
 2.  New miRNA data available for 181 aliquots for TARGET and TCGA <!--DAT-1823-->
 3.  Released two SNP6 files (6cd4ef5e-324a-4ace-8779-7a33bd559c83, dfa89ee9-6ee5-460b-bd58-b5ca0e9cb7ac) <!--DAT-1805-->
+4.  New versions of TCGA biospecimen supplements are available <!--DAT-1776-->
 
 
 ### Bugs Fixed Since Last Release
 
-*  FM-AD clinial and biospecimen supplements are now correctly labeled as TSV rather than XLSX <!--DAT-1681,DAT-1681 -->
+*  FM-AD clinial and biospecimen supplements are now correctly labeled as TSV rather than XLSX <!--DAT-1681-->
 
 ### Known Issues and Workarounds
 
