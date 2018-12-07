@@ -7,7 +7,7 @@ Only available in the Repository view, the Advanced Search page offers complex q
 
 ## Overview: GQL
 
-Advanced search allows, via Genomic Query Language (GQL), to use structured queries to search for files and cases.
+Advanced search allows for structured queries to search for files and cases. This is done via Genomic Query Language (GQL), a query language created by the [GDC](https://gdc.cancer.gov/) and [OICR](https://oicr.on.ca/).
 
 [![Advanced Search View](images/gdc-data-portal-advanced-search.png)](images/gdc-data-portal-advanced-search.png "Click to see the full image.")
 
@@ -27,7 +27,7 @@ A query created in Advanced Search is not translated back to facet filters. Clic
 
 ## Using the Advanced Search
 
-When opening the advanced search page (via the Repository view), the search field will be automatically populated with facets filters already applied (if any).
+When opening the Advanced Search Page (via the Repository View), the search field will be automatically populated with facets filters already applied (if any).
 
 This default query can be removed by pressing "Reset".
 
@@ -57,7 +57,7 @@ The value auto-complete is not aware of the general context of the query, the sy
 
 You can use parentheses in complex GQL statements to enforce the precedence of operators.
 
-For example, if you want to find all the open files in TCGA program as well as the files in TARGET program, you can use parentheses to enforce the precedence of the boolean operators in your query, i.e.:
+For example, if you want to find all the open files in TCGA program as well as the files in TARGET program, you can use parentheses to enforce the precedence of the Boolean operators in your query, i.e.:
 
 	(files.access = open and cases.project.program.name = TCGA) or cases.project.program.name = TARGET
 
@@ -94,7 +94,7 @@ Examples:
 
 Used to combine multiple clauses, allowing you to expand your search.
 
-> __Note:__ __IN__ keyword can be an alternative to __OR__ and result in simplified queries.
+> __Note:__ The __IN__ keyword can be an alternative to __OR__ and result in simplified queries.
 
 Examples:
 
@@ -102,7 +102,7 @@ Examples:
 
 		files.data_type = "Aligned Reads" or files.data_type = "Raw sequencing data"
 
-*   Find all files where donors are male or vital status is alive:
+*   Find all files where cases are male or vital status is alive:
 
 		cases.demographic.gender = male or cases.diagnoses.vital_status = alive
 
@@ -127,7 +127,7 @@ An operator in GQL is one or more symbols or words comparing the value of a fiel
 | NOT MISSING | Field NOT MISSING |
 
 
-### "__=__" operator - __EQUAL__
+### "__=__" Operator - __EQUAL__
 
 The "__=__" operator is used to search for files where the value of the specified field exactly matches the specified value.
 
@@ -141,17 +141,17 @@ Examples:
 
 		cases.demographic.gender = female
 
-### "__!=__" operator - __NOT EQUAL__
+### "__!=__" Operator - __NOT EQUAL__
 
 The "__!=__" operator is used to search for files where the value of the specified field does not match the specified value.
 
 The "__!=__" operator will not match a field that has no value (i.e. a field that is empty). For example:
 	
-		gender != male
+		cases.demographic.gender != male
 
 This search will only match cases who have a gender and the gender is not male. To find cases other than male or with no gender populated, you would need to search:
 
-		gender != male or gender is missing.
+		cases.demographic.gender != male or cases.demographic.gender is missing.
 
 Example:
 
@@ -160,7 +160,7 @@ Example:
 		files.experimental_strategy != "Genotyping array"
 
 
-### "__>__" operator - __GREATER THAN__
+### "__>__" Operator - __GREATER THAN__
 
 The "__>__" operator is used to search for files where the value of the specified field is greater than the specified value.
 
@@ -171,7 +171,7 @@ Example:
 		cases.diagnoses.days_to_death > 60
 
 
-### "__>=__" operator - __GREATER THAN OR EQUALS__
+### "__>=__" Operator - __GREATER THAN OR EQUALS__
 
 The "__>=__" operator is used to search for files where the value of the specified field is greater than or equal to the specified value.
 
@@ -181,7 +181,7 @@ Example:
 
 		cases.diagnoses.days_to_death >= 60
 
-### "__<__" operator - __LESS THAN__
+### "__<__" Operator - __LESS THAN__
 
 The "__<__" operator is used to search for files where the value of the specified field is less than the specified value.
 
@@ -192,7 +192,7 @@ Example:
 		cases.diagnoses.age_at_diagnosis < 400
 
 
-### "__<=__" operator - __LESS THAN OR EQUALS__
+### "__<=__" Operator - __LESS THAN OR EQUALS__
 
 The "__<=__" operator is used to search for files where the value of the specified field is less than or equal to the specified value.
 
@@ -203,14 +203,14 @@ Example:
 		cases.diagnoses.days_to_death <= 20
 
 
-### "__IN__" operator
+### "__IN__" Operator
 
 The "__IN__" operator is used to search for files where the value of the specified field is one of multiple specified values. The values are specified as a comma-delimited list, surrounded by brackets [ ].
 
 Using "__IN__" is equivalent to using multiple "__=__" (__EQUALS__) statements, but is shorter and more convenient. That is, these two following statement will retrieve the same output:
 
-		project IN [ProjectA, ProjectB, ProjectC] 
-		project = "ProjectA" OR project = "ProjectB" OR project = "ProjectC"
+		cases.project.name IN [ProjectA, ProjectB, ProjectC] 
+		cases.project.name = "ProjectA" OR cases.project.name = "ProjectB" OR cases.project.name = "ProjectC"
 
 Examples:
 
@@ -218,25 +218,25 @@ Examples:
 
 		cases.primary_site IN [Breast, Brain, Lung]
 
-*   Find all files that annotated somactic mutations or the raw simple somatic mutations:
+*   Find all files that are annotated somactic mutations or raw simple somatic mutations:
 
 		files.data_type IN ["Annotated Somatic Mutation", "Raw Simple Somatic Mutation"]
 
 
-### "__EXCLUDE__" operator
+### "__EXCLUDE__" Operator
 
 The "__EXCLUDE__" operator is used to search for files where the value of the specified field is not one of multiple specified values.
 
 Using "__EXCLUDE__" is equivalent to using multiple "__!=__" (__NOT_EQUALS__) statements, but is shorter and more convenient. That is, these two following statement will retrieve the same output:
 
-		project EXCLUDE [ProjectA, ProjectB, ProjectC]
-		project != "ProjectA" OR project != "ProjectB" OR project != "ProjectC"
+		cases.project.name EXCLUDE [ProjectA, ProjectB, ProjectC]
+		cases.project.name != "ProjectA" OR cases.project.name != "ProjectB" OR cases.project.name != "ProjectC"
 
 The "__EXCLUDE__" operator will not match a field that has no value (i.e. a field that is empty). For example:
 
 		files.experimental_strategy EXCLUDE ["WGS","WXS"] 
 
-This search will only match files that have an experimental strategy **and** the experimental strategy is not "WGS" or "WXS". To find files with an experimental strategy different from than "WGS" or "WXS" **or is not assigned**, you would need to type:
+This search will only match files that have an experimental strategy **and** the experimental strategy is not "WGS" or "WXS". To find files with an experimental strategy different than "WGS" or "WXS" **or is not assigned**, you would need to type:
 
 		files.experimental_strategy in ["WXS","WGS"] or files.experimental_strategy is missing
 
@@ -246,7 +246,7 @@ Examples:
 
 		files.experimental_strategy EXCLUDE [WXS, WGS, "Genotyping array"]
 
-### "__IS MISSING__" operator
+### "__IS MISSING__" Operator
 
 The "__IS__" operator can only be used with "__MISSING__". That is, it is used to search for files where the specified field has no value.
 
@@ -256,7 +256,7 @@ Examples:
 
 		cases.demographic.gender is MISSING
 
-### "__NOT MISSING__" operator
+### "__NOT MISSING__" Operator
 
 The "__NOT__" operator can only be used with "__MISSING__". That is, it is used to search for files where the specified field has a value.
 
@@ -268,7 +268,7 @@ Examples:
 
 ## Special Cases
 
-### Date format
+### Date Format
 
 The date format should be the following: **YYYY-MM-DD** (without quotes).
 
