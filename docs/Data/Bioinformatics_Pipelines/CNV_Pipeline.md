@@ -25,10 +25,13 @@ Masked copy number segments are generated using the same method except that a fi
 
 ### Copy Number Estimation
 
-Numeric focal-level Copy Number Alteration (CNA) values were generated with "Masked Copy Number Segment" files from tumor aliquots using GISTIC2 [[2]](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2011-12-4-r41), [[3]](https://www.nature.com/articles/nature08822) on a project level. Only protein-coding genes were kept, and their numeric CNA values were further thresholded by a noise cutoff of 0.3:
-* Genes with focal CNA values smaller than -0.3 are categorized as a "loss" (-1)
-* Genes with  focal CNA values larger than 0.3 are categorized as a "gain" (+1)
+Numeric focal-level Copy Number Variation (CNV) values were generated with "Masked Copy Number Segment" files from tumor aliquots using GISTIC2 [[2]](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2011-12-4-r41), [[3]](https://www.nature.com/articles/nature08822) on a project level. Only protein-coding genes were kept, and their numeric CNV values were further thresholded by a noise cutoff of 0.3:
+
+* Genes with focal CNV values smaller than -0.3 are categorized as a "loss" (-1)
+* Genes with  focal CNV values larger than 0.3 are categorized as a "gain" (+1)
 * Genes with focal CNV values between and including -0.3 and 0.3 are categorized as "neutral" (0).
+
+Values are reported in a project-level TSV file. Each row represents a gene, which is reported as an Ensembl ID and associated cytoband.  The columns represent aliquots, which are associated with CNV value categorizations (0/1/-1) for each gene.
 
 | I/O | Entity | Format |
 |---|---|---|
@@ -67,7 +70,11 @@ gistic2 \
 |---|---|---|
 | Copy Number Segment| A table that associates contiguous chromosomal segments with genomic coordinates, mean array intensity, and the number of probes that bind to each segment. |  TXT |
 | Masked Copy Number Segment | A table with the same information as the Copy Number Segment except that segments with probes known to contain germline mutations are removed. |  TXT |
+| Copy Number Estimate | A project-level file that displays gains/losses on a gene level.  Generated from the Masked Copy Number Segment files |  TXT |
+
 
 [1] Olshen, Adam B., E. S. Venkatraman, Robert Lucito, and Michael Wigler. "Circular binary segmentation for the analysis of array-based DNA copy number data." Biostatistics 5, no. 4 (2004): 557-572.
+
 [2] Mermel, Craig H., Steven E. Schumacher, Barbara Hill, Matthew L. Meyerson, Rameen Beroukhim, and Gad Getz. "GISTIC2. 0 facilitates sensitive and confident localization of the targets of focal somatic copy-number alteration in human cancers." Genome biology 12, no. 4 (2011): R41.
+
 [3] Beroukhim, Rameen, Craig H. Mermel, Dale Porter, Guo Wei, Soumya Raychaudhuri, Jerry Donovan, Jordi Barretina et al. "The landscape of somatic copy-number alteration across human cancers." Nature 463, no. 7283 (2010): 899.
