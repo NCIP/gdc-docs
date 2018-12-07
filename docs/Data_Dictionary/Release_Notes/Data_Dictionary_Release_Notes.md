@@ -23,6 +23,20 @@
 
 * Removed `Raw Sequencing Data` and `Sequencing Data` as permissible values from `submitted_aligned_reads`, `submitted_unaligned_reads`, and `aligned_reads` <!--DAT-42-->
 * Deleted `aligned_reads_metrics` entity <!--DAT-1754-->
+* Created new `raw_methylation_array` entity <!--DAT-1854-->
+* Add regex validation to property `md5sum` for following entities: <!--DAT-1899-->
+  - `slide_image`
+  - `analysis_metadata`
+  - `clinical_supplement`
+  - `experiment_metadata`
+  - `pathology_report`
+  - `run_metadata`
+  - `biospecimen_supplement`
+  - `submitted_aligned_reads`
+  - `submitted_genomic_profile`
+  - `submitted_methylation_beta_value`
+  - `submitted_tangent_copy_number`
+  - `submitted_unaligned_reads`
 * Modified `molecular_test` entity
   - Migrated data from `blood_test` to `laboratory_test` and `biospecimen_type` for all entities<!--TT-754-->
   - Deleted `blood_test` entity <!--DAT-1639-->
@@ -32,9 +46,16 @@
   - Added new permissible values for `variant_type` <!--DAT-1664-->
   - Added new permissible values for `test_result` <!--DAT-1665-->
   - Added new permissible values for `molecular_consequence` <!--DAT-1666-->
+  - Added regex validation to property `transcript`
 * Modified `diagnosis` entity
-    - Added new field <!--DAT-1856-->
-      - `pathology_details`
+    - Added new fields
+      - `pathology_details`<!--DAT-1856-->
+      - `tumor_focality`<!-- DAT-1832-->
+      - `tumor_regression_grade` <!--DAT-1833-->
+      - `lymph_nodes_tested` <!--DAT-1834-->
+    - Added new permissible value for `primary_diagnosis` field<!--DAT-1879-->
+    - Add min and max to properties <!--DAT-1885-->
+    - Added new permissible value for `morphology` field <!--TT-818-->
 * Modified `follow_up` entity
     - Added new permissible values for `ecog_performance_status`<!--DAT-1684-->
     - Added new permissible values for `comorbidity`<!--DAT-1766-->
@@ -55,12 +76,43 @@
 * Modified `read_group` entity
   - Added new permissible values for `target_capture_kit` <!--DAT-1757-->
   - Updated description for property `instrument_model` <!--DAT-1763-->
-  - Added Added new permissible values for `target_capture_kit` <!--DAT-1799-->
+  - Added new permissible values for `target_capture_kit` <!--DAT-1799-->
   - Added new permissible values for `library_strategy`<!--DAT-1814-->
   - Added regex validation to property `adapter_sequence` <!--DAT-1895-->
   - Added regex validation to property `multiplex_barcode`<!--DAT-1897-->
   - Allow users to enter null for property `read_length` <!--DAT-1908-->
   - Allow users to enter null for property `is_paired_end` <!--DAT-1909-->
+* Modified `family_history` entity
+  - Added new permissible values for `relationship_primary_diagnosis` <!--DAT-1765-->
+  - Added min and max to properties <!--DAT-1887-->
+* Modified `case` entity
+  - Add min and max to properties <!--DAT-1888-->
+  - Delete permissible value from `primary_site` <!-- DAT-1772-->
+    - `Unknown Primary Site`
+* Modified `analyte` entity
+  - Corrected the description for fields `analyte_volume` to include microliters as unit <!--DAT-1801-->
+* Modified `exposure` entity
+  - Added new properties
+    - `asbestos_exposure` <!-- DAT-1836-->
+    - `radon_exposure` <!-- DAT-1836-->
+* Modified `sample` entity
+  - Add new permissible values to `method_of_sample_procurement` <!--DAT-1849-->
+  - Change type from string to number for properties:
+    - `intermediate_dimension` <!--DAT-1861-->
+    - `longest_dimension` <!--DAT-1863-->
+    - `shortest_dimension` <!--DAT-1865-->
+    - `time_between_clamping_and_freezing` <!--DAT-1867-->
+    - `time_between_excision_and_freezing` <!--DAT-1869-->
+  - Add min and max to properties on the sample node <!--DAT-1883-->
+  - Populated sample nodes that have no value for `tissue_type` to "Not Reported" <!--TT-658-->
+* Modified `treatment` entity
+  - Added a new property
+    - `prior_treatment_effect` <!--DAT-1850-->
+  - Add min and max to properties <!--DAT-1889-->
+* Modified `aliquot` entity
+  - Correct the description for fields `analyte_volume` to include microliters as unit <!--DAT-1859-->
+* Modified `demographic` entity
+  - Add min and max to properties <!--DAT-1886-->
 
 
 ### Bugs Fixed Since Last Release
