@@ -21,8 +21,7 @@
 
 ### New Features and Changes
 
-* Removed `Raw Sequencing Data` and `Sequencing Data` as permissible values from `submitted_aligned_reads`, `submitted_unaligned_reads`, and `aligned_reads` <!--DAT-42-->
-* Migrated a few unsupported values for sample.pathology_report_uuid, read_group.adapter_sequence, read_group.multiplex_barcode
+* Removed `Raw Sequencing Data` and `Sequencing Data` as permissible values from `submitted_aligned_reads`, `submitted_unaligned_reads`, and `aligned_reads` <!--DAT-42--> <!--DAT-1904-->
 * Deleted `aligned_reads_metrics` entity <!--DAT-1754-->
 * Created new `raw_methylation_array` entity <!--DAT-1854-->
 * Add regex validation to property `md5sum` for following entities: <!--DAT-1899-->
@@ -58,18 +57,18 @@
       - `tumor_regression_grade` <!--DAT-1833-->
       - `lymph_nodes_tested` <!--DAT-1834-->
     - Added new permissible value for `primary_diagnosis` field<!--DAT-1879-->
-    - Add min and max to properties <!--DAT-1885-->
+    - Added min and max values to properties <!--DAT-1885-->
     - Added new permissible value for `morphology` field <!--TT-818-->
 * Modified `follow_up` entity
     - Added new permissible values for `ecog_performance_status`<!--DAT-1684-->
-    - Added new permissible values for `comorbidity`<!--DAT-1766-->
+    - Added new permissible values for `comorbidity` <!--DAT-1766-->
     - Added new permissible values for `disease_response`<!--DAT-1840-->
     - Added new permissible values for `risk_factor`<!-- DAT-1841-->
-    - Added min and max to properties <!--DAT-1884-->
+    - Added min and max values to properties <!--DAT-1884-->
     - Added new property:
       - `hepatitis_sustained_virological_response` <!--DAT-1845-->
     - Updated CDE, CDE version, description and URL for `comorbidity`<!--DAT-1911-->
-    - Added a CDE for days_to_comorbidity on node follow_up <!--DAT-1912-->
+    - Added a CDE for `days_to_comorbidity` <!--DAT-1912-->
     - Removed `reflux_treatment` property <!--DAT-1913-->
     - Add a new property:<!--DAT-1843-->
       - `risk_factor_treatment`
@@ -88,9 +87,9 @@
   - Allow users to enter null for property `is_paired_end` <!--DAT-1909-->
 * Modified `family_history` entity
   - Added new permissible values for `relationship_primary_diagnosis` <!--DAT-1765-->
-  - Added min and max to properties <!--DAT-1887-->
+  - Added min and max values to properties <!--DAT-1887-->
 * Modified `case` entity
-  - Add min and max to properties <!--DAT-1888-->
+  - Add min and max values to properties <!--DAT-1888-->
   - Delete permissible value from `primary_site` <!-- DAT-1772-->
     - `Unknown Primary Site`
 * Modified `analyte` entity
@@ -100,7 +99,7 @@
     - `asbestos_exposure` <!-- DAT-1836-->
     - `radon_exposure` <!-- DAT-1837-->
 * Modified `sample` entity
-  - Add new permissible values to `method_of_sample_procurement` <!--DAT-1849-->
+  - Added new permissible values to `method_of_sample_procurement` <!--DAT-1849-->
   - Added regex validation to `pathology_report_uuid` <!--DAT-1893-->
   - Change type from string to number for properties:
     - `intermediate_dimension` <!--DAT-1861-->
@@ -113,16 +112,17 @@
 * Modified `treatment` entity
   - Added a new property
     - `prior_treatment_effect` <!--DAT-1850-->
-  - Add min and max to properties <!--DAT-1889-->
+  - Add min and max values to properties <!--DAT-1889-->
 * Modified `aliquot` entity
-  - Correct the description for fields `analyte_volume` to include microliters as unit <!--DAT-1859-->
+  - Corrected the description for fields `analyte_volume` to include microliters as unit <!--DAT-1859-->
 * Modified `demographic` entity
-  - Add min and max to properties <!--DAT-1886-->
+  - Added min and max to properties <!--DAT-1886-->
 
 
 ### Bugs Fixed Since Last Release
 
-* N/A
+* Fixed value of `pathology_report_uuid` on sample entity `7b29b034-86e4-4266-8657-036e96e04430` to satisfy regex requirements <!--DAT-1939-->
+* Migrated a few unsupported values for sample.pathology_report_uuid, read_group.adapter_sequence, read_group.multiplex_barcode <!--DAT-1941-->
 
 ## v.1.14
 
