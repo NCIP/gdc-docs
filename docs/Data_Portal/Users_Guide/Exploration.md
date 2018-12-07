@@ -347,6 +347,8 @@ Clicking this button will navigate the users to the Repository Page, filtered by
 
 The filters chosen on the Exploration Page are displayed as an `input set` on the Repository Page.  Additional filters may be added on top of this `input set`, but the original set cannot be modified and instead a new `input set` must be created from original data.  
 
+---
+
 ## Survival Analysis
 
 The survival analysis, which is seen in both the `Gene` and `Mutation` tabs, is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Thus, the values are retrieved from [GDC Data Dictionary](../../../Data_Dictionary) properties and a survival analysis requires the following fields:
