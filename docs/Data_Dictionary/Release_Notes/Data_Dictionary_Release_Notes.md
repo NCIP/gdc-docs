@@ -49,22 +49,21 @@
   - Added new permissible values for `molecular_consequence` <!--DAT-1666-->
   - Added regex validation to property `transcript` <!--DAT-1916-->
   - Added regex validation to property `locus` <!--DAT-1874-->
-  - Changed data type of `exon` property to be `string` <!--DAT-1890-->
+  - Changed data type of `exon` property to be `string` with regex validation <!--DAT-1890-->
 * Modified `diagnosis` entity
     - Added new fields
-      - `pathology_details`<!--DAT-1856-->
       - `tumor_focality`<!-- DAT-1832-->
       - `tumor_regression_grade` <!--DAT-1833-->
       - `lymph_nodes_tested` <!--DAT-1834-->
     - Added new permissible value for `primary_diagnosis` field<!--DAT-1879-->
-    - Added min and max values to properties <!--DAT-1885-->
+    - Added min and max values to time-based properties <!--DAT-1885-->
     - Added new permissible value for `morphology` field <!--TT-818-->
 * Modified `follow_up` entity
     - Added new permissible values for `ecog_performance_status`<!--DAT-1684-->
     - Added new permissible values for `comorbidity` <!--DAT-1766-->
     - Added new permissible values for `disease_response`<!--DAT-1840-->
     - Added new permissible values for `risk_factor`<!-- DAT-1841-->
-    - Added min and max values to properties <!--DAT-1884-->
+    - Added min and max values to time-based properties <!--DAT-1884-->
     - Added new property:
       - `hepatitis_sustained_virological_response` <!--DAT-1845-->
     - Updated CDE, CDE version, description and URL for `comorbidity`<!--DAT-1911-->
