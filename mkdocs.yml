@@ -69,11 +69,9 @@ pages:
 - Data Transfer Tool:
   - Getting Started: Data_Transfer_Tool/Users_Guide/Getting_Started.md
   - Preparing for Data Download and Upload: Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md
-  - Data Download and Upload - Command Line: Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md
-  - Accessing Built-in Help: Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md
-  - Data Transfer Tool Configuration file: Data_Transfer_Tool/Users_Guide/Appendix_A_-_Config_File.md
+  - Data Transfer Tool Command Line Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md
   - Release Notes - Command Line: Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md
-  - Data Download - UI: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
+  - Data Transfer Tool UI Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
   - Release Notes - UI: Data_Transfer_Tool/Release_Notes/DTT_UI_Release_Notes.md
   - fa-file-text Download PDF /Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf: Data_Transfer_Tool/PDF/index.md
 - Data Dictionary:
