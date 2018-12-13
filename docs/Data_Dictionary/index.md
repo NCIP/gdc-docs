@@ -80,7 +80,7 @@ This section also contains a "Download Template" link with a drop-down menu cont
 
 ## Search Tool
 
-The Search Tool enables easier query of the GDC Data Dictionary for data submitters and recommends GDC properties and values based on user-supplied synonyms.  Created by the NCI CBIIT EVS Team, it leverages NCI vocabulary systems caDSR and NCI Thesaurus. Below are some of the features included in the Search Tool:
+The Search Tool enables easier query of the GDC Data Dictionary for data submitters and recommends GDC properties and values based on user-supplied synonyms.  Created by the NCI CBIIT EVS Team, it leverages NCI vocabulary systems caDSR and NCIt. Below are some of the features included in the Search Tool:
 
 *   Users can complete partial or exact match searches.
 *   Searches can include terms that are synonymous to the GDC allowable values.
