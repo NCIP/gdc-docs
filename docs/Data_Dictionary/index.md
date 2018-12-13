@@ -15,7 +15,7 @@ The GDC Data Dictionary is a resource that describes the clinical, biospecimen, 
 
 ### Standards and Conventions
 
-The GDC Data Dictionary includes references to external standards including the National Cancer Institute Thesaurus (NCIt) and the Cancer Data Standards Registry and Repository (caDSR). Both of these standards are operated by groups at NCI’s Center for Bioinformatics and Information Technology (CBIIT). 
+The GDC Data Dictionary includes references to external standards including the [National Cancer Institute Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/) (NCIt) and the Cancer Data Standards Registry and Repository (caDSR). Both of these standards are operated by groups at NCI’s Center for Bioinformatics and Information Technology (CBIIT). 
 
 Each property is assigned a Common Data Element (CDE) created by the caDSR. The CDE includes detailed information about the property including links to the NCIt through assigned concept codes. NCIt concepts are also assigned at the acceptable value level for enumerated properties. The images below is an example of a caDSR CDE and its related property-level NCIt concepts.  
 
@@ -43,7 +43,7 @@ The [GDC Data Dictionary Viewer](viewer.md) is a user-friendly interface for acc
 * __Description:__ This section contains a written explanation for the type of data that would be found in this node.
 * __Unique Keys:__ The properties that are specific to this node.
 
-This section also contains a "Download Template" link with a drop-down menu containing the two template file types, TSV and JSON. These files will contain all properties that are found in the node, but [not all properties are required](#properties) to upload the node. 
+This section also contains a "Download Template" link with a drop-down menu containing the two template file types, TSV and JSON. These files will contain all properties that are found in the node, but not all [properties are required](#properties) to upload the node. 
 
 #### Links
 
