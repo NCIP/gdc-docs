@@ -1,0 +1,819 @@
+{
+  "data": {
+    "hits": [
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Myomatous Neoplasms", 
+          "Soft Tissue Tumors and Sarcomas, NOS", 
+          "Fibromatous Neoplasms", 
+          "Lipomatous Neoplasms", 
+          "Nerve Sheath Tumors", 
+          "Synovial-like Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Corpus uteri", 
+          "Stomach", 
+          "Other and unspecified parts of tongue", 
+          "Other and unspecified male genital organs", 
+          "Colon", 
+          "Connective, subcutaneous and other soft tissues", 
+          "Bones, joints and articular cartilage of limbs", 
+          "Meninges", 
+          "Ovary", 
+          "Retroperitoneum and peritoneum", 
+          "Peripheral nerves and autonomic nervous system", 
+          "Uterus, NOS", 
+          "Kidney"
+        ], 
+        "project_id": "TCGA-SARC", 
+        "id": "TCGA-SARC", 
+        "name": "Sarcoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Adrenal gland"
+        ], 
+        "project_id": "TCGA-ACC", 
+        "id": "TCGA-ACC", 
+        "name": "Adrenocortical Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Mesothelial Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Heart, mediastinum, and pleura", 
+          "Bronchus and lung"
+        ], 
+        "project_id": "TCGA-MESO", 
+        "id": "TCGA-MESO", 
+        "name": "Mesothelioma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Rectosigmoid junction", 
+          "Rectum", 
+          "Colon", 
+          "Unknown primary site", 
+          "Connective, subcutaneous and other soft tissues"
+        ], 
+        "project_id": "TCGA-READ", 
+        "id": "TCGA-READ", 
+        "name": "Rectum Adenocarcinoma"
+      }, 
+      {
+        "dbgap_accession_number": "phs000466", 
+        "disease_type": [
+          "Clear Cell Sarcoma of the Kidney"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Kidney"
+        ], 
+        "project_id": "TARGET-CCSK", 
+        "id": "TARGET-CCSK", 
+        "name": "Clear Cell Sarcoma of the Kidney"
+      }, 
+      {
+        "dbgap_accession_number": "phs000465", 
+        "disease_type": [
+          "Acute Myeloid Leukemia"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Blood"
+        ], 
+        "project_id": "TARGET-AML", 
+        "id": "TARGET-AML", 
+        "name": "Acute Myeloid Leukemia"
+      }, 
+      {
+        "dbgap_accession_number": "phs000467", 
+        "disease_type": [
+          "Neuroblastoma"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Nervous System"
+        ], 
+        "project_id": "TARGET-NBL", 
+        "id": "TARGET-NBL", 
+        "name": "Neuroblastoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Gliomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Brain"
+        ], 
+        "project_id": "TCGA-LGG", 
+        "id": "TCGA-LGG", 
+        "name": "Brain Lower Grade Glioma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Stomach"
+        ], 
+        "project_id": "TCGA-STAD", 
+        "id": "TCGA-STAD", 
+        "name": "Stomach Adenocarcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Epithelial Neoplasms, NOS", 
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Thyroid gland"
+        ], 
+        "project_id": "TCGA-THCA", 
+        "id": "TCGA-THCA", 
+        "name": "Thyroid Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Not Reported", 
+          "Gliomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Brain"
+        ], 
+        "project_id": "TCGA-GBM", 
+        "id": "TCGA-GBM", 
+        "name": "Glioblastoma Multiforme"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Nevi and Melanomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Skin"
+        ], 
+        "project_id": "TCGA-SKCM", 
+        "id": "TCGA-SKCM", 
+        "name": "Skin Cutaneous Melanoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Other and unspecified parts of biliary tract", 
+          "Gallbladder", 
+          "Liver and intrahepatic bile ducts"
+        ], 
+        "project_id": "TCGA-CHOL", 
+        "id": "TCGA-CHOL", 
+        "name": "Cholangiocarcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": true, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Kidney"
+        ], 
+        "project_id": "TCGA-KIRC", 
+        "id": "TCGA-KIRC", 
+        "name": "Kidney Renal Clear Cell Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Adnexal and Skin Appendage Neoplasms", 
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Adenomas and Adenocarcinomas", 
+          "Basal Cell Neoplasms", 
+          "Epithelial Neoplasms, NOS", 
+          "Squamous Cell Neoplasms", 
+          "Fibroepithelial Neoplasms", 
+          "Ductal and Lobular Neoplasms", 
+          "Complex Epithelial Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Breast"
+        ], 
+        "project_id": "TCGA-BRCA", 
+        "id": "TCGA-BRCA", 
+        "name": "Breast Invasive Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": "phs001374", 
+        "disease_type": [
+          "Epithelial Neoplasms, NOS", 
+          "Squamous Cell Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Bronchus and lung"
+        ], 
+        "project_id": "VAREPOP-APOLLO", 
+        "id": "VAREPOP-APOLLO", 
+        "name": "VA Research Precision Oncology Program"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Not Reported", 
+          "Cystic, Mucinous and Serous Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Ovary"
+        ], 
+        "project_id": "TCGA-OV", 
+        "id": "TCGA-OV", 
+        "name": "Ovarian Serous Cystadenocarcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Germ Cell Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Testis"
+        ], 
+        "project_id": "TCGA-TGCT", 
+        "id": "TCGA-TGCT", 
+        "name": "Testicular Germ Cell Tumors"
+      }, 
+      {
+        "dbgap_accession_number": "phs001179", 
+        "disease_type": [
+          "Germ Cell Neoplasms", 
+          "Acinar Cell Neoplasms", 
+          "Miscellaneous Tumors", 
+          "Thymic Epithelial Neoplasms", 
+          "Gliomas", 
+          "Basal Cell Neoplasms", 
+          "Neuroepitheliomatous Neoplasms", 
+          "Ductal and Lobular Neoplasms", 
+          "Complex Mixed and Stromal Neoplasms", 
+          "Transitional Cell Papillomas and Carcinomas", 
+          "Complex Epithelial Neoplasms", 
+          "Adnexal and Skin Appendage Neoplasms", 
+          "Mesothelial Neoplasms", 
+          "Mucoepidermoid Neoplasms", 
+          "Specialized Gonadal Neoplasms", 
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Adenomas and Adenocarcinomas", 
+          "Epithelial Neoplasms, NOS", 
+          "Squamous Cell Neoplasms", 
+          "Not Reported", 
+          "Paragangliomas and Glomus Tumors", 
+          "Nevi and Melanomas", 
+          "Meningiomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Testis", 
+          "Gallbladder", 
+          "Unknown", 
+          "Other and unspecified parts of biliary tract", 
+          "Adrenal gland", 
+          "Thyroid gland", 
+          "Spinal cord, cranial nerves, and other parts of central nervous system", 
+          "Peripheral nerves and autonomic nervous system", 
+          "Stomach", 
+          "Cervix uteri", 
+          "Bladder", 
+          "Small intestine", 
+          "Breast", 
+          "Bronchus and lung", 
+          "Other and unspecified female genital organs", 
+          "Other and unspecified major salivary glands", 
+          "Rectum", 
+          "Retroperitoneum and peritoneum", 
+          "Pancreas", 
+          "Heart, mediastinum, and pleura", 
+          "Prostate gland", 
+          "Liver and intrahepatic bile ducts", 
+          "Other and ill-defined sites", 
+          "Thymus", 
+          "Penis", 
+          "Nasopharynx", 
+          "Ovary", 
+          "Uterus, NOS", 
+          "Vulva", 
+          "Anus and anal canal", 
+          "Other and unspecified urinary organs", 
+          "Trachea", 
+          "Ureter", 
+          "Other endocrine glands and related structures", 
+          "Not Reported", 
+          "Colon", 
+          "Other and ill-defined digestive organs", 
+          "Vagina", 
+          "Skin", 
+          "Esophagus", 
+          "Eye and adnexa", 
+          "Kidney"
+        ], 
+        "project_id": "FM-AD", 
+        "id": "FM-AD", 
+        "name": "Foundation Medicine Adult Cancer Clinical Dataset (FM-AD)"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Kidney"
+        ], 
+        "project_id": "TCGA-KICH", 
+        "id": "TCGA-KICH", 
+        "name": "Kidney Chromophobe"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Thymic Epithelial Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Heart, mediastinum, and pleura", 
+          "Thymus"
+        ], 
+        "project_id": "TCGA-THYM", 
+        "id": "TCGA-THYM", 
+        "name": "Thymoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Squamous Cell Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Bronchus and lung"
+        ], 
+        "project_id": "TCGA-LUSC", 
+        "id": "TCGA-LUSC", 
+        "name": "Lung Squamous Cell Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Nevi and Melanomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Eye and adnexa"
+        ], 
+        "project_id": "TCGA-UVM", 
+        "id": "TCGA-UVM", 
+        "name": "Uveal Melanoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Not Reported", 
+          "Mature B-Cell Lymphomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Heart, mediastinum, and pleura", 
+          "Testis", 
+          "Stomach", 
+          "Lymph nodes", 
+          "Bones, joints and articular cartilage of other and unspecified sites", 
+          "Brain", 
+          "Thyroid gland", 
+          "Small intestine", 
+          "Colon", 
+          "Breast", 
+          "Other and unspecified major salivary glands", 
+          "Retroperitoneum and peritoneum", 
+          "Hematopoietic and reticuloendothelial systems", 
+          "Connective, subcutaneous and other soft tissues"
+        ], 
+        "project_id": "TCGA-DLBC", 
+        "id": "TCGA-DLBC", 
+        "name": "Lymphoid Neoplasm Diffuse Large B-cell Lymphoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Not Reported", 
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Epithelial Neoplasms, NOS", 
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Corpus uteri", 
+          "Uterus, NOS"
+        ], 
+        "project_id": "TCGA-UCEC", 
+        "id": "TCGA-UCEC", 
+        "name": "Uterine Corpus Endometrial Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Adenomas and Adenocarcinomas", 
+          "Ductal and Lobular Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Prostate gland"
+        ], 
+        "project_id": "TCGA-PRAD", 
+        "id": "TCGA-PRAD", 
+        "name": "Prostate Adenocarcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Myeloid Leukemias"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Hematopoietic and reticuloendothelial systems"
+        ], 
+        "project_id": "TCGA-LAML", 
+        "id": "TCGA-LAML", 
+        "name": "Acute Myeloid Leukemia"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Liver and intrahepatic bile ducts"
+        ], 
+        "project_id": "TCGA-LIHC", 
+        "id": "TCGA-LIHC", 
+        "name": "Liver Hepatocellular Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Squamous Cell Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Other and ill-defined sites in lip, oral cavity and pharynx", 
+          "Oropharynx", 
+          "Other and unspecified parts of tongue", 
+          "Hypopharynx", 
+          "Tonsil", 
+          "Gum", 
+          "Larynx", 
+          "Palate", 
+          "Other and unspecified parts of mouth", 
+          "Floor of mouth", 
+          "Bones, joints and articular cartilage of other and unspecified sites", 
+          "Lip", 
+          "Base of tongue"
+        ], 
+        "project_id": "TCGA-HNSC", 
+        "id": "TCGA-HNSC", 
+        "name": "Head and Neck Squamous Cell Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": "phs000468", 
+        "disease_type": [
+          "Osteosarcoma"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Bone"
+        ], 
+        "project_id": "TARGET-OS", 
+        "id": "TARGET-OS", 
+        "name": "Osteosarcoma"
+      }, 
+      {
+        "dbgap_accession_number": "phs000470", 
+        "disease_type": [
+          "Rhabdoid Tumor"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Kidney"
+        ], 
+        "project_id": "TARGET-RT", 
+        "id": "TARGET-RT", 
+        "name": "Rhabdoid Tumor"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Epithelial Neoplasms, NOS", 
+          "Adenomas and Adenocarcinomas", 
+          "Complex Epithelial Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Rectosigmoid junction", 
+          "Colon"
+        ], 
+        "project_id": "TCGA-COAD", 
+        "id": "TCGA-COAD", 
+        "name": "Colon Adenocarcinoma"
+      }, 
+      {
+        "dbgap_accession_number": "phs001184", 
+        "disease_type": [
+          "Lymphoid Neoplasm Diffuse Large B-cell Lymphoma"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Lymph Nodes"
+        ], 
+        "project_id": "CTSP-DLBCL1", 
+        "id": "CTSP-DLBCL1", 
+        "name": "CTSP Diffuse Large B-Cell Lymphoma (DLBCL) CALGB 50303"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Adenomas and Adenocarcinomas", 
+          "Squamous Cell Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Esophagus", 
+          "Stomach"
+        ], 
+        "project_id": "TCGA-ESCA", 
+        "id": "TCGA-ESCA", 
+        "name": "Esophageal Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Adenomas and Adenocarcinomas", 
+          "Complex Epithelial Neoplasms", 
+          "Squamous Cell Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Cervix uteri"
+        ], 
+        "project_id": "TCGA-CESC", 
+        "id": "TCGA-CESC", 
+        "name": "Cervical Squamous Cell Carcinoma and Endocervical Adenocarcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Kidney"
+        ], 
+        "project_id": "TCGA-KIRP", 
+        "id": "TCGA-KIRP", 
+        "name": "Kidney Renal Papillary Cell Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Acinar Cell Neoplasms", 
+          "Adenomas and Adenocarcinomas"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Bronchus and lung"
+        ], 
+        "project_id": "TCGA-LUAD", 
+        "id": "TCGA-LUAD", 
+        "name": "Lung Adenocarcinoma"
+      }, 
+      {
+        "dbgap_accession_number": "phs001444", 
+        "disease_type": [
+          "Lymphoid Neoplasm Diffuse Large B-cell Lymphoma"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Lymph Nodes"
+        ], 
+        "project_id": "NCICCR-DLBCL", 
+        "id": "NCICCR-DLBCL", 
+        "name": "Genomic Variation in Diffuse Large B Cell Lymphomas"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Transitional Cell Papillomas and Carcinomas", 
+          "Epithelial Neoplasms, NOS", 
+          "Adenomas and Adenocarcinomas", 
+          "Squamous Cell Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Bladder"
+        ], 
+        "project_id": "TCGA-BLCA", 
+        "id": "TCGA-BLCA", 
+        "name": "Bladder Urothelial Carcinoma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Complex Mixed and Stromal Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Uterus, NOS"
+        ], 
+        "project_id": "TCGA-UCS", 
+        "id": "TCGA-UCS", 
+        "name": "Uterine Carcinosarcoma"
+      }, 
+      {
+        "dbgap_accession_number": "phs000471", 
+        "disease_type": [
+          "High-Risk Wilms Tumor"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Kidney"
+        ], 
+        "project_id": "TARGET-WT", 
+        "id": "TARGET-WT", 
+        "name": "High-Risk Wilms Tumor"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Paragangliomas and Glomus Tumors"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Heart, mediastinum, and pleura", 
+          "Other endocrine glands and related structures", 
+          "Adrenal gland", 
+          "Connective, subcutaneous and other soft tissues", 
+          "Other and ill-defined sites", 
+          "Spinal cord, cranial nerves, and other parts of central nervous system", 
+          "Retroperitoneum and peritoneum"
+        ], 
+        "project_id": "TCGA-PCPG", 
+        "id": "TCGA-PCPG", 
+        "name": "Pheochromocytoma and Paraganglioma"
+      }, 
+      {
+        "dbgap_accession_number": null, 
+        "disease_type": [
+          "Cystic, Mucinous and Serous Neoplasms", 
+          "Epithelial Neoplasms, NOS", 
+          "Adenomas and Adenocarcinomas", 
+          "Ductal and Lobular Neoplasms"
+        ], 
+        "releasable": false, 
+        "released": true, 
+        "state": "open", 
+        "primary_site": [
+          "Pancreas"
+        ], 
+        "project_id": "TCGA-PAAD", 
+        "id": "TCGA-PAAD", 
+        "name": "Pancreatic Adenocarcinoma"
+      }
+    ], 
+    "pagination": {
+      "count": 43, 
+      "sort": "", 
+      "from": 0, 
+      "page": 1, 
+      "total": 43, 
+      "pages": 1, 
+      "size": 50
+    }
+  }, 
+  "warnings": {}
+}
