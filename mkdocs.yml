@@ -127,7 +127,7 @@ pages:
   - TCIA: Encyclopedia/pages/TCIA.md
   - UUID: Encyclopedia/pages/UUID.md
   - Variant Call Format: Encyclopedia/pages/Variant_Call_Format.md
-  - Variant Call Format Legacy: Encyclopedia/pages/TCGA_VCF_1.1.md
+  - Variant Call Format Legacy: Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2.md
   - Variant Type: Encyclopedia/pages/Variant_Type.md
 repo_url: https://github.com/NCI-GDC/gdc-docs
 site_name: GDC Docs
