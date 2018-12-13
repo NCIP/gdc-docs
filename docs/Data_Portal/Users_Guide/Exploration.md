@@ -362,7 +362,7 @@ The survival analysis, which is seen in both the `Gene` and `Mutation` tabs, is 
 
 The survival analysis in the GDC uses a Kaplan-Meier estimator:
 
-[![Kaplan-Meier Estimator](images/gdc-kaplan-meier-estimator.svg)](images/gdc-kaplan-meier-estimator "Click to see the full image.")
+[![Kaplan-Meier Estimator](images/gdc-kaplan-meier-estimator2.png)](images/gdc-kaplan-meier-estimator2.png "Click to see the full image.")
 
 Where:
 
