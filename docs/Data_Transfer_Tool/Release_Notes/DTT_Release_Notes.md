@@ -14,14 +14,14 @@
 * __Release Date__:
 
 ### New Features and Changes
+* Enabled download latest file version feature <!--DTT-112-->     
 * Removal of Interactive mode <!--DTT-30--><!--DTT-105-->
-* Replace Interactive mode with setting flag <!--DTT-30--><!--DTT-105-->
-* Upload and download help menus standardized <!--DTT-95-->
-* Enable download latest file version feature <!--DTT-112-->     
+* Enabled display of all default settings <!--DTT-30--><!--DTT-105-->
+* Standardized upload and download help menus <!--DTT-95-->
 
 ### Bugs Fixed Since Last Release
 * Download flag --no-related-files bug preventing file downloads fixed <!--DTT-94-->
-* File name handling with back slashes bug fixed <!--DTT-99-->
+* File name handling with forward slashes bug fixed <!--DTT-99-->
 * Download flag --no-segment-md5sums bug fixed. <!--DTT-11-->
 
 ### Known Issues and Workarounds
