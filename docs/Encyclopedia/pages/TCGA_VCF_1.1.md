@@ -40,7 +40,7 @@ adhere to UUID-based specification whereas some may still have barcodes.
 Non-UUID files will follow the specification described here but for
 UUID-compliance, VCF files should satisfy the following criteria.
 
-1.  **SampleUUID** and **SampleTCGABarcode**  are required tags in each
+1.  **SampleUUID** and **SampleTCGABarcode** are required tags in each
     ##SAMPLE declaration. Please note that **SampleName** will not be a
     required tag once submitting center has fully converted to UUIDs.
 
