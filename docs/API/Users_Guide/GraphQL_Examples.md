@@ -23,7 +23,7 @@ All GDC GraphQL queries are validated and executed against the [GDC GraphQL sche
 
 The `__schema` keyword can be queried to list all types defined in the schema and retrieve details about each:
 
-```Run in Explorer
+```GraphQL
 {
   __schema {
     types {
@@ -37,7 +37,7 @@ The `__schema` keyword can be queried to list all types defined in the schema an
 }
 ```
 The `__type` keyword can also be queried to retrieve details about any type such as "Explore" or "Case":
-```Run in Explorer
+```GraphQL
 
 {
   __type(name: "Explore") {
@@ -51,7 +51,7 @@ The `__type` keyword can also be queried to retrieve details about any type such
 }
 ```
 
-```Run in Explorer
+```GraphQL
 {
   __type(name: "Case") {
     name
@@ -89,7 +89,7 @@ GraphQL queries return only the data that is specified. Queries are built by spe
 ### Nodes And Edges Example
 A very powerful feature of GDC GraphQL API is that the graph structures defined in the [GDC GraphQL schema]( https://github.com/NCI-GDC/portal-ui/blob/92f0dfa17838746093c3c011141d08391016da91/data/schema.graphql ) can be queried and traversed. In these queries, nodes define objects and edges define relationships between objects.
 
-```Run in Explorer
+```GraphQL
 
 query PROJECTS_EDGES($filters_1: FiltersArgument) {
   projects {
@@ -113,7 +113,7 @@ query PROJECTS_EDGES($filters_1: FiltersArgument) {
 
 ### Query Case File Counts
 
-```Run in Explorer
+```GraphQL
 query CaseFileCounts($filters: FiltersArgument) {
   viewer {
     repository {
@@ -151,7 +151,7 @@ variable:
 
 ### Query Simple Static Mutations Based on Gene IDs
 
-```Run in Explorer
+```GraphQL
 
 query PROJECTS_EDGES($filters_2: FiltersArgument) {
   explore {
