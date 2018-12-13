@@ -15,7 +15,7 @@ The GDC Data Dictionary is a resource that describes the clinical, biospecimen, 
 
 ### Standards and Conventions
 
-The GDC Data Dictionary includes references to external standards including the [National Cancer Institute Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/) (NCIt) and the [Cancer Data Standards Registry and Repository](https://wiki.nci.nih.gov/display/caDSR/caDSR+Wiki) (caDSR). Both of these standards are operated by groups at NCI’s Center for Bioinformatics and Information Technology (CBIIT). 
+The GDC Data Dictionary includes references to external standards including the [National Cancer Institute Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/) (NCIt) and the [Cancer Data Standards Registry and Repository](https://wiki.nci.nih.gov/display/caDSR/caDSR+Wiki) (caDSR). Both of these standards are operated by groups at [NCI’s Center for Bioinformatics and Information Technology](https://cbiit.cancer.gov/) (CBIIT). 
 
 Each property is assigned a Common Data Element (CDE) created by the caDSR. The CDE includes detailed information about the property including links to the NCIt through assigned concept codes. NCIt concepts are also assigned at the acceptable value level for enumerated properties. The images below is an example of a caDSR CDE and its related property-level NCIt concepts.  
 
