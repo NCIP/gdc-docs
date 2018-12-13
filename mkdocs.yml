@@ -63,12 +63,10 @@ pages:
   - fa-file-text Download PDF /Data_Submission_Portal/PDF/Data_Submission_Portal_UG.pdf: Data_Submission_Portal/PDF/index.md
 - Data Transfer Tool:
   - Getting Started: Data_Transfer_Tool/Users_Guide/Getting_Started.md
-  - Accessing Built-in Help: Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md
   - Preparing for Data Download and Upload: Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md
-  - Data Download and Upload - Command Line: Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md
-  - Data Download - UI: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
-  - Key Terms: Data_Transfer_Tool/Users_Guide/Appendix_A_-_Key_Terms.md
+  - Data Transfer Tool Command Line Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md
   - Release Notes - Command Line: Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md
+  - Data Transfer Tool UI Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
   - Release Notes - UI: Data_Transfer_Tool/Release_Notes/DTT_UI_Release_Notes.md
   - fa-file-text Download PDF /Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf: Data_Transfer_Tool/PDF/index.md
 - Data Dictionary:
@@ -122,6 +120,7 @@ pages:
   - Manifest File: Encyclopedia/pages/Manifest_File.md
   - MD5 Checksum: Encyclopedia/pages/MD5_Checksum.md
   - Mutation Annotation Format: Encyclopedia/pages/Mutation_Annotation_Format.md
+  - Mutation Annotation Format Legacy: Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2.md
   - Redaction: Encyclopedia/pages/Redaction.md
   - Release Number: Encyclopedia/pages/Release_Number.md
   - REST API: Encyclopedia/pages/REST_API.md
@@ -132,6 +131,7 @@ pages:
   - TCIA: Encyclopedia/pages/TCIA.md
   - UUID: Encyclopedia/pages/UUID.md
   - Variant Call Format: Encyclopedia/pages/Variant_Call_Format.md
+  - Variant Call Format Legacy: Encyclopedia/pages/TCGA_VCF_1.1.md
   - Variant Type: Encyclopedia/pages/Variant_Type.md
 repo_url: https://github.com/NCI-GDC/gdc-docs
 site_name: GDC Docs
