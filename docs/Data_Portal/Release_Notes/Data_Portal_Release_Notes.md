@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.18.0](Data_Portal_Release_Notes.md#release-1180) | December , 2018 |
+| [v1.18.0](Data_Portal_Release_Notes.md#release-1180) | December 18, 2018 |
 | [v1.17.0](Data_Portal_Release_Notes.md#release-1170) | November 7, 2018 |
 | [v1.16.0](Data_Portal_Release_Notes.md#release-1160) | September 27, 2018 |
 | [v1.15.0](Data_Portal_Release_Notes.md#release-1150) | August 23, 2018 |
@@ -25,7 +25,7 @@
 ## Release 1.18.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  December , 2018
+* __Release Date__:  December 18, 2018
 
 ### New Features and Changes <!--REQ-335-->
 
@@ -41,6 +41,7 @@
 
 ### Known Issues and Workarounds
 
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
 *  Custom Facet Filters
     * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
 *  Visualizations

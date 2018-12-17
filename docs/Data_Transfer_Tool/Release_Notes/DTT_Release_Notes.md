@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.4.0](DTT_Release_Notes.md#v140) | |
+| [v1.4.0](DTT_Release_Notes.md#v140) | December 18, 2018 |
 | [v1.3.0](DTT_Release_Notes.md#v130) | August 22, 2017 |
 | [v1.2.0](DTT_Release_Notes.md#v120) | Oct 31, 2016 |
 | [v1.1.0](DTT_Release_Notes.md#v110) | September 7, 2016 |
@@ -10,8 +10,8 @@
 | [v1.0.0](DTT_Release_Notes.md#v100) | May 26, 2016 |
 
 ## V1.4.0
-* __GDC Product__:
-* __Release Date__:
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: December 18, 2018
 
 ### New Features and Changes
 * Enabled download latest file version feature <!--DTT-112-->     

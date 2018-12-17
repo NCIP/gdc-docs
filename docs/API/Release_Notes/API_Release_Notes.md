@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.18.0](API_Release_Notes.md#v1160) | December X, 2018 |
+| [v1.18.0](API_Release_Notes.md#v1160) | December 18, 2018 |
 | [v1.17.0](API_Release_Notes.md#v1160) | November 7, 2018 |
 | [v1.16.0](API_Release_Notes.md#v1160) | September 27, 2018 |
 | [v1.15.0](API_Release_Notes.md#v1150) | August 23, 2018 |
@@ -27,7 +27,7 @@
 ## v1.18.0 <!--REQ-335-->
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__:  December X, 2018
+* __Release Date__:  December 18, 2018
 
 ### New Features and Changes
 

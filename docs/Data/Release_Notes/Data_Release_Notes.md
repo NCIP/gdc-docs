@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v14.0](Data_Release_Notes.md#data-release-130) | December X, 2018 |
+| [v14.0](Data_Release_Notes.md#data-release-130) | December 18, 2018 |
 | [v13.0](Data_Release_Notes.md#data-release-130) | September 27, 2018 |
 | [v12.0](Data_Release_Notes.md#data-release-120) | June 13, 2018 |
 | [v11.0](Data_Release_Notes.md#data-release-110) | May 21, 2018 |
@@ -21,16 +21,21 @@
 ## Data Release 14.0 <!--REQ-335-->
 
 * __GDC Product__: Data
-* __Release Date__: December x, 2018
+* __Release Date__: December 18, 2018
 
 ### New updates
 
-1.  Copy Number Variation (CNV) data derived from GISTIC results are now available for download for TCGA projects <!--DAT-1681-->
+1.  Copy Number Variation (CNV) data derived from GISTIC2 results are now available for download for TCGA projects <!--DAT-1681-->
 2.  New miRNA data available for 181 aliquots for TARGET and TCGA <!--DAT-1823-->
 3.  Released two SNP6 files (6cd4ef5e-324a-4ace-8779-7a33bd559c83, dfa89ee9-6ee5-460b-bd58-b5ca0e9cb7ac) <!--DAT-1805-->
 4.  New versions of TCGA biospecimen supplements are available <!--DAT-1776-->
 5.  Updated primary site for `TCGA-AG-388` to `Unknown` <!--DAT-1853-->
 6.  8 New Harmonized WGS BAM files for TARGET-WT, TARGET-NBL, TARGET-AML added to the portal <!--DAT-1839-->
+
+A complete list of files for DR13.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+* [gdc_manifest_20181218_data_release_14.0_active.txt.gz](gdc_manifest_20181218_data_release_14.0_active.txt.gz)
+* [gdc_manifest_20181218_data_release_14.0_legacy.txt.gz](gdc_manifest_20181218_data_release_14.0_legacy.txt.gz).
 
 
 ### Bugs Fixed Since Last Release
