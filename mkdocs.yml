@@ -3,7 +3,7 @@ extra:
   dictionary_app_root: /apps/dictionary
   dictionary_viewer_page_id: Viewer
   gdcmvs_app_root: /apps/gdcmvs
-  gdcmvs_viewer_page_id: GDC Metadata Validation Services
+  gdcmvs_viewer_page_id: Search
   encyclopedia_entries_page_title: EncyclopediaEntries
   encyclopedia_page_title: Encyclopedia
   nav_exclude:
@@ -68,7 +68,7 @@ pages:
 - Data Dictionary:
   - About: Data_Dictionary/index.md
   - Viewer: Data_Dictionary/viewer.md
-  - GDC Metadata Validation Services: Data_Dictionary/gdcmvs.md
+  - Search: Data_Dictionary/gdcmvs.md
   - Release Notes: Data_Dictionary/Release_Notes/Data_Dictionary_Release_Notes.md
 - Data:
   - Introduction: Data/Introduction.md
