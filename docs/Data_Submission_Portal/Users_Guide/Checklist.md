@@ -17,6 +17,8 @@ The following tasks are required to submit data to the [GDC Data Portal](https:/
 
 5.   Begin uploading data to the GDC.  You may use the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) for uploading metadata.  Data files must be transferred using the [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/).
 
+6.  The GDC performs batch processing of submitted data. Data will not be automatically harmonized or processed after data are uploaded. After verifying that the submission is complete (all files are uploaded, required metadata is provided, and all errors are addressed) the user may [`Request Submission`](Users_Guide/Data_Submission_Process.md#submit-to-the-gdc). This will indicate to internal teams and the automation system to begin data processing. Once file states are changed to `submitted`, the data contributor may continue submitting more data, which will be tracked as a later batch.
+
 ## Key Features
 The GDC Data Submission Portal is a platform that allows researchers to submit and release data to the GDC. The key features of the GDC Data Submission Portal are:
 

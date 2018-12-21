@@ -8,11 +8,9 @@ Pictured below is the submittable subset of the GDC Data Model: a roadmap for GD
 
 [![GDC Data Model 1](images/GDC-Data-Model-None.png)](images/GDC-Data-Model-None.png "Click to see the full image.")
 
-# Case and Clinical Data Submission
+# Case Submission
 
 The `case` is the center of the GDC Data Model and usually describes a specific patient. Each `case` is connected to a `project`.  Different types of clinical data, such as `diagnoses` and `exposures`, are connected to the `case` to describe the case's attributes and medical information.   
-
-## Case Submission
 
 [![GDC Data Model 2](images/GDC-Data-Model-Case.png)](images/GDC-Data-Model-Case.png "Click to see the full image.")
 
@@ -108,17 +106,17 @@ Next, the file can either be committed (applied to the project) through the Data
 curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
 ```
 
-## Clinical Submission
+# Clinical Data Submission
 
 Typically a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data.
 
-### Clinical Data Requirements
+## Clinical Data Requirements
 
 For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal GDC requirements for each project includes age, gender, and diagnosis information.  Other [requirements](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=clinical) may be added when the submitter is approved for submission to the GDC.
 
 [![GDC Data Model Clinical](images/GDC-Data-Model-Clinical.png)](images/GDC-Data-Model-Clinical.png "Click to see the full image.")
 
-### Submitting a Demographic Entity to a Case
+## Submitting a Demographic Entity to a Case
 
 The `demographic` entity contains information that characterizes the `case` entity.  
 
@@ -149,7 +147,7 @@ type	cases.submitter_id	ethnicity	gender	race	year_of_birth
 demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian	1946
 ```
 
-### Submitting a Diagnosis Entity to a Case
+## Submitting a Diagnosis Entity to a Case
 
 Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=diagnosis) entity requires:
 
@@ -490,7 +488,7 @@ submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Seque
 
 ## Uploading the Submittable Data File to the GDC
 
-The submittable data file can be uploaded when it is registered with the GDC. An submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. Uploading the file can be performed with either the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/). Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the GDC [Submitted Data Types and File Formats](https://gdc.cancer.gov/about-data/data-types-and-file-formats/submitted-data-types-and-file-formats) website.
+The submittable data file can be uploaded when it is registered with the GDC. An submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. It is important to not that the Harmonization process does not occur on these submitted files until the user clicks the [`Request Submission`](Users_Guide/Data_Submission_Process.md#submit-to-the-gdc) button. Uploading the file can be performed with either the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/). Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the GDC [Submitted Data Types and File Formats](https://gdc.cancer.gov/about-data/data-types-and-file-formats/submitted-data-types-and-file-formats) website.
 
 __GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the GDC Submission Portal or API) once it is registered. 
 
