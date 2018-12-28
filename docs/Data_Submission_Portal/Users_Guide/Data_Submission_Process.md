@@ -2,7 +2,7 @@
 
 # Overview
 
-This section will walk users through the submission process using the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/). The diagram below describes this process for uploading and validating data in the GDC Data Submission Portal. 
+This section will walk users through the submission process using the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/). The diagram below describes this process for uploading and validating data in the GDC Data Submission Portal.
 
 The submitter uploads Clinical and Biospecimen data to the project workspace using GDC templates that are available in the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/). The GDC validates the uploaded data against the GDC Data Dictionary. Then to upload submittable data files, such as sequence data in BAM or FASTQ format, the submitter must register file metadata with the GDC using a method similar to uploading Clinical and Biospecimen data. When the files are registered, the submitter downloads a manifest from the GDC Data Submission Portal and uses it with the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) to upload the data files. Finally, the submitter will request submission, and after harmonization, the submitter will review and eventually release their data.
 
@@ -286,7 +286,7 @@ For strategies on data upload, further documentation for the GDC Data Submission
 
 ## Review
 
-The submitter is responsible for reviewing the data uploaded to the project workspace (see [Data Submission Walkthrough](Data_Submission_Walkthrough.md)), and ensuring that it is ready for processing by the GDC [Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization). 
+The submitter is responsible for reviewing the data uploaded to the project workspace (see [Data Submission Walkthrough](Data_Submission_Walkthrough.md)), and ensuring that it is ready for processing by the GDC [Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization).
 
 The user will be able to view the section below on the dashboard. The `REVIEW` button is available only if the project is in "OPEN" state.
 
@@ -300,20 +300,20 @@ Clicking on the `REVIEW` button will change the project state to "REVIEW":
 
 ## Pre-Harmonization Checklist
 
-The Harmonization step is __NOT__ an automatic process that occurs when data is uploaded to the GDC. The GDC performs batch processing of submitted data for Harmonization only after verifying that the submission is complete. 
+The Harmonization step is __NOT__ an automatic process that occurs when data is uploaded to the GDC. The GDC performs batch processing of submitted data for Harmonization only after verifying that the submission is complete.
 
 The following tasks are required before the data can be considered complete:
 
 1. All files are registered and have been uploaded and validated.
 
-2. There are no invalid characters in the `submitter_id` of any node. 
+2. There are no invalid characters in the `submitter_id` of any node.
 The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `.`, `-`. Any other characters will interfer with the Harmonization workflow.
 
 3. There are no data files with duplicate md5sums.
 
 4. Clinical data nodes such as `demographic`, `diagnosis` and `clinical_supplement`, are linked to `case`.
 
-5. The `read_group` node is linked to a valid node: 
+5. The `read_group` node is linked to a valid node:
     * `submitted_unaligned_reads`
     * `submitted_aligned_reads`
     * `genomic_profiles`
@@ -323,14 +323,14 @@ The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `
     * `aliquot` attached to more than one `sample` node, potentially valid but unusual.
     * `aliquot` attached to both `sample` and `analyte` nodes.
 
-7. Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`. 
+7. Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`.
 
 8. The information for the `platform` is in the `read_group` node. While the subsequent information about the platform is not required, it is beneficial to also have information on:
     * `multiplex_barcode`
     * `flow_cell_barcode`
     * `lane_number`
 
-9.  In `read_group`, the `library_strategy` should match the `library_selection`: 
+9.  In `read_group`, the `library_strategy` should match the `library_selection`:
     * Targeted Sequencing must be with either PCR or Hybrid Selection.
     * WXS must be with Hybrid Selection.
     * WGS must be with Random.
@@ -369,7 +369,7 @@ The GDC requests that users submit their data to the GDC within six months from 
 
 # GDC Review/QC Submitted Data - GDC Activity
 
-The Bioinformatics Team at the GDC runs the Quality Control pipeline on the submitted data. This pipeline mirrors the [Pre-Harmonization Checklist](#pre-harmonization-checklist) and will determine if the submission is complete and is ready for the pipeline analysis. If the submission does contain problems, the GDC will contact the user to "Re-Open" the project and fix the errors in their submission. 
+The Bioinformatics Team at the GDC runs the Quality Control pipeline on the submitted data. This pipeline mirrors the [Pre-Harmonization Checklist](#pre-harmonization-checklist) and will determine if the submission is complete and is ready for the pipeline analysis. If the submission does contain problems, the GDC will contact the user to "Re-Open" the project and fix the errors in their submission.
 
 # GDC Harmonize Data - GDC Activity
 
