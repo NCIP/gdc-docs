@@ -6,18 +6,11 @@ The National Cancer Institute (NCI) Genomic Data Commons (GDC) Data Submission P
 ## Steps to Submit Data to the GDC
 The following tasks are required to submit data to the [GDC Data Portal](https://portal.gdc.cancer.gov/).
 
-
 1.  Complete the GDC Data [Submission Request Form](https://gdc.cancer.gov/data-submission-request-form). After submission, the reqest will be reviewed by the GDC Data Submission Review Committee. During this time, create an [eRA Commons account](https://era.nih.gov/registration_accounts.cfm) if you do not already have one.
 
 2.  If the study is approved, contact a [Genomic Program Administrator (GPA)](https://osp.od.nih.gov/genomic-program-administrators/) to register the approved study in [dbGaP](https://www.ncbi.nlm.nih.gov/sra/docs/submitdbgap).  This includes registering the project as a GDC Trusted Partner study, registering cases, and adding authorized data submitters. For more information, see [Data Submission Process](https://gdc.cancer.gov/submit-data/data-submission-processes-and-tools).
 
 3.  Contact the GDC User Services to create a submission project.  The User Services team will require a project ID, which is a two-part identifier, where the first portion is the __Program__ followed by a hyphen (__-__) and the second portion is the __Project__.  This must be alphanumeric and all caps only.  An example would be `TCGA-BRCA`.  You must also create a project name, which can be longer and has fewer requirements on length or character usage.  An example would be `Breast Invasive Carcinoma`.
-
-4.  Familiarize yourself with the [Data Model](Data_Submission_Walkthrough.md) and [Data Dictionary](../../Data_Dictionary/viewer.md) to understand how different data relate to each other and what data is permissible.  Explore the [GDC Metadata Validation Service](https://docs.gdc.cancer.gov/Data_Dictionary/gdcmvs/) to relate other vocabularies to permissible properties and values in the GDC Data Dictionary.
-
-5.   Begin uploading data to the GDC.  You may use the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) for uploading metadata.  Data files must be transferred using the [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/).
-
-6.  The GDC performs batch processing of submitted data. Data will not be automatically harmonized or processed after data are uploaded. After verifying that the submission is complete (all files are uploaded, required metadata is provided, and all errors are addressed) the user may [`Request Submission`](Users_Guide/Data_Submission_Process.md#submit-to-the-gdc). This will indicate to internal teams and the automation system to begin data processing. Once file states are changed to `submitted`, the data contributor may continue submitting more data, which will be tracked as a later batch.
 
 ## Key Features
 The GDC Data Submission Portal is a platform that allows researchers to submit and release data to the GDC. The key features of the GDC Data Submission Portal are:
