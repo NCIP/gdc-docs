@@ -51,7 +51,7 @@ This section also contains a "Download Template" link with a drop-down menu cont
 [![Links](images/GDC_DD_Links.png)](images/GDC_DD_Links.png "Click to see the full image.")
 
 * __Links to Entity:__ Other nodes that are connected to the focal node.
-* __Link Name:__ The name of the node as it would be used when referring to one of its fields in the focal node. Example: Referring to the case's `submitter_id` field in the sample node, the link would be `cases.submitter_id`.
+* __Link Name:__ A simplified stand-in for the node-link structure. Its declaration categorizes the relationship between nodes.
 * __Relationship:__ The written description for the association between the focal node and the other connected node.
 * __Required:__ Displays whether the node is required for the existence of the focal node.
 
