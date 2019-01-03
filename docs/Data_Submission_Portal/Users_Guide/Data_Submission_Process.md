@@ -2,7 +2,7 @@
 
 ## Overview
 
-This section will walk users through the submission process using the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/) to upload files to the GDC. 
+This section will walk users through the submission process using the [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/) to upload files to the GDC.
 
 ## Authentication
 
@@ -235,7 +235,7 @@ The GDC Data Submission process is detailed on the [Data Submission Processes an
 
 ### Review
 
-The submitter is responsible for reviewing the data uploaded to the project workspace (see [Data Submission Walkthrough](Data_Submission_Walkthrough.md)), and ensuring that it is ready for processing by the GDC [Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization). 
+The submitter is responsible for reviewing the data uploaded to the project workspace (see [Data Submission Walkthrough](Data_Submission_Walkthrough.md)), and ensuring that it is ready for processing by the GDC [Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization).
 
 The user will be able to view the section below on the dashboard. The `REVIEW` button is available only if the project is in "OPEN" state.
 
@@ -251,12 +251,12 @@ Once the user clicks on `REVIEW`, the project state will change to "REVIEW":
 
 The Harmonization step is __NOT__ an automatic process that occurs when data is uploaded to the GDC. The GDC performs batch processing of submitted data for Harmonization only after verifying that the submission is complete.
 
-The following tasks are required before the data can be considered complete:
+The following tests must pass before the data can be considered complete:
 
-1. All files are registered and have been uploaded and validated.
+1. All files that are registered have been uploaded and validated.
 
 2. There are no invalid characters in the `submitter_id` of any node.
-The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `.`, `-`. Any other characters will interfer with the Harmonization workflow.
+The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `.`, `-`. Any other characters will interfere with the Harmonization workflow.
 
 3. There are no data files with duplicate md5sums.
 
@@ -265,12 +265,11 @@ The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `
 5. The `read_group` node is linked to a valid node:
     * `submitted_unaligned_reads`
     * `submitted_aligned_reads`
-    * `genomic_profiles`
+    * `submitted_genomic_profile`
 
 6. The `sample`-`analyte`-`aliquot` relationships are valid. Common problems can sometimes be:
     * `aliquot` attached to `sample` nodes of more than one type.
     * `aliquot` attached to more than one `sample` node, potentially valid but unusual.
-    * `aliquot` attached to both `sample` and `analyte` nodes.
 
 7. Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`.
 
@@ -284,7 +283,7 @@ The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `
     * WXS must be with Hybrid Selection.
     * WGS must be with Random.
 
-10.  The `target_capture_kit` property is one of the enumerations when the selected `library_strategy` is `WXS`. Errors will occur if `Not Applicable` or `Unknown` is selected.
+10.  The `target_capture_kit` property is completed when the selected `library_strategy` is `WXS`. Errors will occur if `Not Applicable` or `Unknown` is selected.
 
 11. Check the nodes that are related to FASTQ files. For the `submitted_unalinged_reads` node, determine that the size is correct, the files are not compressed (`.tar` or `.tar.gz`), and there is a link to `read_group`. For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.
 
@@ -328,4 +327,3 @@ After the user clicks on `RELEASE SUBMITTED AND PROCESSED DATA`, the project rel
 
 
 >__Note__: Released cases and/or files can be redacted from the GDC. For more information, visit the [GDC Policies page (under GDC Data Sharing Policies)](https://gdc.cancer.gov/about-gdc/gdc-policies).
-
