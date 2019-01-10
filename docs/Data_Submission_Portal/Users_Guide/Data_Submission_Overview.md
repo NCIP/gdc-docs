@@ -1,4 +1,4 @@
-# Data Submission Overview
+# Data Submission Overview 
 
 ## Overview
 This section will walk users through two parts of the submission process. The first portion will be the steps taken by the users to go through the submission process from start to finish. The second portion will describe the lifecycle of a project and a file throughout the data submission process.
@@ -7,13 +7,13 @@ This section will walk users through two parts of the submission process. The fi
 
 The diagram below illustrates the process from uploading through releasing data in the GDC Data Submission Portal. To review the steps needed before beginning submission see [Before Submitting Data to the GDC Portal](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Checklist/)
 
-[![GDC Data Submission Portal Workflow Upload](images/gdc-submission-portal-data-upload-workflow_2.png)](images/gdc-submission-portal-data-upload-workflow_2.png "Click to see the full image.")
+[![GDC Data Submission Portal Workflow Upload](images/gdc-submission-portal-data-upload-workflow_2.jpg)](images/gdc-submission-portal-data-upload-workflow_2.jpg "Click to see the full image.")
 
 ### Review GDC Dictionary and GDC Data Model - Submitter Activity
 
 It is suggested that all submitters review the [GDC Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) and [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-model-components). It is beneficial for submitters to know which nodes will need metadata submission, how these nodes relate to each other, and what information is required for each node in the model.
 
-### Download templates - Submitter Activity
+### Download Templates - Submitter Activity
 
 After determining the required nodes for the submission, go to each node page in the [GDC Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/). There will be a "Download Template" drop down list. Select the file format, either TSV or JSON, and download the template for the node. If [numerous entries](Data_Submission_Walkthrough.md#submitting-numerous-cases) are being submitted all at one time, it is suggested that the user uses a TSV template. At this point, it is suggested to go through the template and remove fields that will not be populated by the metadata submission, but make sure to complete all fields that are required for the node. For more information about the Data Dictionary, please visit [here](../../../Data_Dictionary/).
 
@@ -21,9 +21,9 @@ After determining the required nodes for the submission, go to each node page in
 
 ### Upload Case Information Including dbGaP Submitted Subject IDs - Submitter Activity
 
-After registering the study in [dbGAP](https://gdc.cancer.gov/submit-data/obtaining-access-submit-data), the first node to be created in the data model is the [`case` node](Data_Submission_Walkthrough.md#case-submission). The `case` node is important as it will contain a unique `submitter_id` that is registered in dbGaP under a particular project. This will connect the two databases, dbGaP and GDC, and allows for access to be granted to a controlled data set based on the study and its cases.
+After registering the study in [dbGaP](https://gdc.cancer.gov/submit-data/obtaining-access-submit-data), the first node to be created in the data model is the [`case` node](Data_Submission_Walkthrough.md#case-submission). The `case` node is important as it will contain a unique `submitter_id` that is registered in dbGaP under a particular project. This will connect the two databases, dbGaP and GDC, and allows for access to be granted to a controlled data set based on the study and its cases.
 
-To [submit the `case`](Data_Submission_Walkthrough.md#uploading-the-case-submission-file) nodes, a user must be able to [login](Data_Submission_Process.md#authentication) and access the [GDC Submission Portal](https://portal.gdc.cancer.gov/submission/) for their respective project. Metadata for all nodes are supplied via the [API](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#creating-and-updating-entities) or through the [Submission Portal](Data_Submission_Walkthrough.md#upload-using-the-gdc-data-submission-portal).
+To [submit the `case`](Data_Submission_Walkthrough.md#uploading-the-case-submission-file) nodes, a user must be able to [login](Data_Submission_Process.md#authentication) and access the [GDC Submission Portal](https://portal.gdc.cancer.gov/submission/) for their respective project. Metadata for all nodes are uploaded via the [API](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#creating-and-updating-entities) or through the [Submission Portal](Data_Submission_Walkthrough.md#upload-using-the-gdc-data-submission-portal).
 
 [`See case example here.`](Data_Submission_Walkthrough.md#case-submission)
 
@@ -41,7 +41,7 @@ With the creation of `case` nodes, other nodes in the [data model](https://gdc.c
 
 ### Register Data Files - Submitter Activity
 
-Registering data files is necessary before they can be uploaded. This allows the GDC later to validate the uploads against user-supplied md5sum and file size. The [submission](Data_Submission_Walkthrough.md#experiment-data-submission) of these files can range from clinical and biospecimen supplements to `submitted_aligned_reads` and `submitted_unaligned_reads`.
+Registering data files is necessary before they can be uploaded. This allows the GDC to later validate the uploads against the user-supplied md5sum and file size. The [submission](Data_Submission_Walkthrough.md#experiment-data-submission) of these files can range from clinical and biospecimen supplements to `submitted_aligned_reads` and `submitted_unaligned_reads`.
 
 [`See experiment data example here.`](Data_Submission_Walkthrough.md#experiment-data-submission)
 
@@ -81,7 +81,7 @@ After the submission passes the GDC Quality Control pipeline, it will be queued 
 
 ### Submitter Review/QC of Harmonized Data - Submitter Activity
 
-After the data is processed in the Harmonization pipeline, the GDC asks submitters to [verify the quality](https://portal.gdc.cancer.gov/submission/login?next=%2Fsubmission%2F) of their data.  It is the user's responsibility to notify the GDC of any errors in their harmonized data sets. The GDC will then work with the user to correct the issue and rerun the Harmonization pipeline if needed.
+After the data is processed in the Harmonization pipeline, the GDC asks submitters to [verify the quality](https://portal.gdc.cancer.gov/submission/login?next=%2Fsubmission%2F) of their harmonized data.  It is the user's responsibility to notify the GDC of any errors in their harmonized data sets. The GDC will then work with the user to correct the issue and rerun the Harmonization pipeline if needed.
 
 ### Release Data Within Six Months - Submitter Activity
 
@@ -89,7 +89,7 @@ Project release occurs after the data has been harmonized, and allows users to a
 
 [`See release example here.`](Data_Submission_Process.md#release)
 
->__Note__: Released cases and/or files can be redacted from the GDC. For more information, visit the [GDC Policies page (under GDC Data Sharing Policies)](https://gdc.cancer.gov/about-gdc/gdc-policies).
+>__Note__: Released cases and/or files can be redacted from the GDC. For more information, visit the [GDC Policies page (under GDC Data Sharing Policies)](https://gdc.cancer.gov/submit-data/data-submission-policies).
 
 ### GDC Releases Data - GDC Activity
 

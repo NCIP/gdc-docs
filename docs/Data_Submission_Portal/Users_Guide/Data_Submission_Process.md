@@ -20,7 +20,7 @@ The GDC Data Portal provides authentication tokens for use with the GDC Data Tra
 
 1. Log into the GDC using your eRA Commons credentials.
 2. Click the username in the top right corner of the screen.
-3. Select the "Download token" option.
+3. Select the "Download Token" option.
 
 ![Token Download Button](images/gdc-data-portal-token-download.png)
 
@@ -47,7 +47,7 @@ After authentication, users are redirected to a homepage. The homepage acts as t
 Project summary reports can be downloaded at the Submission Portal homepage at three different levels: `CASE OVERVIEW`, `ALIQUOT OVERVIEW`, and `DATA VALIDATION`.  Each report is generated in tab-delimited format in which each row represents an active project.  
 
 * __`CASE OVERVIEW`:__ This report describes the number of cases with associated biospecimen data, clinical data, or submittable data files (broken down by data type) for each project.
-* __`ALIQUOT OVERVIEW`:__ This report describes the number of aliquots in a project with associated data files. Aliquot numbers are broken down by tissue sample type.
+* __`ALIQUOT OVERVIEW`:__ This report describes the number of aliquots in a project with associated data files. Aliquot numbers are broken down by sample tissue type.
 * __`DATA VALIDATION`:__ This report categorizes all submittable data files associated with a project by their file status.
 
 ### Projects
@@ -68,7 +68,7 @@ To better understand the information displayed on the dashboard and the availabl
 ### Project Overview
 The Project Overview sections of the dashboard displays the most current project state (open / review / submitted / processing) and the GDC Release, which is the date in which the project was released to the GDC.
 
-The search field at the top of the dashboard allows for submitted entities to be searched by partial or whole `submitter_id`.  When a search term is entered into the field, a list of entities matching the term is updated in real time.  Selecting one of these entities links to its details in the [Browse Tab](#browse-data).
+The search field at the top of the dashboard allows for submitted entities to be searched by partial or whole `submitter_id`.  When a search term is entered into the field, a list of entities matching the term is updated in real time.  Selecting one of these entities links to its details in the [Browse Tab](#browse).
 
 The remaining part of the top section of the dashboard is broken down into four status charts:
 
@@ -96,6 +96,7 @@ The transactions page lists all of the project's transactions. The transactions 
 The types of transactions are the following:
 
 * __Upload:__ The user uploads data to the project workspace. Note that submittable data files uploaded using the GDC Data Transfer tool do not appear as transactions. Uploaded submittable data can be viewed in the Browse tab.
+* __Delete:__ The user deletes data from the project workspace.
 * __Review:__ The user reviews the project before submitting data to the GDC.
 * __Open:__ The user re-opens the project if it was under review. This allows the upload of new data to the project workspace.
 * __Submit:__ The user submits uploaded data to the GDC. This triggers the data harmonization process.
@@ -109,15 +110,15 @@ The transactions list view displays the following information:
 | --- | --- |
 | __ID__ | Identifier of the transaction |
 | __Type__ | Type of the transaction (see the list of transaction types in the previous section)|
-| __Step__ | The step of the submission process that each file is currently in. This can be Validate or Commit. "Validate" represents files that have not yet been committed but have been submitted using the submission portal or the API. |
+| __Step__ | The step of the submission process that each file is currently in. This can be Validate or Commit. "Validate" represents files that have not yet been committed but have been uploaded using the submission portal or the API. |
 | __DateTime__ | Date and Time that the transaction was initiated |
 | __User__ | The username of the submitter that performed the transaction |
-| __Status__ | 	Indicates the status of the transaction: `SUCCEEDED`, `PENDING`, or `FAILED` |
-| __Commit/Discard__ | Two buttons that appear when data has been uploaded using the API or the submission portal.  This allows for validated data to be incorporated into the project or discarded. |
+| __State__ | 	Indicates the status of the transaction: `SUCCEEDED`, `PENDING`, or `FAILED` |
+| __Commit/Discard__ | Two buttons appear when data has been uploaded using the API or the submission portal. This allows for validated data to be incorporated into the project or discarded. This column will then display the transaction number for commited uploads and "Discarded" for the uploads that are discarded.|
 
 ### Transaction Filters
 
-Choosing from the drop-down menu at the top of the table allows the transactions to be filtered by those that are in progress, to be committed, succeeded, failed, or discarded. The drop-down menu also allows for the transactions to be filtered by type.  
+Choosing from the drop-down menu at the top of the table allows the transactions to be filtered by those that are in progress, to be committed, succeeded, failed, or discarded. The drop-down menu also allows for the transactions to be filtered by type and step.  
 
 ### Transactions Details
 
@@ -152,7 +153,7 @@ The user can download the original files from the transaction, a report detailin
 
 [![GDC Submission Transactions Documents](images/GDC_Submission_Transactions_Details_Documents_2.png)](images/GDC_Submission_Transactions_Details_Documents_2.png "Click to see the full image.")
 
-## Browse Data
+## Browse
 
 The `Browse` menu provides access to all of a project's content. Most content is driven by the GDC Data Dictionary and the interface is dynamically generated to accommodate the content.
 
@@ -171,8 +172,8 @@ Current filters are:
 |Filter|Description|
 | --- | --- |
 | __Cases__ | Display all `Cases` associated with the project. |
-| __Clinical Entities__ | Display all Clinical data uploaded to the project workspace. This is divided into subgroups including `Demographics`, `Diagnoses`, `Exposures`, `Family Histories`, `Follow_up`, `Molecular_tests`, and `Treatments`. |
-| __Biospecimen Data__ | Display all Biospecimen data uploaded to the project workspace. This is divided into subgroups including `Samples`, `Portions`, `Analytes`, `Aliquots`, and `Read Groups`. |
+| __Clinical__ | Display all Clinical data uploaded to the project workspace. This is divided into subgroups including `Demographics`, `Diagnoses`, `Exposures`, `Family Histories`, `Follow_up`, `Molecular_tests`, and `Treatments`. |
+| __Biospecimen__ | Display all Biospecimen data uploaded to the project workspace. This is divided into subgroups including `Samples`, `Portions`, `Slides`, `Analytes`, `Aliquots`, and `Read Groups`. |
 | __Submittable Data Files__ | Displays all data files that have been registered with the project. This includes files that have been uploaded and those that have been registered but not uploaded yet. This category is divided into groups by file type. |
 | __Annotations__ | Lists all annotations associated with the project. An annotation provides an explanatory comment associated with data in the project. |
 | __Harmonized Data Files__ | Lists all data files that have been harmonized by the GDC. This category is divided into groups by generated data. |
@@ -226,8 +227,9 @@ The hierarchy shows:
 * The __direct__ parents of the entity.
 * The __direct__ children of the entity.
 
-
 [![GDC Submission Cases Details Hierarchy](images/GDC_Submission_Cases_Summary_Hierarchy_2.png)](images/GDC_Submission_Cases_Summary_Hierarchy_2.png "Click to see the full image.")
+
+After uploading data to the workspace on the GDC Data Submission Portal, data will need to be [reviewed by the submitter](#pre-harmonization-checklist) and then [submitted to the GDC](#submit-to-the-gdc) for processing.
 
 ## Submit Your Workspace Data to the GDC
 
@@ -241,7 +243,7 @@ The user will be able to view the section below on the dashboard. The `REVIEW` b
 
 [![GDC Submission Review Tab](images/GDC_Submission_Submit_Release_Review_tab_2_v2.png)](images/GDC_Submission_Submit_Release_Review_tab_2_v2.png "Click to see the full image.")
 
-Setting the project to the "REVIEW" state will lock the project and prevent users from uploading additional data. Only users with release privileges will be able to review and submit. During this period, the submitter can browse the data in the Data Submission Portal or download it. Once the review is complete, the user can request to submit data to the GDC.
+Setting the project to the "REVIEW" state will lock the project and prevent users from uploading additional data. During this period, the submitter can browse the data in the Data Submission Portal or download it. Once the review is complete, the user can request to submit data to the GDC.
 
 Once the user clicks on `REVIEW`, the project state will change to "REVIEW":
 
@@ -285,9 +287,9 @@ The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `
 
 10.  The `target_capture_kit` property is completed when the selected `library_strategy` is `WXS`. Errors will occur if `Not Applicable` or `Unknown` is selected.
 
-11. Check the nodes that are related to FASTQ files. For the `submitted_unalinged_reads` node, determine that the size is correct, the files are not compressed (`.tar` or `.tar.gz`), and there is a link to `read_group`. For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.
+11. Check the nodes that are related to FASTQ files. For the `submitted_unaligned_reads` node, determine that the size is correct, the files are not compressed (`.tar` or `.tar.gz`), and there is a link to `read_group`. For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.
 
-Once complete, clicking the `REQUEST SUBMISSION` button will indicate to internal teams and automation system to begin data processing.
+Once complete, clicking the `REQUEST SUBMISSION` button will indicate to the GDC Team and pipeline automation system that data processing can begin.
 
 ### Submit to the GDC
 

@@ -1,10 +1,10 @@
-# Data Upload Walkthrough 
+# Data Upload Walkthrough
 
 This guide details step-by-step procedures for different aspects of the GDC Data Submission process and how they relate to the GDC Data Model and structure. The first sections of this guide break down the submission process and associate each step with the Data Model. Additional sections are detailed below for strategies on expediting data submission, using features of the GDC Data Submission Portal, and best practices used by the GDC.
 
 ## GDC Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. Each entity type is represented with an oval in the graphic. All submitted entities require a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier. This walkthrough will go through the submission of different entities. The completed (submitted) portion of the entity process will be highlighted in __blue__. 
+Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. Each oval node in the graphic represents an entity: a logical unit of data related to a specific clinical, biospecimen, or file facet in the GDC. An entity includes a set of fields, the associated values, and information about its related node associations. All submitted entities require a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier. This walkthrough will go through the submission of different entities. The completed (submitted) portion of the entity process will be highlighted in __blue__. 
 
 [![GDC Data Model 1](images/GDC-Data-Model-None.png)](images/GDC-Data-Model-None.png "Click to see the full image.")
 
@@ -108,7 +108,7 @@ curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v
 
 # Clinical Data Submission
 
-Typically a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data.
+Typically, a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data.
 
 ## Clinical Data Requirements
 
@@ -127,7 +127,6 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
 * __`ethnicity`:__ An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
 * __`gender`:__ Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.
 * __`race`:__ An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
-* __`year_of_birth`:__ Numeric value to represent the calendar year in which an individual was born.
 
 ```JSON
 {
@@ -139,12 +138,11 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
     "ethnicity": "not hispanic or latino",
     "gender": "male",
     "race": "asian",
-    "year_of_birth": 1946
 }
 ```
 ```TSV
-type	cases.submitter_id	ethnicity	gender	race	year_of_birth
-demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian	1946
+type	cases.submitter_id	ethnicity	gender	race
+demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian
 ```
 
 ## Submitting a Diagnosis Entity to a Case
@@ -154,7 +152,6 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 * __`submitter_id`:__ A unique key to identify the `diagnosis` entity.
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `diagnosis` entity to the `case`.
 * __`age_at_diagnosis`:__ Age at the time of diagnosis expressed in number of days since birth.
-* __`classification_of_tumor`:__ Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint.
 * __`days_to_last_follow_up`:__  Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
 * __`days_to_last_known_disease_status`:__ Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
 * __`days_to_recurrence`:__ Time interval from the date of new tumor event including progression, recurrence and new primary malignancies to the date of initial pathologic diagnosis, represented as a calculated number of days.
@@ -176,7 +173,6 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
         "submitter_id": "GDC-INTERNAL-000099"
     },
     "age_at_diagnosis": 10256,
-    "classification_of_tumor": "not reported",
     "days_to_last_follow_up": 34,
     "days_to_last_known_disease_status": 34,
     "days_to_recurrence": 45,
@@ -192,8 +188,8 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 }
 ```
 ```TSV
-type	submitter_id	cases.submitter_id	age_at_diagnosis	classification_of_tumor	days_to_last_follow_up	days_to_last_known_disease_status	days_to_recurrence	last_known_disease_status	morphology	primary_diagnosis	progression_or_recurrence	site_of_resection_or_biopsy	tissue_or_organ_of_origin	tumor_grade	tumor_stage	vital_status
-diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	GDC-INTERNAL-000099	10256	not reported	34	34	45	Tumor free	8260/3	ACTH-producing tumor	no	Lung, NOS	Lung, NOS	not reported	stage i	alive
+type	submitter_id	cases.submitter_id	age_at_diagnosis    days_to_last_follow_up	days_to_last_known_disease_status	days_to_recurrence	last_known_disease_status	morphology	primary_diagnosis	progression_or_recurrence	site_of_resection_or_biopsy	tissue_or_organ_of_origin	tumor_grade	tumor_stage	vital_status
+diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	GDC-INTERNAL-000099	10256	34	34	45	Tumor free	8260/3	ACTH-producing tumor	no	Lung, NOS	Lung, NOS	not reported	stage i	alive
 ```
 
 ### Submitting an Exposure Entity to a Case
@@ -202,11 +198,10 @@ Submitting an [__Exposure__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 
 * __`alcohol_history`:__ A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.
 * __`alcohol_intensity`:__ Category to describe the patient's current level of alcohol use as self-reported by the patient.
-* __`bmi`:__ The body mass divided by the square of the body height expressed in units of kg/m^2.
-* __`cigarettes_per_day`:__ The average number of cigarettes smoked per day (number).
-* __`height`:__ The height of the individual in cm (number).
-* __`weight`:__ The weight of the individual in kg (number).
+* __`alcohol_days_per_week`:__ Numeric value used to describe the average number of days each week that a person consumes an alchoolic beverage.
 * __`years_smoked`:__ Numeric value (or unknown) to represent the number of years a person has been smoking.
+* __`tobacco_smoking_onset_year`:__ The year in which the participant began smoking.
+* __`tobacco_smoking_quit_year`:__ The year in which the participant quit smoking. 
 
 ```JSON
 {
@@ -216,16 +211,16 @@ Submitting an [__Exposure__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
         "submitter_id": "PROJECT-INTERNAL-000055"
     },
     "alcohol_history": "yes",
-    "bmi": 27.5,
-    "cigarettes_per_day": 20,
-    "height": 190,
-    "weight": 100,
-    "years_smoked": 5
+    "alcohol_intensity": "Drinker",
+    "alcohol_days_per_week": 2,
+    "years_smoked": 5,
+    "tobacco_smoking_onset_year": 2007,
+    "tobacco_smoking_quit_year": 2012
 }
 ```
 ```TSV
-type	submitter_id	cases.submitter_id	alcohol_history	bmi	cigarettes_per_day	height	weight	years_smoked
-exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes	27.5	20	190	100	5
+type	submitter_id	cases.submitter_id	alcohol_history alcohol_intensity   alcohol_days_per_week years_smoked  tobacco_smoking_onset_year  tobacco_smoking_quit_year
+exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes Drinker 2 5 2007    2012
 ```
 
 >__Note:__ Submitting a clinical entity uses the same conventions as submitting a `case` entity (detailed above).
@@ -241,7 +236,6 @@ One of the main features of the GDC is the genomic data harmonization workflow. 
 
 A `sample` submission has the same general structure as a `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require one additional value:  `sample_type`. This peripheral data is required because it is necessary for the data to be interpreted. For example, an investigator using this data would need to know whether the `sample` came from tumor or normal tissue.  
 
-
 [![Dictionary Sample](images/Dictionary_Sample.png)](images/Dictionary_Sample.png "Click to see the full image.")
 
 Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=sample) entity requires:
@@ -249,6 +243,7 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
 * __`submitter_id`:__ A unique key to identify the `sample`.
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `sample` to the `case`.
 * __`sample_type`:__ Type of the `sample`. Named for its cellular source, molecular composition, and/or therapeutic treatment.
+* __`tissue_type`:__ Text term that represents a description of the kind of tissue collected with respect to disease status or proximity to tumor tissue.
 
 >__Note:__ The `case` must be "committed" to the project before a `sample` can be linked to it.  This also applies to all other links between entities.
 
@@ -260,11 +255,12 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
     },
     "sample_type": "Blood Derived Normal",
     "submitter_id": "Blood-00001SAMPLE_55"
+    "tissue_type": "Normal"
 }
 ```
 ```TSV
-type	cases.submitter_id	submitter_id	sample_type
-sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Blood Derived Normal  
+type	cases.submitter_id	submitter_id	sample_type tissue_type
+sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Blood Derived Normal    Normal
 ```
 
 ## Portion, Analyte and Aliquot Submission
@@ -295,7 +291,7 @@ Submitting an [__Analyte__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#
 
 * __`submitter_id`:__ A unique key to identify the `analyte`.
 * __`portions.submitter_id`:__ The unique key that was used for the `portion` that links the `analyte` to the `portion`.
-* __`analyte_type`:__ Protocol-specific molecular type of the specimen.
+* __`analyte_type`:__ Text term that represents the kind of molecular specimen analyte.
 
 ```JSON
 {
@@ -378,15 +374,15 @@ Submitting a [__Read Group__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer
 
 ```
 ```TSV
-type	submitter_id	experiment_name	is_paired_end	library_name	library_strategy	platform	read_group_name	read_length	sequencing_center library_selection target_capture_kit	aliquots.submitter_id
-read_group	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Resequencing	true	Solexa-34688	WXS	Illumina	205DD.3-2	75	BI	Hybrid Selection Custom MSK IMPACT Panel - 468 Genes Blood-00021-aliquot55
+type	submitter_id	experiment_name	is_paired_end	library_name    library_selection	library_strategy	platform	read_group_name	read_length	sequencing_center   target_capture_kit	aliquots.submitter_id
+read_group	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Resequencing	true	Solexa-34688    Hybrid Selection	WXS	Illumina	205DD.3-2	75	BI	Custom MSK IMPACT Panel - 468 Genes Blood-00021-aliquot55
 ```
 
 >__Note:__ Submitting a biospecimen entity uses the same conventions as submitting a `case` entity (detailed above).
 
 # Experiment Data Submission
 
-Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with the `read_group` entity. While the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these file types are described in their respective entity submission and are uploaded separately using the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) or the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).  
+Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with the `read_group` entity, while the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these file types are described in their respective entity submission and are uploaded separately using the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) or the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).  
 
 [![GDC Data Model 6](images/GDC-Data-Model-Reads.png)](images/GDC-Data-Model-Reads.png "Click to see the full image.")
 
@@ -462,7 +458,7 @@ For more details on how to upload a `submittable_data_file` to a project see the
 
 The GDC Data Portal supports the use of annotations for any submitted entity or file.  An annotation entity may include comments about why particular patients or samples are not present or why they may exhibit critical differences from others.  Annotations include information that cannot be submitted to the GDC through other existing nodes or properties.
 
-If a submitter would like to create an annotation please contact the GDC Support Team (support@nci-gdc.datacommons.io).
+If a submitter would like to create an annotation, please contact the GDC Support Team (support@nci-gdc.datacommons.io).
 
 ## Deleting Submitted Entities
 
@@ -472,7 +468,7 @@ The GDC Data Submission Portal allows users to delete submitted entities from th
 
 ### Simple Deletion
 
-If an entity was uploaded and has no related entities, it can be deleted from the [Browse](Data_Submission_Process.md#browse-data) tab. Once the entity to be deleted is selected, choose the `DELETE` button in the right panel under "ACTIONS".
+If an entity was uploaded and has no related entities, it can be deleted from the [Browse](Data_Submission_Process.md#browse) tab. Once the entity to be deleted is selected, choose the `DELETE` button in the right panel under "ACTIONS".
 
 
 [![GDC Delete Unassociated Case](images/GDC-Delete-Case-Unassociated.png)](images/GDC-Delete-Case-Unassociated.png "Click to see the full image.")
@@ -526,7 +522,7 @@ Updated or additional fields can be applied to entities by re-uploading them thr
 "projects":{
   "code":"INTERNAL"
 },
-"disease_type": "Neuroblastoma"
+"disease_type": "Myomatous Neoplasms"
 }
 ```
 ```After
@@ -536,7 +532,7 @@ Updated or additional fields can be applied to entities by re-uploading them thr
 "projects":{
   "code":"INTERNAL"
 },
-"disease_type": "Germ Cell Neoplasms",
+"disease_type": "Myxomatous Neoplasms",
 "primary_site": "Pancreas"
 }
 ```
@@ -632,6 +628,7 @@ Registering a BAM file (or any other type) can be performed in one step by inclu
     "experiment_name": "Resequencing",
     "is_paired_end": true,
     "library_name": "Solexa-34688",
+    "library_selection":"Hybrid Selection",
     "library_strategy": "WXS",
     "platform": "Illumina",
     "read_group_name": "205DD.3-2",
