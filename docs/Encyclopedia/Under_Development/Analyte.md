@@ -9,7 +9,7 @@ The [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-m
 ## References ##
 1. [GDC Data Dictionary - Analyte](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=analyte)
 
- ## External Links ##
+## External Links ##
 # [Analyte Wikipedia](https://en.wikipedia.org/wiki/Analyte)
 
 Categories: General, Biospecimen
