@@ -6,7 +6,9 @@ The GDC mRNA quantification analysis pipeline measures gene level expression in 
 ## Data Processing Steps
 
 ### RNA-Seq Alignment Workflow
-The mRNA Analysis pipeline begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow), which is performed using a two-pass method with [STAR](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf). STAR aligns each [read group](/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) separately and then merges the resulting alignments into one. Following the methods used by the International Cancer Genome Consortium [ICGC](https://icgc.org/) ([github](https://github.com/akahles/icgc_rnaseq_align)), the two-pass method includes a splice junction detection step, which is used to generate the final alignment. This workflow outputs a BAM file, which contains both aligned and unaligned reads. Quality assessment is performed pre-alignment with [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and post-alignment with [RNA-SeQC](https://www.broadinstitute.org/cancer/cga/rna-seqc) and [Picard Tools](http://broadinstitute.github.io/picard/).
+The mRNA Analysis pipeline begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow), which is performed using a two-pass method with [STAR](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf). STAR aligns each [read group](/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) separately and then merges the resulting alignments into one. Following the methods used by the International Cancer Genome Consortium [ICGC](https://icgc.org/) ([github](https://github.com/akahles/icgc_rnaseq_align)), the two-pass method includes a splice junction detection step, which is used to generate the final alignment. This workflow outputs a genomic BAM file, which contains both aligned and unaligned reads. Quality assessment is performed pre-alignment with [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and post-alignment with [RNA-SeQC](https://www.broadinstitute.org/cancer/cga/rna-seqc) and [Picard Tools](http://broadinstitute.github.io/picard/).
+
+Aliquots that were processed after Data Release 14 have associated transcriptomic and chimeric alignments in addition to the genomic alignment detailed above. This only applies to aliquots with at least one set of paired-end reads. The transcriptomic alignment reports aligned reads with transcript coordinates rather than genomic coordinates. The chimeric BAM file contains reads that were mapped to different chromosomes or strands (fusion alignments). The genomic alignment files contain chimeric and unaligned reads to facilitate the retrieval of all original reads.
 
 [![RNA Alignment Pipeline](images/rna-alignment-pipeline-resized.png)](images/gene-expression-quantification-pipeline.png "Click to see the full image.")
 
@@ -23,7 +25,7 @@ The mRNA Analysis pipeline begins with the [Alignment Workflow](/Data_Dictionary
 
 __For users with access to the ICGC pipeline:__
 
-```Shell
+```
 python star_align.py \
 --genomeDir <star_index_path> \
 --FastqFileIn <input_fastq_path> \
@@ -131,7 +133,7 @@ First the BAM files are filtered for aligned reads using the [samtools](http://s
 | I/O | Entity | Format |
 |---|---|---|
 | Input | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) |  BAM |
-| Output | [Gene Expression (HTSeq count/ FPKM/ FPKM-UQ)](/Data_Dictionary/viewer/#?view=table-definition-view&id=gene_expression) | TXT  |
+| Output | [Gene Expression](/Data_Dictionary/viewer/#?view=table-definition-view&id=gene_expression) | TXT  |
 
 ### mRNA Quantification Command Line Parameters
 
@@ -148,7 +150,7 @@ htseq-count \
 
 ```
 
-## mRNA Expression Normalization
+## mRNA Expression HT-Seq Normalization
 
 RNA-Seq expression level read counts are normalized using two related methods: FPKM and FPKM-UQ. Normalized values should be used only within the context of the entire gene set. Users are encouraged to normalize raw read count values if a subset of genes is investigated.
 
@@ -191,6 +193,7 @@ To facilitate the use of harmonized data in user-created pipelines, RNA-Seq gene
 | Type | Description | Format |
 |---|---|---|
 | RNA-Seq Alignment | RNA-Seq reads that have been aligned to the GRCh38 build. Reads that were not aligned are included to facilitate the availability of raw read sets  |  BAM |
-| Raw Read Counts | The number of reads aligned to each gene, calculated by HT-Seq |  TXT |
+| HT-Seq Read Counts | The number of reads aligned to each gene, calculated by HT-Seq |  TXT |
+| STAR Read Counts | The number of reads aligned to each gene, calculated by STAR |  TSV |
 | FPKM | A normalized expression value that takes into account each gene length and the number of reads mapped to all protein-coding genes |  TXT |
 | FPKM-UQ | A modified version of the FPKM formula in which the 75th percentile read count is used as the denominator in place of the total number of protein-coding reads |  TXT |
