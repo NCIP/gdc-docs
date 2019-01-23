@@ -117,7 +117,7 @@ STAR
 --outSAMheaderHD @HD VN:1.4
 --outSAMattrRGline <formatted RG line provided by wrapper>
 ```
-```DR15+
+```DR15Plus
 # STAR-2.6.0c
 
 STAR \
@@ -183,7 +183,7 @@ htseq-count \
 -s no \
 - gencode.v22.annotation.gtf
 ```
-```DR15+
+```DR15Plus
 htseq-count \
 -f bam \
 -r name \
