@@ -1,10 +1,10 @@
 # Pre-Release Data Portal
 
-The GDC Pre-Release Data Portal provides users with web-based access to pre-released data from cancer genomics studies that have been harmonized by the GDC, but not yet released in the main GDC Data Portal.
+The [GDC Pre-Release Data Portal](https://portal.awg.gdc.cancer.gov/) provides users with web-based access to pre-released data from cancer genomics studies that have been harmonized by the GDC, but not yet released in the main GDC Data Portal.
 
 ## Navigation
 
-Pre-Release Data Portal will appear similar to the GDC Active Portal, but the Pre-Release Data Portal features are a subset of what can be found in the GDC Data Portal.
+[Pre-Release Data Portal](https://portal.awg.gdc.cancer.gov/) will appear similar to the GDC Active Portal, but the Pre-Release Data Portal features are a subset of what can be found in the GDC Data Portal.
 
 [![GDC Views](images/AWG_Portal.png)](images/AWG_Portal.png "Click to see the full image.")
 
