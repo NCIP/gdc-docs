@@ -10,7 +10,7 @@ The mRNA Analysis pipeline begins with the [Alignment Workflow](/Data_Dictionary
 
 Files that were processed after Data Release 14 have associated transcriptomic and chimeric alignments in addition to the genomic alignment detailed above. This only applies to aliquots with at least one set of paired-end reads. The transcriptomic alignment reports aligned reads with transcript coordinates rather than genomic coordinates. The chimeric BAM file contains reads that were mapped to different chromosomes or strands (fusion alignments). The genomic alignment files contain chimeric and unaligned reads to facilitate the retrieval of all original reads. The splice-junction file for these alignments are also available.
 
-[![RNA Alignment Pipeline](images/rna-alignment-pipeline-resized.png)](images/gene-expression-quantification-pipeline.png "Click to see the full image.")
+[![RNA Alignment Pipeline](images/gene-expression-quantification-pipeline-v2.png)](images/gene-expression-quantification-pipeline-v2.png "Click to see the full image.")
 
 | I/O | Entity | Format |
 |---|---|---|
@@ -162,8 +162,6 @@ Following alignment, BAM files are processed through the [RNA Expression Workflo
 The reads mapped to each gene are enumerated using HT-Seq-Count. Expression values are provided in a tab-delimited format. [GENCODE v22](http://www.gencodegenes.org/releases/22.html) was used for gene annotation.
 
 Files that were processed after Data Release 14 have an additional set of read counts that were produced by STAR during the alignment step.
-
-[![Gene Expression Pipeline](images/gene-expression-quantification-pipeline.png)](images/gene-expression-quantification-pipeline.png "Click to see the full image.")
 
 
 | I/O | Entity | Format |
