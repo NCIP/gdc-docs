@@ -4,15 +4,13 @@ This guide details step-by-step procedures for different aspects of the GDC Data
 
 ## GDC Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. Each entity type is represented with an oval in the graphic. All submitted entities require a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier. This walkthrough will go through the submission of different entities. The completed (submitted) portion of the entity process will be highlighted in __blue__. 
+Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. Each oval node in the graphic represents an entity: a logical unit of data related to a specific clinical, biospecimen, or file facet in the GDC. An entity includes a set of fields, the associated values, and information about its related node associations. All submitted entities require a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier. This walkthrough will go through the submission of different entities. The completed (submitted) portion of the entity process will be highlighted in __blue__. 
 
 [![GDC Data Model 1](images/GDC-Data-Model-None.png)](images/GDC-Data-Model-None.png "Click to see the full image.")
 
-# Case and Clinical Data Submission
+# Case Submission
 
 The `case` is the center of the GDC Data Model and usually describes a specific patient. Each `case` is connected to a `project`.  Different types of clinical data, such as `diagnoses` and `exposures`, are connected to the `case` to describe the case's attributes and medical information.   
-
-## Case Submission
 
 [![GDC Data Model 2](images/GDC-Data-Model-Case.png)](images/GDC-Data-Model-Case.png "Click to see the full image.")
 
@@ -108,17 +106,17 @@ Next, the file can either be committed (applied to the project) through the Data
 curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
 ```
 
-## Clinical Submission
+# Clinical Data Submission
 
-Typically a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data.
+Typically, a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data.
 
-### Clinical Data Requirements
+## Clinical Data Requirements
 
 For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal GDC requirements for each project includes age, gender, and diagnosis information.  Other [requirements](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=clinical) may be added when the submitter is approved for submission to the GDC.
 
 [![GDC Data Model Clinical](images/GDC-Data-Model-Clinical.png)](images/GDC-Data-Model-Clinical.png "Click to see the full image.")
 
-### Submitting a Demographic Entity to a Case
+## Submitting a Demographic Entity to a Case
 
 The `demographic` entity contains information that characterizes the `case` entity.  
 
@@ -129,7 +127,6 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
 * __`ethnicity`:__ An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
 * __`gender`:__ Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.
 * __`race`:__ An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
-* __`year_of_birth`:__ Numeric value to represent the calendar year in which an individual was born.
 
 ```JSON
 {
@@ -141,22 +138,20 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
     "ethnicity": "not hispanic or latino",
     "gender": "male",
     "race": "asian",
-    "year_of_birth": 1946
 }
 ```
 ```TSV
-type	cases.submitter_id	ethnicity	gender	race	year_of_birth
-demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian	1946
+type	cases.submitter_id	ethnicity	gender	race
+demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian
 ```
 
-### Submitting a Diagnosis Entity to a Case
+## Submitting a Diagnosis Entity to a Case
 
 Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=diagnosis) entity requires:
 
 * __`submitter_id`:__ A unique key to identify the `diagnosis` entity.
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `diagnosis` entity to the `case`.
 * __`age_at_diagnosis`:__ Age at the time of diagnosis expressed in number of days since birth.
-* __`classification_of_tumor`:__ Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint.
 * __`days_to_last_follow_up`:__  Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
 * __`days_to_last_known_disease_status`:__ Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
 * __`days_to_recurrence`:__ Time interval from the date of new tumor event including progression, recurrence and new primary malignancies to the date of initial pathologic diagnosis, represented as a calculated number of days.
@@ -178,7 +173,6 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
         "submitter_id": "GDC-INTERNAL-000099"
     },
     "age_at_diagnosis": 10256,
-    "classification_of_tumor": "not reported",
     "days_to_last_follow_up": 34,
     "days_to_last_known_disease_status": 34,
     "days_to_recurrence": 45,
@@ -194,65 +188,9 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 }
 ```
 ```TSV
-type	submitter_id	cases.submitter_id	age_at_diagnosis	classification_of_tumor	days_to_last_follow_up	days_to_last_known_disease_status	days_to_recurrence	last_known_disease_status	morphology	primary_diagnosis	progression_or_recurrence	site_of_resection_or_biopsy	tissue_or_organ_of_origin	tumor_grade	tumor_stage	vital_status
-diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	GDC-INTERNAL-000099	10256	not reported	34	34	45	Tumor free	8260/3	ACTH-producing tumor	no	Lung, NOS	Lung, NOS	not reported	stage i	alive
+type	submitter_id	cases.submitter_id	age_at_diagnosis    days_to_last_follow_up	days_to_last_known_disease_status	days_to_recurrence	last_known_disease_status	morphology	primary_diagnosis	progression_or_recurrence	site_of_resection_or_biopsy	tissue_or_organ_of_origin	tumor_grade	tumor_stage	vital_status
+diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	GDC-INTERNAL-000099	10256	34	34	45	Tumor free	8260/3	ACTH-producing tumor	no	Lung, NOS	Lung, NOS	not reported	stage i	alive
 ```
-## Date Obfuscation
-
-The GDC is committed to providing accurate and useful information as well as protecting the privacy of  patients if necessary. Following this, the GDC accepts time intervals that were transformed to remove information that could identify an individual but preserve clinically useful timelines. The GDC recommends following a series of HIPAA regulations regarding the reporting of age-related information, which can be downloaded [here](BCRInformatics-DateObfuscator-291116-1100-2.pdf) as a PDF.
-
-### General Guidelines
-
-Actual calendar dates are not reported in GDC clinical fields but the lengths of time between events are preserved. Time points are reported based on the number of days since the patient's initial diagnosis. Events that occurred after the initial diagnosis are reported as positive and events that occurred before are reported as negative. Dates are not automatically obfuscated by the GDC validation system and submitters are required to make these changes in their clinical data. This affects these fields: `days_to_birth`, `days_to_death`, `days_to_last_follow_up`, `days_to_last_known_disease_status`, `days_to_recurrence`, `days_to_treatment`
-
-
->__Note:__ The day-based fields take leap years into account.  
-
-
-### Patients Older than 90 Years and Clinical Events 
-
-Because of the low population number within the demographic of patients over 90 years old, it becomes more likely that patients can potentially be identified by a combination of their advanced age and publicly available clinical data. Because of this, patients over 90 years old are reported as exactly 90 years or 32,872 days old. 
-
-Following this, clinical events that occur over 32,872 days are also capped at 32,872 days. When timelines are capped, the priority should be to shorten the post-diagnosis values to preserve the accuracy of the age of the patient (except for patients who were diagnosed at over 90 years old). Values such as `days_to_death` and `days_to_recurrence` should be compressed before `days_to_birth` is compressed.
-
-### Examples Timelines
-
-__Example 1:__ An 88 year old patient is diagnosed with cancer and dies 13 years later.  The `days_to_birth` value is less than 32,872 days, so it can be accurately reported.  However, between the initial diagnosis and death, the patient turned 90 years old. Since 32,872 is the maximum, `days_to_death` would be calculated as 32872 - 32142 = 730.
-
->__Dates__
-
->* _Date of Birth:_ 01-01-1900
->* _Date of Initial Diagnosis:_ 01-01-1988
->* _Date of Death:_ 01-01-2001
-
->__Actual-Values__
-
->* _days_to_birth:_ -32142
->* _days_to_death:_ 4748
-
->__Obfuscated-Values__
-
->* _days_to_birth:_ -32142
->* _days_to_death:_ 730
-
-
-__Example 2:__ A 98 year old patient is diagnosed with cancer and dies three years later.  Because `days_to_X` values are counted from initial diagnosis, days will be at their maximum value of 32,872 upon initial diagnosis. This will compress the later dates and reduce `days_to_birth` to -32,872 and `days_to_death` to zero.  
-
->__Dates__
-
->* _Date of Birth:_ 01-01-1900
->* _Date of Initial Diagnosis:_ 01-01-1998
->* _Date of Death:_ 01-01-2001
-
->__Actual-Values__
-
->* _days_to_birth:_ -35794
->* _days_to_death:_ 1095
-
->__Obfuscated-Values__
-
->* _days_to_birth:_ -32872
->* _days_to_death:_ 0
 
 ### Submitting an Exposure Entity to a Case
 
@@ -260,11 +198,10 @@ Submitting an [__Exposure__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 
 * __`alcohol_history`:__ A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.
 * __`alcohol_intensity`:__ Category to describe the patient's current level of alcohol use as self-reported by the patient.
-* __`bmi`:__ The body mass divided by the square of the body height expressed in units of kg/m^2.
-* __`cigarettes_per_day`:__ The average number of cigarettes smoked per day (number).
-* __`height`:__ The height of the individual in cm (number).
-* __`weight`:__ The weight of the individual in kg (number).
+* __`alcohol_days_per_week`:__ Numeric value used to describe the average number of days each week that a person consumes an alchoolic beverage.
 * __`years_smoked`:__ Numeric value (or unknown) to represent the number of years a person has been smoking.
+* __`tobacco_smoking_onset_year`:__ The year in which the participant began smoking.
+* __`tobacco_smoking_quit_year`:__ The year in which the participant quit smoking. 
 
 ```JSON
 {
@@ -274,16 +211,16 @@ Submitting an [__Exposure__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
         "submitter_id": "PROJECT-INTERNAL-000055"
     },
     "alcohol_history": "yes",
-    "bmi": 27.5,
-    "cigarettes_per_day": 20,
-    "height": 190,
-    "weight": 100,
-    "years_smoked": 5
+    "alcohol_intensity": "Drinker",
+    "alcohol_days_per_week": 2,
+    "years_smoked": 5,
+    "tobacco_smoking_onset_year": 2007,
+    "tobacco_smoking_quit_year": 2012
 }
 ```
 ```TSV
-type	submitter_id	cases.submitter_id	alcohol_history	bmi	cigarettes_per_day	height	weight	years_smoked
-exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes	27.5	20	190	100	5
+type	submitter_id	cases.submitter_id	alcohol_history alcohol_intensity   alcohol_days_per_week years_smoked  tobacco_smoking_onset_year  tobacco_smoking_quit_year
+exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes Drinker 2 5 2007    2012
 ```
 
 >__Note:__ Submitting a clinical entity uses the same conventions as submitting a `case` entity (detailed above).
@@ -299,7 +236,6 @@ One of the main features of the GDC is the genomic data harmonization workflow. 
 
 A `sample` submission has the same general structure as a `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require one additional value:  `sample_type`. This peripheral data is required because it is necessary for the data to be interpreted. For example, an investigator using this data would need to know whether the `sample` came from tumor or normal tissue.  
 
-
 [![Dictionary Sample](images/Dictionary_Sample.png)](images/Dictionary_Sample.png "Click to see the full image.")
 
 Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=sample) entity requires:
@@ -307,6 +243,7 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
 * __`submitter_id`:__ A unique key to identify the `sample`.
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `sample` to the `case`.
 * __`sample_type`:__ Type of the `sample`. Named for its cellular source, molecular composition, and/or therapeutic treatment.
+* __`tissue_type`:__ Text term that represents a description of the kind of tissue collected with respect to disease status or proximity to tumor tissue.
 
 >__Note:__ The `case` must be "committed" to the project before a `sample` can be linked to it.  This also applies to all other links between entities.
 
@@ -318,11 +255,12 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
     },
     "sample_type": "Blood Derived Normal",
     "submitter_id": "Blood-00001SAMPLE_55"
+    "tissue_type": "Normal"
 }
 ```
 ```TSV
-type	cases.submitter_id	submitter_id	sample_type
-sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Blood Derived Normal  
+type	cases.submitter_id	submitter_id	sample_type tissue_type
+sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Blood Derived Normal    Normal
 ```
 
 ## Portion, Analyte and Aliquot Submission
@@ -353,7 +291,7 @@ Submitting an [__Analyte__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#
 
 * __`submitter_id`:__ A unique key to identify the `analyte`.
 * __`portions.submitter_id`:__ The unique key that was used for the `portion` that links the `analyte` to the `portion`.
-* __`analyte_type`:__ Protocol-specific molecular type of the specimen.
+* __`analyte_type`:__ Text term that represents the kind of molecular specimen analyte.
 
 ```JSON
 {
@@ -436,15 +374,15 @@ Submitting a [__Read Group__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer
 
 ```
 ```TSV
-type	submitter_id	experiment_name	is_paired_end	library_name	library_strategy	platform	read_group_name	read_length	sequencing_center library_selection target_capture_kit	aliquots.submitter_id
-read_group	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Resequencing	true	Solexa-34688	WXS	Illumina	205DD.3-2	75	BI	Hybrid Selection Custom MSK IMPACT Panel - 468 Genes Blood-00021-aliquot55
+type	submitter_id	experiment_name	is_paired_end	library_name    library_selection	library_strategy	platform	read_group_name	read_length	sequencing_center   target_capture_kit	aliquots.submitter_id
+read_group	Blood-00001-aliquot_lane1_barcodeACGTAC_55	Resequencing	true	Solexa-34688    Hybrid Selection	WXS	Illumina	205DD.3-2	75	BI	Custom MSK IMPACT Panel - 468 Genes Blood-00021-aliquot55
 ```
 
 >__Note:__ Submitting a biospecimen entity uses the same conventions as submitting a `case` entity (detailed above).
 
 # Experiment Data Submission
 
-Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with the `read_group` entity. While the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these file types are described in their respective entity submission and are uploaded separately using the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) or the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).  
+Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with the `read_group` entity, while the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these file types are described in their respective entity submission and are uploaded separately using the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) or the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).  
 
 [![GDC Data Model 6](images/GDC-Data-Model-Reads.png)](images/GDC-Data-Model-Reads.png "Click to see the full image.")
 
@@ -490,7 +428,7 @@ submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Seque
 
 ## Uploading the Submittable Data File to the GDC
 
-The submittable data file can be uploaded when it is registered with the GDC. An submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. Uploading the file can be performed with either the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/). Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the GDC [Submitted Data Types and File Formats](https://gdc.cancer.gov/about-data/data-types-and-file-formats/submitted-data-types-and-file-formats) website.
+The submittable data file can be uploaded when it is registered with the GDC. An submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. It is important to not that the Harmonization process does not occur on these submitted files until the user clicks the [`Request Submission`](Data_Submission_Process.md#release) button. Uploading the file can be performed with either the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/). Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the GDC [Submitted Data Types and File Formats](https://gdc.cancer.gov/about-data/data-types-and-file-formats/submitted-data-types-and-file-formats) website.
 
 __GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the GDC Submission Portal or API) once it is registered. 
 
@@ -520,7 +458,7 @@ For more details on how to upload a `submittable_data_file` to a project see the
 
 The GDC Data Portal supports the use of annotations for any submitted entity or file.  An annotation entity may include comments about why particular patients or samples are not present or why they may exhibit critical differences from others.  Annotations include information that cannot be submitted to the GDC through other existing nodes or properties.
 
-If a submitter would like to create an annotation please contact the GDC Support Team (support@nci-gdc.datacommons.io).
+If a submitter would like to create an annotation, please contact the GDC Support Team (support@nci-gdc.datacommons.io).
 
 ## Deleting Submitted Entities
 
@@ -530,7 +468,7 @@ The GDC Data Submission Portal allows users to delete submitted entities from th
 
 ### Simple Deletion
 
-If an entity was uploaded and has no related entities, it can be deleted from the [Browse](Data_Submission_Process.md#browse-data) tab. Once the entity to be deleted is selected, choose the `DELETE` button in the right panel under "ACTIONS".
+If an entity was uploaded and has no related entities, it can be deleted from the [Browse](Data_Submission_Process.md#browse) tab. Once the entity to be deleted is selected, choose the `DELETE` button in the right panel under "ACTIONS".
 
 
 [![GDC Delete Unassociated Case](images/GDC-Delete-Case-Unassociated.png)](images/GDC-Delete-Case-Unassociated.png "Click to see the full image.")
@@ -584,7 +522,7 @@ Updated or additional fields can be applied to entities by re-uploading them thr
 "projects":{
   "code":"INTERNAL"
 },
-"disease_type": "Neuroblastoma"
+"disease_type": "Myomatous Neoplasms"
 }
 ```
 ```After
@@ -594,7 +532,7 @@ Updated or additional fields can be applied to entities by re-uploading them thr
 "projects":{
   "code":"INTERNAL"
 },
-"disease_type": "Germ Cell Neoplasms",
+"disease_type": "Myxomatous Neoplasms",
 "primary_site": "Pancreas"
 }
 ```
@@ -690,6 +628,7 @@ Registering a BAM file (or any other type) can be performed in one step by inclu
     "experiment_name": "Resequencing",
     "is_paired_end": true,
     "library_name": "Solexa-34688",
+    "library_selection":"Hybrid Selection",
     "library_strategy": "WXS",
     "platform": "Illumina",
     "read_group_name": "205DD.3-2",
@@ -757,102 +696,3 @@ The only supported method to download data files previously uploaded to the GDC 
 Once the UUID(s) have been retrieved, the download process is the same as it is for downloading data files at the [GDC Portal using UUIDs](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#downloading-data-using-gdc-file-uuids).
 
  >__Note:__ When submittable data files are uploaded through the Data Transfer Tool they are not displayed as transactions.
-
-
-# Tips for Complex Submissions
-
-Because of the data types and relationships included in the GDC, data submission can become a complex procedure. The purpose of this section is to present guidelines that will aid in the incorporation and harmonization of submitters' data. Please contact the GDC Help Desk at __support@nci-gdc.datacommons.io __ if you have any questions or concerns regarding a submission project.
-
-
-## Submitting Complex Data Model Relationships
-
-The GDC Data Model includes relationships in which more than one entity of one type can be associated with one entity of another type. For example, more than one `read_group` entity can be associated with a `submitted_aligned_reads` entity. JSON-formatted files, in which a list object can be used, are well-suited to represent this type of relationship. Tab-delimited (TSV) files require additional syntax to demonstrate these relationships. For example, associating a `submitted_aligned_reads` entity to three read groups would require three `read_groups.submitter_id` columns, each with the `#` symbol and a number appended to them. See the two files below:
-
-```TSV
-type    submitter_id    data_category   data_format data_type   experimental_strategy   file_name   file_size   md5sum  read_groups.submitter_id#1 read_groups.submitter_id#2  read_groups.submitter_id#3
-submitted_aligned_reads Alignment.bam  Raw Sequencing Data BAM Aligned Reads   WGS test_alignment.bam    123456789  aa6e82d11ccd8452f813a15a6d84faf1    READ_GROUP_1  READ_GROUP_2  READ_GROUP_3  
-
-```
-```JSON
-{
-    "type": "submitted_aligned_reads",
-    "submitter_id": "Alignment.bam",
-    "data_category": "Raw Sequencing Data",
-    "data_format": "BAM",
-    "data_type": "Aligned Reads",
-    "experimental_strategy": "WGS",
-    "file_name": "test_alignment.bam",
-    "file_size": 123456789,
-    "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1",
-    "read_groups": [
-        {"submitter_id": "READ_GROUP_1"},
-        {"submitter_id": "READ_GROUP_2"},
-        {"submitter_id": "READ_GROUP_3"}
-    ]
-}
-```
-
-### Read groups
-
-#### Submitting Read Group Names
-
-The `read_group` entity requires a `read_group_name` field for submission.  If the `read_group` entity is associated with a BAM file, the submitter should use the `@RG` ID present in the BAM header as the `read_group_name`. This is important for the harmonization process and will reduce the possibility of errors.  
-
-#### Minimal and Recommended Read Group Information
-
-In addition to the required properties on `read_group` we also recommend submitting `flow_cell_barcode`, `lane_number` and `multiplex_barcode`.  This information can be used by our bioinformatics team and data downloaders to construct a `Platform Unit` (`PU`), which is a universally unique identifier that can be used to model various sequencing technical artifacts.  More information can be found in the [SAM specification PDF](https://github.com/samtools/hts-specs/blob/master/SAMv1.pdf).
-
-For projects with library strategies of targeted sequencing or WXS we also require information on the target capture protocol included on `target_capture_kit`.
-
-If this information is not provided it may cause a delay in the processing of submitted data.
-
-Additional read group information will benefit data users.  Such information can be used by bioinformatics pipelines and will aid understanding and mitigation of batch effects.  If available, you should also provide as many of the remaining read group properties as possible.
-
-## Submission File Quality Control
-
-The GDC harmonization pipelines include multiple quality control steps to ensure the integrity of harmonized files and the efficient use of computational resources. For fastest turnaround of data processing we recommend that submitters perform basic QC of their data files prior to upload to identify any underlying data quality issues. This may include such tests as verifying expected genome coverage levels and sequencing quality.
-
-## Target Capture Kit Q and A
-
-1. What is a Target Capture Kit?  
-Target capture kits contain reagents designed to enrich for and thus increase sequencing depth in certain genomic regions before library preparation. Two of the major methods to enrich genomic regions are by Hybridization and by PCR (Amplicon).
-
-2. Why do we need Target Capture Kit information?  
-Target region information is important for DNA-Seq variant calling and filtering, and essential for Copy Number Alternation and other analyses. This information is only needed for the Experimental Strategies of WXS or Targeted Sequencing.
-
-3. How do submitters provide this information?  
-There are 3 steps  
-    * Step 1. The submitter should contact GDC User Service about any new Target Capture Kits that do not already exist in the GDC Dictionary. The GDC Bioinformatics and User Services teams will work together with the submitter to create a meaningful name for the kit and import this name and Target Region Bed File into the GDC.
-    * Step 2. The submitter can then select one and only one GDC Target Capture Kit for each read group during molecular data submission.
-    * Step 3. The submitter should also select the appropriate `library_strategy` and `library_selection` on the read_group entity.
-
-4. What is a Target Region Bed File?  
-A Target Region Bed File is tab-delimited file describing the kit target region in [bed format](https://genome.ucsc.edu/FAQ/FAQformat.html#format1). The first 3 columns of such files are chrom, chromStart, and chromEnd.
-Note that by definition, bed files are 0-based or "left-open, right-closed", which means bed interval "chr1    10    20" only contains 10 bases on chr1, from the 11th to the 20th.
-In addition, submitters should also let GDC know the genome build (hg18, hg19 or GRCh38) of their bed files.
-
-5. Is a Target Capture Kit uniquely defined by its Target Region Bed File?  
-Not necessarily. Sometimes, users or manufactures may want to augment an existing kit with additional probes, in order to capture more regions or simply improve the quality of existing regions. In the latter case, the bed file stays the same, but it is now a different Target Capture Kit and should be registered separately as described in Step 3 above.
-
-## Specifying Tumor Normal Pairs for Analysis
-
-It is critical for many cancer bioinformatics pipelines to specify which normal sample to use to factor out germline variation.  In particular, this is a necessary specification for all tumor normal paired variant calling pipelines.  The following details describe how the GDC determines which normal sample to use for variant calling.
-
-*  Every tumor aliquot will be used for variant calling.  For example, if 10 WXS tumor aliquots are submitted, the GDC will produce 10 alignments and 10 VCFs for each variant calling pipeline.
-*  If there is only one normal we will use that normal for variant calling
-*  If there are multiple normals of the same experimental_strategy for a case:
-    *  Users can specify which normal to use by specifying on the aliquot.  To do so one of the following should be set to `TRUE` for the specified experimental strategy: `selected_normal_low_pass_wgs`, `selected_normal_targeted_sequencing`, `selected_normal_wgs`, or `selected_normal_wxs`.
-    *  Or if no normal is specified the GDC will select the best normal for that patient based on the following criteria.  This same logic will also be used if multiple normal are selected.
-        * If a case has blood cancer we will use sample type in the following priority order: 
-        
-            Blood Derived Normal > Bone Marrow Normal > Mononuclear Cells from Bone Marrow Normal > Fibroblasts from Bone Marrow Normal > Lymphoid Normal > Buccal Cell Normal > Solid Tissue Normal > EBV Immortalized Normal
-        
-        * If a case does not have blood cancer we will use sample type in the following priority order:
-        
-            Solid Tissue Normal > Buccal Cell Normal > Lymphoid Normal > Fibroblasts from Bone Marrow Normal > Mononuclear Cells from Bone Marrow Normal > Bone Marrow Normal > Blood Derived Normal > EBV Immortalized Normal
-        
-        * If there are still ties, we will choose the aliquot submitted first.
-* If there are no normals.
-    * The GDC will not run tumor only variant calling pipeline by default.  The submitter must specify one of the following properties as TRUE: `no_matched_normal_low_pass_wgs`, `no_matched_normal_targeted_sequencing`, `no_matched_normal_wgs`, `no_matched_normal_wxs`.
-
-Note that we will only run variant calling for a particular tumor aliquot per experimental strategy once.  You must make sure that the appropriate normal control is uploaded to the GDC when Requesting Submission.  Uploading a different normal sample later will not result in reanalysis by the GDC.
