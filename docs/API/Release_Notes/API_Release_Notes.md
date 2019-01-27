@@ -32,8 +32,10 @@
 
 ### New Features and Changes
 
-* Create Login-notification Endpoint <!--API-586-->
-* Hash and log similar ES queries <!--API-569-->
+* Added API features to support controlled access DAVE <!--TT-393-->
+* Updated API query endpoints to handle filtering of queries based on tokens <!--TT-641-->
+* Created login notification Endpoint <!--API-586-->
+* Added hashing and logging for similar ES queries <!--API-569-->
 
 ### Bugs Fixed Since Last Release
 
