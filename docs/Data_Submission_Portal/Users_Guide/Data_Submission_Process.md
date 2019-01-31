@@ -58,8 +58,7 @@ The projects section in the homepage lists the projects that the user has access
 
 The GDC Data Submission Portal dashboard provides details about a specific project.
 
-[![GDC Submission Dashboard Page](images/GDC_Submission_Dashboard_2.png)](images/GDC_Submission_Dashboard_2.png "Click to see the full image.")
-[![GDC Submission Dashboard Page-2](images/GDC_Submission_Dashboard_3.png)](images/GDC_Submission_Dashboard_3.png "Click to see the full image.")
+[![GDC Submission Dashboard Page](images/GDC_Submission_Dashboard_4.png)](images/GDC_Submission_Dashboard_4.png "Click to see the full image.")
 
 The dashboard contains various visual elements to guide the user through all stages of submission, from viewing the [Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/), support of data upload, to submitting a project for harmonization.
 
