@@ -123,7 +123,7 @@ Choosing from the drop-down menu at the top of the table allows the transactions
 
 Clicking on a transaction will open the details panel. Data in this panel is organized into multiple sections including actions, details, types, and documents as described below.
 
-[![GDC Submission Transactions](images/GDC_Submission_Transactions_Details_2.png)](images/GDC_Submission_Transactions_Details_2.png "Click to see the full image.")
+[![GDC Submission Transactions](images/GDC_Submission_Transactions_Details_3.png)](images/GDC_Submission_Transactions_Details_3.png "Click to see the full image.")
 
 Navigation between the sections can be performed by either scrolling down or by clicking on the section icon displayed on the left side of the details panel.
 
