@@ -290,7 +290,7 @@ The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `
 
 Once complete, clicking the `REQUEST HARMONIZATION` button will indicate to the GDC Team and pipeline automation system that data processing can begin.
 
-### Submit to the GDC
+### Submit to the GDC for Harmonization
 
 When the project is ready for processing, the submitter will request to submit data to the GDC for Harmonization. If the project is not ready for processing, the project can be re-opened. Then the submitter will be able to upload more data to the project workspace.
 
@@ -307,11 +307,11 @@ When the user clicks on the action `REQUEST HARMONIZATION` on the dashboard, the
 [![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png)](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png "Click to see the full image.")
 
 
-After the user clicks on `SUBMIT VALIDATED DATA TO THE GDC`, the project state becomes "Submission Requested":
+After the user clicks on `SUBMIT VALIDATED DATA TO THE GDC`, the project state becomes "Harmonization Requested":
 
-[![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State.png)](images/GDC_Submission_Submit_Release_Project_State_v2.png "Click to see the full image.")
+[![GDC Submission Project State](images/GDC_Submission_Submit_Release_Project_State_v3.png)](images/GDC_Submission_Submit_Release_Project_State_v3.png "Click to see the full image.")
 
-The GDC requests that users submit their data to the GDC within six months from the first upload of data to the project workspace.
+The GDC requests that users submit their data to the GDC for harmonization within six months from the first upload of data to the project workspace.
 
 ## Release
 Project release occurs after the data has been harmonized, and allows users to access this data with the [GDC Data Portal](https://portal.gdc.cancer.gov/) and other [GDC Data Access Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools). The GDC will release data according to [GDC Data Sharing Policies](https://gdc.cancer.gov/submit-data/data-submission-policies). Data must be released within six months after GDC data processing has been completed, or the submitter may request earlier release using the "Request Release" function.  A project can only be released once.
