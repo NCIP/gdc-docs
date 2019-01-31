@@ -288,21 +288,21 @@ The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `
 
 11. Check the nodes that are related to FASTQ files. For the `submitted_unaligned_reads` node, determine that the size is correct, the files are not compressed (`.tar` or `.tar.gz`), and there is a link to `read_group`. For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.
 
-Once complete, clicking the `REQUEST SUBMISSION` button will indicate to the GDC Team and pipeline automation system that data processing can begin.
+Once complete, clicking the `REQUEST HARMONIZATION` button will indicate to the GDC Team and pipeline automation system that data processing can begin.
 
 ### Submit to the GDC
 
-When the project is ready for processing, the submitter will request to submit data to the GDC. If the project is not ready for processing, the project can be re-opened. Then the submitter will be able to upload more data to the project workspace.
+When the project is ready for processing, the submitter will request to submit data to the GDC for Harmonization. If the project is not ready for processing, the project can be re-opened. Then the submitter will be able to upload more data to the project workspace.
 
-The `REQUEST SUBMISSION` button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to request submission of the data to the GDC. When the project is in "REVIEW" the following panel appears on the dashboard:
+The `REQUEST HARMONIZATION` button is available only if the project is in "REVIEW" state. At this point, the user can decide whether to re-open the project to upload more data or to request harmonization of the data to the GDC. When the project is in "REVIEW" the following panel appears on the dashboard:
 
-[![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab_2_v3.png)](images/GDC_Submission_Submit_Release_Submit_tab_2_v3.png "Click to see the full image.")
+[![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab_2_v4.png)](images/GDC_Submission_Submit_Release_Submit_tab_2_v4.png "Click to see the full image.")
 
-Once the user submits data to the GDC, they cannot modify the submitted nodes and files while harmonization is underway.  Additional project data can be added during this period and will be considered a separate batch.  To process an additional batch the user must again review the data and select `Request Submission`.
+Once the user submits data to the GDC, they cannot modify the submitted nodes and files while harmonization is underway.  Additional project data can be added during this period and will be considered a separate batch.  To process an additional batch the user must again review the data and select `Request Harmonization`.
 
-[![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC_v2.png)](images/GDC_SUBMIT_TO_GDC_v2.png "Click to see the full image.")
+[![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC_v3.png)](images/GDC_SUBMIT_TO_GDC_v3.png "Click to see the full image.")
 
-When the user clicks on the action `REQUEST SUBMISSION` on the dashboard, the following submission popup is displayed:
+When the user clicks on the action `REQUEST HARMONIZATION` on the dashboard, the following popup is displayed:
 
 [![GDC Submission Submit Popup](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png)](images/GDC_Submission_Submit_Release_Submit_Popup_v2.png "Click to see the full image.")
 
