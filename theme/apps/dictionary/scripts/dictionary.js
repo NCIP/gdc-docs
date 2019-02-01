@@ -823,8 +823,7 @@
                 {
                   enum: unfilteredDict.properties[key].enum.filter(
                     en => !(unfilteredDict.properties[key].deprecated_enum || [])
-                    .map(dEn => dEn.toLowerCase())
-                    .includes(en.toLowerCase())
+                    .includes(en)
                   )
                 } : {}
               )}),
