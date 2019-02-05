@@ -12,9 +12,9 @@ Actual calendar dates are not reported in GDC clinical fields but the lengths of
 
 >__Note:__ The day-based fields take leap years into account.  
 
-### Patients Older than 90 Years and Clinical Events 
+### Patients Older than 90 Years and Clinical Events
 
-Because of the low population number within the demographic of patients over 90 years old, it becomes more likely that patients can potentially be identified by a combination of their advanced age and publicly available clinical data. Because of this, patients over 90 years old are reported as exactly 90 years or 32,872 days old. 
+Because of the low population number within the demographic of patients over 90 years old, it becomes more likely that patients can potentially be identified by a combination of their advanced age and publicly available clinical data. Because of this, patients over 90 years old are reported as exactly 90 years or 32,872 days old.
 
 Following this, clinical events that occur over 32,872 days are also capped at 32,872 days. When timelines are capped, the priority should be to shorten the post-diagnosis values to preserve the accuracy of the age of the patient (except for patients who were diagnosed at over 90 years old). Values such as `days_to_death` and `days_to_recurrence` should be compressed before `days_to_birth` is compressed.
 
@@ -136,14 +136,14 @@ It is critical for many cancer bioinformatics pipelines to specify which normal 
 *  If there are multiple normals of the same experimental_strategy for a case:
     *  Users can specify which normal to use by specifying on the aliquot.  To do so one of the following should be set to `TRUE` for the specified experimental strategy: `selected_normal_low_pass_wgs`, `selected_normal_targeted_sequencing`, `selected_normal_wgs`, or `selected_normal_wxs`.
     *  Or if no normal is specified the GDC will select the best normal for that patient based on the following criteria.  This same logic will also be used if multiple normal are selected.
-        * If a case has blood cancer we will use sample type in the following priority order: 
-        
+        * If a case has blood cancer we will use sample type in the following priority order:
+
             Blood Derived Normal > Bone Marrow Normal > Mononuclear Cells from Bone Marrow Normal > Fibroblasts from Bone Marrow Normal > Lymphoid Normal > Buccal Cell Normal > Solid Tissue Normal > EBV Immortalized Normal
-        
+
         * If a case does not have blood cancer we will use sample type in the following priority order:
-        
+
             Solid Tissue Normal > Buccal Cell Normal > Lymphoid Normal > Fibroblasts from Bone Marrow Normal > Mononuclear Cells from Bone Marrow Normal > Bone Marrow Normal > Blood Derived Normal > EBV Immortalized Normal
-        
+
         * If there are still ties, we will choose the aliquot submitted first.
 * If there are no normals.
     * The GDC will not run tumor only variant calling pipeline by default.  The submitter must specify one of the following properties as TRUE: `no_matched_normal_low_pass_wgs`, `no_matched_normal_targeted_sequencing`, `no_matched_normal_wgs`, `no_matched_normal_wxs`.
@@ -153,3 +153,7 @@ Note that we will only run variant calling for a particular tumor aliquot per ex
 ## Clinical Data Requirements
 
 For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal cross-project GDC requirements include age, gender, and diagnosis information.  Other requirements may be added when the submitter is approved for submission to the GDC.
+
+## miRNA Submission
+
+The GDC requires that miRNA reads be trimmed before being uploaded to the GDC because miRNA datasets can have different trimming schemas. Uploading untrimmed miRNA reads can delay harmonization until the problem is resolved.  
