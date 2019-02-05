@@ -43,6 +43,8 @@
 * Removed unnecessary whitespace from pie charts on Repository page. <!--PRTL-1923-->
 * Added missing File Size unit to Clinical Supplement File, Biospecimen Supplement File tables on Case Entity page. <!--PRTL-2070-->
 * Fixed bug where clicking on Case Counts in Projects Graph tab was going to the Repository Files tab instead of the Cases tab. <!--PRTL-2272-->
+* Fixed bug where the counts shown beside customer filters on the Repository Cases tab were not updating when filtering on other facets. <!--PRTL-2412-->
+* Fixed bug where clicking the # of Affected Cases denominator on the Gene page's Most Frequent Somatic Mutations table displayed an incorrect number of Cases.
 
 ### Known Issues and Workarounds
 
