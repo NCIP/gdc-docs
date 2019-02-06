@@ -100,6 +100,7 @@ Upon successful authentication, GDC Data Portal users can:
 - See which controlled-access files they can access.
 - Download controlled-access files directly from the GDC Data Portal.
 - Download an authentication token for use with the GDC Data Transfer Tool or the GDC API.
+- See controlled-access mutation data they can access.
 
 Controlled-access files are identified using a "lock" icon:
 
