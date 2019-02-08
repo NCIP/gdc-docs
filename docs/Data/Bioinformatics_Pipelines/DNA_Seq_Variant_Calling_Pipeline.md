@@ -356,7 +356,7 @@ In addition to annotation, [False Positive Filter](https://github.com/ucscCancer
 
 ### Tumor-Only Variant Calling Workflow
 
-Tumor only variant calling is performed on a tumor sample with no paired normal at the request of the research group. This method takes advantage of the normal cell contamination that is present in most tumor samples. These calls are made using the version of MuTect included in GATK4. Tumor-only variant call files can be found in the GDC Portal by filtering for "Workflow Type: GATK4 MuTect2 (Annotation)".   
+Tumor only variant calling is performed on a tumor sample with no paired normal at the request of the research group. This method takes advantage of the normal cell contamination that is present in most tumor samples. These calls are made using the version of MuTect2 included in GATK4. Tumor-only variant call files can be found in the GDC Portal by filtering for "Workflow Type: GATK4 MuTect2".   
 
 ### Tumor-Only Variant Call Command-Line Parameters
 ```
@@ -440,22 +440,22 @@ FilterByOrientationBias \
 -AM C/T
 ```
 
-### Tumor-Only Variant Filtration Workflow
+### Tumor-Only Variant Annotation Workflow
 
-After single-tumor variant calling is performed with MuTect2, the [PureCN](https://bioconductor.org/packages/devel/bioc/html/PureCN.html) R-package [[7]](https://doi.org/10.1186/s13029-016-0060-z) is used to classify the variants by somatic/germline status and clonality based on tumor purity, ploidy, contamination, copy number, and loss of heterozygosity. The following steps are performed with this package:
+After single-tumor variant calling is performed with MuTect2, a series of filters are applied to minimize the release of germline variants in downloadable VCFs. In all cases, the GDC applies a set of custom filters based on allele frequency, mapping quality, somatic/germline probability, and copy number. In some cases an additional variant classification step is applied before the GDC filters.
+
+The [PureCN](https://bioconductor.org/packages/devel/bioc/html/PureCN.html) R-package [[7]](https://doi.org/10.1186/s13029-016-0060-z) is used to classify the variants by somatic/germline status and clonality based on tumor purity, ploidy, contamination, copy number, and loss of heterozygosity. The following steps are performed with this package:
 
 * __Interval Capture__ : Generates an interval file using a FASTA and BED file coordinates.
 * __GC-Normalization__ : Calculates GC-normalized tumor/normal coverage data.
 * __Normal DB Creation__ : Generates a normal database  using the normalized coverage file and panel-of-normals VCF
 * __Somatic Variant Calling__ : Classifies each of the previously called variants
 
-After PureCN assessment is complete, the GDC applies a set of custom filters based on allele frequency, mapping quality, somatic/germline probability, and copy number. that minimize the possibility of germline mutations being released in each VCF. Note that PureCN may not be performed due to insufficient data to produce a normal database. In either case, the GDC custom filters will be applied.
-
+Note that PureCN will not be performed if there is insufficient data to produce a target capture kit specific normal database. In rare occasions, PureCN may not find a numeric solution. If PureCN is not performed or does not find a solution, this is indicated in the VCF header. VCF files that were annotated with these pipelines can be found in the GDC Portal by filtering for "Workflow Type: GATK4 MuTect2 Annotation".
 
 ### Somatic Aggregation Workflow
 
-The Somatic Aggregation Workflow generates one MAF file from multiple VCF files; see the [GDC MAF Format](/Data/File_Formats/MAF_Format/) guide for details on file structure.  In this step, one MAF file is generated per variant calling pipeline for each project, and contains all available cases within this project.  
-
+The Somatic Aggregation Workflow generates one MAF file from multiple VCF files; see the [GDC MAF Format](/Data/File_Formats/MAF_Format/) guide for details on file structure. In this step, one MAF file is generated per variant calling pipeline for each project and contains all available cases within this project.  
 
 | I/O | Entity | Format |
 |---|---|---|

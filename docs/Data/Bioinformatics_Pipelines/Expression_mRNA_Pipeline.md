@@ -19,6 +19,8 @@ Files that were processed after Data Release 14 have associated transcriptomic a
 
 ### RNA-Seq Alignment Command Line Parameters
 
+__Note that version numbers may vary in files downloaded from the GDC Portal due to ongoing pipeline development and improvement.__
+
 ```Original
 # STAR-2.4.2a
 
