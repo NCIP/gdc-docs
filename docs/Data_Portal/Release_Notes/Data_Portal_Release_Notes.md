@@ -30,6 +30,7 @@
 
 ### New Features and Changes <!--REQ-381-->
 
+* Added support for viewing of controlled-access mutations in the Data Portal 
 * Added a new data access notification to remind logged-in users with access to controlled data that they need to follow their data use agreement.  The message is fixed at the top of the Portal.<!--PRTL-2400, PRTL-2434-->
 * Added the ability to search for previous versions of files.  If the user enters the UUID of a previous version that cannot be found, the Portal returns the UUID of the latest version available. <!--PRTL-2387-->
 * Renamed the Data Category for "Raw Sequencing Data" to "Sequencing Reads" throughout the portal where this appears, to be consistent with the Data Dictionary. <!--PRTL-118-->
@@ -62,7 +63,7 @@
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
-    
+
 ## Release 1.18.0
 
 * __GDC Product__: GDC Data Portal
