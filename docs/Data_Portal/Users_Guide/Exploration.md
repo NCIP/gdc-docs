@@ -224,7 +224,9 @@ Clicking the `Open in Exploration` button will navigate the user to the Explorat
 
 ### Mutations
 
-The `Mutations` tab will give an overview of all the mutations that match the criteria of the filters (Cohort).
+The `Mutations` tab will give an overview of all the mutations that match the criteria of the filters (Cohort).  
+
+Open-access mutation data is displayed by defualt.  To access controlled access mutations, users must apply to the correct data access authority, be granted access, and login to the portal.  If a user is logged in and has been granted access to controlled-access mutations, they will be integrated with open-access mutations throughout the portal visualizations and counts. 
 
 [![Exploration Mutation Example](images/Exploration-Mutation-Example.png)](images/Exploration-Mutation-Example.png "Click to see the full image.")
 
