@@ -26,8 +26,7 @@ Examples of tools that can help build GDC API calls:
 | ------------- |-------------|
 | [JSONLint](http://jsonlint.com/)| Validate JSON |
 | [JSON Formatter](http://jsonformatter.org/) | Format, validate, and convert JSON to other formats |
-| [Percent-(URL)-encoding tool](http://text-rescue.com/string-escape/percent-url-encoding-tool.html)| Tool for percent-encoding strings |
-| [JSON escape tool](http://text-rescue.com/string-escape/json-escape-tool.html)| Tool for escaping strings using JSON string rules |
+| [Percent-(URL)-encoding tool](https://codebeautify.org/url-encode-string)| Tool for percent-encoding strings |
 
 
 ## API Endpoints
