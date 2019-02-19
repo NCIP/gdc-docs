@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.19.0](Data_Portal_Release_Notes.md#release-1190) | TBD, 2019 |
+| [v1.19.0](Data_Portal_Release_Notes.md#release-1190) | February 20, 2019 |
 | [v1.18.0](Data_Portal_Release_Notes.md#release-1180) | December 18, 2018 |
 | [v1.17.0](Data_Portal_Release_Notes.md#release-1170) | November 7, 2018 |
 | [v1.16.0](Data_Portal_Release_Notes.md#release-1160) | September 27, 2018 |
@@ -26,11 +26,11 @@
 ## Release 1.19.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  TBD, 2019
+* __Release Date__:  February 20, 2019
 
 ### New Features and Changes <!--REQ-381-->
 
-* Added support for viewing of controlled-access mutations in the Data Portal 
+* Added support for viewing of controlled-access mutations in the Data Portal
 * Added a new data access notification to remind logged-in users with access to controlled data that they need to follow their data use agreement.  The message is fixed at the top of the Portal.<!--PRTL-2400, PRTL-2434-->
 * Added the ability to search for previous versions of files.  If the user enters the UUID of a previous version that cannot be found, the Portal returns the UUID of the latest version available. <!--PRTL-2387-->
 * Renamed the Data Category for "Raw Sequencing Data" to "Sequencing Reads" throughout the portal where this appears, to be consistent with the Data Dictionary. <!--PRTL-118-->

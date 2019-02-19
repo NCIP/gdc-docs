@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v2.2.0](Data_Submission_Portal_Release_Notes.md#release-220) | TBD, 2019 |
+| [v2.2.0](Data_Submission_Portal_Release_Notes.md#release-220) | February 20, 2019 |
 | [v2.1.0](Data_Submission_Portal_Release_Notes.md#release-210) | November 7, 2018 |
 | [v2.0.0](Data_Submission_Portal_Release_Notes.md#release-200) | August 23, 2018 |
 | [v1.9.0](Data_Submission_Portal_Release_Notes.md#release-190) | May 21, 2018 |
@@ -20,7 +20,7 @@
 ## Release 2.2.0
 
 * __GDC Product__: GDC Data Submission Portal
-* __Release Date__: TBD, 2019
+* __Release Date__: February 20, 2019
 
 ### New Features and Changes
 

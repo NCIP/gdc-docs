@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v15.0](Data_Release_Notes.md#data-release-140) | February X, 2018 |
+| [v15.0](Data_Release_Notes.md#data-release-150) | February 20, 2018 |
 | [v14.0](Data_Release_Notes.md#data-release-140) | December 18, 2018 |
 | [v13.0](Data_Release_Notes.md#data-release-130) | September 27, 2018 |
 | [v12.0](Data_Release_Notes.md#data-release-120) | June 13, 2018 |
@@ -23,20 +23,18 @@
 ## Data Release 15.0 <!--REQ-381-->
 
 * __GDC Product__: Data
-* __Release Date__: February X, 2018
+* __Release Date__: February 20, 2018
 
 ### New updates
 
 1.  TARGET-ALL-P3 is now available and includes RNA-Seq and WXS data.
 2.  New RNA-Seq workflow is now being utilized for new projects.  More details can be found in the [RNA-Seq pipeline documentation](../../Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#rna-seq-alignment-workflow).
 3.  New tumor only variant calling pipeline is now being utilized for new projects.  More details can be found in the [Tumor only pipeline documentation](../../x).
-4.  Legacy data files now have a release number of 0.0 and a version number of 1.0.
 
 A complete list of files for DR15.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [x](x)
-* [x](x).
-
+* [gdc_manifest_20190220_data_release_15.0_active.txt.gz](gdc_manifest_20190220_data_release_15.0_active.txt.gz)
+* [gdc_manifest_20190220_data_release_15.0_legacy.txt.gz](gdc_manifest_20190220_data_release_15.0_legacy.txt.gz).
 
 ### Bugs Fixed Since Last Release
 
@@ -44,6 +42,7 @@ A complete list of files for DR15.0 are listed for the GDC Data Portal and the G
 
 ### Known Issues and Workarounds
 
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
 * TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and concatenated into their original composite BAM files by CGHub.
     * TARGET-20-PASJGZ-04A-02D
     * TARGET-30-PAPTLY-01A-01D
