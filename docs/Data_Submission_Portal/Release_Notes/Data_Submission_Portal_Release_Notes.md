@@ -24,7 +24,7 @@
 
 ### New Features and Changes
 
-* Renamed the "Request Submission" button to "Request for Harmonization" to make the purpose of this action more clear. <!--SUBP-500-->
+* Renamed the "Request Submission" button to "Request Harmonization" to make the purpose of this action more clear. <!--SUBP-500-->
 
 ### Bugs Fixed Since Last Release
 
