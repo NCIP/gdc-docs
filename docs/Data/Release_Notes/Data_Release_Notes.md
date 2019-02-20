@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v15.0](Data_Release_Notes.md#data-release-150) | February 20, 2018 |
+| [v15.0](Data_Release_Notes.md#data-release-150) | February 20, 2019 |
 | [v14.0](Data_Release_Notes.md#data-release-140) | December 18, 2018 |
 | [v13.0](Data_Release_Notes.md#data-release-130) | September 27, 2018 |
 | [v12.0](Data_Release_Notes.md#data-release-120) | June 13, 2018 |
@@ -23,7 +23,7 @@
 ## Data Release 15.0 <!--REQ-381-->
 
 * __GDC Product__: Data
-* __Release Date__: February 20, 2018
+* __Release Date__: February 20, 2019
 
 ### New updates
 
