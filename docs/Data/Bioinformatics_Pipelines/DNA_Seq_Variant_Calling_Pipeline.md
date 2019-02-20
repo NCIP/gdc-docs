@@ -444,7 +444,7 @@ FilterByOrientationBias \
 
 After single-tumor variant calling is performed with MuTect2, a series of filters are applied to minimize the release of germline variants in downloadable VCFs. In all cases, the GDC applies a set of custom filters based on allele frequency, mapping quality, somatic/germline probability, and copy number. In some cases an additional variant classification step is applied before the GDC filters.
 
-The [PureCN](https://bioconductor.org/packages/devel/bioc/html/PureCN.html) R-package [[7]](https://doi.org/10.1186/s13029-016-0060-z) is used to classify the variants by somatic/germline status and clonality based on tumor purity, ploidy, contamination, copy number, and loss of heterozygosity. The following steps are performed with this package:
+The [PureCN](https://bioconductor.org/packages/devel/bioc/html/PureCN.html) R-package [[7]](https://doi.org/10.1186/s13029-016-0060-z) [[8]](https://doi.org/10.1101/552711) is used to classify the variants by somatic/germline status and clonality based on tumor purity, ploidy, contamination, copy number, and loss of heterozygosity. The following steps are performed with this package:
 
 * __Interval Capture__ : Generates an interval file using a FASTA and BED file coordinates.
 * __GC-Normalization__ : Calculates GC-normalized tumor/normal coverage data.
@@ -501,3 +501,5 @@ Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Port
 [6] McLaren, William, Bethan Pritchard, Daniel Rios, Yuan Chen, Paul Flicek, and Fiona Cunningham. "Deriving the consequences of genomic variants with the Ensembl API and SNP Effect Predictor." Bioinformatics 26, no. 16 (2010): 2069-2070.
 
 [7] Riester, Markus, Angad P. Singh, A. Rose Brannon, Kun Yu, Catarina D. Campbell, Derek Y. Chiang, and Michael P. Morrissey. "PureCN: copy number calling and SNV classification using targeted short read sequencing." Source code for biology and medicine 11, no. 1 (2016): 13.
+
+[8] Oh, Sehyun, Ludwig Geistlinger, Marcel Ramos, Martin Morgan, Levi Waldron, and Markus Riester. "Reliable analysis of clinical tumor-only whole exome sequencing data" bioRxiv 552711 (2019);
