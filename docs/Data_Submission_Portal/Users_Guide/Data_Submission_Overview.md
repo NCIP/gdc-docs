@@ -7,7 +7,7 @@ This section will walk users through two parts of the submission process. The fi
 
 The diagram below illustrates the process from uploading through releasing data in the GDC Data Submission Portal. To review the steps needed before beginning submission see [Before Submitting Data to the GDC Portal](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Checklist/)
 
-[![GDC Data Submission Portal Workflow Upload](images/gdc-submission-portal-data-upload-workflow_2.jpg)](images/GDC_Data_Submission_Workflow-updated_20190301.jpg "Click to see the full image.")
+[![GDC Data Submission Portal Workflow Upload](images/GDC_Data_Submission_Workflow-updated_20190301.jpg)](images/GDC_Data_Submission_Workflow-updated_20190301.jpg "Click to see the full image.")
 
 ### Review GDC Dictionary and GDC Data Model - Submitter Activity
 
