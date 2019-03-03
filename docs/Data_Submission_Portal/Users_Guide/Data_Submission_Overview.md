@@ -1,4 +1,4 @@
-# Data Submission Overview 
+# Data Submission Overview
 
 ## Overview
 This section will walk users through two parts of the submission process. The first portion will be the steps taken by the users to go through the submission process from start to finish. The second portion will describe the lifecycle of a project and a file throughout the data submission process.
@@ -7,7 +7,7 @@ This section will walk users through two parts of the submission process. The fi
 
 The diagram below illustrates the process from uploading through releasing data in the GDC Data Submission Portal. To review the steps needed before beginning submission see [Before Submitting Data to the GDC Portal](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Checklist/)
 
-[![GDC Data Submission Portal Workflow Upload](images/gdc-submission-portal-data-upload-workflow_2.jpg)](images/gdc-submission-portal-data-upload-workflow_2.jpg "Click to see the full image.")
+[![GDC Data Submission Portal Workflow Upload](images/GDC_Data_Submission_Workflow-updated_20190301.jpg)](images/GDC_Data_Submission_Workflow-updated_20190301.jpg "Click to see the full image.")
 
 ### Review GDC Dictionary and GDC Data Model - Submitter Activity
 
@@ -61,19 +61,19 @@ The submitter is responsible for reviewing the data uploaded to the project work
 
 [`See pre-harmonization checklist here.`](Data_Submission_Process.md#pre-harmonization-checklist)
 
-### Request Data Submission - Submitter Activity
+### Request Data Harmonization - Submitter Activity
 
-When the project is complete and ready for processing, the submitter will [request to submit data](Data_Submission_Process.md#submit-your-workspace-data-to-the-gdc) to the GDC. If the project is not ready for processing, the project can be re-opened and the submitter will be able to upload more data to the project workspace.
+When the project is complete and ready for processing, the submitter will [request harmonization](Data_Submission_Process.md#submit-your-workspace-data-to-the-gdc). If the project is not ready for processing, the project can be re-opened and the submitter will be able to upload more data to the project workspace.
 
-During the submission state, users can continue to submit more files to the project, but these will be considered a different batch in the project.
-
-[`See submission request example here.`](Data_Submission_Process.md#submit-your-workspace-data-to-the-gdc)
+[`See harmonization request example here.`](Data_Submission_Process.md#submit-your-workspace-data-to-the-gdc)
 
 > __NOTE:__ The GDC requests that users submit their data to the GDC within six months from the first upload of data to the project workspace.
 
 ### GDC Review/QC Submitted Data - GDC Activity
 
 The Bioinformatics Team at the GDC runs the Quality Control pipeline on the submitted data. This pipeline mirrors the [Pre-Harmonization Checklist](Data_Submission_Process.md#pre-harmonization-checklist) and will determine if the submission is complete and is ready for the Harmonization pipeline. If the submission does contain problems, the GDC will contact the user to "Re-Open" the project and fix the errors in their submission.
+
+Once the review is complete, all validated nodes will be changed to state "submitted".  At this point users can submit more files to a project, but they will be considered as a different batch for harmonization.
 
 ### GDC Harmonize Data - GDC Activity
 

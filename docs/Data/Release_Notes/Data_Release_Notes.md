@@ -29,7 +29,8 @@
 
 1.  TARGET-ALL-P3 is now available and includes RNA-Seq and WXS data.
 2.  New RNA-Seq workflow is now being utilized for new projects.  More details can be found in the [RNA-Seq pipeline documentation](../../Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#rna-seq-alignment-workflow).
-3.  New tumor only variant calling pipeline is now being utilized for new projects.  More details can be found in the [Tumor only pipeline documentation](../../x).
+3.  New tumor only variant calling pipeline is now being utilized for new projects.  More details can be found in the [Tumor only pipeline documentation](../../Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#tumor-only-variant-calling-workflow).
+
 
 A complete list of files for DR15.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
