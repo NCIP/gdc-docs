@@ -91,6 +91,10 @@ submitted_aligned_reads Alignment.bam  Raw Sequencing Data BAM Aligned Reads   W
 
 The `read_group` entity requires a `read_group_name` field for submission.  If the `read_group` entity is associated with a BAM file, the submitter should use the `@RG` ID present in the BAM header as the `read_group_name`. This is important for the harmonization process and will reduce the possibility of errors.  
 
+#### Multiple FASTQs from One Read Group
+
+To align reads according to their direction and pair, the GDC requires that unaligned forward and reverse reads are submitted as "submitted_unaligned_reads."  When more than one FASTQ exists for a read group direction, the GDC requires that the FASTQ files are concatenated for each direction. In other words, each paired-end read group should be associated with exactly two FASTQ files (submitted_unaligned_reads).  
+
 #### Minimal and Recommended Read Group Information
 
 In addition to the required properties on `read_group` we also recommend submitting `flow_cell_barcode`, `lane_number` and `multiplex_barcode`.  This information can be used by our bioinformatics team and data downloaders to construct a `Platform Unit` (`PU`), which is a universally unique identifier that can be used to model various sequencing technical artifacts.  More information can be found in the [SAM specification PDF](https://github.com/samtools/hts-specs/blob/master/SAMv1.pdf).
