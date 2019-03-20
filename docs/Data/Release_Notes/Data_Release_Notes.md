@@ -28,10 +28,9 @@
 
 ### New updates <!--REQ-382-->
 
-1.  The CPTAC-3 project is released with WXS and WGS data.  RNA-Seq will be released at a later date.
-2.  TARGET-ALL-P3 WGS BAM files are released.
-3.  VAREPOP-APOLLO VCFs released.
-
+1.  The CPTAC-3 project (phs001287) is released with WXS and WGS data.  RNA-Seq will be released at a later date.
+2.  TARGET-ALL-P3 (phs000218) WGS BAM files are released.
+3.  VAREPOP-APOLLO (phs001374) VCFs released.
 
 A complete list of files for DR16.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
