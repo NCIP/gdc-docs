@@ -21,12 +21,12 @@
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
 
 
-## Data Release 16.0 <!--REQ-381-->
+## Data Release 16.0 <!--REQ-382-->
 
 * __GDC Product__: Data
 * __Release Date__: March 26, 2019
 
-### New updates <!--REQ-382-->
+### New updates
 
 1.  The CPTAC-3 project (phs001287) is released with WXS and WGS data.  RNA-Seq will be released at a later date.  Additional project details can be found at on the [CPTAC Data Source page](https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/foundation-medicine/clinical-proteomic-tumor-analysis-consortium-cptac).
 2.  TARGET-ALL-P3 (phs000218) WGS BAM files are released.
