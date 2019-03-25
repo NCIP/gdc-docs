@@ -87,9 +87,10 @@ pages:
 - Encyclopedia: Encyclopedia/index.md
 - EncyclopediaEntries:
   - Affymetrix SNP 6.0: Encyclopedia/pages/Affymetrix_SNP_6.0.md
+  - Annotations: Encyclopedia/pages/Annotations.md
+  - Annotations TCGA: Encyclopedia/pages/Annotations_TCGA.md
   - Aggregated Somatic Mutation: Encyclopedia/pages/Aggregated_Somatic_Mutation.md
   - Aliquot: Encyclopedia/pages/Aliquot.md
-  - Annotations: Encyclopedia/pages/Introduction+to+Annotations.md
   - Biospecimen Data: Encyclopedia/pages/Biospecimen_Data.md
   - Case: Encyclopedia/pages/Case.md
   - Cancer Genomics Hub: Encyclopedia/pages/Cancer_Genomics_Hub.md
