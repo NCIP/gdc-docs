@@ -28,7 +28,7 @@
 
 ### New updates
 
-1.  The CPTAC-3 project (phs001287) is released with WXS and WGS data.  RNA-Seq will be released at a later date.  Additional project details can be found at on the [CPTAC Data Source page](https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/foundation-medicine/clinical-proteomic-tumor-analysis-consortium-cptac).
+1.  The CPTAC-3 project (phs001287) is released with WXS and WGS data.  RNA-Seq will be released at a later date.  Additional project details can be found at on the [CPTAC Data Source page](https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/clinical-proteomic-tumor-analysis-consortium-cptac).
 2.  TARGET-ALL-P3 (phs000218) WGS BAM files are released.
 3.  VAREPOP-APOLLO (phs001374) VCF files are released.
 
