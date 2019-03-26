@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v16.0](Data_Release_Notes.md#data-release-150) | March X, 2019 |
+| [v16.0](Data_Release_Notes.md#data-release-160) | March 26, 2019 |
 | [v15.0](Data_Release_Notes.md#data-release-150) | February 20, 2019 |
 | [v14.0](Data_Release_Notes.md#data-release-140) | December 18, 2018 |
 | [v13.0](Data_Release_Notes.md#data-release-130) | September 27, 2018 |
@@ -21,22 +21,21 @@
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
 
 
-## Data Release 16.0 <!--REQ-381-->
+## Data Release 16.0 <!--REQ-382-->
 
 * __GDC Product__: Data
-* __Release Date__: March X, 2019
+* __Release Date__: March 26, 2019
 
-### New updates <!--REQ-382-->
+### New updates
 
-1.  The CPTAC-3 project is released with WXS and WGS data.  RNA-Seq will be released at a later date.
-2.  TARGET-ALL-P3 WGS BAM files are released.
-3.  VAREPOP-APOLLO VCFs released.
-
+1.  The CPTAC-3 project (phs001287) is released with WXS and WGS data.  RNA-Seq will be released at a later date.  Additional project details can be found at on the [CPTAC Data Source page](https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/clinical-proteomic-tumor-analysis-consortium-cptac).
+2.  TARGET-ALL-P3 (phs000218) WGS BAM files are released.
+3.  VAREPOP-APOLLO (phs001374) VCF files are released.
 
 A complete list of files for DR16.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* []()
-* []()
+* [gdc_manifest_20190326_data_release_16.0_active.txt.gz](gdc_manifest_20190326_data_release_16.0_active.txt.gz)
+* [gdc_manifest_20190326_data_release_16.0_legacy.txt.gz](gdc_manifest_20190326_data_release_16.0_legacy.txt.gz).
 
 ### Bugs Fixed Since Last Release
 
