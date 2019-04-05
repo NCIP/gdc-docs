@@ -24,25 +24,6 @@
 
 * Allow modifying `submitter_id` when updating/replacing a entity	<!--TT-849-->
 * Added new bioinformatics workflow for methylation arrays (Sesame) <!--DAT-2025-->
-* Updated XML parser
-  - Updated the mapping for:
-    - `days_to_death`	<!--DAT-2083-->
-    - `days_to_birth`	<!--DAT-2084-->
-    - `vital_status`	<!--DAT-2085-->
-    - `prior_malignancy` and `synchronous_malignancy`	<!--DAT-2094-->
-  - Added a mapping for:
-    - `pack_years_smoked`	<!--DAT-2086-->
-    - `prior_treatment`	<!--DAT-2095-->
-    - `age_at_index`	<!--DAT-2096-->
-    - `days_to_diagnosis`	<!--DAT-2097-->
-    - `icd_10_code`	<!--DAT-2098-->
-    - `year_of_diagnosis`	<!--DAT-2099-->
-  - Remove calculation for:
-    - `cigarettes_per_day`	<!--DAT-2091-->
-    - `year_of_birth`	<!--DAT-2092-->
-    - `year_of_death`	<!--DAT-2093-->
-    - `bmi`  <!--DAT-2087-->
-  - Updated XML Parser to pull the most Up-to-Date Survival Information	<!--DAT-2063-->
 * Changed `somatic_mutation_calling_workflow` link from `one_to_many` to `many_to_many`	<!--DAT-1697-->
 * Modified `read_group` entity
   - Added `SeqCap EZ Human Exome v2.0` as new permissible value for `target_capture_kit` field <!--DAT-1827-->
