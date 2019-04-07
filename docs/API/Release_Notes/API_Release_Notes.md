@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.20.0](API_Release_Notes.md#v1200) | April XX, 2019 |
+| [v1.20.0](API_Release_Notes.md#v1200) | April X, 2019 |
 | [v1.19.0](API_Release_Notes.md#v1190) | February 20, 2019 |
 | [v1.18.0](API_Release_Notes.md#v1180) | December 18, 2018 |
 | [v1.17.0](API_Release_Notes.md#v1170) | November 7, 2018 |
@@ -26,13 +26,18 @@
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
 
 
-## v1.20.0 <!--REQ-381-->
+## v1.20.0 <!--REQ-385-->
 
 * __GDC Product__: Application Programming Interface (API)
 * __Release Date__:  April XX, 2019
 
 ### New Features and Changes
 
+* Disallowed creation of multiple file versions in the same data release <!--API-585-->
+* Updated BCR Clinical XML parser code to support future indexing of additional clinical data <!--DAT-2076-->
+* Improved API concurrency performance and addressed random failures/4XX/5XX responses <!--GDCDEVOPS-187,GP-15-->
+* Improved API/Portal performances for querying large set of data from the Elasticsearch indices <!--API-613-->
+* Internally, allow modifying submitter_id when updating/replacing a node <!--TT-849-->
 * Updated XML parser
   - Updated the mapping for:
     - `days_to_death`	<!--DAT-2083-->
@@ -79,35 +84,6 @@
 * Fixed bug where quick search ES query grows with each request <!--API-580-->
 * Fixed bug where new file versions could be created when exactly the same existing metadata is uploaded <!--API-571-->
 * Fixed bug where submitting to specific projects produced error that data already existed <!--API-568-->
-
-### Known Issues and Workarounds
-
-* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
-* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
-
-
-## v1.19.0 <!--REQ-381-->
-
-* __GDC Product__: Application Programming Interface (API)
-* __Release Date__:  February 20, 2019
-
-### New Features and Changes
-
-* Added API features to support controlled access DAVE <!--TT-393-->
-* Updated API query endpoints to handle filtering of queries based on tokens <!--TT-641-->
-* Created login notification Endpoint <!--API-586-->
-* Added hashing and logging for similar ES queries <!--API-569-->
-
-### Bugs Fixed Since Last Release
-
-* Fixed bug where quick search ES query grows with each request <!--API-580-->
-* Fixed bug where new file versions could be created when exactly the same existing metadata is uploaded <!--API-571-->
-* Fixed bug where submitting to specific projects produced error that data already existed <!--API-568-->
-
-### Known Issues and Workarounds
-
-* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
-* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
 
 
