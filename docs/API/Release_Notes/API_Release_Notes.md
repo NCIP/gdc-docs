@@ -34,29 +34,27 @@
 ### New Features and Changes
 
 * Disallowed creation of multiple file versions in the same data release <!--API-585-->
-* Updated BCR Clinical XML parser code to support future indexing of additional clinical data <!--DAT-2076-->
 * Improved API concurrency performance and addressed random failures/4XX/5XX responses <!--GDCDEVOPS-187,GP-15-->
-* Improved API/Portal performances for querying large set of data from the Elasticsearch indices <!--API-613-->
-* Internally, allow modifying submitter_id when updating/replacing a node <!--TT-849-->
-* Updated XML parser
-  - Updated the mapping for:
-    - `days_to_death`	<!--DAT-2083-->
-    - `days_to_birth`	<!--DAT-2084-->
-    - `vital_status`	<!--DAT-2085-->
-    - `prior_malignancy` and `synchronous_malignancy`	<!--DAT-2094-->
-  - Added a mapping for:
-    - `pack_years_smoked`	<!--DAT-2086-->
-    - `prior_treatment`	<!--DAT-2095-->
-    - `age_at_index`	<!--DAT-2096-->
-    - `days_to_diagnosis`	<!--DAT-2097-->
-    - `icd_10_code`	<!--DAT-2098-->
-    - `year_of_diagnosis`	<!--DAT-2099-->
-  - Remove calculation for:
-    - `cigarettes_per_day`	<!--DAT-2091-->
-    - `year_of_birth`	<!--DAT-2092-->
-    - `year_of_death`	<!--DAT-2093-->
-    - `bmi`  <!--DAT-2087-->
-  - Updated XML Parser to pull the most Up-to-Date Survival Information	<!--DAT-2063-->
+* Improved API/Portal performances for querying large sets of data from the Elasticsearch indices <!--API-613-->
+* Updated BCR Clinical XML parser code to support future indexing of additional clinical data <!--DAT-2076-->
+    - Updated the mapping for:
+        - `days_to_death`	<!--DAT-2083-->
+        - `days_to_birth`	<!--DAT-2084-->
+        - `vital_status`	<!--DAT-2085-->
+        - `prior_malignancy` and `synchronous_malignancy`	<!--DAT-2094-->
+    - Added a mapping for:
+        - `pack_years_smoked`	<!--DAT-2086-->
+        - `prior_treatment`	<!--DAT-2095-->
+        - `age_at_index`	<!--DAT-2096-->
+        - `days_to_diagnosis`	<!--DAT-2097-->
+        - `icd_10_code`	<!--DAT-2098-->
+        - `year_of_diagnosis`	<!--DAT-2099-->
+    - Remove calculation for:
+        - `cigarettes_per_day`	<!--DAT-2091-->
+        - `year_of_birth`	<!--DAT-2092-->
+        - `year_of_death`	<!--DAT-2093-->
+        - `bmi`  <!--DAT-2087-->
+    - Updated XML Parser to pull the most Up-to-Date Survival Information	<!--DAT-2063-->
 
 ### Bugs Fixed Since Last Release
 
