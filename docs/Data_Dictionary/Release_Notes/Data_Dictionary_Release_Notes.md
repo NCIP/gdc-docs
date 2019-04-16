@@ -54,21 +54,21 @@
         - `weiss_assessment_score`
     - Made `vital_status` an optional field <!--DAT-2157-->
     - Removed deprecated properties <!--TT-939--><!--TT-938-->
-      - `days_to_death`
-      - `days_to_birth`
-      - `cause_of_death`
-      - `hiv_positive`
-      - `days_to_hiv_diagnosis`
-      - `ldh_normal_range_upper`
-      - `new_event_type`
-      - `hpv_status`
-      - `hpv_positive_type`
-      - `colon_polyps_history`
-      - `progression_free_survival`
-      - `progression_free_survival_event`
-      - `overall_survival`
-      - `days_to_treatment`
-      - `ldh_level_at_diagnosis`
+        - `days_to_death`
+        - `days_to_birth`
+        - `cause_of_death`
+        - `hiv_positive`
+        - `days_to_hiv_diagnosis`
+        - `ldh_normal_range_upper`
+        - `new_event_type`
+        - `hpv_status`
+        - `hpv_positive_type`
+        - `colon_polyps_history`
+        - `progression_free_survival`
+        - `progression_free_survival_event`
+        - `overall_survival`
+        - `days_to_treatment`
+        - `ldh_level_at_diagnosis`
     - Added `vital_status` property to deprecated list<!--DAT-2158-->
 * Modified `somatic_aggregation_workflow` entity
     - Added `Aliquot Ensemble Somatic Variant Merging and Masking` as new permissible value to `workflow_type`
@@ -101,7 +101,7 @@
 
 ### Bugs Fixed Since Last Release
 
-N/A
+* None
 
 
 ## v.1.15
@@ -417,7 +417,7 @@ N/A
 
 ### Bugs Fixed Since Last Release
 
-* N/A
+* None
 
 ## v.1.13
 
