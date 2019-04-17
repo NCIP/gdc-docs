@@ -32,7 +32,7 @@ The GDC Data Submission Portal is a platform that allows researchers to submit a
 
 ## HIPAA Compliance
 
-The GDC will not accept any data for patients age 90 and over including any follow-up events in which the event occurs after a patient turns 90 to ensure that HIPAA compliance is maintained. To comply with these requirements data submitters may omit any data (entire cases or specific nodes) that would violate this rule or obfuscate associated dates. Please see the [Date Obfuscation](Data_Submission_Walkthrough.md#date-obfuscation) section for more information.
+The GDC will not accept any data for patients age 90 and over including any follow-up events in which the event occurs after a patient turns 90 to ensure that HIPAA compliance is maintained. To comply with these requirements data submitters may omit any data (entire cases or specific nodes) that would violate this rule or obfuscate associated dates. Please see the [Date Obfuscation](/Data_Submission_Portal/Users_Guide/Best_Practices/#date-obfuscation) section for more information.
 
 ## Release Notes
 
