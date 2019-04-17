@@ -22,6 +22,7 @@
 
 ### New Features and Changes
 
+* Updates to the Data Dictionary Search Tool
 * Added new bioinformatics workflow for methylation arrays (Sesame) <!--DAT-2025-->
 * Changed `somatic_mutation_calling_workflow` link from `one_to_many` to `many_to_many`	<!--DAT-1697-->
 * Modified `read_group` entity
