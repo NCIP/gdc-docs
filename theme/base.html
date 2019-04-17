@@ -44,6 +44,7 @@
         {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
         <!-- GDCMVS CSS-->
         <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/lib/css/jquery-ui.min.css" />
+        <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/lib/css/pagination.min.css" />
         <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/dist/styles.css" />
         {% endif %}
 
@@ -185,6 +186,7 @@
             {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
             <!-- GDCMVS JS-->
             <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/lib/js/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/lib/js/pagination.min.js"></script>
             <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/lib/js/jsrender.min.js"></script>
             <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/dist/bundle.js"></script>
             {% endif %}
