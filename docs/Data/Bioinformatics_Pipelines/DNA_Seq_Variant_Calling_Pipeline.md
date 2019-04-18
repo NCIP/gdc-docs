@@ -26,11 +26,6 @@ Prior to alignment, BAM files that were submitted to the GDC are split by read g
 DNA-Seq analysis begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow). Read groups are aligned to the reference genome using one of two [BWA](http://bio-bwa.sourceforge.net) algorithms [[1]](http://www.ncbi.nlm.nih.gov/pubmed/19451168). BWA-MEM is used if mean read length is greater than or equal to 70 bp. Otherwise BWA-aln is used.
 Each read group is aligned to the reference genome separately and all read group alignments that belong to a single aliquot are merged using [Picard Tools](http://broadinstitute.github.io/picard) [SortSam](https://broadinstitute.github.io/picard/command-line-overview.html#SortSam) and [MergeSamFiles](https://broadinstitute.github.io/picard/command-line-overview.html#MergeSamFiles). Duplicate reads, which may persist as PCR artifacts, are then flagged to prevent downstream variant call errors.
 
-#### Quality Control
-
-Quality control metrics are collected before and after the alignment workflow and reviewed to identify potential low-quality data files.  Basic metrics such as GC content and mean read length as well as quality score metrics are collected from unaligned reads using [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Quality metrics collected by the GDC for aligned reads include samtools idxstat and flagstat. Alignment information is collected using Picard [CollectMultipleMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectMultipleMetrics) for both WGS and WXS. Coverage information is collected using picard [CollectWgsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectWgsMetrics) for WGS and picard [CollectHsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectHsMetrics) for WXS.
-
-Quality control metrics for each file endpoint can be accessed through the API using the `expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs` parameter. Click [here](https://api.gdc.cancer.gov/files/40e311a4-67aa-468a-8e09-1c7daa2d10bb?pretty=true&expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs) for an example query.  
 
 #### Reference Genome
 
