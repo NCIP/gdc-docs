@@ -117,31 +117,31 @@
 * Deleted `aligned_reads_metrics` entity <!--DAT-1754-->
 * Created new `raw_methylation_array` entity <!--DAT-1854-->
 * Add regex validation to property `md5sum` for following entities: <!--DAT-1899-->
-  - `slide_image`
-  - `analysis_metadata`
-  - `clinical_supplement`
-  - `experiment_metadata`
-  - `pathology_report`
-  - `run_metadata`
-  - `biospecimen_supplement`
-  - `submitted_aligned_reads`
-  - `submitted_genomic_profile`
-  - `submitted_methylation_beta_value`
-  - `submitted_tangent_copy_number`
-  - `submitted_unaligned_reads`
+    - `slide_image`
+    - `analysis_metadata`
+    - `clinical_supplement`
+    - `experiment_metadata`
+    - `pathology_report`
+    - `run_metadata`
+    - `biospecimen_supplement`
+    - `submitted_aligned_reads`
+    - `submitted_genomic_profile`
+    - `submitted_methylation_beta_value`
+    - `submitted_tangent_copy_number`
+    - `submitted_unaligned_reads`
 * Modified `molecular_test` entity
-  - Migrated data from `blood_test` to `laboratory_test` and `biospecimen_type` for all entities<!--TT-754-->
-  - Added new property `intron` <!--DAT-1847-->
-  - Deleted `blood_test` entity <!--DAT-1639-->
-  - Added new permissible values for `gene_symbol`<!--DAT-1553-->
-  - Added new permissible values for `antigen`<!--DAT-1662-->
-  - Added new permissible values for `molecular_analysis_method` <!--DAT-1663-->
-  - Added new permissible values for `variant_type` <!--DAT-1664-->
-  - Added new permissible values for `test_result` <!--DAT-1665-->
-  - Added new permissible values for `molecular_consequence` <!--DAT-1666-->
-  - Added regex validation to property `transcript` <!--DAT-1916-->
-  - Added regex validation to property `locus` <!--DAT-1874-->
-  - Changed data type of `exon` property to be `string` with regex validation <!--DAT-1890-->
+    - Migrated data from `blood_test` to `laboratory_test` and `biospecimen_type` for all entities<!--TT-754-->
+    - Added new property `intron` <!--DAT-1847-->
+    - Deleted `blood_test` entity <!--DAT-1639-->
+    - Added new permissible values for `gene_symbol`<!--DAT-1553-->
+    - Added new permissible values for `antigen`<!--DAT-1662-->
+    - Added new permissible values for `molecular_analysis_method` <!--DAT-1663-->
+    - Added new permissible values for `variant_type` <!--DAT-1664-->
+    - Added new permissible values for `test_result` <!--DAT-1665-->
+    - Added new permissible values for `molecular_consequence` <!--DAT-1666-->
+    - Added regex validation to property `transcript` <!--DAT-1916-->
+    - Added regex validation to property `locus` <!--DAT-1874-->
+    - Changed data type of `exon` property to be `string` with regex validation <!--DAT-1890-->
 * Modified `diagnosis` entity
     - Added new fields
       - `tumor_focality`<!-- DAT-1832-->

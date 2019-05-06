@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v1.21.0](API_Release_Notes.md#v1210) | May X, 2019 |
 | [v1.20.0](API_Release_Notes.md#v1200) | April 17, 2019 |
 | [v1.19.0](API_Release_Notes.md#v1190) | February 20, 2019 |
 | [v1.18.0](API_Release_Notes.md#v1180) | December 18, 2018 |
@@ -25,6 +26,25 @@
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
 
+## v1.21.0 <!--REQ-383-->
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__:  May X, 2019
+
+### New Features and Changes
+
+* Backend updates for data usage and statistics <!--API-601,APIT-636,API-627-->
+* Mutation indexer update to accommodate data model updates <!--API-677-->
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
 
 ## v1.20.0 <!--REQ-385-->
 
@@ -36,7 +56,7 @@
 * Disallowed creation of multiple file versions in the same data release <!--API-585-->
 * Improved API concurrency performance and addressed random failures/4XX/5XX responses <!--GDCDEVOPS-187,GP-15-->
 * Improved API/Portal performances for querying large sets of data from the Elasticsearch indices <!--API-613-->
-* Updated BCR Clinical XML parser code to support future indexing of additional clinical data <!--DAT-2076-->
+* Updated BCR Clinical XML parser code to support future indexing of additional clinical data.  Parser code can be found [here](https://github.com/NCI-GDC/gdcdatamodel/tree/develop/gdcdatamodel/xml_mappings) <!--DAT-2076-->
     - Updated the mapping for:
         - `days_to_death`	<!--DAT-2083-->
         - `days_to_birth`	<!--DAT-2084-->
@@ -62,7 +82,9 @@
 
 ### Known Issues and Workarounds
 
-* None
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
 
 
 ## v1.19.0 <!--REQ-381-->
@@ -83,6 +105,10 @@
 * Fixed bug where new file versions could be created when exactly the same existing metadata is uploaded <!--API-571-->
 * Fixed bug where submitting to specific projects produced error that data already existed <!--API-568-->
 
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
 
 ## v1.18.0 <!--REQ-335-->
