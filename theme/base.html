@@ -112,6 +112,8 @@
                 {% endif %}
                 {% if current_page.title == config.extra.encyclopedia_page_title%}
                     {% include "encyclopedia/index.html" %}
+                {% elseif current_page.title == "Homepage" %}
+                    {% include "homepage.html"}
                 {% else %}
                     {% include "content.html" %}    
                 {% endif %}
@@ -182,6 +184,9 @@
 
             {% if current_page.title == config.extra.encyclopedia_page_title %}
                 <script src="/js/encyclopedia.js"></script>
+            {% endif %}
+            {% if current_page.title == "Homepage" %}
+                <script src="/js/homepage.js"></script>
             {% endif %}
             {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
             <!-- GDCMVS JS-->

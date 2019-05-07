@@ -1,0 +1,32 @@
+<div class="hero">
+    <span>{{pretitle}}</span>
+    <h1>{{title}}</h1>
+    <p>{{subtitle}}</p>
+    <div class="search">
+        <a aria-label="Search" id="homepage-search-button" title="Click to Search the GDC Documentation" href="javascript:$gdcApp.searchModal.show()">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </a>
+        <input type="text" placeholder={{search_prompt}} aria-label={{search_prompt}} id="homepage-search-query">
+    </div>
+</div>
+<div class="container">
+    {% for card_item in cards %}
+    <div class="card" style="border-top-color: {{card_item.border_color}}">
+        <h2>{{card_item.title}}</h2>
+        <img src={{card_item.icon}}>
+        <ul>
+            {% for link_item in card_item.links %}
+            <li>
+                <a href={{link_item.url}}>{{link_item.text}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+<div class="container">
+    <p>
+        <img src="computer_icon.png">
+        {{footer_text}}
+    </p>
+</div>
