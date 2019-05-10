@@ -3,7 +3,9 @@
     <h1>{{title}}</h1>
     <p>{{subtitle}}</p>
     <div class="search">
-        <a aria-label="Search" id="homepage-search-button" title="Click to Search the GDC Documentation" href="javascript:$gdcApp.searchModal.show()">
+        <!-- Search button copied from the header component -->
+        <a aria-label="Search" id="homepage-search-button" title="Click to Search the GDC Documentation"
+            href="javascript:$gdcApp.searchModal.show()">
             <i class="fa fa-search" aria-hidden="true"></i>
         </a>
         <input type="text" placeholder={{search_prompt}} aria-label={{search_prompt}} id="homepage-search-query">
