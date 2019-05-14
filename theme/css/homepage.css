@@ -1,10 +1,12 @@
-#body {
+#body[data-current-page="Home"] {
     max-width: 100%;
+    min-height: auto;
 }
 
 .hp-hero {
     background-color: #2a72a4;
     padding: 28px 24px 38px;
+    margin-bottom: 40px;
 }
 
 .hp-hero__pretitle,
@@ -70,4 +72,111 @@
     flex: 1;
     font-size: 18px;
     padding: 0 20px;
+}
+
+.hp-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 925px) {
+  .hp-container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .hp-container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .hp-container {
+    width: 1170px;
+  }
+}
+
+/* rewriting bootstrap rules in order to make the cards all the same height */
+.hp-container .row {
+    display: flex; 
+    flex-flow: row wrap; 
+}
+
+@media (max-width: 992px) {
+    .hp-container .col-md-4 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .hp-container .col-md-4 {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
+.hp-container .col-md-4 {
+    display: flex;
+    flex-flow: column;
+}
+
+.hp-card {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    border: 1px solid #dddddd;
+    background-color: #fff;
+    padding: 0 24px 24px;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 24px;
+    position: relative;
+    border-radius: 0 0 5px 5px;
+}
+
+.hp-card__title {
+    color: #3a3a3a;
+    font-size: 22px;
+    line-height: 34px;
+    border-top: 5px solid #000;
+    margin: 0 -24px 20px -24px;
+    padding: 16px 80px 0 24px;
+}
+
+.hp-card__image {
+    height: 40px;
+    width: 50px;
+    position: absolute;
+    top: 16px;
+    right: 8px;
+}
+
+.hp-card__links {
+    padding-left: 0;
+}
+
+.hp-card__links-item {
+    margin-bottom: 8px;
+    list-style: none;
+    margin-left: 20px;
+}
+
+.hp-card__links-item:before {
+    content: '\f061';
+    font-family: 'fontawesome';
+    display: inline-block;
+    color: #ccc;
+    margin-left: -20px;
+    padding-right: 6px;
+}
+
+.hp-card__links-item a {
+    font-size: 16px;
+    line-height: 24px;
+    color: #24618d;
+}
+
+.hp-footer {
+    margin: 6px auto 36px;
+    color: #555555;
 }
