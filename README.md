@@ -19,18 +19,28 @@ Please direct technical questions to [GDC Support](https://gdc.cancer.gov/suppor
 
 ### Technology
 
- - Python 2.6, 2.7, 3.3, 3.4 and 3.5.
- - [mkdocs](http://www.mkdocs.org/)
- - [BSCodeTabs for mkdocs](https://github.com/mikecules/MarkdownBSCodeTabs#for-use-in-mkdocs)
+- Python 2.6, 2.7, 3.3, 3.4 and 3.5.
+- [mkdocs](http://www.mkdocs.org/)
+- [BSCodeTabs for mkdocs](https://github.com/mikecules/MarkdownBSCodeTabs#for-use-in-mkdocs)
 
 ### Install & Run
 
- - `pip install -r requirements`
- - `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
+(Optional) Set up virtualenv:
+
+- [Install virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+- `python -m virtualenv gdcdocs`
+- `source gdcdocs/bin/activate`
+- Run the installation commands below
+- To leave the virtual environment: `deactivate`
+
+Install GDC-docs:
+
+- `pip install -r requirements.txt`
+- `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
 
 ### Build
 
- - `mkdocs build --clean`
+- `mkdocs build --clean`
 
 ### Repository Conventions
 
