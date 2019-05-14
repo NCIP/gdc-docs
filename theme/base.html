@@ -33,6 +33,8 @@
     <link href="/css/gdc-common.css" rel="stylesheet">
     <link href="/css/gdc-fonts.css" rel="stylesheet">
     <link href="/css/encyclopedia.css" rel="stylesheet">
+    {% if current_page.title == 'Home' %}
+    <link href="/css/homepage.css" rel="stylesheet"> {% endif %}
     {%- for path in extra_css %}
     <link href="{{ path }}" rel="stylesheet">
     {%- endfor %}
