@@ -67,7 +67,7 @@ The process for modifying the Aliquot-level MAF files into a masked somatic muta
 
 ---
 
-![Aliquot-Level MAF](images/New_MAF_diagram_14May2019.png)
+![Aliquot-Level MAF](images/MAF_diagram_14May2019.png)
 
 ---
 
