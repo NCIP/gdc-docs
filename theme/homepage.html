@@ -1,34 +1,53 @@
 <div class="hero">
-    <span>{{pretitle}}</span>
-    <h1 class="no-auto-render">{{title}}</h1>
-    <p>{{subtitle}}</p>
+    <span>NCI Genomic Data Commons (GDC)</span>
+    <h1 class="no-auto-render">Documentation</h1>
+    <p>A place where researchers, data submitters and developers can find detailed information on GDC processes and
+        tools.</p>
     <div class="search">
         <!-- Search button copied from the header component -->
         <a aria-label="Search" id="homepage-search-button" title="Click to Search the GDC Documentation"
             href="javascript:$gdcApp.searchModal.show()">
             <i class="fa fa-search" aria-hidden="true"></i>
         </a>
-        <input type="text" placeholder={{search_prompt}} aria-label={{search_prompt}} id="homepage-search-query">
+        <input type="text" placeholder="What are you looking for?" aria-label="Search" id="homepage-search-query">
     </div>
 </div>
 <div class="container">
-    {% for card_item in cards %}
-    <div class="card" style="border-top-color: {{card_item.border_color}}">
-        <h2>{{card_item.title}}</h2>
-        <img src={{card_item.icon}}>
+    <div class="card" style="border-top-color: #1db888">
+        <h2>For Researchers</h2>
+        <img src="research.png">
         <ul>
-            {% for link_item in card_item.links %}
-            <li>
-                <a href={{link_item.url}}>{{link_item.text}}</a>
-            </li>
-            {% endfor %}
+            <li><a href="">Understand the Data in the GDC</a></li>
+            <li><a href="">Access Controlled Data in the GDC</a></li>
+            <li><a href="">Explore Data in the GDC</a></li>
+            <li><a href="">Download Files in the GDC</a></li>
+            <li><a href="">Analyze Data in the GDC</a></li>
         </ul>
     </div>
-    {% endfor %}
+    <div class="card" style="border-top-color: #676bc0">
+        <h2>For Data Submitters</h2>
+        <img src="data-submitters.png">
+        <ul>
+            <li><a href="">View the GDC Data Dictionary</a></li>
+            <li><a href="">Search the GDC Data Dictionary</a></li>
+            <li><a href="">Understand GDC Harmonized Data</a></li>
+            <li><a href="">Submit Clinical, Biospecimen, & Molecular Data</a></li>
+            <li><a href="">Review/QC Data for Harmonization</a></li>
+        </ul>
+    </div>
+    <div class="card" style="border-top-color: #743983">
+        <h2>For Developers</h2>
+        <img src="developers.png">
+        <ul>
+            <li><a href="">Understand the GDC Data Model</a></li>
+            <li><a href="">Using GDC Programmatic Interfaces</a></li>
+            <li><a href="">Access the GDC Codebase</a></li>
+        </ul>
+    </div>
 </div>
 <div class="container">
     <p>
         <img src="computer_icon.png">
-        {{footer_text}}
+        To learn more about the GDC, please visit the <a href="">GDC Website</a> or <a href="">Contact Us</a>.
     </p>
 </div>
