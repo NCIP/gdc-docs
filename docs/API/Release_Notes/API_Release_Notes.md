@@ -34,7 +34,7 @@
 ### New Features and Changes
 
 * Backend updates for data usage and statistics <!--API-601,APIT-636,API-627-->
-* Mutation indexer update to accommodate data model updates <!--API-677-->
+* Mutation indexer update to accommodate data model changes <!--API-677-->
 
 ### Bugs Fixed Since Last Release
 

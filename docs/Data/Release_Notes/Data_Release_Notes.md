@@ -31,8 +31,8 @@
 ### New updates
 
 1.  New Projects released
-    *    HCMI-CMDC - NCI Cancer Model Development for the Human Cancer Model Initiative (HCMI) (phs001486)
-    *   BEATAML1.0-CRENOLANIB - Clinical Resistance to Crenolanib in Acute Myeloid Leukemia Due to Diverse Molecular Mechanisms (phs001486)
+    *   HCMI-CMDC - NCI Cancer Model Development for the Human Cancer Model Initiative (HCMI) (phs001486)
+    *   BEATAML1.0-CRENOLANIB - Clinical Resistance to Crenolanib in Acute Myeloid Leukemia Due to Diverse Molecular Mechanisms (phs001628)
 2.  RNA-Seq data for NCICCR-DLBCL and CTSP-DLBCL1 are released
 3.  ATAC-Seq data for TCGA projects are released
 4.  CPTAC-3 RNA-Seq data are released

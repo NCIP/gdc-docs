@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v.1.17](Data_Dictionary_Release_Notes.md#v117) | May X, 2019 |
 | [v.1.16](Data_Dictionary_Release_Notes.md#v116) | April 17, 2019 |
 | [v.1.15](Data_Dictionary_Release_Notes.md#v115) | December 18, 2018 |
 | [v.1.14](Data_Dictionary_Release_Notes.md#v114) | September 27, 2018 |
@@ -13,6 +14,23 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+
+## v.1.17
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: May X, 2019
+
+
+### New Features and Changes
+
+* Deleted vital status, days_to_birth, and days_to_death from Diagnosis node.  Data submission and data requests should all be directed to the corresponding properties on the Demographic Node.
+
+### Bugs Fixed Since Last Release
+
+* None
+
+
 
 ## v.1.16
 
