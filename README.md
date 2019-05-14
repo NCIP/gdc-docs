@@ -28,8 +28,8 @@ Please direct technical questions to [GDC Support](https://gdc.cancer.gov/suppor
 (Optional) Set up virtualenv:
 
 - [Install virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
-- `python -m virtualenv gdcdocs`
-- `source gdcdocs/bin/activate`
+- `python -m virtualenv venv`
+- `source venv/bin/activate`
 - Run the installation commands below
 - To leave the virtual environment: `deactivate`
 
