@@ -1,6 +1,6 @@
 # GDC MAF Format
 
-## Introduction 
+## Introduction
 
 Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mutation information from [VCF Files](VCF_Format.md) and are generated on a project or aliquot level.  The GDC produces MAF files at two permission levels: controlled and open access. Annotated VCF files, Annotated somatic mutations, often have variants reported on multiple transcripts whereas the MAF files generated from the VCFs, Aggregated somatic mutations, only report the most critically affected one. [Masked Somatic Mutation](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) files are further processed to remove lower quality and potential germline variants. Masked Somatic MAFs are publicly available and can be freely distributed within the boundaries of the [GDC Data Access Policies](https://gdc.cancer.gov/access-data/data-access-policies).
 
