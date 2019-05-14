@@ -2,139 +2,154 @@
 <html lang="en">
 {# Disable adding the / to all navs #}
 {% set disableRootNavPrefixing = true %}
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
-        <meta name="viewport" content="width=1024">
-        {% else %}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% endif %}
-         {% if page_description %}<meta name="description" content="{{ page_description }}">{% endif %}
-        {% if site_author %}<meta name="author" content="{{ site_author }}">{% endif %}
-        {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
-        {% if favicon %}<link rel="shortcut icon" href="{{ favicon }}">
-        {% else %}<link rel="shortcut icon" href="/img/favicon.ico">{% endif %}
 
-        <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
+    <meta name="viewport" content="width=1024">
+    {% else %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endif %}
+    {% if page_description %}
+    <meta name="description" content="{{ page_description }}">{% endif %}
+    {% if site_author %}
+    <meta name="author" content="{{ site_author }}">{% endif %}
+    {% if canonical_url %}
+    <link rel="canonical" href="{{ canonical_url }}">{% endif %}
+    {% if favicon %}
+    <link rel="shortcut icon" href="{{ favicon }}">
+    {% else %}
+    <link rel="shortcut icon" href="/img/favicon.ico">{% endif %}
 
-   <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 
-        <link href="/css/bootstrap-custom.css" rel="stylesheet">
-        <link href="/css/font-awesome-4.5.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/highlight.css">
-        <link href="/css/base.css" rel="stylesheet">
-        <link href="/css/gdc-common.css" rel="stylesheet">
-        <link href="/css/gdc-fonts.css" rel="stylesheet">
-        <link href="/css/encyclopedia.css" rel="stylesheet">
-        {%- for path in extra_css %}
-        <link href="{{ path }}" rel="stylesheet">
-        {%- endfor %}
+    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
 
-        {% set encyclopedia_pages = [] %}
-        {% for page in config.pages %}
-            {% if config.extra.encyclopedia_entries_page_title in page %}
-                {% for page in page[config.extra.encyclopedia_entries_page_title] %}
-                    {% if encyclopedia_pages.append(page) %}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
+    <link href="/css/bootstrap-custom.css" rel="stylesheet">
+    <link href="/css/font-awesome-4.5.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/gdc-common.css" rel="stylesheet">
+    <link href="/css/gdc-fonts.css" rel="stylesheet">
+    <link href="/css/encyclopedia.css" rel="stylesheet">
+    {%- for path in extra_css %}
+    <link href="{{ path }}" rel="stylesheet">
+    {%- endfor %}
 
-        {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
-        <!-- GDCMVS CSS-->
-        <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/lib/css/jquery-ui.min.css" />
-        <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/lib/css/pagination.min.css" />
-        <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/dist/styles.css" />
-        {% endif %}
+    {% set encyclopedia_pages = [] %}
+    {% for page in config.pages %}
+    {% if config.extra.encyclopedia_entries_page_title in page %}
+    {% for page in page[config.extra.encyclopedia_entries_page_title] %}
+    {% if encyclopedia_pages.append(page) %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
 
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
+    {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
+    <!-- GDCMVS CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/lib/css/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/lib/css/pagination.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/dist/styles.css" />
+    {% endif %}
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        {% if google_analytics %}
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    {% if google_analytics %}
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', '{{ google_analytics[0] }}', '{{ google_analytics[1] }}');
-            ga('send', 'pageview');
-        </script>
-        {% endif %}
+        ga('create', '{{ google_analytics[0] }}', '{{ google_analytics[1] }}');
+        ga('send', 'pageview');
+    </script>
+    {% endif %}
 
-        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
-        {% include "apps/dictionary/html-shards/dictionary-deps.html" %}
-        <script src="/js/dictionary-init.js"></script>
-        {% endif %}
-    </head>
+    {% if current_page.title == config.extra.dictionary_viewer_page_id %}
+    {% include "apps/dictionary/html-shards/dictionary-deps.html" %}
+    <script src="/js/dictionary-init.js"></script>
+    {% endif %}
+</head>
 
-    <body>
+<body>
 
-        <a class="skip-main" href="#main">Skip to main content</a>
+    <a class="skip-main" href="#main">Skip to main content</a>
 
-        {% include "search.html" %}
-        <!-- div id="sliding-drawer-container" class="sliding-drawer-container">
+    {% include "search.html" %}
+    <!-- div id="sliding-drawer-container" class="sliding-drawer-container">
         </div -->
-        <div class="parent-container">
-          {% if current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != config.extra.gdcmvs_viewer_page_id %}
-            <div class="spinParticle">
-                <div class="particle red"></div>
-                <div class="particle grey other-particle"></div>
-                <div class="particle blue other-other-particle"></div>
-            </div>
-          {% endif %}
-            {% include "nav.html" %}
+    <div class="parent-container">
+        {% if current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != config.extra.gdcmvs_viewer_page_id %}
+        <div class="spinParticle">
+            <div class="particle red"></div>
+            <div class="particle grey other-particle"></div>
+            <div class="particle blue other-other-particle"></div>
+        </div>
+        {% endif %}
+        {% include "nav.html" %}
 
-            <div id="docs-container" class="container">
-                    
-                <div data-current-page="{{current_page.title}}" id="body">
+        <div id="docs-container" class="container">
+
+            <div data-current-page="{{current_page.title}}" id="body">
                 <!-- {% if toc and ((toc | first) is defined) and current_page.title != config.extra.dictionary_viewer_page_id %}
                 <div class="col-md-3 toc-container" role="navigation" aria-label="In-Page Navigation">{% include "toc.html" %}</div>
                 {% endif %} -->
 
                 {% if current_page.title == "Home" %}
-                    {% include "homepage.html" %}
+                {% include "homepage.html" %}
                 {% else %}
 
-                    {% if "/Encyclopedia" in current_page.abs_url %}
-                    {% include "encyclopedia/menu.html" %}
-                    {% elif current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != 'Home' and current_page.title != config.extra.gdcmvs_viewer_page_id %}
-                    {% include "nav-section-map.html" %}
-                    {% elif current_page.title == 'Home' %}
-                    {% if toc and ((toc | first) is defined) %}
-                        <div class="col-md-3 toc-container" role="navigation" aria-label="In-Page Navigation">{% include "toc.html" %}</div>
-                    {% endif %}
-                    {% endif %}
+                {% if "/Encyclopedia" in current_page.abs_url %}
+                {% include "encyclopedia/menu.html" %}
+                {% elif current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != 'Home' and current_page.title != config.extra.gdcmvs_viewer_page_id %}
+                {% include "nav-section-map.html" %}
+                {% elif current_page.title == 'Home' %}
+                {% if toc and ((toc | first) is defined) %}
+                <div class="col-md-3 toc-container" role="navigation" aria-label="In-Page Navigation">
+                    {% include "toc.html" %}</div>
+                {% endif %}
+                {% endif %}
 
-                    {% if current_page.title == config.extra.dictionary_viewer_page_id or current_page.title == config.extra.gdcmvs_viewer_page_id %}
-                    <div class="col-md-12 main-container" role="main" id="main" tabindex="-1">
+                {% if current_page.title == config.extra.dictionary_viewer_page_id or current_page.title == config.extra.gdcmvs_viewer_page_id %}
+                <div class="col-md-12 main-container" role="main" id="main" tabindex="-1">
                     {% else %}
-                    <div class="col-md-9 main-container fadeInBlurIntroOld loading-content-old" role="main" id="main" tabindex="-1">
-                    {% endif %}
-                    {% if current_page.title == config.extra.encyclopedia_page_title%}
+                    <div class="col-md-9 main-container fadeInBlurIntroOld loading-content-old" role="main" id="main"
+                        tabindex="-1">
+                        {% endif %}
+                        {% if current_page.title == config.extra.encyclopedia_page_title%}
                         {% include "encyclopedia/index.html" %}
-                    {% else %}
-                        {% include "content.html" %}    
-                    {% endif %}
+                        {% else %}
+                        {% include "content.html" %}
+                        {% endif %}
                     </div>
                     {% if next_page or previous_page %}
-                    <div class="history-nav-control-container clearfix" role="navigation" aria-label="footer navigation">
+                    <div class="history-nav-control-container clearfix" role="navigation"
+                        aria-label="footer navigation">
                         {% if next_page.ancestors and next_page.ancestors[0].active and current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != config.extra.gdcmvs_viewer_page_id %}
-                        <a href="{{ next_page.url }}" class="btn pull-right indicate-right" title="Click to go to the Next Page: {{ next_page.title }}">
-                            <span class="btn-nav-text">Next:</span> {{next_page.title}} <span class="fa fa-chevron-right"></span>
+                        <a href="{{ next_page.url }}" class="btn pull-right indicate-right"
+                            title="Click to go to the Next Page: {{ next_page.title }}">
+                            <span class="btn-nav-text">Next:</span> {{next_page.title}} <span
+                                class="fa fa-chevron-right"></span>
                         </a>
                         {% endif %}
                         {% if previous_page.ancestors and previous_page.ancestors[0].active and current_page.title != config.extra.dictionary_viewer_page_id and current_page.title != config.extra.gdcmvs_viewer_page_id %}
-                        <a href="{{ previous_page.url }}" class="btn pull-left indicate-left" title="Click to go to the Previous Page: {{ previous_page.title }}">
-                            <span class="fa fa-chevron-left"></span> <span class="btn-nav-text">Previous:</span> {{previous_page.title}}</a>
+                        <a href="{{ previous_page.url }}" class="btn pull-left indicate-left"
+                            title="Click to go to the Previous Page: {{ previous_page.title }}">
+                            <span class="fa fa-chevron-left"></span> <span class="btn-nav-text">Previous:</span>
+                            {{previous_page.title}}</a>
                         {% endif %}
                     </div>
                     {% endif %}
-                {% endif %}
+                    {% endif %}
                 </div>
             </div>
 
@@ -144,11 +159,13 @@
                         <div>
                             <a href="https://portal.gdc.cancer.gov" target="_blank">Site Home</a>
                             | <a href="http://www.cancer.gov/global/web/policies" target="_blank">Policies</a>
-                            | <a href="http://www.cancer.gov/global/web/policies/accessibility" target="_blank">Accessibility</a>
+                            | <a href="http://www.cancer.gov/global/web/policies/accessibility"
+                                target="_blank">Accessibility</a>
                             | <a href="http://www.cancer.gov/global/web/policies/foia" target="_blank">FOIA</a>
                         </div>
                         <div>
-                            <a href="http://www.hhs.gov" target="_blank">U.S. Department of Health and Human Services</a>
+                            <a href="http://www.hhs.gov" target="_blank">U.S. Department of Health and Human
+                                Services</a>
                             | <a href="http://www.nih.gov" target="_blank">National Institutes of Health</a>
                             | <a href="http://www.cancer.gov" target="_blank">National Cancer Institute</a>
                             | <a href="http://www.usa.gov" target="_blank">USA.gov</a>
@@ -180,14 +197,15 @@
             <script src="/js/gdc-common.js"></script>
             <script src="/js/remarkable-1.7.1.min.js"></script>
             <script src="/js/gdc-notifications.js"></script>
-            <script language="JavaScript" type="text/javascript" src="https://static.cancer.gov/webanalytics/wa_gdc_pageload.js"></script>
+            <script language="JavaScript" type="text/javascript"
+                src="https://static.cancer.gov/webanalytics/wa_gdc_pageload.js"></script>
             <script>var base_url = '{{ base_url }}';</script>
             {%- for path in extra_javascript %}
             <script src="{{ path }}"></script>
             {%- endfor %}
 
             {% if current_page.title == config.extra.encyclopedia_page_title %}
-                <script src="/js/encyclopedia.js"></script>
+            <script src="/js/encyclopedia.js"></script>
             {% endif %}
             {% if current_page.title == config.extra.gdcmvs_viewer_page_id %}
             <!-- GDCMVS JS-->
@@ -197,5 +215,6 @@
             <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/dist/bundle.js"></script>
             {% endif %}
         </div>
-    </body>
+</body>
+
 </html>
