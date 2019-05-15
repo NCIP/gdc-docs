@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
   $(".dropdown-menu a:contains('pdf'), .bs-sidenav a:contains('pdf')").each(function () {
     var el = $(this);
@@ -20,7 +20,7 @@ $(function() {
     if (iconClass) {
       el.html(
         "<span aria-hidden='true' class='nav-icon fa " + iconClass + "'></span>"
-       + actualContent
+        + actualContent
       )
     }
   });
@@ -150,7 +150,7 @@ $(function() {
           $searchContentBody = $('.search-body', _modalEl);
 
 
-        $resultsContainer.delegate('.' + _searchItemClass, 'click keyup', function(e) {
+        $resultsContainer.delegate('.' + _searchItemClass, 'click keyup', function (e) {
 
           if (e.type !== 'click' && e.which !== 13 && e.which !== 32) {
             return;
@@ -198,8 +198,8 @@ $(function() {
             }
 
             var results = index.search(query),
-                resultsHTML = '',
-                resultLength = results.length || null;
+              resultsHTML = '',
+              resultLength = results.length || null;
 
             if (query.length >= _VALID_QUERY_LENGTH && results.length === 0) {
               resultLength = 0;
@@ -207,14 +207,14 @@ $(function() {
 
             if (resultLength !== null) {
               $resultsContainer.show();
-              $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + resultLength  + '</strong> results found for <strong>' + query  + '</strong>' );
+              $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + resultLength + '</strong> results found for <strong>' + query + '</strong>');
             }
 
             if (results.length > 0) {
 
               var baseHostURL = location.protocol + '//' + location.hostname + (location.port &&
-                                                                                (location.port != 80 && location.port != 443) ? (':' + location.port) : '') +
-                                '/';
+                (location.port != 80 && location.port != 443) ? (':' + location.port) : '') +
+                '/';
 
               for (var i = 0; i < results.length; i++) {
                 var result = results[i];
@@ -225,14 +225,14 @@ $(function() {
 
 
                 resultsHTML += '<div class="' + _searchItemClass + ' animated fadeInLeft" tabindex="0" role="button" data-link="' + doc.location + '">' +
-                               '<div class="doc-type-icon-container"><i class="fa fa-files-o fa-2x"></i></div>' +
-                               '<div class="search-body">' +
-                               '' + doc.title + '' +
-                               '<p class="location-field">'  + hostURL + '&nbsp;<span class="icon-share-1"></span></p>' +
-                               '<p>' + doc.summary + '</p>' +
-                               '</div>' +
+                  '<div class="doc-type-icon-container"><i class="fa fa-files-o fa-2x"></i></div>' +
+                  '<div class="search-body">' +
+                  '' + doc.title + '' +
+                  '<p class="location-field">' + hostURL + '&nbsp;<span class="icon-share-1"></span></p>' +
+                  '<p>' + doc.summary + '</p>' +
+                  '</div>' +
 
-                               '</div>';
+                  '</div>';
                 //console.log(query);
 
               }
@@ -240,14 +240,14 @@ $(function() {
               $results.append(resultsHTML);
               $results.highlight(query);
 
-              setTimeout(function() {$('.' + _searchItemClass).removeClass('animated fadeInLeft'); }, 500);
+              setTimeout(function () { $('.' + _searchItemClass).removeClass('animated fadeInLeft'); }, 500);
             }
             else {
-              if (! _isSearchActive) {
+              if (!_isSearchActive) {
                 $body.show();
               }
               else {
-                $searchContentBody.html('<strong>' + results.length  + '</strong> results found for <strong>' + query  + '</strong>' );
+                $searchContentBody.html('<strong>' + results.length + '</strong> results found for <strong>' + query + '</strong>');
               }
             }
           }
@@ -282,10 +282,10 @@ $(function() {
       }
 
       var $body = $('#body'),
-          $resultsContainer = $('.search-results-container', _modalEl),
-          $inputBox = $('.searchbox-input', _modalEl),
-          _isSearchActive = false,
-          _VALID_QUERY_LENGTH = 3;
+        $resultsContainer = $('.search-results-container', _modalEl),
+        $inputBox = $('.searchbox-input', _modalEl),
+        _isSearchActive = false,
+        _VALID_QUERY_LENGTH = 3;
 
 
       _init();
@@ -294,28 +294,28 @@ $(function() {
 
 
     function _init() {
-      if (! _modalID) {
+      if (!_modalID) {
         console.error('Could not instantiate modal with and ID!');
         return;
       }
 
       _modalEl = jQuery('#' + _modalID);
 
-      if ( _modalEl.length === 0 ) {
-        console.error('Could not find modal with ID ' + _modalID +  ' !');
+      if (_modalEl.length === 0) {
+        console.error('Could not find modal with ID ' + _modalID + ' !');
         return;
       }
 
       _modelBodyTextEl = _modalEl.find('.modal-body');
 
-      _modalEl.on('shown.bs.modal', function() { $('#gdc-search-query').focus(); });
+      _modalEl.on('shown.bs.modal', function () { $('#gdc-search-query').focus(); });
       _modalEl.on('hidden.bs.modal', function () { $('#gdc-search-button').focus(); });
 
       _initSearch();
 
     }
 
-    _self.title = function(title) {
+    _self.title = function (title) {
 
       if (arguments.length === 1) {
         _modelTitleEl.html(title);
@@ -324,7 +324,7 @@ $(function() {
       return _modelTitleEl.text();
     };
 
-    _self.bodyText = function(title) {
+    _self.bodyText = function (title) {
 
       if (arguments.length === 1) {
         _modelBodyTextEl.html(title);
@@ -333,7 +333,7 @@ $(function() {
       return _modelBodyTextEl.text();
     };
 
-    _self.show = function(shouldShow) {
+    _self.show = function (shouldShow) {
       var toggleArg = shouldShow === false ? 'hide' : 'show';
 
       _modalEl.modal(toggleArg);
@@ -372,7 +372,7 @@ $(function() {
 
       var sideBar = $('.bs-sidebar');
 
-      $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
+      $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function (e) {
 
         // prevent default anchor click behavior
         e.preventDefault();
@@ -381,44 +381,44 @@ $(function() {
         var hash = this.hash,
           scrollTargetEl = $(hash);
 
-          // animate
-          scrollBody.animate({
-            scrollTop: scrollTargetEl.offset().top + 7 /* plus some delta so scrollSpy highlight gets triggered */
-          }, 300,
-            function(){
+        // animate
+        scrollBody.animate({
+          scrollTop: scrollTargetEl.offset().top + 7 /* plus some delta so scrollSpy highlight gets triggered */
+        }, 300,
+          function () {
 
             var targetEl = scrollTargetEl.find('a'),
               classes = 'animated-long focusText';
 
             targetEl.addClass(classes);
 
-            setTimeout(function() { targetEl.removeClass(classes); }, 1100);
+            setTimeout(function () { targetEl.removeClass(classes); }, 1100);
             // when done, add hash to url
             // (default click behaviour)
             window.location.hash = hash;
 
-        });
+          });
 
       });
 
       var mainContainer = $('.main-container'),
-          selectedNavRegion = sideBar.find('.main'),
-          _totalAnchorHeight = 0,
-          _anchorOffsetMap = [];
+        selectedNavRegion = sideBar.find('.main'),
+        _totalAnchorHeight = 0,
+        _anchorOffsetMap = [];
 
-      sideBar.find('a').each(function() {
+      sideBar.find('a').each(function () {
         var anchor = $(this),
           anchorHeight = anchor.outerHeight();
 
-        _anchorOffsetMap.push({offset: _totalAnchorHeight, height: anchorHeight});
+        _anchorOffsetMap.push({ offset: _totalAnchorHeight, height: anchorHeight });
 
         _totalAnchorHeight += anchorHeight;
       });
 
       // TODO: Could improve the search complexity O(n) given that the list is sorted by offset
-      var findAnchorForOffset = function(offset) {
+      var findAnchorForOffset = function (offset) {
 
-        if (! _anchorOffsetMap.length) {
+        if (!_anchorOffsetMap.length) {
           return 0;
         }
         else if (_anchorOffsetMap.length === 1) {
@@ -436,9 +436,9 @@ $(function() {
         return _anchorOffsetMap[i - 1];
       };
 
-      $(window).scroll(function() {
+      $(window).scroll(function () {
         var scollableDistance = Math.max(0, mainContainer.outerHeight() + mainContainer.offset().top +
-                                            $('#docs-footer').outerHeight() - $(window).outerHeight());
+          $('#docs-footer').outerHeight() - $(window).outerHeight());
         var percentPageScrolled = Math.min(1.0, $(window).scrollTop() / scollableDistance);
 
         var proposedOffset = selectedNavRegion.outerHeight() * percentPageScrolled,
@@ -450,7 +450,7 @@ $(function() {
 
       });
 
-      sideBar.scroll(function(e) { e.stopPropagation(); });
+      sideBar.scroll(function (e) { e.stopPropagation(); });
 
       // Prevent disabled links from causing a page reload
       $('li.disabled a').click(function (e) {
@@ -502,14 +502,14 @@ $(function() {
     function _initLinks(confineToContainerID) {
       // Ensure all anchor links which appear to be external have the appropriate target and
       // icon.
-      $(confineToContainerID + ' a[href^="http"]').each(function() {
+      $(confineToContainerID + ' a[href^="http"]').each(function () {
         var anchor = $(this);
 
         anchor.attr('target', '_blank');
         anchor.addClass('external-link');
 
         // If the link already has an font awesome icon associated skip it
-        if (! anchor.find('*[class*="fa-"]').length) {
+        if (!anchor.find('*[class*="fa-"]').length) {
           anchor.prepend('&nbsp;<i class="fa fa-external-link"></i>&nbsp;');
         }
 
@@ -527,58 +527,58 @@ $(function() {
 
       container.find(subContainer)
         .hover(function () {
-            var dropdownItem = $(this);
-            menuBar.css({width: dropdownItem.width(), left: dropdownItem.position().left});
-          },
+          var dropdownItem = $(this);
+          menuBar.css({ width: dropdownItem.width(), left: dropdownItem.position().left });
+        },
           function () {
-            menuBar.css({width: 0});
+            menuBar.css({ width: 0 });
           });
 
-      $('.navbar.navbar-default').autoHidingNavbar({hideOffset: _hideMenuOffset});
+      $('.navbar.navbar-default').autoHidingNavbar({ hideOffset: _hideMenuOffset });
     }
 
     function _ensureMaxHeight(resizingEl) {
       var windowEl = $(window),
-          footer = $('#docs-footer'),
-          footerHeight = footer.outerHeight(),
-          footerOffsetTop = footer.offset().top,
-          OFFSET = -(130 + footerHeight),
-          resizeElHeight = 0;
+        footer = $('#docs-footer'),
+        footerHeight = footer.outerHeight(),
+        footerOffsetTop = footer.offset().top,
+        OFFSET = -(130 + footerHeight),
+        resizeElHeight = 0;
 
 
       function _recalcMax() {
         var resizeHeight = resizingEl.outerHeight(),
-            distance = Math.round(footerOffsetTop - resizeHeight - windowEl.scrollTop() - footerHeight /* <-- offset */),
-            windowHeight =  windowEl.height();
+          distance = Math.round(footerOffsetTop - resizeHeight - windowEl.scrollTop() - footerHeight /* <-- offset */),
+          windowHeight = windowEl.height();
 
         if (distance > 0) {
-          resizingEl.css({overflow: 'auto', maxHeight: (windowHeight - Math.round(1.5 * _hideMenuOffset)) + 'px'}, 'fast');
+          resizingEl.css({ overflow: 'auto', maxHeight: (windowHeight - Math.round(1.5 * _hideMenuOffset)) + 'px' }, 'fast');
         }
         else {
           resizeElHeight = windowHeight + OFFSET;
-          resizingEl.css({overflow: 'auto', maxHeight: resizeElHeight + 'px'});
+          resizingEl.css({ overflow: 'auto', maxHeight: resizeElHeight + 'px' });
         }
 
       }
 
       var _prevScrollOffset = 0,
-          _document = $(document);
+        _document = $(document);
 
 
       function _onScroll() {
         var currentScrollOffset = windowEl.scrollTop(),
-            delta = currentScrollOffset - _prevScrollOffset,
-            absDelta = Math.abs(delta),
-            scrollPosition = windowEl.height() + currentScrollOffset,
-            scrollHeight = _document.height(),
-            shouldResetNav = (scrollPosition + _hideMenuOffset) >=  scrollHeight;
+          delta = currentScrollOffset - _prevScrollOffset,
+          absDelta = Math.abs(delta),
+          scrollPosition = windowEl.height() + currentScrollOffset,
+          scrollHeight = _document.height(),
+          shouldResetNav = (scrollPosition + _hideMenuOffset) >= scrollHeight;
 
-        if (delta > 0 && absDelta >= _hideMenuOffset && ! shouldResetNav) {
-          resizingEl.css({top: 10});
+        if (delta > 0 && absDelta >= _hideMenuOffset && !shouldResetNav) {
+          resizingEl.css({ top: 10 });
           _prevScrollOffset = currentScrollOffset;
         }
         else if (delta < 0 && absDelta >= _hideMenuOffset || shouldResetNav) {
-          resizingEl.css({top: ''});
+          resizingEl.css({ top: '' });
           _prevScrollOffset = currentScrollOffset;
         }
 
@@ -594,37 +594,37 @@ $(function() {
 
     function _calcMainContentWidth() {
       if ($('.full-width-content').length || $('.toc-container').length === 0) {
-        $('.main-container').addClass('col-md-12').removeClass('col-md-9').css({borderLeft: 'none'});
+        $('.main-container').addClass('col-md-12').removeClass('col-md-9').css({ borderLeft: 'none' });
       }
     }
 
     function _initAlerts() {
-      $('.alert').each(function() {
+      $('.alert').each(function () {
         var alertContainer = $(this),
-            supportedAlertTypes = ['alert-info'];
+          supportedAlertTypes = ['alert-info'];
 
         for (var i = 0; i < supportedAlertTypes.length; i++) {
           var alertTypeClass = supportedAlertTypes[i];
 
-          if (!  alertContainer.hasClass(alertTypeClass)) {
+          if (!alertContainer.hasClass(alertTypeClass)) {
             continue;
           }
 
           var iconClass = null,
-              alertText = '';
+            alertText = '';
 
           switch (alertTypeClass) {
             case 'alert-info':
               iconClass = 'icon-pencil';
-            break;
+              break;
             case 'alert-warning':
               iconClass = 'icon-attention-1';
               break;
-           default:
-             break;
+            default:
+              break;
           }
 
-          if( ! iconClass ) {
+          if (!iconClass) {
             continue;
           }
 
@@ -632,10 +632,10 @@ $(function() {
           alertText = alertContainer.text();
           alertContainer.empty();
           alertContainer.append('<div class="alert-indicator-icon">' +
-                                '<i class="' + iconClass + '"></i>' +
-                                '</div>' +
-                                '<div class="alert-indicator-text">' +
-                                alertText + '</div>');
+            '<i class="' + iconClass + '"></i>' +
+            '</div>' +
+            '<div class="alert-indicator-text">' +
+            alertText + '</div>');
 
 
         }
