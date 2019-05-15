@@ -1,17 +1,10 @@
 <div class="hp-hero">
-    <p class="hp-hero__pretitle">NCI Genomic Data Commons (GDC)</span>
-        <h1 class="no-auto-render hp-hero__title">Documentation</h1>
-        <p class="hp-hero__subtitle">A place where researchers, data submitters and developers can find detailed
-            information on GDC processes and
-            tools.</p>
-        <div class="hp-search">
-            <!-- Search button copied from the header component -->
-            <a aria-label="Search" id="hp-search__submit" title="Click to Search the GDC Documentation"
-                href="javascript:$gdcApp.searchModal.show()">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </a>
-            <input type="text" placeholder="What are you looking for?" aria-label="Search" id="hp-search__input">
-        </div>
+    <p class="hp-hero__pretitle">NCI Genomic Data Commons (GDC)</p>
+    <h1 class="no-auto-render hp-hero__title">Documentation</h1>
+    <p class="hp-hero__subtitle">A place where researchers, data submitters and developers can find detailed
+        information on GDC processes and
+        tools.</p>
+    {% include "homepage-search.html" %}
 </div>
 <div class="hp-container">
     <div class="row">
