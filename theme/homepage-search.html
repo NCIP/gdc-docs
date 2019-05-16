@@ -1,10 +1,13 @@
 <div class="hp-search" id="search-bar">
     <!-- Search button copied from the header component -->
-    <a aria-label="Search" id="hp-search__submit" title="Click to Search the GDC Documentation"
+    <a aria-label="Search" id="hp-search__submit" class="search-bar__submit"
+        title="Click to Search the GDC Documentation"
         href="javascript:$gdcApp.searchModal.show()">
         <i class="fa fa-search" aria-hidden="true"></i>
     </a>
-    <input type="text" placeholder="What are you looking for?" aria-label="Search" id="hp-search__input">
+    <input type="text" placeholder="What are you looking for?"
+        aria-label="Search" id="hp-search__input" class="search-bar__input">
+    <div class="search-bar__results"></div>
     <!-- <div id="search-bar" class="hp-search-bar" tabindex="-1" role="dialog" aria-labelledby="search-bar-label">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
