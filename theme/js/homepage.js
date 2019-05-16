@@ -1,7 +1,9 @@
 $(function () {
+  var $searchContainer = $('.hp-search');
   var $inputBox = $('#hp-search__input');
   var searchInput = document.getElementById('hp-search__input');
   var $submit = $('#hp-search__submit');
+  var $resultsWrapper = $('.hp-search__wrapper-results');
   var $resultsContainer = $('#hp-search__results-container');
   var $results = $('#hp-search__results');
   var $searchContentBody = $('#hp-search__body');
@@ -76,8 +78,11 @@ $(function () {
       }
 
       if (resultLength !== null) {
-        $resultsContainer.show();
+        $searchContainer.addClass('search-active');
+        $resultsWrapper.show();
         $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + resultLength + '</strong> results found for <strong>' + query + '</strong>');
+      } else {
+        $searchContainer.removeClass('search-active');
       }
 
       console.log("end of search function")
