@@ -1,13 +1,18 @@
 <div class="hp-search" id="search-bar">
     <!-- Search button copied from the header component -->
-    <a aria-label="Search" id="hp-search__submit"
-        title="Click to Search the GDC Documentation" href="">
-        <i class="fa fa-search" aria-hidden="true"></i>
-    </a>
-    <input type="text" placeholder="What are you looking for?"
-        aria-label="Search" id="hp-search__input">
-    <div id="hp-search__results-container">
-        <div id="hp-search__results"></div>
+    <div class="hp-search__wrapper-input">
+        <a aria-label="Search" id="hp-search__submit"
+            title="Click to Search the GDC Documentation" href="">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </a>
+        <input type="text" placeholder="What are you looking for?"
+            aria-label="Search" id="hp-search__input">
+    </div>
+    <div class="hp-search__wrapper-results">
+        <div id="hp-search__body"></div>
+        <div id="hp-search__results-container">
+            <div id="hp-search__results"></div>
+        </div>
     </div>
     <!-- <div id="search-bar" class="hp-search-bar" tabindex="-1" role="dialog" aria-labelledby="search-bar-label">
     <div class="modal-dialog modal-lg">

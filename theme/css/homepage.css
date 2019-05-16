@@ -46,8 +46,16 @@
     max-width: 600px;
     border: 1px solid #ccc;
     margin: 0 auto;
-    display: flex;
     border-radius: 5px;
+    position: relative;
+}
+
+.hp-search__wrapper-input {
+    display: flex;
+}
+
+.hp-search__wrapper-results {
+    position: absolute;
 }
 
 #hp-search__submit {
