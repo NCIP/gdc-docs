@@ -282,6 +282,13 @@
     line-height: 1.5;
 }
 
+.hp-search__item .search-body .highlight {
+    background: yellow;
+    color: #000;
+    margin: 0;
+    padding: 2px;
+}
+
 .hp-search__item:hover * {
     color: #fff;
 }
