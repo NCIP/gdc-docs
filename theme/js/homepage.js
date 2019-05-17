@@ -5,6 +5,7 @@ $(function () {
   var $inputBox = $('.hp-search__input');
   var $results = $('.hp-search__results');
   var $resultsWrapper = $('.hp-search__wrapper-results');
+  var $resultsContainer = $('.hp-search__results-container');
   var $searchContainer = $('.hp-search');
   var $searchContentBody = $('.hp-search__body');
 
@@ -63,17 +64,18 @@ $(function () {
         return;
       }
 
+      $resultsWrapper.show();
+      $searchContainer.addClass('search-active');
+
       var results = index.search(query);
       var resultsHTML = '';
 
       $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + results.length + '</strong> ' + (results.length === 1 ? 'result' : 'results') + ' found for <strong>' + query + '</strong>');
 
       if (results.length === 0) {
-        $searchContainer.removeClass('search-active');
-        $resultsWrapper.hide();
+        $resultsContainer.hide();
       } else {
-        $searchContainer.addClass('search-active');
-        $resultsWrapper.show();
+        $resultsContainer.show();
         for (var i = 0; i < results.length; i++) {
           var result = results[i];
           var resultDoc = documents[result.ref];
