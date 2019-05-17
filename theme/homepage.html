@@ -2,6 +2,8 @@
 {% set page_title = "Documentation" %}
 {% set page_subtitle = "A place where researchers, data submitters and developers can find detailed information on GDC processes and tools." %}
 
+{% set search_placeholder = "What are you looking for?" %}
+
 {% set cards = [
     ('For Researchers', '#1db888', '/img/hp-icons-researcher.png', [
         ('Understand the Data in the GDC', '/Data/Introduction/'),
@@ -27,10 +29,24 @@
 {% set footer_text = 'To learn more about the GDC, please visit the <a href="https://gdc.cancer.gov/">GDC Website</a> or <a href="https://gdc.cancer.gov/contact-us">Contact Us</a>.' %}
 
 <div class="hp-hero">
-    <p class="hp-hero__pretitle">{{ site_title }}</p>
-    <h1 class="no-auto-render hp-hero__title">{{ page_title }}</h1>
+    <p class="hp-hero__site-title">{{ site_title }}</p>
+    <h1 class="hp-hero__page-title">{{ page_title }}</h1>
     <p class="hp-hero__subtitle">{{ page_subtitle }}</p>
-    {% include "homepage-search.html" %}
+    <div class="hp-search" id="search-bar">
+        <div class="hp-search__wrapper-input">
+            <button type="button" aria-label="Search" class="hp-search__submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+            <input type="text" placeholder="{{ search_placeholder }}" aria-label="Search" class="hp-search__input"
+                id="hp-search__input">
+        </div>
+        <div class="hp-search__wrapper-results">
+            <div class="hp-search__body"></div>
+            <div class="hp-search__results-container">
+                <div class="hp-search__results"></div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="hp-container">
     <div class="row">

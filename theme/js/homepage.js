@@ -1,12 +1,11 @@
 $(function () {
   var $searchContainer = $('.hp-search');
-  var $inputBox = $('#hp-search__input');
+  var $inputBox = $('.hp-search__input');
   var searchInput = document.getElementById('hp-search__input');
-  var $submit = $('#hp-search__submit');
   var $resultsWrapper = $('.hp-search__wrapper-results');
-  var $resultsContainer = $('#hp-search__results-container');
-  var $results = $('#hp-search__results');
-  var $searchContentBody = $('#hp-search__body');
+  var $resultsContainer = $('.hp-search__results-container');
+  var $results = $('.hp-search__results');
+  var $searchContentBody = $('.hp-search__body');
   var _VALID_QUERY_LENGTH = 3;
   var _isSearchActive = false;
   var _searchItemClass = 'hp-search__item';
@@ -41,18 +40,14 @@ $(function () {
   }
 
   $resultsContainer.on('click keyup', '.' + _searchItemClass, function (e) {
-    if (e.type !== 'click' && e.which !== 13 && e.which !== 32) {
-      return;
-    }
+    if (e.type !== 'click' && e.which !== 13 && e.which !== 32) return;
 
     e.stopPropagation();
     e.preventDefault();
 
     var href = $(this).data('link') || null;
 
-    if (href) {
-      window.location.href = href;
-    }
+    if (href) window.location.href = href;
 
     _resetSearch();
   });
@@ -102,7 +97,6 @@ $(function () {
       }
 
       if (results.length > 0) {
-
         var baseHostURL = location.protocol + '//' + location.hostname + (location.port &&
           (location.port != 80 && location.port != 443) ? (':' + location.port) : '') +
           '/';
@@ -112,15 +106,12 @@ $(function () {
           doc = documents[result.ref];
           doc.base_url = base_url;
           doc.summary = doc.text.substring(0, 200);
-          var hostURL = baseHostURL + doc.location.replace(/[\.]+\//g, '');
-
 
           resultsHTML += '<div class="' + _searchItemClass + ' animated fadeInTop" tabindex="0" role="button" data-link="' + doc.location + '">' +
             '<div class="search-body">' +
             '<h3>' + doc.title + '</h3>' +
             '<p>' + doc.summary + '</p>' +
-            '</div>' +
-            '</div>';
+            '</div></div>';
         }
 
         $results.append(resultsHTML);
@@ -129,11 +120,11 @@ $(function () {
         setTimeout(function () { $('.' + _searchItemClass).removeClass('animated fadeInTop'); }, 500);
       }
       else {
-        if (!_isSearchActive) {
-          $body.show();
+        if (_isSearchActive) {
+          $searchContentBody.html('<strong>' + results.length + '</strong> results found for <strong>' + query + '</strong>');
         }
         else {
-          $searchContentBody.html('<strong>' + results.length + '</strong> results found for <strong>' + query + '</strong>');
+          $body.show();
         }
       }
     }
