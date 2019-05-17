@@ -17,13 +17,13 @@ Please direct technical questions to [GDC Support](https://gdc.cancer.gov/suppor
 
 # GDC Documentation Site
 
-## Technology
+### Technology
 
 - Python 2.6, 2.7, 3.3, 3.4 and 3.5.
 - [mkdocs](http://www.mkdocs.org/)
 - [BSCodeTabs for mkdocs](https://github.com/mikecules/MarkdownBSCodeTabs#for-use-in-mkdocs)
 
-## Install & Run
+### Install & Run
 
 (Optional) Set up virtualenv:
 
@@ -38,17 +38,17 @@ Install GDC-docs:
 - `pip install -r requirements.txt`
 - `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
 
-## Build
+### Build
 
 - `mkdocs build --clean`
 
-## Repository Conventions
+### Repository Conventions
 
 - All Shared content in the "Commons" directory
 - One Directory per GDC product (API, Data_Portal, Data_Submission_Portal, Data_Transfer_Tool)
 - Each GDC product have a Users_Guide and Release_Notes directory
 
-## Linking
+### Linking
 
 To another documentation page
 ```
@@ -61,18 +61,18 @@ Inside another documentation page
 [Authentication and Authorization](../../Commons/Authentication.md#internal-section)
 ```
 
-## Adding icons and PDFs
+### Adding icons and PDFs
 The convention for this, when updating mkdocs.yml is the following:
 - <font-awesome-icon> <content> <url ending in .pdf>: 'index.md'
 example:
 - fa-file-pdf-o Download PDF /API/PDF/API_UG.pdf: 'index.md'
 
-## Documentation Conventions
+### Documentation Conventions
 
 A detailed list of all conventions is available on [GDC Website](https://gdc.cancer.gov/conventions-page)
 
 
-## Build PDF
+### Build PDF
 
 Install mkdocs2pandoc, following instructions available here:
 ```
