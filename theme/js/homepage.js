@@ -10,11 +10,17 @@ $(function () {
   var _isSearchActive = false;
   var _searchItemClass = 'hp-search__item';
 
+  $inputBox.on('blur', function () {
+    var $this = $(this);
+    if ($this.val() === '') {
+      $this.closest('.hp-search').removeClass('search-active');
+    }
+  });
+
   function _debounce(func, wait, immediate) {
     var _timeout;
 
     return function () {
-
       var context = this,
         args = arguments,
         later = function () {
@@ -37,6 +43,7 @@ $(function () {
   function _resetSearch() {
     $inputBox.val('');
     $resultsWrapper.hide();
+
   }
 
   $resultsContainer.on('click keyup', '.' + _searchItemClass, function (e) {
@@ -77,6 +84,8 @@ $(function () {
 
       if (query.length < _VALID_QUERY_LENGTH || query === '') {
         $resultsWrapper.hide();
+        $searchContainer.removeClass('search-active');
+        _isSearchActive = false;
         return;
       }
 
@@ -89,18 +98,23 @@ $(function () {
       }
 
       if (resultLength !== null) {
+        _isSearchActive = true;
         $searchContainer.addClass('search-active');
         $resultsWrapper.show();
         $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + resultLength + '</strong> results found for <strong>' + query + '</strong>');
       } else {
         $searchContainer.removeClass('search-active');
+        _isSearchActive = false;
       }
 
-      if (results.length > 0) {
-        var baseHostURL = location.protocol + '//' + location.hostname + (location.port &&
-          (location.port != 80 && location.port != 443) ? (':' + location.port) : '') +
-          '/';
-
+      if (results.length === 0) {
+        if (_isSearchActive) {
+          $searchContentBody.html('<strong>' + results.length + '</strong> results found for <strong>' + query + '</strong>');
+        }
+        else {
+          $searchContainer.removeClass('search-active');
+        }
+      } else {
         for (var i = 0; i < results.length; i++) {
           var result = results[i];
           doc = documents[result.ref];
@@ -118,14 +132,6 @@ $(function () {
         $results.highlight(query);
 
         setTimeout(function () { $('.' + _searchItemClass).removeClass('animated fadeInTop'); }, 500);
-      }
-      else {
-        if (_isSearchActive) {
-          $searchContentBody.html('<strong>' + results.length + '</strong> results found for <strong>' + query + '</strong>');
-        }
-        else {
-          $body.show();
-        }
       }
     }
 

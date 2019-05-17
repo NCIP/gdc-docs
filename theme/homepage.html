@@ -34,12 +34,15 @@
     <p class="hp-hero__subtitle">{{ page_subtitle }}</p>
     <div class="hp-search" id="search-bar">
         <div class="hp-search__wrapper-input">
-            <button type="button" aria-label="Search" class="hp-search__submit">
+            <label for="hp-search__input" class="hp-search__label">
                 <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
+            </label>
             <input type="text" placeholder="{{ search_placeholder }}" aria-label="Search" class="hp-search__input"
                 id="hp-search__input">
         </div>
+        <button type="button" class="hp-search__cancel" aria-label="Cancel search">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
         <div class="hp-search__wrapper-results">
             <div class="hp-search__body"></div>
             <div class="hp-search__results-container">
