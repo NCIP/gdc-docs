@@ -6,9 +6,12 @@ $(function () {
   var $resultsContainer = $('.hp-search__results-container');
   var $results = $('.hp-search__results');
   var $searchContentBody = $('.hp-search__body');
+  var $cancelButton = $('.hp-search__cancel');
   var _VALID_QUERY_LENGTH = 3;
   var _isSearchActive = false;
   var _searchItemClass = 'hp-search__item';
+
+  $inputBox.focus();
 
   $inputBox.on('blur', function () {
     var $this = $(this);
@@ -82,6 +85,12 @@ $(function () {
       var query = $.trim($inputBox.val());
       $results.empty();
 
+      if (query.length > 0) {
+        $cancelButton.show();
+      } else {
+        $cancelButton.hide();
+      }
+
       if (query.length < _VALID_QUERY_LENGTH || query === '') {
         $resultsWrapper.hide();
         $searchContainer.removeClass('search-active');
@@ -136,6 +145,12 @@ $(function () {
     }
 
     searchInput.addEventListener('keyup', _debounce(_search, 300));
+
+    $cancelButton.on('click', function () {
+      $inputBox.val('');
+      _search();
+      $cancelButton.hide();
+    })
   });
 
 });
