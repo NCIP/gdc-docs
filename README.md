@@ -19,9 +19,9 @@ Please direct technical questions to [GDC Support](https://gdc.cancer.gov/suppor
 
 ### Technology
 
-- Python 2.6, 2.7, 3.3, 3.4 and 3.5.
-- [mkdocs](http://www.mkdocs.org/)
-- [BSCodeTabs for mkdocs](https://github.com/mikecules/MarkdownBSCodeTabs#for-use-in-mkdocs)
+ - Python 2.6, 2.7, 3.3, 3.4 and 3.5.
+ - [mkdocs](http://www.mkdocs.org/)
+ - [BSCodeTabs for mkdocs](https://github.com/mikecules/MarkdownBSCodeTabs#for-use-in-mkdocs)
 
 ### Install & Run
 
@@ -35,12 +35,12 @@ Please direct technical questions to [GDC Support](https://gdc.cancer.gov/suppor
 
 Install GDC-docs:
 
-- `pip install -r requirements.txt`
-- `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
+ - `pip install -r requirements.txt`
+ - `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
 
 ### Build
 
-- `mkdocs build --clean`
+ - `mkdocs build --clean`
 
 ### Repository Conventions
 
