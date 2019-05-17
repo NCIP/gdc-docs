@@ -1,57 +1,57 @@
+{% set site_title = "NCI Genomic Data Commons (GDC)" %}
+{% set page_title = "Documentation" %}
+{% set page_subtitle = "A place where researchers, data submitters and developers can find detailed information on GDC processes and tools." %}
+
+{% set cards = [
+    ('For Researchers', '#1db888', '/img/hp-icons-researcher.png', [
+        ('Understand the Data in the GDC', '/Data/Introduction/'),
+        ('Access Controlled Data in the GDC', '/Data/Data_Security/Data_Security/'),
+        ('Explore Data in the GDC', '/Data_Portal/Users_Guide/Exploration/'),
+        ('Download Files in the GDC', '/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/'),
+        ('Analyze Data in the GDC', '/Data_Portal/Users_Guide/Custom_Set_Analysis/')
+    ]),
+    ('For Data Submitters', '#676bc0', '/img/hp-icons-submitter.png', [
+        ('View the GDC Data Dictionary', '/Data_Dictionary/viewer/'),
+        ('Search the GDC Data Dictionary', '/Data_Dictionary/gdcmvs/'),
+        ('Understand GDC Harmonized Data', 'https://gdc.cancer.gov/about-data/data-harmonization-and-generation/genomic-data-harmonization-0'),
+        ('Submit Data', '/Data_Submission_Portal/Users_Guide/Data_Submission_Walkthrough/'),
+        ('Review Submitted Data', '/Data_Submission_Portal/Users_Guide/Data_Submission_Process/')
+    ]),
+    ('For Developers', '#743983', '/img/hp-icons-developer.png', [
+        ('Understand the GDC Data Model', '/Data/Data_Model/GDC_Data_Model/'),
+        ('Use the GDC API', '/API/Users_Guide/Getting_Started/'),
+        ('Access the GDC Codebase', 'https://github.com/NCI-GDC'),
+    ]),
+] %}
+
+{% set footer_text = 'To learn more about the GDC, please visit the <a href="https://gdc.cancer.gov/">GDC Website</a> or <a href="https://gdc.cancer.gov/contact-us">Contact Us</a>.' %}
+
 <div class="hp-hero">
-    <p class="hp-hero__pretitle">NCI Genomic Data Commons (GDC)</p>
-    <h1 class="no-auto-render hp-hero__title">Documentation</h1>
-    <p class="hp-hero__subtitle">A place where researchers, data submitters and developers can find detailed
-        information on GDC processes and
-        tools.</p>
+    <p class="hp-hero__pretitle">{{ site_title }}</p>
+    <h1 class="no-auto-render hp-hero__title">{{ page_title }}</h1>
+    <p class="hp-hero__subtitle">{{ page_subtitle }}</p>
     {% include "homepage-search.html" %}
 </div>
 <div class="hp-container">
     <div class="row">
+        {% for card_title, border_color, card_image, links in cards %}
         <div class="col-md-4">
             <div class="hp-card">
-                <h2 class="hp-card__title" style="border-top-color: #1db888">For Researchers</h2>
-                <img class="hp-card__image" src="/img/hp-icons-researcher.png" alt="">
+                <h2 class="hp-card__title" style="border-top-color: {{border_color}}">{{card_title}}</h2>
+                <img class="hp-card__image" src="{{card_image}}" alt="">
                 <ul class="hp-card__links">
-                    <li class="hp-card__links-item"><a href="">Understand the Data in the GDC</a></li>
-                    <li class="hp-card__links-item"><a
-                            href="https://gdc.cancer.gov/access-data/obtaining-access-controlled-data">Access Controlled
-                            Data in the GDC</a></li>
-                    <li class="hp-card__links-item"><a href="">Explore Data in the GDC</a></li>
-                    <li class="hp-card__links-item"><a href="">Download Files in the GDC</a></li>
-                    <li class="hp-card__links-item"><a href="">Analyze Data in the GDC</a></li>
+                    {% for text, link in links %}
+                    <li class="hp-card__links-item"><a href="{{link}}">{{text}}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="hp-card">
-                <h2 class="hp-card__title" style="border-top-color: #676bc0">For Data Submitters</h2>
-                <img class="hp-card__image" src="/img/hp-icons-submitter.png" alt="">
-                <ul class="hp-card__links">
-                    <li class="hp-card__links-item"><a href="">View the GDC Data Dictionary</a></li>
-                    <li class="hp-card__links-item"><a href="">Search the GDC Data Dictionary</a></li>
-                    <li class="hp-card__links-item"><a href="">Understand GDC Harmonized Data</a></li>
-                    <li class="hp-card__links-item"><a href="">Submit Data</a></li>
-                    <li class="hp-card__links-item"><a href="">Review Submitted Data</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="hp-card">
-                <h2 class="hp-card__title" style="border-top-color: #743983">For Developers</h2>
-                <img class="hp-card__image" src="/img/hp-icons-developer.png" alt="">
-                <ul class="hp-card__links">
-                    <li class="hp-card__links-item"><a href="">Understand the GDC Data Model</a></li>
-                    <li class="hp-card__links-item"><a href="">Use the GDC API</a></li>
-                    <li class="hp-card__links-item"><a href="">Access the GDC Codebase</a></li>
-                </ul>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 <div class="hp-container">
     <p class="hp-footer text-center" alt="">
         <img src="/img/hp-icons-computer.png">
-        &nbsp; To learn more about the GDC, please visit the <a href="">GDC Website</a> or <a href="">Contact Us</a>.
+        &nbsp; {{ footer_text }}
     </p>
 </div>
