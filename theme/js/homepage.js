@@ -1,5 +1,4 @@
 $(function () {
-  var _isSearchActive = false;
   var _searchItemClass = 'hp-search__item';
   var _VALID_QUERY_LENGTH = 3;
   var $cancelButton = $('.hp-search__cancel');
@@ -61,46 +60,30 @@ $(function () {
       if (query.length < _VALID_QUERY_LENGTH || query === '') {
         $resultsWrapper.hide();
         $searchContainer.removeClass('search-active');
-        _isSearchActive = false;
         return;
       }
 
       var results = index.search(query);
       var resultsHTML = '';
-      var resultLength = results.length || null;
 
-      if (query.length >= _VALID_QUERY_LENGTH && results.length === 0) {
-        resultLength = 0;
-      }
-
-      if (resultLength !== null) {
-        _isSearchActive = true;
-        $searchContainer.addClass('search-active');
-        $resultsWrapper.show();
-        $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + resultLength + '</strong> results found for <strong>' + query + '</strong>');
-      } else {
-        $searchContainer.removeClass('search-active');
-        _isSearchActive = false;
-      }
+      $searchContentBody.html('<strong><i class="fa fa-file-o"></i> ' + results.length + '</strong> ' + (results.length === 1 ? 'result' : 'results') + ' found for <strong>' + query + '</strong>');
 
       if (results.length === 0) {
-        if (_isSearchActive) {
-          $searchContentBody.html('<strong>' + results.length + '</strong> results found for <strong>' + query + '</strong>');
-        }
-        else {
-          $searchContainer.removeClass('search-active');
-        }
+        $searchContainer.removeClass('search-active');
+        $resultsWrapper.hide();
       } else {
+        $searchContainer.addClass('search-active');
+        $resultsWrapper.show();
         for (var i = 0; i < results.length; i++) {
           var result = results[i];
-          doc = documents[result.ref];
-          doc.base_url = base_url;
-          doc.summary = doc.text.substring(0, 200);
+          var resultDoc = documents[result.ref];
+          resultDoc.base_url = base_url;
+          resultDoc.summary = resultDoc.text.substring(0, 200);
 
-          resultsHTML += '<a class="' + _searchItemClass + ' animated fadeInTop" href="' + doc.location + '">' +
+          resultsHTML += '<a class="' + _searchItemClass + ' animated fadeInTop" href="' + resultDoc.location + '">' +
             '<div class="search-body">' +
-            '<h3>' + doc.title + '</h3>' +
-            '<p>' + doc.summary + '</p>' +
+            '<h3>' + resultDoc.title + '</h3>' +
+            '<p>' + resultDoc.summary + '</p>' +
             '</div></a>';
         }
 
@@ -116,7 +99,6 @@ $(function () {
     $cancelButton.on('click', function () {
       $inputBox.val('');
       _search();
-      $cancelButton.hide();
     })
   });
 

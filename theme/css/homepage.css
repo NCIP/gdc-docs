@@ -21,14 +21,6 @@
     margin-bottom: 4px;
 }
 
-.hp-hero__subtitle {
-    font-size: 16px;
-    line-height: 26px;
-    font-style: italic;
-    max-width: 28em;
-    margin-bottom: 20px;
-}
-
 .hp-hero__page-title {
     font-size: 44px;
     line-height: 38px;
@@ -42,6 +34,15 @@
 
 .hp-hero__page-title:after {
     display: none;
+}
+
+
+.hp-hero__subtitle {
+    font-size: 16px;
+    line-height: 26px;
+    font-style: italic;
+    max-width: 28em;
+    margin-bottom: 20px;
 }
 
 .hp-search {
@@ -62,7 +63,6 @@
     border: 1px solid #dedede;
     border-radius: 0 0 5px 5px;
     border-top-width: 0;
-    /* box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2); */
 }
 
 .hp-search__label {
@@ -75,6 +75,10 @@
     text-align: center;
     border-radius: 5px 0 0 5px;
     margin-bottom: 0;
+}
+
+.hp-search.search-active .hp-search__label {
+    border-radius: 5px 0 0 0;
 }
 
 .hp-search .fa {
@@ -95,16 +99,12 @@
     text-align: center;
 }
 
-.hp-search.search-active .hp-search__label {
-    border-radius: 5px 0 0 0;
-}
-
 .hp-search__input {
     display: inline-block;
     border: none;
     flex: 1;
     font-size: 18px;
-    padding: 0 10px;
+    padding: 0 50px 0 10px;
     border-radius: 0 5px 5px 0;
     border: 1px solid #dedede;
     border-left-width: 0;
@@ -117,6 +117,8 @@
 .hp-search__body {
     padding: 5px 10px;
 }
+
+/* rewriting bootstrap rules in order to make the cards all the same height */
 
 .hp-container {
     margin-right: auto;
@@ -142,8 +144,6 @@
         width: 1170px;
     }
 }
-
-/* rewriting bootstrap rules in order to make the cards all the same height */
 
 .hp-container .row {
     display: flex;
