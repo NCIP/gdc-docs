@@ -2,7 +2,16 @@
 
 ## Introduction
 
-Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mutation information from [VCF Files](VCF_Format.md) and are generated on a project or aliquot level.  The GDC produces MAF files at two permission levels: controlled and open access. Annotated VCF files, Annotated somatic mutations, often have variants reported on multiple transcripts whereas the MAF files generated from the VCFs, Aggregated somatic mutations, only report the most critically affected one. [Masked Somatic Mutation](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) files are further processed to remove lower quality and potential germline variants. Masked Somatic MAFs are publicly available and can be freely distributed within the boundaries of the [GDC Data Access Policies](https://gdc.cancer.gov/access-data/data-access-policies).
+Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mutation information from [VCF Files](VCF_Format.md) and are generated on a project or aliquot level.  The GDC produces MAF files at two permission levels: controlled and open access. Annotated VCF files, annotated somatic mutations, often have variants reported on multiple transcripts whereas the MAF files generated from the VCFs, aggregated somatic mutations, only report the most critically affected variants. [Masked Somatic Mutation](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) files are further processed to remove lower quality and potential germline variants. Masked Somatic MAFs are publicly available and can be freely distributed within the boundaries of the [GDC Data Access Policies](https://gdc.cancer.gov/access-data/data-access-policies).
+
+### MAF File Types
+
+|MAF File Type|Access|Project-level Description|Aliquot-level Description|
+|---|---|---|---|
+|Annotated_somatic_mutation|Controlled |Annotated VCF|MAF produced from one caller at the aliquot level.|
+|Aggregated_somatic_mutation|Controlled |Aggregation of VCFs into one MAF file (*.protected.maf.gz)|Aggregation of aliquot-level MAFs|
+|Masked_somatic_mutation|Open |Filtered version of aggregated_somatic_mutation MAF (*.somatic.maf.gz)|Filtered aggregation of aliquot-level MAFs|
+
 
 ### Project-Level MAF Files v.1.0.0
 
@@ -47,13 +56,13 @@ The process for modifying a protected MAF into a somatic MAF is as follows:
 
 ### Aliquot-Level MAF Files
 
-Aliquot-level MAF files, annotated somatic mutations, are produced for each aliquot per pipeline. These files are then run through the Aliquot Ensemble Somatic Variant Merging and Masking workflow. This will aggregate the files into an aggregated somatic mutation MAF as well as filter the variants creating the masked somatic mutation MAF.
+Aliquot-level MAF files, annotated somatic mutations, are produced for each aliquot per variant caller. These files are then run through the Aliquot Ensemble Somatic Variant Merging and Masking workflow. From this workflow two files are produced, aggregated somatic mutation and masked somatic mutation. The aggregated somatic mutation file is the aggregation of all variants from the multiple variant callers for each aliquot. The masked somatic mutation file is the aggregation of all variants from the multiple variant callers for each aliquot, which are then passed through a filtering process.
 
-#### Aliquot-Level File Generation
+#### Aliquot-Level Masked Somatic Mutation File Generation
 
-The process for modifying the Aliquot-level MAF files into a masked somatic mutation Aliquot-level MAF is as follows:
+The process for modifying the aliquot-level MAF files into a masked somatic mutation aliquot-level MAF is as follows:
 
-*  The annotated somatic mutations Aliquot-level MAF files, produced from the different callers, are merged into one raw merged Aliquot-level MAF file and selection for the variants are made based on the following filters.
+*  The annotated somatic mutations aliquot-level MAF files, produced from the different callers, are merged into one raw merged aliquot-level MAF file and selection for the variants are made based on the following filters.
 *  Low quality variant filtering and germline masking:
     1. The variant must occur within at least two of the callers.
     2. Remaining variants with __FILTER != panel_of_normals__ are __removed__. Note that the `FILTER != panel_of_normals` value is only relevant for the variants generated from the MuTect2 pipeline.
@@ -63,11 +72,11 @@ The process for modifying the Aliquot-level MAF files into a masked somatic muta
     6. Variants that __do not overlap with a gencode exon__ will be __removed__ (GDC_FILTER = 'NonExonic').
     7. Variants that are __multiallelic__ will be __removed__ (GDC_FILTER ='multiallelic').
     8. Variants that are __"off target"__ will be __removed__.
-    9. Of the remaining variants, these are then combined into the Masked Merged Aliquot-level MAF.
+    9. Of the remaining variants, these are then combined into the masked somatic mutation aliquot-level MAF.
 
 ---
 
-![Aliquot-Level MAF](images/MAF_diagram_14May2019.png)
+![Aliquot-Level MAF](images/MAF_diagram_17May2019.png)
 
 ---
 
