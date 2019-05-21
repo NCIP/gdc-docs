@@ -11,6 +11,7 @@ Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mu
 |Annotated_somatic_mutation|Controlled |Annotated VCF|MAF produced from one caller at the aliquot level.|
 |Aggregated_somatic_mutation|Controlled |Aggregation of VCFs into one MAF file (*.protected.maf.gz)|Aggregation of aliquot-level MAFs|
 |Masked_somatic_mutation|Open\* |Filtered version of aggregated_somatic_mutation MAF (*.somatic.maf.gz)|Filtered aggregation of aliquot-level MAFs|
+
 \* Users can request that their masked_somatic_mutation MAF files be `Controlled` access as well.
 
 ### Project-Level MAF Files v.1.0.0 (Data Release ≤17.0)
