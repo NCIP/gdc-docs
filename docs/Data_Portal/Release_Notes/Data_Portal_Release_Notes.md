@@ -32,11 +32,15 @@
 
 ### New Features and Changes <!--REQ-383-->
 
-* 
+* Changed all Survival Plots to display the Duration (x-axis) in years instead of days. <!--PRTL-2404-->
+* Updated data references to clinical properties throughout the Portal to match the underlying changes in the GDC data dicationary. <!--PRTL-2459-->
 
 ### Bugs Fixed Since Last Release
 
-* None
+* Renamed the 'Experimental Strategies' facet on the Projects page to singular form. <!--PRTL-2262-->
+* Fixed bug where columns with a % value of infinity (due to division by zero) show as 'NaN%'.  Replaced instead with a label of '--'. <!--PRTL-2384-->
+* Fixed bug where if a new user logs into the Portal and views their profile, the app crashes if the user has no projects assigned yet. <!--PRTL-2529-->
+* Fixed bug where Survival Rate numbers in the Survival Plot plot y-axis did not scale properly and overlapped into the axis lines. <!--PRTL-2530-->
 
 ### Known Issues and Workarounds
 
