@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.3.0](Data_Submission_Portal_Release_Notes.md#release-220) | May X, 2019 |
 | [v2.2.0](Data_Submission_Portal_Release_Notes.md#release-220) | February 20, 2019 |
 | [v2.1.0](Data_Submission_Portal_Release_Notes.md#release-210) | November 7, 2018 |
 | [v2.0.0](Data_Submission_Portal_Release_Notes.md#release-200) | August 23, 2018 |
@@ -16,6 +17,24 @@
 | [v0.3.24.1](Data_Submission_Portal_Release_Notes.md#release-03241) | February 26, 2016 |
 | [v0.3.21](Data_Submission_Portal_Release_Notes.md#release-0321) | January 27, 2016 |
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
+
+## Release 2.3.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: May X, 2019
+
+### New Features and Changes
+
+*  Added Aligned Reads, Gene Expressions, miRNA Expression to the Harmonized Data Files list in the Browse tab. <!--SUBP-505-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed logic on the Submittable Data Files donut to display more accurately the number of submittable files that have been validated. <!--SUBP-510-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
 
 ## Release 2.2.0
 
