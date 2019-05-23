@@ -48,6 +48,10 @@
         <link rel="stylesheet" type="text/css" href="{{ config.extra.gdcmvs_app_root }}/dist/styles.css" />
         {% endif %}
 
+        {% if current_page.title == "Home" %}
+        <link href="/css/homepage.css" rel="stylesheet">
+        {% endif %}
+
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -91,6 +95,10 @@
 
             <div id="docs-container" class="container">
                 <div data-current-page="{{current_page.title}}" id="body">
+
+                {% if current_page.title == "Home" %}
+                    {% include "homepage.html" %}
+                {% else %}
                 <!-- {% if toc and ((toc | first) is defined) and current_page.title != config.extra.dictionary_viewer_page_id %}
                 <div class="col-md-3 toc-container" role="navigation" aria-label="In-Page Navigation">{% include "toc.html" %}</div>
                 {% endif %} -->
@@ -130,6 +138,7 @@
                     </div>
                     {% endif %}
                </div>
+               {% endif %}
             </div>
 
             <footer id="docs-footer">
@@ -189,6 +198,9 @@
             <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/lib/js/pagination.min.js"></script>
             <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/lib/js/jsrender.min.js"></script>
             <script type="text/javascript" src="{{ config.extra.gdcmvs_app_root }}/dist/bundle.js"></script>
+            {% endif %}
+            {% if current_page.title == "Home" %}
+            <script src="/js/homepage.js"></script>
             {% endif %}
         </div>
     </body>
