@@ -33,7 +33,7 @@
 ### New Features and Changes <!--REQ-383-->
 
 * Changed all Survival Plots to display the Duration (x-axis) in years instead of days. <!--PRTL-2404-->
-* Updated data references to clinical properties throughout the Portal to match the underlying changes in the GDC data dicationary. <!--PRTL-2459-->
+* Updated data references to clinical properties throughout the Portal to match the underlying changes in the GDC data dictionary. <!--PRTL-2459-->
 
 ### Bugs Fixed Since Last Release
 
