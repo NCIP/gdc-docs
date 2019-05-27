@@ -29,7 +29,7 @@
 
 ### Bugs Fixed Since Last Release
 
-*  Fixed logic on the Submittable Data Files donut to display more accurately the number of submittable files that have been validated. Also updated corresponding tooltip text.<!--SUBP-510-->
+*  Fixed logic on the Submittable Data Files donut to more accurately display number of submittable files that have been validated.  Specifically, both the file state and corresponding note state must be validated.  Also updated the corresponding tooltip text.<!--SUBP-510-->
 
 ### Known Issues and Workarounds
 
