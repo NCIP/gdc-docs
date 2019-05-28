@@ -40,7 +40,7 @@
 * Fixed bug where X-axis labels in histograms were cut off when displayed. <!--PRTL-1896-->
 * Renamed the 'Experimental Strategies' facet on the Projects page to singular form. <!--PRTL-2262-->
 * Fixed bug where columns with a % value of infinity (due to division by zero) show as 'NaN%'.  Replaced instead with a label of '--'. <!--PRTL-2384-->
-* Fixed bug where the download button in the cart access banner was still disabled after a user logged in from the banner.  Instead, the experience is now improved so that after login, the banner is closed and the user must explicitly click 'Download' again. <!--PRTL--2393-->
+* Fixed bug where the download button in the cart access banner was still disabled after a user logged in from the banner.  Instead, the experience is now improved so that after login, the banner is closed and the user must explicitly click 'Download' again. <!--PRTL-2393-->
 * Fixed bug where if a new user logs into the Portal and views their profile, the app crashes if the user has no projects assigned yet. <!--PRTL-2529-->
 * Fixed bug where Survival Rate numbers in the Survival Plot plot y-axis did not scale properly and overlapped into the axis lines. <!--PRTL-2530-->
 
