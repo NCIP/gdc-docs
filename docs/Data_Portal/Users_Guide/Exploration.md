@@ -140,7 +140,7 @@ For more information, please go to the [Most Frequent Somatic Mutation](#most-fr
 
 The `Genes` tab will give an overview of all the genes that match the criteria of the filters (Cohort).
 
-[![Exploration Gene Example](images/Exploration-Gene-Example2.png)](images/Exploration-Gene-Example2.png "Click to see the full image.")
+[![Exploration Gene Example](images/Exploration-Gene-Example_v3.png)](images/Exploration-Gene-Example_v3.png "Click to see the full image.")
 
 The top of this tab contains a bar graph of the most frequently mutated genes. Hovering over each bar in the plot will display information about the percentage of cases affected. In addition, this section contains a survival curve. The survival curve is calculated using the Kaplan-Meier estimator based on all cases with survival data within the specified Exploration Page search. For more information on how these values are determined, please go to the [Survival Analysis](#survival-analysis) section. Users may choose to download the underlying data in JSON or TSV format or an image of the graph in SVG or PNG format by clicking the `download` icon at the top of each graph.
 
@@ -228,7 +228,7 @@ The `Mutations` tab will give an overview of all the mutations that match the cr
 
 Open-access mutation data is displayed by defualt.  To access controlled access mutations, users must apply to the correct data access authority, be granted access, and login to the portal.  If a user is logged in and has been granted access to controlled-access mutations, they will be integrated with open-access mutations throughout the portal visualizations and counts. 
 
-[![Exploration Mutation Example](images/Exploration-Mutation-Example.png)](images/Exploration-Mutation-Example.png "Click to see the full image.")
+[![Exploration Mutation Example](images/Exploration-Mutation-Example_v2.png)](images/Exploration-Mutation-Example_v2.png "Click to see the full image.")
 
 At the top of this tab contains a survival curve. The survival curve is calculated using the Kaplan-Meier estimator based on all cases with survival data within the specified Exploration Page search. For more information on how these values are determined, please go to the [Survival Analysis](#survival-analysis) section. Users may choose to download the underlying data in JSON or TSV format or an image of the graph in SVG or PNG format by clicking the `download` icon at the top of the graph.
 
