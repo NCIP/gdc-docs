@@ -54,7 +54,7 @@ This is a list of the most common error codes the Data Transfer Tool generates a
 <ul TYPE="square">
 <li> Unable to connect to API - you might be running an out of data client so consider upgrading.</li>
 <li> Error: Max Retries Exceeded – network connect timeouts </li>
-<li>CryptographyDeprecationWarning – a warning that you should consider upgrading to a higher   
-  version of python – please upgrade to 2.7.x or higher.</li>
+<li>CryptographyDeprecationWarning - a warning that you should consider upgrading to a higher   
+  version of python - please upgrade to 2.7.x or higher.</li>
 <li>ERROR: An unexpected error has occurred during normal operation of the client -	This could  be a variety of problems and we ask you to contact our helpdesk.</li>
 <li>ECONNRESET - network connection dropped.</li>
