@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v.1.17](Data_Dictionary_Release_Notes.md#v117) | May X, 2019 |
+| [v.1.17](Data_Dictionary_Release_Notes.md#v117) | June 5, 2019 |
 | [v.1.16](Data_Dictionary_Release_Notes.md#v116) | April 17, 2019 |
 | [v.1.15](Data_Dictionary_Release_Notes.md#v115) | December 18, 2018 |
 | [v.1.14](Data_Dictionary_Release_Notes.md#v114) | September 27, 2018 |
@@ -19,7 +19,7 @@
 ## v.1.17
 
 * __GDC Product__: GDC Data Dictionary
-* __Release Date__: May X, 2019
+* __Release Date__: June 5, 2019
 
 
 ### New Features and Changes

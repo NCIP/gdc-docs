@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v17.0](Data_Release_Notes.md#data-release-170) | May X, 2019 |
+| [v17.0](Data_Release_Notes.md#data-release-170) | June 5, 2019 |
 | [v16.0](Data_Release_Notes.md#data-release-160) | March 26, 2019 |
 | [v15.0](Data_Release_Notes.md#data-release-150) | February 20, 2019 |
 | [v14.0](Data_Release_Notes.md#data-release-140) | December 18, 2018 |
@@ -26,7 +26,7 @@
 ## Data Release 17.0 <!--REQ-383-->
 
 * __GDC Product__: Data
-* __Release Date__: May X, 2019
+* __Release Date__: June 5, 2019
 
 ### New updates
 
@@ -41,8 +41,8 @@
 
 A complete list of files for DR17.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* []()
-* []()
+* [gdc_manifest_20190605_data_release_17.0_active.txt.gz](gdc_manifest_20190605_data_release_17.0_active.txt.gz)
+* [gdc_manifest_20190605_data_release_17.0_legacy.txt.gz](gdc_manifest_20190605_data_release_17.0_legacy.txt.gz).
 
 ### Bugs Fixed Since Last Release
 
@@ -89,7 +89,7 @@ A complete list of files for DR17.0 are listed for the GDC Data Portal and the G
     * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
     * No data from TARGET-MDLS is available.
 * Issues in the Legacy Archive
-    * * Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+    * Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
     * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
     * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
     * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
