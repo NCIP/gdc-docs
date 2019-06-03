@@ -52,7 +52,7 @@ Examples:
 ##Common Error Codes
 This is a list of the most common error codes the Data Transfer Tool generates and their meaning
 <ul TYPE="square">
-<li> Unable to connect to API – you might be running an out of data client so consider upgrading.</li>
+<li> Unable to connect to API - you might be running an out of data client so consider upgrading.</li>
 <li> Error: Max Retries Exceeded – network connect timeouts </li>
 <li>CryptographyDeprecationWarning – a warning that you should consider upgrading to a higher   
   version of python – please upgrade to 2.7.x or higher.</li>
