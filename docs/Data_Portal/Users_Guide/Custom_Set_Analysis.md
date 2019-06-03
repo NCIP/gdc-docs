@@ -54,7 +54,7 @@ After supplying a list of mutations, a table below will appear which indicates w
 
 Clicking on `Submit` will filter the results in the Exploration Page by those mutations.
 
-[![Upload Case Set Results](images/mutation-set-filter.png)](images/mutation-set-filter.png "Click to see the full image.")
+[![Upload Case Set Results](images/mutation-set-filter_v2.png)](images/mutation-set-filter_v2.png "Click to see the full image.")
 
 ## Analysis Page
 Clicking on the `Analysis` button in the top toolbar will launch the Analysis Page which displays the various options available for comparing saved sets.
@@ -88,16 +88,16 @@ The "Cohort Comparison" analysis displays a series of graphs and tables that dem
 
 * A selectable [survival plot](Exploration.md#survival-analysis) that compares both sets with information about the percentage of represented cases.
 
-[![Top Cohort](images/GDC-Cohort-Comparison-Top.png)](images/GDC-Cohort-Comparison-Top.png "Click to see the full image.")
+[![Top Cohort](images/GDC-Cohort-Comparison-Top_v2.png)](images/GDC-Cohort-Comparison-Top_v2.png "Click to see the full image.")
 
 * A breakdown of each cohort by selectable clinical facets with a bar graph and table. Facets include `vital_status`, `gender`, `race`, `ethnicity`, and `age_at_diagnosis`.  A p-value (if it can be calculated from the data) that demonstrates whether the statuses are proportionally represented is displayed for the `vital_status`, `gender`, and `ethnicity` facets.  
 
-[![Clinical Cohort](images/GDC-Clinical-Cohort.png)](images/GDC-Clinical-Cohort.png "Click to see the full image.")
+[![Clinical Cohort](images/GDC-Clinical-Cohort_v2.png)](images/GDC-Clinical-Cohort_v2.png "Click to see the full image.")
 
 ## Analysis Page: Results
 
 The results of the previous analyses are displayed on this page.
 
-[![Results](images/gdc-analysis-resultstab.png)](images/gdc-analysis-resultstab.png "Click to see the full image.")
+[![Results](images/gdc-analysis-resultstab_v2.png)](images/gdc-analysis-resultstab_v2.png "Click to see the full image.")
 
 Each tab at the left side of the page is labeled according to the analysis type and the date that the analysis was performed and can be reviewed as long as it is present. The "Delete All" button will remove all of the previous analyses.  

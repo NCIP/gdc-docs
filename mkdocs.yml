@@ -65,6 +65,7 @@ pages:
   - Release Notes - Command Line: Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md
   - Data Transfer Tool UI Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
   - Release Notes - UI: Data_Transfer_Tool/Release_Notes/DTT_UI_Release_Notes.md
+  - Troubleshooting Guide: Data_Transfer_Tool/Users_Guide/Appendix_B_TroubleShooting.md
   - fa-file-text Download PDF /Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf: Data_Transfer_Tool/PDF/index.md
 - Data Dictionary:
   - About: Data_Dictionary/index.md
@@ -82,6 +83,7 @@ pages:
   - 'Bioinformatics Pipeline: miRNA Analysis': Data/Bioinformatics_Pipelines/miRNA_Pipeline.md
   - 'Bioinformatics Pipeline: Copy Number Variation Analysis': Data/Bioinformatics_Pipelines/CNV_Pipeline.md
   - 'Bioinformatics Pipeline: Methylation Liftover Pipeline': Data/Bioinformatics_Pipelines/Methylation_LO_Pipeline.md
+  - Aligned Reads Summary Metrics: Data/Bioinformatics_Pipelines/Aligned_reads_summary_metrics.md
   - Release Notes: Data/Release_Notes/Data_Release_Notes.md
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: Data/PDF/index.md
 - Encyclopedia: Encyclopedia/index.md
