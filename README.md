@@ -25,17 +25,7 @@ Please direct technical questions to [GDC Support](https://gdc.cancer.gov/suppor
 
 ### Install & Run
 
-(Optional) Set up virtualenv:
-
-- [Install virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
-- `python -m virtualenv venv`
-- `source venv/bin/activate`
-- Run the installation commands below
-- To leave the virtual environment: `deactivate`
-
-Install GDC-docs:
-
- - `pip install -r requirements.txt`
+ - `pip install -r requirements`
  - `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
 
 ### Build
