@@ -33,7 +33,6 @@
 
 ### New Features and Changes
 
-* Backend updates for data usage and statistics <!--API-601,API-636,API-627-->
 * Mutation indexer update to accommodate data model changes <!--API-677-->
 * Updates to when in the release cycle downloaders and submitters have access to files <!--TT-973-->
 
