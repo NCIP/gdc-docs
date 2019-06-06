@@ -36,7 +36,7 @@
 2.  RNA-Seq data for NCICCR-DLBCL and CTSP-DLBCL1 are released
 3.  ATAC-Seq data for TCGA projects are released
 4.  CPTAC-3 RNA-Seq data are released
-5.  Clinical data updates for TCGA - to see parser code updates review [API v1.20 release notes](API/Release_Notes/API_Release_Notes/)
+5.  Clinical data updates for TCGA - to see parser code updates review [API v1.20 release notes](https://docs.gdc.cancer.gov/API/Release_Notes/API_Release_Notes/#v1200)
 6.  Clinical data updates for other projects to accommodate migration of vital_status, days_to_birth, and days_to_death from the Diagnosis to the Demographic node
 
 A complete list of files for DR17.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
