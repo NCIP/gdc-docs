@@ -32,8 +32,10 @@
 
 1.  Rebuilt indices for NCICCR-DLBCL and CTSP-DLBCL1.  Fewer files viewable in GDC Data Portal or API.
 
+A complete list of files for DR17.1 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
 * [gdc_manifest_20190612_data_release_17.1_active.txt.gz](gdc_manifest_20190612_data_release_17.1_active.txt.gz)
-* [gdc_manifest_20190612_data_release_17.1_legacy.txt.gz](gdc_manifest_20190612_data_release_17.1_legacy.txt.gz).
+* [gdc_manifest_20190612_data_release_17.1_legacy.txt.gz](gdc_manifest_20190612_data_release_17.1_legacy.txt.gz)
 
 ### Bugs Fixed Since Last Release
 
