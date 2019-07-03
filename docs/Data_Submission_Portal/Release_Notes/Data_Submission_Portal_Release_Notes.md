@@ -2,6 +2,8 @@
 
 | Version | Date |
 |---|---|
+| [v2.2.0](Data_Submission_Portal_Release_Notes.md#release-220) | February 20, 2019 |
+| [v2.1.0](Data_Submission_Portal_Release_Notes.md#release-210) | November 7, 2018 |
 | [v2.0.0](Data_Submission_Portal_Release_Notes.md#release-200) | August 23, 2018 |
 | [v1.9.0](Data_Submission_Portal_Release_Notes.md#release-190) | May 21, 2018 |
 | [v1.8.0](Data_Submission_Portal_Release_Notes.md#release-180) | February 15, 2018 |
@@ -14,6 +16,44 @@
 | [v0.3.24.1](Data_Submission_Portal_Release_Notes.md#release-03241) | February 26, 2016 |
 | [v0.3.21](Data_Submission_Portal_Release_Notes.md#release-0321) | January 27, 2016 |
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
+
+## Release 2.2.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: February 20, 2019
+
+### New Features and Changes
+
+* Renamed the "Request Submission" button to "Request Harmonization" to make the purpose of this action more clear. <!--SUBP-500-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed the right scroll bar in the records list on the Browse page so that it works in Firefox. <!--SUBP-493-->
+*  Fixed a dead link to the Submission Portal User Guide on the Dashboard. <!--SUBP-494-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+
+## Release 2.1.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: November 7, 2018
+
+### New Features and Changes
+
+* Updated the project columns to include a Release column in addition to the Batch Submit column. <!--SUBP-487-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed quick search so that projects with a dash in the name will no longer break the search. <!--SUBP-465-->
+*  PO reports will now return the latest data for each project that has completed running. <!--TT-826-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
 
 ## Release 2.0.0
 
