@@ -48,8 +48,9 @@
 
 A complete list of files for DR18.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [test](test)
-* [test](test)
+* [gdc_manifest_20190708_data_release_18.0_active.txt.gz](gdc_manifest_20190708_data_release_18.0_active.txt.gz)
+* [gdc_manifest_20190708_data_release_18.0_legacy.txt.gz](gdc_manifest_20190708_data_release_18.0_legacy.txt.gz)
+
 
 ### Bugs Fixed Since Last Release
 
