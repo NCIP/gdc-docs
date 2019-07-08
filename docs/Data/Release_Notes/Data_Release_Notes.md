@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v18.0](Data_Release_Notes.md#data-release-180) | July X, 2019 |
+| [v18.0](Data_Release_Notes.md#data-release-180) | July 8, 2019 |
 | [v17.1](Data_Release_Notes.md#data-release-171) | June 12, 2019 |
 | [v17.0](Data_Release_Notes.md#data-release-170) | June 5, 2019 |
 | [v16.0](Data_Release_Notes.md#data-release-160) | March 26, 2019 |
@@ -26,7 +26,7 @@
 ## Data Release 18.0
 
 * __GDC Product__: Data
-* __Release Date__: June X, 2019
+* __Release Date__: July 8, 2019
 
 ### New updates
 
