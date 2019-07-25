@@ -60,7 +60,7 @@ The right portion of this toolbar provides access to [quick search](#quick-searc
 
 The GDC Apps menu provides links to all resources provided by the GDC, including the [GDC Legacy Archive](Legacy_Archive.md).
 
-[![GDC Apps](images/gdc-data-portal-gdc-apps.png)](images/gdc-data-portal-gdc-apps.png "Click to see the full image.")
+[![GDC Apps](images/gdc-data-portal-gdc-apps_v2.png)](images/gdc-data-portal-gdc-apps_v2.png "Click to see the full image.")
 
 ## Tables
 
