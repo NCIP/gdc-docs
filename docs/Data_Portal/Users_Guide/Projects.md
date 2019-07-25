@@ -52,7 +52,7 @@ Like the projects table, the graph will reflect any applied facet filters.
 
 Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the projects presented in the Table and Graph tabs as well as visualizations.
 
-[![Panel with Applied Filters](images/gdc-data-portal-project-page-facets3.png)](images/gdc-data-portal-project-page-facets3.png "Click to see the full image.")
+[![Panel with Applied Filters](images/gdc-data-portal-project-page-facets4.png)](images/gdc-data-portal-project-page-facets4.png "Click to see the full image.")
 
 Users can filter by the following facets:
 
