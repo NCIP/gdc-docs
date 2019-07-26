@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v1.22.0](API_Release_Notes.md#v1220) | July X, 2019 |
 | [v1.21.0](API_Release_Notes.md#v1210) | June 5, 2019 |
 | [v1.20.0](API_Release_Notes.md#v1200) | April 17, 2019 |
 | [v1.19.0](API_Release_Notes.md#v1190) | February 20, 2019 |
@@ -25,6 +26,45 @@
 | [v1.2.0](API_Release_Notes.md#v120) | August 9, 2016 |
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
+
+## v1.22.0 <!--REQ-387-->
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__:  June X, 2019
+
+### New Features and Changes
+
+* Updated BCR Clinical XML parser code to support future indexing of additional clinical data.  Parser code can be found [here](https://github.com/NCI-GDC/gdcdatamodel/tree/develop/gdcdatamodel/xml_mappings) <!--DAT-2315-->
+
+    - Added a mapping for:
+      - `ann_arbor_b_symptoms` <!--DAT-2399-->
+      - `ann_arbor_extranodal_involvement` <!--DAT-2399-->
+      - `ajcc_pathologic_t` <!--DAT-2399-->
+      - `ajcc_pathologic_n` <!--DAT-2399-->
+      - `ajcc_pathologic_m` <!--DAT-2399-->
+      - `ajcc_clinical_t` <!--DAT-2399-->
+      - `ajcc_clinical_n` <!--DAT-2399-->
+      - `ajcc_clinical_m` <!--DAT-2399-->
+      - `ajcc_staging_system_edition`	<!--DAT-2398-->
+      - `figo_stage` <!--DAT-2401-->
+      - `ajcc_clinical_stage` <!--DAT-2403-->
+      - `primary_gleason_grade` <!--DAT-2404-->
+      - `secondary_gleason_graade` <!--DAT-2405-->
+      - `igcccg_stage` <!--DAT-2406-->
+      - `masaoka_stage` <!--DAT-2407-->
+
+    - Updated the mapping for:
+      -`primary_diagnosis`, `morphology`, `tissue_or_organ_of_origin`, and `site_of_resection_or_biopsy`  <!--DAT-2409-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed a bug preventing multipart uploads <!--API-748, SV-1472-->
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
 
 ## v1.21.0 <!--REQ-383-->
 
