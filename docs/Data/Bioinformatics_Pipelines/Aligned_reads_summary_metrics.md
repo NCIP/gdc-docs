@@ -8,6 +8,8 @@ Various summary metrics are added to the aligned reads entity for query by the u
 * contamination
 * contamination_error
 * mean_coverage
+* msi_score
+* msi_status
 * pairs_on_diff_chr
 * proportion_base_mismatch
 * proportion_coverage_10X
@@ -16,5 +18,6 @@ Various summary metrics are added to the aligned reads entity for query by the u
 * proportion_reads_mapped
 * proportion_targets_no_coverage
 * total_reads
+
 
 For a complete list of the summary metrics as well as the tools used to generate them please visit the [Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads).

@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
 | [v1.21.0](Data_Portal_Release_Notes.md#release-1210) | June 5, 2019 |
 | [v1.20.0](Data_Portal_Release_Notes.md#release-1200) | April 17, 2019 |
 | [v1.19.0](Data_Portal_Release_Notes.md#release-1190) | February 20, 2019 |
@@ -25,6 +26,40 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 1.22.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  July 31, 2019
+
+### New Features and Changes <!--REQ-387-->
+
+* Replaced existing Clinical, Biospecimen columns on the Projects page with 4 columns: Clinical, Clinical Supplement, Biospecimen, Biospecimen Supplement. The Clinical and Biospecimen columns now link directly to the project page, and their counts indicate the total cases in the project. The Clinical Supplement and Biospecimen Supplement columns work the same as the old Clinical and Biospecimen columns - They link to the Repository page with Files filtered based on the Project and Data Category (Clinical or Biospecimen). <!--PRTL-2528-->
+* Added a new icon to the GDC Apps menu, which links to the GDC Publications website page. <!--PRTL-2547-->
+* Added the Synchronous Malignancy field to the Diagnoses / Treatments tab on the Case entity page. <!--PRTL-2582-->
+* Added the Pack Years Smoked field to the Exposures tab on the Case entity page. <!--PRTL-2584-->
+* Increased length of x-axis labels on histograms to 10 characters so that projects with names that are typically standard 10 chars will display fully (e.g. most TCGA projects like TCGA-BRCA). <!--PRTL-2598-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed bug where the PNG, SVG files for the Overall Survival Plot could not be downloaded. <!--PRTL-2528-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->   
+
 ## Release 1.21.0
 
 * __GDC Product__: GDC Data Portal
@@ -60,7 +95,6 @@
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->   
-
 
 ## Release 1.20.0
 
