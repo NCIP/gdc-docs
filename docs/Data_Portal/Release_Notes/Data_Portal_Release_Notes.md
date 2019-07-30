@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | TBD, 2019 |
+| [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
 | [v1.21.0](Data_Portal_Release_Notes.md#release-1210) | June 5, 2019 |
 | [v1.20.0](Data_Portal_Release_Notes.md#release-1200) | April 17, 2019 |
 | [v1.19.0](Data_Portal_Release_Notes.md#release-1190) | February 20, 2019 |
@@ -29,7 +29,7 @@
 ## Release 1.22.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  TBD, 2019
+* __Release Date__:  July 31, 2019
 
 ### New Features and Changes <!--REQ-387-->
 
@@ -59,7 +59,7 @@
 *   Web Browsers
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->   
-    
+
 ## Release 1.21.0
 
 * __GDC Product__: GDC Data Portal
