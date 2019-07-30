@@ -24,15 +24,16 @@
 ### New Features and Changes
 
 * Added new entities <!--DAT-2450-->
-    - `protein_expression_quantification`
+    - `protein_expression_quantification`  <!--DAT-2237-->
     - `submitted genotyping array`  <!--DAT-2327-->
     - `somatic copy number workflow` <!--DAT-2330-->
-* Add links to `somatic_copy_number_workflow` from `copy_number_segment`  <!--DAT-2331-->
-* Add links to `somatic_copy_number_workflow` from `copy_number_estimate`	 <!--DAT-2415-->
+* Add links in data model to `somatic_copy_number_workflow` from `copy_number_segment`  <!--DAT-2331-->
+* Add links in data model to `somatic_copy_number_workflow` from `copy_number_estimate`	 <!--DAT-2415-->
+* Add links in data model from `annotated_somatic_mutation` to `genomic_profile_harmonization_workflow` <!--DAT-2333-->
 * Modified `copy_number_segment` entity
     - Add new data type <!--DAT-2332-->
+      - `Allele-specific Copy Number Segment`
 * Update data dictionary to support new annotation classifications <!--DAT-2238-->
-* Add connection from `annotated_somatic_mutation` to `genomic_profile_harmonization_workflow` <!--DAT-2333-->
 * Fixed typo in `sample` entity schema <!--DAT-2247-->
 * Unrequired project link for aliquot level MAFs  <!--DAT-2260-->
 * Added NCIt codes for gender values  <!--DAT-2314-->
