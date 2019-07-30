@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v.1.19](Data_Dictionary_Release_Notes.md#v119) | July 31, 2019 |
+| [v.1.18](Data_Dictionary_Release_Notes.md#v119) | July 31, 2019 |
 | [v.1.17](Data_Dictionary_Release_Notes.md#v117) | June 5, 2019 |
 | [v.1.16](Data_Dictionary_Release_Notes.md#v116) | April 17, 2019 |
 | [v.1.15](Data_Dictionary_Release_Notes.md#v115) | December 18, 2018 |
@@ -16,7 +16,7 @@
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
-## v.1.19
+## v.1.18
 
 * __GDC Product__: GDC Data Dictionary
 * __Release Date__: July 31, 2019
@@ -25,32 +25,18 @@
 
 * Added new entities <!--DAT-2450-->
     - `protein_expression_quantification`  <!--DAT-2237-->
-    - `submitted genotyping array`  <!--DAT-2327-->
-    - `somatic copy number workflow` <!--DAT-2330-->
+    - `submitted_genotyping_array`  <!--DAT-2327-->
+    - `somatic_copy_number_workflow` <!--DAT-2330-->
 * Add links in data model to `somatic_copy_number_workflow` from `copy_number_segment`  <!--DAT-2331-->
 * Add links in data model to `somatic_copy_number_workflow` from `copy_number_estimate`	 <!--DAT-2415-->
 * Add links in data model from `annotated_somatic_mutation` to `genomic_profile_harmonization_workflow` <!--DAT-2333-->
 * Modified `copy_number_segment` entity
     - Add new data type <!--DAT-2332-->
-      - `Allele-specific Copy Number Segment`
+        - `Allele-specific Copy Number Segment`
 * Update data dictionary to support new annotation classifications <!--DAT-2238-->
 * Fixed typo in `sample` entity schema <!--DAT-2247-->
 * Unrequired project link for aliquot level MAFs  <!--DAT-2260-->
 * Added NCIt codes for gender values  <!--DAT-2314-->
-* Updated XML Parser
-    - Modified `diagnosis` entity <!--DAT-2315-->
-    - Added new mappings
-      - `ajcc_staging_system_edition` <!--DAT-2398-->
-      - `ajcc_pathologic_stage` <!--DAT-2400-->
-      - `figo_stage` <!--DAT-2401-->
-      - `ajcc_clinical_stage` <!--DAT-2402-->
-      - `ann_arbor_clinical_stage` <!--DAT-2403-->
-      - `primary_gleason_grade` <!--DAT-2404-->
-      - `secondary_gleason_grade` <!--DAT-2405-->
-      - `igcccg_stage` <!--DAT-2406-->
-      - `masaoka_stage` <!--DAT-2407-->
-    - Added new 1:1 stage and grade mappings to the XML parser <!--DAT-2399-->
-    - Map properties for `site` and `histology` to "Not Reported" <!--DAT-2409-->
 * Changed description of `masked_somatic_mutation` and `aggregated_somatic_mutation` nodes to be the same  <!--DAT-2311-->
 * Modified `archive` entity <!--DAT-2259-->
     - Set `downloadable` property to `true`
@@ -64,44 +50,44 @@
     - Added `Custom SureSelect Human All Exon v1.1 Plus 3 Boosters` as new permissible value for `target_capture_kit` field <!--DAT-2003-->
     - Added `SeqCap EZ Human Exome v3.0` as new permissible value for `target_capture_kit` field <!--DAT-2310-->
     - Added new permissible values for `instrument_model`
-      - `Unknown` <!--DAT-2411-->
-      - `Not Reported` <!--DAT-2411-->
-      - `Ion Torrent S5` <!--DAT-2338-->
+        - `Unknown` <!--DAT-2411-->
+        - `Not Reported` <!--DAT-2411-->
+        - `Ion Torrent S5` <!--DAT-2338-->
 * Modified `biospecimen_supplement` entity <!--  DAT-2266-->
     - Added `CDC JSON` as new permissible data format
 * Modified `demographic` entity <!--DAT-2303-->
     - Added new property
-      - `age_is_obfuscated`
+        - `age_is_obfuscated`
 * Modified `demographic` entity <!--DAT-2303-->
     - Added new properties
-      - `cause_of_death_source` <!--DAT-2341-->
-      - `occupation_duration_years` <!--DAT-2342-->
+        - `cause_of_death_source` <!--DAT-2341-->
+        - `occupation_duration_years` <!--DAT-2342-->
 * Modified `diagnosis` entity
     - Added new properties
-      - `non_nodal_regional_disease` <!--DAT-2353-->
-      - `non_nodal_tumor_deposits` <!--DAT-2354-->
-      - `ovarian_specimen_status` <!--DAT-2356-->
-      - `ovarian_surface_involvement` <!--DAT-2357-->
-      - `percent_tumor_invasion` <!--DAT-2360-->
-      - `peritoneal_fluid_cytological_status` <!-- DAT-2361-->      
-      - `breslow_thickness` <!--DAT-2345-->
-      - `international_prognostic_index` <!--DAT-2349-->
-      - `largest_extrapelvic_peritoneal_focus` <!--DAT-2350-->
-      - `mitotic_count` <!--DAT-2352-->     
+        - `non_nodal_regional_disease` <!--DAT-2353-->
+        - `non_nodal_tumor_deposits` <!--DAT-2354-->
+        - `ovarian_specimen_status` <!--DAT-2356-->
+        - `ovarian_surface_involvement` <!--DAT-2357-->
+        - `percent_tumor_invasion` <!--DAT-2360-->
+        - `peritoneal_fluid_cytological_status` <!-- DAT-2361-->      
+        - `breslow_thickness` <!--DAT-2345-->
+        - `international_prognostic_index` <!--DAT-2349-->
+        - `largest_extrapelvic_peritoneal_focus` <!--DAT-2350-->
+        - `mitotic_count` <!--DAT-2352-->     
     - Removed permissible values from `primary_diagnosis`  <!--DAT-2377 -->
     - Removed permissible values from `site_of_resection_or_biopsy` <!--DAT-2378-->
     - Removed `tumor_stage` as required property <!--DAT-2397-->
     - Added new permissible values for
-      - `ajcc_pathologic_stage` <!--DAT-2368-->
-      - `metastasis_at_diagnosis_site` <!--DAT-2370-->
+        - `ajcc_pathologic_stage` <!--DAT-2368-->
+        - `metastasis_at_diagnosis_site` <!--DAT-2370-->
     - Migrated values not part of permissible values to `Not Reported` for following properties
-        - `primary_diagnosis` <!--DAT-2412-->
-        - `site_of_resection_or_biopsy` <!--DAT-2413 -->
-        - `tumor_grade` <!--DAT-2414-->
-        - `tissue_or_organ_of_origin` <!--DAT-2438-->
+          - `primary_diagnosis` <!--DAT-2412-->
+          - `site_of_resection_or_biopsy` <!--DAT-2413 -->
+          - `tumor_grade` <!--DAT-2414-->
+          - `tissue_or_organ_of_origin` <!--DAT-2438-->
     - Removed permissible values from
-        - `tissue_or_organ_of_origin` <!--DAT-2426-->
-        - `morphology` <!--  DAT-2427-->
+          - `tissue_or_organ_of_origin` <!--DAT-2426-->
+          - `morphology` <!--  DAT-2427-->
 - Modified `structural_variant_calling_workflow` entity <!--DAT-233-->
     - Added new `workflow_type`
 - Modified `structural_variant` entity
@@ -120,20 +106,20 @@
 - Modified `somatic_mutation_calling_workflow` entity
     - Added new `workflow_type` permissible values <!--DAT-2389-->
     - Modified `somatic_annotation_workflow` entity
-        - Added new `workflow_type` permissible values <!--DAT-2391-->
+    - Added new `workflow_type` permissible values <!--DAT-2391-->
 - Modified `case` entity
     - Added new permissible value to `disease_type` <!--DAT-2390-->
-      - `Not Applicable`
+        - `Not Applicable`
 - Modified `copy_number_estimate` entity
     - Added new permissible value to `experimental_strategy` <!--DAT-2334-->
-      -  `WXS`
+        -  `WXS`
 - Modified `family_history` entity
     - Added new property <!--DAT-2365-->
-      - `relatives_with_cancer_history_count`
+        - `relatives_with_cancer_history_count`
 - Modified `sample` entity <!--DAT-2418-->
     - Added new permissible values
-      - `sample_type`
-      - `sample_type_id`
+        - `sample_type`
+        - `sample_type_id`
 
 ### Bugs Fixed Since Last Release
 
