@@ -37,24 +37,24 @@
 * Updated BCR Clinical XML parser code to support future indexing of additional clinical data.  Parser code can be found [here](https://github.com/NCI-GDC/gdcdatamodel/tree/develop/gdcdatamodel/xml_mappings) <!--DAT-2315-->
 
     - Added a mapping for:
-      - `ann_arbor_b_symptoms` <!--DAT-2399-->
-      - `ann_arbor_extranodal_involvement` <!--DAT-2399-->
-      - `ajcc_pathologic_t` <!--DAT-2399-->
-      - `ajcc_pathologic_n` <!--DAT-2399-->
-      - `ajcc_pathologic_m` <!--DAT-2399-->
-      - `ajcc_clinical_t` <!--DAT-2399-->
-      - `ajcc_clinical_n` <!--DAT-2399-->
-      - `ajcc_clinical_m` <!--DAT-2399-->
-      - `ajcc_staging_system_edition`	<!--DAT-2398-->
-      - `figo_stage` <!--DAT-2401-->
-      - `ajcc_clinical_stage` <!--DAT-2403-->
-      - `primary_gleason_grade` <!--DAT-2404-->
-      - `secondary_gleason_graade` <!--DAT-2405-->
-      - `igcccg_stage` <!--DAT-2406-->
-      - `masaoka_stage` <!--DAT-2407-->
+        - `ann_arbor_b_symptoms` <!--DAT-2399-->
+        - `ann_arbor_extranodal_involvement` <!--DAT-2399-->
+        - `ajcc_pathologic_t` <!--DAT-2399-->
+        - `ajcc_pathologic_n` <!--DAT-2399-->
+        - `ajcc_pathologic_m` <!--DAT-2399-->
+        - `ajcc_clinical_t` <!--DAT-2399-->
+        - `ajcc_clinical_n` <!--DAT-2399-->
+        - `ajcc_clinical_m` <!--DAT-2399-->
+        - `ajcc_staging_system_edition`	<!--DAT-2398-->
+        - `figo_stage` <!--DAT-2401-->
+        - `ajcc_clinical_stage` <!--DAT-2403-->
+        - `primary_gleason_grade` <!--DAT-2404-->
+        - `secondary_gleason_graade` <!--DAT-2405-->
+        - `igcccg_stage` <!--DAT-2406-->
+        - `masaoka_stage` <!--DAT-2407-->
 
     - Updated the mapping for:
-      -`primary_diagnosis`, `morphology`, `tissue_or_organ_of_origin`, and `site_of_resection_or_biopsy`  <!--DAT-2409-->
+        - `primary_diagnosis`, `morphology`, `tissue_or_organ_of_origin`, and `site_of_resection_or_biopsy`  <!--DAT-2409-->
 
 ### Bugs Fixed Since Last Release
 
