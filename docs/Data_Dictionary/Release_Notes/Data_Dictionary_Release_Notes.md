@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v.1.18](Data_Dictionary_Release_Notes.md#v119) | July 31, 2019 |
+| [v.1.18](Data_Dictionary_Release_Notes.md#v118) | July 31, 2019 |
 | [v.1.17](Data_Dictionary_Release_Notes.md#v117) | June 5, 2019 |
 | [v.1.16](Data_Dictionary_Release_Notes.md#v116) | April 17, 2019 |
 | [v.1.15](Data_Dictionary_Release_Notes.md#v115) | December 18, 2018 |
