@@ -58,7 +58,7 @@ The projects section in the homepage lists the projects that the user has access
 
 The GDC Data Submission Portal dashboard provides details about a specific project.
 
-[![GDC Submission Dashboard Page](images/GDC_Submission_Dashboard_4.png)](images/GDC_Submission_Dashboard_4.png "Click to see the full image.")
+[![GDC Submission Dashboard Page](images/Submission_portal_homepage.png)](images/Submission_portal_homepage.png "Click to see the full image.")
 
 The dashboard contains various visual elements to guide the user through all stages of submission, from viewing the [Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/), support of data upload, to submitting a project for harmonization.
 
@@ -71,6 +71,7 @@ The search field at the top of the dashboard allows for submitted entities to be
 
 The remaining part of the top section of the dashboard is broken down into four status charts:
 
+* __QC Errors__: The number of errors found in the uploaded data.  For more details please refer to the [QC Report Section](putlinkinhere).
 * __Cases with Clinical__: The number of `cases` for which Clinical data has been uploaded.
 * __Cases with Biospecimen__: The number of `cases` for which Biospecimen data has been uploaded.
 * __Cases with Submittable Data Files__: The number of `cases` for which experimental data has been uploaded.
@@ -230,6 +231,18 @@ The hierarchy shows:
 
 After uploading data to the workspace on the GDC Data Submission Portal, data will need to be [reviewed by the submitter](#pre-harmonization-checklist) and then [submitted to the GDC](#submit-to-the-gdc) for processing.
 
+## QC Reports
+
+The QC Reports section allows users to see errors identified by the GDC for the current data that has not yet been submitted for harmonization.  This includes all nodes in state `validated`.  Data with error type `Critical` indicates errors that must be fixed before a submitter can Request Harmonization.  Errors with error type `Warning` should be reviewed by the submitter as they may indicate discrepancies or problematic data.
+
+You can see in the QC Reports Tab highlights of what data are present and the types of errors found in the project.
+
+[![QC Report](images/QC_Report_tab.png)](images/QC_Report_tab.png "Click to see the full image.")
+
+To find specific details for any node that contains errors you can click on the facet panel on the left to see those errors and to download a list of error for that respective node.
+
+[![QC Errors for Submitted Unaligned Reads](images/SUR_QC_errors.png)](SUR_QC_errors.png "Click to see the full image.")
+
 ## Submit Your Workspace Data to the GDC
 
 The GDC Data Submission process is detailed on the [Data Submission Processes and Tools](https://gdc.cancer.gov/submit-data/data-submission-processes-and-tools) section of the GDC Website.
@@ -252,43 +265,55 @@ Once the user clicks on `REVIEW`, the project state will change to "REVIEW":
 
 The Harmonization step is __NOT__ an automatic process that occurs when data is uploaded to the GDC. The GDC performs batch processing of submitted data for Harmonization only after verifying that the submission is complete.
 
-The following tests must pass before the data can be considered complete:
+QC checks are automatically run on all supplied metadata and data files.  These fall into two categories: Critical or Warning errors.  If an error is deemed Critical it must be resolved before a project can request harmonization.  If a an error is categorized as Warning then the submitter should review this to verify the data have been submitted correctly.  Details of all checks can be found [here](https://github.com/NCI-GDC/proto-bio-submitter-qc/tree/master/bio_submitter_qc/validators).  A summary of the errors is found below:
+
+#### Critical
+
+1. There are no invalid characters in the `submitter_id` of any node.
+The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `.`, `-`. Any other characters will interfere with the Harmonization workflow.
+
+2. There are no data files with duplicate md5sums.
+
+3.  There is no `aliquot` attached to multiple `sample` nodes of more than one sample_type.
+
+4.  In `read_group`, the `library_strategy` should match the `library_selection`:
+        * Targeted Sequencing must be with either PCR or Hybrid Selection.
+        * WXS must be with Hybrid Selection.
+        * WGS must be with Random.
+
+5.  The `target_capture_kit` property is completed when the selected `library_strategy` is `WXS`. Errors will occur if `Not Applicable` or `Unknown` is selected.
+
+6.  For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.
+
+#### Warning
 
 1. All files that are registered have been uploaded and validated.
 
-2. There are no invalid characters in the `submitter_id` of any node.
-The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `.`, `-`. Any other characters will interfere with the Harmonization workflow.
+2. Clinical data nodes such as `demographic`, `diagnosis` and `clinical_supplement`, are linked to `case`.
 
-3. There are no data files with duplicate md5sums.
-
-4. Clinical data nodes such as `demographic`, `diagnosis` and `clinical_supplement`, are linked to `case`.
-
-5. The `read_group` node is linked to a valid node:
+3. The `read_group` node is linked to a valid node:
     * `submitted_unaligned_reads`
     * `submitted_aligned_reads`
     * `submitted_genomic_profile`
 
-6. The `sample`-`analyte`-`aliquot` relationships are valid. Common problems can sometimes be:
-    * `aliquot` attached to `sample` nodes of more than one type.
-    * `aliquot` attached to more than one `sample` node, potentially valid but unusual.
+4. `aliquot` is attached to more than one `sample`.
 
-7. Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`.
+5. Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`.
 
-8. The information for the `platform` is in the `read_group` node. While the subsequent information about the platform is not required, it is beneficial to also have information on:
+6. The information for the `platform` is in the `read_group` node. This includes the following properties:
     * `multiplex_barcode`
     * `flow_cell_barcode`
     * `lane_number`
 
-9.  In `read_group`, the `library_strategy` should match the `library_selection`:
-    * Targeted Sequencing must be with either PCR or Hybrid Selection.
-    * WXS must be with Hybrid Selection.
-    * WGS must be with Random.
+7.  The `submitted_unaligned_reads` file is not larger than 10 GB.
 
-10.  The `target_capture_kit` property is completed when the selected `library_strategy` is `WXS`. Errors will occur if `Not Applicable` or `Unknown` is selected.
+8.  FASTQ file extension must be `.fq` or `.fq.gz`.  `tar.gz` or `tar` is not allowed.
 
-11. Check the nodes that are related to FASTQ files. For the `submitted_unaligned_reads` node, determine that the size is correct, the files are not compressed (`.tar` or `.tar.gz`), and there is a link to `read_group`. For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.
+9.  `submitted_unaligned_reads` of data_format `FASTQ` is linked to multiple `read_group` nodes.
+MULTIPLE_FASTQ_READGROUPS = \
 
-Once complete, clicking the `REQUEST HARMONIZATION` button will indicate to the GDC Team and pipeline automation system that data processing can begin.
+
+Once user review is complete and all Critical errors are resolved, clicking the `REQUEST HARMONIZATION` button will indicate to the GDC Team and pipeline automation system that data processing can begin.
 
 ### Submit to the GDC for Harmonization
 
