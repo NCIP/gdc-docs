@@ -265,7 +265,7 @@ Once the user clicks on `REVIEW`, the project state will change to "REVIEW":
 
 The Harmonization step is __NOT__ an automatic process that occurs when data is uploaded to the GDC. The GDC performs batch processing of submitted data for Harmonization only after verifying that the submission is complete.
 
-QC checks are automatically run on all supplied metadata and data files.  These fall into two categories: Critical or Warning errors.  If an error is deemed Critical it must be resolved before a project can request harmonization.  If a an error is categorized as Warning then the submitter should review this to verify the data have been submitted correctly.  Details of all checks can be found [here](https://github.com/NCI-GDC/proto-bio-submitter-qc/tree/master/bio_submitter_qc/validators).  A summary of the errors is found below:
+QC checks are automatically run on all supplied metadata and data files.  The results are displayed within the QC Reports.  These errors fall into two categories: Critical or Warning.  If an error is deemed Critical it must be resolved before a submitter can request harmonization.  If a an error is categorized as Warning then the submitter should review this to verify the data have been submitted correctly.  Details of all checks can be found [here](https://github.com/NCI-GDC/proto-bio-submitter-qc/tree/master/bio_submitter_qc/validators).  A summary of the requirements is found below:
 
 #### Critical
 
@@ -276,8 +276,8 @@ The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `
 
 3.  There is no `aliquot` attached to multiple `sample` nodes of more than one sample_type.
 
-4.  In `read_group`, the `library_strategy` should match the `library_selection`:
-        * Targeted Sequencing must be with either PCR or Hybrid Selection.
+4.  In `read_group`, the `library_strategy` should aligned with the `library_selection`:
+        * Targeted Sequencing `library_stategy` must be with either PCR or Hybrid Selection `library_selection`.
         * WXS must be with Hybrid Selection.
         * WGS must be with Random.
 
@@ -296,7 +296,7 @@ The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `
     * `submitted_aligned_reads`
     * `submitted_genomic_profile`
 
-4. `aliquot` is attached to more than one `sample`.
+4. `aliquot` is attached to only one `sample`.
 
 5. Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`.
 
@@ -307,9 +307,9 @@ The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `
 
 7.  The `submitted_unaligned_reads` file is not larger than 10 GB.
 
-8.  FASTQ file extension must be `.fq` or `.fq.gz`.  `tar.gz` or `tar` is not allowed.
+8.  FASTQ file extension is `.fq` or `.fq.gz`. Impermissible extensions are `tar.gz` and `tar`.
 
-9.  `submitted_unaligned_reads` of data_format `FASTQ` is linked to multiple `read_group` nodes.
+9.  `submitted_unaligned_reads` of data_format `FASTQ` is not linked to multiple `read_group` nodes.
 MULTIPLE_FASTQ_READGROUPS = \
 
 
@@ -323,7 +323,7 @@ The `REQUEST HARMONIZATION` button is available only if the project is in "REVIE
 
 [![GDC Submission Submit Tab](images/GDC_Submission_Submit_Release_Submit_tab_2_v4.png)](images/GDC_Submission_Submit_Release_Submit_tab_2_v4.png "Click to see the full image.")
 
-Once the user submits data to the GDC, they cannot modify the submitted nodes and files while harmonization is underway.  Additional project data can be added during this period and will be considered a separate batch.  To process an additional batch the user must again review the data and select `Request Harmonization`.
+Once the user submits data to the GDC, they cannot modify the submitted nodes and files while harmonization is underway.  Additional project data can be added during this period and will be considered a separate batch.  To process an additional batch the user must again review the data and select `REQUEST HARMONIZATION`.
 
 [![GDC Submission Submission Tab](images/GDC_SUBMIT_TO_GDC_v3.png)](images/GDC_SUBMIT_TO_GDC_v3.png "Click to see the full image.")
 
