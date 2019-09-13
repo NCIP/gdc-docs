@@ -187,7 +187,7 @@ On the top-right section of the screen, the user can download data about all ent
 * For the case filter, it will download all Clinical data or all Metadata.
 * For all other filters, it will download the corresponding metadata (e.g., for the `demographic` filter, it will download all `demographic` data).
 
-[![GDC Submission Case Summary Download](images/GDC_Submission_Cases_Summary_Download_4.png)](images/GDC_Submission_Cases_Summary_Download_2.png "Click to see the full image.")
+[![GDC Submission Case Summary Download](images/GDC_Submission_Cases_Summary_Download_2.png)](images/GDC_Submission_Cases_Summary_Download_2.png "Click to see the full image.")
 
 #### Details Panel
 
@@ -239,7 +239,7 @@ You can see in the QC Reports Tab highlights of what data are present and the ty
 
 [![QC Report](images/QC_Report_tab.png)](images/QC_Report_tab.png "Click to see the full image.")
 
-To find specific details for any node that contains errors you can click on the facet panel on the left to see those errors and to download a list of error for that respective node.
+To find specific details for any node that contains errors you can click on the facet panel on the left to see those errors and to download a list of errors for that respective node. All potential errors are listed in the [Pre-harmonization Checklist](/Data_Submission_Portal/Users_Guide/Data_Submission_Process/#pre-harmonization-checklist).
 
 [![QC Errors for Submitted Unaligned Reads](images/SUR_QC_errors.png)](SUR_QC_errors.png "Click to see the full image.")
 
@@ -265,7 +265,7 @@ Once the user clicks on `REVIEW`, the project state will change to "REVIEW":
 
 The Harmonization step is __NOT__ an automatic process that occurs when data is uploaded to the GDC. The GDC performs batch processing of submitted data for Harmonization only after verifying that the submission is complete.
 
-QC checks are automatically run on all supplied metadata and data files.  The results are displayed within the QC Reports.  These errors fall into two categories: Critical or Warning.  If an error is deemed Critical it must be resolved before a submitter can request harmonization.  If a an error is categorized as Warning then the submitter should review this to verify the data have been submitted correctly.  Details of all checks can be found [here](https://github.com/NCI-GDC/proto-bio-submitter-qc/tree/master/bio_submitter_qc/validators).  A summary of the requirements is found below:
+QC checks are automatically run on all supplied metadata and data files.  The results are displayed within the [QC Reports](/Data_Submission_Portal/Users_Guide/Data_Submission_Process/#qc-reports).  These errors fall into two categories: Critical or Warning.  If an error is deemed Critical it must be resolved before a submitter can request harmonization.  If a an error is categorized as Warning then the submitter should review this to verify the data have been submitted correctly.  Details of all checks can be found [here](https://github.com/NCI-GDC/proto-bio-submitter-qc/tree/master/bio_submitter_qc/validators).  A summary of the requirements is found below:
 
 #### Critical
 

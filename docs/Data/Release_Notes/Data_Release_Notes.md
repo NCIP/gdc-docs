@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v19.0](Data_Release_Notes.md#data-release-190) | August X, 2019 |
+| [v19.0](Data_Release_Notes.md#data-release-190) | September X, 2019 |
 | [v18.0](Data_Release_Notes.md#data-release-180) | July 8, 2019 |
 | [v17.1](Data_Release_Notes.md#data-release-171) | June 12, 2019 |
 | [v17.0](Data_Release_Notes.md#data-release-170) | June 5, 2019 |
@@ -27,7 +27,7 @@
 ## Data Release 19.0 <!--REQ-389-->
 
 * __GDC Product__: Data
-* __Release Date__: August X, 2019
+* __Release Date__: September X, 2019
 
 ### New updates
 
