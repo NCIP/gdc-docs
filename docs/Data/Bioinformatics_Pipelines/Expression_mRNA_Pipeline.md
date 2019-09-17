@@ -165,6 +165,10 @@ The reads mapped to each gene are enumerated using HT-Seq-Count. Expression valu
 
 Files that were processed after Data Release 14 have an additional set of read counts that were produced by STAR during the alignment step.
 
+Note that counting algorithms such as HTSeq and STAR will not count reads that are mapped to more than one different gene. Below are two files that list genes that are completely encompassed by other genes and will likely display a value of zero.
+
+* [Overlapped Genes (stranded)](/Data/Bioinformatics_Pipelines/overlap.gene.stranded.tsv)  
+* [Overlapped Genes (unstranded)](/Data/Bioinformatics_Pipelines/overlap.gene.stranded.tsv) 
 
 | I/O | Entity | Format |
 |---|---|---|
