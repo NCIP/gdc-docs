@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v19.0](Data_Release_Notes.md#data-release-190) | September X, 2019 |
+| [v19.0](Data_Release_Notes.md#data-release-190) | September 17, 2019 |
 | [v18.0](Data_Release_Notes.md#data-release-180) | July 8, 2019 |
 | [v17.1](Data_Release_Notes.md#data-release-171) | June 12, 2019 |
 | [v17.0](Data_Release_Notes.md#data-release-170) | June 5, 2019 |
@@ -27,7 +27,7 @@
 ## Data Release 19.0 <!--REQ-389-->
 
 * __GDC Product__: Data
-* __Release Date__: September X, 2019
+* __Release Date__: September 17, 2019
 
 ### New updates
 
@@ -38,20 +38,19 @@
     *  TARGET-ALL-P1 RNA-Seq
     *  TARGET-ALL-P2 RNA-Seq, WXS, and miRNA-Seq
     *  TARGET-ALL-P3 miRNA-Seq
-    *  TARGET-AML WXS and WGS
+    *  TARGET-AML WXS, WGS, and miRNA-Seq
     *  TARGET-NBL WXS and RNA-Seq
     *  TARGET-RT WGS and RNA-Seq
     *  TARGET-WT WGS, WXS, and RNA-Seq
 3.  Additional CGCI-BLGSP WGS data released
-4.  Pindel VCFs released for TARGET-ALL-P3, MMRF, HCMI, and CPTAC-3
-5.  Updated disease-specific staging properties for all projects released <!--DAT-2480,  DAT-2503-->
-6.  CIViC annotations are added to SSMs.  Read more about CIViC annotations [here](https://civicdb.org/home). <!--TT-1002-->
+4.  Pindel VCFs released for TARGET-ALL-P2, TARGET-ALL-P3, TARGET-AML, TARGET-NBL, TARGET-WT, MMRF-COMMPASS, HCMI-CMDC, and CPTAC-3
+5.  Disease-specific staging properties for many projects were released <!--DAT-2480,  DAT-2503-->
 
 
 A complete list of files for DR19.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20190708_data_release_18.0_active.txt.gz](gdc_manifest_20190708_data_release_18.0_active.txt.gz)
-* [gdc_manifest_20190708_data_release_18.0_legacy.txt.gz](gdc_manifest_20190708_data_release_18.0_legacy.txt.gz)
+* [gdc_manifest_20190917_data_release_19.0_active.txt.gz](gdc_manifest_20190917_data_release_19.0_active.txt.gz)
+* [gdc_manifest_20190917_data_release_19.0_legacy.txt.gz](gdc_manifest_20190917_data_release_19.0_legacy.txt.gz)
 
 
 ### Bugs Fixed Since Last Release
