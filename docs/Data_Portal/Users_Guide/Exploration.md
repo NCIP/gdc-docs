@@ -226,7 +226,7 @@ Clicking the `Open in Exploration` button will navigate the user to the Explorat
 
 The `Mutations` tab will give an overview of all the mutations that match the criteria of the filters (Cohort).  
 
-Open-access mutation data is displayed by defualt.  To access controlled access mutations, users must apply to the correct data access authority, be granted access, and login to the portal.  If a user is logged in and has been granted access to controlled-access mutations, they will be integrated with open-access mutations throughout the portal visualizations and counts. 
+Open-access mutation data is displayed by defualt.  To access controlled access mutations, users must apply to the correct data access authority, be granted access, and login to the portal.  If a user is logged in and has been granted access to controlled-access mutations, they will be integrated with open-access mutations throughout the portal visualizations and counts.
 
 [![Exploration Mutation Example](images/Exploration-Mutation-Example_v2.png)](images/Exploration-Mutation-Example_v2.png "Click to see the full image.")
 
@@ -356,9 +356,9 @@ The filters chosen on the Exploration Page are displayed as an `input set` on th
 The survival analysis, which is seen in both the `Gene` and `Mutation` tabs, is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Thus, the values are retrieved from [GDC Data Dictionary](../../../Data_Dictionary) properties and a survival analysis requires the following fields:
 
 *  Data on the time to a particular event (days to death or last follow up).
-    * Fields:  __diagnoses.days_to_death__ or __diagnoses.days_to_last_follow_up__
+    * Fields:  __demographic.days_to_death__ or __demographic.days_to_last_follow_up__
 *  Information on whether the event has occurred (alive/deceased).
-    * Fields:  __diagnoses.vital_status__
+    * Fields:  __demographic.vital_status__
 *  Data split into different categories or groups (i.e. gender, etc.).
     * Fields:  __demographic.gender__
 
