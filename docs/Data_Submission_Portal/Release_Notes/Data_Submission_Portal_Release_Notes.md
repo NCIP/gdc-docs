@@ -19,6 +19,7 @@
 | [v0.3.21](Data_Submission_Portal_Release_Notes.md#release-0321) | January 27, 2016 |
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
 
+---
 ## Release 2.4.0
 
 * __GDC Product__: GDC Data Submission Portal
