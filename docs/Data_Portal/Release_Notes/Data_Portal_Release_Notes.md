@@ -38,7 +38,7 @@
 
 ### Bugs Fixed Since Last Release
 
-* Fixed bug where the PNG, SVG files for the Overall Survival Plot could not be downloaded. <!--PRTL-2528-->
+* TBD
 
 ### Known Issues and Workarounds
 
