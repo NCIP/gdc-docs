@@ -110,6 +110,32 @@ HTTP/1.1 206
 
 <bam_data_stream>
 ```
+## Examples: Specifying unmapped reads
+
+Unmapped reads are found in GDC BAM files. You may request these reads by using the following commands.
+
+```GET
+token=$(<gdc-token-text-file.txt)
+
+curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/slicing/view/dc87e1b8-d8b7-4837-88ea-fb7f017b3c69?region=unmapped' --output get_regions_slice.bam
+```
+```POST_Payload
+{
+    "regions": [
+        "unmapped"
+    ]
+}
+```
+```POST
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/slicing/view/dc87e1b8-d8b7-4837-88ea-fb7f017b3c69 --header "Content-Type: application/json" -d@Payload --output get_regions_slice.bam
+```
+```Response
+Response:
+HTTP/1.1 206
+
+<bam_data_stream>
+```
+
 
 
 After downloading, the sliced BAM file can be converted to SAM using the following command if `samtools` is installed on the user's system:

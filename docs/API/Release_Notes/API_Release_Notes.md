@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v1.23.0](API_Release_Notes.md#v1230) | October X, 2019 |
 | [v1.22.0](API_Release_Notes.md#v1220) | July 31, 2019 |
 | [v1.21.0](API_Release_Notes.md#v1210) | June 5, 2019 |
 | [v1.20.0](API_Release_Notes.md#v1200) | April 17, 2019 |
@@ -26,6 +27,29 @@
 | [v1.2.0](API_Release_Notes.md#v120) | August 9, 2016 |
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
+
+## v1.23.0 <!--REQ-390-->
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__:  October X, 2019
+
+### New Features and Changes
+
+* BAM slicing is now supported for unmapped reads <!--TT-1061-->
+* https://api.gdc.cancer.gov/clinical_tar now includes data from molecular_test and follow_up nodes.  This impacts what is returned on the GDC Data Portal when downloading clinical data <!--API-750-->
+* Better handling of concurrent transactions <!--API-767-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed API memory leak <!--API-719, API-775-->
+* Fixed data offset issue returned by clinical.tar endpoint <!--API-732-->
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
+
 
 ## v1.22.0 <!--REQ-387-->
 
