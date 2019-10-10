@@ -27,7 +27,7 @@
 
 ### New Features and Changes
 
-*  TBD
+*  Added new QC Report tab that allows users to view and download QC errors detected on the current set of unsubmitted data.  Users must examine these errors and fix them appropriately before re-uploading the data and requsting harmonization.  New donut added to the Dashboard tab to display a quick breakdown of CRITICAL vs WARNING errors across the project.<!--FEAT-545-->
 
 ### Bugs Fixed Since Last Release
 
