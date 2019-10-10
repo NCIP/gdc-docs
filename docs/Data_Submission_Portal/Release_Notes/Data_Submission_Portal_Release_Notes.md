@@ -31,7 +31,10 @@
 
 ### Bugs Fixed Since Last Release
 
-*  TBD
+*  Fixed the Project Data download button in the Project Overview, so that the JSON option is selectable in the modal.<!--SUBP-519-->
+*  Fixed the trash can icon for the Delete button in the Submitter Detail pane, so that it is fully visible and no longer cutoff<!--SUBP-540-->
+*  Fixed a Section 508 Accessibility violation in the Submitter Detail pane.<!--SUBP-566-->
+*  Increased the global transaction polling interval to 15 seconds across the portal to improve performance.<!--SUBP-571-->
 
 ### Known Issues and Workarounds
 
