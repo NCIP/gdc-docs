@@ -721,7 +721,7 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
 
 ### Example: Bulk Transaction
 
-To wrap multiple TSV or JSON files into a single transaction the bulk endpoint can be used.  In this example a TSV to create Clinical Supplement nodes is included in the same transactions as a JSON to create demographic nodes.
+To wrap multiple TSV or JSON files into a single transaction the bulk endpoint can be used.  In this example a TSV to create Clinical Supplement nodes is included in the same transactions as a JSON to create Demographic nodes.
 
 
 ```Request

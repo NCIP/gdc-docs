@@ -35,9 +35,11 @@
 
 ### New Features and Changes
 
+* QC Tests added for Submission <!--TT-748-->
 * BAM slicing is now supported for unmapped reads <!--TT-1061-->
-* https://api.gdc.cancer.gov/clinical_tar now includes data from molecular_test and follow_up nodes.  This impacts what is returned on the GDC Data Portal when downloading clinical data <!--API-750-->
+* API now includes data from molecular_test and follow_up nodes.  This impacts what is displayed on the GDC Data Portal <!--API-750-->
 * Better handling of concurrent transactions <!--API-767-->
+* CIViC annotations now included on the ssms endpoint.  You can read more about CIViC annotations [here](https://civicdb.org/home) <!--API-733-->
 
 ### Bugs Fixed Since Last Release
 
