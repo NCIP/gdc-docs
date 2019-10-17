@@ -34,7 +34,9 @@
 
 ### New Features and Changes <!--REQ-390-->
 
-* TBD
+* Added links to CIVIC annotations on the Gene and Mutation entity pages. <!--PRTL-2543-->
+* Updated the default Top Mutated Genes histogram on the Exploration page to display only COSMIC Genes by default. <!--PRTL-2371-->
+* Added Follow-Ups tab and nested Molecular Tests to Case entity page. <!--PRTL-2704-->
 
 ### Bugs Fixed Since Last Release
 
