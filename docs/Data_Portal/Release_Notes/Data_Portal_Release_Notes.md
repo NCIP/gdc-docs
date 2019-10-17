@@ -37,10 +37,15 @@
 * Added links to CIVIC annotations on the Gene and Mutation entity pages. <!--PRTL-2543-->
 * Updated the default Top Mutated Genes histogram on the Exploration page to display only COSMIC Genes by default. <!--PRTL-2371-->
 * Added Follow-Ups tab and nested Molecular Tests to Case entity page. <!--PRTL-2704-->
+* Added text to BAM slicing modal to instruct users how to access unmapped reads. <!--PRTL-2620-->
 
 ### Bugs Fixed Since Last Release
 
-* TBD
+* Fixed font in exported PNGs, SVGs to be consistent with the Portal UI. <!--PRTL-2653-->
+* Made custom Case and File filters in the Repository page case insensitive. <!--PRTL-2571-->
+* Fixed bug where pfam domains in Protein Viewer could not be clicked in Firefox. <!--PRTL-2511-->
+* Fixed bug where TSV download button could not be clicked in MS Edge. <!--PRTL-2357-->
+* Fixed controlled access alert pop-up in the Cart so that the modal disappears correctly once the User has successfully logged in and initiated the download. <!--PRTL-2429-->
 
 ### Known Issues and Workarounds
 
