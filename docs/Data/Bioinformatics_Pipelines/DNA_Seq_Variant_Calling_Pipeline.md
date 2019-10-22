@@ -37,7 +37,7 @@ All alignments are performed using the human reference genome GRCh38.d1.vd1. Dec
 | Input | [Submitted Unaligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) or [Submitted Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads) | FASTQ or BAM |
 | Output | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) | BAM |
 
-![DNA-Seq Alignment Pipeline](images/dna-alignment-pipeline_0.png)
+![DNA-Seq Alignment Pipeline](images/dna-alignment-pipeline_1.png)
 
 ### DNA-Seq Alignment Command Line Parameters
 
@@ -177,12 +177,13 @@ java -jar GenomeAnalysisTK.jar \
 
 
 ### Somatic Variant Calling Workflow
-Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using four separate pipelines:
+Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using five separate pipelines:
 
 - [MuSE](http://bioinformatics.mdanderson.org/main/MuSE) [[2]](http://www.biorxiv.org/content/early/2016/05/25/055467.abstract)
 - [MuTect2](https://gatkforums.broadinstitute.org/gatk/discussion/9183/how-to-call-somatic-snvs-and-indels-using-mutect2) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html)  
 - [VarScan2](http://dkoboldt.github.io/varscan/) [[4]](http://genome.cshlp.org/content/22/3/568.short)
 - [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short)
+- [Pindel](https://github.com/ucscCancer/pindel-tool)
 
 Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](../File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
 
@@ -322,6 +323,123 @@ java -jar VarScan.jar processSomatic \
 --min-tumor-freq 0.10 \
 --max-normal-freq 0.05 \
 --p-value 0.07
+```
+
+### Pindel
+
+__Step 1:__ Filter Reads
+
+Filter bam reads that are not unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary for both tumor and normal bam files
+
+Tool: sambamba 0.7.0-pre1
+
+```Shell
+Sambamba view $(input.bam) --filter “not (unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary)” --format bam --nthreads 1 --output-filename $(output.bam)
+```
+
+__Step 2:__ Pindel
+
+[Pindel version 0.2.5b8, 20151210](https://github.com/genome/pindel/releases/tag/v0.2.5b8)
+
+__Step 2a.:__ Calculate mean insert size
+```Python
+cmd = "samtools view -f66 %s | head -n 1000000" % (bam)
+output = do_shell_command(cmd)
+lines = output.decode('utf-8').split('\n')
+b_sum = 0
+b_count = 0
+numlines = 0
+for line in lines:
+    numlines += 1
+    tmp = line.split("\t")
+    if len(tmp) < 9:
+        break
+    if abs(int(tmp[8])) < 10000:
+        b_sum += abs(int(tmp[8]))
+        b_count += 1
+try:
+    mean = b_sum / b_count
+```
+__Step 2b.:__ Write it to a config file
+```Python
+for inputBamFile, meanInsertSize, tag in zip(inputBamFiles, meanInsertSizes, tags):
+        fil.write("%s\t%s\t%s\n" %(inputBamFile, meanInsertSize, tag))
+    fil.close()
+```
+__Step 2c.:__ Run pindel
+```Shell
+pindel \
+-f GRCh38.d1.vd1.fa \
+-i config_file \
+-o $(output_prefix) \
+--exclude GRCh38.d1.vd1.centromeres.telomeres.bed
+
+```
+__Step 2d.:__ Merge DI and SI OUTPUT
+```Python
+with open(os.path.join(args.workdir, "pindel_somatic"), "w") as handle:
+        for p in pindel_files:
+            if p.endswith("_D"):
+              with open(p) as ihandle:
+                for line in ihandle:
+                    if re.search("ChrID", line):
+                        handle.write(line)
+        for p in pindel_files:
+            if p.endswith("_SI"):
+              with open(p) as ihandle:
+                for line in ihandle:
+                  if re.search("ChrID", line):
+                     handle.write(line)
+```
+__Step 2e.:__ Create a config for pindel somatic filter
+```Python
+indel.filter.input = $(merged.pindel.output)
+indel.filter.vaf = 0.08
+indel.filter.cov = 20
+indel.filter.hom = 6
+indel.filter.pindel2vcf = "/path/to/pindel/pindel2vcf4tcga"
+indel.filter.reference =  "GRCh38.d1.vd1.fa"
+indel.filter.referencename = "GRCh38"
+indel.filter.referencedate = datetime.datetime.now().strftime("%Y%m%d")
+indel.filter.output = $(output.file.name.vcf)
+
+```
+__Step 2f.:__ Apply somatic filter on pindel output
+Tool: pindel2vcf4tcga 0.6.3
+```Perl
+perl pindel/somatic_filter/somatic_indelfilter.pl $(somatic.indel.filter.config)
+```
+__Step 3:__ Pindel
+Tool: Picard.jar 2.18.4-SNAPSHOT
+```Shell
+java \
+-d64 \
+-XX: +UseSerialGC \
+-Xmx16G \
+-jar picard.jar \
+SortVcf \
+CREATE_INDEX=true \
+SEQUENCE_DICTIONARY=GRCh38.d1.vd1.dict \
+I=$(pindel.somatic.vcf) \
+OUTPUT=$(output.vcf.gz)
+```
+__Step 5:__ Vt Normalization
+Tool: GenomeAnalysisTK.jar nightly-2016-02-25-gf39d340
+
+```Shell
+java \
+-Xmx4G \
+-jar \
+/bin/GenomeAnalysisTK.jar \
+-T VariantFiltration \
+--disable_auto_index_creation_and_locking_when_reading_rods \
+--variant $(vt.normal.output.vcf.gz) \
+-R GRCh38.d1.vd1.fa \
+--filterExpression “vc.isBiallelic() && vc.getGenotype(\"TUMOR\").getAD().1 < 3” \
+--filterName TALTDP \
+-o $(output.vcf.gz)
+
+
 ```
 
 ### Variant Call Annotation Workflow
