@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v.1.18.1](Data_Dictionary_Release_Notes.md#v1181) | October X, 2019 |
 | [v.1.18](Data_Dictionary_Release_Notes.md#v118) | July 31, 2019 |
 | [v.1.17](Data_Dictionary_Release_Notes.md#v117) | June 5, 2019 |
 | [v.1.16](Data_Dictionary_Release_Notes.md#v116) | April 17, 2019 |
@@ -15,6 +16,19 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v.1.18.1
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: October X, 2019
+
+### New Features and Changes
+* Added new permissible value `deleted` to property `file_state`
+
+### Bugs Fixed Since Last Release
+
+* None
+
 
 ## v.1.18
 
