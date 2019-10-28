@@ -1,8 +1,8 @@
 # Exploration
 
-The Exploration Page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level. Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.  The Gene/Mutation data for these visualizations comes from the Open-Access MAF files on the GDC Data Portal.
+The Exploration Page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level. Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.  The Gene/Mutation data for these visualizations comes from the Open-Access MAF files on the GDC Data Portal.  There is also a `Clinical` tab with filters that apply specifically to clinical data.
 
-[![Exploration Page](images/GDC-Exploration-Page_v5.png)](images/GDC-Exploration-Page_v4.png "Click to see the full image.")
+[![Exploration Page](images/GDC-Exploration-Page_v6.png)](images/GDC-Exploration-Page_v6.png "Click to see the full image.")
 
 ## Filters / Facets
 On the left of this page, users can create advanced filters to narrow down results to create synthetic cohorts.
@@ -11,7 +11,7 @@ On the left of this page, users can create advanced filters to narrow down resul
 
 The first tab of filters is for cases in the GDC.
 
-[![Exploration Case Filters](images/Exploration-Cases-Filter.png)](images/Exploration-Cases-Filter.png "Click to see the full image.")
+[![Exploration Case Filters](images/Exploration-Cases-Filter_v2.png)](images/Exploration-Cases-Filter_v2.png "Click to see the full image.")
 
 These criteria limit the results only to specific cases within the GDC. The default filters available are:
 
@@ -20,14 +20,9 @@ These criteria limit the results only to specific cases within the GDC. The defa
 * __Program:__ A cancer research program, typically consisting of multiple focused projects.
 * __Project:__ A cancer research project, typically part of a larger cancer research program.
 * __Disease Type:__ Type of cancer studied.
-* __Gender:__ Gender of the patient.
-* __Age at Diagnosis:__ Patient age at the time of diagnosis.
-* __Vital Status:__ Indicator of whether the patient was living or deceased at the date of last contact.
-* __Days to Death:__ Number of days from date of diagnosis to death of the patient.
-* __Race:__ Race of the patient.
-* __Ethnicity:__ Ethnicity of the patient.
-
-In addition to the defaults, users can add additional case filters by clicking on the link titled ["Add a Case Filter"](Repository.md#adding-custom-facets).
+* __Experimental Strategy:__ Experimental strategy used for molecular characterization of the cancer.
+* __Sample Type:__ Describes the source of a biospeciment used for a laboratory test.
+* __Available Variation Data:__ ???.
 
 ### Gene Filters
 
