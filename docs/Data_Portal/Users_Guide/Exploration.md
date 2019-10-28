@@ -21,14 +21,14 @@ These criteria limit the results only to specific cases within the GDC. The defa
 * __Project:__ A cancer research project, typically part of a larger cancer research program.
 * __Disease Type:__ Type of cancer studied.
 * __Experimental Strategy:__ Experimental strategy used for molecular characterization of the cancer.
-* __Sample Type:__ Describes the source of a biospeciment used for a laboratory test.
-* __Available Variation Data:__ ???.
+* __Sample Type:__ Describes the source of a biospecimen used for a laboratory test.
+* __Available Variation Data:__ Indicates the types of genomic variation data that a case has been tested for.
 
 ### Gene Filters
 
 The second tab of filters is for genes affected by mutations in the GDC.
 
-[![Exploration Gene Filters](images/Exploration-Gene-Filter.png)](images/Exploration-Gene-Filter.png "Click to see the full image.")
+[![Exploration Gene Filters](images/Exploration-Gene-Filter_v2.png)](images/Exploration-Gene-Filter_v2.png "Click to see the full image.")
 
 The second tab of filters are for specific genes.  Users can filter by:
 
@@ -44,7 +44,7 @@ The second tab of filters are for specific genes.  Users can filter by:
 
 The final tab of filters is for specific mutations.
 
-[![Exploration Mutation Filters](images/Exploration-Mutations-Filter.png)](images/Exploration-Mutations-Filter.png "Click to see the full image.")
+[![Exploration Mutation Filters](images/Exploration-Mutations-Filter_v2.png)](images/Exploration-Mutations-Filter_v2.png "Click to see the full image.")
 
 Users can filter by:
 
@@ -53,7 +53,6 @@ Users can filter by:
     * DNA Change - 	chr12:g.121804752delC
     * COSMIC ID - COSM202522
     * List of any mutation UUIDs or DNA Change id's ('Mutation Set').
-* __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms.
 * __Impact:__ A subjective classification of the severity of the variant consequence. These scores are determined using the three following tools:
     * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html):__
         * __HIGH (H):__ The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay.
@@ -70,6 +69,7 @@ Users can filter by:
         * __tolerated_low_confidence:__ More likely to have a phenotypic effect than 'tolerated'.
         * __deleterious:__ Likely to have a phenotypic effect.
         * __deleterious_low_confidence:__ Less likely to have a phenotypic effect than 'deleterious'.
+* __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms.
 * __Type:__ A general classification of the mutation.
 * __Variant Caller:__ The variant caller used to identify the mutation.
 * __COSMIC ID:__ This option will filter out only mutations with a COSMIC ID.
