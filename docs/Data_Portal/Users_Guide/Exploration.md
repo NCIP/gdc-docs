@@ -119,7 +119,17 @@ The page also provides clinical and biospecimen information about that case. Lin
 
 [![Case Page, Clinical and Biospecimen](images/gdc-case-clinical-biospecimen_v4.png)](images/gdc-case-clinical-biospecimen_v4.png "Click to see the full image.")
 
-For clinical records that support multiple records of the same type (Diagnoses, Family Histories, or Exposures), a UUID of the record is provided at the top of the corresponding tab.
+Some clinical records can support multiple records of the same type (Diagnoses, Family Histories, Exposures, Follow-Ups).  If only one record exists, the UUID of the record is provided at the top of the corresponding tab.
+
+[![Case Page, Single Clinical Record](images/gdc-case-clinical-single-record.png)](images/gdc-case-clinical-single-record.png "Click to see the full image.")
+
+If there are multiple records, they are listed as horizontal tabs.
+
+[![Case Page, Multiple Clinical Records](images/gdc-case-clinical-multiple-records.png)](images/gdc-case-clinical-multiple-records.png "Click to see the full image.")
+
+Some record types are further nested under another.  For example, a Diagnosis record may have multiple associated Treatment records.  The associated sub-records are listed in a table on the tab.
+
+[![Case Page, Nested Clinical Records](images/gdc-case-clinical-nested-records.png)](images/gdc-case-clinical-nested-records.png "Click to see the full image.")
 
 #### Biospecimen Search
 
