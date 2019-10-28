@@ -24,13 +24,17 @@ These criteria limit the results only to specific cases within the GDC. The defa
 * __Sample Type:__ Describes the source of a biospecimen used for a laboratory test.
 * __Available Variation Data:__ Indicates the types of genomic variation data that a case has been tested for.
 
+### Clinical Filters
+
+The second tab of filters is for ???
+
 ### Gene Filters
 
-The second tab of filters is for genes affected by mutations in the GDC.
+The third tab of filters is for genes affected by mutations in the GDC.
 
 [![Exploration Gene Filters](images/Exploration-Gene-Filter_v2.png)](images/Exploration-Gene-Filter_v2.png "Click to see the full image.")
 
-The second tab of filters are for specific genes.  Users can filter by:
+Users can filter by:
 
 * __Gene:__ Specify a Gene Symbol, ID, or list of Genes ('Gene Set').
 * __Biotype:__  Classification of the type of gene according to Ensembl. The biotypes can be grouped into protein coding, pseudogene, long noncoding and short noncoding. Examples of biotypes in each group are as follows:
