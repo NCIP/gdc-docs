@@ -111,7 +111,7 @@ Below these pie charts is a tabular view of cases, which can be exported, sorted
 
 The Case Summary Page displays case details including the project and disease information, data files that are available for that case, and the experimental strategies employed. A button in the top-right corner of the page allows the user to add all files associated with the case to the file [cart](Cart.md).
 
-[![Case Page](images/gdc-case-entity-page.png)](images/gdc-case-entity-page.png "Click to see the full image.")
+[![Case Page](images/gdc-case-entity-page_v2.png)](images/gdc-case-entity-page_v2.png "Click to see the full image.")
 
 #### Clinical and Biospecimen Information
 
