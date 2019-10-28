@@ -117,7 +117,7 @@ The Case Summary Page displays case details including the project and disease in
 
 The page also provides clinical and biospecimen information about that case. Links to export clinical and biospecimen information in JSON format are provided.
 
-[![Case Page, Clinical and Biospecimen](images/gdc-case-clinical-biospecimen_v3.png)](images/gdc-case-clinical-biospecimen_v3.png "Click to see the full image.")
+[![Case Page, Clinical and Biospecimen](images/gdc-case-clinical-biospecimen_v4.png)](images/gdc-case-clinical-biospecimen_v4.png "Click to see the full image.")
 
 For clinical records that support multiple records of the same type (Diagnoses, Family Histories, or Exposures), a UUID of the record is provided at the top of the corresponding tab.
 
