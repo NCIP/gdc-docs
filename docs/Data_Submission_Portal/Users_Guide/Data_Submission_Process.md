@@ -71,7 +71,7 @@ The search field at the top of the dashboard allows for submitted entities to be
 
 The remaining part of the top section of the dashboard is broken down into four status charts:
 
-* __QC Errors__: The number of errors found in the uploaded data.  For more details please refer to the [QC Report Section](putlinkinhere).
+* __QC Errors__: The number of errors found in the uploaded data.  For more details please refer to the [QC Report Section](/Data_Submission_Portal/Users_Guide/Data_Submission_Process/#qc-reports).
 * __Cases with Clinical__: The number of `cases` for which Clinical data has been uploaded.
 * __Cases with Biospecimen__: The number of `cases` for which Biospecimen data has been uploaded.
 * __Cases with Submittable Data Files__: The number of `cases` for which experimental data has been uploaded.
@@ -265,53 +265,44 @@ Once the user clicks on `REVIEW`, the project state will change to "REVIEW":
 
 The Harmonization step is __NOT__ an automatic process that occurs when data is uploaded to the GDC. The GDC performs batch processing of submitted data for Harmonization only after verifying that the submission is complete.
 
-QC checks are automatically run on all supplied metadata and data files.  The results are displayed within the [QC Reports](/Data_Submission_Portal/Users_Guide/Data_Submission_Process/#qc-reports).  These errors fall into two categories: Critical or Warning.  If an error is deemed Critical it must be resolved before a submitter can request harmonization.  If a an error is categorized as Warning then the submitter should review this to verify the data have been submitted correctly.  Details of all checks can be found [here](https://github.com/NCI-GDC/proto-bio-submitter-qc/tree/master/bio_submitter_qc/validators).  A summary of the requirements is found below:
+QC checks are automatically run on all supplied metadata and data files.  The results are displayed within the [QC Reports](/Data_Submission_Portal/Users_Guide/Data_Submission_Process/#qc-reports).  These errors fall into two categories: Critical or Warning.  If an error is deemed Critical it must be resolved before a submitter can request harmonization.  If an error is categorized as Warning then the submitter should review this to verify the data have been submitted correctly.  A list of the errors and their meanings are found in the table below:
 
-#### Critical
+#### __Critical Errors__
 
-1. There are no invalid characters in the `submitter_id` of any node.
-The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `.`, `-`. Any other characters will interfere with the Harmonization workflow.
+| Error Message | Description | How to Fix / Error Meaning |
+|---|---|---|
+|INVALID_CHARACTER  | This entity submitter_id includes invalid characters | Upload new entity without invalid characters.  The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `.`, `-`. Any other characters will interfere with the Harmonization workflow. |
+| MORE_THAN_ONE_SAMPLE_TYPE  | The aliquot is associated with more than one sample type | Ensure there is no `aliquot` attached to multiple `sample` nodes of more than one sample_type. |
+| TWO_NODE_TYPES  | The aliquot is associated with two or more node types| Ensure aliquot is only connected to a single tuype of node. |
+| PE_FASTQ_FILE_COUNT  | The number of FASTQ files for PE readgroup is not 2| Ensure that if a read group is paired end, that it has two FASTQ files. For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.|
+| SE_FASTQ_FILE_COUNT  | The number of FASTQ files for SE readgroup is not 1| Ensure that if a read group is single end, that it has one FASTQ file. For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.|
+| CAPTURE_KIT_INADEQUATE  | WXS/Targeted Sequencing ReadGroup lacks valid target capture kit| Modify read group entity to have a valid target capture kit from data dictionary. The `target_capture_kit` property is completed when the selected `library_strategy` is `WXS`. Errors will occur if `Not Applicable` or `Unknown` is selected. |
+| TARGET_SEQ_LIBRARY_SELECTION  | ReadGroup has library strategy Targeted Sequencing but does not have PCR or Hybrid Selection as its library selection|  If library strategy is Target Sequencing, modify library selection to be either PCR or Hybrid Selection |
+| WXS_LIBRARY_SELECTION  | ReadGroup has library strategy WXS but does not have Hybrid Selection as its library selection| Modify library selection to be Hybrid Selection for WXS read groups |  
+| WGS_LIBRARY_SELECTION  | ReadGroup has library strategy WGS but does not have Random as its library selection| For WGS read groups, ensure library strategy is set to Random |
+| NO_READ_PAIR_NUMBER  | The FASTQ is paired but has no read_pair_number| Include a read_pair_number for paired end FASTQ files |
+| DUPLICATE_MD5S  | Two or more files have the same md5sum| This means there are duplicate files in the submission.  You must delete one of these files |
 
-2. There are no data files with duplicate md5sums.
-
-3.  There is no `aliquot` attached to multiple `sample` nodes of more than one sample_type.
-
-4.  In `read_group`, the `library_strategy` should aligned with the `library_selection`:
-        * Targeted Sequencing `library_stategy` must be with either PCR or Hybrid Selection `library_selection`.
-        * WXS must be with Hybrid Selection.
-        * WGS must be with Random.
-
-5.  The `target_capture_kit` property is completed when the selected `library_strategy` is `WXS`. Errors will occur if `Not Applicable` or `Unknown` is selected.
-
-6.  For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.
-
-#### Warning
-
-1. All files that are registered have been uploaded and validated.
-
-2. Clinical data nodes such as `demographic`, `diagnosis` and `clinical_supplement`, are linked to `case`.
-
-3. The `read_group` node is linked to a valid node:
-    * `submitted_unaligned_reads`
-    * `submitted_aligned_reads`
-    * `submitted_genomic_profile`
-
-4. `aliquot` is attached to only one `sample`.
-
-5. Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`.
-
-6. The information for the `platform` is in the `read_group` node. This includes the following properties:
-    * `multiplex_barcode`
-    * `flow_cell_barcode`
-    * `lane_number`
-
-7.  The `submitted_unaligned_reads` file is not larger than 10 GB.
-
-8.  FASTQ file extension is `.fq` or `.fq.gz`. Impermissible extensions are `tar.gz` and `tar`.
-
-9.  `submitted_unaligned_reads` of data_format `FASTQ` is not linked to multiple `read_group` nodes.
-MULTIPLE_FASTQ_READGROUPS = \
-
+#### __Warning Errors__
+| Error Message | Description | How to Fix / Error Meaning |
+|---|---|---|
+| FILE_BAD_STATE  | The file node is in a bad state |  There are some files in a bad file_state. All files that are registered must been uploaded and validated. If file_state is `Error` You will have to delete the file using the data transfer tool, and re-upload it, or upload a file if the state is `Registered`|
+| INCONSISTENT_READGROUPS  | ReadGroups sharing a library_strategy under a given aliquot have properties that do not match| Some read groups under the same library | Verify the properties of shared read groups under the same aliquot are consistent.|
+| NO_CLINICAL_SUPPLEMENT  | The case has no associated clinical supplement| -- |
+| NO_BIOSPECIMEN_SUPPLEMENT  | The case has no associated biospecimen supplement| -- |
+| NO_DEMOGRAPHIC  | The case has no associated demographic| -- |
+| NO_DIAGNOSIS  | The case has no associated diagnosis| -- |
+| MORE_THAN_ONE_SAMPLE  | The aliquot is associated with more than one sample| -- |
+| MULTIPLE_ALIGNED_BAMS  | The readgroup has multiple submitted aligned BAMs| -- |
+| NO_MULTIPLEX_BARCODE  | The read_group has no multiplex barcode| -- |
+| NO_FLOWCELL_BARCODE  | The read_group has no flowcell barcode| -- |
+| NO_LANE_NUMBER  | The read_group has no lane number| -- |
+| MULTIPLE_SARS_ON_ALIQUOT  | Multiple submitted aligned reads of the same experimental strategy are associated with one aliquot.|  Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`. |
+| FASTQ_UNKNOWN_EXTENSION  | The FASTQ filename has an unknown extension| -- |
+| MULTIPLE_FASTQ_READGROUPS  | Submitted FASTQ file has links to multiple read groups| Ensure `submitted_unaligned_reads` of data_format `FASTQ` is not linked to multiple `read_group` nodes. |
+| INVALID_FASTQ_EXTENSION  | Submitted FASTQ file name has an invalid extension| FASTQ file extension is `.fq` or `.fq.gz`. Impermissible extensions are `tar.gz` and `tar`.|
+| FASTQ_TOO_LARGE  | FASTQ exceeds 10GB in size| The `submitted_unaligned_reads` file is larger than 10 GB. |
+| NO_ASSOCIATED_FILES  | ReadGroup has no associated genomic files|
 
 Once user review is complete and all Critical errors are resolved, clicking the `REQUEST HARMONIZATION` button will indicate to the GDC Team and pipeline automation system that data processing can begin.
 

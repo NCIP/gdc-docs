@@ -55,9 +55,9 @@ For strategies on data upload, further documentation for the GDC Data Submission
 
 [`See submittable data file upload example here.`](Data_Submission_Walkthrough.md#uploading-the-submittable-data-file-to-the-gdc)
 
-### Verify Accuracy and Completeness of Project Data - Submitter Activity
+### Verify Accuracy and Completeness of Project Data (Project QC) - Submitter Activity
 
-The submitter is responsible for reviewing the data uploaded to the project workspace, see [Data Submission Walkthrough](Data_Submission_Walkthrough.md), and ensuring that it is ready for processing by the GDC [Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization). A user should be able to go through the [Pre-Harmonization Checklist](Data_Submission_Process.md#pre-harmonization-checklist), and verify that their submission meets these criteria.
+The submitter is responsible for reviewing the data uploaded to the project workspace and ensuring there are no critical QC errors, see [Data Submission Walkthrough](Data_Submission_Walkthrough.md), and ensuring that it is ready for processing by the GDC [Harmonization Process](https://gdc.cancer.gov/submit-data/gdc-data-harmonization). A user should be able to go through the [Pre-Harmonization Checklist](Data_Submission_Process.md#pre-harmonization-checklist), and verify that their submission meets these criteria.
 
 [`See pre-harmonization checklist here.`](Data_Submission_Process.md#pre-harmonization-checklist)
 
