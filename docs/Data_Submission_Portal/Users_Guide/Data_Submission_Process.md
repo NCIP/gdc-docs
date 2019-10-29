@@ -273,7 +273,7 @@ QC checks are automatically run on all supplied metadata and data files.  The re
 |---|---|---|
 |INVALID_CHARACTER  | This entity submitter_id includes invalid characters | Upload new entity without invalid characters.  The acceptable characters are alphanumeric characters [a-z, A-Z, 0-9] and `_`, `.`, `-`. Any other characters will interfere with the Harmonization workflow. |
 | MORE_THAN_ONE_SAMPLE_TYPE  | The aliquot is associated with more than one sample type | Ensure there is no `aliquot` attached to multiple `sample` nodes of more than one sample_type. |
-| TWO_NODE_TYPES  | The aliquot is associated with two or more node types| Ensure aliquot is only connected to a single tuype of node. |
+| TWO_NODE_TYPES  | The aliquot is associated with two or more node types| Ensure aliquot is only connected to a single type of node. |
 | PE_FASTQ_FILE_COUNT  | The number of FASTQ files for PE readgroup is not 2| Ensure that if a read group is paired end, that it has two FASTQ files. For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.|
 | SE_FASTQ_FILE_COUNT  | The number of FASTQ files for SE readgroup is not 1| Ensure that if a read group is single end, that it has one FASTQ file. For the `read_group` node, make sure that the `is_paired_end` is set to `true` for paired end sequencing and `false` for single end sequencing.|
 | CAPTURE_KIT_INADEQUATE  | WXS/Targeted Sequencing ReadGroup lacks valid target capture kit| Modify read group entity to have a valid target capture kit from data dictionary. The `target_capture_kit` property is completed when the selected `library_strategy` is `WXS`. Errors will occur if `Not Applicable` or `Unknown` is selected. |
@@ -287,7 +287,7 @@ QC checks are automatically run on all supplied metadata and data files.  The re
 | Error Message | Description | How to Fix / Error Meaning |
 |---|---|---|
 | FILE_BAD_STATE  | The file node is in a bad state |  There are some files in a bad file_state. All files that are registered must been uploaded and validated. If file_state is `Error` You will have to delete the file using the data transfer tool, and re-upload it, or upload a file if the state is `Registered`|
-| INCONSISTENT_READGROUPS  | ReadGroups sharing a library_strategy under a given aliquot have properties that do not match| Some read groups under the same library | Verify the properties of shared read groups under the same aliquot are consistent.|
+| INCONSISTENT_READGROUPS  | ReadGroups sharing a library_strategy under a given aliquot have properties that do not match| Verify the properties of shared read groups under the same aliquot are consistent.|
 | NO_CLINICAL_SUPPLEMENT  | The case has no associated clinical supplement| -- |
 | NO_BIOSPECIMEN_SUPPLEMENT  | The case has no associated biospecimen supplement| -- |
 | NO_DEMOGRAPHIC  | The case has no associated demographic| -- |
@@ -298,11 +298,11 @@ QC checks are automatically run on all supplied metadata and data files.  The re
 | NO_FLOWCELL_BARCODE  | The read_group has no flowcell barcode| -- |
 | NO_LANE_NUMBER  | The read_group has no lane number| -- |
 | MULTIPLE_SARS_ON_ALIQUOT  | Multiple submitted aligned reads of the same experimental strategy are associated with one aliquot.|  Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`. |
-| FASTQ_UNKNOWN_EXTENSION  | The FASTQ filename has an unknown extension| -- |
+| FASTQ_UNKNOWN_EXTENSION  | The FASTQ filename has an unknown extension| FASTQ file extension should be `.fq` or `.fq.gz`. Impermissible extensions are `tar.gz` and `tar`. |
 | MULTIPLE_FASTQ_READGROUPS  | Submitted FASTQ file has links to multiple read groups| Ensure `submitted_unaligned_reads` of data_format `FASTQ` is not linked to multiple `read_group` nodes. |
-| INVALID_FASTQ_EXTENSION  | Submitted FASTQ file name has an invalid extension| FASTQ file extension is `.fq` or `.fq.gz`. Impermissible extensions are `tar.gz` and `tar`.|
+| INVALID_FASTQ_EXTENSION  | Submitted FASTQ file name has an invalid extension| FASTQ file extension should be `.fq` or `.fq.gz`. Impermissible extensions are `tar.gz` and `tar`.|
 | FASTQ_TOO_LARGE  | FASTQ exceeds 10GB in size| The `submitted_unaligned_reads` file is larger than 10 GB. |
-| NO_ASSOCIATED_FILES  | ReadGroup has no associated genomic files|
+| NO_ASSOCIATED_FILES  | ReadGroup has no associated genomic files| Ensure that all read groups have genomic files attached - or delete them if they are no longer needed |
 
 Once user review is complete and all Critical errors are resolved, clicking the `REQUEST HARMONIZATION` button will indicate to the GDC Team and pipeline automation system that data processing can begin.
 
