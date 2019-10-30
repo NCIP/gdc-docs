@@ -171,7 +171,7 @@ Gene Summary Pages describe each gene with mutation data and provides results re
 
 The summary section of the Gene Page contains the following information:
 
-[![Gene Summary](images/GDC-Gene-Summary.png)](images/GDC-Gene-Summary.png "Click to see the full image.")
+[![Gene Summary](images/GDC-Gene-Summary_v2.png)](images/GDC-Gene-Summary_v2.png "Click to see the full image.")
 
 * __Symbol:__ The gene symbol.
 * __Name:__ Full name of the gene.
@@ -191,6 +191,7 @@ A list with links that lead to external databases with additional information ab
 *  [Hugo Gene Nomenclature Committee](http://www.genenames.org/)
 *  [Online Mendelian Inheritance in Man](https://www.omim.org/)
 *  [Ensembl](http://may2015.archive.ensembl.org/index.html)
+*  [CIViC](https://civicdb.org/home)
 
 #### Cancer Distribution
 
