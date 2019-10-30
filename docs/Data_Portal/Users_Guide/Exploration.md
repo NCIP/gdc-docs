@@ -26,7 +26,16 @@ These criteria limit the results only to specific cases within the GDC. The defa
 
 ### Clinical Filters
 
-The second tab of filters is for ???
+The second tab of filters is used to specifically explore clinical data for cases in the GDC.
+
+[![Exploration Clinical Filters](images/Exploration-Clinical-Filter.png)](images/Exploration-Clinical-Filter.png "Click to see the full image.")
+
+Users can filter by specific clinical variables, grouped into these categories:
+
+* __Demographic:__
+* __Diagnoses:__
+* __Treatments:__
+* __Exposures:__
 
 ### Gene Filters
 
