@@ -59,11 +59,11 @@ Clicking on `Submit` will filter the results in the Exploration Page by those mu
 ## Analysis Page
 Clicking on the `Analysis` button in the top toolbar will launch the Analysis Page which displays the various options available for comparing saved sets.
 
-[![Analysis Tab](images/GDC-Analysis-Tab.png)](images/GDC-Analysis-Tab.png "Click to see the full image.")
+[![Analysis Tab](images/GDC-Analysis-Tab_v2.png)](images/GDC-Analysis-Tab_v2.png "Click to see the full image.")
 
-There are two tabs on this page:
+There are three tabs on this page:
 
-* __Launch Analysis__: Where users can select either to do `Set Operations` or `Cohort Comparison`.
+* __Launch Analysis__: Where users can select either to do `Set Operations`, `Cohort Comparison` or `Clinical Data Analysis`.
 * __Results__: Where users can view the results of current or previous set analyses.
 
 ## Analysis Page: Set Operations
