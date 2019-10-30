@@ -284,7 +284,7 @@ The fields that describe each consequence are listed below:
   * __AA Change:__ Details on the amino acid change, including compounds and position, if applicable.
   * __Consequence:__ The biological consequence of each mutation.
   * __Coding DNA Change:__ The specific nucleotide change and position of the mutation within the gene.
-* __Impact:__  A [subjective classification](#mutation-filters) of the severity of the variant consequence. This is determined by three different tools:
+  * __Impact:__  A [subjective classification](#mutation-filters) of the severity of the variant consequence. This is    determined by three different tools:
     * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html)__
     * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/)__
     * __[SIFT](http://sift.jcvi.org/)__
