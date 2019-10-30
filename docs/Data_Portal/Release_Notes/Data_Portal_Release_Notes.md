@@ -55,6 +55,7 @@
 
 ### Known Issues and Workarounds
 
+*  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
 *  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
 *  Custom Facet Filters
     * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->

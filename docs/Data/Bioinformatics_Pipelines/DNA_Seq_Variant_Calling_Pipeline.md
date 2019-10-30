@@ -329,7 +329,7 @@ java -jar VarScan.jar processSomatic \
 
 __Step 1:__ Filter Reads
 
-Filter bam reads that are not unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary for both tumor and normal bam files
+Filter BAM reads that are not unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary for both tumor and normal BAM files
 
 Tool: sambamba 0.7.0-pre1
 

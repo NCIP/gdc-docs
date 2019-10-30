@@ -2684,7 +2684,9 @@ Files in `file_state = validated` can be downloaded by the submitter using the A
 
 ### Deleting Files
 
-Uploaded files can be deleted by deleting the entity that corresponds to the file. See [Deleting Entities](#deleting-entities) for details.
+Uploaded files must be deleted using a two step process.  First, the file is deleted using the Data Transfer Tool.  See [Deleting Previously Uploaded Data](../../Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) for details.
+
+Second, the file node can be deleted or modified. See [Deleting Entities](#deleting-entities) for details.
 
 ## Querying Submitted Data Using GraphQL
 
