@@ -302,7 +302,7 @@ The table contains the following fields:
   * __Project ID__: The ID for a specific project.
   * __Disease Type__: The disease associated with the project.
   * __Site__: The anatomical site affected by the disease.
-  * __# SMM Affected Cases__: The number of affected cases and total number of cases displayed as a fraction and percentage.
+  * __# SSM Affected Cases__: The number of affected cases and total number of cases displayed as a fraction and percentage.
 
 #### Protein Viewer
 
