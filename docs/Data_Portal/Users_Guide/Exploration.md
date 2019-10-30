@@ -180,7 +180,7 @@ The summary section of the Gene Page contains the following information:
 * __Location:__ The chromosome on which the gene is located and its coordinates.
 * __Strand:__ If the gene is located on the forward (+) or reverse (-) strand.
 * __Description:__ A description of gene function and downstream consequences of gene alteration.
-- __Annotation:__ A notation/link that states whether the gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/).
+* __Annotation:__ A notation/link that states whether the gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/).
 
 #### External References
 
@@ -259,7 +259,7 @@ A table is displayed below that lists information about each mutation:
 
   The Mutation Summary Page contains information about one somatic mutation and how it affects the associated gene. Each mutation is identified by its chromosomal position and nucleotide-level change.
 
-  [![Mutation Summary](images/GDC-Mutation-Summary.png)](images/GDC-Mutation-Summary.png "Click to see the full image.")
+  [![Mutation Summary](images/GDC-Mutation-Summary_v2.png)](images/GDC-Mutation-Summary_v2.png "Click to see the full image.")
 
   - __UUID:__ A unique identifier (UUID) for this mutation.
   - __DNA Change:__ Denotes the chromosome number, position, and nucleotide change of the mutation.
