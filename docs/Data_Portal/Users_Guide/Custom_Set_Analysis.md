@@ -94,6 +94,10 @@ The "Cohort Comparison" analysis displays a series of graphs and tables that dem
 
 [![Clinical Cohort](images/GDC-Clinical-Cohort_v2.png)](images/GDC-Clinical-Cohort_v2.png "Click to see the full image.")
 
+## Analysis Tab: Clinical Data Analysis
+
+???
+
 ## Analysis Page: Results
 
 The results of the previous analyses are displayed on this page.
