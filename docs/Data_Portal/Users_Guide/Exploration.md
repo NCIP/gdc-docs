@@ -32,10 +32,10 @@ The second tab of filters is used to specifically explore clinical data for case
 
 Users can filter by specific clinical variables, grouped into these categories:
 
-* __Demographic:__
-* __Diagnoses:__
-* __Treatments:__
-* __Exposures:__
+* __Demographic:__ Data for the characterization of the patient by means of segmenting the population (e.g. characterization by age, sex, race, etc.).
+* __Diagnoses:__ Data from the investigation, analysis, and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation.
+* __Treatments:__ Records of the administration and intention of therapeutic agents provided to a patient to alter the course of a pathologic process.
+* __Exposures:__ Clinically-relevant patient information not immediately resulting from genetic predispositions.
 
 ### Gene Filters
 
