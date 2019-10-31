@@ -96,7 +96,19 @@ The "Cohort Comparison" analysis displays a series of graphs and tables that dem
 
 ## Analysis Tab: Clinical Data Analysis
 
-???
+The "Clinical Data Analysis" feature allows users to specifically examine the clinical data of a single case set in more detail.  Users can select which clinical fields they want to display and visualize the data using various supported plot types.  The clinical analysis features include:
+
+* Ability to select which clinical fields to display
+* Examine the clinical data of each field using these visualizations:
+  * Histogram
+  * Survival Plot
+  * Box Plot
+  * QQ Plot
+* Create custom bins for each field and re-visualize the data with those bins
+* Select specific cases from a clinical field and use them to create a new set, or modify/remove from an existing set
+* Download the visualizations of each plot type for each variable in SVG, PNG, JSON formats
+* Download the data table of each field in TSV format
+* Print all clinical variable cards in the analysis with their active plot to a single PDF
 
 ## Analysis Page: Results
 
