@@ -114,7 +114,15 @@ The "Clinical Data Analysis" feature allows users to specifically examine the cl
 
 First, a case set must be selected to run the clinical analysis on:
 
-[![Select Clinical Cohort](images/GDC--Select-Clinical-Cohort.png)](images/GDC-Select-Clinical-Cohort.png "Click to see the full image.")
+[![Select Clinical Cohort](images/GDC-Select-Clinical-Cohort.png)](images/GDC-Select-Clinical-Cohort.png "Click to see the full image.")
+
+Click __'Run'__ - The results page loads with a new tab for the new clinical analysis for the selected set:
+
+[![Select Clinical Cohort](images/GDC-Load-Clinical-Analysis.png)](images/GDC-Load-Clinical-Analysis.png "Click to see the full image.")
+
+### Enabling Clinical Variable Cards
+
+???
 
 ### ???
 
