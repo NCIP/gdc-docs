@@ -288,15 +288,15 @@ QC checks are automatically run on all supplied metadata and data files.  The re
 |---|---|---|
 | FILE_BAD_STATE  | The file node is in a bad state |  There are some files in a bad file_state. All files that are registered must been uploaded and validated. If file_state is `Error` You will have to delete the file using the data transfer tool, and re-upload it, or upload a file if the state is `Registered`|
 | INCONSISTENT_READGROUPS  | ReadGroups sharing a library_strategy under a given aliquot have properties that do not match| Verify the properties of shared read groups under the same aliquot are consistent.|
-| NO_CLINICAL_SUPPLEMENT  | The case has no associated clinical supplement| -- |
-| NO_BIOSPECIMEN_SUPPLEMENT  | The case has no associated biospecimen supplement| -- |
-| NO_DEMOGRAPHIC  | The case has no associated demographic| -- |
-| NO_DIAGNOSIS  | The case has no associated diagnosis| -- |
-| MORE_THAN_ONE_SAMPLE  | The aliquot is associated with more than one sample| -- |
-| MULTIPLE_ALIGNED_BAMS  | The readgroup has multiple submitted aligned BAMs| -- |
-| NO_MULTIPLEX_BARCODE  | The read_group has no multiplex barcode| -- |
-| NO_FLOWCELL_BARCODE  | The read_group has no flowcell barcode| -- |
-| NO_LANE_NUMBER  | The read_group has no lane number| -- |
+| NO_CLINICAL_SUPPLEMENT  | The case has no associated clinical supplement| Upload an optional clinical supplement file.  This is a file that contains clinical data about one or more cases in a user specified format |
+| NO_BIOSPECIMEN_SUPPLEMENT  | The case has no associated biospecimen supplement| Upload an optional biospecimen supplement file.  This is a file that contains biospecimen data about one or more cases in a user specified format |
+| NO_DEMOGRAPHIC  | The case has no associated demographic information| Provide demographic information on the case.  This will be required before data can be released. |
+| NO_DIAGNOSIS  | The case has no associated diagnosis information | Provide diagnosis information on the case.  This will be required before data can be released. |
+| MORE_THAN_ONE_SAMPLE  | The aliquot is associated with more than one sample| Review whether multiple samples were actually combined to make a single aliquot.  This is uncommon, but potentially correct. |
+| MULTIPLE_ALIGNED_BAMS  | The read_group has multiple submitted aligned BAMs| Review whether one read group actually appears in multiple BAM files.  This is uncommon. |
+| NO_MULTIPLEX_BARCODE  | The read_group has no multiplex barcode| Provide multiplex barcode for the read_group. |
+| NO_FLOWCELL_BARCODE  | The read_group has no flowcell barcode| Provide flowcell barcode for the read_group |
+| NO_LANE_NUMBER  | The read_group has no lane number| Provide lane number for the read_group |
 | MULTIPLE_SARS_ON_ALIQUOT  | Multiple submitted aligned reads of the same experimental strategy are associated with one aliquot.|  Each `aliquot` node is only associated with one `submitted_aligned_reads` file of the same `experimental_strategy`. |
 | FASTQ_UNKNOWN_EXTENSION  | The FASTQ filename has an unknown extension| FASTQ file extension should be `.fq` or `.fq.gz`. Impermissible extensions are `tar.gz` and `tar`. |
 | MULTIPLE_FASTQ_READGROUPS  | Submitted FASTQ file has links to multiple read groups| Ensure `submitted_unaligned_reads` of data_format `FASTQ` is not linked to multiple `read_group` nodes. |
