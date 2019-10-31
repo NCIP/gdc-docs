@@ -110,6 +110,14 @@ The "Clinical Data Analysis" feature allows users to specifically examine the cl
 * Download the data table of each field in TSV format
 * Print all clinical variable cards in the analysis with their active plot to a single PDF
 
+### Selecting a Case Set
+
+First, a case set must be selected to run the clinical analysis on:
+
+[![Select Clinical Cohort](images/GDC--Select-Clinical-Cohort.png)](images/GDC-Select-Clinical-Cohort.png "Click to see the full image.")
+
+### ???
+
 ## Analysis Page: Results
 
 The results of the previous analyses are displayed on this page.
