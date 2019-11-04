@@ -207,6 +207,9 @@ Note that the box plot and QQ plot only apply to continuous variables.  They can
 
 Clinical Analysis also provides these additional useful functions:
 
+* Switch the current set that the analysis applies to - This does the following:
+  * Applies all currently-enabled clinical cards and their currently-selected plot types to the data in the set being switched to
+  * Re-renders all active visualizations to reflect the data in the set being switched to
 * Rename your analysis with a custom name
 * Copy your current analysis to a new analysis:
   * User is prompted to name the new copy
