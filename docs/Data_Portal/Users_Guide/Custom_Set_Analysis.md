@@ -226,9 +226,21 @@ To create custom bins for a continuous variable, click *__Customize Bins__*, the
 
 [![Clinical Analysis Continuous Bins](images/GDC-Clinical-Analysis-Continuous-Bins.png)](images/GDC-Clinical-Analysis-Continuous-Bins.png "Click to see the full image.")
 
-The user can:
+The user can choose one of these continuous binning methods:
 
-* ???
+* (1) Create equi-distant bins based on a set interval:
+  * User must choose the interval (e.g. equi-distant bins of 1,825 days for the Age of Diagnosis field)
+  * User can optionally define the starting and ending value between which the equi-distant bins will be created
+* (2) Create completely custom ranges:
+  * User manually enters 1 or more bins with custom ranges
+  * User must enter a name for each range and the start and end values
+  * The ranges can be of different interval lengths
+
+Before saving the bins, if there are errors in the configuration, the user will be notified to correct them and try saving again.  For example:
+
+[![Clinical Analysis Continuous Bins Error Example 1](images/GDC-Clinical-Analysis-Continuous-Bins-Error-Example1.png)](images/GDC-Clinical-Analysis-Continuous-Bins-Error-Example1.png "Click to see the full image.")
+
+[![Clinical Analysis Continuous Bins Error Example 2](images/GDC-Clinical-Analysis-Continuous-Bins-Error-Example2.png)](images/GDC-Clinical-Analysis-Continuous-Bins-Error-Example2.png "Click to see the full image.")
 
 ### Other Useful Functions
 
