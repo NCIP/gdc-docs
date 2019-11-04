@@ -187,7 +187,8 @@ The box plot and QQ plot are displayed side-by-side in the same visualization.  
 ** Median
 ** Standard Deviation
 ** Interquartile Range (IQR)
-* View 
+* View a QQ plot visualization to explore whether the clinical field's data across the cohort is normally distributed, where:
+** The clinical data values are plotted as the sample quantiles on the vertical axis, while the quantiles of the normal distribution are plotted on the horizontal axis
 * Download the box plot and QQ plot visualizations in SVG or PNG format
 * Download the raw data used to generate the QQ plot in JSON or TSV format
 
