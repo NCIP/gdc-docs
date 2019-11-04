@@ -207,6 +207,10 @@ Note that the box plot and QQ plot only apply to continuous variables.  They can
 
 Clinical Analysis also provides these additional useful functions:
 
+* Like other analysis types, all Clinical Analysis tabs are saved to the browser's local storage:
+  * Each Analysis tab is saved and is not deleted until local storage is cleared
+  * The currently-enabled clinical cards and their currently-selected plot types are saved *per analysis*
+  * Custom bins are *saved and apply globally to all analyses* - You cannot save custom bins per analysis
 * Switch the current set that the analysis applies to - This does the following:
   * Applies all currently-enabled clinical cards and their currently-selected plot types to the data in the set being switched to
   * Re-renders all active visualizations to reflect the data in the set being switched to
