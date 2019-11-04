@@ -188,7 +188,8 @@ The box plot and QQ plot are displayed side-by-side in the same visualization.  
   * Standard Deviation
   * Interquartile Range (IQR)
 * View a QQ plot visualization to explore whether the clinical field's data across the cohort is normally distributed, where:
-  * The clinical data values are plotted as the sample quantiles on the vertical axis, while the quantiles of the normal distribution are plotted on the horizontal axis
+  * The clinical data values are plotted as the sample quantiles on the vertical axis
+  * The the quantiles of the normal distribution are plotted on the horizontal axis
 * Download the box plot and QQ plot visualizations in SVG or PNG format
 * Download the raw data used to generate the QQ plot in JSON or TSV format
 
@@ -203,6 +204,17 @@ Note that the box plot and QQ plot only apply to continuous variables.  They can
 #### Continuous Binning
 
 ### Other Useful Functions
+
+Clinical Analysis also provides these additional useful functions:
+
+* Rename your analysis with a custom name
+* Copy your current analysis to a new analysis:
+  * User is prompted to name the new copy
+  * All currently-enabled clinical cards and their currently-selected plot types are copied to the new analysis
+  * A new vertical tab appears on the left for the new copy
+* Print the current analysis to PDF format:
+  * All currently-enabled clinical cards and their currently-selected plot types are printed
+  * 3 cards per page, with the fixed Overall Survival Plot displayed as the first card in the entire file
 
 ## Analysis Page: Results
 
