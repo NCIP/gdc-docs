@@ -159,30 +159,40 @@ The histogram plot type suppports these features:
 
 [![Clinical Analysis Histogram](images/GDC-Clinical-Analysis-Histogram.png)](images/GDC-Clinical-Analysis-Histogram.png "Click to see the full image.")
 
+Note that the histogram plot applies to, and can be displayed for, both categorical and continuous variables.
+
 #### Survival Plot
 
 The survival plot type supports these features:
 
 * View the distribution of cases (# and % of cases) in the cohort for the clinical field's data categories as a table
-* Select & plot the survival analysis for the cases of specific data categories in the table
+* Select and plot the survival analysis for the cases of specific data categories in the table
 ** By default the top 2 categories (highest # of cases) are displayed
-** Users can manually select & plot up to 5 categories at a time
+** Users can manually select and plot up to 5 categories at a time
 * Download the survival plot visualization in SVG or PNG format
 * Download the raw data used to generate the survival plot in JSON or TSV format
 
 [![Clinical Analysis Survival Plot](images/GDC-Clinical-Analysis-Survival-Plot.png)](images/GDC-Clinical-Analysis-Survival-Plot.png "Click to see the full image.")
 
+Note that the survival plot applies to, and can be displayed for, both categorical and continuous variables.
+
 #### Box Plot & QQ Plot
 
-#### Data Table
+The box plot and QQ plot are displayed side-by-side in the same visualization.  This visualization supports these features:
 
+*
 
+[![Clinical Analysis Box & QQ Plots](images/GDC-Clinical-Analysis-Box-And-QQ-Plots.png)](images/GDC-Clinical-Analysis-Box-And-QQ-Plots.png "Click to see the full image.")
+
+Note that the box plot and QQ plot only apply to continuous variables.  They cannot be displayed for categorical variables.
 
 ### Creating Custom Bins
 
 #### Categorical Binning
 
 #### Continuous Binning
+
+### Other Useful Functions
 
 ## Analysis Page: Results
 
