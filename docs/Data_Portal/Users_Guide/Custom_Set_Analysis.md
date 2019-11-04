@@ -151,9 +151,9 @@ To switch between plot types, click the different plot type icons in the top-rig
 
 The histogram plot type suppports these features:
 
-* View the distribution of cases (# and % of cases) in the cohort for the clinical field's data values as a histogram
-* View the distribution in tabular format
-* 
+* View the distribution of cases (# and % of cases) in the cohort for the clinical field's data categories as a histogram
+* View the distribution of cases in tabular format
+* Select the cases for specific data categories to create new sets, append to existing sets, or remove from existing sets
 * Download the histogram visualization in SVG or PNG format
 * Download the raw data used to generate the histogram in JSON format
 
@@ -163,8 +163,10 @@ The histogram plot type suppports these features:
 
 The survival plot type supports these features:
 
-* View the survival analysis of each
-* View the distribution of cases (# and % of cases) in the cohort for the clinical field's data values
+* View the distribution of cases (# and % of cases) in the cohort for the clinical field's data categories as a table
+* Select & plot the survival analysis for the cases of specific data categories in the table
+** By default the top 2 categories (highest # of cases) are displayed
+** Users can manually select & plot up to 5 categories at a time
 * Download the survival plot visualization in SVG or PNG format
 * Download the raw data used to generate the survival plot in JSON or TSV format
 
