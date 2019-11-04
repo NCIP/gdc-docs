@@ -222,6 +222,14 @@ The user can:
 
 #### Continuous Binning
 
+To create custom bins for a continuous variable, click *__Customize Bins__*, then *__Edit Bins__*.  A configuration window appears where the user can create their bins:
+
+[![Clinical Analysis Continuous Bins](images/GDC-Clinical-Analysis-Continuous-Bins.png)](images/GDC-Clinical-Analysis-Continuous-Bins.png "Click to see the full image.")
+
+The user can:
+
+* ???
+
 ### Other Useful Functions
 
 Clinical Analysis also provides these additional useful functions:
