@@ -204,9 +204,17 @@ For each clinical variable, whether categorical or continuous, users can create 
 * Histogram and associated data table
 * Survival plot and associated data table
 
-Note that custom bins are *saved per analysis*.
+Custom bins can be reset to their defaults at any time for each card.  Note that custom bins are *saved per analysis*.
 
 #### Categorical Binning
+
+To create custom bins for a categorical variable, click *Customize Bins*, then *Edit Bins*.  A configuration window appears where the user can create their bins:
+
+[![Clinical Analysis Categorical Bins](images/GDC-Clinical-Analysis-Categorical-Bins.png)](images/GDC-Clinical-Analysis-Categorical-Bins.png "Click to see the full image.")
+
+The user can:
+
+* 
 
 #### Continuous Binning
 
