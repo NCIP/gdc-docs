@@ -122,7 +122,20 @@ Click __'Run'__ - The results page loads with a new tab for the new clinical ana
 
 ### Enabling Clinical Variable Cards
 
-???
+Users can use the control panel on the left side of the analysis to display which clinical variables they want.  To enable or disable specific variables for display, click the on/off toggle controls:
+
+[![Enable Clinical Cards](images/GDC-Enable-Clinical-Cards.png)](images/GDC-Enable-Clinical-Cards.png "Click to see the full image.")
+
+The clinical fields are grouped into these categories:
+
+* __Demographic:__ Data for the characterization of the patient by means of segmenting the population (e.g. characterization by age, sex, race, etc.).
+* __Diagnoses:__ Data from the investigation, analysis, and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation.
+* __Treatments:__ Records of the administration and intention of therapeutic agents provided to a patient to alter the course of a pathologic process.
+* __Exposures:__ Clinically-relevant patient information not immediately resulting from genetic predispositions.
+
+Since the list of fields can be long, users can collapse and expand the field list for each clinical category for easier browsing, or use the search box:
+
+[![Search Clinical Fields](images/GDC-Search-Clinical-Fields.png)](images/GDC-Search-Clinical-Fields.png "Click to see the full image.")
 
 ### ???
 
