@@ -55,11 +55,11 @@
 
 ### Known Issues and Workarounds
 
-*  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
 *  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
 *  Custom Facet Filters
     * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
 *  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
     *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
     *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
 *  Repository and Cart
