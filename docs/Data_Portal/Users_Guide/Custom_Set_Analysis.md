@@ -137,7 +137,50 @@ Since the list of fields can be long, users can collapse and expand the field li
 
 [![Search Clinical Fields](images/GDC-Search-Clinical-Fields.png)](images/GDC-Search-Clinical-Fields.png "Click to see the full image.")
 
-### ???
+### Exploring Clinical Card Visualizations
+
+Users can explore different visualizations for each clinical field they have enabled for display. Each card supports theses plot types:
+
+* Histogram
+* Survival Plot
+* Box Plot & QQ Plot (these plots are visualized side-by-side)
+
+To switch between plot types, click the different plot type icons in the top-right of each card.
+
+#### Histogram
+
+The histogram plot type suppports these features:
+
+* View the distribution of cases (# and % of cases) in the cohort for the clinical field's data values as a histogram
+* View the distribution in tabular format
+* 
+* Download the histogram visualization in SVG or PNG format
+* Download the raw data used to generate the histogram in JSON format
+
+[![Clinical Analysis Histogram](images/GDC-Clinical-Analysis-Histogram.png)](images/GDC-Clinical-Analysis-Histogram.png "Click to see the full image.")
+
+#### Survival Plot
+
+The survival plot type supports these features:
+
+* View the survival analysis of each
+* View the distribution of cases (# and % of cases) in the cohort for the clinical field's data values
+* Download the survival plot visualization in SVG or PNG format
+* Download the raw data used to generate the survival plot in JSON or TSV format
+
+[![Clinical Analysis Survival Plot](images/GDC-Clinical-Analysis-Survival-Plot.png)](images/GDC-Clinical-Analysis-Survival-Plot.png "Click to see the full image.")
+
+#### Box Plot & QQ Plot
+
+#### Data Table
+
+
+
+### Creating Custom Bins
+
+#### Categorical Binning
+
+#### Continuous Binning
 
 ## Analysis Page: Results
 
