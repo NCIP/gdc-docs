@@ -167,8 +167,8 @@ The survival plot type supports these features:
 
 * View the distribution of cases (# and % of cases) in the cohort for the clinical field's data categories as a table
 * Select and plot the survival analysis for the cases of specific data categories in the table
-** By default the top 2 categories (highest # of cases) are displayed
-** Users can manually select and plot up to 5 categories at a time
+  * By default the top 2 categories (highest # of cases) are displayed
+  * Users can manually select and plot up to 5 categories at a time
 * Download the survival plot visualization in SVG or PNG format
 * Download the raw data used to generate the survival plot in JSON or TSV format
 
@@ -181,14 +181,14 @@ Note that the survival plot applies to, and can be displayed for, both categoric
 The box plot and QQ plot are displayed side-by-side in the same visualization.  This visualization supports these features:
 
 * View standard summary statistics for the clinical field's data across the cohort as both a box plot visualization and a . data table format:
-** Minimum
-** Maximum
-** Mean
-** Median
-** Standard Deviation
-** Interquartile Range (IQR)
+  * Minimum
+  * Maximum
+  * Mean
+  * Median
+  * Standard Deviation
+  * Interquartile Range (IQR)
 * View a QQ plot visualization to explore whether the clinical field's data across the cohort is normally distributed, where:
-** The clinical data values are plotted as the sample quantiles on the vertical axis, while the quantiles of the normal distribution are plotted on the horizontal axis
+  * The clinical data values are plotted as the sample quantiles on the vertical axis, while the quantiles of the normal distribution are plotted on the horizontal axis
 * Download the box plot and QQ plot visualizations in SVG or PNG format
 * Download the raw data used to generate the QQ plot in JSON or TSV format
 
