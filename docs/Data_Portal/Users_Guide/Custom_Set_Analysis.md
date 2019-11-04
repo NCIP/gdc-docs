@@ -180,7 +180,16 @@ Note that the survival plot applies to, and can be displayed for, both categoric
 
 The box plot and QQ plot are displayed side-by-side in the same visualization.  This visualization supports these features:
 
-*
+* View standard summary statistics for the clinical field's data across the cohort as both a box plot visualization and a . data table format:
+** Minimum
+** Maximum
+** Mean
+** Median
+** Standard Deviation
+** Interquartile Range (IQR)
+* View 
+* Download the box plot and QQ plot visualizations in SVG or PNG format
+* Download the raw data used to generate the QQ plot in JSON or TSV format
 
 [![Clinical Analysis Box & QQ Plots](images/GDC-Clinical-Analysis-Box-And-QQ-Plots.png)](images/GDC-Clinical-Analysis-Box-And-QQ-Plots.png "Click to see the full image.")
 
