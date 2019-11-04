@@ -166,7 +166,7 @@ Note that the histogram plot applies to, and can be displayed for, both categori
 The survival plot type supports these features:
 
 * View the distribution of cases (# and % of cases) in the cohort for the clinical field's data categories as a table
-* Select and plot the survival analysis for the cases of specific data categories in the table
+* Select and plot the survival analysis for the cases of specific data categories in the table:
   * By default the top 2 categories (highest # of cases) are displayed
   * Users can manually select and plot up to 5 categories at a time
 * Download the survival plot visualization in SVG or PNG format
@@ -180,7 +180,7 @@ Note that the survival plot applies to, and can be displayed for, both categoric
 
 The box plot and QQ plot are displayed side-by-side in the same visualization.  This visualization supports these features:
 
-* View standard summary statistics for the clinical field's data across the cohort as both a box plot visualization and a . data table format:
+* View standard summary statistics for the clinical field's data across the cohort as both a box plot visualization and a data table:
   * Minimum
   * Maximum
   * Mean
