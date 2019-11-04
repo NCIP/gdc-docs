@@ -204,17 +204,21 @@ For each clinical variable, whether categorical or continuous, users can create 
 * Histogram and associated data table
 * Survival plot and associated data table
 
-Custom bins can be reset to their defaults at any time for each card.  Note that custom bins are *saved per analysis*.
+Custom bins can be reset to their defaults at any time for each card.  Note that custom bins are __saved per analysis__.
 
 #### Categorical Binning
 
-To create custom bins for a categorical variable, click *Customize Bins*, then *Edit Bins*.  A configuration window appears where the user can create their bins:
+To create custom bins for a categorical variable, click *__Customize Bins__*, then *__Edit Bins__*.  A configuration window appears where the user can create their bins:
 
 [![Clinical Analysis Categorical Bins](images/GDC-Clinical-Analysis-Categorical-Bins.png)](images/GDC-Clinical-Analysis-Categorical-Bins.png "Click to see the full image.")
 
 The user can:
 
-* 
+* Group existing individual values into a single group
+* Give a custom name to each group
+* Ungroup previously grouped values
+* Completely hide values from being shown in the visualization
+* Re-show previously hidden values
 
 #### Continuous Binning
 
@@ -224,8 +228,8 @@ Clinical Analysis also provides these additional useful functions:
 
 * Like other analysis types, all Clinical Analysis tabs are saved to the browser's local storage:
   * Each Analysis tab and its associated configurations (active cards, active plots, custom bins) is saved and is not deleted until local storage is cleared
-  * The currently-enabled clinical cards and their currently-selected plot types are saved *per analysis*
-  * Custom bins are *saved per analysis*
+  * The currently-enabled clinical cards and their currently-selected plot types are __saved per analysis__
+  * Custom bins are __saved per analysis__
 * Switch the current set that the analysis applies to - This does the following:
   * Applies all currently-enabled clinical cards and their currently-selected plot types to the data in the set being switched to
   * Re-renders all active visualizations to reflect the data in the set being switched to
