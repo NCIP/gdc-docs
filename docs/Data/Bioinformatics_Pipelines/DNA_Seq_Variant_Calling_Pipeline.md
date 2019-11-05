@@ -435,7 +435,7 @@ java \
 --disable_auto_index_creation_and_locking_when_reading_rods \
 --variant $(vt.normal.output.vcf.gz) \
 -R GRCh38.d1.vd1.fa \
---filterExpression vc.isBiallelic() && vc.getGenotype(\"TUMOR\").getAD().1 < 3” \
+--filterExpression vc.isBiallelic() && vc.getGenotype(\"TUMOR\").getAD().1 < 3" \
 --filterName TALTDP \
 -o $(output.vcf.gz)
 
