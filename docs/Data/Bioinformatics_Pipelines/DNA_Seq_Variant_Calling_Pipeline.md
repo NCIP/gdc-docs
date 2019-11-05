@@ -200,7 +200,7 @@ Basic outlines for the other three of the pipelines can be found here:
 
 #### Indels
 
-Indel mutations that were generated with the MuTect2, Pindel, and VarScan pipelines are detected and reported in GDC VCF files.
+Indel mutations that were generated with the MuTect2, Pindel, and VarScan pipelinesd are detected and reported in GDC VCF files.
 
 #### Germline Variants
 At this time, germline variants are deliberately excluded as harmonized data. The GDC does not recommend using germline variants that were previously detected and stored in the Legacy Archive as they do not meet the GDC criteria for high-quality data.  
@@ -334,7 +334,7 @@ Filter BAM reads that are not unmapped or duplicate or secondary_alignment or fa
 Tool: sambamba 0.7.0-pre1
 
 ```Shell
-Sambamba view $(input.bam) --filter “not (unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary)” --format bam --nthreads 1 --output-filename $(output.bam)
+Sambamba view $(input.bam) --filter "not (unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary)" --format bam --nthreads 1 --output-filename $(output.bam)
 ```
 
 __Step 2:__ Pindel
