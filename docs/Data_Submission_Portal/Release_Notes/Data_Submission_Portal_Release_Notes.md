@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.4.0](Data_Submission_Portal_Release_Notes.md#release-230) | TBD, 2019 |
 | [v2.3.0](Data_Submission_Portal_Release_Notes.md#release-230) | June 5, 2019 |
 | [v2.2.0](Data_Submission_Portal_Release_Notes.md#release-220) | February 20, 2019 |
 | [v2.1.0](Data_Submission_Portal_Release_Notes.md#release-210) | November 7, 2018 |
@@ -17,6 +18,28 @@
 | [v0.3.24.1](Data_Submission_Portal_Release_Notes.md#release-03241) | February 26, 2016 |
 | [v0.3.21](Data_Submission_Portal_Release_Notes.md#release-0321) | January 27, 2016 |
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
+
+---
+## Release 2.4.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: TBD, 2019
+
+### New Features and Changes
+
+*  Added new QC Report tab that allows users to view and download QC errors detected on the current set of unsubmitted data.  Users must examine these errors and fix them appropriately before re-uploading the data and requesting harmonization.  New donut added to the Dashboard tab to display a quick breakdown of CRITICAL vs WARNING errors across the project.<!--FEAT-545-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed the Project Data download button in the Project Overview, so that the JSON option is selectable in the modal.<!--SUBP-519-->
+*  Fixed the trash can icon for the Delete button in the Submitter Detail pane, so that it is fully visible and no longer cutoff<!--SUBP-540-->
+*  Fixed a Section 508 Accessibility violation in the Submitter Detail pane.<!--SUBP-566-->
+*  Increased the global transaction polling interval to 15 seconds across the portal to improve performance.<!--SUBP-571-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
 
 ## Release 2.3.0
 

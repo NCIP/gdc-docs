@@ -718,6 +718,181 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
   "updated_entity_count": 0
 }
 ```
+
+### Example: Bulk Transaction
+
+To wrap multiple TSV or JSON files into a single transaction the bulk endpoint can be used.  In this example a TSV to create Clinical Supplement nodes is included in the same transactions as a JSON to create Demographic nodes.
+
+
+```Request
+[                                                                                                                                                                                              
+  {                                                                                
+    "name":"Demographic",                                             
+    "doc_format":"Json",                                                           
+    "doc":"[\n  {\n    \"submitter_id\": \"demographic1234\",\n    \"vital_status\": \"Dead\",\n    \"cases\": [\n      {\n        \"submitter_id\": \"GDC-INTERNAL-000021\"\n      }\n    ],\n    \"ethnicity\": \"not reported\",\n    \"gender\": \"male\",\n    \"race\": \"white\",\n    \"project_id\": \"GDC-INTERNAL\",\n    \"type\": \"demographic\"\n  },\n  {\n    \"submitter_id\": \"demographicABCD\",\n    \"vital_status\": \"Alive\",\n    \"cases\": [\n      {\n        \"submitter_id\": \"GDC-INTERNAL-000010\"\n      }\n    ],\n    \"ethnicity\": \"not reported\",\n    \"gender\": \"female\",\n    \"race\": \"white\",\n    \"project_id\": \"GDC-INTERNAL\",\n    \"type\": \"demographic\"\n  }\n]"
+  },
+    {                                                                                
+    "name":"Clinical Supplement",                                             
+    "doc_format":"Tsv",                                                           
+    "doc":"cases.submitter_id\tdiagnoses.id\tdiagnoses.submitter_id\tparent_samples.id\tparent_samples.submitter_id\ttissue_source_sites.id\ttissue_source_sites.code\ttype\tproject_id\tsubmitter_id\tsample_type\ttissue_type\tbiospecimen_anatomic_site\tbiospecimen_laterality\tcatalog_reference\tcomposition\tcurrent_weight\tdays_to_collection\tdays_to_sample_procurement\tdiagnosis_pathologically_confirmed\tdistance_normal_to_tumor\tdistributor_reference\tfreezing_method\tgrowth_rate\tinitial_weight\tintermediate_dimension\tis_ffpe\tlongest_dimension\tmethod_of_sample_procurement\toct_embedded\tpassage_count\tpathology_report_uuid\tpreservation_method\tsample_type_id\tshortest_dimension\ttime_between_clamping_and_freezing\ttime_between_excision_and_freezing\ttumor_code\ttumor_code_id\ttumor_descriptor\nGDC-INTERNAL-000021\t\t\t\t\t\t\tsample\tGDC-INTERNAL\tGDC-INTERNAL-000021-Sample1\tPrimary Tumor\tTumor\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary\nGDC-INTERNAL-000021\t\t\t\t\t\t\tsample\tGDC-INTERNAL\tGDC-INTERNAL-000021-Sample2\tPrimary Tumor\tTumor\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary\nGDC-INTERNAL-000021\t\t\t\t\t\t\tsample\tGDC-INTERNAL\tGDC-INTERNAL-000021-Sample3\tPrimary Tumor\tTumor\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary\n"
+  }                                                                              
+]
+```
+```Command
+curl -XPOST --header "X-Auth-Token: $token"  --data-binary @Request 'https://api.gdc.cancer.gov/submission/GDC/INTERNAL/bulk/_dry_run'
+```
+```Response
+{
+  "code": 200,
+  "created_entity_count": 5,
+  "document_error_count": 0,
+  "entity_error_count": 0,
+  "message": "Bulk Transaction succeeded.",
+  "subtransactions": [
+    {
+      "name": "Demographic",
+      "response_json": {
+        "cases_related_to_created_entities_count": 2,
+        "cases_related_to_updated_entities_count": 0,
+        "code": 200,
+        "created_entity_count": 2,
+        "entities": [
+          {
+            "action": "create",
+            "errors": [],
+            "id": "642ffbd6-f909-40b7-84a5-51458c28fab8",
+            "related_cases": [
+              {
+                "id": "b5622ca2-8f51-453e-b411-b2ac045bb04a",
+                "submitter_id": "GDC-INTERNAL-000021"
+              }
+            ],
+            "type": "demographic",
+            "unique_keys": [
+              {
+                "project_id": "GDC-INTERNAL",
+                "submitter_id": "demographic1234"
+              }
+            ],
+            "valid": true,
+            "warnings": []
+          },
+          {
+            "action": "create",
+            "errors": [],
+            "id": "3d3488c9-07d3-46bb-8c13-4671ced43033",
+            "related_cases": [
+              {
+                "id": "4ca09b58-5765-4034-8ec0-ede5d756ea5d",
+                "submitter_id": "GDC-INTERNAL-000010"
+              }
+            ],
+            "type": "demographic",
+            "unique_keys": [
+              {
+                "project_id": "GDC-INTERNAL",
+                "submitter_id": "demographicABCD"
+              }
+            ],
+            "valid": true,
+            "warnings": []
+          }
+        ],
+        "entity_error_count": 0,
+        "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
+        "success": true,
+        "transaction_id": 1636917,
+        "transactional_error_count": 0,
+        "transactional_errors": [],
+        "updated_entity_count": 0
+      }
+    },
+    {
+      "name": "Clinical Supplement",
+      "response_json": {
+        "cases_related_to_created_entities_count": 1,
+        "cases_related_to_updated_entities_count": 0,
+        "code": 200,
+        "created_entity_count": 3,
+        "entities": [
+          {
+            "action": "create",
+            "errors": [],
+            "id": "f0555c6b-8737-4d06-bf33-9641aab14497",
+            "related_cases": [
+              {
+                "id": "b5622ca2-8f51-453e-b411-b2ac045bb04a",
+                "submitter_id": "GDC-INTERNAL-000021"
+              }
+            ],
+            "type": "sample",
+            "unique_keys": [
+              {
+                "project_id": "GDC-INTERNAL",
+                "submitter_id": "GDC-INTERNAL-000021-Sample1"
+              }
+            ],
+            "valid": true,
+            "warnings": []
+          },
+          {
+            "action": "create",
+            "errors": [],
+            "id": "dbb07d81-cda3-47b3-87a4-3a50271b72b6",
+            "related_cases": [
+              {
+                "id": "b5622ca2-8f51-453e-b411-b2ac045bb04a",
+                "submitter_id": "GDC-INTERNAL-000021"
+              }
+            ],
+            "type": "sample",
+            "unique_keys": [
+              {
+                "project_id": "GDC-INTERNAL",
+                "submitter_id": "GDC-INTERNAL-000021-Sample2"
+              }
+            ],
+            "valid": true,
+            "warnings": []
+          },
+          {
+            "action": "create",
+            "errors": [],
+            "id": "d8b9fb1f-d94b-4c9c-8bf2-48e69daba6ba",
+            "related_cases": [
+              {
+                "id": "b5622ca2-8f51-453e-b411-b2ac045bb04a",
+                "submitter_id": "GDC-INTERNAL-000021"
+              }
+            ],
+            "type": "sample",
+            "unique_keys": [
+              {
+                "project_id": "GDC-INTERNAL",
+                "submitter_id": "GDC-INTERNAL-000021-Sample3"
+              }
+            ],
+            "valid": true,
+            "warnings": []
+          }
+        ],
+        "entity_error_count": 0,
+        "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
+        "success": true,
+        "transaction_id": 1636917,
+        "transactional_error_count": 0,
+        "transactional_errors": [],
+        "updated_entity_count": 0
+      }
+    }
+  ],
+  "success": true,
+  "transaction_id": 1636917,
+  "transactional_errors": [],
+  "updated_entity_count": 0
+}
+```
+
 ### Example: Updating a Sample Entity (JSON)
 
 Entities can be updated using a very similar process to what is shown above.  
@@ -2509,7 +2684,9 @@ Files in `file_state = validated` can be downloaded by the submitter using the A
 
 ### Deleting Files
 
-Uploaded files can be deleted by deleting the entity that corresponds to the file. See [Deleting Entities](#deleting-entities) for details.
+Uploaded files must be deleted using a two step process.  First, the file is deleted using the Data Transfer Tool.  See [Deleting Previously Uploaded Data](../../Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) for details.
+
+Second, the file node can be deleted or modified. See [Deleting Entities](#deleting-entities) for details.
 
 ## Querying Submitted Data Using GraphQL
 

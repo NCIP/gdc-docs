@@ -1,8 +1,8 @@
 # Exploration
 
-The Exploration Page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level. Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.  The Gene/Mutation data for these visualizations comes from the Open-Access MAF files on the GDC Data Portal.
+The Exploration Page allows users to explore data in the GDC using advanced filters/facets, which includes those on a gene and mutation level. Users choose filters on specific `Cases`, `Genes`, and/or `Mutations` on the left of this page and then can visualize these results on the right.  The Gene/Mutation data for these visualizations comes from the Open-Access MAF files on the GDC Data Portal.  There is also a `Clinical` tab with filters that apply specifically to clinical data.
 
-[![Exploration Page](images/GDC-Exploration-Page_v5.png)](images/GDC-Exploration-Page_v4.png "Click to see the full image.")
+[![Exploration Page](images/GDC-Exploration-Page_v6.png)](images/GDC-Exploration-Page_v6.png "Click to see the full image.")
 
 ## Filters / Facets
 On the left of this page, users can create advanced filters to narrow down results to create synthetic cohorts.
@@ -11,7 +11,7 @@ On the left of this page, users can create advanced filters to narrow down resul
 
 The first tab of filters is for cases in the GDC.
 
-[![Exploration Case Filters](images/Exploration-Cases-Filter.png)](images/Exploration-Cases-Filter.png "Click to see the full image.")
+[![Exploration Case Filters](images/Exploration-Cases-Filter_v2.png)](images/Exploration-Cases-Filter_v2.png "Click to see the full image.")
 
 These criteria limit the results only to specific cases within the GDC. The default filters available are:
 
@@ -20,22 +20,30 @@ These criteria limit the results only to specific cases within the GDC. The defa
 * __Program:__ A cancer research program, typically consisting of multiple focused projects.
 * __Project:__ A cancer research project, typically part of a larger cancer research program.
 * __Disease Type:__ Type of cancer studied.
-* __Gender:__ Gender of the patient.
-* __Age at Diagnosis:__ Patient age at the time of diagnosis.
-* __Vital Status:__ Indicator of whether the patient was living or deceased at the date of last contact.
-* __Days to Death:__ Number of days from date of diagnosis to death of the patient.
-* __Race:__ Race of the patient.
-* __Ethnicity:__ Ethnicity of the patient.
+* __Experimental Strategy:__ Experimental strategy used for molecular characterization of the cancer.
+* __Sample Type:__ Describes the source of a biospecimen used for a laboratory test.
+* __Available Variation Data:__ Indicates the types of genomic variation data that a case has been tested for.
 
-In addition to the defaults, users can add additional case filters by clicking on the link titled ["Add a Case Filter"](Repository.md#adding-custom-facets).
+### Clinical Filters
+
+The second tab of filters is used to specifically explore clinical data for cases in the GDC.
+
+[![Exploration Clinical Filters](images/Exploration-Clinical-Filter.png)](images/Exploration-Clinical-Filter.png "Click to see the full image.")
+
+Users can filter by specific clinical variables, grouped into these categories:
+
+* __Demographic:__ Data for the characterization of the patient by means of segmenting the population (e.g. characterization by age, sex, race, etc.).
+* __Diagnoses:__ Data from the investigation, analysis, and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation.
+* __Treatments:__ Records of the administration and intention of therapeutic agents provided to a patient to alter the course of a pathologic process.
+* __Exposures:__ Clinically-relevant patient information not immediately resulting from genetic predispositions.
 
 ### Gene Filters
 
-The second tab of filters is for genes affected by mutations in the GDC.
+The third tab of filters is for genes affected by mutations in the GDC.
 
-[![Exploration Gene Filters](images/Exploration-Gene-Filter.png)](images/Exploration-Gene-Filter.png "Click to see the full image.")
+[![Exploration Gene Filters](images/Exploration-Gene-Filter_v2.png)](images/Exploration-Gene-Filter_v2.png "Click to see the full image.")
 
-The second tab of filters are for specific genes.  Users can filter by:
+Users can filter by:
 
 * __Gene:__ Specify a Gene Symbol, ID, or list of Genes ('Gene Set').
 * __Biotype:__  Classification of the type of gene according to Ensembl. The biotypes can be grouped into protein coding, pseudogene, long noncoding and short noncoding. Examples of biotypes in each group are as follows:
@@ -49,7 +57,7 @@ The second tab of filters are for specific genes.  Users can filter by:
 
 The final tab of filters is for specific mutations.
 
-[![Exploration Mutation Filters](images/Exploration-Mutations-Filter.png)](images/Exploration-Mutations-Filter.png "Click to see the full image.")
+[![Exploration Mutation Filters](images/Exploration-Mutations-Filter_v2.png)](images/Exploration-Mutations-Filter_v2.png "Click to see the full image.")
 
 Users can filter by:
 
@@ -58,7 +66,6 @@ Users can filter by:
     * DNA Change - 	chr12:g.121804752delC
     * COSMIC ID - COSM202522
     * List of any mutation UUIDs or DNA Change id's ('Mutation Set').
-* __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms.
 * __Impact:__ A subjective classification of the severity of the variant consequence. These scores are determined using the three following tools:
     * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html):__
         * __HIGH (H):__ The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay.
@@ -75,6 +82,7 @@ Users can filter by:
         * __tolerated_low_confidence:__ More likely to have a phenotypic effect than 'tolerated'.
         * __deleterious:__ Likely to have a phenotypic effect.
         * __deleterious_low_confidence:__ Less likely to have a phenotypic effect than 'deleterious'.
+* __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms.
 * __Type:__ A general classification of the mutation.
 * __Variant Caller:__ The variant caller used to identify the mutation.
 * __COSMIC ID:__ This option will filter out only mutations with a COSMIC ID.
@@ -112,15 +120,25 @@ Below these pie charts is a tabular view of cases, which can be exported, sorted
 
 The Case Summary Page displays case details including the project and disease information, data files that are available for that case, and the experimental strategies employed. A button in the top-right corner of the page allows the user to add all files associated with the case to the file [cart](Cart.md).
 
-[![Case Page](images/gdc-case-entity-page.png)](images/gdc-case-entity-page.png "Click to see the full image.")
+[![Case Page](images/gdc-case-entity-page_v2.png)](images/gdc-case-entity-page_v2.png "Click to see the full image.")
 
 #### Clinical and Biospecimen Information
 
 The page also provides clinical and biospecimen information about that case. Links to export clinical and biospecimen information in JSON format are provided.
 
-[![Case Page, Clinical and Biospecimen](images/gdc-case-clinical-biospecimen_v3.png)](images/gdc-case-clinical-biospecimen_v3.png "Click to see the full image.")
+[![Case Page, Clinical and Biospecimen](images/gdc-case-clinical-biospecimen_v4.png)](images/gdc-case-clinical-biospecimen_v4.png "Click to see the full image.")
 
-For clinical records that support multiple records of the same type (Diagnoses, Family Histories, or Exposures), a UUID of the record is provided at the top of the corresponding tab.
+Some clinical records can support multiple records of the same type (Diagnoses, Family Histories, Exposures, Follow-Ups, Molecular Tests).  If only one record exists, the UUID of the record is provided at the top of the corresponding tab.
+
+[![Case Page, Single Clinical Record](images/gdc-case-clinical-single-record.png)](images/gdc-case-clinical-single-record.png "Click to see the full image.")
+
+If there are multiple records, they are listed as horizontal tabs.
+
+[![Case Page, Multiple Clinical Records](images/gdc-case-clinical-multiple-records.png)](images/gdc-case-clinical-multiple-records.png "Click to see the full image.")
+
+Some record types are further nested under another.  For example, a Diagnosis record may have multiple associated Treatment records.  Or a Follow-Up record may have multiple associated Molecular Test Records.  The associated sub-records are listed in a table on the tab.
+
+[![Case Page, Nested Clinical Records](images/gdc-case-clinical-nested-records.png)](images/gdc-case-clinical-nested-records.png "Click to see the full image.")
 
 #### Biospecimen Search
 
@@ -162,7 +180,7 @@ Gene Summary Pages describe each gene with mutation data and provides results re
 
 The summary section of the Gene Page contains the following information:
 
-[![Gene Summary](images/GDC-Gene-Summary.png)](images/GDC-Gene-Summary.png "Click to see the full image.")
+[![Gene Summary](images/GDC-Gene-Summary_v2.png)](images/GDC-Gene-Summary_v2.png "Click to see the full image.")
 
 * __Symbol:__ The gene symbol.
 * __Name:__ Full name of the gene.
@@ -171,7 +189,7 @@ The summary section of the Gene Page contains the following information:
 * __Location:__ The chromosome on which the gene is located and its coordinates.
 * __Strand:__ If the gene is located on the forward (+) or reverse (-) strand.
 * __Description:__ A description of gene function and downstream consequences of gene alteration.
-- __Annotation:__ A notation/link that states whether the gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/).
+* __Annotation:__ A notation/link that states whether the gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/).
 
 #### External References
 
@@ -182,6 +200,7 @@ A list with links that lead to external databases with additional information ab
 *  [Hugo Gene Nomenclature Committee](http://www.genenames.org/)
 *  [Online Mendelian Inheritance in Man](https://www.omim.org/)
 *  [Ensembl](http://may2015.archive.ensembl.org/index.html)
+*  [CIViC](https://civicdb.org/home)
 
 #### Cancer Distribution
 
@@ -226,7 +245,7 @@ Clicking the `Open in Exploration` button will navigate the user to the Explorat
 
 The `Mutations` tab will give an overview of all the mutations that match the criteria of the filters (Cohort).  
 
-Open-access mutation data is displayed by defualt.  To access controlled access mutations, users must apply to the correct data access authority, be granted access, and login to the portal.  If a user is logged in and has been granted access to controlled-access mutations, they will be integrated with open-access mutations throughout the portal visualizations and counts. 
+Open-access mutation data is displayed by defualt.  To access controlled access mutations, users must apply to the correct data access authority, be granted access, and login to the portal.  If a user is logged in and has been granted access to controlled-access mutations, they will be integrated with open-access mutations throughout the portal visualizations and counts.
 
 [![Exploration Mutation Example](images/Exploration-Mutation-Example_v2.png)](images/Exploration-Mutation-Example_v2.png "Click to see the full image.")
 
@@ -249,7 +268,7 @@ A table is displayed below that lists information about each mutation:
 
   The Mutation Summary Page contains information about one somatic mutation and how it affects the associated gene. Each mutation is identified by its chromosomal position and nucleotide-level change.
 
-  [![Mutation Summary](images/GDC-Mutation-Summary.png)](images/GDC-Mutation-Summary.png "Click to see the full image.")
+  [![Mutation Summary](images/GDC-Mutation-Summary_v2.png)](images/GDC-Mutation-Summary_v2.png "Click to see the full image.")
 
   - __UUID:__ A unique identifier (UUID) for this mutation.
   - __DNA Change:__ Denotes the chromosome number, position, and nucleotide change of the mutation.
@@ -260,7 +279,7 @@ A table is displayed below that lists information about each mutation:
 
 #### External References
 
-  A separate panel contains links to databases that contain information about the specific mutation. These include [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/) and [COSMIC](http://cancer.sanger.ac.uk/cosmic).
+  A separate panel contains links to databases that contain information about the specific mutation. These include [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/), [COSMIC](http://cancer.sanger.ac.uk/cosmic), and [CIViC](https://civicdb.org/home).
 
 #### Consequences
 
@@ -274,7 +293,7 @@ The fields that describe each consequence are listed below:
   * __AA Change:__ Details on the amino acid change, including compounds and position, if applicable.
   * __Consequence:__ The biological consequence of each mutation.
   * __Coding DNA Change:__ The specific nucleotide change and position of the mutation within the gene.
-* __Impact:__  A [subjective classification](#mutation-filters) of the severity of the variant consequence. This is determined by three different tools:
+  * __Impact:__  A [subjective classification](#mutation-filters) of the severity of the variant consequence. This is    determined by three different tools:
     * __[Ensembl VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html)__
     * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/)__
     * __[SIFT](http://sift.jcvi.org/)__
@@ -292,7 +311,7 @@ The table contains the following fields:
   * __Project ID__: The ID for a specific project.
   * __Disease Type__: The disease associated with the project.
   * __Site__: The anatomical site affected by the disease.
-  * __# SMM Affected Cases__: The number of affected cases and total number of cases displayed as a fraction and percentage.
+  * __# SSM Affected Cases__: The number of affected cases and total number of cases displayed as a fraction and percentage.
 
 #### Protein Viewer
 
@@ -341,7 +360,7 @@ To customize the colors for mutation consequence types and CNV gains/losses, a u
 
 After utilizing the Exploration Page to narrow down a specific cohort, users can find the specific files that relate to this group by clicking on the `View Files in Repository` button as shown in the image below.
 
-[![Exploration File Navigation](images/Exploration-View-Files_v3.png)](images/Exploration-View-Files_v3.png "Click to see the full image.")
+[![Exploration File Navigation](images/Exploration-View-Files_v4.png)](images/Exploration-View-Files_v4.png "Click to see the full image.")
 
 Clicking this button will navigate the users to the Repository Page, filtered by the cases within the cohort.
 
@@ -356,9 +375,9 @@ The filters chosen on the Exploration Page are displayed as an `input set` on th
 The survival analysis, which is seen in both the `Gene` and `Mutation` tabs, is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Thus, the values are retrieved from [GDC Data Dictionary](../../../Data_Dictionary) properties and a survival analysis requires the following fields:
 
 *  Data on the time to a particular event (days to death or last follow up).
-    * Fields:  __diagnoses.days_to_death__ or __diagnoses.days_to_last_follow_up__
+    * Fields:  __demographic.days_to_death__ or __demographic.days_to_last_follow_up__
 *  Information on whether the event has occurred (alive/deceased).
-    * Fields:  __diagnoses.vital_status__
+    * Fields:  __demographic.vital_status__
 *  Data split into different categories or groups (i.e. gender, etc.).
     * Fields:  __demographic.gender__
 
