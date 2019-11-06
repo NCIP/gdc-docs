@@ -100,10 +100,10 @@ The "Clinical Data Analysis" feature allows users to specifically examine the cl
 
 * Ability to select which clinical fields to display
 * Examine the clinical data of each field using these visualizations:
-  * Histogram
-  * Survival Plot
-  * Box Plot
-  * QQ Plot
+    * Histogram
+    * Survival Plot
+    * Box Plot
+    * QQ Plot
 * Create custom bins for each field and re-visualize the data with those bins
 * Select specific cases from a clinical field and use them to create a new set, or modify/remove from an existing set
 * Download the visualizations of each plot type for each variable in SVG, PNG, JSON formats
@@ -167,8 +167,8 @@ The survival plot type supports these features:
 
 * View the distribution of cases (# and % of cases) in the cohort for the clinical field's data categories as a table
 * Select and plot the survival analysis for the cases of specific data categories in the table:
-  * By default the top 2 categories (highest # of cases) are displayed
-  * Users can manually select and plot up to 5 categories at a time
+    * By default the top 2 categories (highest # of cases) are displayed
+    * Users can manually select and plot up to 5 categories at a time
 * Download the survival plot visualization in SVG or PNG format
 * Download the raw data used to generate the survival plot in JSON or TSV format
 
@@ -181,15 +181,15 @@ Note that the survival plot applies to, and can be displayed for, both categoric
 The box plot and QQ plot are displayed side-by-side in the same visualization.  This visualization supports these features:
 
 * View standard summary statistics for the clinical field's data across the cohort as both a box plot visualization and a data table:
-  * Minimum
-  * Maximum
-  * Mean
-  * Median
-  * Standard Deviation
-  * Interquartile Range (IQR)
+    * Minimum
+    * Maximum
+    * Mean
+    * Median
+    * Standard Deviation
+    * Interquartile Range (IQR)
 * View a QQ plot visualization to explore whether the clinical field's data across the cohort is normally distributed, where:
-  * The clinical data values are plotted as the sample quantiles on the vertical axis
-  * The the quantiles of the normal distribution are plotted on the horizontal axis
+    * The clinical data values are plotted as the sample quantiles on the vertical axis
+    * The the quantiles of the normal distribution are plotted on the horizontal axis
 * Download the box plot and QQ plot visualizations in SVG or PNG format
 * Download the raw data used to generate the QQ plot in JSON or TSV format
 
@@ -229,12 +229,12 @@ To create custom bins for a continuous variable, click *__Customize Bins__*, the
 The user can choose one of these continuous binning methods:
 
 * (1) Create equi-distant bins based on a set interval:
-  * User must choose the interval (e.g. equi-distant bins of 1,825 days for the Age of Diagnosis field)
-  * User can optionally define the starting and ending value between which the equi-distant bins will be created
+    * User must choose the interval (e.g. equi-distant bins of 1,825 days for the Age of Diagnosis field)
+    * User can optionally define the starting and ending value between which the equi-distant bins will be created
 * (2) Create completely custom ranges:
-  * User manually enters 1 or more bins with custom ranges
-  * User must enter a name for each range and the start and end values
-  * The ranges can be of different interval lengths
+    * User manually enters 1 or more bins with custom ranges
+    * User must enter a name for each range and the start and end values
+    * The ranges can be of different interval lengths
 
 Before saving the bins, if there are errors in the configuration, the user will be notified to correct them and try saving again.  For example:
 
@@ -247,20 +247,20 @@ Before saving the bins, if there are errors in the configuration, the user will 
 Clinical Analysis also provides these additional useful functions:
 
 * Like other analysis types, all Clinical Analysis tabs are saved to the browser's local storage:
-  * Each Analysis tab and its associated configurations (active cards, active plots, custom bins) is saved and is not deleted until local storage is cleared
-  * The currently-enabled clinical cards and their currently-selected plot types are __saved per analysis__
-  * Custom bins are __saved per analysis__
+    * Each Analysis tab and its associated configurations (active cards, active plots, custom bins) is saved and is not deleted until local storage is cleared
+    * The currently-enabled clinical cards and their currently-selected plot types are __saved per analysis__
+    * Custom bins are __saved per analysis__
 * Switch the current set that the analysis applies to - This does the following:
-  * Applies all currently-enabled clinical cards and their currently-selected plot types to the data in the set being switched to
-  * Re-renders all active visualizations to reflect the data in the set being switched to
+    * Applies all currently-enabled clinical cards and their currently-selected plot types to the data in the set being switched to
+    * Re-renders all active visualizations to reflect the data in the set being switched to
 * Rename your analysis with a custom name
 * Copy your current analysis to a new analysis:
-  * User is prompted to name the new copy
-  * All currently-enabled clinical cards and their currently-selected plot types are copied to the new analysis
-  * A new vertical tab appears on the left for the new copy
+    * User is prompted to name the new copy
+    * All currently-enabled clinical cards and their currently-selected plot types are copied to the new analysis
+    * A new vertical tab appears on the left for the new copy
 * Print the current analysis to PDF format:
-  * All currently-enabled clinical cards and their currently-selected plot types are printed
-  * 3 cards per page, with the fixed Overall Survival Plot displayed as the first card in the entire file
+    * All currently-enabled clinical cards and their currently-selected plot types are printed
+    * 3 cards per page, with the fixed Overall Survival Plot displayed as the first card in the entire file
 
 ## Analysis Page: Results
 

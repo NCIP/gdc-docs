@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.23.0](API_Release_Notes.md#v1230) | October X, 2019 |
+| [v1.23.0](API_Release_Notes.md#v1230) | November 6, 2019 |
 | [v1.22.0](API_Release_Notes.md#v1220) | July 31, 2019 |
 | [v1.21.0](API_Release_Notes.md#v1210) | June 5, 2019 |
 | [v1.20.0](API_Release_Notes.md#v1200) | April 17, 2019 |
@@ -31,7 +31,7 @@
 ## v1.23.0 <!--REQ-390-->
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__:  October X, 2019
+* __Release Date__:  November 6, 2019
 
 ### New Features and Changes
 

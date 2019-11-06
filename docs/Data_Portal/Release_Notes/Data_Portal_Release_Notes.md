@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.23.0](Data_Portal_Release_Notes.md#release-1220) | TBD, 2019 |
+| [v1.23.0](Data_Portal_Release_Notes.md#release-1230) | November 6, 2019 |
 | [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
 | [v1.21.0](Data_Portal_Release_Notes.md#release-1210) | June 5, 2019 |
 | [v1.20.0](Data_Portal_Release_Notes.md#release-1200) | April 17, 2019 |
@@ -30,17 +30,17 @@
 ## Release 1.23.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  TBD, 2019
+* __Release Date__:  November 6, 2019
 
 ### New Features and Changes <!--REQ-390-->
 
 * Added Clinical Data Analysis feature that allows Users to: <!--FEAT-520, FEAT-521-->
-  * Explore clinical data via the new Clinical Tab on the Exploration page.
-  * Build custom Case sets based on that clinical data for later analysis.
-  * Create an analysis to examine the clinical variables in a Case set, using various tools including histograms, survival plots, box plots, QQ plots, and custom binning.
-  * Download the data (as TSV, JSON) and plots (as PNG, SVG) of each clinical variable in an anlysis.
-  * Save an analysis to local storage to resume later (as long as storage is not cleared).
-* Added links to CIVIC annotations on the Gene and Mutation entity pages. <!--PRTL-2543-->
+    * Explore clinical data via the new Clinical Tab on the Exploration page.
+    * Build custom Case sets based on that clinical data for later analysis.
+    * Create an analysis to examine the clinical variables in a Case set, using various tools including histograms, survival plots, box plots, QQ plots, and custom binning.
+    * Download the data (as TSV, JSON) and plots (as PNG, SVG) of each clinical variable in an anlysis.
+    * Save an analysis to local storage to resume later (as long as storage is not cleared).
+* Added links to CIViC annotations on the Gene and Mutation entity pages. <!--PRTL-2543-->
 * Updated the default Top Mutated Genes histogram on the Exploration page to display only COSMIC Genes by default. <!--PRTL-2371-->
 * Added Follow-Ups tab and nested Molecular Tests to Case entity page. <!--PRTL-2704-->
 * Added text to BAM slicing modal to instruct Users how to access unmapped reads. <!--PRTL-2620-->
