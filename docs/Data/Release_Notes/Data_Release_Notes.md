@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v19.1](Data_Release_Notes.md#data-release-190) | November 6, 2019 |
+| [v19.1](Data_Release_Notes.md#data-release-191) | November 6, 2019 |
 | [v19.0](Data_Release_Notes.md#data-release-190) | September 17, 2019 |
 | [v18.0](Data_Release_Notes.md#data-release-180) | July 8, 2019 |
 | [v17.1](Data_Release_Notes.md#data-release-171) | June 12, 2019 |
@@ -135,7 +135,7 @@ A complete list of files for DR19.0 are listed for the GDC Data Portal and the G
 
 ### Bugs Fixed Since Last Release
 
-*  
+*  None
 
 ### Known Issues and Workarounds
 
