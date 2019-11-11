@@ -27,7 +27,7 @@
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
 
 
-## Data Release 20.0
+## Data Release 20.0 <!--REQ-392-->
 
 * __GDC Product__: Data
 * __Release Date__: November 11, 2019
