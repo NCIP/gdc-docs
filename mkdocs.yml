@@ -16,10 +16,10 @@ extra_css:
 - css/encyclopedia.css
 markdown_extensions:
 - tables
-# - BSCodeTabExtension:
-#     animate_tab_transitions: false
-#     default_lang: Source
-#     show_all_code_as_folders: true
+- BSCodeTabExtension:
+    animate_tab_transitions: false
+    default_lang: Source
+    show_all_code_as_folders: true
 pages:
 - Home: index.md
 - API:
