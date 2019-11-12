@@ -5,8 +5,8 @@
 <div class="search-box">
     <div class="search-bar">
       <span id="suggestWidth" class="suggest__width"></span>
-      <div class="input-group search-bar__input">
-        <input id="keywords" type="text" class="form-control" aria-label="keywords" placeholder="Please enter keyword" autocomplete="off">
+      <div class="input-group search-bar__group">
+        <input id="keywords" type="text" class="form-control search-bar__input" aria-label="keywords" placeholder="Please enter keyword" autocomplete="off">
         <div id="search-bar-options" class="search-bar__options dropdown" style="display: none;">
           <a href="#" data-toggle="dropdown" class="dropdown-toggle search-bar__option" aria-label="boolean operators"><i class="fa fa-ellipsis-h"></i></a>
           <ul class="dropdown-menu search-bar__dropdown">
