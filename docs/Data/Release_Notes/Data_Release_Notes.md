@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v21.0](Data_Release_Notes.md#data-release-200) | December XX, 2019 |
 | [v20.0](Data_Release_Notes.md#data-release-200) | November 11, 2019 |
 | [v19.1](Data_Release_Notes.md#data-release-191) | November 6, 2019 |
 | [v19.0](Data_Release_Notes.md#data-release-190) | September 17, 2019 |
