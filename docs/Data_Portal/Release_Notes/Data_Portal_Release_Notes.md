@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.23.1](Data_Portal_Release_Notes.md#release-1231) | December XXX, 2019 |
+| [v1.23.1](Data_Portal_Release_Notes.md#release-1231) | December 10, 2019 |
 | [v1.23.0](Data_Portal_Release_Notes.md#release-1230) | November 6, 2019 |
 | [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
 | [v1.21.0](Data_Portal_Release_Notes.md#release-1210) | June 5, 2019 |
@@ -31,7 +31,7 @@
 ## Release 1.23.1
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  December XXX, 2019
+* __Release Date__:  December 10, 2019
 
 ### New Features and Changes <!--REQ-396-->
 
