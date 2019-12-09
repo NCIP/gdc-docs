@@ -586,8 +586,15 @@ While these criteria cause the pipeline to over-filter some of the true positive
 | Input | [Aggregated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=aggregated_somatic_mutation) | Protected MAF |
 | Output | [Masked Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) | Somatic MAF |
 
-## File Access and Availability
+### Harmonization for GENIE variants
 
+Variants reported from the AACR Project GENIE are available from the GDC Data Portal in MAF format.  These variants were produced using an abridged pipeline in which the Genomic Data Commons received the variants directly instead of calling them from aligned reads.  For an outline of the harmonization process, see the steps below:
+
+1. Variants are submitted directly to the GDC as a "Genomic Profile."
+1. GENIE variants are lifted over to GRCh38 coordinates.
+1. Variants are annotated using VEP and made available via the GDC Data Portal. 
+
+## File Access and Availability
 
 Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Portal](https://portal.gdc.cancer.gov) in BAM, VCF, and MAF formats. Descriptions are listed below for all available data types and their respective file formats.
 
