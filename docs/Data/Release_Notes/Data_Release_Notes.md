@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v21.0](Data_Release_Notes.md#data-release-200) | December XX, 2019 |
+| [v21.0](Data_Release_Notes.md#data-release-210) | December XX, 2019 |
 | [v20.0](Data_Release_Notes.md#data-release-200) | November 11, 2019 |
 | [v19.1](Data_Release_Notes.md#data-release-191) | November 6, 2019 |
 | [v19.0](Data_Release_Notes.md#data-release-190) | September 17, 2019 |
@@ -28,7 +28,7 @@
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
 
 
-## Data Release 20.0 <!--REQ-396-->
+## Data Release 21.0 <!--REQ-396-->
 
 * __GDC Product__: Data
 * __Release Date__: December XXX, 2019
@@ -50,8 +50,8 @@
 
 A complete list of files for DR21.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [XXXMANIFESTXXXDR21](XXXXXX)
-* [XXXMANIFESTXXXDR21](XXXXXX)
+* [gdc_manifest_20191209_data_release_21.0_active.txt.gz](gdc_manifest_20191209_data_release_21.0_active.txt.gz)
+* [gdc_manifest_20191209_data_release_21.0_legacy.txt.gz](gdc_manifest_20191209_data_release_21.0_legacy.txt.gz)
 
 
 ### Bugs Fixed Since Last Release
