@@ -50,8 +50,8 @@
 
 A complete list of files for DR21.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20191209_data_release_21.0_active.txt.gz](gdc_manifest_20191209_data_release_21.0_active.txt.gz)
-* [gdc_manifest_20191209_data_release_21.0_legacy.txt.gz](gdc_manifest_20191209_data_release_21.0_legacy.txt.gz)
+* [gdc_manifest_20191210_data_release_21.0_active.txt.gz](gdc_manifest_20191210_data_release_21.0_active.txt.gz)
+* [gdc_manifest_20191210_data_release_21.0_legacy.txt.gz](gdc_manifest_20191210_data_release_21.0_legacy.txt.gz)
 
 
 ### Bugs Fixed Since Last Release
