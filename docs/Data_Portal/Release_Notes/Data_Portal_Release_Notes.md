@@ -35,7 +35,7 @@
 
 ### New Features and Changes <!--REQ-396-->
 
-* Updated display of x-axis units on the homepage’s Human Body chart to more easily display increased case counts for newly-added projects <!--PRTL-2925-->
+* Updated display of x-axis units on the homepage Human Body chart to more easily display increased case counts for newly-added projects <!--PRTL-2925-->
 
 ### Bugs Fixed Since Last Release
 
