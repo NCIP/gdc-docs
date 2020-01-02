@@ -504,7 +504,7 @@ $(function() {
     function _initLinks(confineToContainerID) {
       // Ensure all anchor links which appear to be external have the appropriate target and
       // icon.
-      $(confineToContainerID + ' a[href^="http"], #main-nav a[href^="http"]').each(function() {
+      $(confineToContainerID + ' a[href^="http"]').each(function() {
         var anchor = $(this);
 
         anchor.attr('target', '_blank');
