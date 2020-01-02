@@ -7,17 +7,20 @@
 
           {% for sub_nav_item in nav_item.children %}
             <li class="{% if sub_nav_item.active %} main active{% endif %}">
-              <a href="{{ "https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files" if sub_nav_item.title == "GDC Reference Files" else sub_nav_item.url }}">
+              <a href="{{ sub_nav_item.url }}">
                 {{ sub_nav_item.title }}
               </a>
                 {% if toc and ((toc | first) is defined) and sub_nav_item.active %}
                     {% include "nav-section-map-toc.html" %}
                 {% endif %}
-
-              {% endfor %}
-
-              {% endif %}
             </li>
+            {% if sub_nav_item.title == "Aligned Reads Summary Metrics" %}
+            <li>
+              <a href="https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files">GDC Reference Files</a>
+            </li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
       {% endfor %}
     </ul>
   </div>

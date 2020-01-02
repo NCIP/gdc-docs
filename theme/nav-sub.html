@@ -1,14 +1,16 @@
 {% if not nav_item.children %}
-<li {% if nav_item.active %}class="active"{% endif %}>
-    {% if nav_item.title == "GDC Reference Files" %}
-    <a
-    href="https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files">{{ nav_item.title }}</a>
-    {% elif disableRootNavPrefixing %}
+  <li {% if nav_item.active %}class="active"{% endif %}>
+    {% if disableRootNavPrefixing %}
     <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
     {% else %}
     <a href="{{ config.extra.project_root_dir }}{{ nav_item.url }}">{{ nav_item.title }}</a>
     {% endif %}
-</li>
+  </li>
+  {% if nav_item.title == "Aligned Reads Summary Metrics" %}
+  <li>
+    <a href="https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files">GDC Reference Files</a>
+  </li>
+  {% endif %}
 {% else %}
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">{{ nav_item.title }}</a>
