@@ -84,6 +84,9 @@ pages:
   - 'Bioinformatics Pipeline: Copy Number Variation Analysis': Data/Bioinformatics_Pipelines/CNV_Pipeline.md
   - 'Bioinformatics Pipeline: Methylation Liftover Pipeline': Data/Bioinformatics_Pipelines/Methylation_LO_Pipeline.md
   - Aligned Reads Summary Metrics: Data/Bioinformatics_Pipelines/Aligned_reads_summary_metrics.md
+  - GDC Reference Files: /
+  # GDC Reference Files link is replaced in nav.html
+  # with an external link
   - Release Notes: Data/Release_Notes/Data_Release_Notes.md
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: Data/PDF/index.md
 - Encyclopedia: Encyclopedia/index.md

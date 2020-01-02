@@ -7,7 +7,7 @@
 
           {% for sub_nav_item in nav_item.children %}
             <li class="{% if sub_nav_item.active %} main active{% endif %}">
-              <a href="{{ sub_nav_item.url }}">
+              <a href="{{ "https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files" if sub_nav_item.title == "GDC Reference Files" else sub_nav_item.url }}">
                 {{ sub_nav_item.title }}
               </a>
                 {% if toc and ((toc | first) is defined) and sub_nav_item.active %}
