@@ -28,10 +28,10 @@
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
 
-## Data Release 21.0 <!--REQ-396-->
+## Data Release 22.0 <!--REQ-396-->
 
 * __GDC Product__: Data
-* __Release Date__: December 10, 2019
+* __Release Date__: January XXXXX, 2020
 
 ### New updates
 
@@ -43,7 +43,7 @@
     * 16 New Cases
     * Includes WXS, WGS, and RNA-Seq data
 
-3. New data from CPTAC-3 <!--DAT-2723--> 
+3. New data from CPTAC-3 <!--DAT-2723-->
     * 108 New Cases
     * Includes WXS, WGS, and RNA-Seq data
     * miRNA-Seq data for currently released cases
