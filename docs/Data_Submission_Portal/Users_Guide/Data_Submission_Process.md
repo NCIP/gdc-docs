@@ -330,7 +330,7 @@ After the user clicks on `SUBMIT VALIDATED DATA TO THE GDC`, the project state b
 The GDC requests that users submit their data to the GDC for harmonization within six months from the first upload of data to the project workspace.
 
 ### Reviewing Harmonized Data
-After harmonization and prior to release, the GDC provides data submitters with access to their harmonized data. This allows the submitter to perform a check of the data, and let the GDC know if anything is incorrect before the data are released to the GDC Data Portal.  How and in what detail the submitter wants to perform such a review is up to them, but here are a few suggestions for what a submitter may want to check.
+After harmonization and prior to release, the GDC provides data submitters with access to their harmonized data. This allows the submitter to perform a check of the data, and let the GDC know if anything is incorrect before the data are released to the GDC Data Portal. How and in what detail the submitter wants to perform such a review is up to them, but here are a few suggestions for what a submitter may want to check.
 
 Are all expected data present?  More specifically, you could review the following questions:
    * Are the number of cases correct?
