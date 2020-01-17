@@ -36,13 +36,11 @@
 ### New updates
 
 1.  New projects released:
-    *  WCDT-MCRPC - Genomic Characterization of Metastatic Castration Resistant Prostate Cancer (phs001648)
+    * WCDT-MCRPC - Genomic Characterization of Metastatic Castration Resistant Prostate Cancer (phs001648)
         * RNA-Seq; WGS Data <!--SPT7-4--> <!--SPT7-38-->
-
 2. New data from HCMI-CMDC <!--DAT-2758--> <!--SPT7-33-->
     * 16 New Cases
     * Includes WXS, WGS, and RNA-Seq data
-
 3. New data from CPTAC-3 <!--DAT-2723-->
     * 108 New Cases
     * Includes WXS, WGS, and RNA-Seq data
@@ -62,12 +60,12 @@ A complete list of files for DR22.0 are listed for the GDC Data Portal and the G
 
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * 6 of the HCMI-CMDC cases are missing clinical nodes <!--SV-1660-->
-  * HCM-CSHL-0060-C18
-  * HCM-CSHL-0089-C25
-  * HCM-CSHL-0090-C25
-  * HCM-CSHL-0092-C25
-  * HCM-CSHL-0091-C25
-  * HCM-CSHL-0057-C18
+    * HCM-CSHL-0060-C18
+    * HCM-CSHL-0089-C25
+    * HCM-CSHL-0090-C25
+    * HCM-CSHL-0092-C25
+    * HCM-CSHL-0091-C25
+    * HCM-CSHL-0057-C18
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
