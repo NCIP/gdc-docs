@@ -9,15 +9,16 @@
 | [v1.1.0](DTT_Release_Notes.md#v110) | September 7, 2016 |
 | [v1.0.1](DTT_Release_Notes.md#v101) | June 2, 2016 |
 | [v1.0.0](DTT_Release_Notes.md#v100) | May 26, 2016 |
+
 ## V1.4.0
 * __GDC Product__: Data Transfer Tool
-* __Release Date__: December 18, 2018
+* __Release Date__: January 30, 2018
 
 ### New Features and Changes
-* Code was migrated from Python 2 to Python 3. <!--DTT-1109-->
+* Data transfer tool code now uses Python 3. <!--DTT-1109-->
 
 ### Bugs Fixed Since Last Release
-* XXXXXXX
+* Problems with downloading associated annotations is fixed.  <!--SV-1641-->
 
 ### Known Issues and Workarounds
 * Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
