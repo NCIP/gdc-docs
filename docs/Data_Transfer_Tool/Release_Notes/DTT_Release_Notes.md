@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.5.0](DTT_Release_Notes.md#v150) | January 20, 2020 |
+| [v1.5.0](DTT_Release_Notes.md#v150) | January 30, 2020 |
 | [v1.4.0](DTT_Release_Notes.md#v140) | December 18, 2018 |
 | [v1.3.0](DTT_Release_Notes.md#v130) | August 22, 2017 |
 | [v1.2.0](DTT_Release_Notes.md#v120) | Oct 31, 2016 |
@@ -12,7 +12,7 @@
 
 ## V1.4.0
 * __GDC Product__: Data Transfer Tool
-* __Release Date__: January 30, 2018
+* __Release Date__: January 30, 2020
 
 ### New Features and Changes
 * Data transfer tool code now uses Python 3. <!--DTT-1109-->
