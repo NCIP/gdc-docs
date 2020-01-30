@@ -10,7 +10,7 @@
 | [v1.0.1](DTT_Release_Notes.md#v101) | June 2, 2016 |
 | [v1.0.0](DTT_Release_Notes.md#v100) | May 26, 2016 |
 
-## V1.4.0
+## V1.5.0
 * __GDC Product__: Data Transfer Tool
 * __Release Date__: January 30, 2020
 
