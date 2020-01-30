@@ -29,19 +29,18 @@
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
 
-## v2.0.0 <!--XXXXX-->
+## v2.0.0 <!--REQ-393-->
 
 * __GDC Product__: Application Programming Interface (API)
 * __Release Date__:  January 30, 2020
 
 ### New Features and Changes
 
-* API code now uses Python 3 <!--REQ-XX-->
+* API code now uses Python 3. <!--REQ-393-->
 
 ### Bugs Fixed Since Last Release
 
-* Fixed API memory leak <!--API-719, API-775-->
-* Fixed data offset issue returned by clinical.tar endpoint <!--API-732-->
+* None
 
 ### Known Issues and Workarounds
 
