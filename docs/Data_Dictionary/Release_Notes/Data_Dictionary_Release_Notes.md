@@ -1,8 +1,8 @@
 # Data Dictionary Release Notes
 
-
 | Version | Date |
 |---|---|
+| [v.1.19](Data_Dictionary_Release_Notes.md#v119) | February XX, 2020 |
 | [v.1.18.1](Data_Dictionary_Release_Notes.md#v1181) | November 6, 2019 |
 | [v.1.18](Data_Dictionary_Release_Notes.md#v118) | July 31, 2019 |
 | [v.1.17](Data_Dictionary_Release_Notes.md#v117) | June 5, 2019 |
@@ -16,6 +16,54 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v.1.19
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: February XX, 2020
+
+### New Features and Changes
+
+* Modified `read_group` entity
+  * Add 5 new target capture kits <!--DAT-2755-->
+  * Add one new enum to library_strategy in read_group <!--2793-->
+* Modified `structural_variation` entity <!--DAT-2703-->
+  * Added `VCF` to `data_format` property
+* Added links to `structural_variation` from `somatic_mutation_index` <!--DAT-2704-->
+* Added links to `aligned_reads` from `somatic_copy_number` workflow <!--DAT-2705-->
+* Modified `copy_number_segment` entity
+  * Added `WGS` and `WXS` to `experimental_strategy` property <!--DAT-2706-->
+  * Added new enum to `experimental_strategy` in copy_number_segment <!--DAT-2788-->
+* Modified `aligned_reads` entity
+  * Added 2 new properties <!--DAT-2787-->
+* Modified `treatment` entity
+  * Added enumeration to `therapeutic_agent` property <!--DAT-2727-->
+* Modified `copy_number_estimate` entity	 <!--DAT-2729-->
+* Modified `demographic` entity	 <!--DAT-2733-->
+* Modified `family_history`entity	 <!--DAT-2738-->
+* Modified `follow_up` entity	 <!--DAT-2739-->
+* Modified `molecular_test` entity <!--DAT-2741-->
+* Modified `sample` entity <!--DAT-2742-->
+* caDSR requests for new values and new properties	 <!--DAT-2743-->
+* Modified `treatment` entity <!--DAT-2745-->
+* Modified `slide` entity <!--DAT-2747-->
+* Modified `diagnosis` entity <!--DAT-2735-->
+* Modified `exposure` entity <!--DAT-2737-->
+* Modified `case` entity <!--DAT-2746-->
+* Add one new enum to `experimental_strategy` in 4 nodes <!--2794-->
+* Add 3 new enum to `workflow_type` in alignment_workflow <!--2795-->
+* Add 4 new enum to `workflow_type` in rna_expression_workflow <!--2796-->
+* Add one new integer property to `read_group` <!--2798-->
+* Add one new enum to `read_pair_number` in `submitted_unaligned_reads` <!--2799-->
+* Add one new enum property in `read_group` node <!--2800-->
+* Create new node `expression_analysis_workflow` <!--2802-->
+* Create new node `secondary_expressoin_analysis` <!--2803-->
+* Add one new enum to `data_format` in `gene_expression` <!--2804-->
+* Age at Diagnosis Case Links in Cohort Comparison Crashes Page	<!--PRTL-2909-->
+
+### Bugs Fixed Since Last Release
+* None
+
 
 ## v.1.18.1
 
