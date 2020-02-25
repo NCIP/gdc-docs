@@ -25,7 +25,7 @@
 ### New Features and Changes
 
 * Modified `read_group` entity
-  * Add 5 new target capture kits <!--DAT-2755-->
+  * Added 5 new target capture kits <!--DAT-2755-->
     * `Custom Twist Broad PanCancer Panel - 396 Genes`
     * `Nextera DNA Exome`
     * `Custom Twist Broad Exome v1.0 - 35.0 Mb`
@@ -53,7 +53,7 @@
 * Modified `demographic` entity	 <!--DAT-2733-->
  * Added new property `country_of_residence_at_enrollment`
 * Modified `family_history` entity	 <!--DAT-2738-->
-  * Added new enums to `relationship_primary_diagnosis` property
+  * Added new permissible values to `relationship_primary_diagnosis` property
 * Modified `follow_up` entity	 <!--DAT-2739-->
   * Added new properties
     * `body_surface_area`
@@ -80,7 +80,7 @@
   * Added new enum to `days_to_follow_up`
     * `null`
 * Modified `molecular_test` entity <!--DAT-2741-->
-  * Added new enums to various properties
+  * Added new permissible values to various properties
     * `laboratory_test`
     * `second_gene_symbol`
     * `molecular_consequence`
@@ -89,7 +89,7 @@
     * `gene_symbol`
     * `clonality`
 * Modified `sample` entity <!--DAT-2742-->
-  * Added new enums to various properties
+  * Added new permissible values to various properties
     * `method_of_sample_procurement`
     * `biospecimen_anatomic_site`
     * `tumor_descriptor`
@@ -106,7 +106,7 @@
     * `treatment_dose_units`
     * `treatment_frequency`
     * `chemo_concurent_to_radiation`
-  * Added new enums to various properties
+  * Added new permissible values to various properties
     * `therapeutic_agent`
     * `treatment_effect`
     * `treatment_intent_type`
@@ -133,7 +133,7 @@
     * `lymph_node_involved_site`
     * `pregnant_at_diagnosis`
     * `figo_staging_edition_year`
-  * Added new enums to various properties
+  * Added new permissible values to various properties
     * `classification_of_tumor`
     * `figo_stage`
     * `tumor_grade`
@@ -155,17 +155,17 @@
   * Added new properties
     * `consent_type`
     * `days_to_consent`
-  * Added new enums to `index_date`
+  * Added new permissible values to `index_date`
 * Add `scRNA-Seq` as new enum to `experimental_strategy` in 4 nodes <!--DAT-2794-->
   * `submitted_unaligned_reads`
   * `submitted_aligned_reads`
   * `aligned_reads`
   * `gene_expression`
-* Add 3 new enum to `workflow_type` in alignment_workflow <!--2795-->
+* Add 3 new permissible values to `workflow_type` in alignment_workflow <!--2795-->
   * `CellRanger - 10x Chromium`
   * `STAR - Smart-Seq2`
   * `zUMIs - Smart-Seq2`
-* Add 4 new enum to `workflow_type` in rna_expression_workflow <!--DAT-2796-->
+* Add 4 new permissible values to `workflow_type` in rna_expression_workflow <!--DAT-2796-->
   * `CellRanger - 10x Raw Counts`
   * `CellRanger - 10x Filtered Counts`
   * `STAR - Smart-Seq2 Counts`
