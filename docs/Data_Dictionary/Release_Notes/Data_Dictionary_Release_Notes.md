@@ -38,7 +38,9 @@
 * Added links to `structural_variation` from `somatic_mutation_index` <!--DAT-2704-->
 * Added links to `aligned_reads` from `somatic_copy_number` workflow <!--DAT-2705-->
 * Modified `copy_number_segment` entity
-  * Added `WGS` and `WXS` to `experimental_strategy` property <!--DAT-2706-->
+  * Added new permissible values to `experimental_strategy` property <!--DAT-2706-->
+    * `WGS`
+    * `WXS` 
   * Added new enum to `experimental_strategy` <!--DAT-2788-->
     * `WGS`
 * Modified `aligned_reads` entity
