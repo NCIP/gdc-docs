@@ -95,7 +95,6 @@
     * `tumor_descriptor`
   * Added new property
     * `tissue_collection_type`
-* caDSR requests for new values and new properties	 <!--DAT-2743-->
 * Modified `treatment` entity <!--DAT-2745-->
   * Added new properties
     * `treatment_arm`
