@@ -24,6 +24,8 @@
 
 ### New Features and Changes
 
+* Added NCIt codes associated with enumeration values in `exposure`, `family_history`, and `demographic` entity types
+* Restructured dictionary for consistency across types
 * Modified `read_group` entity
   * Added 5 new target capture kits <!--DAT-2755-->
     * `Custom Twist Broad PanCancer Panel - 396 Genes`
@@ -40,7 +42,7 @@
 * Modified `copy_number_segment` entity
   * Added new permissible values to `experimental_strategy` property <!--DAT-2706-->
     * `WGS`
-    * `WXS` 
+    * `WXS`
   * Added new enum to `experimental_strategy` <!--DAT-2788-->
     * `WGS`
 * Modified `aligned_reads` entity
