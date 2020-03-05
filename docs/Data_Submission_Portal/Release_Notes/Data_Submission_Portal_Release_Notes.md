@@ -32,7 +32,8 @@
 
 ### Bugs Fixed Since Last Release
 
-*  ???
+* Fixed bug where the right-hand detail pane in the Transactions and QC Report tabs was being cut off and not scrollable in the viewport for Windows environments (all browsers). <!--SUBP-594-->
+* Fixed bug in the PDF file downloaded from the QC Report tab's Project Summary, where text was being cut off when browsing in Firefox or Microsoft Edge. <!--SUBP-588-->
 
 ### Known Issues and Workarounds
 
