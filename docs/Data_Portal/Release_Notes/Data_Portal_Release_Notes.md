@@ -58,6 +58,10 @@
 * Fixed bug where the expand/collapse symbols in the UI were incorrectly being exported in the TSV download of the Projects table. <!--PRTL-2883-->
 * Fixed bug where Oncogrid's modal for customizing colors could not be scrolled below the fold if it was shrunk beyond a certain threshold. <!--PRTL-2881-->
 * Fixed incorrect DTT hyperlink in the GDC Apps menu. <!--PRTL-2867-->
+* Fixed bug where the "dbSNP rs ID" facet could not be minimized in the Exploration page's Mutations facet tab. <!--PRTL-2840-->
+* Fixed layout issue where the Portal's header incorrectly overlaps some content when a notification banner is displayed. <!--PRTL-2753-->
+* Fixed some minor layout & styling issues in the Exploration page's facets panel. <!--PRTL-2614-->
+* Fixed bug where the Case ID on the Exploration page's Cases facet tab was not searchable in certain scenarios. <!--PRTL-2587-->
 
 ### Known Issues and Workarounds
 
