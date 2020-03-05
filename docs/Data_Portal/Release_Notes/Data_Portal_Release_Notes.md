@@ -45,6 +45,7 @@
 * Made entire Clinical Analysis results page responsive (card columns now scale & stack in response to the size of the browser window). <!--PRTL-2882-->
 * Replaced Clinical Analysis function for printing clinical cards to a single PDF file, with more flexible functionality to instead download all the cards in SVG and/or PNG format. <!--PRTL-2870-->
 * Added message to notify users when they try to access the Portal using Microsoft Internet Explorer, indicating which browsers are officially supported. <!--PRTL-2868-->
+* Added arrow icon to sortable columns across the Portal to indicate the current sort direction. <!--PRTL-2330-->
 
 ### Bugs Fixed Since Last Release
 
@@ -64,6 +65,7 @@
 * Fixed bug where the Case ID on the Exploration page's Cases facet tab was not searchable in certain scenarios. <!--PRTL-2587-->
 * Fixed bug where the Expand/Collapse button state was not changing properly when being used in the Biospecimen section of the Case entity page. <!--PRTL-2575-->
 * Fixed incorrect capitalization of "dbGaP" in the Summary section of the Project entity page. <!--PRTL-2436-->
+* Fixed layout issue where the Advanced Search query box on the Repository page could expanded beyond the margins of the box's border. <!--PRTL-2271-->
 
 ### Known Issues and Workarounds
 
