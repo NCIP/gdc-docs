@@ -41,6 +41,7 @@
 * Added a link to the Cart where users can access instructions for downloading the GDC Genome Build reference files. <!--PRTL-2929-->
 * Added logic to prevent duplicate fetching of data for Clinical Analysis survival plots and optimize rendering. <!--PRTL-2910-->
 * Added a button to clear searches for certain Portal search controls that were previously missing this ability. <!--PRTL-2900-->
+* Reduced whitespace between Oncogrid and its control panel to optimize spacing and layout. <!--PRTL-2899-->
 
 ### Bugs Fixed Since Last Release
 
@@ -49,6 +50,8 @@
 * Fixed layout issue where the Repository header and action buttons were scaling and wrapping incorrectly if the browser window is shrunk beyond a certain threshold. <!--PRTL-2938-->
 * Fixed layout issue where the responsive Clinical Analysis Cards were clipping improperly as the browser window is shrunk beyond a certain threshold. <!--PRTL-2928-->
 * Fixed bug where the Clinical Tab on the Exploration page was crashing when entering a custom range of Years for the Age at Diagnosis facet. <!--PRTL-2913-->
+* Fixed various minor cosmetic and color issues in PNG, SVG downloads of the Clinical Analysis survival plots. <!--PRTL-2887-->
+* Fixed bug where the x-axis in PNG, SVG downloads of histograms across the Portal was being bolded incorrectly. <!--PRTL-2885-->
 
 ### Known Issues and Workarounds
 
