@@ -52,6 +52,7 @@
 * Fixed bug where the Clinical Tab on the Exploration page was crashing when entering a custom range of Years for the Age at Diagnosis facet. <!--PRTL-2913-->
 * Fixed various minor cosmetic and color issues in PNG, SVG downloads of the Clinical Analysis survival plots. <!--PRTL-2887-->
 * Fixed bug where the x-axis in PNG, SVG downloads of histograms across the Portal was being bolded incorrectly. <!--PRTL-2885-->
+* Fixed bug where the expand/collapse symbols in the UI were incorrectly being exported in the TSV download of the Projects table. <!--PRTL-2883-->
 
 ### Known Issues and Workarounds
 
