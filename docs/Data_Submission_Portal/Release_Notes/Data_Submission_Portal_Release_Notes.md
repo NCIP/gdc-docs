@@ -37,6 +37,7 @@
 * Fixed bug where the TSV and JSON download buttons completely disappear and cannot be scrolled to in the Project Data Download modal, if it is shrunk beyond a certain threshold. <!--SUBP-585-->
 * Fixed bug in the Manifest download button that was trying to capture certain incorrect or unnecessary file states. <!--SUBP-570-->
 * Fixed incorrect DTT hyperlink in the GDC Apps menu. <!--SUBP-568-->
+* Fixed bug where the banner warning users that ERA Commons login was currently not working, would only appear after the user logged in, thus defeating the purpose of the warning in the first place. <!--SUBP-545-->
 
 ### Known Issues and Workarounds
 
