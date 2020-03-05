@@ -36,11 +36,13 @@
 
 ### New Features and Changes <!--REQ-395-->
 
-* None
+* Revised popup label for ???. <!--PRTL-2969-->
+* Added Tobacco Smoking Status field to the Exposures tab on the Case Entity Page. <!--PRTL-2952>
 
 ### Bugs Fixed Since Last Release
 
-* None
+* Fixed bug where clicking a primary site on the Human Body Image was not re-directing to the Exploration page. <!--PRTL-2979-->
+* 
 
 ### Known Issues and Workarounds
 
