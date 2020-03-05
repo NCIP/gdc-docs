@@ -43,7 +43,8 @@
 * Added a button to clear searches for certain Portal search controls that were previously missing this ability. <!--PRTL-2900-->
 * Reduced whitespace between Oncogrid and its control panel to optimize spacing and layout. <!--PRTL-2899-->
 * Made entire Clinical Analysis results page responsive (card columns now scale & stack in response to the size of the browser window). <!--PRTL-2882-->
-* Replaced Clinical Analysis function for printing clinical cards to a single PDF file, with more flexible functionality to instead download all the cards in SVG and/or PNG format.
+* Replaced Clinical Analysis function for printing clinical cards to a single PDF file, with more flexible functionality to instead download all the cards in SVG and/or PNG format. <!--PRTL-2870-->
+* Added message to notify users when they try to access the Portal using Microsoft Internet Explorer, indicating which browsers are officially supported. <!--PRTL-2868-->
 
 ### Bugs Fixed Since Last Release
 
@@ -56,6 +57,7 @@
 * Fixed bug where the x-axis in PNG, SVG downloads of histograms across the Portal was being bolded incorrectly. <!--PRTL-2885-->
 * Fixed bug where the expand/collapse symbols in the UI were incorrectly being exported in the TSV download of the Projects table. <!--PRTL-2883-->
 * Fixed bug where Oncogrid's modal for customizing colors could not be scrolled below the fold if it was shrunk beyond a certain threshold. <!--PRTL-2881-->
+* Fixed incorrect DTT hyperlink in the GDC Apps menu. <!--PRTL-2867-->
 
 ### Known Issues and Workarounds
 
