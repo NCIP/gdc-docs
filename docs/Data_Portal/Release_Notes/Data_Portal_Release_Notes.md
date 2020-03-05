@@ -39,6 +39,8 @@
 * Removed unnecessary comma and y-axis value from title of the mutation details pop-up in the Protein Viewer. <!--PRTL-2969-->
 * Added Tobacco Smoking Status field to the Exposures tab on the Case Entity Page. <!--PRTL-2952-->
 * Added a link to the Cart where users can access instructions for downloading the GDC Genome Build reference files. <!--PRTL-2929-->
+* Added logic to prevent duplicate fetching of data for Clinical Analysis survival plots and optimize rendering. <!--PRTL-2910-->
+* Added a button to clear searches for certain Portal search controls that were previously missing this ability. <!--PRTL-2900-->
 
 ### Bugs Fixed Since Last Release
 
