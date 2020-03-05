@@ -38,12 +38,15 @@
 
 * Removed unnecessary comma and y-axis value from title of the mutation details pop-up in the Protein Viewer. <!--PRTL-2969-->
 * Added Tobacco Smoking Status field to the Exposures tab on the Case Entity Page. <!--PRTL-2952-->
+* Added a link to the Cart where users can access instructions for downloading the GDC Genome Build reference files. <!--PRTL-2929-->
 
 ### Bugs Fixed Since Last Release
 
 * Fixed bug where clicking a primary site on the Human Body Image was not re-directing to the Exploration page. <!--PRTL-2979-->
 * Fixed layout issue where long Annotation Notes were exceeding the border of the text box. <!--PRTL-2944-->
 * Fixed layout issue where the Repository header and action buttons were scaling and wrapping incorrectly if the browser window is shrunk beyond a certain threshold. <!--PRTL-2938-->
+* Fixed layout issue where the responsive Clinical Analysis Cards were clipping improperly as the browser window is shrunk beyond a certain threshold. <!--PRTL-2928-->
+* Fixed bug where the Clinical Tab on the Exploration page was crashing when entering a custom range of Years for the Age at Diagnosis facet. <!--PRTL-2913-->
 
 ### Known Issues and Workarounds
 
