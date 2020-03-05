@@ -37,7 +37,7 @@
 ### New Features and Changes <!--REQ-395-->
 
 * Removed unnecessary comma and y-axis value from title of the mutation details pop-up in the Protein Viewer. <!--PRTL-2969-->
-* Added Tobacco Smoking Status field to the Exposures tab on the Case Entity Page. <!--PRTL-2952-->
+* Added Tobacco Smoking Status field to the Exposures tab on the Case entity page. <!--PRTL-2952-->
 * Added a link to the Cart where users can access instructions for downloading the GDC Genome Build reference files. <!--PRTL-2929-->
 * Added logic to prevent duplicate fetching of data for Clinical Analysis survival plots and optimize rendering. <!--PRTL-2910-->
 * Added a button to clear searches for certain Portal search controls that were previously missing this ability. <!--PRTL-2900-->
@@ -62,6 +62,8 @@
 * Fixed layout issue where the Portal's header incorrectly overlaps some content when a notification banner is displayed. <!--PRTL-2753-->
 * Fixed some minor layout & styling issues in the Exploration page's facets panel. <!--PRTL-2614-->
 * Fixed bug where the Case ID on the Exploration page's Cases facet tab was not searchable in certain scenarios. <!--PRTL-2587-->
+* Fixed bug where the Expand/Collapse button state was not changing properly when being used in the Biospecimen section of the Case entity page. <!--PRTL-2575-->
+* Fixed incorrect capitalization of "dbGaP" in the Summary section of the Project entity page. <!--PRTL-2436-->
 
 ### Known Issues and Workarounds
 
