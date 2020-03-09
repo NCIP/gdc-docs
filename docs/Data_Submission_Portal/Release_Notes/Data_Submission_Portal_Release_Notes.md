@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.4.1](Data_Submission_Portal_Release_Notes.md#release-241) | March 9, 2020 |
 | [v2.4.0](Data_Submission_Portal_Release_Notes.md#release-240) | November 6, 2019 |
 | [v2.3.0](Data_Submission_Portal_Release_Notes.md#release-230) | June 5, 2019 |
 | [v2.2.0](Data_Submission_Portal_Release_Notes.md#release-220) | February 20, 2019 |
@@ -20,6 +21,29 @@
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
 
 ---
+## Release 2.4.1
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: March 9, 2020
+
+### New Features and Changes
+
+*  Removed duplicate queries from various pages in the Submission Portal to optimize data retrieval and rendering. <!--SUBP-584-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed bug where the right-hand detail pane in the Transactions and QC Report tabs was being cut off and not scrollable in the viewport for Windows environments (all browsers). <!--SUBP-594-->
+* Fixed bug in the PDF file downloaded from the QC Report tab's Project Summary, where text was being cut off when browsing in Firefox or Microsoft Edge. <!--SUBP-588-->
+* Fixed bug where the TSV and JSON download buttons completely disappear and cannot be scrolled to in the Project Data Download modal, if it is shrunk beyond a certain threshold. <!--SUBP-585-->
+* Fixed bug in the Manifest download button that was trying to capture certain incorrect or unnecessary file states. <!--SUBP-570-->
+* Fixed incorrect DTT hyperlink in the GDC Apps menu. <!--SUBP-568-->
+* Fixed bug where the banner warning users that ERA Commons login was currently not working, would only appear after the user logged in, thus defeating the purpose of the warning in the first place. <!--SUBP-545-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+
 ## Release 2.4.0
 
 * __GDC Product__: GDC Data Submission Portal

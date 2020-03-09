@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v1.24.0](Data_Portal_Release_Notes.md#release-1240) | March 9, 2020 |
 | [v1.23.1](Data_Portal_Release_Notes.md#release-1231) | December 10, 2019 |
 | [v1.23.0](Data_Portal_Release_Notes.md#release-1230) | November 6, 2019 |
 | [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
@@ -28,6 +29,64 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 1.24.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  March 9, 2020
+
+### New Features and Changes <!--REQ-395-->
+
+* Removed unnecessary comma and y-axis value from title of the mutation details pop-up in the Protein Viewer. <!--PRTL-2969-->
+* Added Tobacco Smoking Status field to the Exposures tab on the Case entity page. <!--PRTL-2952-->
+* Added a link to the Cart where users can access instructions for downloading the GDC Genome Build reference files. <!--PRTL-2929-->
+* Added logic to prevent duplicate fetching of data for Clinical Analysis survival plots and optimize rendering. <!--PRTL-2910-->
+* Added a button to clear searches for certain Portal search controls that were previously missing this ability. <!--PRTL-2900-->
+* Reduced whitespace between Oncogrid and its control panel to optimize spacing and layout. <!--PRTL-2899-->
+* Made entire Clinical Analysis results page responsive (card columns now scale & stack in response to the size of the browser window). <!--PRTL-2882-->
+* Replaced Clinical Analysis function for printing clinical cards to a single PDF file, with more flexible functionality to instead download all the cards in SVG and/or PNG format. <!--PRTL-2870-->
+* Added message to notify users when they try to access the Portal using Microsoft Internet Explorer, indicating which browsers are officially supported. <!--PRTL-2868-->
+* Added arrow icon to sortable columns across the Portal to indicate the current sort direction. <!--PRTL-2330-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed bug where clicking a primary site on the Human Body Image was not re-directing to the Exploration page. <!--PRTL-2979-->
+* Fixed layout issue where long Annotation Notes were exceeding the border of the text box. <!--PRTL-2944-->
+* Fixed layout issue where the Repository header and action buttons were scaling and wrapping incorrectly if the browser window is shrunk beyond a certain threshold. <!--PRTL-2938-->
+* Fixed layout issue where the responsive Clinical Analysis Cards were clipping improperly as the browser window is shrunk beyond a certain threshold. <!--PRTL-2928-->
+* Fixed bug where the Clinical Tab on the Exploration page was crashing when entering a custom range of Years for the Age at Diagnosis facet. <!--PRTL-2913-->
+* Fixed various minor cosmetic and color issues in PNG, SVG downloads of the Clinical Analysis survival plots. <!--PRTL-2887-->
+* Fixed bug where the x-axis in PNG, SVG downloads of histograms across the Portal was being bolded incorrectly. <!--PRTL-2885-->
+* Fixed bug where the expand/collapse symbols in the UI were incorrectly being exported in the TSV download of the Projects table. <!--PRTL-2883-->
+* Fixed bug where Oncogrid's modal for customizing colors could not be scrolled below the fold if it was shrunk beyond a certain threshold. <!--PRTL-2881-->
+* Fixed incorrect DTT hyperlink in the GDC Apps menu. <!--PRTL-2867-->
+* Fixed bug where the "dbSNP rs ID" facet could not be minimized in the Exploration page's Mutations facet tab. <!--PRTL-2840-->
+* Fixed layout issue where the Portal's header incorrectly overlaps some content when a notification banner is displayed. <!--PRTL-2753-->
+* Fixed some minor layout & styling issues in the Exploration page's facets panel. <!--PRTL-2614-->
+* Fixed bug where the Case ID on the Exploration page's Cases facet tab was not searchable in certain scenarios. <!--PRTL-2587-->
+* Fixed bug where the Expand/Collapse button state was not changing properly when being used in the Biospecimen section of the Case entity page. <!--PRTL-2575-->
+* Fixed incorrect capitalization of "dbGaP" in the Summary section of the Project entity page. <!--PRTL-2436-->
+* Fixed layout issue where the Advanced Search query box on the Repository page could expanded beyond the margins of the box's border. <!--PRTL-2271-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+    
 ## Release 1.23.1
 
 * __GDC Product__: GDC Data Portal
