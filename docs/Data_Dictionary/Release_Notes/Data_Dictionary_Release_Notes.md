@@ -189,6 +189,18 @@
 ### Bugs Fixed Since Last Release
 * None
 
+## v2.0.0 <!--REQ-393-->
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: January 30, 2020
+
+### New Features and Changes
+* The API that includes the GDC data dictionary now uses Python 3. 
+
+### Bugs Fixed Since Last Release
+
+* None
+
 
 ## v.1.18.1
 
