@@ -27,40 +27,40 @@
 
 * Added NCIt codes associated with enumeration values in `exposure`, `family_history`, and `demographic` entity types
 * Restructured dictionary for consistency across types
-* Modified `read_group` entity
-  - Added 5 new target capture kits <!--DAT-2755-->
+* __read_group entity__
+* Added 5 new target capture kits <!--DAT-2755-->
     - `Custom Twist Broad PanCancer Panel - 396 Genes`
     - `Nextera DNA Exome`
     - `Custom Twist Broad Exome v1.0 - 35.0 Mb`
     - `Custom SureSelect CGCI-HTMCP-CC KMT2D And Hotspot Panel - 37.0 Kb`
     - `TruSeq RNA Exome`
-  - Add one new enum to `library_strategy` <!--DAT-2793-->
+* Add one new enum to `library_strategy` <!--DAT-2793-->
     - `scRNA-Seq`
-* Modified `structural_variation` entity <!--DAT-2703-->
-  - Added `VCF` to `data_format` property
-  - Added links to `structural_variation` from `somatic_mutation_index` <!--DAT-2704-->
+* __structural_variation entity__ <!--DAT-2703-->
+* Added `VCF` to `data_format` property
+* Added links to `structural_variation` from `somatic_mutation_index` <!--DAT-2704-->
 * Added links to `aligned_reads` from `somatic_copy_number` workflow <!--DAT-2705-->
-* Modified `copy_number_segment` entity
-  - Added new permissible values to `experimental_strategy` property <!--DAT-2706-->
+* __copy_number_segment entity__
+* Added new permissible values to `experimental_strategy` property <!--DAT-2706-->
     - `WGS`
     - `WXS`
-  - Added new enum to `experimental_strategy` <!--DAT-2788-->
+* Added new enum to `experimental_strategy` <!--DAT-2788-->
     - `WGS`
-* Modified `aligned_reads` entity
-  - Added 2 new properties <!--DAT-2787-->
+* __aligned_reads entity__
+* Added 2 new properties <!--DAT-2787-->
     - `tumor_ploidy`
     - `tumor_purity`
-* Modified `treatment` entity
-  - Added enumeration to `therapeutic_agent` property <!--DAT-2727-->
-* Modified `copy_number_estimate` entity	 <!--DAT-2729-->
-  - Added new enum to `data_format`
+* __treatment entity__
+* Added enumeration to `therapeutic_agent` property <!--DAT-2727-->
+* __copy_number_estimate entity__ <!--DAT-2729-->
+* Added new enum to `data_format`
     - `TSV`
-* Modified `demographic` entity	 <!--DAT-2733-->
-  - Added new property `country_of_residence_at_enrollment`
-* Modified `family_history` entity	 <!--DAT-2738-->
-  - Added new permissible values to `relationship_primary_diagnosis` property
-* Modified `follow_up` entity	 <!--DAT-2739-->
-  - Added new properties
+* __demographic entity__	 <!--DAT-2733-->
+* Added new property `country_of_residence_at_enrollment`
+* __family_history entity__ <!--DAT-2738-->
+* Added new permissible values to `relationship_primary_diagnosis` property
+*  __follow_up entity__	 <!--DAT-2739-->
+* Added new properties
     - `body_surface_area`
     - `recist_targeted_regions_number`
     - `recist_targeted_regions_sum`
@@ -82,10 +82,10 @@
     - `days_to_imaging`
     - `cdc_hiv_risk_factors`
     - `risk_factor`
-  * Added new enum to `days_to_follow_up`
+* Added new enum to `days_to_follow_up`
     - `null`
-* Modified `molecular_test` entity <!--DAT-2741-->
-  - Added new permissible values to various properties
+* __molecular_test entity__ <!--DAT-2741-->
+* Added new permissible values to various properties
     - `laboratory_test`
     - `second_gene_symbol`
     - `molecular_consequence`
@@ -93,15 +93,15 @@
     - `molecular_analysis_method`
     - `gene_symbol`
     - `clonality`
-* Modified `sample` entity <!--DAT-2742-->
-  - Added new permissible values to various properties
+* __sample entity__ <!--DAT-2742-->
+* Added new permissible values to various properties
     - `method_of_sample_procurement`
     - `biospecimen_anatomic_site`
     - `tumor_descriptor`
-  - Added new property
+* Added new property
     - `tissue_collection_type`
-* Modified `treatment` entity <!--DAT-2745-->
-  - Added new properties
+* __treatment entity__ <!--DAT-2745-->
+* Added new properties
     - `treatment_arm`
     - `reason_treatment_ended`
     - `number_of_cycles`
@@ -110,12 +110,12 @@
     - `treatment_dose_units`
     - `treatment_frequency`
     - `chemo_concurent_to_radiation`
-  - Added new permissible values to various properties
+* Added new permissible values to various properties
     - `therapeutic_agent`
     - `treatment_effect`
     - `treatment_intent_type`
-* Modified `slide` entity <!--DAT-2747-->
-  - Added new properties
+* __slide entity__ <!--DAT-2747-->
+* Added new properties
     - `percent_sarcomatoid_features`
     - `percent_rhabdoid_features`
     - `prostatic_chips_total_count`
@@ -124,8 +124,8 @@
     - `bone_marrow_malignant_cells`
     - `percent_follicular_component`
     - `tissue_microarray_coordinates`
-* Modified `diagnosis` entity <!--DAT-2735-->
-  - Added new properties
+* __diagnosis entity__ <!--DAT-2735-->
+* Added new properties
     - `tumor_depth`
     - `margin_distance`
     - `transglottic_extension`
@@ -137,7 +137,7 @@
     - `lymph_node_involved_site`
     - `pregnant_at_diagnosis`
     - `figo_staging_edition_year`
-  - Added new permissible values to various properties
+* Added new permissible values to various properties
     - `classification_of_tumor`
     - `figo_stage`
     - `tumor_grade`
@@ -145,8 +145,8 @@
     - `gleason_grade_group`
     - `tissue_or_organ_of_origin`
     - `morphology`
-* Modified `exposure` entity <!--DAT-2737-->
-  - Added new properties
+* __exposure entity__ <!--DAT-2737-->
+* Added new properties
     - `secondhand_smoke_as_child`
     - `exposure_type`
     - `type_of_tobacco_used`
@@ -155,37 +155,37 @@
     - `age_at_onset`
     - `marijuana_use_per_week`
     - `tobacco_smoking_status`
-* Modified `case` entity <!--DAT-2746-->
-  - Added new properties
+* __case entity__ <!--DAT-2746-->
+* Added new properties
     - `consent_type`
     - `days_to_consent`
-  - Added new permissible values to `index_date`
-* Add `scRNA-Seq` as new enum to `experimental_strategy` in 4 entities <!--DAT-2794-->
-  - `submitted_unaligned_reads`
-  - `submitted_aligned_reads`
-  - `aligned_reads`
-  - `gene_expression`
-* Add 3 new permissible values to `workflow_type` in alignment_workflow <!--2795-->
-  - `CellRanger - 10x Chromium`
-  - `STAR - Smart-Seq2`
-  - `zUMIs - Smart-Seq2`
-* Add 4 new permissible values to `workflow_type` in rna_expression_workflow <!--DAT-2796-->
-  - `CellRanger - 10x Raw Counts`
-  - `CellRanger - 10x Filtered Counts`
-  - `STAR - Smart-Seq2 Counts`
-  - `zUMIs - Smart-Seq2 Counts`
+* Added new permissible values to `index_date`
+* Added `scRNA-Seq` as new enum to `experimental_strategy` in 4 entities <!--DAT-2794-->
+    - `submitted_unaligned_reads`
+    - `submitted_aligned_reads`
+    - `aligned_reads`
+    - `gene_expression`
+* Added 3 new permissible values to `workflow_type` in alignment_workflow <!--2795-->
+    - `CellRanger - 10x Chromium`
+    - `STAR - Smart-Seq2`
+    - `zUMIs - Smart-Seq2`
+* Added 4 new permissible values to `workflow_type` in rna_expression_workflow <!--DAT-2796-->
+    - `CellRanger - 10x Raw Counts`
+    - `CellRanger - 10x Filtered Counts`
+    - `STAR - Smart-Seq2 Counts`
+    - `zUMIs - Smart-Seq2 Counts`
 * Add one new integer property to `read_group` <!--DAT-2798-->
-  -  `number_expect_cells`
+    -  `number_expect_cells`
 * Add one new enum to `read_pair_number` in `submitted_unaligned_reads` <!--DAT-2799-->
-  - `I1`
+    - `I1`
 * Add one new enum property in `read_group` node <!--DAT-2800-->
-  - `Chromium 3' Gene Expression v2 Library`
-  - `Chromium 3' Gene Expression v3 Library`
-  - `Smart-Seq2`
+    - `Chromium 3' Gene Expression v2 Library`
+    - `Chromium 3' Gene Expression v3 Library`
+    - `Smart-Seq2`
 * Created new node `expression_analysis_workflow` <!--DAT-2802-->
 * Created new node `secondary_expression_analysis` <!--2803-->
 * Add one new enum to `data_format` in `gene_expression` <!--DAT-2804-->
-  -  `MEX`
+    -  `MEX`
 
 ### Bugs Fixed Since Last Release
 * None
