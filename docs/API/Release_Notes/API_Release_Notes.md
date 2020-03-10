@@ -31,7 +31,7 @@
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
 
 
-## v2.0.0 <!--REQ-395-->
+## v2.1.0 <!--REQ-395-->
 
 * __GDC Product__: Application Programming Interface (API)
 * __Release Date__:  March 10, 2020
