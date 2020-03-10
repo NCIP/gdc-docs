@@ -3,6 +3,7 @@
 | Version | Date |
 |---|---|
 | [v.2.1.0](Data_Dictionary_Release_Notes.md#v210) | March 10, 2020 |
+| [v.2.0.0](Data_Dictionary_Release_Notes.md#v200) | January 30, 2020 |
 | [v.1.18.1](Data_Dictionary_Release_Notes.md#v1181) | November 6, 2019 |
 | [v.1.18](Data_Dictionary_Release_Notes.md#v118) | July 31, 2019 |
 | [v.1.17](Data_Dictionary_Release_Notes.md#v117) | June 5, 2019 |
@@ -195,7 +196,7 @@
 * __Release Date__: January 30, 2020
 
 ### New Features and Changes
-* The API that includes the GDC data dictionary now uses Python 3. 
+* The API that includes the GDC data dictionary now uses Python 3.
 
 ### Bugs Fixed Since Last Release
 
