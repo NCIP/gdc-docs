@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.1.19](Data_Dictionary_Release_Notes.md#v119) | February XX, 2020 |
+| [v.1.19](Data_Dictionary_Release_Notes.md#v210) | March 10, 2020 |
 | [v.1.18.1](Data_Dictionary_Release_Notes.md#v1181) | November 6, 2019 |
 | [v.1.18](Data_Dictionary_Release_Notes.md#v118) | July 31, 2019 |
 | [v.1.17](Data_Dictionary_Release_Notes.md#v117) | June 5, 2019 |
@@ -17,10 +17,10 @@
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
-## v.1.19
+## v2.1.0
 
 * __GDC Product__: GDC Data Dictionary
-* __Release Date__: February XX, 2020
+* __Release Date__: March 10, 2020
 
 ### New Features and Changes
 
