@@ -314,7 +314,8 @@
             property = dictionaryProperties[propertyName],
             description = _.get(property, 'term.description', false) || _.get(property, 'description', false) || _.get(dictionaryTerms, propertyName + '.description', 'n/a'),
             valueOrType = _getPropertyValueOrType(property),
-            CDE = _.get(dictionaryTerms, propertyName + '.termDef'),
+            CDE = _.get(dictionaryTerms, propertyName + '.node.property.termDef') ||
+              _.get(dictionaryTerms, propertyName + '.common.termDef'),
             isRequired = requiredProperties && requiredProperties.indexOf(propertyName) >= 0 ? 'Yes' : 'No';
 
         // Ignore system properties for now...
