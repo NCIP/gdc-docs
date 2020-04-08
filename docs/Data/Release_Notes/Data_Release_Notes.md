@@ -45,6 +45,7 @@
         * TARGET-NBL
         * TARGET-OS
         * TARGET-WT
+        * Note: Previously released TARGET project level MAFs can be downloaded with the following manifest: [TARGET_Project-Level-MAF_GDC-Manifest.txt](TARGET_Project-Level-MAF_GDC-Manifest.txt)
     * Copy number segment and estimate files from SNP6 ASCAT <!--BINF-293-->
         * All TCGA Projects
         * TARGET-ALL-P2
