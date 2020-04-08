@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v23.0](Data_Release_Notes.md#data-release-230) | April XX, 2020 |
+| [v23.0](Data_Release_Notes.md#data-release-230) | April 7, 2020 |
 | [v22.0](Data_Release_Notes.md#data-release-220) | January 16, 2020 |
 | [v21.0](Data_Release_Notes.md#data-release-210) | December 10, 2019 |
 | [v20.0](Data_Release_Notes.md#data-release-200) | November 11, 2019 |
@@ -32,44 +32,48 @@
 ## Data Release 23.0 <!--REQ-397-->
 
 * __GDC Product__: Data
-* __Release Date__: April XX, 2020
+* __Release Date__: April 7, 2020
 
 ### New updates
 
 1.  New data types released:
-    * Aliquot-level MAFs: MAF Files with mutations derived from one tumor/normal pair
+    * Aliquot-level MAFs: MAF Files with mutations derived from one tumor/normal pair <!--DAT-2732-->
         * HCMI-CMDC
-        * TARGET-AML
         * TARGET-ALL-P2
         * TARGET-ALL-P3
+        * TARGET-AML
         * TARGET-NBL
         * TARGET-OS
         * TARGET-WT
-    * Copy number segment and estimate files from ASCAT
-        * TCGA Projects
-        * TARGET
+    * Copy number segment and estimate files from SNP6 ASCAT <!--BINF-293-->
+        * All TCGA Projects
+        * TARGET-ALL-P2
+        * TARGET-AML
 
+2.  To accommodate users who prefer to use project-level MAFs, a MAF aggregation tool was developed by the GDC: <!--DEV-89-->
+    * [Github Release](https://github.com/NCI-GDC/gdc-maf-tool/releases)
+
+3.  New RNA-Seq data was released from HCMI-CMDC for nine additional cases.  
+
+4.  Clinical updates were performed for the following projects
+    * CGCI-BLGSP
+    * HCMI-CMDC <!--SV-1660-->
+    * WCDT-MCRPC <!--DAT-2782-->
 
 A complete list of files for DR23.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [XXXX](XXXX)
-* [XXXX](XXXX)
+* [gdc_manifest_20200407_data_release_23.0_active.tsv.gz](gdc_manifest_20200407_data_release_23.0_active.tsv.gz)
+* [gdc_manifest_20200407_data_release_23.0_legacy.tsv.gz](gdc_manifest_20200407_data_release_23.0_legacy.tsv.gz)
 
 
 ### Bugs Fixed Since Last Release
 
-*  None
+*  The 6 HCMI-CMDC cases without clinical data now have clinical data. <!--SV-1660-->
+*  Most of the "associated_entities" fields in CGCI-BLGSP were not populated correct, this has been resolved.  <!--SV-1701-->
 
 ### Known Issues and Workarounds
 
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
-* 6 of the HCMI-CMDC cases are missing clinical nodes <!--SV-1660-->
-    * HCM-CSHL-0060-C18
-    * HCM-CSHL-0089-C25
-    * HCM-CSHL-0090-C25
-    * HCM-CSHL-0092-C25
-    * HCM-CSHL-0091-C25
-    * HCM-CSHL-0057-C18
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
