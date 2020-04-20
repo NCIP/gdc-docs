@@ -332,7 +332,7 @@ Example of configuration file:
 
     [upload]
     path = /some/upload/path
-    http_chunk_size = 1024
+    upload_part_size = 1073741824
 
 
     [download]
