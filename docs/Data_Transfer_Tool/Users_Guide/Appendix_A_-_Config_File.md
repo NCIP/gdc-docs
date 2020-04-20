@@ -15,7 +15,7 @@ Example of configuration file:
 
     [download]
     dir = /some/download/path
-    http_chunk_size = 1048576
+    http_chunk_size = 2048
     retry_amount = 6
 
 
@@ -27,7 +27,7 @@ This command line flag can be used with either the download or upload applicatio
     no_auto_retry = False
     no_file_md5sum = False
     save_interval = 1073741824
-    http_chunk_size = 1048576
+    http_chunk_size = 2048
     server = http://exmple-site.com
     n_processes = 8
     no_annotations = False
