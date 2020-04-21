@@ -10,11 +10,11 @@ On the left, a panel of facets allow users to apply filters to find projects of 
 
 The right side of the Projects Page displays a few visualizations of the data (Top Mutated Genes in Selected Projects and Case Distribution per Project). Below these graphs is a table that contains a list of projects and select details about each project, such as the number of cases and data files. The Graph tab provides a visual representation of this information.
 
-[![Projects Page, Main Window (Table View)](images/gdc-data-portal-project-page.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
+[![Projects Page, Main Window (Table View)](images/gdc-data-portal-project-page_v3.png)](images/gdc-data-portal-project-page_v3.png "Click to see the full image.")
 
 ### Visualizations
 
-[![Projects Visualizations)](images/gdc_project_visualizations2.png)](images/gdc_project_visualizations2.png "Click to see the full image.")
+[![Projects Visualizations)](images/gdc_project_visualizations3.png)](images/gdc_project_visualizations3.png "Click to see the full image.")
 
 #### Top Mutated Cancer Genes in Selected Projects
 
@@ -34,7 +34,7 @@ A pie chart displays the relative number of cases for each project. Hovering the
 
 The `Table` tab lists projects by Project ID and provides additional information about each project. If no facet filters have been applied, the table will display all available projects; otherwise it will display only those projects that match the selected criteria.
 
-[![Projects Table)](images/gdc-projects-table-view.png)](images/gdc-data-portal-project-page.png "Click to see the full image.")
+[![Projects Table)](images/gdc-projects-table-view_v2.png)](images/gdc-projects-table-view_v2.png "Click to see the full image.")
 
 The table provides links to [Project Summary Pages](Projects.md#project-summary-page) in the Project ID column. Columns with file and case counts include links to open the corresponding files or cases in [Repository Page](Repository.md).
 
@@ -52,7 +52,7 @@ Like the projects table, the graph will reflect any applied facet filters.
 
 Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the projects presented in the Table and Graph tabs as well as visualizations.
 
-[![Panel with Applied Filters](images/gdc-data-portal-project-page-facets2.png)](images/gdc-data-portal-project-page-facets2.png "Click to see the full image.")
+[![Panel with Applied Filters](images/gdc-data-portal-project-page-facets4.png)](images/gdc-data-portal-project-page-facets4.png "Click to see the full image.")
 
 Users can filter by the following facets:
 
@@ -73,7 +73,7 @@ For information on how to use facet filters, see [Getting Started](Getting_Start
 
 Each project has a Summary Page that provides an overview of all available cases, files, and annotations available. Clicking on the numbers in the summary table will display the corresponding data.
 
-[![Project Summary Page](images/gdc-project-entity-page_v3.png)](images/gdc-project-entity-page_v2.png "Click to see the full image.")
+[![Project Summary Page](images/gdc-project-entity-page_v4.png)](images/gdc-project-entity-page_v4.png "Click to see the full image.")
 
 Four buttons in the top right corner of the screen allow the user to explore or download the entire project dataset, along with the associated project metadata:
 

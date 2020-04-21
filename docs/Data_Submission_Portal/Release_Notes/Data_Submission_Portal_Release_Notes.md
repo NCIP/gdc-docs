@@ -2,7 +2,11 @@
 
 | Version | Date |
 |---|---|
-| [v2.1.0](Data_Submission_Portal_Release_Notes.md#release-200) | November 7, 2018 |
+| [v2.4.1](Data_Submission_Portal_Release_Notes.md#release-241) | March 9, 2020 |
+| [v2.4.0](Data_Submission_Portal_Release_Notes.md#release-240) | November 6, 2019 |
+| [v2.3.0](Data_Submission_Portal_Release_Notes.md#release-230) | June 5, 2019 |
+| [v2.2.0](Data_Submission_Portal_Release_Notes.md#release-220) | February 20, 2019 |
+| [v2.1.0](Data_Submission_Portal_Release_Notes.md#release-210) | November 7, 2018 |
 | [v2.0.0](Data_Submission_Portal_Release_Notes.md#release-200) | August 23, 2018 |
 | [v1.9.0](Data_Submission_Portal_Release_Notes.md#release-190) | May 21, 2018 |
 | [v1.8.0](Data_Submission_Portal_Release_Notes.md#release-180) | February 15, 2018 |
@@ -15,6 +19,88 @@
 | [v0.3.24.1](Data_Submission_Portal_Release_Notes.md#release-03241) | February 26, 2016 |
 | [v0.3.21](Data_Submission_Portal_Release_Notes.md#release-0321) | January 27, 2016 |
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
+
+---
+## Release 2.4.1
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: March 9, 2020
+
+### New Features and Changes
+
+*  Removed duplicate queries from various pages in the Submission Portal to optimize data retrieval and rendering. <!--SUBP-584-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed bug where the right-hand detail pane in the Transactions and QC Report tabs was being cut off and not scrollable in the viewport for Windows environments (all browsers). <!--SUBP-594-->
+* Fixed bug in the PDF file downloaded from the QC Report tab's Project Summary, where text was being cut off when browsing in Firefox or Microsoft Edge. <!--SUBP-588-->
+* Fixed bug where the TSV and JSON download buttons completely disappear and cannot be scrolled to in the Project Data Download modal, if it is shrunk beyond a certain threshold. <!--SUBP-585-->
+* Fixed bug in the Manifest download button that was trying to capture certain incorrect or unnecessary file states. <!--SUBP-570-->
+* Fixed incorrect DTT hyperlink in the GDC Apps menu. <!--SUBP-568-->
+* Fixed bug where the banner warning users that ERA Commons login was currently not working, would only appear after the user logged in, thus defeating the purpose of the warning in the first place. <!--SUBP-545-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+
+## Release 2.4.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: November 6, 2019
+
+### New Features and Changes
+
+*  Added new QC Report tab that allows users to view and download QC errors detected on the current set of unsubmitted data.  Users must examine these errors and fix them appropriately before re-uploading the data and requesting harmonization.  New donut added to the Dashboard tab to display a quick breakdown of CRITICAL vs WARNING errors across the project.<!--FEAT-545-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed the Project Data download button in the Project Overview, so that the JSON option is selectable in the modal.<!--SUBP-519-->
+*  Fixed the trash can icon for the Delete button in the Submitter Detail pane, so that it is fully visible and no longer cutoff<!--SUBP-540-->
+*  Fixed a Section 508 Accessibility violation in the Submitter Detail pane.<!--SUBP-566-->
+*  Increased the global transaction polling interval to 15 seconds across the portal to improve performance.<!--SUBP-571-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+
+## Release 2.3.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: June 5, 2019
+
+### New Features and Changes
+
+*  Added Aligned Reads, Gene Expressions, miRNA Expression to the Harmonized Data Files list in the Browse tab. <!--SUBP-505-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed logic on the Submittable Data Files donut to more accurately display number of submittable files that have been validated.  Specifically, both the file state and corresponding note state must be validated.  Also updated the corresponding tooltip text.<!--SUBP-510-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+
+## Release 2.2.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: February 20, 2019
+
+### New Features and Changes
+
+* Renamed the "Request Submission" button to "Request Harmonization" to make the purpose of this action more clear. <!--SUBP-500-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed the right scroll bar in the records list on the Browse page so that it works in Firefox. <!--SUBP-493-->
+*  Fixed a dead link to the Submission Portal User Guide on the Dashboard. <!--SUBP-494-->
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
 
 ## Release 2.1.0
 

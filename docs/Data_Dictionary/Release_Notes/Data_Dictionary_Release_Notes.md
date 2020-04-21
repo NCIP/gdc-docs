@@ -1,8 +1,13 @@
 # Data Dictionary Release Notes
 
-
 | Version | Date |
 |---|---|
+| [v.2.1.0](Data_Dictionary_Release_Notes.md#v210) | March 10, 2020 |
+| [v.2.0.0](Data_Dictionary_Release_Notes.md#v200) | January 30, 2020 |
+| [v.1.18.1](Data_Dictionary_Release_Notes.md#v1181) | November 6, 2019 |
+| [v.1.18](Data_Dictionary_Release_Notes.md#v118) | July 31, 2019 |
+| [v.1.17](Data_Dictionary_Release_Notes.md#v117) | June 5, 2019 |
+| [v.1.16](Data_Dictionary_Release_Notes.md#v116) | April 17, 2019 |
 | [v.1.15](Data_Dictionary_Release_Notes.md#v115) | December 18, 2018 |
 | [v.1.14](Data_Dictionary_Release_Notes.md#v114) | September 27, 2018 |
 | [v1.13](Data_Dictionary_Release_Notes.md#v113) | May 21, 2018 |
@@ -12,6 +17,420 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v2.1.0
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: March 10, 2020
+
+### New Features and Changes
+
+* Added NCIt codes associated with enumeration values in `exposure`, `family_history`, and `demographic` entity types
+* Restructured dictionary for consistency across types
+* __read_group entity__
+* Added 5 new target capture kits <!--DAT-2755-->
+    - `Custom Twist Broad PanCancer Panel - 396 Genes`
+    - `Nextera DNA Exome`
+    - `Custom Twist Broad Exome v1.0 - 35.0 Mb`
+    - `Custom SureSelect CGCI-HTMCP-CC KMT2D And Hotspot Panel - 37.0 Kb`
+    - `TruSeq RNA Exome`
+* Add one new enum to `library_strategy` <!--DAT-2793-->
+    - `scRNA-Seq`
+* __structural_variation entity__ <!--DAT-2703-->
+* Added `VCF` to `data_format` property
+* Added links to `structural_variation` from `somatic_mutation_index` <!--DAT-2704-->
+* Added links to `aligned_reads` from `somatic_copy_number` workflow <!--DAT-2705-->
+* __copy_number_segment entity__
+* Added new permissible values to `experimental_strategy` property <!--DAT-2706-->
+    - `WGS`
+    - `WXS`
+* Added new enum to `experimental_strategy` <!--DAT-2788-->
+    - `WGS`
+* __aligned_reads entity__
+* Added 2 new properties <!--DAT-2787-->
+    - `tumor_ploidy`
+    - `tumor_purity`
+* __treatment entity__
+* Added enumeration to `therapeutic_agent` property <!--DAT-2727-->
+* __copy_number_estimate entity__ <!--DAT-2729-->
+* Added new enum to `data_format`
+    - `TSV`
+* __demographic entity__	 <!--DAT-2733-->
+* Added new property `country_of_residence_at_enrollment`
+* __family_history entity__ <!--DAT-2738-->
+* Added new permissible values to `relationship_primary_diagnosis` property
+*  __follow_up entity__	 <!--DAT-2739-->
+* Added new properties
+    - `body_surface_area`
+    - `recist_targeted_regions_number`
+    - `recist_targeted_regions_sum`
+    - `adverse_event_grade`
+    - `cd4_count`
+    - `imaging_type`
+    - `scan_tracer_used`
+    - `nadir_cd4_count`
+    - `hiv_viral_load`
+    - `aids_risk_factors`
+    - `haart_treatment_indicator`
+    - `immunosuppressive_treatment_type`
+    - `evidence_of_recurrence_type`
+    - `imaging_result`
+    - `hormonal_contraceptive_use`
+    - `pregnancy_outcome`
+    - `hysterectomy_type`
+    - `hysterectomy_margins_involved`
+    - `days_to_imaging`
+    - `cdc_hiv_risk_factors`
+    - `risk_factor`
+* Added new enum to `days_to_follow_up`
+    - `null`
+* __molecular_test entity__ <!--DAT-2741-->
+* Added new permissible values to various properties
+    - `laboratory_test`
+    - `second_gene_symbol`
+    - `molecular_consequence`
+    - `biospecimen_type`
+    - `molecular_analysis_method`
+    - `gene_symbol`
+    - `clonality`
+* __sample entity__ <!--DAT-2742-->
+* Added new permissible values to various properties
+    - `method_of_sample_procurement`
+    - `biospecimen_anatomic_site`
+    - `tumor_descriptor`
+* Added new property
+    - `tissue_collection_type`
+* __treatment entity__ <!--DAT-2745-->
+* Added new properties
+    - `treatment_arm`
+    - `reason_treatment_ended`
+    - `number_of_cycles`
+    - `treatment_effect_indicator`
+    - `treatment_dose`
+    - `treatment_dose_units`
+    - `treatment_frequency`
+    - `chemo_concurent_to_radiation`
+* Added new permissible values to various properties
+    - `therapeutic_agent`
+    - `treatment_effect`
+    - `treatment_intent_type`
+* __slide entity__ <!--DAT-2747-->
+* Added new properties
+    - `percent_sarcomatoid_features`
+    - `percent_rhabdoid_features`
+    - `prostatic_chips_total_count`
+    - `prostatic_chips_positive_count`
+    - `prostatic_involvement_percent`
+    - `bone_marrow_malignant_cells`
+    - `percent_follicular_component`
+    - `tissue_microarray_coordinates`
+* __diagnosis entity__ <!--DAT-2735-->
+* Added new properties
+    - `tumor_depth`
+    - `margin_distance`
+    - `transglottic_extension`
+    - `margins_involved_site`
+    - `gleason_grade_tertiary`
+    - `papillary_renal_cell_type`
+    - `gleason_patterns_percent`
+    - `greatest_tumor_dimension`
+    - `lymph_node_involved_site`
+    - `pregnant_at_diagnosis`
+    - `figo_staging_edition_year`
+* Added new permissible values to various properties
+    - `classification_of_tumor`
+    - `figo_stage`
+    - `tumor_grade`
+    - `metastasis_at_diagnosis_site`
+    - `gleason_grade_group`
+    - `tissue_or_organ_of_origin`
+    - `morphology`
+* __exposure entity__ <!--DAT-2737-->
+* Added new properties
+    - `secondhand_smoke_as_child`
+    - `exposure_type`
+    - `type_of_tobacco_used`
+    - `exposure_duration`
+    - `tobacco_use_per_day`
+    - `age_at_onset`
+    - `marijuana_use_per_week`
+    - `tobacco_smoking_status`
+* __case entity__ <!--DAT-2746-->
+* Added new properties
+    - `consent_type`
+    - `days_to_consent`
+* Added new permissible values to `index_date`
+* Added `scRNA-Seq` as new enum to `experimental_strategy` in 4 entities <!--DAT-2794-->
+    - `submitted_unaligned_reads`
+    - `submitted_aligned_reads`
+    - `aligned_reads`
+    - `gene_expression`
+* Added 3 new permissible values to `workflow_type` in alignment_workflow <!--2795-->
+    - `CellRanger - 10x Chromium`
+    - `STAR - Smart-Seq2`
+    - `zUMIs - Smart-Seq2`
+* Added 4 new permissible values to `workflow_type` in rna_expression_workflow <!--DAT-2796-->
+    - `CellRanger - 10x Raw Counts`
+    - `CellRanger - 10x Filtered Counts`
+    - `STAR - Smart-Seq2 Counts`
+    - `zUMIs - Smart-Seq2 Counts`
+* Add one new integer property to `read_group` <!--DAT-2798-->
+    -  `number_expect_cells`
+* Add one new enum to `read_pair_number` in `submitted_unaligned_reads` <!--DAT-2799-->
+    - `I1`
+* Add one new enum property in `read_group` node <!--DAT-2800-->
+    - `Chromium 3' Gene Expression v2 Library`
+    - `Chromium 3' Gene Expression v3 Library`
+    - `Smart-Seq2`
+* Created new node `expression_analysis_workflow` <!--DAT-2802-->
+* Created new node `secondary_expression_analysis` <!--2803-->
+* Add one new enum to `data_format` in `gene_expression` <!--DAT-2804-->
+    -  `MEX`
+
+### Bugs Fixed Since Last Release
+* None
+
+## v2.0.0 <!--REQ-393-->
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: January 30, 2020
+
+### New Features and Changes
+* The API that includes the GDC data dictionary now uses Python 3.
+
+### Bugs Fixed Since Last Release
+
+* None
+
+
+## v.1.18.1
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: November 6, 2019
+
+### New Features and Changes
+* Added new permissible value `deleted` to property `file_state`
+
+### Bugs Fixed Since Last Release
+
+* None
+
+
+## v.1.18
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: July 31, 2019
+
+### New Features and Changes
+
+* Added new entities <!--DAT-2450-->
+    - `protein_expression_quantification`  <!--DAT-2237-->
+    - `submitted_genotyping_array`  <!--DAT-2327-->
+    - `somatic_copy_number_workflow` <!--DAT-2330-->
+* Add links in data model to `somatic_copy_number_workflow` from `copy_number_segment`  <!--DAT-2331-->
+* Add links in data model to `somatic_copy_number_workflow` from `copy_number_estimate`	 <!--DAT-2415-->
+* Add links in data model from `annotated_somatic_mutation` to `genomic_profile_harmonization_workflow` <!--DAT-2333-->
+* Modified `copy_number_segment` entity
+    - Add new data type <!--DAT-2332-->
+        - `Allele-specific Copy Number Segment`
+* Update data dictionary to support new annotation classifications <!--DAT-2238-->
+* Fixed typo in `sample` entity schema <!--DAT-2247-->
+* Unrequired project link for aliquot level MAFs  <!--DAT-2260-->
+* Added NCIt codes for gender values  <!--DAT-2314-->
+* Changed description of `masked_somatic_mutation` and `aggregated_somatic_mutation` nodes to be the same  <!--DAT-2311-->
+* Modified `archive` entity <!--DAT-2259-->
+    - Set `downloadable` property to `true`
+* Modified `publication`  entity<!--DAT-2259-->
+    - Set `downloadable` property to `true`
+* Modified `filtered_copy_number_segment`  entity<!--DAT-2259-->
+    - Set `downloadable` property to `true`
+* Modified `aligned_reads` entity
+    - Added `MSI properties` as new property
+* Modified `read_group` entity
+    - Added `Custom SureSelect Human All Exon v1.1 Plus 3 Boosters` as new permissible value for `target_capture_kit` field <!--DAT-2003-->
+    - Added `SeqCap EZ Human Exome v3.0` as new permissible value for `target_capture_kit` field <!--DAT-2310-->
+    - Added new permissible values for `instrument_model`
+        - `Unknown` <!--DAT-2411-->
+        - `Not Reported` <!--DAT-2411-->
+        - `Ion Torrent S5` <!--DAT-2338-->
+* Modified `biospecimen_supplement` entity <!--  DAT-2266-->
+    - Added `CDC JSON` as new permissible data format
+* Modified `demographic` entity <!--DAT-2303-->
+    - Added new property
+        - `age_is_obfuscated`
+* Modified `demographic` entity <!--DAT-2303-->
+    - Added new properties
+        - `cause_of_death_source` <!--DAT-2341-->
+        - `occupation_duration_years` <!--DAT-2342-->
+* Modified `diagnosis` entity
+    - Added new properties
+        - `non_nodal_regional_disease` <!--DAT-2353-->
+        - `non_nodal_tumor_deposits` <!--DAT-2354-->
+        - `ovarian_specimen_status` <!--DAT-2356-->
+        - `ovarian_surface_involvement` <!--DAT-2357-->
+        - `percent_tumor_invasion` <!--DAT-2360-->
+        - `peritoneal_fluid_cytological_status` <!-- DAT-2361-->      
+        - `breslow_thickness` <!--DAT-2345-->
+        - `international_prognostic_index` <!--DAT-2349-->
+        - `largest_extrapelvic_peritoneal_focus` <!--DAT-2350-->
+        - `mitotic_count` <!--DAT-2352-->     
+    - Removed permissible values from `primary_diagnosis`  <!--DAT-2377 -->
+    - Removed permissible values from `site_of_resection_or_biopsy` <!--DAT-2378-->
+    - Removed `tumor_stage` as required property <!--DAT-2397-->
+    - Added new permissible values for
+        - `ajcc_pathologic_stage` <!--DAT-2368-->
+        - `metastasis_at_diagnosis_site` <!--DAT-2370-->
+    - Migrated values not part of permissible values to `Not Reported` for following properties
+          - `primary_diagnosis` <!--DAT-2412-->
+          - `site_of_resection_or_biopsy` <!--DAT-2413 -->
+          - `tumor_grade` <!--DAT-2414-->
+          - `tissue_or_organ_of_origin` <!--DAT-2438-->
+    - Removed permissible values from
+          - `tissue_or_organ_of_origin` <!--DAT-2426-->
+          - `morphology` <!--  DAT-2427-->
+- Modified `structural_variant_calling_workflow` entity <!--DAT-233-->
+    - Added new `workflow_type`
+- Modified `structural_variant` entity
+    - Added `BEDPE` to `data_format` as permissible value <!--DAT-2336-->
+- Modified `molecular_test` entity
+    - Added new permissible values for `gene_symbol` <!--DAT-2373-->
+    - Added new permissible values for `test_result`<!--DAT-2374-->
+    - Added new permissible values for `antigen`<!--DAT-2372-->
+    - Added new property `pathogenicity`  <!--DAT-2366-->
+- Modified `follow_up` entity
+    - Added new permissible value for `risk_factor` <!--DAT-2371-->
+- Modified `sample` entity
+    - Added new permissible values for `method_of_sample_procurement` <!--DAT-2376-->
+- Modified `genomic_profile_harmonization_workflow` entity
+    - Added new `workflow_type` permissible values <!--DAT-2388-->
+- Modified `somatic_mutation_calling_workflow` entity
+    - Added new `workflow_type` permissible values <!--DAT-2389-->
+    - Modified `somatic_annotation_workflow` entity
+    - Added new `workflow_type` permissible values <!--DAT-2391-->
+- Modified `case` entity
+    - Added new permissible value to `disease_type` <!--DAT-2390-->
+        - `Not Applicable`
+- Modified `copy_number_estimate` entity
+    - Added new permissible value to `experimental_strategy` <!--DAT-2334-->
+        -  `WXS`
+- Modified `family_history` entity
+    - Added new property <!--DAT-2365-->
+        - `relatives_with_cancer_history_count`
+- Modified `sample` entity <!--DAT-2418-->
+    - Added new permissible values
+        - `sample_type`
+        - `sample_type_id`
+
+### Bugs Fixed Since Last Release
+
+* None
+
+## v.1.17
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: June 5, 2019
+
+
+### New Features and Changes
+
+* Deleted vital status, days_to_birth, and days_to_death from Diagnosis node.  Data submission and data requests should all be directed to the corresponding properties on the Demographic Node.
+
+### Bugs Fixed Since Last Release
+
+* None
+
+
+
+## v.1.16
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: April 17, 2019
+
+
+### New Features and Changes
+
+* Updates to the Data Dictionary Search Tool
+* Added new bioinformatics workflow for methylation arrays (Sesame) <!--DAT-2025-->
+* Changed `somatic_mutation_calling_workflow` link from `one_to_many` to `many_to_many`	<!--DAT-1697-->
+* Modified `read_group` entity
+    - Added `SeqCap EZ Human Exome v2.0` as new permissible value for `target_capture_kit` field <!--DAT-1827-->
+    - Added `Custom SureSelect Human All Exon v1.1 Plus 3 Boosters` as new permissible value `target_capture_kit` field <!--DAT-2002-->
+    - Added `Custom SureSelect CGCI-HTMCP-CC Panel - 19.7 Mb`  as new permissible value `target_capture_kit` field <!--DAT-2013-->
+* Modified `case` entity
+    - Updated the description for the `primary_site` field <!--DAT-1928-->
+    - Added new permissible value to `lost_to_followup` field <!--DAT-2133-->
+* Modified `molecular_test` entity
+    - Removed properties with genomic coordinates <!--DAT-1991-->
+    - Add new permissible values to `test_result`	<!--TT-918-->
+    - Added `second_exon` as new property<!--TT-919-->
+* Modified `aligned_reads_index` entity
+    - Made these files not submittable <!--DAT-1985-->
+* Modified `somatic_mutation_index` entity
+    - Made these files not submittable <!--DAT-1986-->
+* Modified `sample` entity
+    - Added new permissible values for `sample_type` <!--DAT-2017-->
+        - `Blood Derived Cancer - Bone Marrow`
+        - `Blood Derived Cancer - Peripheral Blood`
+    - Added new permissible values to `sample_type_id` <!--DAT-2116-->
+* Modified `diagnosis` entity
+    - Added 6 new staging and grading properties for TCGA <!--DAT-2056-->
+        - `igcccg_stage`
+        - `masaoka_stage`
+        - `gleason_grade_group`
+        - `primary_gleason_grade`
+        - `secondary_gleason_grade`
+        - `weiss_assessment_score`
+    - Made `vital_status` an optional field <!--DAT-2157-->
+    - Removed deprecated properties <!--TT-939--><!--TT-938-->
+        - `days_to_death`
+        - `days_to_birth`
+        - `cause_of_death`
+        - `hiv_positive`
+        - `days_to_hiv_diagnosis`
+        - `ldh_normal_range_upper`
+        - `new_event_type`
+        - `hpv_status`
+        - `hpv_positive_type`
+        - `colon_polyps_history`
+        - `progression_free_survival`
+        - `progression_free_survival_event`
+        - `overall_survival`
+        - `days_to_treatment`
+        - `ldh_level_at_diagnosis`
+    - Added `vital_status` property to deprecated list<!--DAT-2158-->
+* Modified `somatic_aggregation_workflow` entity
+    - Added `Aliquot Ensemble Somatic Variant Merging and Masking` as new permissible value to `workflow_type`
+* Modified `slide` entity
+    - Updated the description for the `magnification` field <!--DAT-2125-->
+* Modified `aliquot` entity
+    - Updated the the description for several fields <!--DAT-2126-->
+        - `selected_normal_low_pass_wgs`
+        - `selected_normal_targeted_sequencing`
+        - `selected_normal_wgs`
+        - `selected_normal_wxs`
+* Modified `follow-up` entity
+    - Added new field `days_to_progression_free` <!--DAT-2135-->
+* Modified `demographic` entity
+    - Made `vital_status` a required field <!--DAT-2157-->
+* Modified `exposure` entity <!--TT-926-->
+    - Added new properties
+        - `environmental_tobacco_smoke_exposure`
+        - `respirable_crystalline_silica_exposure`
+        - `coal_dust_exposure`
+        - `type_of_smoke_exposure`
+        - `type_of_tobacco_used`
+        - `smoking_frequency`
+        - `time_between_waking_and_first_smoke`
+    - Removed `cigarettes_per_day` property from deprecated list<!--DAT-2062-->
+* Modified `annotation` entity
+    - Modified permissible values to `status` <!--TT-930-->
+        - Approved
+        - Rescinded
+
+### Bugs Fixed Since Last Release
+
+* None
+
 
 ## v.1.15
 
@@ -25,31 +444,31 @@
 * Deleted `aligned_reads_metrics` entity <!--DAT-1754-->
 * Created new `raw_methylation_array` entity <!--DAT-1854-->
 * Add regex validation to property `md5sum` for following entities: <!--DAT-1899-->
-  - `slide_image`
-  - `analysis_metadata`
-  - `clinical_supplement`
-  - `experiment_metadata`
-  - `pathology_report`
-  - `run_metadata`
-  - `biospecimen_supplement`
-  - `submitted_aligned_reads`
-  - `submitted_genomic_profile`
-  - `submitted_methylation_beta_value`
-  - `submitted_tangent_copy_number`
-  - `submitted_unaligned_reads`
+    - `slide_image`
+    - `analysis_metadata`
+    - `clinical_supplement`
+    - `experiment_metadata`
+    - `pathology_report`
+    - `run_metadata`
+    - `biospecimen_supplement`
+    - `submitted_aligned_reads`
+    - `submitted_genomic_profile`
+    - `submitted_methylation_beta_value`
+    - `submitted_tangent_copy_number`
+    - `submitted_unaligned_reads`
 * Modified `molecular_test` entity
-  - Migrated data from `blood_test` to `laboratory_test` and `biospecimen_type` for all entities<!--TT-754-->
-  - Added new property `intron` <!--DAT-1847-->
-  - Deleted `blood_test` entity <!--DAT-1639-->
-  - Added new permissible values for `gene_symbol`<!--DAT-1553-->
-  - Added new permissible values for `antigen`<!--DAT-1662-->
-  - Added new permissible values for `molecular_analysis_method` <!--DAT-1663-->
-  - Added new permissible values for `variant_type` <!--DAT-1664-->
-  - Added new permissible values for `test_result` <!--DAT-1665-->
-  - Added new permissible values for `molecular_consequence` <!--DAT-1666-->
-  - Added regex validation to property `transcript` <!--DAT-1916-->
-  - Added regex validation to property `locus` <!--DAT-1874-->
-  - Changed data type of `exon` property to be `string` with regex validation <!--DAT-1890-->
+    - Migrated data from `blood_test` to `laboratory_test` and `biospecimen_type` for all entities<!--TT-754-->
+    - Added new property `intron` <!--DAT-1847-->
+    - Deleted `blood_test` entity <!--DAT-1639-->
+    - Added new permissible values for `gene_symbol`<!--DAT-1553-->
+    - Added new permissible values for `antigen`<!--DAT-1662-->
+    - Added new permissible values for `molecular_analysis_method` <!--DAT-1663-->
+    - Added new permissible values for `variant_type` <!--DAT-1664-->
+    - Added new permissible values for `test_result` <!--DAT-1665-->
+    - Added new permissible values for `molecular_consequence` <!--DAT-1666-->
+    - Added regex validation to property `transcript` <!--DAT-1916-->
+    - Added regex validation to property `locus` <!--DAT-1874-->
+    - Changed data type of `exon` property to be `string` with regex validation <!--DAT-1890-->
 * Modified `diagnosis` entity
     - Added new fields
       - `tumor_focality`<!-- DAT-1832-->
@@ -326,7 +745,7 @@
 
 ### Bugs Fixed Since Last Release
 
-* N/A
+* None
 
 ## v.1.13
 
