@@ -36,7 +36,7 @@ The GDC Data Portal provides five navigation options (*Views*) for browsing avai
 
 * __Exploration__: The Exploration link takes users to the [Exploration Page](Exploration.md), which allows users to explore data by utilizing various case, genes and mutation filters.
 
-* __Analysis__: The Analysis link directs users to the [Analysis Page](Custom_Set_Analysis.md).  This page has features available for users to compare different cohorts.  These cohorts can either be generated with existing filters (e.g. males with lung cancer) or through custom selection.
+* __Analysis__: The Analysis link directs users to the [Analysis Page](Custom_Set_Analysis.md).  This page has features available for users to compare different cohorts or analyze the clinical variables of a specific cohort.  These cohorts can either be generated with existing filters (e.g. males with lung cancer) or through custom selection.
 
 * __Repository__: The Repository link directs users to the [Repository Page](Repository.md).  Here users can see the data files available for download at the GDC and apply file/case filters to narrow down their search.
 
@@ -60,7 +60,7 @@ The right portion of this toolbar provides access to [quick search](#quick-searc
 
 The GDC Apps menu provides links to all resources provided by the GDC, including the [GDC Legacy Archive](Legacy_Archive.md).
 
-[![GDC Apps](images/gdc-data-portal-gdc-apps.png)](images/gdc-data-portal-gdc-apps.png "Click to see the full image.")
+[![GDC Apps](images/gdc-data-portal-gdc-apps_v2.png)](images/gdc-data-portal-gdc-apps_v2.png "Click to see the full image.")
 
 ## Tables
 

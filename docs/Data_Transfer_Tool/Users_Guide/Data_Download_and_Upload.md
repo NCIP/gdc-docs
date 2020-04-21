@@ -90,11 +90,6 @@ Previously uploaded data can be replaced with new data by deleting it first usin
 	gdc-client upload -m manifest.yml -t token --delete
 
 
-## Recurrent Transfers of Very Large Datasets over High-speed Networks
-
-Institutions that regularly transfer very large volumes of data between GDC facilities (located in Chicago, IL, USA) and a geographically remote location over gigabit+ networks may benefit from using the UDT mode of the GDC Data Transfer Tool. **UDT mode** is an advanced feature that uses [UDT](http://udt.sourceforge.net/), or User Datagram Protocol (UDP)-based Data Transfer, instead of the ubiquitous [Transmission Control Protocol (TCP) protocol](https://tools.ietf.org/html/rfc793). Please <a href="https://gdc.cancer.gov/support#gdc-help-desk">contact the GDC Helpdesk</a> if you are interested in learning more about this feature.
-
-
 ## Troubleshooting
 
 ### Invalid Token
