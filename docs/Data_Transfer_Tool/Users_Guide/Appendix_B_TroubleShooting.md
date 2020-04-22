@@ -28,7 +28,7 @@ The Data transfer Tool is offered in three OS compatible versions; Mac OS, Windo
 
 
 ##Network Troubleshooting
-Network problems can appear as dropped network connections or even a stalled application.  The GDC Helpdesk might request more network information to assist in diagnosing the problem.  The two tests they will request the end user to run are ping and traceroute (tracert on the windows plateform) against our api servers.  Please capture the output from these tests into a text file and attach it to the reply email.   
+Network problems can appear as dropped network connections or even a stalled application.  The GDC Helpdesk might request more network information to assist in diagnosing the problem.  The two tests they will request the end user to run are ping and traceroute (tracert on the windows platform) against our api servers.  Please capture the output from these tests into a text file and attach it to the reply email.   
 Examples:
 ```Ping
 >ping api.gdc.cancer.gov
@@ -52,7 +52,7 @@ Examples:
 ##Common Error Codes
 This is a list of the most common error codes the Data Transfer Tool generates and their meaning
 <ul TYPE="square">
-<li> Unable to connect to API - you might be running an out of data client so consider upgrading.</li>
+<li> Unable to connect to API - you might be running an out of date client so consider upgrading.</li>
 <li> Error: Max Retries Exceeded - network connect timeouts </li>
 <li>CryptographyDeprecationWarning - a warning that you should consider upgrading to a higher   
   version of python - please upgrade to 2.7.x or higher.</li>

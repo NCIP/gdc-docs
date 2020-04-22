@@ -316,7 +316,7 @@ optional arguments:
 ```
 
 ##Data Transfer Tool Configuration File  
-The DTT has the ability to save and reuse configuration parameters in the format of a flat text file via a command line argument.  A simple text file needs to be created first with an extension of either txt or dtt.  The supported section headers are upload and download which can be used independently of each other or used in the same configuration file.  Each section header corresponds to the main functions of the application which are to either download data from the GDC portals or to upload data to the submission system of the GDC.  The configurable parameters are those listed in the help menus under either [download](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help/#download-help-menu) or [upload](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help/#upload-help-menu).            
+The DTT has the ability to save and reuse configuration parameters in the format of a flat text file via a command line argument.  A simple text file needs to be created first with an extension of either txt or dtt.  The supported section headers are upload and download which can be used independently of each other or used in the same configuration file.  Each section header corresponds to the main functions of the application which are to either download data from the GDC portals or to upload data to the submission system of the GDC.  The configurable parameters are those listed in the help menus under either [download](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#download-help-menu) or [upload](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#upload-help-menu) displayed under the output tabs.             
 
 
 Example usage:
@@ -327,7 +327,7 @@ Example of configuration file:
 
     [upload]
     path = /some/upload/path
-    http_chunk_size = 1024
+    upload_part_size = 1073741824
 
 
     [download]
