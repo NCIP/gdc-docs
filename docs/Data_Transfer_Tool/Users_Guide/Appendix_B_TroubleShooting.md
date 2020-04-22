@@ -28,7 +28,7 @@ The Data transfer Tool is offered in three OS compatible versions; Mac OS, Windo
 
 
 ##Network Troubleshooting
-Network problems can appear as dropped network connections or even a stalled application.  The GDC Helpdesk might request more network information to assist in diagnosing the problem.  The two tests they will request the end user to run are ping and traceroute (tracert on the windows plateform) against our api servers.  Please capture the output from these tests into a text file and attach it to the reply email.   
+Network problems can appear as dropped network connections or even a stalled application.  The GDC Helpdesk might request more network information to assist in diagnosing the problem.  The two tests they will request the end user to run are ping and traceroute (tracert on the windows platform) against our api servers.  Please capture the output from these tests into a text file and attach it to the reply email.   
 Examples:
 ```Ping
 >ping api.gdc.cancer.gov
