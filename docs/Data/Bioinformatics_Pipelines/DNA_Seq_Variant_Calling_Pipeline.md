@@ -50,7 +50,7 @@ collate=1 \
 exclude=QCFAIL,SECONDARY,SUPPLEMENTARY \
 filename= <input.bam> \
 gz=1 \
-inputformat=bam
+inputformat=bam \
 level=5 \
 outputdir= <output_path> \
 outputperreadgroup=1 \
@@ -592,7 +592,7 @@ Variants reported from the AACR Project GENIE are available from the GDC Data Po
 
 1. Variants are submitted directly to the GDC as a "Genomic Profile."
 1. GENIE variants are lifted over to GRCh38 coordinates.
-1. Variants are annotated using VEP and made available via the GDC Data Portal. 
+1. Variants are annotated using VEP and made available via the GDC Data Portal.
 
 ## File Access and Availability
 
