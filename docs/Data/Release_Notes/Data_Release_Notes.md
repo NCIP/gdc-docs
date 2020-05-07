@@ -45,14 +45,14 @@
 
 2. 110 new cases were released from the HNSCC cohort of CPTAC-3.  This includes WXS, WGS, RNA-Seq and miRNA-Seq data.
 
-3. Aliquot-level WXS MAFs were released for the following projects:
+3. Aliquot-level WXS MAFs are now available from the following projects:
     * CPTAC-2
     * CPTAC-3
 
 A complete list of files for DR24.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [XXXX](XXXLINKXXX)
-* [XXXX](XXXLINKXXX)
+* [gdc_manifest_20200507_data_release_24.0_active.tsv.gz](gdc_manifest_20200507_data_release_24.0_active.tsv.gz)
+* [gdc_manifest_20200507_data_release_24.0_legacy.tsv.gz](gdc_manifest_20200507_data_release_24.0_legacy.tsv.gz)
 
 
 ### Bugs Fixed Since Last Release
@@ -61,6 +61,7 @@ A complete list of files for DR24.0 are listed for the GDC Data Portal and the G
 
 ### Known Issues and Workarounds
 
+* Currently the CPTAC-3 HNSCC cohort does not appear when the "Head and Neck" primary site is selected from the GDC home page. This cohort can be queried by clicking [here](https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.primary_site%22%2C%22value%22%3A%5B%22other%20and%20ill-defined%20sites%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%5B%22CPTAC-3%22%5D%7D%7D%5D%7D)
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
