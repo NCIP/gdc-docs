@@ -34,7 +34,7 @@
 ## v2.1.2 <!--REQ-395-->
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__:  March 10, 2020
+* __Release Date__:  May 7, 2020
 
 ### New Features and Changes
 
