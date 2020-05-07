@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v2.1.2](API_Release_Notes.md#v210) | May 7, 2020 |
+| [v2.1.2](API_Release_Notes.md#v212) | May 7, 2020 |
 | [v2.1.0](API_Release_Notes.md#v210) | March 10, 2020 |
 | [v2.0.0](API_Release_Notes.md#v200) | January 30, 2020 |
 | [v1.23.0](API_Release_Notes.md#v1230) | November 6, 2019 |
