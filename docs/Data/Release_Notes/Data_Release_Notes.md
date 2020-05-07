@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v24.0](Data_Release_Notes.md#data-release-240) | May XXXXX, 2020 |
+| [v24.0](Data_Release_Notes.md#data-release-240) | May 7, 2020 |
 | [v23.0](Data_Release_Notes.md#data-release-230) | April 7, 2020 |
 | [v22.0](Data_Release_Notes.md#data-release-220) | January 16, 2020 |
 | [v21.0](Data_Release_Notes.md#data-release-210) | December 10, 2019 |
@@ -33,7 +33,7 @@
 ## Data Release 24.0 <!--REQ-401-->
 
 * __GDC Product__: Data
-* __Release Date__: May XXXXX, 2020
+* __Release Date__: May 7, 2020
 
 ### New updates
 
@@ -57,8 +57,7 @@ A complete list of files for DR24.0 are listed for the GDC Data Portal and the G
 
 ### Bugs Fixed Since Last Release
 
-*  The 6 HCMI-CMDC cases without clinical data now have clinical data. <!--SV-1660-->
-*  Most of the "associated_entities" fields in CGCI-BLGSP were not populated correct, this has been resolved.  <!--SV-1701-->
+*  None
 
 ### Known Issues and Workarounds
 
