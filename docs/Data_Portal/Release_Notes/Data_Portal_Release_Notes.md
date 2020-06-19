@@ -28,7 +28,37 @@
 | [v1.1.0](Data_Portal_Release_Notes.md#release-110) | June 1st, 2016 |
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
----
+## Release 1.24.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  March 10, 2020
+
+### New Features and Changes <!--REQ-395-->
+
+PRTL-3119 Hide Experimental Strategy Facet	 
+PRTL-2987 Facet Panel Styling/Naming	 
+PRTL-2988 Filter Row - Styling	 
+PRTL-2990 Facet Panel - Explore > Clinical title	 
+PRTL-2991 Facet Panel - Add title to values	 
+PRTL-2994 Move action buttons	 
+PRTL-3032 Inconsistent # Cases Between Exploration and Cohort Comparison Age at Dx	 
+PRTL-3045 [AWG Admin] Fix AWG Admin Security Vulnerabilities Up To 2020-04-14	 
+PRTL-3124 [AWG Admin] Fix Latest Security Vulnerabilities as of May 26, 2020	 
+PRTL-3057 Remove Check for Fields with Values on Initial Load of Repository Custom Filter Menus
+PRTL-3071 Fix Thidwick Portal 508 Violations
+PRTL-3121 Set Operations Demo Not Displaying
+PRTL-2967 Lolliplot - X-axis position inaccurate	 
+PRTL-2968 Lolliplot - Click another mutation - Mutation tab stays	 
+PRTL-2989 Facet Panel - Explore > Gene expand/collapse title bug	 
+PRTL-3031 "Add/Remove From Cart" Warning Modal Text Exceeds Boundary for Long Filenames (MS Edge)	 
+PRTL-3122 "View Cases in Exploration" Button Missing a Space	 
+PRTL-3123 Fix Typo in Cart Download Consent Modal	 Minor - Minor loss of function, or other problem where easy workaround is present.
+PRTL-3153 Can't Switch Between Slides in Slide Viewer
+### Bugs Fixed Since Last Release
+
+### Known Issues and Workarounds
+
+
 ## Release 1.24.0
 
 * __GDC Product__: GDC Data Portal
