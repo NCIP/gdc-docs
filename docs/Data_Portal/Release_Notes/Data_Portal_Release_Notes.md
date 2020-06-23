@@ -35,31 +35,23 @@
 
 ### New Features and Changes <!--REQ-395-->
 
-# Work in progress...
-PRTL-3119 Hide Experimental Strategy Facet	 
-PRTL-2987 Facet Panel Styling/Naming	 
-PRTL-2988 Filter Row - Styling	 
-PRTL-2990 Facet Panel - Explore > Clinical title	 
-PRTL-2991 Facet Panel - Add title to values	 
-PRTL-2994 Move action buttons	 
-PRTL-3032 Inconsistent # Cases Between Exploration and Cohort Comparison Age at Dx	 
-PRTL-3045 [AWG Admin] Fix AWG Admin Security Vulnerabilities Up To 2020-04-14	 
-PRTL-3124 [AWG Admin] Fix Latest Security Vulnerabilities as of May 26, 2020	 
-PRTL-3057 Remove Check for Fields with Values on Initial Load of Repository Custom Filter Menus
-PRTL-3071 Fix Thidwick Portal 508 Violations
-PRTL-3121 Set Operations Demo Not Displaying
-PRTL-2967 Lolliplot - X-axis position inaccurate	 
-PRTL-2968 Lolliplot - Click another mutation - Mutation tab stays	 
-PRTL-2989 Facet Panel - Explore > Gene expand/collapse title bug	 
-PRTL-3031 "Add/Remove From Cart" Warning Modal Text Exceeds Boundary for Long Filenames (MS Edge)	 
-PRTL-3122 "View Cases in Exploration" Button Missing a Space	 
-PRTL-3123 Fix Typo in Cart Download Consent Modal	 Minor - Minor loss of function, or other problem where easy workaround is present.
-PRTL-3153 Can't Switch Between Slides in Slide Viewer
+* Hid experimental strategy facet on exploration page <!--PRTL-->
+* Improved Facet Panel Styling/Naming	of Some Navigation Elements <!--PRTL-2987--> <!--PRTL-2988--> <!--PRTL-2994-->
 
 ### Bugs Fixed Since Last Release
+* Fixed small rounding error in age of diagnosis graph to make values consistent with exploration page <!--PRTL-3032-->
+* Improved loading performance of Add Case / Biospecimen Filter on Repository page <!--PRTL-3057-->
+* Fixed the Display of the Set Operations Demo page <!--PRTL-3121-->
+* Fixed Lollipop plot x-axis positioning <!--PRTL-2967-->
+* Fixed bug where the detail pane for a multi-mutation location in the lollipop plot would stays "stuck" if you click to another single mutation <!--PRTL-2968-->
+* Genes search box title in the Exploration Genes Filter tab now works and can be expanded/collapsed on click like the other tabs <!--PRTL-2989-->
+* Fixed bug in Microsoft Edge where "Add/Remove from Cart" text would overlap CSS Element <!--PRTL-3031-->
+* Fixed styling of "View Cases in Exploration" Button <!--PRTL-3122-->
+* Fixed issue where users could not switch between slides on the slide viewer <!--PRTL-3153-->
+* Fixed typo in the Consent Form when downloading controlled access data <!--PRTL-3123-->
 
 ### Known Issues and Workarounds
-
+N/A
 
 ## Release 1.24.0
 
