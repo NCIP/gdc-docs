@@ -35,6 +35,7 @@
 
 ### New Features and Changes <!--REQ-395-->
 
+# Work in progress...
 PRTL-3119 Hide Experimental Strategy Facet	 
 PRTL-2987 Facet Panel Styling/Naming	 
 PRTL-2988 Filter Row - Styling	 
@@ -54,6 +55,7 @@ PRTL-3031 "Add/Remove From Cart" Warning Modal Text Exceeds Boundary for Long Fi
 PRTL-3122 "View Cases in Exploration" Button Missing a Space	 
 PRTL-3123 Fix Typo in Cart Download Consent Modal	 Minor - Minor loss of function, or other problem where easy workaround is present.
 PRTL-3153 Can't Switch Between Slides in Slide Viewer
+
 ### Bugs Fixed Since Last Release
 
 ### Known Issues and Workarounds

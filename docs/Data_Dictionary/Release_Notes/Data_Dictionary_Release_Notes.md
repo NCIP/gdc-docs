@@ -139,14 +139,22 @@ DICT-16 Add PATHOLOGY DETAILS to capture pathologic information
 * Modified `aliquot` entity
   * Added new permissible value to `analyte_type` property
     * `Nuclei RNA`
-DICT-15 Updates to the RNA EXPRESSION WORKFLOW node - Very Bad Fish
+* Modified `rna_expression_workflow` entity
+  * Removed permissible value from `workflow_type` property
+    * `STAR - Smart-Seq2 Counts`
+  * Added new permissible values to `workflow_type` property
+    * `STAR - Smart-Seq2 Gene Counts`
+    * `STAR - Smart-Seq2 GeneFull Counts`
 DICT-17 Updates to the MOLECULAR TEST node - Very Bad Fish
-DICT-26 Add separate definitions of to_many & to_one for projects	 
-DTT-159 User unable to upload files with gdc-client	   
-SUBP-601 Address current vulnerabilities	  
-DOC-125 Some Data Tables Bleed into the Table of Contents	 
-SUBP-605 Browse / QC Report Detail Pane Has Crowded, Non-Uniform Buttons
-
+* Modified `molecular_test` entity
+  * Added new properties
+    * `mitotic_count`
+    * `mitotic_total_area`
+    * `biospecimen_volume`
+  * Added new permissible values to `gene_symbol` property
+  * Added new permissible values to `second_gene_symbol` property
+  * Added new permissible values to `antigen` property
+  * Added new permissible values to `laboratory_test` property 	  
 
 ### Bugs Fixed Since Last Release
 * None
