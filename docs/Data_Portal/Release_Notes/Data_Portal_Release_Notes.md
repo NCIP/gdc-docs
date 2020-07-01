@@ -28,7 +28,31 @@
 | [v1.1.0](Data_Portal_Release_Notes.md#release-110) | June 1st, 2016 |
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
----
+## Release 1.24.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  March 10, 2020
+
+### New Features and Changes <!--REQ-395-->
+
+* Hid experimental strategy facet on exploration page <!--PRTL-->
+* Improved Facet Panel Styling/Naming	of Some Navigation Elements <!--PRTL-2987--> <!--PRTL-2988--> <!--PRTL-2994-->
+
+### Bugs Fixed Since Last Release
+* Fixed small rounding error in age of diagnosis graph to make values consistent with exploration page <!--PRTL-3032-->
+* Improved loading performance of Add Case / Biospecimen Filter on Repository page <!--PRTL-3057-->
+* Fixed the Display of the Set Operations Demo page <!--PRTL-3121-->
+* Fixed Lollipop plot x-axis positioning <!--PRTL-2967-->
+* Fixed bug where the detail pane for a multi-mutation location in the lollipop plot would stays "stuck" if you click to another single mutation <!--PRTL-2968-->
+* Genes search box title in the Exploration Genes Filter tab now works and can be expanded/collapsed on click like the other tabs <!--PRTL-2989-->
+* Fixed bug in Microsoft Edge where "Add/Remove from Cart" text would overlap CSS Element <!--PRTL-3031-->
+* Fixed styling of "View Cases in Exploration" Button <!--PRTL-3122-->
+* Fixed issue where users could not switch between slides on the slide viewer <!--PRTL-3153-->
+* Fixed typo in the Consent Form when downloading controlled access data <!--PRTL-3123-->
+
+### Known Issues and Workarounds
+N/A
+
 ## Release 1.24.0
 
 * __GDC Product__: GDC Data Portal
