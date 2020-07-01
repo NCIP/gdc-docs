@@ -25,8 +25,9 @@
 * __Release Date__: July 2, 2020
 
 ### New Features and Changes
-
-* Modified `treatment` entity
+* Added NCIt codes associated with enumeration values in `diagnosis` entity type
+* Added `pathology_detail` entity <!--DICT-16-->
+* Modified `treatment` entity <!--DICT-1-->
     - Added new enumerations for `therapeutic_agents` property
         * `Itraconazole`
         * `Tipiracil`
@@ -38,9 +39,9 @@
         * `IGF-1R Inhibitor`
         * `CDK4/6 Inhibitor`
         * `ALK Inhibitor`
-* Modified `annotation` entity
+* Modified `annotation` entity <!--DICT-2 -->
     - Added `many_to_many` link to `copy_number_estimate` entity
-* Modified `diagnosis` entity
+* Modified `diagnosis` entity <!--DICT-6-->
     - Added new properties:
         * `eln_risk_classification`
         * `satellite_nodule_present`
@@ -67,7 +68,7 @@
         * `micropapillary_features`
         * `non_nodal_regional_disease`
         * `non_nodal_tumor_deposits`
-* Modified `sample` entity
+* Modified `sample` entity <!--DICT-7-->
     - Changed description of properties
         * `days_to_collection`
         * `days_to_sample_procurement`
@@ -76,7 +77,7 @@
         * `oct_embedded`
     - Added new permissible values to `sample_type` property
         * `Mixed Adherent Suspension Saliva`
-* Modified `follow_up` entity
+* Modified `follow_up` entity <!--DICT-11-->
     - Added new properties
         * `procedures_performed`
         * `hormonal_contraceptive_type`
@@ -85,7 +86,7 @@
     - Added new permissible values to `risk_factor` property
     - Added new permissible values to `evidence_of_recurrence_type` property
     - Added new permissible values to `aids_risk_factors` property
-* Modified `exposure` entity
+* Modified `exposure` entity <!--DICT-12-->
     - Added new properties
         * `smokeless_tobacco_quit_age`
         * `alcohol_type`
@@ -94,19 +95,19 @@
         * `Smoke`
     - Added new permissible value to `type_of_smoke_exposure` property
         *  `Tobacco smoke, NOS`
-* Modified `submitted_unaligned_reads` property
+* Modified `submitted_unaligned_reads` property <!--DICT-13-->
     - Removed permissible value from `read_pair_number` property
         * `I1`
-* Modified `aliquot` entity
+* Modified `aliquot` entity <!--DICT-14-->
     - Added new permissible value to `analyte_type` property
         * `Nuclei RNA`
-* Modified `rna_expression_workflow` entity
+* Modified `rna_expression_workflow` entity <!--DICT-15-->
     - Removed permissible value from `workflow_type` property
         * `STAR - Smart-Seq2 Counts`
     - Added new permissible values to `workflow_type` property
         * `STAR - Smart-Seq2 Gene Counts`
         * `STAR - Smart-Seq2 GeneFull Counts`
-* Modified `molecular_test` entity
+* Modified `molecular_test` entity <!--DICT-17-->
     - Added new properties
         * `mitotic_count`
         * `mitotic_total_area`
