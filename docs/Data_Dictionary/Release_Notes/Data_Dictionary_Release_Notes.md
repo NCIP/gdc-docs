@@ -103,7 +103,7 @@
 * Modified `rna_expression_workflow` entity
     - Removed permissible value from `workflow_type` property
         * `STAR - Smart-Seq2 Counts`
-  - Added new permissible values to `workflow_type` property
+    - Added new permissible values to `workflow_type` property
         * `STAR - Smart-Seq2 Gene Counts`
         * `STAR - Smart-Seq2 GeneFull Counts`
 * Modified `molecular_test` entity
