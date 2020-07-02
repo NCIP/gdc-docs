@@ -41,11 +41,13 @@
 * Updated the filter control panel styling across the Portal to have clearer titles (e.g. "Search Cases" instead of "Cases" in the quick search box). <!--PRTL-2987-->
 * Made minor updates to the styling of the filter query display at the top of the Exploration page (spacing, borders). <!--PRTL-2988-->
 * Added an expand/collapse control to the quick search bar of Clinical tab on the Exploration page, to be consistent with other Exploration tabs. <!--PRTL-2990-->
-*
+* Added a clear title above the counts in each filter control panel across the Portal (e.g. "# Cases", "# Genes", etc.). <!--PRTL-2991-->
+* Moved various action buttons above the results table on the Repository Page to more accessible locations. <!--PRTL-2994-->
+* Improved load time of the initial custom filter list on the Repository Page, when clicking "Add a Filter Filter" or "Add a Case/Biospecimen Filter". <!--PRTL-3057-->
 
 ### Bugs Fixed Since Last Release
 
-* Fixed bug where clicking a primary site on the Human Body Image was not re-directing to the Exploration page. <!--PRTL-2979-->
+* Fixed a bug in the Age at Diagnosis table on the Cohort Comparison page, where the # of cases in the table was not consistent with the # of cases shown when clicking the link to the Exploration page. <!--PRTL-3032-->
 
 ### Known Issues and Workarounds
 
