@@ -4,7 +4,7 @@ This guide details step-by-step procedures for different aspects of the GDC Data
 
 ## GDC Data Model Basics
 
-Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. Each oval node in the graphic represents an entity: a logical unit of data related to a specific clinical, biospecimen, or file facet in the GDC. An entity includes a set of fields, the associated values, and information about its related node associations. All submitted entities require a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier. This walkthrough will go through the submission of different entities. The completed (submitted) portion of the entity process will be highlighted in __blue__. 
+Pictured below is the submittable subset of the GDC Data Model: a roadmap for GDC data submission. Each oval node in the graphic represents an entity: a logical unit of data related to a specific clinical, biospecimen, or file facet in the GDC. An entity includes a set of fields, the associated values, and information about its related node associations. All submitted entities require a connection to another entity type, based on the GDC Data Model, and a `submitter_id` as an identifier. This walkthrough will go through the submission of different entities. The completed (submitted) portion of the entity process will be highlighted in __blue__.
 
 [![GDC Data Model 1](images/GDC-Data-Model-None.png)](images/GDC-Data-Model-None.png "Click to see the full image.")
 
@@ -52,7 +52,7 @@ The file detailed above can be uploaded using the GDC Data Submission Portal and
 
 ### Upload Using the GDC Data Submission Portal
 
-An example of a `case` upload is detailed below. The [GDC Data Submission Portal](https://gdc.cancer.gov/submit-data/gdc-data-submission-portal) is equipped with a wizard window to facilitate the upload and validation of entities. 
+An example of a `case` upload is detailed below. The [GDC Data Submission Portal](https://gdc.cancer.gov/submit-data/gdc-data-submission-portal) is equipped with a wizard window to facilitate the upload and validation of entities.
 
 #### 1. Upload Files
 
@@ -201,7 +201,7 @@ Submitting an [__Exposure__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 * __`alcohol_days_per_week`:__ Numeric value used to describe the average number of days each week that a person consumes an alchoolic beverage.
 * __`years_smoked`:__ Numeric value (or unknown) to represent the number of years a person has been smoking.
 * __`tobacco_smoking_onset_year`:__ The year in which the participant began smoking.
-* __`tobacco_smoking_quit_year`:__ The year in which the participant quit smoking. 
+* __`tobacco_smoking_quit_year`:__ The year in which the participant quit smoking.
 
 ```JSON
 {
@@ -428,9 +428,9 @@ submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Seque
 
 ## Uploading the Submittable Data File to the GDC
 
-The submittable data file can be uploaded when it is registered with the GDC. An submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. It is important to note that the Harmonization process does not occur on these submitted files until the user clicks the [`Request Submission`](Data_Submission_Process.md#release) button. Uploading the file can be performed with either the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/). Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the GDC [Submitted Data Types and File Formats](https://gdc.cancer.gov/about-data/data-types-and-file-formats/submitted-data-types-and-file-formats) website.
+The submittable data file can be uploaded when it is registered with the GDC. A submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. It is important to note that the Harmonization process does not occur on these submitted files until the user clicks the [`Request Submission`](Data_Submission_Process.md#release) button. Uploading the file can be performed with either the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/). Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the GDC [Submitted Data Types and File Formats](https://gdc.cancer.gov/about-data/data-types-and-file-formats/submitted-data-types-and-file-formats) website.
 
-__GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the GDC Submission Portal or API) once it is registered. 
+__GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be retrieved from the GDC Submission Portal or API) once it is registered.
 
 [![UUID Location](images/GDC_Submission_UUID_location.png)](images/GDC_Submission_UUID_location.png "Click to see the full image.")
 
@@ -689,7 +689,7 @@ The [transaction](Data_Submission_Process.md#transactions) page lists all previo
 
 ### Download Previously Uploaded Data Files
 
-The only supported method to download data files previously uploaded to the GDC Submission Portal that have not been release yet is to use the API or the [Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/). To retrieve data previous upload to the submission portal you will need to retrieve the data file's UUID.  The UUIDs for submitted data files are located in the submission portal under the file's Summary section as well as the manifest file located on the file's Summary page. 
+The only supported method to download data files previously uploaded to the GDC Submission Portal that have not been release yet is to use the API or the [Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/). To retrieve data previous upload to the submission portal you will need to retrieve the data file's UUID.  The UUIDs for submitted data files are located in the submission portal under the file's Summary section as well as the manifest file located on the file's Summary page.
 
 [![Submission Portal Summary View](images/gdc-submission__image2_submission_UUID.png)](images/gdc-submission__image2_submission_UUID.png "Click to see the full image.")  
 
