@@ -37,7 +37,11 @@
 
 ### New Features and Changes <!--REQ-395-->
 
-* Removed unnecessary comma and y-axis value from title of the mutation details pop-up in the Protein Viewer. <!--PRTL-2969-->
+* Suppressed Experimental Strategy filter on the Exploration page as this currently filters for files with a particular strategy, not for cases.  This may cause confusion amongst users.  The filter will be re-instated in a future release once the logic is available to filter more appropriately for cases tied to a specific strategy. <!--PRTL-3119-->
+* Updated the filter control panel styling across the Portal to have clearer titles (e.g. "Search Cases" instead of "Cases" in the quick search box). <!--PRTL-2987-->
+* Made minor updates to the styling of the filter query display at the top of the Exploration page (spacing, borders). <!--PRTL-2988-->
+* Added an expand/collapse control to the quick search bar of Clinical tab on the Exploration page, to be consistent with other Exploration tabs. <!--PRTL-2990-->
+*
 
 ### Bugs Fixed Since Last Release
 
@@ -63,7 +67,7 @@
     *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
     *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
     
-## Release 1.24.0
+## Release 1.24.1
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__:  March 10, 2020
