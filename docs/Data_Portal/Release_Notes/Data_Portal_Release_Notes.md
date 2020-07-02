@@ -2,7 +2,8 @@
 
 | Version | Date |
 |---|---|
-| [v1.24.0](Data_Portal_Release_Notes.md#release-1240) | March 10, 2020 |
+| [v1.25.0](Data_Portal_Release_Notes.md#release-1240) | July 2, 2020 |
+| [v1.24.1](Data_Portal_Release_Notes.md#release-1240) | March 10, 2020 |
 | [v1.23.1](Data_Portal_Release_Notes.md#release-1231) | December 10, 2019 |
 | [v1.23.0](Data_Portal_Release_Notes.md#release-1230) | November 6, 2019 |
 | [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
@@ -28,32 +29,53 @@
 | [v1.1.0](Data_Portal_Release_Notes.md#release-110) | June 1st, 2016 |
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
-## Release 1.24.0
+---
+## Release 1.25.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  March 10, 2020
+* __Release Date__:  July 2, 2020
 
 ### New Features and Changes <!--REQ-395-->
 
-* Hid experimental strategy facet on exploration page <!--PRTL-->
-* Improved Facet Panel Styling/Naming	of Some Navigation Elements <!--PRTL-2987--> <!--PRTL-2988--> <!--PRTL-2994-->
+* Suppressed Experimental Strategy filter on the Exploration page as this currently filters for files with a particular strategy, not for cases.  This may cause confusion amongst users.  The filter will be re-instated in a future release once the logic is available to filter more appropriately for cases tied to a specific strategy. <!--PRTL-3119-->
+* Updated the filter control panel styling across the Portal to have clearer titles (e.g. "Search Cases" instead of "Cases" in the quick search box). <!--PRTL-2987-->
+* Made minor updates to the styling of the filter query display at the top of the Exploration page (spacing, borders). <!--PRTL-2988-->
+* Added an expand/collapse control to the quick search bar of Clinical tab on the Exploration page, to be consistent with other Exploration tabs. <!--PRTL-2990-->
+* Added a clear title above the counts in each filter control panel across the Portal (e.g. "# Cases", "# Genes", etc.). <!--PRTL-2991-->
+* Moved various action buttons above the results table on the Repository Page to more accessible locations. <!--PRTL-2994-->
+* Improved load time of the initial custom filter list on the Repository Page, when clicking "Add a Filter Filter" or "Add a Case/Biospecimen Filter". <!--PRTL-3057-->
 
 ### Bugs Fixed Since Last Release
-* Fixed small rounding error in age of diagnosis graph to make values consistent with exploration page <!--PRTL-3032-->
-* Improved loading performance of Add Case / Biospecimen Filter on Repository page <!--PRTL-3057-->
-* Fixed the Display of the Set Operations Demo page <!--PRTL-3121-->
-* Fixed Lollipop plot x-axis positioning <!--PRTL-2967-->
-* Fixed bug where the detail pane for a multi-mutation location in the lollipop plot would stays "stuck" if you click to another single mutation <!--PRTL-2968-->
-* Genes search box title in the Exploration Genes Filter tab now works and can be expanded/collapsed on click like the other tabs <!--PRTL-2989-->
-* Fixed bug in Microsoft Edge where "Add/Remove from Cart" text would overlap CSS Element <!--PRTL-3031-->
-* Fixed styling of "View Cases in Exploration" Button <!--PRTL-3122-->
-* Fixed issue where users could not switch between slides on the slide viewer <!--PRTL-3153-->
-* Fixed typo in the Consent Form when downloading controlled access data <!--PRTL-3123-->
+
+* Fixed a bug in the Age at Diagnosis table on the Cohort Comparison page, where the # of cases in the table was not consistent with the # of cases shown when clicking the link to the Exploration page. <!--PRTL-3032-->
+* Fixed minor positional accuracy issue of the lollipop data points on the Protein Viewer. <!--PRTL-2967-->
+* Fixed bug on the Protein Viewer where, if clicking to switch between different lollipop data points, details of the previous lollipop was not closing. <!--PRTL-2968-->
+* Fixed bug where the quick search bar on the Exploratin Page's Genes filter tab was not expanding/collapsing properly. <!--PRTL-2989-->
+* Fixed bug in the pop-up warning message when adding or removing items from the Cart, where long filenames were spilling outside the border of the pop-up. <!--PRTL-3031-->
+* Fixed typo in the "View Cases in Exploration" button on the Repository page. <!--PRTL-3122-->
+* Fixed typo in the pop-up user consent message when downloading controlled files from the Cart. <!--PRTL-3123-->
 
 ### Known Issues and Workarounds
-N/A
 
-## Release 1.24.0
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+    
+## Release 1.24.1
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__:  March 10, 2020
