@@ -25,7 +25,7 @@
 ## Release 2.5.0
 
 * __GDC Product__: GDC Data Submission Portal
-* __Release Date__: July 20, 2020
+* __Release Date__: July 2, 2020
 
 ### New Features and Changes
 
