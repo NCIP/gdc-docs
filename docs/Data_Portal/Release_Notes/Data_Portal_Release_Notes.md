@@ -3,7 +3,7 @@
 | Version | Date |
 |---|---|
 | [v1.25.0](Data_Portal_Release_Notes.md#release-1240) | July 2, 2020 |
-| [v1.24.0](Data_Portal_Release_Notes.md#release-1240) | March 10, 2020 |
+| [v1.24.1](Data_Portal_Release_Notes.md#release-1240) | March 10, 2020 |
 | [v1.23.1](Data_Portal_Release_Notes.md#release-1231) | December 10, 2019 |
 | [v1.23.0](Data_Portal_Release_Notes.md#release-1230) | November 6, 2019 |
 | [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
