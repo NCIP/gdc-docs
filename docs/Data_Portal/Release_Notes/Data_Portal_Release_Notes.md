@@ -51,7 +51,9 @@
 * Fixed minor positional accuracy issue of the lollipop data points on the Protein Viewer. <!--PRTL-2967-->
 * Fixed bug on the Protein Viewer where, if clicking to switch between different lollipop data points, details of the previous lollipop was not closing. <!--PRTL-2968-->
 * Fixed bug where the quick search bar on the Exploratin Page's Genes filter tab was not expanding/collapsing properly. <!--PRTL-2989-->
-*
+* Fixed bug in the pop-up warning message when adding or removing items from the Cart, where long filenames were spilling outside the border of the pop-up. <!--PRTL-3031-->
+* Fixed typo in the "View Cases in Exploration" button on the Repository page. <!--PRTL-3122-->
+* Fixed typo in the pop-up user consent message when downloading controlled files from the Cart. <!--PRTL-3123-->
 
 ### Known Issues and Workarounds
 
