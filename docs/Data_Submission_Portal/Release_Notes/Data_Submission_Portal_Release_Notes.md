@@ -29,13 +29,11 @@
 
 ### New Features and Changes
 
-*  Upgraded software framework to Webpack 4. <!--SUBP-502-->
+*  None.
 
 ### Bugs Fixed Since Last Release
 
 * Fixed bug where the Details pane in the QC Report was displaying crowded, non-uniform buttons. <!--SUBP-605-->
-* Fixed multiple minor security vulnerabilities. <!--SUBP-601, SUBP-610-->
-* Fixed multiple minor Section 508 compliance issues. <!--SUBP-613-->
 
 ### Known Issues and Workarounds
 
