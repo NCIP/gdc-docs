@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v.2.2.0](Data_Dictionary_Release_Notes.md#v220) | July 2, 2020 |
 | [v.2.1.0](Data_Dictionary_Release_Notes.md#v210) | March 10, 2020 |
 | [v.2.0.0](Data_Dictionary_Release_Notes.md#v200) | January 30, 2020 |
 | [v.1.18.1](Data_Dictionary_Release_Notes.md#v1181) | November 6, 2019 |
@@ -17,6 +18,107 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v2.2.0
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: July 2, 2020
+
+### New Features and Changes
+* Added NCIt codes associated with enumeration values in `diagnosis` entity type
+* Added `pathology_detail` entity <!--DICT-16-->
+* Modified `treatment` entity <!--DICT-1-->
+    - Added new enumerations for `therapeutic_agents` property
+        * `Itraconazole`
+        * `Tipiracil`
+        * `Tipiracil Hydrochloride`
+        * `Zirconium Zr 89 Panitumumab`
+        * `Estradiol mustard`
+        * `Progestational IUD`
+        * `PD-1 Inhibitor`
+        * `IGF-1R Inhibitor`
+        * `CDK4/6 Inhibitor`
+        * `ALK Inhibitor`
+* Modified `annotation` entity <!--DICT-2 -->
+    - Added `many_to_many` link to `copy_number_estimate` entity
+* Modified `diagnosis` entity <!--DICT-6-->
+    - Added new properties:
+        * `eln_risk_classification`
+        * `satellite_nodule_present`
+        * `who_cns_grade`
+        * `who_nte_grade`
+        *  `sites_of_involvement`
+    - Added new permissible values to `ajcc_pathologic_stage` property
+        * `Stage IA3`
+    - Added new permissible values to `classification_of_tumor` property
+        * `Progression`
+    - Added new permissible values to `metastasis_at_diagnosis_site` property
+        * `Esophagus`
+    - Added new permissible values to `morphology` property
+    - Removed properties as `required`
+        * `days_to_last_follow_up`
+        * `tumor_grade`
+        * `progression_or_recurrence`
+        * `days_to_recurrence`
+        * `days_to_last_known_disease_status`
+        * `last_known_disease_status`
+    - Deprecated properties
+        * `mitotic_count`
+        * `papillary_renal_cell_type`
+        * `micropapillary_features`
+        * `non_nodal_regional_disease`
+        * `non_nodal_tumor_deposits`
+* Modified `sample` entity <!--DICT-7-->
+    - Changed description of properties
+        * `days_to_collection`
+        * `days_to_sample_procurement`
+    - Deprecated properties
+        * `is_ffpe`
+        * `oct_embedded`
+    - Added new permissible values to `sample_type` property
+        * `Mixed Adherent Suspension Saliva`
+* Modified `follow_up` entity <!--DICT-11-->
+    - Added new properties
+        * `procedures_performed`
+        * `hormonal_contraceptive_type`
+        * `hormone_replacement_therapy_type`
+    - Added new permissible values to `comorbidity` property
+    - Added new permissible values to `risk_factor` property
+    - Added new permissible values to `evidence_of_recurrence_type` property
+    - Added new permissible values to `aids_risk_factors` property
+* Modified `exposure` entity <!--DICT-12-->
+    - Added new properties
+        * `smokeless_tobacco_quit_age`
+        * `alcohol_type`
+    - Added new permissible values to `exposure_type` property
+        * `Wood Dust`
+        * `Smoke`
+    - Added new permissible value to `type_of_smoke_exposure` property
+        *  `Tobacco smoke, NOS`
+* Modified `submitted_unaligned_reads` property <!--DICT-13-->
+    - Removed permissible value from `read_pair_number` property
+        * `I1`
+* Modified `aliquot` entity <!--DICT-14-->
+    - Added new permissible value to `analyte_type` property
+        * `Nuclei RNA`
+* Modified `rna_expression_workflow` entity <!--DICT-15-->
+    - Removed permissible value from `workflow_type` property
+        * `STAR - Smart-Seq2 Counts`
+    - Added new permissible values to `workflow_type` property
+        * `STAR - Smart-Seq2 Gene Counts`
+        * `STAR - Smart-Seq2 GeneFull Counts`
+* Modified `molecular_test` entity <!--DICT-17-->
+    - Added new properties
+        * `mitotic_count`
+        * `mitotic_total_area`
+        * `biospecimen_volume`
+    - Added new permissible values to `gene_symbol` property
+    - Added new permissible values to `second_gene_symbol` property
+    - Added new permissible values to `antigen` property
+    - Added new permissible values to `laboratory_test` property 	  
+
+### Bugs Fixed Since Last Release
+* None
 
 ## v2.1.0
 

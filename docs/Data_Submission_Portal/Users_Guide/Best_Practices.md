@@ -57,6 +57,12 @@ __Example 2:__ A 98 year old patient is diagnosed with cancer and dies three yea
 >* _days_to_birth:_ -32872
 >* _days_to_death:_ 0
 
+## Array Submission
+
+Certain fields in the GDC, such as diagnosis.sites_of_involvement, are of type "array".  This allows multiple values to be submitted on one property. These values need to be uploaded in a `|`-delimited format. See the example below.  
+
+__Example:__ `"sites_of_involvement" : "Kidney, Upper Pole|Kidney, Middle"`
+
 ## Submitting Complex Data Model Relationships
 
 The GDC Data Model includes relationships in which more than one entity of one type can be associated with one entity of another type. For example, more than one `read_group` entity can be associated with a `submitted_aligned_reads` entity. JSON-formatted files, in which a list object can be used, are well-suited to represent this type of relationship. Tab-delimited (TSV) files require additional syntax to demonstrate these relationships. For example, associating a `submitted_aligned_reads` entity to three read groups would require three `read_groups.submitter_id` columns, each with the `#` symbol and a number appended to them. See the two files below:
