@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.6.0](DTT_Release_Notes.md#v160) | July 7, 2020 |
+| [v1.6.0](DTT_Release_Notes.md#v160) | July 8, 2020 |
 | [v1.5.0](DTT_Release_Notes.md#v150) | January 30, 2020 |
 | [v1.4.0](DTT_Release_Notes.md#v140) | December 18, 2018 |
 | [v1.3.0](DTT_Release_Notes.md#v130) | August 22, 2017 |
@@ -13,7 +13,7 @@
 
 ## V1.6.0
 * __GDC Product__: Data Transfer Tool
-* __Release Date__: July 7, 2020
+* __Release Date__: July 8, 2020
 
 ### New Features and Changes
 * None
