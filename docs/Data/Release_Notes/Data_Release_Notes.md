@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v25.0](Data_Release_Notes.md#data-release-250) | July XXX, 2020 |
 | [v24.0](Data_Release_Notes.md#data-release-240) | May 7, 2020 |
 | [v23.0](Data_Release_Notes.md#data-release-230) | April 7, 2020 |
 | [v22.0](Data_Release_Notes.md#data-release-220) | January 16, 2020 |
@@ -29,6 +30,20 @@
 | [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
+## Data Release 25.0 <!--REQ-403-->
+
+* __GDC Product__: Data
+* __Release Date__: July XXX, 2020
+
+### New updates
+
+1.  TBA
+
+A complete list of files for DR25.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+* [XXX](XXX)
+* [XXX](XXX)
 
 ## Data Release 24.0 <!--REQ-401-->
 
