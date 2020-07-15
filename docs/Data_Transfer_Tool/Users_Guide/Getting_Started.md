@@ -10,7 +10,7 @@ The GDC Data Transfer Tool, a command-line driven application, provides an optim
 
 ### System Recommendations
 
-The system recommendations for using the GDC Data Transfer Tool&nbsp;are as follows:
+The system recommendations for using the GDC Data Transfer Tool are as follows:
 
 * OS: Linux (Ubuntu 14.x or later), OS X (10.9 Mavericks or later), or Windows (7 or later)
 * CPU: At least two 64-bit cores, Intel or AMD
