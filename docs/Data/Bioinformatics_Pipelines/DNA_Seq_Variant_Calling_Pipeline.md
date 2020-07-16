@@ -26,11 +26,6 @@ Prior to alignment, BAM files that were submitted to the GDC are split by read g
 DNA-Seq analysis begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow). Read groups are aligned to the reference genome using one of two [BWA](http://bio-bwa.sourceforge.net) algorithms [[1]](http://www.ncbi.nlm.nih.gov/pubmed/19451168). BWA-MEM is used if mean read length is greater than or equal to 70 bp. Otherwise BWA-aln is used.
 Each read group is aligned to the reference genome separately and all read group alignments that belong to a single aliquot are merged using [Picard Tools](http://broadinstitute.github.io/picard) [SortSam](https://broadinstitute.github.io/picard/command-line-overview.html#SortSam) and [MergeSamFiles](https://broadinstitute.github.io/picard/command-line-overview.html#MergeSamFiles). Duplicate reads, which may persist as PCR artifacts, are then flagged to prevent downstream variant call errors.
 
-#### Quality Control
-
-Quality control metrics are collected before and after the alignment workflow and reviewed to identify potential low-quality data files.  Basic metrics such as GC content and mean read length as well as quality score metrics are collected from unaligned reads using [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Quality metrics collected by the GDC for aligned reads include samtools idxstat and flagstat. Alignment information is collected using Picard [CollectMultipleMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectMultipleMetrics) for both WGS and WXS. Coverage information is collected using picard [CollectWgsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectWgsMetrics) for WGS and picard [CollectHsMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectHsMetrics) for WXS.
-
-Quality control metrics for each file endpoint can be accessed through the API using the `expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs` parameter. Click [here](https://api.gdc.cancer.gov/files/40e311a4-67aa-468a-8e09-1c7daa2d10bb?pretty=true&expand=analysis.metadata.read_groups,analysis.metadata.read_groups.read_group_qcs) for an example query.  
 
 #### Reference Genome
 
@@ -42,9 +37,11 @@ All alignments are performed using the human reference genome GRCh38.d1.vd1. Dec
 | Input | [Submitted Unaligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_unaligned_reads) or [Submitted Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads) | FASTQ or BAM |
 | Output | [Aligned Reads](/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) | BAM |
 
-![DNA-Seq Alignment Pipeline](images/dna-alignment-pipeline_0.png)
+![DNA-Seq Alignment Pipeline](images/dna-alignment-pipeline_1.png)
 
 ### DNA-Seq Alignment Command Line Parameters
+
+__Note that version numbers may vary in files downloaded from the GDC Portal due to ongoing pipeline development and improvement.__
 
 #### Step 1: Converting BAMs to FASTQs with Biobambam - biobambam2 2.0.54
 ```Shell
@@ -53,7 +50,7 @@ collate=1 \
 exclude=QCFAIL,SECONDARY,SUPPLEMENTARY \
 filename= <input.bam> \
 gz=1 \
-inputformat=bam
+inputformat=bam \
 level=5 \
 outputdir= <output_path> \
 outputperreadgroup=1 \
@@ -180,21 +177,22 @@ java -jar GenomeAnalysisTK.jar \
 
 
 ### Somatic Variant Calling Workflow
-Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using four separate pipelines:
+Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using five separate pipelines:
 
 - [MuSE](http://bioinformatics.mdanderson.org/main/MuSE) [[2]](http://www.biorxiv.org/content/early/2016/05/25/055467.abstract)
-- [MuTect2](https://www.broadinstitute.org/cancer/cga/mutect) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html)  
+- [MuTect2](https://gatkforums.broadinstitute.org/gatk/discussion/9183/how-to-call-somatic-snvs-and-indels-using-mutect2) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html)  
 - [VarScan2](http://dkoboldt.github.io/varscan/) [[4]](http://genome.cshlp.org/content/22/3/568.short)
 - [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short)
+- [Pindel](https://github.com/ucscCancer/pindel-tool)
 
 Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](../File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
 
 #### Pipeline Descriptions
-Four separate variant calling pipelines are implemented for GDC data harmonization. There is currently no scientific consensus on the best variant calling pipeline so the investigator is responsible for choosing the pipeline(s) most appropriate for the data. Some details about the pipelines are indicated below.
+Five separate variant calling pipelines are implemented for GDC data harmonization. There is currently no scientific consensus on the best variant calling pipeline so the investigator is responsible for choosing the pipeline(s) most appropriate for the data. Some details about the pipelines are indicated below.
 
 The [MuTect2 pipeline](https://gdc.cancer.gov/files/public/image/Broad_MuTect_0.png) employs a "Panel of Normals" to identify additional germline mutations. This panel is generated using TCGA blood normal genomes from thousands of individuals that were curated and confidently assessed to be cancer-free. This method allows for a higher level of confidence to be assigned to somatic variants that were called by the MuTect2 pipeline.
 
-Basic outlines for the other three pipelines can be found here:
+Basic outlines for the other three of the pipelines can be found here:
 
 - [VarScan2 pipeline](https://gdc.cancer.gov/files/public/image/varscan-somatic-variant-calling-pipeline.png)
 - [MuSE pipeline](https://gdc.cancer.gov/files/public/image/muse-somatic-variant-calling-pipeline.png)  
@@ -202,7 +200,7 @@ Basic outlines for the other three pipelines can be found here:
 
 #### Indels
 
-Indel mutations that were generated with the MuTect2 and VarScan pipeline are detected and reported in GDC VCF files.
+Indel mutations that were generated with the MuTect2, Pindel, and VarScan pipelinesd are detected and reported in GDC VCF files.
 
 #### Germline Variants
 At this time, germline variants are deliberately excluded as harmonized data. The GDC does not recommend using germline variants that were previously detected and stored in the Legacy Archive as they do not meet the GDC criteria for high-quality data.  
@@ -327,6 +325,123 @@ java -jar VarScan.jar processSomatic \
 --p-value 0.07
 ```
 
+#### Pindel
+
+__Step 1:__ Filter Reads
+
+Filter BAM reads that are not unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary for both tumor and normal BAM files
+
+Tool: sambamba 0.7.0-pre1
+
+```Shell
+Sambamba view $(input.bam) --filter "not (unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary)" --format bam --nthreads 1 --output-filename $(output.bam)
+```
+
+__Step 2:__ Pindel
+
+[Pindel version 0.2.5b8, 20151210](https://github.com/genome/pindel/releases/tag/v0.2.5b8)
+
+__Step 2a.:__ Calculate mean insert size
+```Python
+cmd = "samtools view -f66 %s | head -n 1000000" % (bam)
+output = do_shell_command(cmd)
+lines = output.decode('utf-8').split('\n')
+b_sum = 0
+b_count = 0
+numlines = 0
+for line in lines:
+    numlines += 1
+    tmp = line.split("\t")
+    if len(tmp) < 9:
+        break
+    if abs(int(tmp[8])) < 10000:
+        b_sum += abs(int(tmp[8]))
+        b_count += 1
+try:
+    mean = b_sum / b_count
+```
+__Step 2b.:__ Write it to a config file
+```Python
+for inputBamFile, meanInsertSize, tag in zip(inputBamFiles, meanInsertSizes, tags):
+        fil.write("%s\t%s\t%s\n" %(inputBamFile, meanInsertSize, tag))
+    fil.close()
+```
+__Step 2c.:__ Run pindel
+```Shell
+pindel \
+-f GRCh38.d1.vd1.fa \
+-i config_file \
+-o $(output_prefix) \
+--exclude GRCh38.d1.vd1.centromeres.telomeres.bed
+
+```
+__Step 2d.:__ Merge DI and SI OUTPUT
+```Python
+with open(os.path.join(args.workdir, "pindel_somatic"), "w") as handle:
+        for p in pindel_files:
+            if p.endswith("_D"):
+              with open(p) as ihandle:
+                for line in ihandle:
+                    if re.search("ChrID", line):
+                        handle.write(line)
+        for p in pindel_files:
+            if p.endswith("_SI"):
+              with open(p) as ihandle:
+                for line in ihandle:
+                  if re.search("ChrID", line):
+                     handle.write(line)
+```
+__Step 2e.:__ Create a config for pindel somatic filter
+```Python
+indel.filter.input = $(merged.pindel.output)
+indel.filter.vaf = 0.08
+indel.filter.cov = 20
+indel.filter.hom = 6
+indel.filter.pindel2vcf = "/path/to/pindel/pindel2vcf4tcga"
+indel.filter.reference =  "GRCh38.d1.vd1.fa"
+indel.filter.referencename = "GRCh38"
+indel.filter.referencedate = datetime.datetime.now().strftime("%Y%m%d")
+indel.filter.output = $(output.file.name.vcf)
+
+```
+__Step 2f.:__ Apply somatic filter on pindel output
+Tool: pindel2vcf4tcga 0.6.3
+```Perl
+perl pindel/somatic_filter/somatic_indelfilter.pl $(somatic.indel.filter.config)
+```
+__Step 3:__ Pindel
+Tool: Picard.jar 2.18.4-SNAPSHOT
+```Shell
+java \
+-d64 \
+-XX: +UseSerialGC \
+-Xmx16G \
+-jar picard.jar \
+SortVcf \
+CREATE_INDEX=true \
+SEQUENCE_DICTIONARY=GRCh38.d1.vd1.dict \
+I=$(pindel.somatic.vcf) \
+OUTPUT=$(output.vcf.gz)
+```
+__Step 5:__ Vt Normalization
+Tool: GenomeAnalysisTK.jar nightly-2016-02-25-gf39d340
+
+```Shell
+java \
+-Xmx4G \
+-jar \
+/bin/GenomeAnalysisTK.jar \
+-T VariantFiltration \
+--disable_auto_index_creation_and_locking_when_reading_rods \
+--variant $(vt.normal.output.vcf.gz) \
+-R GRCh38.d1.vd1.fa \
+--filterExpression vc.isBiallelic() && vc.getGenotype(\"TUMOR\").getAD().1 < 3" \
+--filterName TALTDP \
+-o $(output.vcf.gz)
+
+
+```
+
 ### Variant Call Annotation Workflow
 
 Raw VCF files are then annotated in the [Somatic Annotation Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_annotation_workflow) with the [Variant Effect Predictor (VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) v84 [[6]](http://dx.doi.org/10.1093/bioinformatics/btq330) along with VEP GDC plugins.   
@@ -352,10 +467,108 @@ In addition to annotation, [False Positive Filter](https://github.com/ucscCancer
 | Input | [Simple Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=simple_somatic_mutation) | VCF  |
 | Output | [Annotated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotated_somatic_mutation) | VCF  |
 
+### Tumor-Only Variant Calling Workflow
+
+Tumor only variant calling is performed on a tumor sample with no paired normal at the request of the research group. This method takes advantage of the normal cell contamination that is present in most tumor samples. These calls are made using the version of MuTect2 included in GATK4. Tumor-only variant call files can be found in the GDC Portal by filtering for "Workflow Type: GATK4 MuTect2".   
+
+### Tumor-Only Variant Call Command-Line Parameters
+```
+GATK4 v4.0.4.0
+
+## 1. Generate OXOG metrics:
+
+java -d64 -XX:+UseSerialGC -Xmx3G -jar /gatk/gatk.jar \
+CollectSequencingArtifactMetrics \
+-I Tumor_Sample_Alignment.bam \
+-O <job_identifier> \
+--FILE_EXTENSION .txt \
+-R GRCh38.d1.vd1.fa  ## Only chr1-22 + XYM
+
+## 2. Generate pileup summaries on tumor sample:
+
+java -d64 -XX:+UseSerialGC -Xmx3G -jar /gatk/gatk.jar \
+GetPileupSummaries
+-I Tumor_Sample_Alignment.bam \
+-O <job_identifier>.targeted_sequencing.table \
+-V af-only-gnomad-common-biallelic.grch38.main.vcf.gz \ # Germline reference from gnomad
+-L intervals.bed \ ## Only chr1-22 + XYM
+-R GRCh38.d1.vd1.fa
+
+## 3. Calculate contamination on tumor sample
+
+java -d64 -XX:+UseSerialGC -Xmx3G -jar /gatk/gatk.jar \
+CalculateContamination \
+-I <job_identifier>.targeted_sequencing.table \ # From step 2
+-O <job_identifier>.targeted_sequencing.contamination.table
+
+## 4. Find tumor sample name from BAM
+
+java -d64 -XX:+UseSerialGC -Xmx3G -jar /gatk/gatk.jar \
+GetSampleName \
+-I Tumor_Sample_Alignment.bam \
+-O <job_identifier>.targeted_sequencing.sample_name
+
+## 5. Run MuTect2 using only tumor sample on chromosome level (25 commands with different intervals)
+
+java -Djava.io.tmpdir=/tmp/job_tmp_3 -d64 -jar -Xmx3G -XX:+UseSerialGC \
+/bin/gatk-4.0.4.0/gatk-package-4.0.4.0-local.jar \
+Mutect2 \
+-R GRCh38.d1.vd1.fa \
+-L chr4:1-190214555 \ # Specify chromosome
+-I Tumor_Sample_Alignment.bam \
+-O 3.mt2.vcf \
+-tumor <tumor_sample_name> \ # From step 4
+--af-of-alleles-not-in-resource 2.5e-06 \
+--germline-resource af-only-gnomad.hg38.vcf.gz \ # Germline reference from gnomad
+-pon gatk4_mutect2_4136_pon.vcf.gz # New panel of normal created by 4136 TCGA curated normal samples, using GATK4
+
+## After this step, all chromosome level VCFs are merged into one.
+
+## 6. Sort VCF with Picard
+
+java -d64 -XX:+UseSerialGC -Xmx16G -jar /usr/local/bin/picard.jar \
+SortVcf \
+SEQUENCE_DICTIONARY=GRCh38.d1.vd1.dict \
+OUTPUT=<job_identifier>.targeted_sequencing.mutect2.tumor_only.sorted.vcf.gz \
+I=merged_multi_gatk4_mutect2_tumor_only_calling.vcf \ # From step 5
+CREATE_INDEX=true
+
+## 7. Filter variant calls from MuTect
+java -d64 -XX:+UseSerialGC -Xmx3G -jar /gatk/gatk.jar \
+FilterMutectCalls \
+-O <job_identifier>.targeted_sequencing.mutect2.tumor_only.contFiltered.vcf.gz \
+-V <job_identifier>.targeted_sequencing.mutect2.tumor_only.sorted.vcf.gz \ # From step 6
+--contamination-table <job_identifier>.targeted_sequencing.contamination.table \ # From step 3
+-L intervals.bed
+
+## 8. Filter variants by orientation bias
+java -d64 -XX:+UseSerialGC -Xmx3G -jar /gatk/gatk.jar \
+FilterByOrientationBias \
+-O <job_identifier>.targeted_sequencing.tumor_only.gatk4_mutect2.raw_somatic_mutation.vcf.gz \ # final output
+-P <job_identifier>.pre_adapter_detail_metrics.txt \ # From step 1
+-V <job_identifier>.targeted_sequencing.mutect2.tumor_only.contFiltered.vcf.gz \ # From step 7
+-L intervals.bed \
+-R GRCh38.d1.vd1.fa \
+-AM G/T \
+-AM C/T
+```
+
+### Tumor-Only Variant Annotation Workflow
+
+After single-tumor variant calling is performed with MuTect2, a series of filters are applied to minimize the release of germline variants in downloadable VCFs. In all cases, the GDC applies a set of custom filters based on allele frequency, mapping quality, somatic/germline probability, and copy number. In some cases an additional variant classification step is applied before the GDC filters.
+
+The [PureCN](https://bioconductor.org/packages/devel/bioc/html/PureCN.html) R-package [[7]](https://doi.org/10.1186/s13029-016-0060-z) [[8]](https://doi.org/10.1101/552711) is used to classify the variants by somatic/germline status and clonality based on tumor purity, ploidy, contamination, copy number, and loss of heterozygosity. The following steps are performed with this package:
+
+* __Interval Capture__ : Generates an interval file using a FASTA and BED file coordinates.
+* __GC-Normalization__ : Calculates GC-normalized tumor/normal coverage data.
+* __Normal DB Creation__ : Generates a normal database  using the normalized coverage file and panel-of-normals VCF
+* __Somatic Variant Calling__ : Classifies each of the previously called variants
+
+Note that PureCN will not be performed if there is insufficient data to produce a target capture kit specific normal database. In rare occasions, PureCN may not find a numeric solution. If PureCN is not performed or does not find a solution, this is indicated in the VCF header. VCF files that were annotated with these pipelines can be found in the GDC Portal by filtering for "Workflow Type: GATK4 MuTect2 Annotation".
+
 ### Somatic Aggregation Workflow
 
-The Somatic Aggregation Workflow generates one MAF file from multiple VCF files; see the [GDC MAF Format](/Data/File_Formats/MAF_Format/) guide for details on file structure.  In this step, one MAF file is generated per variant calling pipeline for each project, and contains all available cases within this project.  
-
+The Somatic Aggregation Workflow generates one MAF file from multiple VCF files; see the [GDC MAF Format](/Data/File_Formats/MAF_Format/) guide for details on file structure. In this step, one MAF file is generated per variant calling pipeline for each project and contains all available cases within this project.  
 
 | I/O | Entity | Format |
 |---|---|---|
@@ -373,8 +586,15 @@ While these criteria cause the pipeline to over-filter some of the true positive
 | Input | [Aggregated Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=aggregated_somatic_mutation) | Protected MAF |
 | Output | [Masked Somatic Mutation](/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) | Somatic MAF |
 
-## File Access and Availability
+### Harmonization for GENIE variants
 
+Variants reported from the AACR Project GENIE are available from the GDC Data Portal in MAF format.  These variants were produced using an abridged pipeline in which the Genomic Data Commons received the variants directly instead of calling them from aligned reads.  For an outline of the harmonization process, see the steps below:
+
+1. Variants are submitted directly to the GDC as a "Genomic Profile."
+1. GENIE variants are lifted over to GRCh38 coordinates.
+1. Variants are annotated using VEP and made available via the GDC Data Portal.
+
+## File Access and Availability
 
 Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Portal](https://portal.gdc.cancer.gov) in BAM, VCF, and MAF formats. Descriptions are listed below for all available data types and their respective file formats.
 
@@ -399,3 +619,7 @@ Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Port
 [5]. Larson, David E., Christopher C. Harris, Ken Chen, Daniel C. Koboldt, Travis E. Abbott, David J. Dooling, Timothy J. Ley, Elaine R. Mardis, Richard K. Wilson, and Li Ding. "SomaticSniper: identification of somatic point mutations in whole genome sequencing data." Bioinformatics 28, no. 3 (2012): 311-317.
 
 [6] McLaren, William, Bethan Pritchard, Daniel Rios, Yuan Chen, Paul Flicek, and Fiona Cunningham. "Deriving the consequences of genomic variants with the Ensembl API and SNP Effect Predictor." Bioinformatics 26, no. 16 (2010): 2069-2070.
+
+[7] Riester, Markus, Angad P. Singh, A. Rose Brannon, Kun Yu, Catarina D. Campbell, Derek Y. Chiang, and Michael P. Morrissey. "PureCN: copy number calling and SNV classification using targeted short read sequencing." Source code for biology and medicine 11, no. 1 (2016): 13.
+
+[8] Oh, Sehyun, Ludwig Geistlinger, Marcel Ramos, Martin Morgan, Levi Waldron, and Markus Riester. "Reliable analysis of clinical tumor-only whole exome sequencing data" bioRxiv 552711 (2019);

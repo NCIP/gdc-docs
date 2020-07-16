@@ -13,11 +13,14 @@
                 {% if toc and ((toc | first) is defined) and sub_nav_item.active %}
                     {% include "nav-section-map-toc.html" %}
                 {% endif %}
-
-              {% endfor %}
-
-              {% endif %}
             </li>
+            {% if sub_nav_item.title == "Aligned Reads Summary Metrics" %}
+            <li>
+              <a href="https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files" target="_blank"><i class="fa fa-external-link"></i> GDC Reference Files</a>
+            </li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
       {% endfor %}
     </ul>
   </div>

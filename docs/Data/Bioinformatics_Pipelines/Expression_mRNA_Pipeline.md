@@ -168,7 +168,10 @@ Files that were processed after Data Release 14 have an additional set of read c
 Note that counting algorithms such as HTSeq and STAR will not count reads that are mapped to more than one different gene. Below are two files that list genes that are completely encompassed by other genes and will likely display a value of zero.
 
 * [Overlapped Genes (stranded)](/Data/Bioinformatics_Pipelines/overlap.gene.stranded.tsv)  
+
 * [Overlapped Genes (unstranded)](/Data/Bioinformatics_Pipelines/overlap.gene.strandedless.tsv)
+
+
 
 | I/O | Entity | Format |
 |---|---|---|
