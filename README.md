@@ -1,6 +1,6 @@
 ![](https://gdc.cancer.gov/sites/all/themes/gdc_bootstrap/logo.png)
 
-# THIS PROJECT HAS MOVED
+# GDC Open Source code
 
 =======
 GDC is Open Source, Github Repositories containing source code of GDC Applications can be found on [GDC GitHub Organization page](https://github.com/NCI-GDC/).
