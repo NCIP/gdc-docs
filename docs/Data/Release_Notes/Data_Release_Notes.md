@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v25.0](Data_Release_Notes.md#data-release-250) | July XXX, 2020 |
+| [v25.0](Data_Release_Notes.md#data-release-250) | July 22, 2020 |
 | [v24.0](Data_Release_Notes.md#data-release-240) | May 7, 2020 |
 | [v23.0](Data_Release_Notes.md#data-release-230) | April 7, 2020 |
 | [v22.0](Data_Release_Notes.md#data-release-220) | January 16, 2020 |
@@ -34,7 +34,7 @@
 ## Data Release 25.0 <!--REQ-403-->
 
 * __GDC Product__: Data
-* __Release Date__: July XXX, 2020
+* __Release Date__: July 22, 2020
 
 ### New updates
 
