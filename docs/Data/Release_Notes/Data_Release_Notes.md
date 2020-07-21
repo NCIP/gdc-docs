@@ -38,7 +38,23 @@
 
 ### New updates
 
-1.  TBA
+1.  New data types released:
+    * RNA-Seq Transcript Fusion files were released for the following projects:
+        * TARGET-ALL-P1
+        * TARGET-ALL-P2
+        * TARGET-ALL-P3
+        * TARGET-CCSK
+        * TARGET-NBL
+        * TARGET-OS
+        * TARGET-RT
+        * TARGET-WT
+    * The msi_status and msi_score properties can be queried on the GDC Portal for the CPTAC-3 project
+2. 108 cases from the CPTAC-3 LSCC Cohort were released. Includes the following data types:
+    * WXS
+    * WGS
+    * RNA-Seq
+    * miRNA-Seq
+3. Aliquot level MAFs were released for MMRF-COMMPASS. Open access MAFs are included.
 
 A complete list of files for DR25.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
