@@ -2,6 +2,7 @@
 
 # GDC Open Source code
 
+=======
 GDC is Open Source, Github Repositories containing source code of GDC Applications can be found on [GDC GitHub Organization page](https://github.com/NCI-GDC/).
 
 - GDC Data Portal: https://github.com/NCI-GDC/portal-ui
