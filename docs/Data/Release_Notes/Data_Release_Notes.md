@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v25.0](Data_Release_Notes.md#data-release-250) | July 22, 2020 |
 | [v24.0](Data_Release_Notes.md#data-release-240) | May 7, 2020 |
 | [v23.0](Data_Release_Notes.md#data-release-230) | April 7, 2020 |
 | [v22.0](Data_Release_Notes.md#data-release-220) | January 16, 2020 |
@@ -29,6 +30,36 @@
 | [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
+## Data Release 25.0 <!--REQ-403-->
+
+* __GDC Product__: Data
+* __Release Date__: July 22, 2020
+
+### New updates
+
+1.  New data types released:
+    * RNA-Seq Transcript Fusion files were released for the following projects:
+        * TARGET-ALL-P1
+        * TARGET-ALL-P2
+        * TARGET-ALL-P3
+        * TARGET-CCSK
+        * TARGET-NBL
+        * TARGET-OS
+        * TARGET-RT
+        * TARGET-WT
+    * The msi_status and msi_score properties can be queried on the GDC Portal for the CPTAC-3 project
+2. 108 cases from the CPTAC-3 LSCC Cohort were released. Includes the following data types:
+    * WXS
+    * WGS
+    * RNA-Seq
+    * miRNA-Seq
+3. Aliquot level MAFs were released for MMRF-COMMPASS. Open access MAFs are included.
+
+A complete list of files for DR25.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+* [gdc_manifest_20200721_data_release_25.0_active.tsv.gz](gdc_manifest_20200721_data_release_25.0_active.tsv.gz)
+* [gdc_manifest_20200721_data_release_25.0_legacy.tsv.gz](gdc_manifest_20200721_data_release_25.0_legacy.tsv.gz)
 
 ## Data Release 24.0 <!--REQ-401-->
 
