@@ -49,6 +49,13 @@ Examples:
  8  192.170.230.246 (192.170.230.246)  4.158 ms  4.273 ms  5.134 ms
 ```
 
+##AWG Portal Downloads
+If a user needs to download data from our AWG portal and is using our Data Transfer Tool they will need to specify a different API server address from the current defaults.  To do so you will need to use the "-s" flag and the following server address - https://awg.api.gdc.cancer.gov.  When controlled access files need to be download only a token from the AWG portal will allow the user to download these files.  A token from either Active, Legacy, or the Submission portal will not work for controlled access files when download files from the AWG portal.
+Example:
+>gdc-client download -m AWG_RNAseq_data.txt -t awg_token.txt -s https://awg.api.gdc.cancer.gov
+
+
+
 ##Common Error Codes
 This is a list of the most common error codes the Data Transfer Tool generates and their meaning
 <ul TYPE="square">
