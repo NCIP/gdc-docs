@@ -58,8 +58,8 @@
 
 A complete list of files for DR25.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20200721_data_release_25.0_active.tsv.gz](gdc_manifest_20200721_data_release_25.0_active.tsv.gz)
-* [gdc_manifest_20200721_data_release_25.0_legacy.tsv.gz](gdc_manifest_20200721_data_release_25.0_legacy.tsv.gz)
+* [gdc_manifest_20200722_data_release_25.0_active.tsv.gz](gdc_manifest_20200722_data_release_25.0_active.tsv.gz)
+* [gdc_manifest_20200722_data_release_25.0_legacy.tsv.gz](gdc_manifest_20200722_data_release_25.0_legacy.tsv.gz)
 
 ## Data Release 24.0 <!--REQ-401-->
 
