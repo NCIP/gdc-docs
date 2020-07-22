@@ -54,7 +54,7 @@
     * WGS
     * RNA-Seq
     * miRNA-Seq
-3. Aliquot level MAFs were released for MMRF-COMMPASS. Open access MAFs are included.
+3. Aliquot level MAFs were released for MMRF-COMMPASS WXS variants. Open access MAFs are included.
 
 A complete list of files for DR25.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
