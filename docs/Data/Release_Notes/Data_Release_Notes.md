@@ -48,13 +48,15 @@
         * TARGET-OS
         * TARGET-RT
         * TARGET-WT
-    * The msi_status and msi_score properties can be queried on the GDC Portal for the CPTAC-3 project
+    * The msi_status and msi_score properties can be queried on the GDC Portal for the CPTAC-3 project.  
+        * To query for these fields: go to the [GDC Repository](https://portal.gdc.cancer.gov/repository), click on "Add a File Filter" at the top left of the screen, type msi_score or msi_status in the field, and click on "msi_score" or "msi_status".  This should bring up the corresponding filters to use on the portal.
 2. 108 cases from the CPTAC-3 LSCC Cohort were released. Includes the following data types:
     * WXS
     * WGS
     * RNA-Seq
     * miRNA-Seq
 3. Aliquot level MAFs were released for MMRF-COMMPASS WXS variants. Open access MAFs are included.
+4. HCMI-CMDC open-access somatic mutations were released to the [Exploration Portal](https://portal.gdc.cancer.gov/exploration).  
 
 A complete list of files for DR25.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
