@@ -8,10 +8,9 @@
 | [v0.5.3](DTT_UI_Release_Notes.md#v053) | December 14, 2017 |
 
 
-## v0.5.4
+## v0.6.0
 * __GDC Product__: Data Transfer Tool UI
 * __Release Date__: August 12, 2020
-
 
 ### New Features and Changes
 * The server option can now be indicated within the interface. Previously the DTT-UI server defaulted to `api.gdc.cancer.gov`
@@ -23,6 +22,8 @@
 ### Known Issues and Workarounds
 * Download speeds for large numbers of small files may be better handled with the Command Line version of the Data Transfer Tool
 * Data Submission to the GDC is not supported in the Data Transfer Tool UI.  Instead users must use the Command Line Data Transfer Tool
+
+
 
 ## v0.5.4
 * __GDC Product__: Data Transfer Tool UI
