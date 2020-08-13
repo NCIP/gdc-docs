@@ -38,7 +38,7 @@
 
 ### New Features and Changes <!--REQ-408-->
 
-* None
+* API improvements were made to increase portal performance.
 
 ### Bugs Fixed Since Last Release
 

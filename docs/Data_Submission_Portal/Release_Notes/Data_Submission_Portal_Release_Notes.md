@@ -30,7 +30,7 @@
 
 ### New Features and Changes
 
-*  None.
+*  Enhancements were made to the submission API to increase performance and usability.
 
 ### Bugs Fixed Since Last Release
 

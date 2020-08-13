@@ -39,7 +39,7 @@
 
 ### New Features and Changes
 
-* None
+* Enhancements were made to increase performance.
 
 ### Bugs Fixed Since Last Release
 
