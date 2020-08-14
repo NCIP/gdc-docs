@@ -2,7 +2,8 @@
 
 | Version | Date |
 |---|---|
-| [v2.5.0](Data_Submission_Portal_Release_Notes.md#release-241) | July 2, 2020 |
+| [v2.5.1](Data_Submission_Portal_Release_Notes.md#release-251) | August 14, 2020 |
+| [v2.5.0](Data_Submission_Portal_Release_Notes.md#release-250) | July 2, 2020 |
 | [v2.4.1](Data_Submission_Portal_Release_Notes.md#release-241) | March 9, 2020 |
 | [v2.4.0](Data_Submission_Portal_Release_Notes.md#release-240) | November 6, 2019 |
 | [v2.3.0](Data_Submission_Portal_Release_Notes.md#release-230) | June 5, 2019 |
@@ -22,6 +23,24 @@
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
 
 ---
+## Release 2.5.1
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: August 14, 2020
+
+### New Features and Changes
+
+*  Enhancements were made to the submission API to increase performance and usability.
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+
 ## Release 2.5.0
 
 * __GDC Product__: GDC Data Submission Portal
