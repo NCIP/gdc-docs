@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v26.0](Data_Release_Notes.md#data-release-260) | September XXX, 2020 |
+| [v26.0](Data_Release_Notes.md#data-release-260) | September 8, 2020 |
 | [v25.0](Data_Release_Notes.md#data-release-250) | July 22, 2020 |
 | [v24.0](Data_Release_Notes.md#data-release-240) | May 7, 2020 |
 | [v23.0](Data_Release_Notes.md#data-release-230) | April 7, 2020 |
@@ -35,7 +35,7 @@
 ## Data Release 26.0 <!--REQ-409-->
 
 * __GDC Product__: Data
-* __Release Date__: September XXXX, 2020
+* __Release Date__: September 8, 2020
 
 ### New updates
 
@@ -57,16 +57,15 @@
 
 A complete list of files for DR26.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20200722_data_release_25.0_active.tsv.gz](gdc_manifest_20200722_data_release_25.0_active.tsv.gz)
-* [gdc_manifest_20200722_data_release_25.0_legacy.tsv.gz](gdc_manifest_20200722_data_release_25.0_legacy.tsv.gz)
+* [gdc_manifest_20200722_data_release_26.0_active.tsv.gz](gdc_manifest_20200722_data_release_26.0_active.tsv.gz)
+* [gdc_manifest_20200722_data_release_26.0_legacy.tsv.gz](gdc_manifest_20200722_data_release_26.0_legacy.tsv.gz)
 
 ### Bugs Fixed Since Last Release
 
-*  A few supplements from CGCI-BLGSP are now associated with their correct versions. <!--SV-1709-->
+*  The CPTAC-3 head and neck cohort can now be queried by choosing the head and neck anatomic site on the GDC home page.
 
 ### Known Issues and Workarounds
 
-* Currently the CPTAC-3 HNSCC cohort does not appear when the "Head and Neck" primary site is selected from the GDC home page. This cohort can be queried by clicking [here](https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.primary_site%22%2C%22value%22%3A%5B%22other%20and%20ill-defined%20sites%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%5B%22CPTAC-3%22%5D%7D%7D%5D%7D)
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
