@@ -251,7 +251,7 @@ The prediction file provides fused gene names, junction read count and breakpoin
 
 ### Arriba Fusion Pipeline
 
-The [Arriba gene fusion pipeline](https://github.com/suhrig/arriba) uses Arriba v1.1.0 to detect gene fusions from RNA-Seq data of tumor samples.
+The [Arriba gene fusion pipeline](https://github.com/suhrig/arriba) uses Arriba v1.1.0 to detect gene fusions from the RNA-Seq data of tumor samples.
 
 
 ## File Access and Availability
