@@ -45,18 +45,13 @@
     * CGCI-BLGSP <!--SPT7-75-->
     * CGCI-HTMCP-CC <!--SPT7-27-->
     * HCMI-CMDC <!--DAT-2948-->
-
 2. RNA-Seq transcript fusion files are available for the following projects: <!--DAT-2947-->
     * CGCI-BLGSP
     * CGCI-HTMCP-CC
     * HCMI-CMDC
-
 3. Aliquot level MAFs were released for CGCI-HTMCP-CC Targeted Sequencing variants. Open access MAFs are included. <!--SPT7-27-->
-
 4. 17 new cases were released for the HCMI-CMDC project.  This includes WGS, WXS, and RNA-Seq data. <!--DAT-2949-->
-
 5.  WGS alignments were released for 99 TCGA-LUAD cases (196 files). <!--DAT-1831-->
-
 6. Therapeutic agents (treatment) and tumor stage (diagnosis) properties were migrated to remove deprecated values and better adhere to a standardized set of values. <!--DAT-2831--> <!--DAT-2880-->
 
 A complete list of files for DR27.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
