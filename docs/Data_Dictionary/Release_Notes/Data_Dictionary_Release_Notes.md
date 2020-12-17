@@ -19,6 +19,10 @@
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
+## v2.3.0
+
+Put release notes here.
+
 ## v2.2.0
 
 * __GDC Product__: GDC Data Dictionary
