@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.2.3.0](Data_Dictionary_Release_Notes.md#v220) | December 21, 2020 |
+| [v.2.3.0](Data_Dictionary_Release_Notes.md#v230) | January 2021 |
 | [v.2.2.0](Data_Dictionary_Release_Notes.md#v220) | July 2, 2020 |
 | [v.2.1.0](Data_Dictionary_Release_Notes.md#v210) | March 10, 2020 |
 | [v.2.0.0](Data_Dictionary_Release_Notes.md#v200) | January 30, 2020 |
