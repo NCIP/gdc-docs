@@ -99,48 +99,40 @@ curl 'https://api.gdc.cancer.gov/projects?from=0&size=2&sort=project.project_id:
 ``` Output
 {
   "data": {
-    "hits": [
-      {
-        "dbgap_accession_number": null,
-        "disease_type": [
-          "Brain Lower Grade Glioma"
-        ],
-        "released": true,
-        "state": "legacy",
-        "primary_site": [
-          "Brain"
-        ],
-        "project_id": "TCGA-LGG",
-        "id": "TCGA-LGG",
-        "name": "Brain Lower Grade Glioma"
-      },
-      {
-        "dbgap_accession_number": null,
-        "disease_type": [
-          "Thyroid Carcinoma"
-        ],
-        "released": true,
-        "state": "legacy",
-        "primary_site": [
-          "Thyroid"
-        ],
-        "project_id": "TCGA-THCA",
-        "id": "TCGA-THCA",
-        "name": "Thyroid Carcinoma"
-      }
-    ],
-    "pagination": {
-      "count": 2,
-      "sort": "project.project_id:asc",
-      "from": 0,
-      "page": 1,
-      "total": 39,
-      "pages": 20,
-      "size": 2
-    }
+    "hits": []
   },
-  "warnings": {}
-}
+  "warnings": {},
+  "error": {
+    "error": {
+      "root_cause": [
+        {
+          "type": "query_shard_exception",
+          "reason": "No mapping found for [project.project_id] in order to sort on",
+          "index_uuid": "2TDcRHhNSTCrhxh2ckMAPA",
+          "index": "dr27_active_v12_project"
+        }
+      ],
+      "type": "search_phase_execution_exception",
+      "reason": "all shards failed",
+      "phase": "query",
+      "grouped": true,
+      "failed_shards": [
+        {
+          "shard": 0,
+          "index": "dr27_active_v12_project",
+          "node": "QWhSZf3zSpyf5JmruTtvyQ",
+          "reason": {
+            "type": "query_shard_exception",
+            "reason": "No mapping found for [project.project_id] in order to sort on",
+            "index_uuid": "2TDcRHhNSTCrhxh2ckMAPA",
+            "index": "dr27_active_v12_project"
+          }
+        }
+      ]
+    },
+    "status": 400
+  }
+
 ```
 
 #### Retrieval of project metadata using project_id
