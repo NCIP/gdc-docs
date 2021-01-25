@@ -132,7 +132,6 @@ curl 'https://api.gdc.cancer.gov/projects?from=0&size=2&sort=project.project_id:
     },
     "status": 400
   }
-
 ```
 
 #### Retrieval of project metadata using project_id
@@ -145,64 +144,96 @@ curl 'https://api.gdc.cancer.gov/projects/TARGET-NBL?expand=summary,summary.expe
 ```Response
 {
   "data": {
-    "dbgap_accession_number": "phs000467",
-    "disease_type": [
-      "Neuroblastoma"
-    ],
     "summary": {
+      "file_count": 5796,
       "data_categories": [
         {
-          "case_count": 151,
-          "file_count": 471,
-          "data_category": "Transcriptome Profiling"
+          "file_count": 941,
+          "case_count": 278,
+          "data_category": "Sequencing Reads"
         },
         {
-          "case_count": 1127,
-          "file_count": 3,
+          "file_count": 2,
+          "case_count": 1132,
           "data_category": "Biospecimen"
         },
         {
-          "case_count": 216,
-          "file_count": 1732,
+          "file_count": 322,
+          "case_count": 155,
+          "data_category": "Structural Variation"
+        },
+        {
+          "file_count": 3723,
+          "case_count": 219,
           "data_category": "Simple Nucleotide Variation"
         },
         {
-          "case_count": 7,
-          "file_count": 1,
-          "data_category": "Clinical"
+          "file_count": 805,
+          "case_count": 155,
+          "data_category": "Transcriptome Profiling"
         },
         {
-          "case_count": 270,
-          "file_count": 599,
-          "data_category": "Raw Sequencing Data"
+          "file_count": 3,
+          "case_count": 1120,
+          "data_category": "Clinical"
         }
       ],
-      "case_count": 1127,
-      "file_count": 2806,
       "experimental_strategies": [
         {
-          "case_count": 221,
-          "file_count": 2174,
-          "experimental_strategy": "WXS"
+          "file_count": 18,
+          "case_count": 9,
+          "experimental_strategy": "WGS"
         },
         {
-          "case_count": 151,
-          "file_count": 628,
+          "file_count": 1610,
+          "case_count": 155,
           "experimental_strategy": "RNA-Seq"
+        },
+        {
+          "file_count": 4163,
+          "case_count": 221,
+          "experimental_strategy": "WXS"
         }
       ],
-      "file_size": 8157614402888
+      "case_count": 1132,
+      "file_size": 17132578153087
     },
-    "released": true,
-    "state": "legacy",
     "primary_site": [
-      "Nervous System"
+      "Bones, joints and articular cartilage of other and unspecified sites",
+      "Other endocrine glands and related structures",
+      "Kidney",
+      "Lymph nodes",
+      "Connective, subcutaneous and other soft tissues",
+      "Renal pelvis",
+      "Bones, joints and articular cartilage of limbs",
+      "Meninges",
+      "Unknown",
+      "Peripheral nerves and autonomic nervous system",
+      "Skin",
+      "Liver and intrahepatic bile ducts",
+      "Adrenal gland",
+      "Heart, mediastinum, and pleura",
+      "Spinal cord, cranial nerves, and other parts of central nervous system",
+      "Uterus, NOS",
+      "Other and ill-defined sites",
+      "Hematopoietic and reticuloendothelial systems",
+      "Stomach",
+      "Retroperitoneum and peritoneum"
     ],
+    "dbgap_accession_number": "phs000467",
     "project_id": "TARGET-NBL",
-    "name": "Neuroblastoma"
+    "disease_type": [
+      "Not Applicable",
+      "Neuroepitheliomatous Neoplasms"
+    ],
+    "name": "Neuroblastoma",
+    "releasable": true,
+    "state": "open",
+    "released": true
   },
   "warnings": {}
 }
+
 ```
 
 ### Files Endpoint
@@ -221,58 +252,60 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
   "data": {
     "hits": [
       {
-        "data_release": "13.0",
-        "data_type": "Raw Simple Somatic Mutation",
-        "updated_datetime": "2018-07-20T22:27:55.342974+00:00",
-        "file_name": "333193d5-ca9a-4262-81f5-e9f3b44358fe.vcf.gz",
-        "submitter_id": "AD19_SimpleSomaticMutation",
-        "file_id": "333193d5-ca9a-4262-81f5-e9f3b44358fe",
-        "file_size": 866,
-        "id": "333193d5-ca9a-4262-81f5-e9f3b44358fe",
-        "created_datetime": "2017-09-10T19:16:02.549312-05:00",
-        "md5sum": "e33e95edb778fe67643162ef0ae3297e",
-        "data_format": "VCF",
-        "acl": [
-          "phs001179"
-        ],
+        "id": "b2f71ec9-2047-463f-9381-0ecedf178954",
+        "data_format": "BEDPE",
         "access": "controlled",
+        "file_name": "e62df973-80fb-4fd2-af97-7f991006b34c.star_fusion.rna_fusion.bedpe",
+        "data_category": "Structural Variation",
+        "submitter_id": "012c013d-e928-4bb6-9c1d-b4c9fa94763a",
+        "acl": [
+          "phs000235",
+          "phs000528"
+        ],
+        "type": "structural_variation",
+        "file_size": 229,
+        "created_datetime": "2020-10-07T12:37:53.507724-05:00",
+        "md5sum": "6e5690795ff424264402ab9d2661b62b",
+        "updated_datetime": "2020-10-20T21:09:05.135867-05:00",
+        "file_id": "b2f71ec9-2047-463f-9381-0ecedf178954",
+        "data_type": "Transcript Fusion",
         "state": "released",
+        "experimental_strategy": "RNA-Seq",
         "version": "1",
-        "data_category": "Simple Nucleotide Variation",
-        "type": "simple_somatic_mutation",
-        "experimental_strategy": "Targeted Sequencing"
+        "data_release": "27.0"
       },
       {
-        "data_release": "13.0",
-        "data_type": "Raw Simple Somatic Mutation",
-        "updated_datetime": "2018-07-20T22:27:55.342974+00:00",
-        "file_name": "d9114e23-0f62-4979-aefc-0dd4d5eb891b.vcf.gz",
-        "submitter_id": "AD116_SimpleSomaticMutation",
-        "file_id": "d9114e23-0f62-4979-aefc-0dd4d5eb891b",
-        "file_size": 866,
-        "id": "d9114e23-0f62-4979-aefc-0dd4d5eb891b",
-        "created_datetime": "2017-09-10T21:53:02.376246-05:00",
-        "md5sum": "95bbfd0586d3c284e9f88edf3bf26065",
-        "data_format": "VCF",
-        "acl": [
-          "phs001179"
-        ],
+        "id": "0acf98ae-2acb-4c08-ae10-166905c1c326",
+        "data_format": "BEDPE",
         "access": "controlled",
+        "file_name": "aa39e53f-5a15-4ade-a85e-753933068327.star_fusion.rna_fusion.bedpe",
+        "data_category": "Structural Variation",
+        "submitter_id": "bfad2328-8120-45fb-b7af-0bb4d71e6a1c",
+        "acl": [
+          "phs000235",
+          "phs000528"
+        ],
+        "type": "structural_variation",
+        "file_size": 229,
+        "created_datetime": "2020-10-07T12:37:40.289456-05:00",
+        "md5sum": "6e5690795ff424264402ab9d2661b62b",
+        "updated_datetime": "2020-10-20T21:09:05.135867-05:00",
+        "file_id": "0acf98ae-2acb-4c08-ae10-166905c1c326",
+        "data_type": "Transcript Fusion",
         "state": "released",
+        "experimental_strategy": "RNA-Seq",
         "version": "1",
-        "data_category": "Simple Nucleotide Variation",
-        "type": "simple_somatic_mutation",
-        "experimental_strategy": "Targeted Sequencing"
+        "data_release": "27.0"
       }
     ],
     "pagination": {
       "count": 2,
-      "sort": "file_size:asc",
+      "total": 596758,
+      "size": 2,
       "from": 0,
+      "sort": "file_size:asc",
       "page": 1,
-      "total": 356381,
-      "pages": 178191,
-      "size": 2
+      "pages": 298379
     }
   },
   "warnings": {}
@@ -289,25 +322,25 @@ curl 'https://api.gdc.cancer.gov/files/874e71e0-83dd-4d3e-8014-10141b49f12c?pret
 ``` Output
 {
   "data": {
-    "data_release": "13.0",
-    "data_type": "Raw Simple Somatic Mutation",
-    "updated_datetime": "2018-07-20T22:27:55.342974+00:00",
-    "created_datetime": "2016-06-03T17:03:06.608739-05:00",
-    "file_name": "874e71e0-83dd-4d3e-8014-10141b49f12c.vcf.gz",
-    "md5sum": "acf2929b1b825bcd1377023e8b8767ec",
     "data_format": "VCF",
+    "access": "controlled",
+    "file_name": "874e71e0-83dd-4d3e-8014-10141b49f12c.vcf.gz",
+    "submitter_id": "TCGA-V4-A9EZ-01A-11D-A39W-08_TCGA-V4-A9EZ-10A-01D-A39Z-08_mutect",
+    "data_category": "Simple Nucleotide Variation",
     "acl": [
       "phs000178"
     ],
-    "access": "controlled",
-    "state": "live",
-    "version": "1",
-    "file_id": "874e71e0-83dd-4d3e-8014-10141b49f12c",
-    "data_category": "Simple Nucleotide Variation",
-    "file_size": 122293,
-    "submitter_id": "TCGA-V4-A9EZ-01A-11D-A39W-08_TCGA-V4-A9EZ-10A-01D-A39Z-08_mutect",
     "type": "simple_somatic_mutation",
-    "experimental_strategy": "WXS"
+    "created_datetime": "2016-06-03T17:03:06.608739-05:00",
+    "file_size": 122293,
+    "updated_datetime": "2018-09-06T20:37:37.991443-05:00",
+    "md5sum": "acf2929b1b825bcd1377023e8b8767ec",
+    "file_id": "874e71e0-83dd-4d3e-8014-10141b49f12c",
+    "data_type": "Raw Simple Somatic Mutation",
+    "state": "released",
+    "experimental_strategy": "WXS",
+    "version": "1",
+    "data_release": "12.0 - 27.0"
   },
   "warnings": {}
 }
@@ -327,40 +360,70 @@ curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e8
 ``` Output1
 [
   {
-    "latest_size": 332092,
-    "latest_id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06",
-    "latest_version": "1",
-    "filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz",
-    "state": "validated",
-    "version": "1",
-    "latest_filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz",
-    "latest_release": [
-      "13.0"
-    ],
-    "latest_state": "validated",
-    "release": "13.0",
-    "latest_md5": "c2f9b196e154906a70c7ec46492a859d",
-    "size": 332092,
     "id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06",
-    "md5": "c2f9b196e154906a70c7ec46492a859d"
+    "filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz",
+    "version": "1",
+    "md5": "c2f9b196e154906a70c7ec46492a859d",
+    "size": 332092,
+    "state": "validated",
+    "release": "12.0",
+    "latest_id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06",
+    "latest_filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz",
+    "latest_version": "1",
+    "latest_md5": "c2f9b196e154906a70c7ec46492a859d",
+    "latest_size": 332092,
+    "latest_state": "validated",
+    "latest_release": [
+      "12.0",
+      "13.0",
+      "14.0",
+      "15.0",
+      "16.0",
+      "17.0",
+      "18.0",
+      "19.0",
+      "20.0",
+      "21.0",
+      "22.0",
+      "23.0",
+      "24.0",
+      "25.0",
+      "26.0",
+      "27.0"
+    ]
   },
   {
-    "latest_size": 6653119038,
-    "latest_id": "2a03abac-f1a2-49a9-a57c-7543739dd862",
-    "latest_version": "1",
-    "filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam",
-    "state": "validated",
-    "version": "1",
-    "latest_filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam",
-    "latest_release": [
-      "13.0"
-    ],
-    "latest_state": "validated",
-    "release": "13.0",
-    "latest_md5": "48686fcd84ac713d44261ca9e26b89fb",
-    "size": 6653119038,
     "id": "2a03abac-f1a2-49a9-a57c-7543739dd862",
-    "md5": "48686fcd84ac713d44261ca9e26b89fb"
+    "filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam",
+    "version": "1",
+    "md5": "48686fcd84ac713d44261ca9e26b89fb",
+    "size": 6653119038,
+    "state": "validated",
+    "release": "12.0",
+    "latest_id": "2a03abac-f1a2-49a9-a57c-7543739dd862",
+    "latest_filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam",
+    "latest_version": "1",
+    "latest_md5": "48686fcd84ac713d44261ca9e26b89fb",
+    "latest_size": 6653119038,
+    "latest_state": "validated",
+    "latest_release": [
+      "12.0",
+      "13.0",
+      "14.0",
+      "15.0",
+      "16.0",
+      "17.0",
+      "18.0",
+      "19.0",
+      "20.0",
+      "21.0",
+      "22.0",
+      "23.0",
+      "24.0",
+      "25.0",
+      "26.0",
+      "27.0"
+    ]
   }
 ]
 ```
@@ -460,100 +523,109 @@ curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22%3A%22and%22%2C%22cont
 ```
 ``` Output
 {
-	{
-	  "data": {
-	    "hits": [
-	      {
-	        "updated_datetime": "2017-03-04T16:39:19.244769-06:00",
-	        "submitter_analyte_ids": [
-	          "TCGA-BH-A0EA-01A-11R",
-	          "TCGA-BH-A0EA-10A-01W",
-	          "TCGA-BH-A0EA-01A-11W",
-	          "TCGA-BH-A0EA-01A-11D",
-	          "TCGA-BH-A0EA-10A-01D"
-	        ],
-	        "analyte_ids": [
-	          "fe678556-acf4-4bde-a95e-860bb0150a95",
-	          "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
-	          "f19f408a-815f-43d9-8032-e9482b796371",
-	          "69ddc092-88a0-4839-a2bb-9f1c9e760409",
-	          "30cb470f-66d4-4085-8c30-83a42e8453d4"
-	        ],
-	        "submitter_id": "TCGA-BH-A0EA",
-	        "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
-	        "id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
-	        "disease_type": "Breast Invasive Carcinoma",
-	        "sample_ids": [
-	          "9a6c71a6-82cd-42b1-a93f-f569370848d6",
-	          "7f791228-dd77-4ab0-8227-d784a4c7fea1"
-	        ],
-	        "portion_ids": [
-	          "cb6086d1-3416-4310-b109-e8fa6e8b72d4",
-	          "8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
-	          "ae4f5816-f97a-4605-9b05-9ab820467dee"
-	        ],
-	        "submitter_portion_ids": [
-	          "TCGA-BH-A0EA-01A-21-A13C-20",
-	          "TCGA-BH-A0EA-01A-11",
-	          "TCGA-BH-A0EA-10A-01"
-	        ],
-	        "created_datetime": null,
-	        "slide_ids": [
-	          "90154ea1-6b76-4445-870e-d531d6fa1239",
-	          "a0826f0d-986a-491b-8c6f-b34f8929f3ee"
-	        ],
-	        "state": "live",
-	        "aliquot_ids": [
-	          "eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
-	          "cde982b7-3b0a-49eb-8710-a599cb0e44c1",
-	          "b1a3739d-d554-4202-b96f-f25a444e2042",
-	          "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
-	          "561b8777-801a-49ed-a306-e7dafeb044b6",
-	          "42d050e4-e8ee-4442-b9c0-0ee14706b138",
-	          "ca71ca96-cbb7-4eab-9487-251dda34e107",
-	          "cfbd5476-e83a-401d-9f9a-639c73a0e35b",
-	          "edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
-	          "262715e1-835c-4f16-8ee7-6900e26f7cf5",
-	          "2beb34c4-d493-4a73-b21e-de77d43251ff",
-	          "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76"
-	        ],
-	        "primary_site": "Breast",
-	        "submitter_aliquot_ids": [
-	          "TCGA-BH-A0EA-10A-01D-A113-01",
-	          "TCGA-BH-A0EA-01A-11R-A115-07",
-	          "TCGA-BH-A0EA-01A-11D-A10Y-09",
-	          "TCGA-BH-A0EA-01A-11D-A314-09",
-	          "TCGA-BH-A0EA-01A-11R-A114-13",
-	          "TCGA-BH-A0EA-01A-11D-A111-01",
-	          "TCGA-BH-A0EA-01A-11D-A112-05",
-	          "TCGA-BH-A0EA-01A-11D-A10X-02",
-	          "TCGA-BH-A0EA-10A-01D-A110-09",
-	          "TCGA-BH-A0EA-10A-01W-A12U-09",
-	          "TCGA-BH-A0EA-10A-01D-A10Z-02",
-	          "TCGA-BH-A0EA-01A-11W-A12T-09"
-	        ],
-	        "submitter_sample_ids": [
-	          "TCGA-BH-A0EA-10A",
-	          "TCGA-BH-A0EA-01A"
-	        ],
-	        "submitter_slide_ids": [
-	          "TCGA-BH-A0EA-01A-01-MSA",
-	          "TCGA-BH-A0EA-01A-01-TSA"
-	        ]
-	      }
-	    ],
-	    "pagination": {
-	      "count": 1,
-	      "sort": "",
-	      "from": 0,
-	      "page": 1,
-	      "total": 1,
-	      "pages": 1,
-	      "size": 10
-	    }
-	  },
-	  "warnings": {}
-	}
+  "data": {
+    "hits": [
+      {
+        "id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
+        "slide_ids": [
+          "a0826f0d-986a-491b-8c6f-b34f8929f3ee",
+          "90154ea1-6b76-4445-870e-d531d6fa1239",
+          "1dd1cab5-5a81-428a-8153-91e8c4cf9905"
+        ],
+        "submitter_slide_ids": [
+          "TCGA-BH-A0EA-01Z-00-DX1",
+          "TCGA-BH-A0EA-01A-01-MSA",
+          "TCGA-BH-A0EA-01A-01-TSA"
+        ],
+        "disease_type": "Ductal and Lobular Neoplasms",
+        "analyte_ids": [
+          "f19f408a-815f-43d9-8032-e9482b796371",
+          "fe678556-acf4-4bde-a95e-860bb0150a95",
+          "69ddc092-88a0-4839-a2bb-9f1c9e760409",
+          "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
+          "30cb470f-66d4-4085-8c30-83a42e8453d4"
+        ],
+        "submitter_id": "TCGA-BH-A0EA",
+        "submitter_analyte_ids": [
+          "TCGA-BH-A0EA-10A-01D",
+          "TCGA-BH-A0EA-01A-11D",
+          "TCGA-BH-A0EA-01A-11R",
+          "TCGA-BH-A0EA-10A-01W",
+          "TCGA-BH-A0EA-01A-11W"
+        ],
+        "aliquot_ids": [
+          "cde982b7-3b0a-49eb-8710-a599cb0e44c1",
+          "b1a3739d-d554-4202-b96f-f25a444e2042",
+          "eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
+          "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
+          "262715e1-835c-4f16-8ee7-6900e26f7cf5",
+          "cfbd5476-e83a-401d-9f9a-639c73a0e35b",
+          "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
+          "561b8777-801a-49ed-a306-e7dafeb044b6",
+          "edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
+          "42d050e4-e8ee-4442-b9c0-0ee14706b138",
+          "2beb34c4-d493-4a73-b21e-de77d43251ff",
+          "ca71ca96-cbb7-4eab-9487-251dda34e107"
+        ],
+        "submitter_aliquot_ids": [
+          "TCGA-BH-A0EA-10A-01W-A12U-09",
+          "TCGA-BH-A0EA-01A-11D-A111-01",
+          "TCGA-BH-A0EA-01A-11D-A314-09",
+          "TCGA-BH-A0EA-01A-11D-A10X-02",
+          "TCGA-BH-A0EA-10A-01D-A10Z-02",
+          "TCGA-BH-A0EA-10A-01D-A110-09",
+          "TCGA-BH-A0EA-01A-11D-A10Y-09",
+          "TCGA-BH-A0EA-10A-01D-A113-01",
+          "TCGA-BH-A0EA-01A-11D-A112-05",
+          "TCGA-BH-A0EA-01A-11R-A115-07",
+          "TCGA-BH-A0EA-01A-11W-A12T-09",
+          "TCGA-BH-A0EA-01A-11R-A114-13"
+        ],
+        "created_datetime": null,
+        "diagnosis_ids": [
+          "84654ad5-2a2c-5c3b-8340-ecac6a5550fe"
+        ],
+        "sample_ids": [
+          "55864d86-dab8-47bb-a3e3-8cfb198b06c1",
+          "9a6c71a6-82cd-42b1-a93f-f569370848d6",
+          "7f791228-dd77-4ab0-8227-d784a4c7fea1"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-BH-A0EA-01A",
+          "TCGA-BH-A0EA-01Z",
+          "TCGA-BH-A0EA-10A"
+        ],
+        "primary_site": "Breast",
+        "submitter_diagnosis_ids": [
+          "TCGA-BH-A0EA_diagnosis"
+        ],
+        "updated_datetime": "2019-08-06T14:15:54.128069-05:00",
+        "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
+        "state": "released",
+        "portion_ids": [
+          "cb6086d1-3416-4310-b109-e8fa6e8b72d4",
+          "8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
+          "ae4f5816-f97a-4605-9b05-9ab820467dee"
+        ],
+        "submitter_portion_ids": [
+          "TCGA-BH-A0EA-10A-01",
+          "TCGA-BH-A0EA-01A-21-A13C-20",
+          "TCGA-BH-A0EA-01A-11"
+        ]
+      }
+    ],
+    "pagination": {
+      "count": 1,
+      "total": 1,
+      "size": 10,
+      "from": 0,
+      "sort": "",
+      "page": 1,
+      "pages": 1
+    }
+  },
+  "warnings": {}
+}
 ```
 
 #### Retrieval of case metadata using individual UUIDs:
@@ -566,124 +638,123 @@ curl 'https://api.gdc.cancer.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pret
 ```Response
 {
   "data": {
+    "slide_ids": [
+      "a0826f0d-986a-491b-8c6f-b34f8929f3ee",
+      "90154ea1-6b76-4445-870e-d531d6fa1239",
+      "1dd1cab5-5a81-428a-8153-91e8c4cf9905"
+    ],
+    "submitter_slide_ids": [
+      "TCGA-BH-A0EA-01Z-00-DX1",
+      "TCGA-BH-A0EA-01A-01-MSA",
+      "TCGA-BH-A0EA-01A-01-TSA"
+    ],
+    "disease_type": "Ductal and Lobular Neoplasms",
+    "analyte_ids": [
+      "f19f408a-815f-43d9-8032-e9482b796371",
+      "fe678556-acf4-4bde-a95e-860bb0150a95",
+      "69ddc092-88a0-4839-a2bb-9f1c9e760409",
+      "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
+      "30cb470f-66d4-4085-8c30-83a42e8453d4"
+    ],
+    "submitter_id": "TCGA-BH-A0EA",
+    "submitter_analyte_ids": [
+      "TCGA-BH-A0EA-10A-01D",
+      "TCGA-BH-A0EA-01A-11D",
+      "TCGA-BH-A0EA-01A-11R",
+      "TCGA-BH-A0EA-10A-01W",
+      "TCGA-BH-A0EA-01A-11W"
+    ],
+    "aliquot_ids": [
+      "cde982b7-3b0a-49eb-8710-a599cb0e44c1",
+      "b1a3739d-d554-4202-b96f-f25a444e2042",
+      "eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
+      "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
+      "262715e1-835c-4f16-8ee7-6900e26f7cf5",
+      "cfbd5476-e83a-401d-9f9a-639c73a0e35b",
+      "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
+      "561b8777-801a-49ed-a306-e7dafeb044b6",
+      "edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
+      "42d050e4-e8ee-4442-b9c0-0ee14706b138",
+      "2beb34c4-d493-4a73-b21e-de77d43251ff",
+      "ca71ca96-cbb7-4eab-9487-251dda34e107"
+    ],
+    "submitter_aliquot_ids": [
+      "TCGA-BH-A0EA-10A-01W-A12U-09",
+      "TCGA-BH-A0EA-01A-11D-A111-01",
+      "TCGA-BH-A0EA-01A-11D-A314-09",
+      "TCGA-BH-A0EA-01A-11D-A10X-02",
+      "TCGA-BH-A0EA-10A-01D-A10Z-02",
+      "TCGA-BH-A0EA-10A-01D-A110-09",
+      "TCGA-BH-A0EA-01A-11D-A10Y-09",
+      "TCGA-BH-A0EA-10A-01D-A113-01",
+      "TCGA-BH-A0EA-01A-11D-A112-05",
+      "TCGA-BH-A0EA-01A-11R-A115-07",
+      "TCGA-BH-A0EA-01A-11W-A12T-09",
+      "TCGA-BH-A0EA-01A-11R-A114-13"
+    ],
     "diagnoses": [
       {
-        "classification_of_tumor": "not reported",
-        "last_known_disease_status": "not reported",
-        "updated_datetime": "2016-05-16T10:59:16.740358-05:00",
-        "primary_diagnosis": "c50.9",
-        "submitter_id": "TCGA-BH-A0EA_diagnosis",
+        "synchronous_malignancy": "Not Reported",
+        "ajcc_pathologic_stage": "Stage IIA",
         "tumor_stage": "stage iia",
-        "age_at_diagnosis": 26548.0,
-        "vital_status": "dead",
-        "morphology": "8500/3",
-        "days_to_death": 991.0,
-        "days_to_last_known_disease_status": null,
+        "days_to_diagnosis": 0,
+        "created_datetime": null,
+        "last_known_disease_status": "not reported",
+        "tissue_or_organ_of_origin": "Breast, NOS",
         "days_to_last_follow_up": null,
-        "state": null,
+        "primary_diagnosis": "Infiltrating duct carcinoma, NOS",
+        "age_at_diagnosis": 26548,
+        "updated_datetime": "2019-08-08T16:25:42.215495-05:00",
+        "prior_malignancy": "yes",
+        "year_of_diagnosis": 2008,
+        "prior_treatment": "No",
+        "state": "released",
+        "days_to_last_known_disease_status": null,
+        "ajcc_staging_system_edition": "6th",
+        "ajcc_pathologic_t": "T1c",
         "days_to_recurrence": null,
+        "morphology": "8500/3",
+        "ajcc_pathologic_n": "N1a",
+        "ajcc_pathologic_m": "M0",
+        "submitter_id": "TCGA-BH-A0EA_diagnosis",
+        "classification_of_tumor": "not reported",
         "diagnosis_id": "84654ad5-2a2c-5c3b-8340-ecac6a5550fe",
+        "icd_10_code": "C50.9",
+        "site_of_resection_or_biopsy": "Breast, NOS",
         "tumor_grade": "not reported",
-        "tissue_or_organ_of_origin": "c50.9",
-        "days_to_birth": -26548.0,
-        "progression_or_recurrence": "not reported",
-        "prior_malignancy": "not reported",
-        "site_of_resection_or_biopsy": "c50.9",
-        "created_datetime": null
+        "progression_or_recurrence": "not reported"
       }
     ],
-    "sample_ids": [
-      "7f791228-dd77-4ab0-8227-d784a4c7fea1",
-      "9a6c71a6-82cd-42b1-a93f-f569370848d6"
+    "created_datetime": null,
+    "diagnosis_ids": [
+      "84654ad5-2a2c-5c3b-8340-ecac6a5550fe"
     ],
+    "sample_ids": [
+      "55864d86-dab8-47bb-a3e3-8cfb198b06c1",
+      "9a6c71a6-82cd-42b1-a93f-f569370848d6",
+      "7f791228-dd77-4ab0-8227-d784a4c7fea1"
+    ],
+    "submitter_sample_ids": [
+      "TCGA-BH-A0EA-01A",
+      "TCGA-BH-A0EA-01Z",
+      "TCGA-BH-A0EA-10A"
+    ],
+    "primary_site": "Breast",
+    "submitter_diagnosis_ids": [
+      "TCGA-BH-A0EA_diagnosis"
+    ],
+    "updated_datetime": "2019-08-06T14:15:54.128069-05:00",
+    "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
+    "state": "released",
     "portion_ids": [
       "cb6086d1-3416-4310-b109-e8fa6e8b72d4",
       "8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
       "ae4f5816-f97a-4605-9b05-9ab820467dee"
     ],
     "submitter_portion_ids": [
-      "TCGA-BH-A0EA-01A-11",
+      "TCGA-BH-A0EA-10A-01",
       "TCGA-BH-A0EA-01A-21-A13C-20",
-      "TCGA-BH-A0EA-10A-01"
-    ],
-    "created_datetime": null,
-    "submitter_aliquot_ids": [
-      "TCGA-BH-A0EA-01A-11R-A114-13",
-      "TCGA-BH-A0EA-01A-11D-A111-01",
-      "TCGA-BH-A0EA-01A-11W-A12T-09",
-      "TCGA-BH-A0EA-01A-11R-A114-13",
-      "TCGA-BH-A0EA-01A-11R-A115-07",
-      "TCGA-BH-A0EA-01A-11D-A111-01",
-      "TCGA-BH-A0EA-01A-11D-A314-09",
-      "TCGA-BH-A0EA-01A-11D-A112-05",
-      "TCGA-BH-A0EA-01A-11D-A10Y-09",
-      "TCGA-BH-A0EA-01A-11D-A10X-02",
-      "TCGA-BH-A0EA-01A-11W-A12T-09",
-      "TCGA-BH-A0EA-01A-11D-A10X-02",
-      "TCGA-BH-A0EA-01A-11D-A10Y-09",
-      "TCGA-BH-A0EA-01A-11D-A314-09",
-      "TCGA-BH-A0EA-01A-11R-A115-07",
-      "TCGA-BH-A0EA-01A-11D-A112-05",
-      "TCGA-BH-A0EA-10A-01D-A110-09",
-      "TCGA-BH-A0EA-10A-01D-A113-01",
-      "TCGA-BH-A0EA-10A-01W-A12U-09",
-      "TCGA-BH-A0EA-10A-01D-A10Z-02",
-      "TCGA-BH-A0EA-10A-01D-A113-01",
-      "TCGA-BH-A0EA-10A-01D-A110-09",
-      "TCGA-BH-A0EA-10A-01W-A12U-09",
-      "TCGA-BH-A0EA-10A-01D-A10Z-02"
-    ],
-    "updated_datetime": "2016-05-02T14:37:43.619198-05:00",
-    "submitter_analyte_ids": [
-      "TCGA-BH-A0EA-01A-11R",
-      "TCGA-BH-A0EA-01A-11D",
-      "TCGA-BH-A0EA-01A-11W",
-      "TCGA-BH-A0EA-10A-01W",
-      "TCGA-BH-A0EA-10A-01D"
-    ],
-    "analyte_ids": [
-      "30cb470f-66d4-4085-8c30-83a42e8453d4",
-      "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
-      "f19f408a-815f-43d9-8032-e9482b796371",
-      "69ddc092-88a0-4839-a2bb-9f1c9e760409",
-      "fe678556-acf4-4bde-a95e-860bb0150a95"
-    ],
-    "submitter_id": "TCGA-BH-A0EA",
-    "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
-    "state": null,
-    "aliquot_ids": [
-      "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
-      "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
-      "edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
-      "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
-      "ca71ca96-cbb7-4eab-9487-251dda34e107",
-      "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
-      "eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
-      "42d050e4-e8ee-4442-b9c0-0ee14706b138",
-      "561b8777-801a-49ed-a306-e7dafeb044b6",
-      "262715e1-835c-4f16-8ee7-6900e26f7cf5",
-      "edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
-      "262715e1-835c-4f16-8ee7-6900e26f7cf5",
-      "561b8777-801a-49ed-a306-e7dafeb044b6",
-      "eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
-      "ca71ca96-cbb7-4eab-9487-251dda34e107",
-      "42d050e4-e8ee-4442-b9c0-0ee14706b138",
-      "cfbd5476-e83a-401d-9f9a-639c73a0e35b",
-      "2beb34c4-d493-4a73-b21e-de77d43251ff",
-      "b1a3739d-d554-4202-b96f-f25a444e2042",
-      "cde982b7-3b0a-49eb-8710-a599cb0e44c1",
-      "2beb34c4-d493-4a73-b21e-de77d43251ff",
-      "cfbd5476-e83a-401d-9f9a-639c73a0e35b",
-      "b1a3739d-d554-4202-b96f-f25a444e2042",
-      "cde982b7-3b0a-49eb-8710-a599cb0e44c1"
-    ],
-    "slide_ids": [
-      "90154ea1-6b76-4445-870e-d531d6fa1239",
-      "a0826f0d-986a-491b-8c6f-b34f8929f3ee"
-    ],
-    "submitter_sample_ids": [
-      "TCGA-BH-A0EA-01A",
-      "TCGA-BH-A0EA-10A"
+      "TCGA-BH-A0EA-01A-11"
     ]
   },
   "warnings": {}
@@ -806,7 +877,7 @@ This example is a query for versioning information associated with the follow wi
 curl 'https://api.gdc.cancer.gov/history/1dd28069-5777-4ff9-bd2b-d1ba68e88b06'
 ```
 ``` Output
-[{"release_date": "2018-07-23", "version": "1", "uuid": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "file_change": "released", "data_release": "13.0"}]
+[{"uuid": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "version": "1", "file_change": "released", "release_date": "2018-08-23", "data_release": "12.0"}]
 ```
 
 
@@ -843,25 +914,7 @@ Each part of the response is described below:
 curl 'https://api.gdc.cancer.gov/projects/_mapping'
 ```
 ```output
-{
-	...
-
-	  "_mapping": {
-	    "projects.disease_type": {
-	      "doc_type": "projects",
-	      "field": "disease_type",
-	      "type": "id"
-	    },
-	    "projects.name": {
-	      "doc_type": "projects",
-	      "field": "name",
-	      "type": "id"
-	    }
-	  }
-
-	...
-
-}
+{"_mapping":{"projects.dbgap_accession_number":{"description":"","doc_type":"projects","field":"dbgap_accession_number","full":"projects.dbgap_accession_number","type":"keyword"},"projects.disease_type":{"description":"","doc_type":"projects","field":"disease_type","full":"projects.disease_type","type":"keyword"},"projects.intended_release_date":{"description":"","doc_type":"projects","field":"intended_release_date","full":"projects.intended_release_date","type":"keyword"},"projects.name":{"description":"","doc_type":"projects","field":"name","full":"projects.name","type":"keyword"},"projects.primary_site":{"description":"","doc_type":"projects","field":"primary_site","full":"projects.primary_site","type":"keyword"},"projects.program.dbgap_accession_number":{"description":"The dbgap accession number provided for the program.","doc_type":"projects","field":"program.dbgap_accession_number","full":"projects.program.dbgap_accession_number","type":"keyword"},"projects.program.name":{"description":"Full name/title of the program.","doc_type":"projects","field":"program.name","full":"projects.program.name","type":"keyword"},"projects.program.program_id":{"description":"","doc_type":"projects","field":"program.program_id","full":"projects.program.program_id","type":"keyword"},"projects.project_autocomplete":{"description":"","doc_type":"projects","field":"project_autocomplete","full":"projects.project_autocomplete","type":"id"},"projects.project_id":{"description":"","doc_type":"projects","field":"project_id","full":"projects.project_id","type":"keyword"},"projects.releasable":{"description":"","doc_type":"projects","field":"releasable","full":"projects.releasable","type":"keyword"},"projects.released":{"description":"","doc_type":"projects","field":"released","full":"projects.released","type":"keyword"},"projects.state":{"description":"","doc_type":"projects","field":"state","full":"projects.state","type":"keyword"},"projects.summary.case_count":{"description":"","doc_type":"projects","field":"summary.case_count","full":"projects.summary.case_count","type":"long"},"projects.summary.data_categories.case_count":{"description":"","doc_type":"projects","field":"summary.data_categories.case_count","full":"projects.summary.data_categories.case_count","type":"long"},"projects.summary.data_categories.data_category":{"description":"","doc_type":"projects","field":"summary.data_categories.data_category","full":"projects.summary.data_categories.data_category","type":"keyword"},"projects.summary.data_categories.file_count":{"description":"","doc_type":"projects","field":"summary.data_categories.file_count","full":"projects.summary.data_categories.file_count","type":"long"},"projects.summary.experimental_strategies.case_count":{"description":"","doc_type":"projects","field":"summary.experimental_strategies.case_count","full":"projects.summary.experimental_strategies.case_count","type":"long"},"projects.summary.experimental_strategies.experimental_strategy":{"description":"","doc_type":"projects","field":"summary.experimental_strategies.experimental_strategy","full":"projects.summary.experimental_strategies.experimental_strategy","type":"keyword"},"projects.summary.experimental_strategies.file_count":{"description":"","doc_type":"projects","field":"summary.experimental_strategies.file_count","full":"projects.summary.experimental_strategies.file_count","type":"long"},"projects.summary.file_count":{"description":"","doc_type":"projects","field":"summary.file_count","full":"projects.summary.file_count","type":"long"},"projects.summary.file_size":{"description":"","doc_type":"projects","field":"summary.file_size","full":"projects.summary.file_size","type":"long"}},"defaults":["dbgap_accession_number","disease_type","intended_release_date","name","primary_site","project_autocomplete","project_id","releasable","released","state"],"expand":["program","summary","summary.data_categories","summary.experimental_strategies"],"fields":["dbgap_accession_number","disease_type","intended_release_date","name","primary_site","program.dbgap_accession_number","program.name","program.program_id","project_autocomplete","project_id","releasable","released","state","summary.case_count","summary.data_categories.case_count","summary.data_categories.data_category","summary.data_categories.file_count","summary.experimental_strategies.case_count","summary.experimental_strategies.experimental_strategy","summary.experimental_strategies.file_count","summary.file_count","summary.file_size"],"multi":[],"nested":["summary.data_categories","summary.experimental_strategies"]}
 ```
 
 Similar information can be obtained using the `fields` parameter; `fields` queries provide additional information in the response, such as the name of the Elastic Search document (`doc_type`), the field name and the type of value. A list of supported types (such as `string`, `long`, `float`, ...) can be obtained from [Elastic Search Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html).
@@ -995,690 +1048,863 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "sample_ids": [
-          "1d014bf1-95ae-42e3-ae39-97ff4841d8ca",
-          "6b685bfc-651b-48d1-8e68-32c8096ea205"
+        "id": "f8970455-bfb2-4b1d-ab71-3c5d619898ad",
+        "slide_ids": [
+          "324684b5-8f18-4aa3-9b32-78382b96760b",
+          "542a84f2-35e5-4843-9e98-c3d4bf0efe34"
         ],
-        "portion_ids": [
-          "c061217a-266a-496d-8a96-3489191afa87",
-          "0d3a6a58-0e00-4889-bc73-5ddb5a387738",
-          "e858ee92-0438-48e9-a70d-80ef2c0ad539"
+        "submitter_slide_ids": [
+          "TCGA-ZN-A9VQ-01Z-00-DX1",
+          "TCGA-ZN-A9VQ-01A-01-TS1"
         ],
-        "submitter_portion_ids": [
-          "TCGA-66-2770-01A-21-2193-20",
-          "TCGA-66-2770-01A-01",
-          "TCGA-66-2770-11A-01"
+        "disease_type": "Mesothelial Neoplasms",
+        "analyte_ids": [
+          "73491451-b44e-41b3-be8c-1d7e44e54d08",
+          "eda45603-7e65-4160-9963-e8907e7248b2",
+          "f8f4c5d9-b09d-46d4-9fc1-afbebae1a81d"
+        ],
+        "submitter_id": "TCGA-ZN-A9VQ",
+        "submitter_analyte_ids": [
+          "TCGA-ZN-A9VQ-01A-11D",
+          "TCGA-ZN-A9VQ-01A-11R",
+          "TCGA-ZN-A9VQ-10A-01D"
+        ],
+        "submitter_aliquot_ids": [
+          "TCGA-ZN-A9VQ-01A-11R-A40A-07",
+          "TCGA-ZN-A9VQ-10A-01D-A39T-01",
+          "TCGA-ZN-A9VQ-01A-11D-A39S-05",
+          "TCGA-ZN-A9VQ-01A-11D-A40F-26",
+          "TCGA-ZN-A9VQ-01A-11D-A39Q-01",
+          "TCGA-ZN-A9VQ-01A-11D-A761-36",
+          "TCGA-ZN-A9VQ-01A-11R-A404-13",
+          "TCGA-ZN-A9VQ-01A-11D-A39R-32",
+          "TCGA-ZN-A9VQ-10A-01D-A39U-32",
+          "TCGA-ZN-A9VQ-10A-01D-A761-36",
+          "TCGA-ZN-A9VQ-10A-01D-A40G-26"
+        ],
+        "aliquot_ids": [
+          "26e89986-bfd5-4d4e-a3ff-5ad612c48358",
+          "3d7835c0-388f-4cdc-9fe3-2dae11b71daa",
+          "3f076394-cb86-46ea-8cdc-88f385c6b54e",
+          "0b2cbe7c-8392-4072-95af-9ded20aa3888",
+          "6762b668-a952-4c66-8a63-af909dbdc3ec",
+          "dd85d29b-5883-4292-849a-8706698ff32b",
+          "0e3a5bc1-9fe1-49e6-9ae8-fe7e86198acd",
+          "4c1a209f-b005-4137-a344-c0befa66047c",
+          "418d6b09-cffc-4ca4-84eb-7c9b2b5aacaf",
+          "a09f740a-9529-4688-be12-978f13054e1e",
+          "c32fb3d0-2894-4859-be14-30f03e0d8997"
         ],
         "created_datetime": null,
-        "submitter_aliquot_ids": [
-          "TCGA-66-2770-01A-01D-1522-08",
-          "TCGA-66-2770-01A-01D-0848-05",
-          "TCGA-66-2770-01A-01W-0879-09",
-          "TCGA-66-2770-11A-01W-0878-08",
-          "TCGA-66-2770-01A-01R-0849-01",
-          "TCGA-66-2770-01A-01W-0877-08",
-          "TCGA-66-2770-01A-01D-0846-06",
-          "TCGA-66-2770-11A-01W-0880-09",
-          "TCGA-66-2770-01A-01D-0964-09",
-          "TCGA-66-2770-11A-01D-0846-06",
-          "TCGA-66-2770-01A-01D-0845-04",
-          "TCGA-66-2770-01A-01W-0881-10",
-          "TCGA-66-2770-11A-01D-0963-08",
-          "TCGA-66-2770-11A-01D-0844-01",
-          "TCGA-66-2770-01A-01R-0851-07",
-          "TCGA-66-2770-11A-01W-0882-10",
-          "TCGA-66-2770-11A-01D-1522-08",
-          "TCGA-66-2770-01A-01T-1557-13",
-          "TCGA-66-2770-01A-01D-0847-02",
-          "TCGA-66-2770-01A-01D-0844-01",
-          "TCGA-66-2770-11A-01D-0847-02",
-          "TCGA-66-2770-11A-01D-0964-09",
-          "TCGA-66-2770-01A-01D-0963-08",
-          "TCGA-66-2770-01A-01R-0850-03",
-          "TCGA-66-2770-11A-01D-0845-04",
-          "TCGA-66-2770-01A-01T-0852-07"
+        "diagnosis_ids": [
+          "68b5b7ee-bbbe-502c-b087-f325c4ccde09"
         ],
-        "updated_datetime": "2016-05-02T15:57:03.730994-05:00",
-        "submitter_analyte_ids": [
-          "TCGA-66-2770-01A-01D",
-          "TCGA-66-2770-11A-01W",
-          "TCGA-66-2770-01A-01T",
-          "TCGA-66-2770-01A-01W",
-          "TCGA-66-2770-01A-01R",
-          "TCGA-66-2770-11A-01D"
-        ],
-        "analyte_ids": [
-          "385807d3-78de-4558-8d93-702d93fc835a",
-          "247acc7a-b4f5-47e9-86da-5ea9b04ad444",
-          "151b8cb9-6b0a-4db9-9b0e-62aa501b35d9",
-          "e549aebd-4dda-4ea8-8ccf-56c03bc8b2be",
-          "631ad4eb-845a-4e70-96ad-4b40157218a8",
-          "9a75640e-09d4-42b7-8cb4-75d62b39e98a"
-        ],
-        "submitter_id": "TCGA-66-2770",
-        "case_id": "f1b357e4-d67a-42c9-b0b7-12f69fa3da58",
-        "state": null,
-        "aliquot_ids": [
-          "a2d10f8e-6b27-4df0-bd25-ac24992d0bb4",
-          "8c1c733a-abed-468f-b4d0-d1ac34ba6d8b",
-          "cad8d384-3b7a-4f70-89c2-5584ae75c5eb",
-          "42e774cf-3c4a-4efd-9665-378cb6b4afac",
-          "3755168b-f5da-422d-847a-566cb112a8d7",
-          "cae4d249-ba67-4316-8761-7e71e3813182",
-          "aa6e700c-ce01-4cc9-87de-8bf615a8aa1a",
-          "ad5c4069-e616-4ab4-9b03-b196f9189b20",
-          "07c26ea4-0584-4cb0-8e5a-d057b8fe6c14",
-          "f95c2cb5-d20a-4f1f-8f2a-95a2d37fbdc4",
-          "817bf327-e583-4704-b294-c3645dcc4adf",
-          "2246cb75-38bd-491f-b6ee-99f4781f2564",
-          "a81b9090-626d-492d-9baf-7fa3ef70111c",
-          "5cd6f026-894e-45f6-bc59-d6f056e63846",
-          "e417903d-ab76-44f0-aae9-3a91fa9a8d3c",
-          "1d809a56-31ca-49d8-a57b-e773236b24de",
-          "df60a743-ef4b-43ea-bc5a-4d75e8befb8a",
-          "871350e2-958f-401c-ae86-6bc880a01942",
-          "3dc4207d-5671-4c3d-b75a-d39ef69b564c",
-          "69b77cc0-d00a-4ea3-9b39-3e3019d9e292",
-          "3d035ee8-9523-4771-8738-c8a5a2f91403",
-          "775e46bd-e56f-40fa-9891-aaedc1d49395",
-          "d1c60049-922a-42d4-bd7e-8cf4ace47f05",
-          "5220a53f-f3fc-476c-aa72-65a038eb2fd8",
-          "b7e44e6e-ccf9-4b75-a258-159912ab51ca",
-          "42750622-28d7-4d32-9262-b139fe77bc01"
-        ],
-        "slide_ids": [
-          "a10196d2-7a81-4e1e-a9a7-62d123c30875",
-          "72edc1ba-916d-42a2-9f22-6254c6e54c5c",
-          "ff15eeb9-550e-4c78-90cc-a6cce8ccc3df",
-          "71ccfb52-169d-4176-94d6-fff5b75f853d"
+        "sample_ids": [
+          "95830203-ccab-4a0d-8daf-e2b67ab95b86",
+          "089c6901-5fe6-48b0-97ab-39f00609255c",
+          "546ba1f1-7e16-4701-875a-8e9dd426fb76"
         ],
         "submitter_sample_ids": [
-          "TCGA-66-2770-11A",
-          "TCGA-66-2770-01A"
+          "TCGA-ZN-A9VQ-10A",
+          "TCGA-ZN-A9VQ-01Z",
+          "TCGA-ZN-A9VQ-01A"
+        ],
+        "submitter_diagnosis_ids": [
+          "TCGA-ZN-A9VQ_diagnosis"
+        ],
+        "primary_site": "Heart, mediastinum, and pleura",
+        "updated_datetime": "2019-08-06T14:39:56.656272-05:00",
+        "case_id": "f8970455-bfb2-4b1d-ab71-3c5d619898ad",
+        "portion_ids": [
+          "5b4b99dc-a44e-4679-8b19-d1d78020aa9f",
+          "3e8db2c5-d5b3-4a9b-9ef5-948f16fe5cac",
+          "ae23fda4-25ac-44ad-bfba-75e393b4bec5"
+        ],
+        "state": "released",
+        "submitter_portion_ids": [
+          "TCGA-ZN-A9VQ-01A-21-A45O-20",
+          "TCGA-ZN-A9VQ-01A-11",
+          "TCGA-ZN-A9VQ-10A-01"
         ]
       },
       {
-        "sample_ids": [
-          "06889714-2a40-4248-98ee-f690b301e36a",
-          "9f43a0c6-ea19-4021-b0ed-026f33ce1c33"
+        "id": "c739fd61-22b2-412d-bcf3-89bda45a2c0f",
+        "slide_ids": [
+          "6aa9b64a-9624-424e-87be-2ca9902794a2",
+          "1c5ef953-b382-4b73-8bda-f2cfe8c86874"
         ],
-        "portion_ids": [
-          "3a001d28-7cf9-4c61-b155-73938aebaa25",
-          "79554cfd-e853-481e-8e37-1e296034094e"
+        "submitter_slide_ids": [
+          "TCGA-3H-AB3X-01A-01-TS1",
+          "TCGA-3H-AB3X-01Z-00-DX1"
         ],
-        "submitter_portion_ids": [
-          "TCGA-02-0075-01A-01",
-          "TCGA-02-0075-10A-01"
+        "disease_type": "Mesothelial Neoplasms",
+        "analyte_ids": [
+          "0be4a69c-50e5-4634-b3ad-cf75f5cea8c5",
+          "e208e95c-f999-41c2-b8df-6ee04af51f83",
+          "7f0ed3c8-f3b2-47bf-a911-fe6463502315"
+        ],
+        "submitter_id": "TCGA-3H-AB3X",
+        "submitter_analyte_ids": [
+          "TCGA-3H-AB3X-01A-11R",
+          "TCGA-3H-AB3X-10A-01D",
+          "TCGA-3H-AB3X-01A-11D"
+        ],
+        "aliquot_ids": [
+          "ba8caacf-7a47-48db-b375-58b2a417d073",
+          "4026d79f-155e-48e9-91de-dedbf201f55a",
+          "c895dbf4-5753-489a-b83a-dc7d80456388",
+          "d0253b2c-99e0-49ff-b7f6-314bf1729cbf",
+          "4a21ef3b-2d39-4588-8763-d2c26254932a",
+          "537d8c34-d69a-4982-92d1-4d2d48e8b9c5",
+          "41b7c449-47f2-470f-9f92-f3a4a02c8549",
+          "3127573c-6700-4b82-9262-2bcc9c72b56c",
+          "57dbf875-55a2-4a18-bccb-3a16df3ddbfa"
+        ],
+        "submitter_aliquot_ids": [
+          "TCGA-3H-AB3X-10A-01D-A39U-32",
+          "TCGA-3H-AB3X-01A-11D-A39S-05",
+          "TCGA-3H-AB3X-01A-11R-A40A-07",
+          "TCGA-3H-AB3X-01A-11D-A39Q-01",
+          "TCGA-3H-AB3X-01A-11D-A40F-26",
+          "TCGA-3H-AB3X-01A-11R-A404-13",
+          "TCGA-3H-AB3X-01A-11D-A39R-32",
+          "TCGA-3H-AB3X-10A-01D-A39T-01",
+          "TCGA-3H-AB3X-10A-01D-A40G-26"
         ],
         "created_datetime": null,
-        "submitter_aliquot_ids": [
-          "TCGA-02-0075-01A-01W-0204-02",
-          "TCGA-02-0075-01A-01R-0194-03",
-          "TCGA-02-0075-01A-01D-0198-02",
-          "TCGA-02-0075-01A-01R-0202-01",
-          "TCGA-02-0075-10A-01W-0207-09",
-          "TCGA-02-0075-01A-01R-0676-04",
-          "TCGA-02-0075-10A-01D-0198-02",
-          "TCGA-02-0075-10A-01D-0197-06",
-          "TCGA-02-0075-10A-01D-0193-01",
-          "TCGA-02-0075-01A-01W-0207-09",
-          "TCGA-02-0075-01A-01W-0206-08",
-          "TCGA-02-0075-01A-01D-0193-01",
-          "TCGA-02-0075-10A-01W-0205-10",
-          "TCGA-02-0075-01A-01R-0201-02",
-          "TCGA-02-0075-10A-01W-0204-02",
-          "TCGA-02-0075-01A-01D-0199-05",
-          "TCGA-02-0075-10A-01W-0206-08",
-          "TCGA-02-0075-01A-01D-0196-04",
-          "TCGA-02-0075-01A-01T-0195-07",
-          "TCGA-02-0075-10A-01D-0196-04",
-          "TCGA-02-0075-01A-01D-0197-06",
-          "TCGA-02-0075-01A-01D-0888-01",
-          "TCGA-02-0075-01A-01R-0195-07",
-          "TCGA-02-0075-01A-01W-0205-10"
+        "diagnosis_ids": [
+          "9252ba53-0bd5-5f49-b154-aa1dd6473fd5"
         ],
-        "updated_datetime": "2016-05-02T15:00:01.972331-05:00",
-        "submitter_analyte_ids": [
-          "TCGA-02-0075-01A-01R",
-          "TCGA-02-0075-10A-01D",
-          "TCGA-02-0075-01A-01W",
-          "TCGA-02-0075-01A-01T",
-          "TCGA-02-0075-01A-01D",
-          "TCGA-02-0075-10A-01W"
-        ],
-        "analyte_ids": [
-          "fec22de0-a2b9-45df-9854-1ebe76cee84e",
-          "b4d11c50-61f1-4d4a-815f-1c0413018d7f",
-          "c48673d0-a38d-44e1-8cfd-e91cb23ea2d5",
-          "24f1852c-999a-4ea8-917c-fcfd683e2aca",
-          "aa431260-a0fc-4924-80ce-61cab8b5e83e",
-          "11f21140-d761-44ca-a9b2-b24099df3b15"
-        ],
-        "submitter_id": "TCGA-02-0075",
-        "case_id": "b196f82b-ef3f-4e05-99f7-da5df65e691e",
-        "state": null,
-        "aliquot_ids": [
-          "75531fe0-101e-4220-bd47-98892c90ee70",
-          "e5ea38d4-f47c-4c8a-8bab-13631e0a9a7b",
-          "d48b7c2c-daac-4496-af8f-1f45ca43f627",
-          "bbba08fc-2514-4e15-afb7-41eecc7e876f",
-          "0685b37f-a47c-4222-a846-bf9f3c000de3",
-          "683986da-3cee-446d-9b7a-83bef25815c9",
-          "e6ffdb20-a1be-4664-bcd3-cc7a4de6f40b",
-          "5d1f25c0-9e1a-41ad-9735-134f39dbf70e",
-          "528b40b9-246f-4ba3-8209-777136638e62",
-          "33131479-5d69-4262-a549-ba8864320f3b",
-          "5c7822fc-cf4f-4f62-8482-7c0ce1b7ab9a",
-          "b95e7659-e3a4-4e96-b98c-f67d26b85322",
-          "30c84aca-f9db-4e07-ac34-1a92b1652ca1",
-          "d5e3b5cc-06e0-4294-9d3c-8f3b63acae3d",
-          "b14b3d09-3a7f-41a6-81df-2757efa67906",
-          "513040e2-dc29-4e2c-86fb-57371eede17a",
-          "21c3be1b-7c1e-4864-99d1-486cfe5d8f1d",
-          "5e28e5dc-6dfa-44a9-8793-9134cb4cdda5",
-          "b8c25892-4773-428f-a02c-f930931268e8",
-          "266d5260-08e4-4cec-87f3-ca415bd98575",
-          "8859a3ae-f85d-4ef2-830b-80f42f98d53e",
-          "ac018a8c-a6e2-4291-a4bf-a330ae9c441e",
-          "4b022f7f-7549-4d97-9d41-4e5f2e9ec74c",
-          "caad3dfa-74a9-4ecc-95c1-86f6fbfd4ab5"
-        ],
-        "slide_ids": [
-          "39f547cd-5dc3-4bf4-99ea-073bb161c23c",
-          "5f096267-0cc2-4cc5-a206-7357159633d7"
+        "sample_ids": [
+          "276c6d7b-712a-465c-913f-320de285cad4",
+          "b06b0a8a-e992-42aa-a6aa-e85685bbe3f9",
+          "ae48bc7d-fc5a-4d63-9399-783e1d7f50d6"
         ],
         "submitter_sample_ids": [
-          "TCGA-02-0075-10A",
-          "TCGA-02-0075-01A"
+          "TCGA-3H-AB3X-01Z",
+          "TCGA-3H-AB3X-10A",
+          "TCGA-3H-AB3X-01A"
+        ],
+        "submitter_diagnosis_ids": [
+          "TCGA-3H-AB3X_diagnosis"
+        ],
+        "primary_site": "Bronchus and lung",
+        "updated_datetime": "2019-08-06T14:39:45.057305-05:00",
+        "case_id": "c739fd61-22b2-412d-bcf3-89bda45a2c0f",
+        "portion_ids": [
+          "7ec81582-1cb3-4f34-a68f-23a9d9804658",
+          "72bd54de-7e9f-46de-b62e-7994c9d4ad4d"
+        ],
+        "state": "released",
+        "submitter_portion_ids": [
+          "TCGA-3H-AB3X-10A-01",
+          "TCGA-3H-AB3X-01A-11"
         ]
       },
       {
-        "sample_ids": [
-          "ba08195b-31cf-4bb1-a470-23740225c99d",
-          "929889c4-e474-4104-b69b-fac7e414a59e"
+        "id": "ae90972d-5bc2-4b53-b5ff-1b8c31f39342",
+        "slide_ids": [
+          "e94c1249-1f03-4a7f-9161-d1714ef546b2",
+          "e8bdc1d8-01c0-40a7-b308-cb5681f28b2f"
         ],
-        "portion_ids": [
-          "48a36eb4-79fb-45e7-8bb1-0fa1d5fcda2c",
-          "1de5e67a-ac3f-4c18-92c4-27ba1868c7ac",
-          "e09fc5e7-e8d2-4bf9-b12b-17b22e0387e4"
+        "submitter_slide_ids": [
+          "TCGA-CQ-A4CH-01A-01-TSA",
+          "TCGA-CQ-A4CH-01Z-00-DX1"
         ],
-        "submitter_portion_ids": [
-          "TCGA-EJ-A8FU-10A-01",
-          "TCGA-EJ-A8FU-01A-21-A43L-20",
-          "TCGA-EJ-A8FU-01A-11"
+        "disease_type": "Squamous Cell Neoplasms",
+        "analyte_ids": [
+          "be4729cb-4f7d-4c9b-8df7-2de2328c40d4",
+          "53e0774f-2a36-4100-a73a-5fd8a45c4169",
+          "51e4cd09-e408-4077-9ec3-7c805296a016",
+          "d99212f6-8c23-44c4-8c30-87fc4166c9d0",
+          "f3adfcba-e014-43e0-8c9b-09039b84613e"
+        ],
+        "submitter_id": "TCGA-CQ-A4CH",
+        "submitter_analyte_ids": [
+          "TCGA-CQ-A4CH-10A-01W",
+          "TCGA-CQ-A4CH-01A-11D",
+          "TCGA-CQ-A4CH-01A-11R",
+          "TCGA-CQ-A4CH-10A-01D",
+          "TCGA-CQ-A4CH-01A-11W"
+        ],
+        "submitter_aliquot_ids": [
+          "TCGA-CQ-A4CH-01A-11R-A266-07",
+          "TCGA-CQ-A4CH-10A-01D-A25X-01",
+          "TCGA-CQ-A4CH-01A-11R-A25Z-13",
+          "TCGA-CQ-A4CH-01A-11W-A296-08",
+          "TCGA-CQ-A4CH-10A-01W-A296-08",
+          "TCGA-CQ-A4CH-10A-01D-A25Y-08",
+          "TCGA-CQ-A4CH-01A-11D-A25X-01",
+          "TCGA-CQ-A4CH-01A-11D-A265-05",
+          "TCGA-CQ-A4CH-01A-11D-A25Y-08"
+        ],
+        "aliquot_ids": [
+          "9eb34130-b3b9-4c92-8238-4053f8c6d06b",
+          "0c99ef22-b1ef-42c9-a184-4c98f674c7be",
+          "b77aa7fa-403b-4ee1-b537-695a799c80f5",
+          "3aeb1426-58f0-47bd-825e-8d1578dda18b",
+          "afd797fb-97d2-4482-ae15-753f5f66b828",
+          "73074dac-057b-456d-b0b8-761b149d10dc",
+          "48bbbc5e-34c0-46be-a3bb-2d28c2e7d357",
+          "818db1ea-5ae7-4d50-87cf-a85c62830566",
+          "92e8b340-322e-4411-95d8-7db81767f660"
         ],
         "created_datetime": null,
-        "submitter_aliquot_ids": [
-          "TCGA-EJ-A8FU-01A-11R-A36B-13",
-          "TCGA-EJ-A8FU-01A-11R-A36G-07",
-          "TCGA-EJ-A8FU-01A-11D-A363-01",
-          "TCGA-EJ-A8FU-10A-01D-A361-01",
-          "TCGA-EJ-A8FU-10A-01D-A362-08",
-          "TCGA-EJ-A8FU-01A-11W-A447-08",
-          "TCGA-EJ-A8FU-01A-11D-A365-05",
-          "TCGA-EJ-A8FU-01A-11D-A364-08",
-          "TCGA-EJ-A8FU-10A-01W-A446-08"
+        "diagnosis_ids": [
+          "7e574325-c82b-5054-bf4a-038f528c4110"
         ],
-        "updated_datetime": "2016-05-02T15:57:04.948573-05:00",
-        "submitter_analyte_ids": [
-          "TCGA-EJ-A8FU-01A-11W",
-          "TCGA-EJ-A8FU-01A-11D",
-          "TCGA-EJ-A8FU-01A-11R",
-          "TCGA-EJ-A8FU-10A-01W",
-          "TCGA-EJ-A8FU-10A-01D"
-        ],
-        "analyte_ids": [
-          "2d4e4925-6ac8-498f-882b-4bbf319f6b7b",
-          "8d09b982-1256-4674-b383-d6ca4b4bb3c8",
-          "c74495d9-63bf-4ac0-b10e-04b3b06103c1",
-          "b9884d98-af57-4901-8b9d-4fdbf73d2c5a",
-          "2f16ac02-13bf-44fd-bbd7-658c1c384928"
-        ],
-        "submitter_id": "TCGA-EJ-A8FU",
-        "case_id": "23e56e08-e11d-4e83-88a8-1254675b3af8",
-        "state": null,
-        "aliquot_ids": [
-          "e77da017-5dc6-4e32-9568-755e4ee9b533",
-          "c9b286d1-d500-4bb3-bb3d-5bf40b1b1265",
-          "b7867d52-7987-46d4-a595-0ff5b5375a58",
-          "5586ad35-94b7-459e-8982-8e7fb25697a1",
-          "162a63f7-594f-4669-a06d-b4899c7fe86a",
-          "b8b1ab44-ee6e-4ac5-9efd-d5bd07e67b9c",
-          "7adcdf73-3ad3-4da7-ab27-2888f1d4f53a",
-          "eb498e52-3eae-402f-8cac-ec930f8d938d",
-          "293f781c-c2c7-479b-b1a6-5f951a2c5e5a"
-        ],
-        "slide_ids": [
-          "454a95d5-d084-4f36-b1f1-32c6c23ab46e"
+        "sample_ids": [
+          "273490d1-9862-4480-86aa-12522b35fe24",
+          "c7dc33be-768c-42a2-a1ab-2eb5b67be87e",
+          "465d6949-f5a4-4a9d-a082-1f1403876d85"
         ],
         "submitter_sample_ids": [
-          "TCGA-EJ-A8FU-01A",
-          "TCGA-EJ-A8FU-10A"
-        ]
-      },
-      {
-        "sample_ids": [
-          "d43f0112-fe59-4842-9fda-1189e5fb7248",
-          "213cbbe5-c382-47a1-b936-bf40c2c99091"
+          "TCGA-CQ-A4CH-01Z",
+          "TCGA-CQ-A4CH-01A",
+          "TCGA-CQ-A4CH-10A"
         ],
+        "submitter_diagnosis_ids": [
+          "TCGA-CQ-A4CH_diagnosis"
+        ],
+        "primary_site": "Other and unspecified parts of tongue",
+        "updated_datetime": "2019-08-06T14:25:53.026261-05:00",
+        "case_id": "ae90972d-5bc2-4b53-b5ff-1b8c31f39342",
         "portion_ids": [
-          "26441aae-22e5-4e69-b3f5-34ccde356c93",
-          "60d7a93c-0634-438e-a72a-ce63630bb890",
-          "246a8f01-7ef2-4737-a984-49aa0b41c089"
+          "3bf8dee3-ac07-4ab2-bb1c-c8b564e6b3e1",
+          "8c802162-a804-437a-9f54-93de7a4c21b3",
+          "5131b158-ca97-4afe-b236-5d6fc41f70fd"
         ],
+        "state": "released",
         "submitter_portion_ids": [
-          "TCGA-F2-6879-10A-01",
-          "TCGA-F2-6879-01A-21-A39M-20",
-          "TCGA-F2-6879-01A-11"
-        ],
-        "created_datetime": "2016-05-02T16:23:44.347995-05:00",
-        "submitter_aliquot_ids": [
-          "TCGA-F2-6879-01A-11R-2155-13",
-          "TCGA-F2-6879-10A-01D-2153-01",
-          "TCGA-F2-6879-10A-01D-2152-26",
-          "TCGA-F2-6879-01A-11D-2157-05",
-          "TCGA-F2-6879-10A-01D-2154-08",
-          "TCGA-F2-6879-01A-11D-A45X-08",
-          "TCGA-F2-6879-01A-11D-2154-08",
-          "TCGA-F2-6879-01A-11W-2179-08",
-          "TCGA-F2-6879-01A-11D-2153-01",
-          "TCGA-F2-6879-01A-11R-2156-07",
-          "TCGA-F2-6879-01A-11D-2152-26",
-          "TCGA-F2-6879-10A-01D-A45X-08",
-          "TCGA-F2-6879-10A-01W-2179-08",
-          "TCGA-F2-6879-01A-01D-YYYY-23"
-        ],
-        "updated_datetime": "2016-05-02T16:23:44.347995-05:00",
-        "submitter_analyte_ids": [
-          "TCGA-F2-6879-10A-01D",
-          "TCGA-F2-6879-01A-11R",
-          "TCGA-F2-6879-10A-01W",
-          "TCGA-F2-6879-01A-11W",
-          "TCGA-F2-6879-01A-11D"
-        ],
-        "analyte_ids": [
-          "e87dde8d-3bf5-42d8-9a77-620d5c4943e0",
-          "30ade77d-996b-4031-93ab-6b341d49eb0a",
-          "1d94bd70-6621-4a94-8102-d673663e6665",
-          "ea65d92e-1597-410d-84d8-abb2a6235b3e",
-          "79697034-1cec-4d92-8195-8a35258ab477"
-        ],
-        "submitter_id": "TCGA-F2-6879",
-        "case_id": "8d9bd437-8b4b-4da5-87ba-6b5790f05022",
-        "state": null,
-        "aliquot_ids": [
-          "e7533585-b062-4d74-b511-05dc806a1357",
-          "e107952a-cc2b-4410-b0f9-62e7115430a0",
-          "61f1c8b1-986a-485a-9d96-4e4285b6425a",
-          "c043e276-fece-4cb9-a848-a0b16e6099b6",
-          "e5d110e1-63ad-49ce-b9b7-22bbd7ef8a88",
-          "7accb08d-acdb-46bc-bf7f-b9f678193115",
-          "a52cd04b-41d6-40db-b050-00ef3a143f7e",
-          "207fcf5e-c422-4333-9ec2-5dab38d240c7",
-          "5ddd3f83-28a8-4b7f-9aec-203a3c2efbe5",
-          "ccd4dd70-c0e4-42cf-870e-33d1013b201a",
-          "e12314fe-f16a-4d85-95b4-e712ede450f6",
-          "695461e3-283c-4b5b-9325-6b2588b67fd8",
-          "8481be1e-0993-487d-8d73-b0eb72b304ee",
-          "d7200791-4f1c-418f-8744-91b793486d9f"
-        ],
+          "TCGA-CQ-A4CH-01A-11",
+          "TCGA-CQ-A4CH-10A-01",
+          "TCGA-CQ-A4CH-01A-21-A45L-20"
+        ]
+      },
+      {
+        "id": "24c1cf70-bd67-431e-a623-d20f8d3f52b2",
         "slide_ids": [
-          "bcbcc947-cab1-4400-aebc-1d9e251a3ce8",
-          "cae8d0b9-3605-40af-bf99-7c23df8110a9"
+          "0fb2f319-414d-4bd4-bd88-e61303208dfb",
+          "847e5a3f-c88a-40a3-926e-563de0a26ca0",
+          "15737384-02ba-47f3-8655-c11ba975edc5",
+          "50044cf9-fee9-4745-8904-8f5240d4d18d"
         ],
-        "submitter_sample_ids": [
-          "TCGA-F2-6879-10A",
-          "TCGA-F2-6879-01A"
-        ]
-      },
-      {
-        "sample_ids": [
-          "3a66b5bd-7037-463c-9f8d-2ba3de9d5571",
-          "84f603d6-9f71-48fb-b2e3-190424407452"
+        "submitter_slide_ids": [
+          "TCGA-CJ-4881-01Z-00-DX1",
+          "TCGA-CJ-4881-01A-01-BS1",
+          "TCGA-CJ-4881-11A-01-TS1",
+          "TCGA-CJ-4881-01A-01-TS1"
         ],
-        "portion_ids": [
-          "fe90de9f-8ee3-4d55-834f-a90538958cb7",
-          "7a0042fd-07f0-4894-adb0-03cebce8aa02"
-        ],
-        "submitter_portion_ids": [
-          "TCGA-VQ-A922-01A-11",
-          "TCGA-VQ-A922-10A-01"
-        ],
-        "created_datetime": "2016-05-02T16:26:23.121974-05:00",
-        "submitter_aliquot_ids": [
-          "TCGA-VQ-A922-10A-01D-A412-01",
-          "TCGA-VQ-A922-01A-11D-A40Z-01",
-          "TCGA-VQ-A922-10A-01D-A413-08",
-          "TCGA-VQ-A922-01A-01D-YYYY-23",
-          "TCGA-VQ-A922-01A-11R-A414-31",
-          "TCGA-VQ-A922-01A-11D-A410-08",
-          "TCGA-VQ-A922-01A-11R-A415-13",
-          "TCGA-VQ-A922-01A-11D-A411-05"
-        ],
-        "updated_datetime": "2016-05-02T16:26:23.121974-05:00",
-        "submitter_analyte_ids": [
-          "TCGA-VQ-A922-01A-11R",
-          "TCGA-VQ-A922-10A-01D",
-          "TCGA-VQ-A922-01A-11D"
-        ],
+        "disease_type": "Adenomas and Adenocarcinomas",
         "analyte_ids": [
-          "15bec495-04c7-412b-ad69-26b1f9274ccf",
-          "26a24673-04a1-4837-b888-702b0578aef2",
-          "2c0ecd67-b9ff-4e60-8d2f-7744c79a13aa"
+          "2f46942c-7f9c-4dab-ac3b-fb5abf0ca11c",
+          "986f008d-d05c-4dda-88fc-858bf4f1f379",
+          "e90c3295-7c25-4e34-9b89-eeb6838081e4",
+          "2fe03fe3-1036-40d2-81ea-9933be17e4d9",
+          "020b312a-7b12-49b0-9135-189eb5e1e42a",
+          "21fddcbd-2f48-4733-845e-089a4e9076a7",
+          "4a25c9f2-f1ff-4cb2-ba9a-77e55961c488"
         ],
-        "submitter_id": "TCGA-VQ-A922",
-        "case_id": "8bd783a3-d6c9-4c87-a2a1-09f903b9c7ca",
-        "state": null,
-        "aliquot_ids": [
-          "58a121b4-265c-44ae-b6a9-79d087ee8b34",
-          "76fbba49-0123-4524-89aa-a1818c5507cb",
-          "0b0805bb-edaa-400f-ae9f-effed3dbb605",
-          "3370d626-d572-4d13-9cd3-1823a5df3d34",
-          "60934993-a9df-4389-b64d-da6844ef22df",
-          "243f24ba-bb0f-44e0-bcb1-69a97b395981",
-          "6cae9f2a-1c6c-4645-98b6-20719aec1413",
-          "44d020d1-c516-4a15-94e8-bcf0cb9c2683"
-        ],
-        "slide_ids": [
-          "0ff02899-57f8-419e-8872-c6ede53f4d3c"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-VQ-A922-10A",
-          "TCGA-VQ-A922-01A"
-        ]
-      },
-      {
-        "sample_ids": [
-          "5bb5bd60-cf47-413b-88fa-f14977e24035",
-          "82fcf670-1646-4a28-9578-f7e5b2f426e5",
-          "3b87fed0-cfbd-4ee3-b71d-ab595853e836"
-        ],
-        "portion_ids": [
-          "18bf160e-702a-464a-9920-f115024b5484",
-          "10a9c093-009d-4bc0-a344-2afd3f0f9b9f",
-          "8ebd06e1-5eda-47ec-8888-61965ecf005e"
-        ],
-        "submitter_portion_ids": [
-          "TCGA-HU-8243-11A-01",
-          "TCGA-HU-8243-01A-11",
-          "TCGA-HU-8243-10A-01"
-        ],
-        "created_datetime": "2016-05-02T16:17:09.754748-05:00",
-        "submitter_aliquot_ids": [
-          "TCGA-HU-8243-01A-01D-YYYY-23",
-          "TCGA-HU-8243-01A-11D-2340-08",
-          "TCGA-HU-8243-01A-11D-2338-01",
-          "TCGA-HU-8243-01A-11D-2342-05",
-          "TCGA-HU-8243-11A-01D-2338-01",
-          "TCGA-HU-8243-11A-01D-2340-08",
-          "TCGA-HU-8243-10A-01D-2339-01",
-          "TCGA-HU-8243-01A-11R-2343-13",
-          "TCGA-HU-8243-10A-01D-2341-08"
-        ],
-        "updated_datetime": "2016-05-02T16:17:09.754748-05:00",
+        "submitter_id": "TCGA-CJ-4881",
         "submitter_analyte_ids": [
-          "TCGA-HU-8243-11A-01D",
-          "TCGA-HU-8243-10A-01D",
-          "TCGA-HU-8243-01A-11R",
-          "TCGA-HU-8243-01A-11D"
+          "TCGA-CJ-4881-11A-01X",
+          "TCGA-CJ-4881-01A-01R",
+          "TCGA-CJ-4881-11A-01D",
+          "TCGA-CJ-4881-01A-01X",
+          "TCGA-CJ-4881-01A-01W",
+          "TCGA-CJ-4881-01A-01D",
+          "TCGA-CJ-4881-11A-01W"
         ],
-        "analyte_ids": [
-          "89c9094d-5cf6-4c7d-ad24-41b7ad9427cc",
-          "2c413e60-0122-426b-afb3-ae94810e2513",
-          "57d41760-0fed-49d2-8606-48231cb244ea",
-          "37ed51fd-b540-408e-8bd6-4447ae4aa84a"
-        ],
-        "submitter_id": "TCGA-HU-8243",
-        "case_id": "77a8eab6-f6a1-4739-9031-75ead40d68cb",
-        "state": null,
-        "aliquot_ids": [
-          "ace3edd6-14a9-42cc-84f3-6127237f2913",
-          "a711abd1-f1c2-4e42-8b66-79b4514ac1c4",
-          "6af7ba34-58f7-4472-8c7e-89fc91ad5ac1",
-          "558ff67a-a584-46f8-9089-8f4a08015294",
-          "71c0a224-5953-4b59-a49c-b7aa1e959f1e",
-          "a460c222-bcac-4959-961f-4dbd73e1ce13",
-          "6e5789d7-4988-457a-86eb-e618c7ab06eb",
-          "ff31f56b-398c-45ee-b122-f10027774527",
-          "9635cfd4-3d26-4fc6-846c-fd74d5b60098"
-        ],
-        "slide_ids": [
-          "60b7c6b8-594a-40c3-9341-a0902e4e6938",
-          "e55e00a0-2048-404a-b83a-f34106468694"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-HU-8243-10A",
-          "TCGA-HU-8243-01A",
-          "TCGA-HU-8243-11A"
-        ]
-      },
-      {
-        "sample_ids": [
-          "2f5cc9c9-31a9-5eb3-952a-b21e7cef50ca",
-          "4f3f4fc8-4465-5230-83ec-c0ef6aceb2ea"
-        ],
-        "updated_datetime": "2016-05-25T19:12:45.610324-05:00",
         "submitter_aliquot_ids": [
-          "TARGET-30-PAUXFZ-01A-01D",
-          "TARGET-30-PAUXFZ-10A-01D"
+          "TCGA-CJ-4881-01A-01D-1303-05",
+          "TCGA-CJ-4881-01A-01R-1305-07",
+          "TCGA-CJ-4881-01A-01X-1371-10",
+          "TCGA-CJ-4881-11A-01X-1371-10",
+          "TCGA-CJ-4881-01A-01R-1762-13",
+          "TCGA-CJ-4881-01A-01D-2098-10",
+          "TCGA-CJ-4881-01A-01W-1369-10",
+          "TCGA-CJ-4881-01A-01R-1304-13",
+          "TCGA-CJ-4881-11A-01D-1302-01",
+          "TCGA-CJ-4881-11A-01D-2098-10",
+          "TCGA-CJ-4881-11A-01D-1303-05",
+          "TCGA-CJ-4881-11A-01W-1369-10",
+          "TCGA-CJ-4881-01A-01D-1373-10",
+          "TCGA-CJ-4881-01A-01D-1301-02",
+          "TCGA-CJ-4881-11A-01D-1301-02",
+          "TCGA-CJ-4881-11A-01D-1373-10",
+          "TCGA-CJ-4881-01A-01D-1302-01"
         ],
-        "submitter_id": "TARGET-30-PAUXFZ",
-        "case_id": "a7ccef7c-14c0-5232-b647-58b4a54fb343",
         "aliquot_ids": [
-          "9e1e30a8-7607-5b7e-b33c-9a6c5828d5fb",
-          "c56898f9-c394-516a-bdbb-bf32a5af9d3f"
-        ],
-        "submitter_sample_ids": [
-          "TARGET-30-PAUXFZ-01A",
-          "TARGET-30-PAUXFZ-10A"
-        ]
-      },
-      {
-        "sample_ids": [
-          "c1bcb8d1-e13d-4af4-93f4-02d5f7f616a2",
-          "52fcf737-cdcc-43ea-b33c-4018039b42dd"
-        ],
-        "portion_ids": [
-          "e0e97a05-656a-468e-8418-0d08c38e76ab",
-          "3e2a0eab-7d89-4f3c-9c0e-8942e53d3c45"
-        ],
-        "submitter_portion_ids": [
-          "TCGA-KK-A8I9-01A-11",
-          "TCGA-KK-A8I9-11A-11"
+          "581cae5b-a55e-4bd4-a9da-48b5480615c0",
+          "00d54c43-aba8-4503-827a-30444e38c704",
+          "290dd57c-0f01-431d-8b72-5f25f1a00ca7",
+          "63f47ca8-5a98-4c54-8d83-9f0f9c9f4559",
+          "ece4609c-ffe3-4330-a92b-c4847b618d77",
+          "30ec4e95-d07b-4a2d-9869-7b9008eb8d8b",
+          "e373d58b-dccf-49e3-ab23-c177883ea2bc",
+          "521d43d9-882f-42dd-ad21-ef5b6df5dae9",
+          "67d59b58-b34c-4616-8661-b58cbb32e726",
+          "9efca5db-e210-468a-a38e-9fcc83d3f113",
+          "26281187-0846-4578-8e8a-ad9886493af7",
+          "495dbab8-1e78-4cb4-b3e4-0ffda17c823a",
+          "ae20e2d0-5d39-4a94-a9ff-dee71503cbfe",
+          "d883e20c-5237-420c-a58b-98ca359f6b2a",
+          "ec4d0eff-cbe4-4dbb-8319-1f4b0b4a5d35",
+          "5d2fada9-5a0f-41b9-b602-9675623191ca",
+          "ffbf81f1-b5a5-4739-9f35-716169650023"
         ],
         "created_datetime": null,
-        "submitter_aliquot_ids": [
-          "TCGA-KK-A8I9-11A-11D-A361-01",
-          "TCGA-KK-A8I9-11A-11D-A362-08",
-          "TCGA-KK-A8I9-11A-11W-A446-08",
-          "TCGA-KK-A8I9-01A-11R-A36G-07",
-          "TCGA-KK-A8I9-11A-11D-A40C-01",
-          "TCGA-KK-A8I9-01A-11D-A363-01",
-          "TCGA-KK-A8I9-01A-11W-A447-08",
-          "TCGA-KK-A8I9-01A-11D-A365-05",
-          "TCGA-KK-A8I9-01A-11D-A364-08",
-          "TCGA-KK-A8I9-01A-11R-A36B-13"
+        "diagnosis_ids": [
+          "f9c1962f-13de-5ffe-b201-9d125adc590f"
         ],
-        "updated_datetime": "2016-05-02T15:57:29.451686-05:00",
-        "submitter_analyte_ids": [
-          "TCGA-KK-A8I9-11A-11W",
-          "TCGA-KK-A8I9-01A-11R",
-          "TCGA-KK-A8I9-11A-11D",
-          "TCGA-KK-A8I9-01A-11W",
-          "TCGA-KK-A8I9-01A-11D"
-        ],
-        "analyte_ids": [
-          "ddec19cb-5e4c-4151-8b6d-741044abff1e",
-          "96c5b539-8eb7-4156-81d0-7b7fecd68900",
-          "ced38a45-7610-49d4-8bf9-d53a1fc2d489",
-          "476f5deb-1b3f-4a35-8a31-f27763ba8d8a",
-          "c284f2af-1e9b-40cc-8936-b61cfd251d62"
-        ],
-        "submitter_id": "TCGA-KK-A8I9",
-        "case_id": "261c3d74-706e-4751-bd15-8f3c1a402ff0",
-        "state": null,
-        "aliquot_ids": [
-          "4f76de2d-e07a-402b-9818-7f04d3704a43",
-          "96802a73-b1db-47d7-8f5f-4504f3ece5ad",
-          "f376fc45-370a-4d96-833b-9a1322e32a42",
-          "d3e88dd3-66d7-40d4-978a-4ddab868373a",
-          "06f1d087-75c9-4da8-8339-80aff3bfaa12",
-          "50b1e243-b45a-42a1-8692-b7ae5d51250f",
-          "0f1c00d3-f3dc-4d2b-bd8a-ecc31e4f4089",
-          "986a3ed6-ba56-4025-a2bd-9909648e703a",
-          "bebc84b6-9179-420b-8207-858b999e8c0c",
-          "239d5e7e-5fb5-4df3-ae6b-a5a06ee296ae"
-        ],
-        "slide_ids": [
-          "1e174ca5-9298-41b6-a705-728f111a3e7b",
-          "a3e31324-9e06-4799-85b4-4f6236848009"
+        "sample_ids": [
+          "f00de7e8-d54d-4f07-85bc-8fa3f1d56b0c",
+          "1f8ce8ea-74b6-4d91-81e7-b689d11c26cd",
+          "534a3864-e8f4-462f-81a5-c0a3895cb68f"
         ],
         "submitter_sample_ids": [
-          "TCGA-KK-A8I9-11A",
-          "TCGA-KK-A8I9-01A"
+          "TCGA-CJ-4881-01Z",
+          "TCGA-CJ-4881-01A",
+          "TCGA-CJ-4881-11A"
+        ],
+        "submitter_diagnosis_ids": [
+          "TCGA-CJ-4881_diagnosis"
+        ],
+        "primary_site": "Kidney",
+        "updated_datetime": "2019-08-06T14:29:28.932622-05:00",
+        "case_id": "24c1cf70-bd67-431e-a623-d20f8d3f52b2",
+        "portion_ids": [
+          "4f1a0956-ee24-4ba1-b8a3-b23fb8a26601",
+          "1a7f6ad8-97f3-416d-8d1e-1752bb6638f7",
+          "367e98f4-181c-4656-b28e-855fa6f265af"
+        ],
+        "state": "released",
+        "submitter_portion_ids": [
+          "TCGA-CJ-4881-11A-01",
+          "TCGA-CJ-4881-01A-01",
+          "TCGA-CJ-4881-01A-21-1739-20"
         ]
       },
       {
-        "sample_ids": [
-          "d43f727a-96d6-40b8-86ae-7a3e0aa46853",
-          "b8329a6d-a87b-47f4-ad00-9e979e62647b"
+        "id": "12adefc4-c9fd-46d3-904b-8fc52d5f1913",
+        "slide_ids": [
+          "802aa0c2-d722-46b1-9a66-29333abba34c",
+          "6a956f2d-0040-498f-b0e6-68839fe8f668",
+          "3d0c023e-7023-4e11-931f-61c72105d828",
+          "cbd62e61-cc59-4533-bca2-518ce48c1ab3",
+          "d56c89b6-cda6-45f7-965a-1cf6dc037ad1"
         ],
-        "portion_ids": [
-          "8960ddcc-0950-4d6e-a557-8727b652c93b",
-          "e36bfd07-c911-4a98-8424-e58e5e9aaa68"
+        "submitter_slide_ids": [
+          "TCGA-B0-4696-01A-01-TS1",
+          "TCGA-B0-4696-11A-01-TS1",
+          "TCGA-B0-4696-11A-01-BS1",
+          "TCGA-B0-4696-01A-01-BS1",
+          "TCGA-B0-4696-01Z-00-DX1"
         ],
-        "submitter_portion_ids": [
-          "TCGA-QR-A70H-10A-01",
-          "TCGA-QR-A70H-01A-12"
+        "disease_type": "Adenomas and Adenocarcinomas",
+        "analyte_ids": [
+          "a5399e3a-54ba-4971-b72a-a7bea9312511",
+          "41488c12-a3cd-4118-bc9d-abf8d28eac27",
+          "3da18be3-3bf7-475f-947e-5b2c22e7c046",
+          "6bb85779-d0a1-47ca-aacc-540c907604f4",
+          "06fd554d-32bb-4c13-aec8-33619b77fea6",
+          "474d8e2f-76b8-4cb3-b166-62266be78c42",
+          "26bf50f5-c51a-4c06-b68a-c23f271d0077"
+        ],
+        "submitter_id": "TCGA-B0-4696",
+        "submitter_analyte_ids": [
+          "TCGA-B0-4696-01A-01W",
+          "TCGA-B0-4696-01A-01X",
+          "TCGA-B0-4696-11A-01D",
+          "TCGA-B0-4696-11A-01W",
+          "TCGA-B0-4696-01A-01R",
+          "TCGA-B0-4696-11A-01X",
+          "TCGA-B0-4696-01A-01D"
+        ],
+        "aliquot_ids": [
+          "3c57f0c5-340c-478f-af17-55c0bda50cce",
+          "1701e9f3-22ba-4fd9-9a88-d310a3c9dc1e",
+          "c9c0689c-da29-476a-84bb-f52ae5698b50",
+          "f04d25de-d349-4ed4-94c7-aaf24528e77b",
+          "f00ce2ee-45c4-4232-8758-d4de6d85ea46",
+          "5ddfdefe-9b9d-438b-b55b-2953a2541378",
+          "504da228-bbe6-490f-9f59-94f6f00adb31",
+          "e9aedb52-652a-48b2-a9ef-e3a1010e5874",
+          "e3847aa2-047f-46ba-bb5c-e18d725defc2",
+          "92590459-3a3e-4160-9c57-30e078258103",
+          "57dac8d5-58bf-4beb-ad24-d34437d1b3e7",
+          "9e5b6046-1d2c-44af-8430-421ec0036bb6",
+          "a744ca75-7994-453c-a283-3db5778844f9",
+          "3128f70f-0a05-41dc-8657-2312f8af4104",
+          "70544bed-6e2a-45f0-9b7c-e4f44705935f",
+          "65197a42-c28f-47ee-909f-64555fb8478e"
+        ],
+        "submitter_aliquot_ids": [
+          "TCGA-B0-4696-01A-01R-1277-07",
+          "TCGA-B0-4696-01A-01D-1275-05",
+          "TCGA-B0-4696-11A-01D-1275-05",
+          "TCGA-B0-4696-11A-01D-1274-01",
+          "TCGA-B0-4696-01A-01D-2096-10",
+          "TCGA-B0-4696-11A-01D-1273-02",
+          "TCGA-B0-4696-01A-01X-1360-10",
+          "TCGA-B0-4696-01A-01D-1361-10",
+          "TCGA-B0-4696-01A-01D-1274-01",
+          "TCGA-B0-4696-11A-01X-1360-10",
+          "TCGA-B0-4696-11A-01W-1359-10",
+          "TCGA-B0-4696-01A-01W-1359-10",
+          "TCGA-B0-4696-01A-01D-1273-02",
+          "TCGA-B0-4696-11A-01D-1361-10",
+          "TCGA-B0-4696-11A-01D-2096-10",
+          "TCGA-B0-4696-01A-01R-1276-13"
         ],
         "created_datetime": null,
-        "submitter_aliquot_ids": [
-          "TCGA-QR-A70H-01A-12R-A35K-07",
-          "TCGA-QR-A70H-01A-12R-A35M-13",
-          "TCGA-QR-A70H-01A-12D-A35E-05",
-          "TCGA-QR-A70H-10A-01D-A35A-01",
-          "TCGA-QR-A70H-01A-12D-A35C-01",
-          "TCGA-QR-A70H-01A-12W-A43Z-08",
-          "TCGA-QR-A70H-10A-01D-A35B-08",
-          "TCGA-QR-A70H-10A-01W-A441-08",
-          "TCGA-QR-A70H-01A-12D-A35D-08"
+        "diagnosis_ids": [
+          "34b6cdff-d3b0-55e6-9e92-4ff8e9f7803f"
         ],
-        "updated_datetime": "2016-05-02T15:37:31.996088-05:00",
-        "submitter_analyte_ids": [
-          "TCGA-QR-A70H-10A-01D",
-          "TCGA-QR-A70H-10A-01W",
-          "TCGA-QR-A70H-01A-12D",
-          "TCGA-QR-A70H-01A-12W",
-          "TCGA-QR-A70H-01A-12R"
-        ],
-        "analyte_ids": [
-          "c4a41555-dd45-4e10-a3be-50d49a1121a3",
-          "957e01f6-eb3f-446e-9f45-b50c66337e2d",
-          "1acde950-2e0c-4586-852b-b4ac4e1ea4a4",
-          "67c033c0-9fe8-4004-967e-c605e1890f4d",
-          "b0873010-5d60-4691-b700-e172950f1d7c"
-        ],
-        "submitter_id": "TCGA-QR-A70H",
-        "case_id": "13b41b15-a785-4ab7-b864-ffff6d35dd45",
-        "state": null,
-        "aliquot_ids": [
-          "d9120f00-7f10-49d5-ae84-6177e9424c7c",
-          "31c6fa50-200a-46c1-a546-61b52592fd8f",
-          "ab50f38c-2e7d-4d75-a216-27aeaa4d9305",
-          "382d5e31-6c66-4df3-a695-6b8c29cfc681",
-          "51d1fb14-c918-4439-b816-ef6cd3253c64",
-          "f586d8d5-d0c6-4979-aaa7-10217a88fa4c",
-          "2f9a60eb-602e-44bb-bc57-87e20d946f76",
-          "fbafc85e-deff-46cd-a40f-479b9dc92a60",
-          "cacbc8a6-0eb0-4277-931f-d0075c9b1de9"
-        ],
-        "slide_ids": [
-          "2310e34c-0ea5-4876-9f87-bad0b7a44513"
+        "sample_ids": [
+          "1ee83ac8-c90b-4364-9e4f-2ed76978ccda",
+          "1784f393-cf44-4bba-a0fd-98d0f6c50b83",
+          "9e30a07a-f227-4b6a-9c80-619abed6f7bd"
         ],
         "submitter_sample_ids": [
-          "TCGA-QR-A70H-01A",
-          "TCGA-QR-A70H-10A"
+          "TCGA-B0-4696-01A",
+          "TCGA-B0-4696-11A",
+          "TCGA-B0-4696-01Z"
+        ],
+        "submitter_diagnosis_ids": [
+          "TCGA-B0-4696_diagnosis"
+        ],
+        "primary_site": "Kidney",
+        "updated_datetime": "2019-08-06T14:28:04.080572-05:00",
+        "case_id": "12adefc4-c9fd-46d3-904b-8fc52d5f1913",
+        "portion_ids": [
+          "1f4528b1-44c0-459d-a71e-b3c11575b6f4",
+          "e8148187-d209-4ee6-a261-c2860402f02f",
+          "2f3b0ffd-223c-4573-86e4-afdef6116698"
+        ],
+        "state": "released",
+        "submitter_portion_ids": [
+          "TCGA-B0-4696-01A-02-1738-20",
+          "TCGA-B0-4696-01A-01",
+          "TCGA-B0-4696-11A-01"
         ]
       },
       {
-        "sample_ids": [
-          "19dee039-9c98-4d4a-8baf-eea1b6dda8eb",
-          "fdf1e501-f34f-450c-9a5c-611157079a86"
+        "id": "c0edde5e-d229-4061-8820-14afc712c5b6",
+        "slide_ids": [
+          "b57e7804-588d-4e71-909b-257fa877e2ad",
+          "fc91a512-85a5-4479-ab07-9b8bd96fdf91"
         ],
-        "portion_ids": [
-          "10b6ccb4-3637-4769-8988-417c0306eaef",
-          "92f8cd48-451d-4ed6-8e60-b15aa93d2c09",
-          "d0d55efa-c91d-45de-92bf-cf6f0d263b21"
+        "submitter_slide_ids": [
+          "TCGA-HD-A633-01A-01-TS1",
+          "TCGA-HD-A633-01Z-00-DX1"
         ],
-        "submitter_portion_ids": [
-          "TCGA-BJ-A18Z-01A-21",
-          "TCGA-BJ-A18Z-01A-11-A21L-20",
-          "TCGA-BJ-A18Z-10A-01"
+        "disease_type": "Squamous Cell Neoplasms",
+        "analyte_ids": [
+          "c8cd9c1f-6688-4c3a-9414-ebede9a06622",
+          "cac22161-1b5d-4436-8ba3-12fba6aae76f",
+          "6b410bfe-a420-4268-a2a3-f3aac24e8761",
+          "22a7918c-6a39-444e-b995-2ba9e60eae90",
+          "a07ff300-0c9c-4b70-88a8-b4ac22936e0d"
+        ],
+        "submitter_id": "TCGA-HD-A633",
+        "submitter_analyte_ids": [
+          "TCGA-HD-A633-10A-01D",
+          "TCGA-HD-A633-10A-01W",
+          "TCGA-HD-A633-01A-11W",
+          "TCGA-HD-A633-01A-11R",
+          "TCGA-HD-A633-01A-11D"
+        ],
+        "submitter_aliquot_ids": [
+          "TCGA-HD-A633-01A-11W-A316-08",
+          "TCGA-HD-A633-01A-11D-A28R-08",
+          "TCGA-HD-A633-10A-01D-A28U-08",
+          "TCGA-HD-A633-01A-11R-A28V-07",
+          "TCGA-HD-A633-01A-11D-A28Q-01",
+          "TCGA-HD-A633-01A-11R-A28Z-13",
+          "TCGA-HD-A633-10A-01D-A28T-01",
+          "TCGA-HD-A633-10A-01W-A317-08",
+          "TCGA-HD-A633-01A-11D-A28S-05"
+        ],
+        "aliquot_ids": [
+          "19657bce-8994-4dc6-8923-6d3959874dec",
+          "10a6dce3-7446-4dc5-8df0-b36558aa8449",
+          "0eb29e0f-dff7-47fe-a184-f4d3247298dc",
+          "b492257f-17a5-48de-aee3-a21a9bedf5ee",
+          "db856f4b-d854-4bab-b92e-755dfdb8acea",
+          "d67c2939-353f-4299-88ea-e3d640fc4ac8",
+          "31641d8f-733a-469b-ae84-907430e8bf0a",
+          "36aead4f-8d43-426b-ad2c-7dcb249f579e",
+          "895828e4-db59-4f6a-9df3-c423ec3ec6b7"
         ],
         "created_datetime": null,
-        "submitter_aliquot_ids": [
-          "TCGA-BJ-A18Z-01A-21D-A13U-02",
-          "TCGA-BJ-A18Z-10A-01D-A13V-01",
-          "TCGA-BJ-A18Z-01A-21R-A13Y-07",
-          "TCGA-BJ-A18Z-01A-21W-A14T-08",
-          "TCGA-BJ-A18Z-01A-21D-A13Z-05",
-          "TCGA-BJ-A18Z-01A-21D-A37T-08",
-          "TCGA-BJ-A18Z-10A-01D-A13W-08",
-          "TCGA-BJ-A18Z-01A-21R-A13X-13",
-          "TCGA-BJ-A18Z-01A-21D-A13W-08",
-          "TCGA-BJ-A18Z-10A-01D-A13U-02",
-          "TCGA-BJ-A18Z-10A-01W-A14T-08",
-          "TCGA-BJ-A18Z-01A-21D-A13V-01"
+        "diagnosis_ids": [
+          "3c27a0ae-0496-5d58-b9c6-1b6362b5da05"
         ],
-        "updated_datetime": "2016-05-02T16:18:19.199189-05:00",
-        "submitter_analyte_ids": [
-          "TCGA-BJ-A18Z-01A-21W",
-          "TCGA-BJ-A18Z-01A-21D",
-          "TCGA-BJ-A18Z-01A-21R",
-          "TCGA-BJ-A18Z-10A-01D",
-          "TCGA-BJ-A18Z-10A-01W"
-        ],
-        "analyte_ids": [
-          "119ebfa1-75b2-4f24-816a-4e9a5061f6b5",
-          "f86759fd-ecc5-4f42-b5fe-b9f079d23968",
-          "39691042-bd28-40ed-b66b-26414ecf1ba0",
-          "76ea5056-d7fa-49fb-94bf-11171ca7c100",
-          "71a822c9-b510-4a4c-8c30-18b8083acc2d"
-        ],
-        "submitter_id": "TCGA-BJ-A18Z",
-        "case_id": "0d497faf-2c1c-4173-a5fe-770cca73323c",
-        "state": null,
-        "aliquot_ids": [
-          "fa580596-e70f-4ed0-85a2-6fb594ca679a",
-          "776cb4b1-8efd-4ea2-b53f-9dff7dd94b10",
-          "85a7922f-0327-437c-bdf5-1bb67a1e932f",
-          "6d532180-0175-4610-8bfa-cca3a7c3697a",
-          "b5977e73-49d8-4e99-9e97-993cc44dad17",
-          "918793fa-b35e-4745-ac75-4d1c868089f8",
-          "ba9479a1-929f-4e4e-8bf5-e23cb280dfcf",
-          "e9776ff5-69b9-4669-ab33-e4bb030461ec",
-          "8ba98907-ab03-4c9e-a900-e31aa16ff810",
-          "35e18649-183e-4223-b2f6-d812bdd9becd",
-          "4aa17671-4420-4989-a6dd-379250f4aeda",
-          "815c53c3-8add-4612-b93c-3ed4bfa530aa"
-        ],
-        "slide_ids": [
-          "7c5b5c77-9fbc-4b48-81f5-48b5ede7c436"
+        "sample_ids": [
+          "ec6326e4-1a3e-4afd-ae55-6a9fdb872d93",
+          "6ad70a8a-2d7e-406a-a419-b805b72eba56",
+          "1b65e4f9-45cb-47ed-bbae-e3f189b1c8f8"
         ],
         "submitter_sample_ids": [
-          "TCGA-BJ-A18Z-01A",
-          "TCGA-BJ-A18Z-10A"
+          "TCGA-HD-A633-10A",
+          "TCGA-HD-A633-01A",
+          "TCGA-HD-A633-01Z"
+        ],
+        "submitter_diagnosis_ids": [
+          "TCGA-HD-A633_diagnosis"
+        ],
+        "primary_site": "Other and unspecified parts of mouth",
+        "updated_datetime": "2019-08-06T14:26:51.527876-05:00",
+        "case_id": "c0edde5e-d229-4061-8820-14afc712c5b6",
+        "portion_ids": [
+          "dd7bf6a5-9e94-470a-8fb4-9f2a2a56c173",
+          "d4475b19-78d8-4b71-ac0e-86a4230aa0cd",
+          "9c1c0a78-2d57-4157-bff1-00d5bb818c26"
+        ],
+        "state": "released",
+        "submitter_portion_ids": [
+          "TCGA-HD-A633-01A-11",
+          "TCGA-HD-A633-10A-01",
+          "TCGA-HD-A633-01A-21-A45M-20"
         ]
+      },
+      {
+        "id": "ae2051a3-f851-4cb3-af18-029f4574b179",
+        "slide_ids": [
+          "90f06679-0397-4688-8c75-b1855efa4bd1",
+          "f8c610bf-7789-4b57-8a74-cf29106be142",
+          "30e6a59b-fdc9-4976-9040-e1a851232b1b",
+          "e6b71383-bd0f-4f2f-9483-f0048522c234"
+        ],
+        "submitter_slide_ids": [
+          "TCGA-CV-7245-01A-01-TS1",
+          "TCGA-CV-7245-01A-01-BS1",
+          "TCGA-CV-7245-01Z-00-DX1",
+          "TCGA-CV-7245-11A-01-TS1"
+        ],
+        "disease_type": "Squamous Cell Neoplasms",
+        "analyte_ids": [
+          "4215b417-de72-49da-87f5-efee18f6166f",
+          "2acff637-98f6-454d-8217-70d42e5612c1",
+          "a55e555d-4858-4153-9047-4ce50794efe8",
+          "b30b89ec-e0f2-49b8-b47d-489730000460",
+          "b8c80ab1-d3f7-43da-8968-6c846f03724d",
+          "17ae48ec-047f-4cca-8182-a2635ce772be",
+          "f8115c36-56c0-4e68-bc96-a26331972298",
+          "d4c8a05a-a194-48fb-8c5d-2f9391613dcb"
+        ],
+        "submitter_id": "TCGA-CV-7245",
+        "submitter_analyte_ids": [
+          "TCGA-CV-7245-11A-01R",
+          "TCGA-CV-7245-01A-11R",
+          "TCGA-CV-7245-01A-11D",
+          "TCGA-CV-7245-10A-01D",
+          "TCGA-CV-7245-11A-01D",
+          "TCGA-CV-7245-11A-01W",
+          "TCGA-CV-7245-01A-11W",
+          "TCGA-CV-7245-10A-01W"
+        ],
+        "submitter_aliquot_ids": [
+          "TCGA-CV-7245-01A-11R-2015-13",
+          "TCGA-CV-7245-11A-01R-2015-13",
+          "TCGA-CV-7245-10A-01W-2033-08",
+          "TCGA-CV-7245-11A-01D-2010-01",
+          "TCGA-CV-7245-11A-01R-2016-07",
+          "TCGA-CV-7245-01A-11D-2014-05",
+          "TCGA-CV-7245-10A-01D-2011-01",
+          "TCGA-CV-7245-11A-01D-2014-05",
+          "TCGA-CV-7245-01A-11R-2016-07",
+          "TCGA-CV-7245-11A-01D-2012-08",
+          "TCGA-CV-7245-10A-01D-2013-08",
+          "TCGA-CV-7245-01A-11D-2012-08",
+          "TCGA-CV-7245-11A-01W-2033-08",
+          "TCGA-CV-7245-01A-11W-2032-08",
+          "TCGA-CV-7245-01A-11D-2010-01"
+        ],
+        "aliquot_ids": [
+          "c1a21df1-8265-4040-843a-2785b98b3463",
+          "95b2722d-f9c7-4d7f-8a70-7603080ecac5",
+          "265cfe54-10da-45c9-b0d1-2d5c65308be1",
+          "d73e8c20-b392-475e-936b-10d6bb173e6c",
+          "ce0c0c2e-902a-4ecb-b753-e696750ca407",
+          "0ead3f08-6ce9-4eea-8ac2-c8021f427f2b",
+          "0f19fa35-7bf4-4cec-b463-8b1e01dfefa0",
+          "56291b3c-595c-4388-a264-9037a48401d8",
+          "f84f8f63-06bf-40c7-8ba8-439aaf360c89",
+          "bdc58b10-1756-45bf-a34f-fa4095429476",
+          "081cec95-360f-4127-9fbc-e6bfd212c23f",
+          "61897747-36dc-4aad-b17a-fe935c605ca3",
+          "f28ead58-aa1c-490b-8b4c-e7dc2d76a563",
+          "b87cdd87-3663-4e8a-99f2-7d475f939cb6",
+          "fe4ca5c3-0767-4264-be28-2bb9891c0c02"
+        ],
+        "created_datetime": null,
+        "diagnosis_ids": [
+          "cceca036-354c-59e4-ad7a-886865aada46"
+        ],
+        "sample_ids": [
+          "aaa6607c-e333-4f99-b1dc-390c3cad4f1b",
+          "c8ac9749-82ff-4348-8d91-5ce677697a15",
+          "f0684e03-2d91-4e9b-9d11-a3063ccc2f34",
+          "d455327a-a947-4a67-8fb5-44438abe5976"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-CV-7245-10A",
+          "TCGA-CV-7245-01A",
+          "TCGA-CV-7245-01Z",
+          "TCGA-CV-7245-11A"
+        ],
+        "submitter_diagnosis_ids": [
+          "TCGA-CV-7245_diagnosis"
+        ],
+        "primary_site": "Larynx",
+        "updated_datetime": "2019-08-06T14:26:16.536997-05:00",
+        "case_id": "ae2051a3-f851-4cb3-af18-029f4574b179",
+        "portion_ids": [
+          "9d94c9a4-9d71-4843-86f7-be076d939415",
+          "90abd8dd-a40a-4433-9ae1-856021300eb4",
+          "3cfc5361-e915-4237-bc4d-a2b06f48cc3e",
+          "8bb93715-41cd-436a-8ee5-a35ea050b6c0"
+        ],
+        "state": "released",
+        "submitter_portion_ids": [
+          "TCGA-CV-7245-01A-13-2074-20",
+          "TCGA-CV-7245-11A-01",
+          "TCGA-CV-7245-10A-01",
+          "TCGA-CV-7245-01A-11"
+        ]
+      },
+      {
+        "id": "57959b73-534d-450c-b09d-f70ef1ffee25",
+        "slide_ids": [
+          "f7e2faec-0fd2-41f2-82dc-8a888a1c01a5",
+          "c9a0789f-cb9b-48f5-a8ce-489071fd618c",
+          "bb49cb73-66de-4c20-a6ef-8483da3fc0e2",
+          "f09ecda2-cab1-4f2b-a616-26f9ce4fd479",
+          "09b3f4a8-1366-41a0-b2ea-2dc010f431f8"
+        ],
+        "submitter_slide_ids": [
+          "TCGA-BP-4346-01A-01-TS1",
+          "TCGA-BP-4346-11A-01-BS1",
+          "TCGA-BP-4346-01A-01-BS1",
+          "TCGA-BP-4346-01Z-00-DX1",
+          "TCGA-BP-4346-11A-01-TS1"
+        ],
+        "disease_type": "Adenomas and Adenocarcinomas",
+        "analyte_ids": [
+          "ce37810b-cf9e-4c0c-962f-432047dae3e7",
+          "ac583369-7b4e-4b96-ae8e-ae5769c075a5",
+          "5d9e9e98-e84d-4e33-8c73-b2ea951bbdbd",
+          "4cf5f5d3-436d-4f40-9beb-c3d2299c008b",
+          "a2debb38-75ec-456c-944a-d90aaa9fa032",
+          "f75a4f5c-5d8b-423e-b2b8-718b818a025b",
+          "8ab159b0-57f8-44b5-916e-3d0d709ffc38"
+        ],
+        "submitter_id": "TCGA-BP-4346",
+        "submitter_analyte_ids": [
+          "TCGA-BP-4346-01A-01W",
+          "TCGA-BP-4346-01A-01D",
+          "TCGA-BP-4346-11A-01D",
+          "TCGA-BP-4346-11A-01X",
+          "TCGA-BP-4346-01A-01X",
+          "TCGA-BP-4346-01A-01R",
+          "TCGA-BP-4346-11A-01W"
+        ],
+        "submitter_aliquot_ids": [
+          "TCGA-BP-4346-11A-01X-1364-10",
+          "TCGA-BP-4346-11A-01D-1283-01",
+          "TCGA-BP-4346-01A-01D-1283-01",
+          "TCGA-BP-4346-01A-01D-1282-02",
+          "TCGA-BP-4346-01A-01D-1284-05",
+          "TCGA-BP-4346-01A-01X-1364-10",
+          "TCGA-BP-4346-11A-01D-1366-10",
+          "TCGA-BP-4346-01A-01D-1366-10",
+          "TCGA-BP-4346-01A-01W-1362-10",
+          "TCGA-BP-4346-11A-01D-1284-05",
+          "TCGA-BP-4346-11A-01D-2097-10",
+          "TCGA-BP-4346-01A-01R-1289-07",
+          "TCGA-BP-4346-01A-01R-1288-13",
+          "TCGA-BP-4346-01A-01D-2097-10",
+          "TCGA-BP-4346-11A-01D-1282-02",
+          "TCGA-BP-4346-11A-01W-1362-10"
+        ],
+        "aliquot_ids": [
+          "81ad330a-2e60-4a6e-b301-6564875f41c4",
+          "b3ceb69a-6e16-41cf-9aa1-539b48aacca2",
+          "956d13ed-7b60-4e15-a6d2-adfc3ecff4f8",
+          "f1b05fbc-cda4-4015-a496-6d30c592fa3d",
+          "e680ec7b-d88c-4da8-b339-da043fda3dc6",
+          "a8b5426b-ff3a-435f-bffc-90bb4a06d77d",
+          "20735253-1ba8-41c9-b4ab-682c1af79b9d",
+          "391da188-dd73-40a8-afae-2f523354b95a",
+          "60bdedba-bdea-4734-b7ff-a171f274e7d4",
+          "109292f2-4bc0-4eff-8e5f-c829f51b835b",
+          "753e5d3b-0334-4202-8af4-45bc9aad100e",
+          "f58cda65-eaf7-4f4b-af5a-5c05618814d3",
+          "d758addf-a866-45b6-819a-159f814206cb",
+          "4f350288-6283-4f87-b1b4-6afae2edfa85",
+          "69e027cf-071a-4b3e-97de-c450555f38c1",
+          "0ca5fa21-f692-40cc-b501-cb3b670530b8"
+        ],
+        "created_datetime": null,
+        "diagnosis_ids": [
+          "c1d7ae9c-c61e-5509-aa35-7555f1d35493"
+        ],
+        "sample_ids": [
+          "a6180591-a96d-4d38-9937-5963fac6b3df",
+          "18c6c530-51e7-4e43-a1b9-f152d17c7c47",
+          "5306e996-869d-4cee-a990-dea934af0cb8"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-BP-4346-01Z",
+          "TCGA-BP-4346-11A",
+          "TCGA-BP-4346-01A"
+        ],
+        "submitter_diagnosis_ids": [
+          "TCGA-BP-4346_diagnosis"
+        ],
+        "primary_site": "Kidney",
+        "updated_datetime": "2019-08-06T14:28:51.268056-05:00",
+        "case_id": "57959b73-534d-450c-b09d-f70ef1ffee25",
+        "portion_ids": [
+          "8092a672-1506-4e71-a75d-ee15c8f4cbc4",
+          "386408e6-2197-4edc-a459-21bb444fbc7f",
+          "28206fd9-253b-4f2b-94f1-1e558edd32ed"
+        ],
+        "state": "released",
+        "submitter_portion_ids": [
+          "TCGA-BP-4346-01A-03-1737-20",
+          "TCGA-BP-4346-11A-01",
+          "TCGA-BP-4346-01A-01"
+        ]
+      },
+      {
+        "id": "714496c5-d221-4397-9c5a-cd2d22603e6f",
+        "slide_ids": [
+          "db5c34b9-d2c2-4bc7-a4e4-eb47eb806a1b",
+          "80e8f54c-2976-4dcb-a9c3-0954e841aec3",
+          "9c045280-8ea3-4ca5-a20b-4483dacc4c5c"
+        ],
+        "submitter_slide_ids": [
+          "TCGA-CN-6013-01A-01-TS1",
+          "TCGA-CN-6013-01Z-00-DX1",
+          "TCGA-CN-6013-01A-01-BS1"
+        ],
+        "disease_type": "Squamous Cell Neoplasms",
+        "analyte_ids": [
+          "8a90c5f9-c866-4109-8058-b7da2ae79d4a",
+          "3eeca312-02c3-4e20-898d-04e3b8aa0aad",
+          "1b1ac5e8-63e9-4f9f-9231-00e0f91ae576",
+          "016a6a0b-6d11-4074-a8b4-98c74599a586",
+          "17b12617-8570-4d5f-85d6-39dc5a47dca6"
+        ],
+        "submitter_id": "TCGA-CN-6013",
+        "submitter_analyte_ids": [
+          "TCGA-CN-6013-01A-11R",
+          "TCGA-CN-6013-01A-11W",
+          "TCGA-CN-6013-10A-01W",
+          "TCGA-CN-6013-10A-01D",
+          "TCGA-CN-6013-01A-11D"
+        ],
+        "submitter_aliquot_ids": [
+          "TCGA-CN-6013-10A-01D-1683-08",
+          "TCGA-CN-6013-01A-11W-1767-08",
+          "TCGA-CN-6013-01A-11D-1681-02",
+          "TCGA-CN-6013-01A-11D-1683-08",
+          "TCGA-CN-6013-01A-11D-1684-05",
+          "TCGA-CN-6013-10A-01D-1681-02",
+          "TCGA-CN-6013-01A-11R-1685-13",
+          "TCGA-CN-6013-10A-01D-1682-01",
+          "TCGA-CN-6013-01A-11R-1686-07",
+          "TCGA-CN-6013-01A-11D-1682-01",
+          "TCGA-CN-6013-10A-01W-1767-08"
+        ],
+        "aliquot_ids": [
+          "e4a0cd96-81aa-41c8-b32c-1b6c57a08679",
+          "992de9b5-c394-48e7-b4e3-4c4aeacb4a23",
+          "0f8d7f78-2640-444d-a068-a348f50cde8f",
+          "2de7dbc6-2a3e-4e67-bb96-552e27137618",
+          "e996c35e-3614-4258-b99e-0eb444398931",
+          "78c2da9e-3837-4098-b662-3c10d8b5d14e",
+          "157aba21-4c81-45b9-914c-925813c537f6",
+          "762ca7da-6d6e-4709-b1aa-13621d962d35",
+          "1906f4b3-d226-4570-bbce-f2cbbb1d5ec2",
+          "9496355f-6aa6-4f6a-ac06-b17966b4208c",
+          "ffff755e-285f-466c-85c6-b372f4a7ae14"
+        ],
+        "created_datetime": null,
+        "diagnosis_ids": [
+          "7747a88f-1a9b-5833-9442-af0b1350bb4f"
+        ],
+        "sample_ids": [
+          "c0c84016-117e-498c-9ed9-52e279e89e33",
+          "d018cd44-6b01-44f2-9181-81153225aab8",
+          "8b510bc8-7b3c-4861-9a40-c2c30b7099e0"
+        ],
+        "submitter_sample_ids": [
+          "TCGA-CN-6013-10A",
+          "TCGA-CN-6013-01A",
+          "TCGA-CN-6013-01Z"
+        ],
+        "submitter_diagnosis_ids": [
+          "TCGA-CN-6013_diagnosis"
+        ],
+        "primary_site": "Gum",
+        "updated_datetime": "2019-08-06T14:25:25.511101-05:00",
+        "case_id": "714496c5-d221-4397-9c5a-cd2d22603e6f",
+        "portion_ids": [
+          "4add0374-495b-4d4c-b96b-8494600fea26",
+          "436822b9-08d5-493e-b213-b9b5dfc161e9",
+          "acdd7eae-c26c-46c9-9dca-036ed3317718"
+        ],
+        "state": "released",
+        "submitter_portion_ids": [
+          "TCGA-CN-6013-10A-01",
+          "TCGA-CN-6013-01A-11",
+          "TCGA-CN-6013-01A-13-2072-20"
+        ]
+      },
+      {
+        "id": "74f89bda-bc2a-4cd3-9aa3-f89aa7282dd5",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Myeloid Leukemias",
+        "submitter_id": "TARGET-20-PAUXKI",
+        "submitter_aliquot_ids": [
+          "TARGET-20-PAUXKI-09A-01R"
+        ],
+        "aliquot_ids": [
+          "192d5f48-ba11-44cf-91d5-5eec5daea281"
+        ],
+        "sample_ids": [
+          "22b9ad16-7791-4c41-a1c5-0392b4d4721c"
+        ],
+        "created_datetime": "2019-02-25T10:13:06.478422-06:00",
+        "diagnosis_ids": [
+          "2f7f2b8c-35fa-412f-894a-6c4b09cf8077"
+        ],
+        "submitter_sample_ids": [
+          "TARGET-20-PAUXKI-09A"
+        ],
+        "primary_site": "Hematopoietic and reticuloendothelial systems",
+        "submitter_diagnosis_ids": [
+          "TARGET-20-PAUXKI_diagnosis"
+        ],
+        "updated_datetime": "2019-10-24T08:22:10.208559-05:00",
+        "case_id": "74f89bda-bc2a-4cd3-9aa3-f89aa7282dd5",
+        "index_date": null,
+        "state": "released"
       }
     ],
     "pagination": {
       "count": 10,
-      "sort": "",
+      "total": 39092,
+      "size": 10,
       "from": 0,
+      "sort": "",
       "page": 1,
-      "total": 6340,
-      "pages": 634,
-      "size": 10
+      "pages": 3910
     }
   },
   "warnings": {}
@@ -1765,12 +1991,13 @@ response = requests.get(cases_endpt, params = params)
 print response.content
 ```
 ```response1
-submitter_id
-TCGA-RC-A6M6
-TCGA-B6-A0RV
-TCGA-MB-A5Y8
-TCGA-BQ-5876
-TCGA-Z6-A9VB
+id	submitter_id
+375436b3-66ac-4d5e-b495-18a96d812a69	TCGA-F5-6810
+74543fa4-ce73-46e4-9c59-224e8242b4a2	TCGA-AG-A01W
+f8970455-bfb2-4b1d-ab71-3c5d619898ad	TCGA-ZN-A9VQ
+c739fd61-22b2-412d-bcf3-89bda45a2c0f	TCGA-3H-AB3X
+340fef21-55d8-433f-b00a-51276b849356	TCGA-MQ-A4LI
+
 ```
 ```shell2
 curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&size=5&format=XML&pretty=true'
@@ -1791,29 +2018,34 @@ print response.content
 	<data>
 		<hits>
 			<item>
-				<submitter_id>TCGA-MQ-A4LV</submitter_id>
+				<id>375436b3-66ac-4d5e-b495-18a96d812a69</id>
+				<submitter_id>TCGA-F5-6810</submitter_id>
 			</item>
 			<item>
-				<submitter_id>TCGA-N9-A4Q1</submitter_id>
+				<id>74543fa4-ce73-46e4-9c59-224e8242b4a2</id>
+				<submitter_id>TCGA-AG-A01W</submitter_id>
 			</item>
 			<item>
-				<submitter_id>TCGA-78-7154</submitter_id>
+				<id>f8970455-bfb2-4b1d-ab71-3c5d619898ad</id>
+				<submitter_id>TCGA-ZN-A9VQ</submitter_id>
 			</item>
 			<item>
-				<submitter_id>TCGA-S7-A7WX</submitter_id>
+				<id>c739fd61-22b2-412d-bcf3-89bda45a2c0f</id>
+				<submitter_id>TCGA-3H-AB3X</submitter_id>
 			</item>
 			<item>
-				<submitter_id>TCGA-XF-AAML</submitter_id>
+				<id>340fef21-55d8-433f-b00a-51276b849356</id>
+				<submitter_id>TCGA-MQ-A4LI</submitter_id>
 			</item>
 		</hits>
 		<pagination>
 			<count>5</count>
-			<sort/>
-			<from>0</from>
-			<pages>2811</pages>
-			<total>14052</total>
-			<page>1</page>
+			<total>84392</total>
 			<size>5</size>
+			<from>0</from>
+			<sort/>
+			<page>1</page>
+			<pages>16879</pages>
 		</pagination>
 	</data>
 	<warnings/>
@@ -1830,7 +2062,7 @@ Returns when the `pretty` parameter is set to `true`, the API response is format
 curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5'
 ```
 ```Response1
-{"data": {"hits": [{"id": "f7af65fc-97e3-52ce-aa2c-b707650e747b", "submitter_id": "TARGET-00-NAAEMA"}, {"id": "513d0a2a-3c94-5a36-97a4-24c3656fc66e", "submitter_id": "TARGET-00-NAAEMB"}, {"id": "b5f20676-727b-50b0-9b5a-582cd8572d6d", "submitter_id": "TARGET-00-NAAEMC"}, {"id": "0c0b183f-0d4a-5a9d-9888-0617cebcc462", "submitter_id": "TARGET-20-PABGKN"}, {"id": "0f5ed7a7-226d-57bc-a4ce-8a6b18560c55", "submitter_id": "TARGET-20-PABHET"}], "pagination": {"count": 5, "sort": "submitter_id:asc", "from": 0, "page": 1, "total": 14551, "pages": 2911, "size": 5}}, "warnings": {}}
+{"data": {"hits": [{"id": "be37f1f7-2f98-4f74-bc04-6dd2ae2afcad", "submitter_id": "01BR001"}, {"id": "e6915db0-7c89-484d-8f9f-15cca68b82fc", "submitter_id": "01BR008"}, {"id": "16614d46-172b-479c-992b-e80a8e9a2c59", "submitter_id": "01BR009"}, {"id": "567fc9e3-17a6-42b1-a896-5e9a9507d1d8", "submitter_id": "01BR010"}, {"id": "54e89878-a1bc-4f5a-9d68-4842a469586e", "submitter_id": "01BR015"}], "pagination": {"count": 5, "total": 84392, "size": 5, "from": 0, "sort": "submitter_id:asc", "page": 1, "pages": 16879}}, "warnings": {}}
 ```
 ```Request2
 curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5&pretty=true'
@@ -1840,34 +2072,34 @@ curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:as
   "data": {
     "hits": [
       {
-        "id": "f7af65fc-97e3-52ce-aa2c-b707650e747b",
-        "submitter_id": "TARGET-00-NAAEMA"
+        "id": "be37f1f7-2f98-4f74-bc04-6dd2ae2afcad",
+        "submitter_id": "01BR001"
       },
       {
-        "id": "513d0a2a-3c94-5a36-97a4-24c3656fc66e",
-        "submitter_id": "TARGET-00-NAAEMB"
+        "id": "e6915db0-7c89-484d-8f9f-15cca68b82fc",
+        "submitter_id": "01BR008"
       },
       {
-        "id": "b5f20676-727b-50b0-9b5a-582cd8572d6d",
-        "submitter_id": "TARGET-00-NAAEMC"
+        "id": "16614d46-172b-479c-992b-e80a8e9a2c59",
+        "submitter_id": "01BR009"
       },
       {
-        "id": "0c0b183f-0d4a-5a9d-9888-0617cebcc462",
-        "submitter_id": "TARGET-20-PABGKN"
+        "id": "567fc9e3-17a6-42b1-a896-5e9a9507d1d8",
+        "submitter_id": "01BR010"
       },
       {
-        "id": "0f5ed7a7-226d-57bc-a4ce-8a6b18560c55",
-        "submitter_id": "TARGET-20-PABHET"
+        "id": "54e89878-a1bc-4f5a-9d68-4842a469586e",
+        "submitter_id": "01BR015"
       }
     ],
     "pagination": {
       "count": 5,
-      "sort": "submitter_id:asc",
+      "total": 84392,
+      "size": 5,
       "from": 0,
+      "sort": "submitter_id:asc",
       "page": 1,
-      "total": 14551,
-      "pages": 2911,
-      "size": 5
+      "pages": 16879
     }
   },
   "warnings": {}
@@ -1899,114 +2131,124 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "file_name": "NARKY_p_TCGAb69_SNP_N_GenomeWideSNP_6_H03_697832.grch38.seg.txt",
+        "id": "c2cefea6-74d4-4859-8fe2-822767d6f68d",
         "cases": [
           {
-            "submitter_id": "TCGA-BP-4989"
+            "submitter_id": "HCM-BROD-0003-C71"
           }
         ],
-        "file_id": "3bd4d5dc-563a-481c-87a6-ec0017d0d58a",
-        "file_size": 54200
+        "file_name": "30f53128-5def-4d1c-b203-9717e9cf4401_wxs_gdc_realn.bam",
+        "file_id": "c2cefea6-74d4-4859-8fe2-822767d6f68d",
+        "file_size": 35753708766
       },
       {
-        "file_name": "652ecf99-1af9-41fc-b0a5-d3e5c07a7b5d.FPKM.txt.gz",
+        "id": "070d2103-4350-477b-8bd7-ee529d9d24fb",
         "cases": [
           {
-            "submitter_id": "TCGA-60-2709"
+            "submitter_id": "HCM-CSHL-0142-C18"
           }
         ],
-        "file_id": "b3286166-01f9-4149-81b5-a2ea5f27c50e",
-        "file_size": 530665
+        "file_name": "ca5a3304-2af0-4a5f-9479-881918520921.wxs.varscan2.raw_somatic_mutation.vcf.gz",
+        "file_id": "070d2103-4350-477b-8bd7-ee529d9d24fb",
+        "file_size": 53177
       },
       {
-        "file_name": "CUSKS_p_TCGAb47_SNP_1N_GenomeWideSNP_6_D05_628212.nocnv_grch38.seg.txt",
+        "id": "9133f158-4bea-4036-b94a-60c25385ed36",
         "cases": [
           {
-            "submitter_id": "TCGA-A8-A07Z"
+            "submitter_id": "HCM-BROD-0028-C71"
           }
         ],
-        "file_id": "282cc9d1-c5e9-49ff-b27b-e00c1e5529c6",
-        "file_size": 15806
+        "file_name": "03203e90-6180-4994-bfc8-1521669a6a49.wxs.MuSE.somatic_annotation.vcf.gz",
+        "file_id": "9133f158-4bea-4036-b94a-60c25385ed36",
+        "file_size": 158597
       },
       {
-        "file_name": "REEDY_p_TCGAb65_SNP_N_GenomeWideSNP_6_F01_697686.nocnv_grch38.seg.txt",
+        "id": "22a04866-c605-4b2d-a48e-816058028c6f",
         "cases": [
           {
-            "submitter_id": "TCGA-CJ-4871"
+            "submitter_id": "HCM-BROD-0002-C71"
           }
         ],
-        "file_id": "fe44a644-eefc-42c5-aac7-a216bc1e88e1",
-        "file_size": 6179
+        "file_name": "07d8e937-79e3-4fac-83c1-2e67e7a6ae14.wxs.MuSE.aliquot.maf.gz",
+        "file_id": "22a04866-c605-4b2d-a48e-816058028c6f",
+        "file_size": 125050
       },
       {
-        "file_name": "84df7a8fee9fedb5e8e22849ec66d294_gdc_realn.bam",
+        "id": "2843fe16-b371-44a9-b9ab-1a93c26d24db",
         "cases": [
           {
-            "submitter_id": "TCGA-A2-A0CO"
+            "submitter_id": "HCM-CSHL-0366-C50"
           }
         ],
-        "file_id": "acd0ec73-c1fe-463e-912c-84e8416510e5",
-        "file_size": 15545555724
+        "file_name": "43f4ba37-92ed-4d30-86f5-e1eeb0109d9a.wgs.sanger_raw_pindel.raw_somatic_mutation.vcf.gz",
+        "file_id": "2843fe16-b371-44a9-b9ab-1a93c26d24db",
+        "file_size": 62812030
       },
       {
-        "file_name": "ed8c4bb6-891a-4cf2-80ba-42c5594760d0.vcf",
+        "id": "aea93c80-0551-459e-8408-6d16148a7210",
         "cases": [
           {
-            "submitter_id": "TCGA-BQ-7059"
+            "submitter_id": "HCM-CSHL-0461-D12"
           }
         ],
-        "file_id": "ed8c4bb6-891a-4cf2-80ba-42c5594760d0",
-        "file_size": 264694
+        "file_name": "c45b5b42-acfb-457c-9244-2e70368c29c5.FPKM-UQ.txt.gz",
+        "file_id": "aea93c80-0551-459e-8408-6d16148a7210",
+        "file_size": 406727
       },
       {
-        "file_name": "nationwidechildrens.org_clinical.TCGA-IG-A6QS.xml",
+        "id": "d46795b7-2166-44af-97a9-c825585878d3",
         "cases": [
           {
-            "submitter_id": "TCGA-IG-A6QS"
+            "submitter_id": "HCM-CSHL-0248-C19"
           }
         ],
-        "file_id": "fe8cf009-f033-4536-95c7-836adcba5bf3",
-        "file_size": 36996
+        "file_name": "e837ac90-f482-454f-a1e0-f16cea1d9f95.wgs.CaVEMan.raw_somatic_mutation.vcf.gz",
+        "file_id": "d46795b7-2166-44af-97a9-c825585878d3",
+        "file_size": 2658954
       },
       {
-        "file_name": "05f6f9f7-6fb7-4c95-b79c-fdfaba16539d.vep.reheader.vcf.gz",
+        "id": "7ba38c35-6491-48f7-811f-336b8487021f",
         "cases": [
           {
-            "submitter_id": "TCGA-DK-A3IV"
+            "submitter_id": "HCM-CSHL-0057-C18"
           }
         ],
-        "file_id": "05f6f9f7-6fb7-4c95-b79c-fdfaba16539d",
-        "file_size": 415044
+        "file_name": "9720b990-3ff4-4cb9-a900-ad57da72cff4.FPKM.txt.gz",
+        "file_id": "7ba38c35-6491-48f7-811f-336b8487021f",
+        "file_size": 358324
       },
       {
-        "file_name": "C484.TCGA-12-5301-01A-01D-1486-08.7_gdc_realn.bam",
+        "id": "3565c301-a03c-4334-9e06-3bb01f92c3f0",
         "cases": [
           {
-            "submitter_id": "TCGA-12-5301"
+            "submitter_id": "HCM-BROD-0002-C71"
           }
         ],
-        "file_id": "3b0293c2-4a26-428c-b097-9489f23a2a2d",
-        "file_size": 23661175335
+        "file_name": "52f32e5d-d56d-4e54-b962-9a0ed377afd3.wgs.BRASS.raw_structural_variation.bedpe.gz",
+        "file_id": "3565c301-a03c-4334-9e06-3bb01f92c3f0",
+        "file_size": 9715
       },
       {
-        "file_name": "75a36e71-400d-46a5-93b0-7813cf0595ea.FPKM.txt.gz",
+        "id": "2fe7b061-48d7-45af-b435-84919ce68e47",
         "cases": [
           {
-            "submitter_id": "TCGA-BF-A5EO"
+            "submitter_id": "HCM-BROD-0012-C71"
           }
         ],
-        "file_id": "28f763c7-8064-4151-ae0e-31e70cd9bfe8",
-        "file_size": 488422
+        "file_name": "53984f05-821c-492a-8a0b-6e2c0b340e92.rna_seq.star_splice_junctions.tsv.gz",
+        "file_id": "2fe7b061-48d7-45af-b435-84919ce68e47",
+        "file_size": 2865433
       }
     ],
     "pagination": {
       "count": 10,
-      "sort": "",
+      "total": 596758,
+      "size": 10,
       "from": 0,
+      "sort": "",
       "page": 1,
-      "total": 216435,
-      "pages": 21644,
-      "size": 10
+      "pages": 59676
     }
   },
   "warnings": {}
@@ -2022,62 +2264,63 @@ The `expand` parameter provides a shortcut to request multiple related fields (f
 ```Shell
 curl 'https://api.gdc.cancer.gov/files/ac2ddebd-5e5e-4aea-a430-5a87c6d9c878?expand=cases.samples&pretty=true'
 ```
-```
+```Response
 {
   "data": {
-    "data_type": "Aligned Reads",
-    "updated_datetime": "2016-09-18T04:25:13.163601-05:00",
-    "created_datetime": "2016-05-26T18:55:53.506549-05:00",
-    "file_name": "000aa811c15656604161e8f0e3a0aae4_gdc_realn.bam",
-    "md5sum": "200475f5f6e42520204e5f6aadfe954f",
     "data_format": "BAM",
-    "acl": [
-      "phs000178"
-    ],
-    "access": "controlled",
-    "platform": "Illumina",
-    "state": "submitted",
-    "file_id": "ac2ddebd-5e5e-4aea-a430-5a87c6d9c878",
-    "data_category": "Raw Sequencing Data",
-    "file_size": 12667634731,
     "cases": [
       {
         "samples": [
           {
             "sample_type_id": "11",
-            "updated_datetime": "2016-09-08T11:00:45.021005-05:00",
-            "time_between_excision_and_freezing": null,
-            "oct_embedded": "false",
-            "tumor_code_id": null,
-            "submitter_id": "TCGA-QQ-A5VA-11A",
-            "intermediate_dimension": null,
-            "sample_id": "b4e7558d-898e-4d68-a897-381edde0bbcc",
-            "is_ffpe": false,
-            "pathology_report_uuid": null,
-            "created_datetime": null,
             "tumor_descriptor": null,
+            "sample_id": "b4e7558d-898e-4d68-a897-381edde0bbcc",
             "sample_type": "Solid Tissue Normal",
-            "state": null,
-            "current_weight": null,
-            "composition": null,
-            "time_between_clamping_and_freezing": null,
-            "shortest_dimension": null,
+            "created_datetime": null,
             "tumor_code": null,
-            "tissue_type": null,
-            "days_to_sample_procurement": null,
-            "freezing_method": null,
-            "preservation_method": null,
+            "time_between_excision_and_freezing": null,
+            "composition": null,
+            "updated_datetime": "2018-11-15T21:38:54.195821-06:00",
             "days_to_collection": 5980,
+            "state": "released",
             "initial_weight": 810.0,
-            "longest_dimension": null
+            "preservation_method": null,
+            "intermediate_dimension": null,
+            "time_between_clamping_and_freezing": null,
+            "freezing_method": null,
+            "pathology_report_uuid": null,
+            "submitter_id": "TCGA-QQ-A5VA-11A",
+            "tumor_code_id": null,
+            "shortest_dimension": null,
+            "oct_embedded": "false",
+            "days_to_sample_procurement": null,
+            "longest_dimension": null,
+            "current_weight": null,
+            "is_ffpe": false,
+            "tissue_type": "Not Reported"
           }
         ]
       }
     ],
+    "access": "controlled",
+    "file_name": "000aa811c15656604161e8f0e3a0aae4_gdc_realn.bam",
     "submitter_id": "32872121-d38a-4128-b96a-698a6f18f29d",
+    "data_category": "Sequencing Reads",
+    "acl": [
+      "phs000178"
+    ],
     "type": "aligned_reads",
-    "file_state": "processed",
-    "experimental_strategy": "WXS"
+    "platform": "Illumina",
+    "created_datetime": "2016-05-26T18:55:53.506549-05:00",
+    "file_size": 12667634731,
+    "md5sum": "200475f5f6e42520204e5f6aadfe954f",
+    "updated_datetime": "2018-11-15T21:38:44.655215-06:00",
+    "file_id": "ac2ddebd-5e5e-4aea-a430-5a87c6d9c878",
+    "data_type": "Aligned Reads",
+    "state": "released",
+    "experimental_strategy": "WXS",
+    "version": "1",
+    "data_release": "12.0 - 27.0"
   },
   "warnings": {}
 }
@@ -2114,20 +2357,22 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "file_name": "unc.edu.276a1e00-cf3a-4463-a97b-d544381219ea.2363081.rsem.isoforms.normalized_results"
+        "id": "c2cefea6-74d4-4859-8fe2-822767d6f68d",
+        "file_name": "30f53128-5def-4d1c-b203-9717e9cf4401_wxs_gdc_realn.bam"
       },
       {
-        "file_name": "nationwidechildrens.org_clinical.TCGA-EY-A5W2.xml"
+        "id": "070d2103-4350-477b-8bd7-ee529d9d24fb",
+        "file_name": "ca5a3304-2af0-4a5f-9479-881918520921.wxs.varscan2.raw_somatic_mutation.vcf.gz"
       }
     ],
     "pagination": {
       "count": 2,
-      "sort": "",
+      "total": 596758,
+      "size": 2,
       "from": 0,
-      "pages": 300936,
-      "total": 601872,
+      "sort": "",
       "page": 1,
-      "size": 2
+      "pages": 298379
     }
   },
   "warnings": {}
@@ -2151,34 +2396,34 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "file_name": "OCULI_p_TCGA_159_160_SNP_N_GenomeWideSNP_6_E09_831242.grch38.seg.txt",
-        "id": "1d959137-d8e6-4336-b357-8ab9c88eeca8"
+        "id": "79c5e6ab-7d33-48fb-8ad3-1a353f1aa8a0",
+        "file_name": "bded93b7-da8b-467a-b301-bc0533780b7b.wxs.VarScan2.aliquot.maf.gz"
       },
       {
-        "file_name": "jhu-usc.edu_SKCM.HumanMethylation450.3.lvl-3.TCGA-EE-A3JI-06A-11D-A21B-05.gdc_hg38.txt",
-        "id": "9c02ec95-4aa3-4112-8823-c0fa87f71773"
+        "id": "b8b730aa-6f8f-4c7c-ad64-d69f49df56a3",
+        "file_name": "5b930358-2132-4c5d-874c-9b94656dcf3b_gdc_realn.bam"
       },
       {
-        "file_name": "jhu-usc.edu_LAML.HumanMethylation450.2.lvl-3.TCGA-AB-3002-03A-01D-0742-05.gdc_hg38.txt",
-        "id": "731c3560-bcef-4ebf-bfbc-7320399a5bcb"
+        "id": "bd912d6c-7325-4e90-ab1d-c3a4880f1e84",
+        "file_name": "8a737363-742f-40df-ab4e-9a0bdd3adeed.wxs.varscan2.raw_somatic_mutation.vcf.gz"
       },
       {
-        "file_name": "CUSKS_p_TCGAb47_SNP_1N_GenomeWideSNP_6_B03_628222.grch38.seg.txt",
-        "id": "a6f73a3e-faf8-49d9-9b68-77781bd302df"
+        "id": "a11d6196-7f01-4c62-8808-0a627250c59c",
+        "file_name": "4a030c3f-79e0-4737-92ad-59ba5af89977.wxs.aliquot_ensemble_raw.maf.gz"
       },
       {
-        "file_name": "5496e9f1-a383-4874-95bb-f4d1b33f4594.vcf",
-        "id": "5496e9f1-a383-4874-95bb-f4d1b33f4594"
+        "id": "6fc778a7-6c7d-4aba-b1e4-36c2bb752216",
+        "file_name": "2d9f75a7-95fd-418f-9c48-ae981b6853f1.star_fusion.rna_fusion.bedpe"
       }
     ],
     "pagination": {
       "count": 5,
-      "sort": "",
+      "total": 596758,
+      "size": 5,
       "from": 101,
+      "sort": "",
       "page": 21,
-      "total": 274724,
-      "pages": 54945,
-      "size": 5
+      "pages": 119352
     }
   },
   "warnings": {}
@@ -2212,54 +2457,54 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "id": "f7af65fc-97e3-52ce-aa2c-b707650e747b",
-        "submitter_id": "TARGET-00-NAAEMA"
+        "id": "be37f1f7-2f98-4f74-bc04-6dd2ae2afcad",
+        "submitter_id": "01BR001"
       },
       {
-        "id": "513d0a2a-3c94-5a36-97a4-24c3656fc66e",
-        "submitter_id": "TARGET-00-NAAEMB"
+        "id": "e6915db0-7c89-484d-8f9f-15cca68b82fc",
+        "submitter_id": "01BR008"
       },
       {
-        "id": "b5f20676-727b-50b0-9b5a-582cd8572d6d",
-        "submitter_id": "TARGET-00-NAAEMC"
+        "id": "16614d46-172b-479c-992b-e80a8e9a2c59",
+        "submitter_id": "01BR009"
       },
       {
-        "id": "0c0b183f-0d4a-5a9d-9888-0617cebcc462",
-        "submitter_id": "TARGET-20-PABGKN"
+        "id": "567fc9e3-17a6-42b1-a896-5e9a9507d1d8",
+        "submitter_id": "01BR010"
       },
       {
-        "id": "0f5ed7a7-226d-57bc-a4ce-8a6b18560c55",
-        "submitter_id": "TARGET-20-PABHET"
+        "id": "54e89878-a1bc-4f5a-9d68-4842a469586e",
+        "submitter_id": "01BR015"
       },
       {
-        "id": "b2a560a4-5e52-5d78-90ef-d680fbaf44d0",
-        "submitter_id": "TARGET-20-PABHKY"
+        "id": "a1c7b7b9-b8c8-48c3-9420-55497f9318fd",
+        "submitter_id": "01BR017"
       },
       {
-        "id": "1e5c8323-383d-51a0-9199-1b9504b29c7e",
-        "submitter_id": "TARGET-20-PABLDZ"
+        "id": "ce3c8b98-e275-4cfd-a379-940d675a564b",
+        "submitter_id": "01BR018"
       },
       {
-        "id": "c550a267-30bd-5bf3-9699-61341559e0d5",
-        "submitter_id": "TARGET-20-PACDZR"
+        "id": "e4ce89ef-bcaa-418a-8a6b-3602793b9bbf",
+        "submitter_id": "01BR020"
       },
       {
-        "id": "0fe29a81-74fc-5158-ae13-0437bc272805",
-        "submitter_id": "TARGET-20-PACEGD"
+        "id": "19d3c861-8a5f-49a2-acc0-b55b25465c35",
+        "submitter_id": "01BR023"
       },
       {
-        "id": "dd2b23ec-46f4-56b2-9429-6015c6dc730f",
-        "submitter_id": "TARGET-20-PADDXZ"
+        "id": "afae8dce-294a-4108-bb28-376f804ae5c4",
+        "submitter_id": "01BR025"
       }
     ],
     "pagination": {
       "count": 10,
-      "sort": "submitter_id:asc",
+      "total": 84392,
+      "size": 10,
       "from": 0,
+      "sort": "submitter_id:asc",
       "page": 1,
-      "total": 14551,
-      "pages": 1456,
-      "size": 10
+      "pages": 8440
     }
   },
   "warnings": {}
@@ -2295,29 +2540,85 @@ print json.dumps(response.json(), indent=2)
 ```Response
 {
   "data": {
-    "pagination": {
-      "count": 0,
-      "sort": "program.name:asc",
-      "from": 0,
-      "page": 1,
-      "total": 39,
-      "pages": 39,
-      "size": 0
-    },
     "hits": [],
     "aggregations": {
       "program.name": {
         "buckets": [
           {
-            "key": "TCGA",
-            "doc_count": 33
+            "doc_count": 33,
+            "key": "TCGA"
           },
           {
-            "key": "TARGET",
-            "doc_count": 6
+            "doc_count": 9,
+            "key": "TARGET"
+          },
+          {
+            "doc_count": 8,
+            "key": "GENIE"
+          },
+          {
+            "doc_count": 2,
+            "key": "BEATAML1.0"
+          },
+          {
+            "doc_count": 2,
+            "key": "CGCI"
+          },
+          {
+            "doc_count": 2,
+            "key": "CMI"
+          },
+          {
+            "doc_count": 2,
+            "key": "CPTAC"
+          },
+          {
+            "doc_count": 1,
+            "key": "CTSP"
+          },
+          {
+            "doc_count": 1,
+            "key": "FM"
+          },
+          {
+            "doc_count": 1,
+            "key": "HCMI"
+          },
+          {
+            "doc_count": 1,
+            "key": "MMRF"
+          },
+          {
+            "doc_count": 1,
+            "key": "NCICCR"
+          },
+          {
+            "doc_count": 1,
+            "key": "OHSU"
+          },
+          {
+            "doc_count": 1,
+            "key": "ORGANOID"
+          },
+          {
+            "doc_count": 1,
+            "key": "VAREPOP"
+          },
+          {
+            "doc_count": 1,
+            "key": "WCDT"
           }
         ]
       }
+    },
+    "pagination": {
+      "count": 0,
+      "total": 67,
+      "size": 0,
+      "from": 0,
+      "sort": "program.name:asc",
+      "page": 1,
+      "pages": 67
     }
   },
   "warnings": {}
@@ -2520,69 +2821,7 @@ The GDC Portal has a quicksearch functionality that allows for a project, case, 
 curl "https://api.gdc.cancer.gov/v0/all?query=TCGA&size=5"
 ```
 ```Response
-{
-  "data": {
-    "query": {
-      "hits": [
-        {
-          "disease_type": [
-            "Esophageal Carcinoma"
-          ],
-          "id": "UHJvamVjdDpUQ0dBLUVTQ0E=",
-          "name": "Esophageal Carcinoma",
-          "primary_site": [
-            "Esophagus"
-          ],
-          "project_id": "TCGA-ESCA"
-        },
-        {
-          "disease_type": [
-            "Head and Neck Squamous Cell Carcinoma"
-          ],
-          "id": "UHJvamVjdDpUQ0dBLUhOU0M=",
-          "name": "Head and Neck Squamous Cell Carcinoma",
-          "primary_site": [
-            "Head and Neck"
-          ],
-          "project_id": "TCGA-HNSC"
-        },
-        {
-          "disease_type": [
-            "Liver Hepatocellular Carcinoma"
-          ],
-          "id": "UHJvamVjdDpUQ0dBLUxJSEM=",
-          "name": "Liver Hepatocellular Carcinoma",
-          "primary_site": [
-            "Liver"
-          ],
-          "project_id": "TCGA-LIHC"
-        },
-        {
-          "disease_type": [
-            "Colon Adenocarcinoma"
-          ],
-          "id": "UHJvamVjdDpUQ0dBLUNPQUQ=",
-          "name": "Colon Adenocarcinoma",
-          "primary_site": [
-            "Colorectal"
-          ],
-          "project_id": "TCGA-COAD"
-        },
-        {
-          "disease_type": [
-            "Adrenocortical Carcinoma"
-          ],
-          "id": "UHJvamVjdDpUQ0dBLUFDQw==",
-          "name": "Adrenocortical Carcinoma",
-          "primary_site": [
-            "Adrenal Gland"
-          ],
-          "project_id": "TCGA-ACC"
-        }
-      ]
-    }
-  }
-}
+{"data":{"query":{"hits":[{"disease_type":["Gliomas"],"id":"UHJvamVjdDpUQ0dBLUxHRw==","name":"Brain Lower Grade Glioma","primary_site":["Brain"],"project_id":"TCGA-LGG","project_quicksearch":"Brain Lower Grade Glioma"},{"disease_type":["Myeloid Leukemias"],"id":"UHJvamVjdDpUQ0dBLUxBTUw=","name":"Acute Myeloid Leukemia","primary_site":["Hematopoietic and reticuloendothelial systems"],"project_id":"TCGA-LAML","project_quicksearch":"Acute Myeloid Leukemia"},{"disease_type":["Adenomas and Adenocarcinomas"],"id":"UHJvamVjdDpUQ0dBLUtJUkM=","name":"Kidney Renal Clear Cell Carcinoma","primary_site":["Kidney"],"project_id":"TCGA-KIRC","project_quicksearch":"Kidney Renal Clear Cell Carcinoma"},{"disease_type":["Complex Mixed and Stromal Neoplasms"],"id":"UHJvamVjdDpUQ0dBLVVDUw==","name":"Uterine Carcinosarcoma","primary_site":["Uterus, NOS"],"project_id":"TCGA-UCS","project_quicksearch":"Uterine Carcinosarcoma"},{"disease_type":["Germ Cell Neoplasms"],"id":"UHJvamVjdDpUQ0dBLVRHQ1Q=","name":"Testicular Germ Cell Tumors","primary_site":["Testis"],"project_id":"TCGA-TGCT","project_quicksearch":"Testicular Germ Cell Tumors"}],"total":195221}}}
 ```
 
 This endpoint can be used to quickly retrieve information about a file.  For example, if a user wanted to know the UUID for `nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml`, the following query could be used to quickly retrieve it programmatically:
@@ -2591,20 +2830,7 @@ This endpoint can be used to quickly retrieve information about a file.  For exa
 curl "https://api.gdc.cancer.gov/v0/all?query=nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml&size=5"
 ```
 ```Response
-{
-  "data": {
-    "query": {
-      "hits": [
-        {
-          "file_id": "2a7a354b-e497-4ae6-8a85-a170951596c1",
-          "file_name": "nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml",
-          "id": "RmlsZToyYTdhMzU0Yi1lNDk3LTRhZTYtOGE4NS1hMTcwOTUxNTk2YzE=",
-          "submitter_id": null
-        }
-      ]
-    }
-  }
-}
+{"data":{"query":{"hits":[{"file_id":"a74abfec-db78-4ed4-9e4b-604b66e30e30","file_name":"nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml","id":"RmlsZTphNzRhYmZlYy1kYjc4LTRlZDQtOWU0Yi02MDRiNjZlMzBlMzA=","submitter_id":"nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml"}],"total":1}}}
 ```
 
 ## Additional Examples
