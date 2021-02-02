@@ -44,7 +44,7 @@
 
 1.  New Project: CMI-MPC - Count Me In - The Metastatic Prostate Cancer Project
     * WXS alignments and variant calls (VCFs) are available.
-2.  New Data Type: scRNA-Seq data is now available for 18 CPTAC-3 cases. Includes the following data types.
+2.  New Data Type: Single nuclei (snRNA-Seq) data is now available for 18 CPTAC-3 cases. See the [RNA-Seq](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#scrna-seq-pipeline) documentation for details.
 3.  CPTAC-3
     * Data files for 147 new cases from the pancreatic cohort are now available.
     * CPTAC-3 open-access somatic mutations are now browsable through the GDC Exploration Portal.
