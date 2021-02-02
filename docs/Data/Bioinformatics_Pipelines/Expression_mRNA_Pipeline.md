@@ -254,6 +254,26 @@ The prediction file provides fused gene names, junction read count and breakpoin
 The [Arriba gene fusion pipeline](https://github.com/suhrig/arriba) uses Arriba v1.1.0 to detect gene fusions from the RNA-Seq data of tumor samples.
 
 
+## scRNA-Seq Pipeline
+
+The GDC processes single-cell RNA-Seq (scRNA-Seq) data using the [Cell Ranger pipeline](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger) to calculate gene expression followed by [Seurat](https://satijalab.org/seurat/) for secondary expression analysis.  
+
+### scRNA Gene Expression Pipeline
+
+The gene expression pipeline, which uses Cell Ranger, generates three files:
+* Aligned reads file (BAM)
+* Raw counts matrix - contains all barcodes in [Market Exchange Format](https://math.nist.gov/MatrixMarket/formats.html) (MEX)
+* Filtered counts matrix - contains only detected cellular barcodes  (MEX)
+
+### scRNA Analysis Pipeline
+
+The analysis pipeline, which uses the Seurat software, generates three files from an input of Filtered counts matrix:
+* Analysis - PCA, UMAP, tSNE values, and graph-based clustering results with associated metadata (TSV)
+* Differential gene expression (TSV) - DEG information comparing cells from one cluster to the rest of the cells.
+* Full Seurat analysis log as a loom object in [HDF5](https://support.hdfgroup.org/HDF5/) format.
+
+When the input RNA was extracted from nuclei instead of cytoplasm, a slightly modified quantification method is implemented to include introns. Currently, these single-nuclei RNA-Seq (snRNA-Seq) analyses share the same experimental strategy (scRNA-Seq) in the Data Portal, and can be filtered by querying for aliquot.analyte_type = "Nuclei RNA". 
+
 ## File Access and Availability
 
 To facilitate the use of harmonized data in user-created pipelines, RNA-Seq gene expression is accessible in the GDC Data Portal at several intermediate steps in the pipeline. Below is a description of each type of file available for download in the GDC Data Portal.   
