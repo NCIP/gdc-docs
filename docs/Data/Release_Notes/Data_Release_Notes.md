@@ -61,7 +61,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Bugs Fixed Since Last Release
 
-*  Pathology detail metadata now appears when queried through the GDC API.
+*  None
 
 ### Known Issues and Workarounds
 
