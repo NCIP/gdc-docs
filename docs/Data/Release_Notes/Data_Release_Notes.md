@@ -65,6 +65,10 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Known Issues and Workarounds
 
+* The RNA-Seq data files for the seven normal pancreatic cases in CPTAC-3 do not appear in the Data Portal. See below for download instructions.
+    - [This manifest](CPTAC-3_7CasesRNASeq_GDC-Manifest.txt) can be used to download the files.  
+    - To download the alignments or splice-junction files, dbGaP access to CPTAC-3 (phs001287) is required.  The other gene expression files are open-access.
+    - The seven cases are as follows: C3L-03513, C3L-07032, C3L-07033, C3L-07034, C3L-07035, C3L-07036, C3L-07037. The case the each file is associated with is denoted in the manifest.
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
