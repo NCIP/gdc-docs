@@ -2,10 +2,7 @@ import requests
 import json
 import re
 
-'''
- This script will not work until $TOKEN_FILE_PATH
- is replaced with an actual path.
-'''
+# This script will not work until $TOKEN_FILE_PATH  is replaced with an actual path.
 
 with open("$TOKEN_FILE_PATH","r") as token:
     token_string = str(token.read().strip())

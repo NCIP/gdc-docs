@@ -103,12 +103,12 @@ All API requests that require authentication must include a token as an `X-Auth-
 
 In the following example, an authentication token is saved as an environment variable and passed to `curl` to download a controlled-access file:
 
-``` shell
+```Shell
 token=$(cat <gdc-token-text-file.txt>)
 
 curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
 ```
-```Output
+```Shell Output
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 31.4M  100 31.4M    0     0   290k      0  0:01:50  0:01:50 --:--:--  172k
@@ -146,7 +146,7 @@ file_name = re.findall("filename=(.+)", response_head_cd)[0]
 with open(file_name, "wb") as output_file:
     output_file.write(response.content)
 ```
-[Download Script](scripts/Authentication_Tokens.py)
+[Download Python Script](scripts/Authentication_Tokens.py)
 
 
 For more information about authentication tokens, including token expiration and rotation, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
