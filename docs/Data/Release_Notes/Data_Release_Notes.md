@@ -65,6 +65,10 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Known Issues and Workarounds
 
+* The aggregated and masked MAF files for seven pancreatic cases in CPTAC-3 do not appear in the Data Portal. See below for download instructions.
+    - [This manifest](CPTAC-3_7Cases-WXS-MAFs_GDC-Manifest.txt) can be used to download the files.  
+    - To download the raw aggregated MAF files, dbGaP access to CPTAC-3 (phs001287) is required.  The masked MAF files are open-access.
+    - The seven cases are as follows: C3L-04027, C3L-04080, C3N-02585, C3N-02768, C3N-02971, C3N-03754, and C3N-03839. The case the each file is associated with is denoted in the manifest.
 * The RNA-Seq data files for the seven normal pancreatic cases in CPTAC-3 do not appear in the Data Portal. See below for download instructions.
     - [This manifest](CPTAC-3_7CasesRNASeq_GDC-Manifest.txt) can be used to download the files.  
     - To download the alignments or splice-junction files, dbGaP access to CPTAC-3 (phs001287) is required.  The other gene expression files are open-access.
