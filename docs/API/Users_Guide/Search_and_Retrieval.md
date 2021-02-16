@@ -94,44 +94,60 @@ The `projects` endpoint provides access to project records, the highest level of
 This example is a query for projects contained in the GDC. It uses the [from](#from), [size](#size), [sort](#sort), and [pretty](#pretty) parameters, and returns the first two projects sorted by project id.
 
 ```shell
-curl 'https://api.gdc.cancer.gov/projects?from=0&size=2&sort=project.project_id:asc&pretty=true'
+curl 'https://api.gdc.cancer.gov/projects?from=0&size=2&sort=project_id:asc&pretty=true'
 ```
 ``` Output
 {
   "data": {
-    "hits": []
+    "hits": [
+      {
+        "id": "BEATAML1.0-COHORT",
+        "primary_site": [
+          "Hematopoietic and reticuloendothelial systems"
+        ],
+        "dbgap_accession_number": "phs001657",
+        "project_id": "BEATAML1.0-COHORT",
+        "disease_type": [
+          "Chronic Myeloproliferative Disorders",
+          "Unknown",
+          "Plasma Cell Tumors",
+          "Myelodysplastic Syndromes",
+          "Myeloid Leukemias",
+          "Leukemias, NOS"
+        ],
+        "releasable": true,
+        "name": "Functional Genomic Landscape of Acute Myeloid Leukemia",
+        "state": "open",
+        "released": true
+      },
+      {
+        "id": "BEATAML1.0-CRENOLANIB",
+        "primary_site": [
+          "Hematopoietic and reticuloendothelial systems"
+        ],
+        "dbgap_accession_number": "phs001628",
+        "project_id": "BEATAML1.0-CRENOLANIB",
+        "disease_type": [
+          "Myeloid Leukemias"
+        ],
+        "releasable": false,
+        "name": "Clinical Resistance to Crenolanib in Acute Myeloid Leukemia Due to Diverse Molecular Mechanisms",
+        "state": "open",
+        "released": true
+      }
+    ],
+    "pagination": {
+      "count": 2,
+      "total": 68,
+      "size": 2,
+      "from": 0,
+      "sort": "project_id:asc",
+      "page": 1,
+      "pages": 34
+    }
   },
-  "warnings": {},
-  "error": {
-    "error": {
-      "root_cause": [
-        {
-          "type": "query_shard_exception",
-          "reason": "No mapping found for [project.project_id] in order to sort on",
-          "index_uuid": "2TDcRHhNSTCrhxh2ckMAPA",
-          "index": "dr27_active_v12_project"
-        }
-      ],
-      "type": "search_phase_execution_exception",
-      "reason": "all shards failed",
-      "phase": "query",
-      "grouped": true,
-      "failed_shards": [
-        {
-          "shard": 0,
-          "index": "dr27_active_v12_project",
-          "node": "QWhSZf3zSpyf5JmruTtvyQ",
-          "reason": {
-            "type": "query_shard_exception",
-            "reason": "No mapping found for [project.project_id] in order to sort on",
-            "index_uuid": "2TDcRHhNSTCrhxh2ckMAPA",
-            "index": "dr27_active_v12_project"
-          }
-        }
-      ]
-    },
-    "status": 400
-  }
+  "warnings": {}
+}
 ```
 
 #### Retrieval of project metadata using project_id
