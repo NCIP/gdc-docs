@@ -31,7 +31,7 @@ Using external standards benefits both data contributors and data consumers at t
 The [GDC Data Dictionary Viewer](viewer.md) is a user-friendly interface for accessing the dictionary. It includes the following functionality:
 
 *   __Dictionary contents:__ Display of entities defined in the dictionary, including their descriptions, values or types, and links.
-*   __Links to semantic resources:__ Links to semantic data resources that define [Common Data Elements (CDEs)](http://cde.nih.gov) used in the dictionary
+*   __Links to semantic resources:__ Links to semantic data resources that define [Common Data Elements (CDEs)](https://cde.nlm.nih.gov/home) used in the dictionary
 *   __Submission templates:__ JSON and TSV template generation for use in GDC data submission.
 
 ### Components of the Data Dictionary Viewer

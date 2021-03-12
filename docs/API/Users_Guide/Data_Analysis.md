@@ -1379,7 +1379,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
 ```
 ### Survival Analysis Endpoint
 
-[Survival plots](/Data_Portal/Projects/#Survival-Analysis) are generated for different subsets of data, based on variants or projects, in the GDC Data Portal. The `/analysis/survival` endpoint can be used to programmatically retrieve the raw data used to generate these plots and apply different filters. Note that the `fields` and `format` parameters cannot be modified.
+[Survival plots](/Data_Portal/Users_Guide/Exploration/#survival-analysis) are generated for different subsets of data, based on variants or projects, in the GDC Data Portal. The `/analysis/survival` endpoint can be used to programmatically retrieve the raw data used to generate these plots and apply different filters. Note that the `fields` and `format` parameters cannot be modified.
 
  __Example 1:__ A user wants to download data to generate a survival plot for cases from the project TCGA-DLBC.
 
