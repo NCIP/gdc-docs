@@ -194,7 +194,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 
 ### FILTER Value Definitions (column 111)
 
-* __oxog :__ Signifies that this variant was determined to be an OxoG artifact. This was calculated with [D-ToxoG](http://archive.broadinstitute.org/cancer/cga/dtoxog)
+* __oxog :__ Signifies that this variant was determined to be an OxoG artifact. This was calculated with [D-ToxoG](https://software.broadinstitute.org/cancer/cga/dtoxog)
 * __bPcr :__ Signifies that this variant was determined to be an artifact of bias on the PCR template strand.  This was calculated with the [DKFZ Bias Filter](https://github.com/eilslabs/DKFZBiasFilter).
 * __bSeq :__ Signifies that this variant was determined to be an artifact of bias on the forward/reverse strand. This was also calculated with the [DKFZ Bias Filter](https://github.com/eilslabs/DKFZBiasFilter).
 
