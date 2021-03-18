@@ -930,6 +930,7 @@ Each part of the response is described below:
 curl 'https://api.gdc.cancer.gov/projects/_mapping'
 ```
 ```output
+This output was put thought a json format application for easier viewability.
 {
     ...
 
