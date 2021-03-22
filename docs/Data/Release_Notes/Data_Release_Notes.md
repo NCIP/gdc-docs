@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v29.0](Data_Release_Notes.md#data-release-290) | March XXX, 2021 |
 | [v28.0](Data_Release_Notes.md#data-release-280) | February 2, 2021 |
 | [v27.0-fix](Data_Release_Notes.md#data-release-270-bug-fix) | November 9, 2020 |
 | [v27.0](Data_Release_Notes.md#data-release-270) | October 29, 2020 |
@@ -35,44 +36,33 @@
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
 
-## Data Release 28.0
+## Data Release 29.0
 
 * __GDC Product__: Data
-* __Release Date__: February 2, 2021
+* __Release Date__: March XXX, 2021
 
 ### New updates
 
-1.  New Project: CMI-MPC - Count Me In - The Metastatic Prostate Cancer Project
-    * WXS alignments and variant calls (VCFs) are available.
-2.  New Data Type: Single nuclei (snRNA-Seq) data is now available for 18 CPTAC-3 cases. See the [RNA-Seq](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#scrna-seq-pipeline) documentation for details.
-3.  CPTAC-3
-    * Data files for 147 new cases from the pancreatic cohort are now available.
-    * CPTAC-3 open-access somatic mutations are now browsable through the GDC Exploration Portal.
-    * RNA-Seq transcript fusion files are now available.
-    * Targeted Sequencing alignments and raw tumor-only variant calls (VCF) are now available.
-4. HCMI-CMDC
-    * Data files for 22 new cases are now available.
-    * The HCMI-CMDC open-access somatic mutations have been refreshed on the GDC Exploration Portal to reflect all newly released cases.
+1.  Count Me In Program
+    * Aliquot-level MAFs are now available for projects CMI-ASC, CMI-MBC, and CMI-MPC.
+    * Somatic mutation are now explorable for projects CMI-ASC, CMI-MBC, and CMI-MPC
+3.  CPTAC Program
+    * CPTAC-2 open-access somatic mutations are now browsable through the GDC Exploration Portal.
+    * MSI data is now browsable through the faceted search for CPTAC-2 and CPTAC-3.
+4. HCMI-CMDC - Data files and explorable mutations for 18 new cases are now available.
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20210202_data_release_28.0_active.tsv.gz](gdc_manifest_20210202_data_release_28.0_active.tsv.gz)
-* [gdc_manifest_20210202_data_release_28.0_legacy.tsv.gz](gdc_manifest_20210202_data_release_28.0_legacy.tsv.gz)
+* [gdc_manifest_XXXXX_data_release_29.0_active.tsv.gz](XXXXX)
+* [gdc_manifest_XXXXX_data_release_29.0_legacy.tsv.gz](XXXXX)
 
 ### Bugs Fixed Since Last Release
 
-*  None
+*  The aggregated and masked MAF files that were missing for seven pancreatic cases in CPTAC-3 have been restored to the data portal.
+* The missing RNA-Seq data files for the seven normal pancreatic cases in CPTAC-3 have been restored to the data portal.
 
 ### Known Issues and Workarounds
 
-* The aggregated and masked MAF files for seven pancreatic cases in CPTAC-3 do not appear in the Data Portal. See below for download instructions.
-    - [This manifest](CPTAC-3_7Cases-WXS-MAFs_GDC-Manifest.txt) can be used to download the files.  
-    - To download the raw aggregated MAF files, dbGaP access to CPTAC-3 (phs001287) is required.  The masked MAF files are open-access.
-    - The seven cases are as follows: C3L-04027, C3L-04080, C3N-02585, C3N-02768, C3N-02971, C3N-03754, and C3N-03839. The case the each file is associated with is denoted in the manifest.
-* The RNA-Seq data files for the seven normal pancreatic cases in CPTAC-3 do not appear in the Data Portal. See below for download instructions.
-    - [This manifest](CPTAC-3_7CasesRNASeq_GDC-Manifest.txt) can be used to download the files.  
-    - To download the alignments or splice-junction files, dbGaP access to CPTAC-3 (phs001287) is required.  The other gene expression files are open-access.
-    - The seven cases are as follows: C3L-03513, C3L-07032, C3L-07033, C3L-07034, C3L-07035, C3L-07036, C3L-07037. The case the each file is associated with is denoted in the manifest.
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
@@ -117,6 +107,89 @@ A complete list of files for this release are listed for the GDC Data Portal and
     * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
     * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
     * TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+
+    ## Data Release 28.0
+
+    * __GDC Product__: Data
+    * __Release Date__: February 2, 2021
+
+    ### New updates
+
+    1.  New Project: CMI-MPC - Count Me In - The Metastatic Prostate Cancer Project
+        * WXS alignments and variant calls (VCFs) are available.
+    2.  New Data Type: Single nuclei (snRNA-Seq) data is now available for 18 CPTAC-3 cases. See the [RNA-Seq](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#scrna-seq-pipeline) documentation for details.
+    3.  CPTAC-3
+        * Data files for 147 new cases from the pancreatic cohort are now available.
+        * CPTAC-3 open-access somatic mutations are now browsable through the GDC Exploration Portal.
+        * RNA-Seq transcript fusion files are now available.
+        * Targeted Sequencing alignments and raw tumor-only variant calls (VCF) are now available.
+    4. HCMI-CMDC
+        * Data files for 22 new cases are now available.
+        * The HCMI-CMDC open-access somatic mutations have been refreshed on the GDC Exploration Portal to reflect all newly released cases.
+
+    A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+    * [gdc_manifest_20210202_data_release_28.0_active.tsv.gz](gdc_manifest_20210202_data_release_28.0_active.tsv.gz)
+    * [gdc_manifest_20210202_data_release_28.0_legacy.tsv.gz](gdc_manifest_20210202_data_release_28.0_legacy.tsv.gz)
+
+    ### Bugs Fixed Since Last Release
+
+    *  None
+
+    ### Known Issues and Workarounds
+
+    * The aggregated and masked MAF files for seven pancreatic cases in CPTAC-3 do not appear in the Data Portal. See below for download instructions.
+        - [This manifest](CPTAC-3_7Cases-WXS-MAFs_GDC-Manifest.txt) can be used to download the files.  
+        - To download the raw aggregated MAF files, dbGaP access to CPTAC-3 (phs001287) is required.  The masked MAF files are open-access.
+        - The seven cases are as follows: C3L-04027, C3L-04080, C3N-02585, C3N-02768, C3N-02971, C3N-03754, and C3N-03839. The case the each file is associated with is denoted in the manifest.
+    * The RNA-Seq data files for the seven normal pancreatic cases in CPTAC-3 do not appear in the Data Portal. See below for download instructions.
+        - [This manifest](CPTAC-3_7CasesRNASeq_GDC-Manifest.txt) can be used to download the files.  
+        - To download the alignments or splice-junction files, dbGaP access to CPTAC-3 (phs001287) is required.  The other gene expression files are open-access.
+        - The seven cases are as follows: C3L-03513, C3L-07032, C3L-07033, C3L-07034, C3L-07035, C3L-07036, C3L-07037. The case the each file is associated with is denoted in the manifest.
+    * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
+    * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+    * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+    * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
+    * Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+    * Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+    * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+    * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+    * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+    * TCGA Projects
+        * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
+        * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+        * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+        * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
+        * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+        * Tumor grade property is not populated <!--SV-585-->
+        * Progression_or_recurrence property is not populated <!--SV-584-->
+    * TARGET projects
+        * TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and concatenated into their original composite BAM files by CGHub.
+            * TARGET-20-PASJGZ-04A-02D
+            * TARGET-30-PAPTLY-01A-01D
+            * TARGET-20-PAEIKD-09A-01D
+            * TARGET-20-PASMYS-14A-02D
+            * TARGET-20-PAMYAS-14A-02D
+            * TARGET-10-PAPZST-09A-01D
+        * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+        * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+        * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+        * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+        * Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+        * Some TARGET files are not connected to all related aliquots <!--SV-929-->
+        * Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+        * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+            *  All microarray data and metadata
+            *  All sequencing analyzed data and metadata
+            *  1180 of 12063 sequencing runs of raw data
+        * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+        * No data from TARGET-MDLS is available.
+    * Issues in the Legacy Archive
+        * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+        * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+        * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+        * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+        * TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
 
 
 
