@@ -46,10 +46,10 @@
 1.  Count Me In Program
     * Aliquot-level MAFs are now available for projects CMI-ASC, CMI-MBC, and CMI-MPC.
     * Somatic mutation are now explorable for projects CMI-ASC, CMI-MBC, and CMI-MPC
-3.  CPTAC Program
+2.  CPTAC Program
     * CPTAC-2 open-access somatic mutations are now browsable through the GDC Exploration Portal.
     * MSI data is now browsable through the faceted search for CPTAC-2 and CPTAC-3.
-4. HCMI-CMDC - Data files and explorable mutations for 18 new cases are now available.
+3. HCMI-CMDC - Data files and explorable mutations for 18 new cases are now available.
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
