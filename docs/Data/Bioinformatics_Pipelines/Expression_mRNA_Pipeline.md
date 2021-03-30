@@ -254,7 +254,7 @@ The prediction file provides fused gene names, junction read count and breakpoin
 The [Arriba gene fusion pipeline](https://github.com/suhrig/arriba) uses Arriba v1.1.0 to detect gene fusions from the RNA-Seq data of tumor samples.
 
 
-## scRNA-Seq Pipeline
+## scRNA-Seq Pipeline (single-nuclei)
 
 The GDC processes single-cell RNA-Seq (scRNA-Seq) data using the [Cell Ranger pipeline](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger) to calculate gene expression followed by [Seurat](https://satijalab.org/seurat/) for secondary expression analysis.  
 
