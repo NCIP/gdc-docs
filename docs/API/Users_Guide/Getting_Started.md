@@ -81,34 +81,16 @@ import json
 file_endpt = 'https://api.gdc.cancer.gov/files/'
 file_uuid = 'd853e541-f16a-4345-9f00-88e03c2dc0bc'
 response = requests.get(file_endpt + file_uuid)
-print json.dumps(response.json(), indent=2)
-``` Response
-{
-  "data": {
-    "data_type": "Aligned Reads",
-    "updated_datetime": "2016-05-26T17:06:40.003624-05:00",
-    "created_datetime": "2016-05-26T17:06:40.003624-05:00",
-    "file_name": "0017ba4c33a07ba807b29140b0662cb1_gdc_realn.bam",
-    "md5sum": "a08304b120c5df76b6532da0e9a35ced",
-    "data_format": "BAM",
-    "acl": [
-      "phs000178"
-    ],
-    "access": "controlled",
-    "platform": "Illumina",
-    "state": "submitted",
-    "file_id": "d853e541-f16a-4345-9f00-88e03c2dc0bc",
-    "data_category": "Raw Sequencing Data",
-    "file_size": 23650901931,
-    "submitter_id": "c30188d7-be1a-4b43-9a17-e19ccd71792e",
-    "type": "aligned_reads",
-    "file_state": "processed",
-    "experimental_strategy": "WXS"
-  },
-  "warnings": {}
-}
-```
 
+# OUTPUT METHOD 1: Write to a file.
+file = open("sample_request.json", "w")
+file.write(response.text)
+file.close()
+
+# OUTPUT METHOD 2: View on screen.
+print(json.dumps(response.json(), indent=2))
+```
+[Download Script](scripts/Sample_Request.py)
 ## Authentication
 
 Authentication is required for downloading controlled-access data, and for all data submission functionality. The GDC API uses tokens for authentication.
@@ -121,17 +103,51 @@ All API requests that require authentication must include a token as an `X-Auth-
 
 In the following example, an authentication token is saved as an environment variable and passed to `curl` to download a controlled-access file:
 
-``` shell
-token=$(<gdc-token-text-file.txt)
+```Shell
+token=$(cat <gdc-token-text-file.txt>)
 
 curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
 ```
-```Output
+```Shell Output
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 31.4M  100 31.4M    0     0   290k      0  0:01:50  0:01:50 --:--:--  172k
 curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.tangent.copynumber.data.txt'
 ```
+```Python
+import requests
+import json
+import re
+
+'''
+ This script will not work until $TOKEN_FILE_PATH
+ is replaced with an actual path.
+'''
+
+with open("$TOKEN_FILE_PATH","r") as token:
+    token_string = str(token.read().strip())
+
+headers = {
+           'X-Auth-Token': token_string
+          }
+
+data_endpt = 'https://api.gdc.cancer.gov/data/'
+data_uuid = 'a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
+headers = {
+           'X-Auth-Token': token_string
+          }
+response = requests.get(data_endpt + data_uuid, headers=headers)
+
+# The file name can be found in the header within the Content-Disposition key.
+response_head_cd = response.headers["Content-Disposition"]
+
+file_name = re.findall("filename=(.+)", response_head_cd)[0]
+
+with open(file_name, "wb") as output_file:
+    output_file.write(response.content)
+```
+[Download Python Script](scripts/Authentication_Tokens.py)
+
 
 For more information about authentication tokens, including token expiration and rotation, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
 
