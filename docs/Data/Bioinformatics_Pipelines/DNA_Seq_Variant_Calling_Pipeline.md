@@ -601,8 +601,8 @@ Variant calls are generated from WGS data using a different pipeline than WXS an
 
 
 * __chr*x* (required):__ The name of the chromosome on which the *x*th end of the feature exists. (x is 1 or 2). Any string can be used. For example, "chr1", "III", "myChrom", "contig1112.23". Use "." for unknown.
-* __start*x (required):__ The zero-based starting position of the **first** end of the feature on chr*x*<br>- The first base in a chromosome is numbered 0. The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature.<br>- Use -1 for unknown.
-* __end*x* (required):__ The one-based ending position of the first end of the feature on chr*x*.<br>- The end position in each BEDPE feature is one-based. Use -1 for unknown.
+* __start*x (required):__ The zero-based starting position of the **first** end of the feature on chr*x*. The first base in a chromosome is numbered 0. The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature. Use -1 for unknown.
+* __end*x* (required):__ The one-based ending position of the first end of the feature on chr*x*. The end position in each BEDPE feature is one-based. Use -1 for unknown.
 * __name (optional):__ Defines the name of the BEDPE feature. Any string can be used.  
 * __score (optional):__ A score between 0 and 1000. If the track line *useScore* attribute is set to 1 for this annotation data set, the score value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). It can be any string.
 * __strand*x* (optional):__ Defines the strand for the *x*th end of the feature. Either "." (unknown) or "+" or "-".
