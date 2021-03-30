@@ -600,7 +600,7 @@ Variant calls are generated from WGS data using a different pipeline than WXS an
 
 |Column Header|Description|
 |---|---|
-|chr*x*<br>(required)|The name of the chromosome on which the *x*th end of the feature exists. (x is 1 or 2). <br>- Any string can be used. For example, “chr1”, “III”, “myChrom”, “contig1112.23”.<br>- Use “.” for unknown. |
+|chr*x*<br>(required)|The name of the chromosome on which the *x*th end of the feature exists. (x is 1 or 2). <br>- Any string can be used. For example, "chr1", "III", "myChrom", "contig1112.23".<br>- Use "." for unknown. |
 |start*x*<br>(required)|The zero-based starting position of the **first** end of the feature on chr*x*<br>- The first base in a chromosome is numbered 0.<br>- The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature.<br>- Use -1 for unknown.|
 |end*x*<br>(required)|The one-based ending position of the first end of the feature on chr*x*.<br>- The end position in each BEDPE feature is one-based.<br>- Use -1 for unknown. |
 |name<br>(optional)|Defines the name of the BEDPE feature. Any string can be used.  |
