@@ -607,7 +607,7 @@ Variant calls are generated from WGS data using a different pipeline than WXS an
 |score<br>(optional)|A score between 0 and 1000. If the track line *useScore* attribute is set to 1 for this annotation data set, the score value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). It can be any string. |
 |strand*x*<br>(optional)|Defines the strand for the *x*th end of the feature. Either "." (unknown) or "+" or "-". |
 
-In addition to the above fields, bedtools allows one to add as many additional user-defined fields to the normal, 10-column BEDPE format as necessary. These columns are merely “passed through” pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or “deletion”, “inversion”, etc.) to each BEDPE feature.
+In addition to the above fields, bedtools allows one to add as many additional user-defined fields to the normal, 10-column BEDPE format as necessary. These columns are merely "passed through" pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or "deletion", "inversion", etc.) to each BEDPE feature.
 <br>
 
 [**] AscatNGS, originally developed by [Raine *et al* (2016)]( https://doi.org/10.1002/cpbi.17) ([GitHub page](https://github.com/cancerit)), indicates the DNA copy number changes affecting a tumor genome when comparing to a matched normal sample.
