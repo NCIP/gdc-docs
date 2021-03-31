@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v29.0](Data_Release_Notes.md#data-release-290) | March XXX, 2021 |
+| [v29.0](Data_Release_Notes.md#data-release-290) | March 31, 2021 |
 | [v28.0](Data_Release_Notes.md#data-release-280) | February 2, 2021 |
 | [v27.0-fix](Data_Release_Notes.md#data-release-270-bug-fix) | November 9, 2020 |
 | [v27.0](Data_Release_Notes.md#data-release-270) | October 29, 2020 |
@@ -39,7 +39,7 @@
 ## Data Release 29.0
 
 * __GDC Product__: Data
-* __Release Date__: March XXX, 2021
+* __Release Date__: March 31, 2021
 
 ### New updates
 
@@ -53,8 +53,8 @@
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_XXXXX_data_release_29.0_active.tsv.gz](XXXXX)
-* [gdc_manifest_XXXXX_data_release_29.0_legacy.tsv.gz](XXXXX)
+* [gdc_manifest_20210331_data_release_29.0_active.tsv](gdc_manifest_20210331_data_release_29.0_active.tsv)
+* [gdc_manifest_20210331_data_release_29.0_legacy.tsv](gdc_manifest_20210331_data_release_29.0_legacy.tsv)
 
 ### Bugs Fixed Since Last Release
 
