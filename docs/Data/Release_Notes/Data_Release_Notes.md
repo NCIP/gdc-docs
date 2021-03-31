@@ -53,8 +53,8 @@
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20210331_data_release_29.0_active.tsv](gdc_manifest_20210331_data_release_29.0_active.tsv)
-* [gdc_manifest_20210331_data_release_29.0_legacy.tsv](gdc_manifest_20210331_data_release_29.0_legacy.tsv)
+* [gdc_manifest_20210331_data_release_29.0_active.tsv.gz](gdc_manifest_20210331_data_release_29.0_active.tsv.gz)
+* [gdc_manifest_20210331_data_release_29.0_legacy.tsv.gz](gdc_manifest_20210331_data_release_29.0_legacy.tsv.gz)
 
 ### Bugs Fixed Since Last Release
 
