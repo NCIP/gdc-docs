@@ -592,7 +592,7 @@ Variant calls are generated from WGS data using a different pipeline than WXS an
 
 * __CaVEMan:__ Single nucleotide variants, which are available in [VCF format](https://docs.gdc.cancer.gov/Data/File_Formats/VCF_Format/).
 * __Pindel:__ Small indel variants, which are available in [VCF format](https://docs.gdc.cancer.gov/Data/File_Formats/VCF_Format/).
-* __BRASS:__ Structural variants, which are available in *BEDPE format* [*].
+* __BRASS:__ Structural variants, which are available in *BEDPE format*.
 * __AscatNGS:__  Copy number variants, which are available as copy number estimates or copy number segment files, data may be available in *tab separated values (.TSV) or plain text file (.TXT)*
 
 #### BEDPE File Format
@@ -601,31 +601,29 @@ Variant calls are generated from WGS data using a different pipeline than WXS an
 
 
 * __chr*x* (required):__ The name of the chromosome on which the *x*th end of the feature exists. (x is 1 or 2). Any string can be used. For example, "chr1", "III", "myChrom", "contig1112.23". Use "." for unknown.
-* __start*x* (required):__ The zero-based starting position of the **first** end of the feature on chr*x*. The first base in a chromosome is numbered 0. The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature. Use -1 for unknown.
-* __end*x* (required):__ The one-based ending position of the first end of the feature on chr*x*. The end position in each BEDPE feature is one-based. Use -1 for unknown.
+* __start*x* (required):__ The zero-based starting position of the **first** end of the feature on chr*x*. The first base in a chromosome is numbered 0. The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature (use -1 for unknown).
+* __end*x* (required):__ The one-based ending position of the first end of the feature on chr*x*. The end position in each BEDPE feature is one-based (use -1 for unknown).
 * __name (optional):__ Defines the name of the BEDPE feature. Any string can be used.  
-* __score (optional):__ A score between 0 and 1000. If the track line *useScore* attribute is set to 1 for this annotation data set, the score value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). It can be any string.
-* __strand*x* (optional):__ Defines the strand for the *x*th end of the feature. Either "." (unknown) or "+" or "-".
+* __score (optional):__ A score between 0 and 1000. If the track line *useScore* attribute is set to 1 for this annotation data set, the score value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). Any string can be used.
+* __strand*x* (optional):__ Defines the strand for the *x*th end of the feature. Either "." (unknown),  "+", or "-".
 
-In addition to the above fields, bedtools allows one to add as many additional user-defined fields to the normal, 10-column BEDPE format as necessary. These columns are merely "passed through" pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or "deletion", "inversion", etc.) to each BEDPE feature.
+In addition to the above fields, bedtools allows for the addition of user-defined fields to the normal, 10-column BEDPE format as necessary. These columns are merely "passed through" pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or "deletion", "inversion", etc.) to each BEDPE feature.
 
 #### CNV from WGS File Format
 
 AscatNGS, originally developed by [Raine *et al* (2016)]( https://doi.org/10.1002/cpbi.17) ([GitHub page](https://github.com/cancerit)), indicates the DNA copy number changes affecting a tumor genome when comparing to a matched normal sample. See below for a description of the copy number segment and copy number estimation files produced by AscatNGS:
 
-* __GDC Aliquot:__  The GDC ID for the aliquot collected from the sample (copy number segment files only)
-* __Gene ID:__  The gene ENSMBL ID (copy number variant only)
-* __Gene Name:__  The gene symbol (copy number variant only)
-* __Chromosome:__  The name of the chromosome on which the copy number change exists
-* __Start:__  The starting position of the copy
-* __End:__  The ending position of the copy
-* __Copy Number:__  The weighted median of the strand copy numbers
-* __Major Copy Number:__ The greater strand copy number of the two strands of the DNA (copy number segment files only)
-* __Minor Copy number:__  The smaller strand copy number of the two strands of the DNA (copy number segment files only)
-* __Max. Copy number:__ The highest copy number for overlapped segment (copy number variant only)
-* __Min. Copy number:__ The lowest copy number for overlapped segment (copy number variant only)
-
-
+* __GDC Aliquot:__  The GDC ID for the aliquot collected from the sample (copy number segment files only).
+* __Gene ID:__  The gene ENSMBL ID (copy number variant only).
+* __Gene Name:__  The gene symbol (copy number variant only).
+* __Chromosome:__  The name of the chromosome on which the copy number change exists.
+* __Start:__  The starting position of the copy.
+* __End:__  The ending position of the copy.
+* __Copy Number:__  The weighted median of the strand copy numbers.
+* __Major Copy Number:__ The greater strand copy number of the two strands of the DNA (copy number segment files only).
+* __Minor Copy number:__  The smaller strand copy number of the two strands of the DNA (copy number segment files only).
+* __Max. Copy number:__ The highest copy number for overlapped segment (copy number variant only).
+* __Min. Copy number:__ The lowest copy number for overlapped segment (copy number variant only).
 
 
 ### Harmonization for GENIE variants
