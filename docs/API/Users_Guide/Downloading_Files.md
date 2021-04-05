@@ -42,7 +42,8 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/7efc039
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 															 Dload  Upload   Total   Spent    Left  Speed
 100 65353    0 65353    0     0  65353      0 --:--:-- --:--:-- --:--:--  102k
-curl: Saved to filename 'gdc_download_20180830_131817.826097.tar.gz'
+curl: Saved to filename 'BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_D04_1348436.nocnv_hg19.seg.txt'
+
 ```
 
 
