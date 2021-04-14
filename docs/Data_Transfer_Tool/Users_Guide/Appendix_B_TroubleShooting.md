@@ -26,7 +26,6 @@ gdc-client download -m lung.manifest.txt -t token.file --debug --log-file logfil
 ## OS Compatibility with the Data Transfer Tool
 The Data transfer Tool is offered in three OS compatible versions; Mac OS, Windows, and Ubuntu Linux.  We have successfully tested the Ubuntu binary on CentOS 7.x and 8.x, RHEL 7/8 and Scientific Linux 7/8 with the client but have had problems with CentOS 6.x and RHEL 6 and SL6.  To work around this problem we have asked users to build their own client from our [github](https://github.com/NCI-GDC/gdc-client) repository with the assistance of an instruction document that we provide on request via the GDC Helpdesk.        
 
-
 ## Network Troubleshooting
 
 Network problems can appear as dropped network connections or even a stalled application.  The GDC Helpdesk might request more network information to assist in diagnosing the problem.  The two tests they will request the end user to run are ping and traceroute (tracert on the windows platform) against our api servers.  Please capture the output from these tests into a text file and attach it to the reply email.   

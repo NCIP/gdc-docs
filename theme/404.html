@@ -1,28 +1,52 @@
 <!DOCTYPE html>
+
+{#
+    404 error page with optional static redirects to fix broken links.
+    Configure redirects in theme/config/redirects.json.
+
+    Most of the page is copied from base.html and then modified to
+    remove all references to current_page since current_page doesn't
+    work in a 404 page, at least not with mkdocs 0.15.
+#}
+
 <html lang="en">
+{# Disable adding the / to all navs #}
+{% set disableRootNavPrefixing = true %}
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         {% if page_description %}<meta name="description" content="{{ page_description }}">{% endif %}
         {% if site_author %}<meta name="author" content="{{ site_author }}">{% endif %}
         {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
         {% if favicon %}<link rel="shortcut icon" href="{{ favicon }}">
         {% else %}<link rel="shortcut icon" href="/img/favicon.ico">{% endif %}
 
-        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 
-   <title>Not Found - {{ site_name }}</title>
+        <title>Not Found - {{ site_name }}</title>
+
         <link href="/css/bootstrap-custom.css" rel="stylesheet">
         <link href="/css/font-awesome-4.5.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/highlight.css">
         <link href="/css/base.css" rel="stylesheet">
         <link href="/css/gdc-common.css" rel="stylesheet">
+        <link href="/css/gdc-fonts.css" rel="stylesheet">
+        <link href="/css/encyclopedia.css" rel="stylesheet">
         {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
 
-
+        {% set encyclopedia_pages = [] %}
+        {% for page in config.pages %}
+            {% if config.extra.encyclopedia_entries_page_title in page %}
+                {% for page in page[config.extra.encyclopedia_entries_page_title] %}
+                    {% if encyclopedia_pages.append(page) %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -43,12 +67,22 @@
         {% endif %}
     </head>
 
-    <body data-spy="scroll">
+    <body>
+
+        <a class="skip-main" href="#main">Skip to main content</a>
+
+        {% include "search.html" %}
+
         <div class="parent-container">
+            <div class="spinParticle">
+                <div class="particle red"></div>
+                <div class="particle grey other-particle"></div>
+                <div class="particle blue other-other-particle"></div>
+            </div>
+
             {% include "nav.html" %}
 
-            <div class="container">
-                {% include "search.html" %}
+            <div id="docs-container" class="container">
                 <div id="body">
                     <div class="col-md-12 main-container" role="main">
                         <h2 class="loading-app no-auto-render" id="redirect-lookup-container"><i class="animate-spin icon-spinner"></i> Looking for the Requested Page...</h2>
@@ -57,10 +91,10 @@
                                 <span class="header-badge custom-badge" style="background-color: #CC334A; ">
                                     <i class="fa fa-exclamation-triangle"></i>
                                 </span>
-                                Sorry the Page Cannot be Found!</h1>
+                                Sorry, the Page Cannot Be Found!</h1>
                             <p style="height: 30rem">
-                                Sorry, we couldn't find the page you were looking for. If you believe this is an error please contact us at
-                                <a href="mailto:dcc-support@icgc.org?subject=ICGC%20DCC%20Document%20Page%20Not%20Found">dcc-support@icgc.org</a>.
+                                Sorry, we couldn't find the page you were looking for. If you believe this is an error, please contact us at
+                                <a href="mailto:support@nci-gdc.datacommons.io?subject=GDC%20Docs%20Site%20Page%20Not%20Found">support@nci-gdc.datacommons.io</a>.
                             </p>
                         </div>
                         <div id="redirect-page-found-container">
@@ -68,7 +102,7 @@
                                 <span class="header-badge custom-badge" style="background-color: #16984D; ">
                                     <i class="fa fa-share"></i>
                                 </span>
-                                Looks Like this Page Moved!
+                                Looks Like This Page Moved!
                             </h1>
                             <div style="height: 30rem;">
                                 <p>
@@ -77,17 +111,17 @@
                                 <p>
                                     Optionally you can also click on <a id="redirect-link"></a> to go there now.
                                 </p>
+                            </div>
                         </div>
-                        </div>
-                   </div>
-               </div>
+                    </div>
+                </div>
             </div>
 
             <footer id="docs-footer">
                 <div class="row">
-                    <div class="col-md-12 footer-caption">
+                    <div class="col-md-12 footer-caption" role="contentinfo">
                         <div>
-                            <a href="https://gdc-portal.nci.nih.gov/projects/t" target="_blank">Site Home</a>
+                            <a href="https://portal.gdc.cancer.gov" target="_blank">Site Home</a>
                             | <a href="http://www.cancer.gov/global/web/policies" target="_blank">Policies</a>
                             | <a href="http://www.cancer.gov/global/web/policies/accessibility" target="_blank">Accessibility</a>
                             | <a href="http://www.cancer.gov/global/web/policies/foia" target="_blank">FOIA</a>
@@ -109,18 +143,29 @@
                     </div>
                 </div>
             </footer>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
 
+
+            <script src="/js/jquery-1.12.0.min.js"></script>
             <script src="/js/jQuery-FontSpy.js"></script>
             <script src="/js/bootstrap-3.3.6.min.js"></script>
             <script src="/js/highlight.pack.js"></script>
-            <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="/js/lunr-0.5.7.min.js"></script>
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+            <script src="/js/jquery.scrollUp.min.js"></script>
+            <script src="{{ config.extra.dictionary_app_root }}/vendor-deps/d3/d3.min.js"></script>
+            <script src="{{ config.extra.dictionary_app_root }}/vendor-deps/fetch/fetch.min.js"></script>
             <script src="/js/gdc-common.js"></script>
+            <script src="/js/remarkable-1.7.1.min.js"></script>
+            <script src="/js/gdc-notifications.js"></script>
+            <script language="JavaScript" type="text/javascript" src="https://static.cancer.gov/webanalytics/wa_gdc_pageload.js"></script>
             <script>var base_url = '{{ base_url }}';</script>
             {%- for path in extra_javascript %}
             <script src="{{ path }}"></script>
             {%- endfor %}
+
+            <script src="/js/404.js"></script>
         </div>
     </body>
 </html>
