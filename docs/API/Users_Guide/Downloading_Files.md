@@ -42,7 +42,8 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/7efc039
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 															 Dload  Upload   Total   Spent    Left  Speed
 100 65353    0 65353    0     0  65353      0 --:--:-- --:--:-- --:--:--  102k
-curl: Saved to filename 'gdc_download_20180830_131817.826097.tar.gz'
+curl: Saved to filename 'BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_D04_1348436.nocnv_hg19.seg.txt'
+
 ```
 
 
@@ -185,7 +186,7 @@ The `manifest` endpoint generates a download manifest file that can be used with
 The `manifest` endpoint allows users to create a download manifest, which can be used with the GDC Data Transfer Tool to download a large volume of data. The `manifest` endpoint generates a manifest file from a comma-separated list of UUIDs.
 
 ```shell
-curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/v0/manifest/ae9db773-78ab-48d0-972d-debe1bedd37d,3d815e6e-db97-419d-ad7f-dba4e4023b3e'
+curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/v0/manifest/a751cc7e-d2ff-4e9a-8645-09bf12612f1a,9c97e3fe-1610-4a92-9a24-ab3b9e4000e2'
 ```
 ```Output
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -208,5 +209,5 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/files?filter
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 40663    0 40663    0     0  77109      0 --:--:-- --:--:-- --:--:-- 77306
-curl: Saved to filename 'gdc_manifest.2016-06-28T13:26:33.850459.tsv'
+curl: Saved to filename 'gdc_manifest.2021-04-05.txt'
 ```
