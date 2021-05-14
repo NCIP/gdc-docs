@@ -128,6 +128,7 @@ The page also provides clinical and biospecimen information about that case. Lin
 
 [![Case Page, Clinical and Biospecimen](images/image_clinical_and_biospecimen_information.png)](images/image_clinical_and_biospecimen_information.png "Click to see the full image.")
 
+
 Some clinical records can support multiple records of the same type (Diagnoses, Family Histories, Exposures, Follow-Ups, Molecular Tests).  If only one record exists, the UUID of the record is provided at the top of the corresponding tab.
 
 [![Case Page, Single Clinical Record](images/gdc-case-clinical-single-record.png)](images/gdc-case-clinical-single-record.png "Click to see the full image.")
