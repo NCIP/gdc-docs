@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.28.0](Data_Portal_Release_Notes.md#release-1280) | May XX, 2021 |
+| [v1.28.0](Data_Portal_Release_Notes.md#release-1280) | May 17, 2021 |
 | [v1.25.1](Data_Portal_Release_Notes.md#release-1251) | August 14, 2020 |
 | [v1.25.0](Data_Portal_Release_Notes.md#release-1250) | July 2, 2020 |
 | [v1.24.1](Data_Portal_Release_Notes.md#release-1240) | March 10, 2020 |
@@ -32,14 +32,14 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
-## Release 1.25.1
+## Release 1.28.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  May XX, 2021
+* __Release Date__:  May 17, 2021
 
 ### New Features and Changes <!--REQ-422-->
 
-* New columns were added to the "molecular test" table at the bottom of the case entity page to display more fields from the molecular test entity.
+* New columns were added to the "molecular test" table at the bottom of the case entity page to display additional molecular test fields.
 
 ### Bugs Fixed Since Last Release
 

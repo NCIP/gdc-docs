@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v3.3.0](API_Release_Notes.md#v330) | May XX, 2021 |
+| [v3.3.0](API_Release_Notes.md#v330) | May 17, 2021 |
 | [v3.0.0](API_Release_Notes.md#v300) | August 14, 2020 |
 | [v2.1.2](API_Release_Notes.md#v212) | May 7, 2020 |
 | [v2.1.0](API_Release_Notes.md#v210) | March 10, 2020 |
@@ -36,11 +36,11 @@
 ## v3.3.0 <!--REQ-422-->
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__:  May XX, 2021
+* __Release Date__:  May 17, 2021
 
 ### New Features and Changes
 
-* Functionality was added to better support batch tracking for submitted data.
+* Features to better support batch tracking for submitted data were added.
 
 ### Bugs Fixed Since Last Release
 
