@@ -47,6 +47,7 @@
 
 ### Known Issues and Workarounds
 
+*  When accessing the data portal with Chrome v.91.0.4472, users may experience some display errors.  This includes the data summary in the clinical analysis and cart pages being only partially displayed. <!--SV-1940-->
 *  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
 *  Custom Facet Filters
     * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
