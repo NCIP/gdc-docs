@@ -115,6 +115,8 @@ Additional read group information will benefit data users.  Such information can
 
 The GDC harmonization pipelines include multiple quality control steps to ensure the integrity of harmonized files and the efficient use of computational resources. For fastest turnaround of data processing we recommend that submitters perform basic QC of their data files prior to upload to identify any underlying data quality issues. This may include such tests as verifying expected genome coverage levels and sequencing quality.
 
+Except for [miRNA data](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Best_Practices/#mirna-submission) submission, sequencing data for all other experimental strategy types (i.e. whole exome sequencing, whole genome sequencing, targeted sequencing and mRNA sequencing) do not need to be trimmed by submitters prior to submission, as tools used in GDC alignment workflows are capable of handling adaptors and low quality bases correctly.
+
 ## Target Capture Kit Q and A
 
 1. What is a Target Capture Kit?  
@@ -166,4 +168,4 @@ For the GDC to release a project there is a minimum number of clinical propertie
 
 ## miRNA Submission
 
-The GDC requires that miRNA reads be trimmed before being uploaded to the GDC because miRNA datasets can have different trimming schemas. Uploading untrimmed miRNA reads can delay harmonization until the problem is resolved.  
+The GDC requires that miRNA reads be adapter-trimmed before being uploaded to the GDC because miRNA datasets can have different trimming schemas. Uploading untrimmed miRNA reads will result in unusably low miRNA quantifications.  
