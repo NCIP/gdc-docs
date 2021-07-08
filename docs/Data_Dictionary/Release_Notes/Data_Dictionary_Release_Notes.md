@@ -151,7 +151,7 @@
 
 ### Known Issues and Workarounds
 
-* The `mitotic_count` field in `diagnosis` is erroneously set as "deprecated" and does not appear in the dictionary viewer.  This field can be uploaded successfully without issue and will appear in the dictionary viewer at a later release.
+* The `mitotic_count` field in `diagnosis` is erroneously set as "deprecated" and does not appear in the dictionary viewer.  This field can be uploaded successfully without issue and will appear in the dictionary viewer at a later release. <!--SV-1939-->
 
 
 ## v2.3.0
