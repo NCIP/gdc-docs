@@ -8,15 +8,15 @@ Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mu
 
 |MAF File Data Type|Access|Project-level Description (Data Release ≤17.0)|Aliquot-level Description (Data Release >17.0)|
 |---|---|---|---|
-|Annotated_somatic_mutation|Controlled |Annotated VCF|MAF produced from one caller at the aliquot level.|
-|Aggregated_somatic_mutation|Controlled |Aggregation of VCFs into one MAF file (*.protected.maf.gz)|Aggregation of aliquot-level MAFs|
-|Masked_somatic_mutation|Open\* |Filtered version of aggregated_somatic_mutation MAF (*.somatic.maf.gz)|Filtered aggregation of aliquot-level MAFs|
+|Annotated_somatic_mutation|Controlled |Annotated VCF/MAF produced from one caller at the aliquot level.|
+|Aggregated_somatic_mutation|Controlled |Aggregation of VCFs into one MAF file (*.aliquot_ensemble_raw.maf.gz)|Aggregation of aliquot-level MAFs|
+|Masked_somatic_mutation|Open\* |Filtered version of aggregated_somatic_mutation MAF (*.aliquot_ensemble_masked.maf.gz)|Filtered aggregation of aliquot-level MAFs|
 
 \* Users can request that their masked_somatic_mutation MAF files be `Controlled` access as well.
 
 ### Project-Level MAF Files v.1.0.0 (Data Release ≤17.0)
 
-Project-level MAF files are produced by aggregating the GDC annotated somatic mutation VCF files generated from each pipeline for one project. The MAF files are produced through the [Somatic Aggregation Workflow](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_aggregation_workflow&_top=1). For tumor samples that contain variants from multiple combinations of tumor-normal aliquot pairs, only one pair is selected in the Somatic MAF based on their sample type. 
+Project-level MAF files are produced by aggregating the GDC annotated somatic mutation VCF files generated from each pipeline for one project. The MAF files are produced through the [Somatic Aggregation Workflow](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_aggregation_workflow&_top=1). For tumor samples that contain variants from multiple combinations of tumor-normal aliquot pairs, only one pair is selected in the Somatic MAF based on their sample type.
 
 > __Note:__ The criteria for allowing mutations into open-access are purposefully implemented to overcompensate and filter out germline variants. If omission of true-positive somatic mutations is a concern, the GDC recommends using protected MAFs.  
 
