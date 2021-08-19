@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v.2.4.1](Data_Dictionary_Release_Notes.md#v241) | August 20, 2021 |
 | [v.2.4.0](Data_Dictionary_Release_Notes.md#v240) | June 21, 2021 |
 | [v.2.3.0](Data_Dictionary_Release_Notes.md#v230) | January 5, 2021 |
 | [v.2.2.0](Data_Dictionary_Release_Notes.md#v220) | July 2, 2020 |
@@ -20,6 +21,83 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v2.4.1
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: August 20, 2021
+
+### New Features and Changes
+
+* Altered `pathology_detail` Entity
+	* Changes made to `additional_pathology_findings`
+		* New permissible value: `Adenomyosis`
+		* New permissible value: `Atrophic endometrium`
+		* New permissible value: `Atypical hyperplasia/Endometrial intraepithelial neoplasia (EIN)`
+		* New permissible value: `Autoimmune atrophic chronic gastritis`
+		* New permissible value: `Asbestos bodies`
+		* New permissible value: `Benign endocervical polyp`
+		* New permissible value: `Bilateral ovaries with endometriotic cyst and surface adhesions`
+		* New permissible value: `Carcinoma in situ`
+		* New permissible value: `Cirrhosis`
+		* New permissible value: `Clostridioides difficile (c. diff)`
+		* New permissible value: `Colonization; bacterial`
+		* New permissible value: `Colonization; fungal`
+		* New permissible value: `Cyst(s)`
+		* New permissible value: `Diffuse and early nodular diabetic glomerulosclerosis`
+		* New permissible value: `Dysplasia; high grade`
+		* New permissible value: `Dysplasia; low grade`
+		* New permissible value: `Endometrial polyp`
+		* New permissible value: `Endometriosis`
+		* New permissible value: `Endometroid carcinoma with local mucinous differentiation`
+		* New permissible value: `Endosalpingiosis`
+		* New permissible value: `Epithelial dysplasia`
+		* New permissible value: `Epithelial hyperplasia`
+		* New permissible value: `Gallbladder adenomyomatosis`
+		* New permissible value: `Glomerular disease`
+		* New permissible value: `Hyperkeratosis`
+		* New permissible value: `Inflammation`
+		* New permissible value: `Intestinal metaplasia`
+		* New permissible value: `Keratinizing dysplasia; mild`
+		* New permissible value: `Keratinizing dysplasia; moderate`
+		* New permissible value: `Keratinizing dysplasia; severe (carcinoma in situ)`
+		* New permissible value: `Leiomyoma`
+		* New permissible value: `Leiomyomata w/ degenerative changes`
+		* New permissible value: `Nonkeratinizing dysplasia; mild`
+		* New permissible value: `Nonkeratinizing dysplasia; moderate`
+		* New permissible value: `Nonkeratinizing dysplasia; severe (carcinoma in situ)`
+		* New permissible value: `Other`
+		* New permissible value: `PD-L1 CPS (223C LDT) - 20%`
+		* New permissible value: `Platinum-resistant`
+		* New permissible value: `Pleural plaque`
+		* New permissible value: `Pulmonary interstitial fibrosis`
+		* New permissible value: `Sialadenitis`
+		* New permissible value: `Sinonasal papilloma`
+		* New permissible value: `Squamous metaplasia`
+		* New permissible value: `Squamous papilloma; solitary`
+		* New permissible value: `Squamous papillomatosis`
+		* New permissible value: `Tubular (papillary) adenoma(s)`
+		* New permissible value: `Tumor-associated lymphoid proliferation`
+		* New permissible value: `Tumor has rough spikey edges`
+		* Removed permissible value: `Pleurodesis, Talc`
+		* Removed permissible value: `Pleurodesis, NOS`
+* Altered `diagnosis` Entity
+	* `primary_disease` field changed to `diagnosis_is_primary_disease` for clarity.
+* Altered `treatment` Entity
+	* Changes made to `treatment_type`
+		* New permissible value: `Pleurodesis, Talc`
+		* New permissible value: `Pleurodesis, NOS`
+* Altered `molecular_test` Entity
+	* Changes made to `test_units`
+		* New permissible value: `mm^2`
+		* New permissible value: `ng/mL`
+		* New permissible value: `percent`
+		* New permissible value: `count x10^9/L`
+
+### Known Issues and Workarounds
+
+* The `mitotic_count` field in `diagnosis` is erroneously set as "deprecated" and does not appear in the dictionary viewer.  This field can be uploaded successfully without issue and will appear in the dictionary viewer at a later release. <!--SV-1939-->
+
 
 ## v2.4.0
 
