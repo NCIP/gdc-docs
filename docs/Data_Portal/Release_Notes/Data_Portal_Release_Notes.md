@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.29.0](Data_Portal_Release_Notes.md#release-1290) | August 20, 2021 |
+| [v1.29.0](Data_Portal_Release_Notes.md#release-1290) | August 23, 2021 |
 | [v1.28.0](Data_Portal_Release_Notes.md#release-1280) | May 17, 2021 |
 | [v1.25.1](Data_Portal_Release_Notes.md#release-1251) | August 14, 2020 |
 | [v1.25.0](Data_Portal_Release_Notes.md#release-1250) | July 2, 2020 |
@@ -36,7 +36,7 @@
 ## Release 1.29.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  August 20, 2021
+* __Release Date__:  August 23, 2021
 
 ### New Features and Changes <!--REQ-431-->
 
