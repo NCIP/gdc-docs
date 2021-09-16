@@ -163,7 +163,7 @@ STAR \
 ### mRNA Expression Workflow
 Following alignment, BAM files are processed through the [RNA Expression Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=rna_expression_workflow) to determine RNA expression levels.
 
-The reads mapped to each gene are enumerated using HT-Seq-Count. Expression values are provided in a tab-delimited format. [GENCODE v22](http://www.gencodegenes.org/releases/22.html) was used for gene annotation.
+The reads mapped to each gene are enumerated using HT-Seq-Count. Expression values are provided in a tab-delimited format. [GENCODE v22](https://www.gencodegenes.org/human/release_22.html) was used for gene annotation.
 
 Files that were processed after Data Release 14 have an additional set of read counts that were produced by STAR during the alignment step.
 
