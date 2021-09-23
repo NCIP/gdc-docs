@@ -66,7 +66,7 @@ Descriptions for fields present in GDC Harmonized Methylation Beta Values Table 
 | Masked Methylation Array | A data file that contains channel data from a raw methylation array after masking of potential genotyping information. | IDAT |
 
 
-[1]. Zhou, Wanding, Triche Timothy J., Laird Peter W. and Shen Hui. “SeSAMe: Reducing artifactual detection of DNA methylation by Infinium BeadChips in genomic deletions.” Nucleic Acids Research. (2018): doi: 10.1093/nar/gky691
+[1]. Zhou, Wanding, Triche Timothy J., Laird Peter W. and Shen Hui. "SeSAMe: Reducing artifactual detection of DNA methylation by Infinium BeadChips in genomic deletions." Nucleic Acids Research. (2018): doi: 10.1093/nar/gky691
 
 [2]. Zhou, Wanding, Laird Peter L., and Hui Shen. "Comprehensive characterization, annotation and innovative use of Infinium DNA methylation BeadChip probes." Nucleic Acids Research. (2016): doi: 10.1093/nar/gkw967
 
