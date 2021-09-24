@@ -62,8 +62,8 @@
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [XXXXX](XXXXX)
-* [XXXXX](XXXXX)
+* [gdc_manifest_20210923_data_release_30.0_active.tsv.gz](gdc_manifest_20210923_data_release_30.0_active.tsv.gz)
+* [gdc_manifest_20210923_data_release_30.0_legacy.tsv.gz](gdc_manifest_20210923_data_release_30.0_legacy.tsv.gz)
 
 ### Bugs Fixed Since Last Release
 
