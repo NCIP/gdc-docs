@@ -4,7 +4,7 @@
 
 The GDC API provides endpoints that search and retrieve information stored in the GDC according to the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). The general format of requests to search & retrieval endpoints is described below.
 
-**Note:** Queries described in this section work for datasets that have been released to the GDC Data Portal. Unreleased data that is in the process of being submitted to GDC cannot be queried using these methods. See [Submission](Submission.md) to learn how to query unreleased data using GraphQL.
+>**Note:** Queries described in this section work for datasets that have been released to the GDC Data Portal. Unreleased data that is in the process of being submitted to GDC cannot be queried using these methods. See [Submission](Submission.md) to learn how to query unreleased data using GraphQL.
 
 ### Components of a Request
 
@@ -19,7 +19,7 @@ A typical search and retrieval API request specifies the following parameters:
 
 Requests can be executed using HTTP GET or HTTP POST. GET requests are limited by maximum URL length, so the POST method is recommended for large queries.
 
-**Note:** Requests for information stored in the GDC Legacy Archive must be directed to `legacy/` endpoints. See [Getting Started](Getting_Started.md#gdc-legacy-archive) for details.
+>**Note:** Requests for information stored in the GDC Legacy Archive must be directed to `legacy/` endpoints. See [Getting Started](Getting_Started.md#gdc-legacy-archive) for details.
 
 ### POST Example
 
@@ -87,7 +87,7 @@ The following search and retrieval endpoints are available in the GDC API:
 
 The choice of endpoint determines what is listed in the search results. The `files` endpoint will generate a list of files, whereas the `cases` endpoint will generate a list of cases. Each of the above endpoints, other than `_mapping`, can query and return any of the related fields in the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). So the `cases` endpoint can be queried for file fields (e.g. to look for cases that have certain types of experimental data), and the `files` endpoint can be queried for clinical metadata associated with a case (e.g. to look for files from cases diagnosed with a specific cancer type).
 
-### Project Endpoint
+### `Project` Endpoint
 The `projects` endpoint provides access to project records, the highest level of data organization in the GDC.
 
 #### Example
@@ -213,7 +213,7 @@ curl 'https://api.gdc.cancer.gov/projects/TARGET-NBL?expand=summary,summary.expe
 }
 ```
 
-### Files Endpoint
+### `Files` Endpoint
 
 The GDC Files Endpoint `https://api.gdc.cancer.gov/files` enables search and retrieval of information relating to files stored in the GDC, including file properties such as `file_name`, `md5sum`, `data_format`, and others.
 
@@ -289,7 +289,7 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
 
 #### Retrieval of file metadata using individual UUIDs:
 
-The `\files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID.  Note that the `\files` endpoint is inactive when querying for earlier file versions.  In that case, the `\history` or `/files/versions` endpoints should be used instead.
+The `/files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID.  Note that the `/files` endpoint is inactive when querying for earlier file versions.  In that case, the `/history` or `/files/versions` endpoints should be used instead.
 
 ```Shell
 curl 'https://api.gdc.cancer.gov/files/874e71e0-83dd-4d3e-8014-10141b49f12c?pretty=true'
@@ -321,7 +321,7 @@ curl 'https://api.gdc.cancer.gov/files/874e71e0-83dd-4d3e-8014-10141b49f12c?pret
 }
 ```
 
-__Note:__ The `file_size` field associated with each file is reported in bytes.  
+>__Note:__ The `file_size` field associated with each file is reported in bytes.  
 
 
 #### Example of retrieving file version information:
@@ -448,11 +448,11 @@ curl --request POST --header "Content-Type: text/tsv"  https://api.gdc.cancer.go
 }]
 ```
 
-### Cases Endpoint
+### `Cases` Endpoint
 
 The GDC Cases Endpoint `https://api.gdc.cancer.gov/cases` enables search and retrieval of information related to a specific case.
 
-__Note:__ The `cases` endpoint is designed to retrieve the metadata associated with one or more cases, including all nested biospecimen entities. Filters can be applied to retrieve information for entire cases, but not for lower-level biospecimen entities. For example, a sample within a case cannot be used to query for aliquots that are associated only with that sample. All aliquots associated with the case would be retrieved.
+The `cases` endpoint is designed to retrieve the metadata associated with one or more cases, including all nested biospecimen entities. Filters can be applied to retrieve information for entire cases, but not for lower-level biospecimen entities. For example, a sample within a case cannot be used to query for aliquots that are associated only with that sample. All aliquots associated with the case would be retrieved.
 
 
 #### Example
@@ -698,7 +698,7 @@ curl 'https://api.gdc.cancer.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pret
 }
 ```
 
-### Annotations Endpoint
+### `Annotations` Endpoint
 
 The GDC Annotation Endpoint `https://api.gdc.cancer.gov/annotations` enables search and retrieval of annotations stored in the GDC.
 
@@ -801,7 +801,7 @@ curl 'https://api.gdc.cancer.gov/annotations?filters=%7B%22op%22%3A%22in%22%2C%2
   "warnings": {}
 }
 ```
-### History Endpoint
+### `History` Endpoint
 
 The GDC History Endpoint `https://api.gdc.cancer.gov/history` enables search and retrieval of version and release information about a file.  This endpoint will return the entire provenance of all versions of a file.  A file may be versioned if a file is updated by the GDC (e.g. using a new alignment algorithm or fixing a file that contained an error). `Version` refers to the instance of a particular file. `Release` refers to which data release a file was part of.  A file may be a part of many different data releases with no change in version number or content.  
 
@@ -818,7 +818,7 @@ curl 'https://api.gdc.cancer.gov/history/1dd28069-5777-4ff9-bd2b-d1ba68e88b06'
 ```
 
 
-### \_mapping Endpoint
+### `_mapping` Endpoint
 
 Each search and retrieval endpoint is equipped with a ```_mapping``` endpoint that provides information about available fields. For example, `files/_mapping` endpoint provides information about fields and field groups available at the `files` endpoint: `https://api.gdc.cancer.gov/files/_mapping`.
 
@@ -967,16 +967,19 @@ This example requests `male` cases using HTTP GET.
 
 The JSON object to be passed to the GDC API looks like:
 
-	{"op": "=",
-		  "content": {
-			  "field": "cases.demographic.gender",
-			  "value": ["male"]
-		  }
-	}
+    {
+        "op": "=",
+        "content": {
+            "field": "cases.demographic.gender",
+            "value": [
+                "male"
+           ]
+        }
+    }
 
-URL-encoding the above JSON object using [Percent-(URL)-encoding tool](https://www.beautifyconverter.com/json-escape-unescape.php) results in the following string:
+URL-encoding the above JSON object using [Percent-(URL)-encoding tool](https://www.freeformatter.com/url-encoder.html) results in the following string:
 
-	%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.clinical.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d
+    %7B%0D%0A++++%22op%22%3A+%22%3D%22%2C%0D%0A++++%22content%22%3A+%7B%0D%0A++++++++%22field%22%3A+%22cases.demographic.gender%22%2C%0D%0A++++++++%22value%22%3A+%5B%0D%0A++++++++++++%22male%22%0D%0A++++++++%5D%0D%0A++++%7D%0D%0A%7D
 
 The above string can now be passed to the GDC API using the `filters` parameter:
 
