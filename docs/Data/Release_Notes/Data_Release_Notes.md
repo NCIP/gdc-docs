@@ -57,7 +57,9 @@
 3. HCMI-CMDC
     * 31 New cases have been released to the GDC Data Portal.
     * Methylation data produced from the SeSAMe pipeline is now available.
-4. TCGA - Protein expression data (RPPA) is now available for 32 projects.
+4. TCGA
+    * Protein expression data (RPPA) is now available for 32 projects.
+    * RNA-Seq data for TCGA-TGCT was replaced with files from an updated pipeline.
 5. TARGET-AML - New RNA-Seq and miRNA-Seq aliquots have been released.
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
