@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v31.0](Data_Release_Notes.md#data-release-310) | October XXXX, 2021 |
+| [v31.0](Data_Release_Notes.md#data-release-310) | October 29, 2021 |
 | [v30.0](Data_Release_Notes.md#data-release-300) | September 23, 2021 |
 | [v29.0](Data_Release_Notes.md#data-release-290) | March 31, 2021 |
 | [v28.0](Data_Release_Notes.md#data-release-280) | February 2, 2021 |
@@ -41,7 +41,7 @@
 ## Data Release 31.0
 
 * __GDC Product__: Data
-* __Release Date__: October XXXX, 2021
+* __Release Date__: October 29, 2021
 
 ### New updates
 
