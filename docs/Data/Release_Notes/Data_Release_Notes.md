@@ -47,6 +47,7 @@
 
 1.  TCGA Slide Images:
     * All TCGA slide images that were removed earlier this year have been restored.
+    * Note that the UUIDs for most TCGA slide images have changed.  Older manifest files may not work when downloading slide images.
 2. CPTAC-3 clinical data has been refreshed and includes new follow up entities.
 3. REBC-THYR
     * The clinical and biospecimen XML files were removed as they were not intended for release in DR 30.
@@ -63,7 +64,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Known Issues and Workarounds
 
-
+* The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
