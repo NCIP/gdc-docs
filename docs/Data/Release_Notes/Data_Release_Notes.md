@@ -49,7 +49,7 @@
     * All TCGA slide images that were removed earlier this year have been restored.
 2. CPTAC-3 clinical data has been refreshed and includes new follow up entities.
 3. REBC-THYR
-    * The clinical and biospecimen files were removed as they were not intended for release in DR 30.
+    * The clinical and biospecimen XML files were removed as they were not intended for release in DR 30.
     * The case REBC-ADL5 was added, which includes one WGS pair.
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
