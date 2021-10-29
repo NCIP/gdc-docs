@@ -1,7 +1,7 @@
 {
 "type": "submitted_aligned_reads",
 "submitter_id": "BAM_file_internal_",
-"read_groups" : {"submitter_id":"RG_INTERNAL_2"}],
+"read_groups" : [{"submitter_id":"RG_INTERNAL_2"}],
 "file_name":"WXS-file.bam",
 "md5sum":"c2d1f25918af7609975370320632f24a",
 "file_size": 20,
