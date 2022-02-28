@@ -41,7 +41,7 @@
 
 ## Data Release 32.0
 
-* __GDC Product__: Data - New Gencode Release
+* __GDC Product__: Data - New GENCODE v36 Release
 * __Release Date__: March XX, 2022
 
 ### New updates
@@ -54,10 +54,13 @@
     * FM-AD Targeted Sequencing files.
 1. All WXS files for TCGA have been replaced with new versions.
 1. TCGA RNA-Seq has been changed to contain three alignments, STAR-counts files, and transcript fusion files for each aliquot.
-1. The HT-Seq data no longer appears in the GDC Data Portal but can be downloaded as a v22 version.
+1. Files from the HT-Seq pipeline are no longer supported and will no longer appear in the portal.
 1. The project-level MAFs in TCGA and FM-AD have been replaced with aliquot-level MAFs.
-1. TCGA methylation data produced from the SeSAMe pipeline is now available.
+1. TCGA methylation data produced from the SeSAMe pipeline is now available. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
+1. TCGA copy number variation files produced from the DNACopy pipeline are no longer supported and will no longer appear in the portal.
 1. All mutations and genes in the Exploration page have been replaced with mutations and genes generated with GENCODE v36.
+1. BAM files that no longer appear in the portal but previously did will be available for six months past this release. They may not be available after that.
+1. Derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
