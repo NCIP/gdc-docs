@@ -268,7 +268,7 @@ The transcripts per million calculation can is similar to FPKM, but the differen
 
 ### Calculations
 
-[FPKM Calculations](images/fpkm_fpkm-uq_tpm_formulas.png "Click to see the full image.")
+[FPKM Calculations](images/normalizations_calc.png "Click to see the full image.")
 
 __Note:__ The read count is multiplied by a scalar (10<sup>9</sup>) during normalization to account for the kilobase and 'million mapped reads' units.
 
