@@ -75,6 +75,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Known Issues and Workarounds
 
+* Copy number variations currently do not appear in the Exploration page.  This will be restored in a future release.
 * Mutations from SomaticSniper were erroneously labelled as LOH (loss of heterozygosity). This affects the VCF files, MAF files, and may cause SomaticSniper mutations to be absent from ensemble MAFs.
 * The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
