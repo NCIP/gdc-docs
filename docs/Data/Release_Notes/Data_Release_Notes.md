@@ -41,7 +41,7 @@
 
 ## Data Release 32.0
 
-* __GDC Product__: Data - New GENCODE v36 Release
+* __GDC Product__: Data - GENCODE v36 Release
 * __Release Date__: March XX, 2022
 
 ### New updates
@@ -49,7 +49,7 @@
 1.  The following data types have been replaced with new GENCODE v36 versions
     * RNA-Seq: all files, including alignments, gene expression files, and transcript fusion files.
     * WXS and Targeted Sequencing: annotated VCFs, single-caller MAFs, Ensemble MAFs.
-    * WGS: All variant calling files.  This includes simple somatic mutations, structural variants, copy number variants.
+    * WGS: BEDPE-format structural variants and gene-level copy number variants.
     * GENIE Targeted Sequencing files.
     * FM-AD Targeted Sequencing files.
 1. All WXS files for TCGA have been replaced with new versions.
@@ -59,6 +59,8 @@
 1. TCGA methylation data produced from the SeSAMe pipeline is now available. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
 1. TCGA copy number variation files produced from the DNACopy pipeline are no longer supported and will no longer appear in the portal.
 1. All mutations and genes in the Exploration page have been replaced with mutations and genes generated with GENCODE v36.
+    * Note that TCGA mutations will no longer appear on the Exploration page unless they were detected by more than one mutation calling workflow. This rule has always applied to the other programs that were included in the exploration page.
+    * Mutations from SomaticSniper will not appear on the Exploration page.
 1. BAM files that no longer appear in the portal but previously did will be available for six months past this release. They may not be available after that.
 1. Derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
 
@@ -73,6 +75,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Known Issues and Workarounds
 
+* Mutations from SomaticSniper were erroneously labelled as LOH (loss of heterozygosity). This affects the VCF files, MAF files, and may cause SomaticSniper mutations to be absent from ensemble MAFs.
 * The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
