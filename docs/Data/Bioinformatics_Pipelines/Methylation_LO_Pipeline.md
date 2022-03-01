@@ -2,9 +2,9 @@
 
 ## Methylation Array Harmonization Workflow
 
-### Introduction 
+### Introduction
 
-The [Methylation Array Harmonization Workflow](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=methylation_array_harmonization_workflow) uses raw methylation array data from multiple generations of Illumina Infinium DNA methylation arrays, namely Human Methylation 27 (HM27), HumanMethylation 450 (HM450) and EPIC platforms, to measure the level of methylation at known CpG sites as beta values, calculated from array intensities (Level 2 data) as Beta = M/(M+U). This differs from the [Methylation Liftover Pipeline](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=methylation_liftover_workflow) in that the raw methylation array data is used instead of submitted methylation beta values, and the data is processed through the software package [SeSAMe](https://github.com/zwdzwd/sesame)[1]. Additionally, the analysis results from the Methylation Array Harmonization Workflow are expected to be of higher quality than results from the Methylation Liftover Pipeline. 
+The [Methylation Array Harmonization Workflow](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=methylation_array_harmonization_workflow) uses raw methylation array data from multiple generations of Illumina Infinium DNA methylation arrays, namely Human Methylation 27 (HM27), HumanMethylation 450 (HM450) and EPIC platforms, to measure the level of methylation at known CpG sites as beta values, calculated from array intensities (Level 2 data) as Beta = M/(M+U). This differs from the [Methylation Liftover Pipeline](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=methylation_liftover_workflow) in that the raw methylation array data is used instead of submitted methylation beta values, and the data is processed through the software package [SeSAMe](https://github.com/zwdzwd/sesame)[1]. Additionally, the analysis results from the Methylation Array Harmonization Workflow are expected to be of higher quality than results from the Methylation Liftover Pipeline.
 
 SeSAMe offers correction to detection failures that occur in other DNA methylation array software commonly due to germline and somatic deletions by utilizing a novel way to calculate the significance of detected signals in methylation arrays. By correcting for these artifacts as well as other improvements to DNA methylation data processing, SeSAMe improves upon detection calling and quality control of processed DNA methylation data. SeSAMe output files include: two Masked Methylation Array IDAT files, one for each color channel, that contains channel data from a raw methylation array after masking potential genotyping information; and a subsequent Methylation Beta Value TXT file derived from the two Masked Methylation Array IDAT files, that displays the calculated methylation beta value for CpG sites.
 
@@ -28,6 +28,8 @@ Descriptions for fields present in GDC Harmonized Methylation Beta Values File a
 ## Methylation Liftover Pipeline
 
 ### Introduction
+
+__Note: as of Data Release 32, Methylation Liftover files are no longer supported and do not appear in the GDC Data Portal.__ 
 
 The [DNA Methylation Liftover Pipeline](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=methylation_liftover_workflow) uses data from the Illumina Infinium Human Methylation 27 (HM27) and HumanMethylation450 (HM450) arrays to measure the level of methylation at known CpG sites as beta values, calculated from array intensities (Level 2 data) as Beta = M/(M+U).
 
@@ -69,6 +71,3 @@ Descriptions for fields present in GDC Harmonized Methylation Beta Values Table 
 [1]. Zhou, Wanding, Triche Timothy J., Laird Peter W. and Shen Hui. "SeSAMe: Reducing artifactual detection of DNA methylation by Infinium BeadChips in genomic deletions." Nucleic Acids Research. (2018): doi: 10.1093/nar/gky691
 
 [2]. Zhou, Wanding, Laird Peter L., and Hui Shen. "Comprehensive characterization, annotation and innovative use of Infinium DNA methylation BeadChip probes." Nucleic Acids Research. (2016): doi: 10.1093/nar/gkw967
-
-
-
