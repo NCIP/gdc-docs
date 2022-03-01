@@ -52,6 +52,7 @@
     * WGS: BEDPE-format structural variants and gene-level copy number variants.
     * GENIE Targeted Sequencing files.
     * FM-AD Targeted Sequencing files.
+        * The primary-site-level FM-AD MAF files have been replaced with aliquot-level MAF files. 
 1. All WXS files for TCGA have been replaced with new versions.
 1. TCGA RNA-Seq has been changed to contain three alignments, STAR-counts files, and transcript fusion files for each aliquot.
 1. Files from the HT-Seq pipeline are no longer supported and will no longer appear in the portal.
