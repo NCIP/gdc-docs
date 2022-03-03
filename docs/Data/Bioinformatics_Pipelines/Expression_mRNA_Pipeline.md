@@ -14,7 +14,7 @@ Files that were processed after Data Release 25 will have associated [gene fusio
 
 As of Data Release 32 the reference annotation will be updated to GENCODE v36 and HT-Seq will no longer be used.
 
-[![RNA Alignment Pipeline](images/RNA_Expression_WF_Flowchart.png)](images/RNA_Expression_WF_Flowchart.png "Click to see the full image.")
+[![RNA Alignment Pipeline](images/RNA-Seq-DR32_Image.png)](images/RNA-Seq-DR32_Image.png "Click to see the full image.")
 
 | I/O | Entity | Format |
 |---|---|---|
