@@ -140,4 +140,4 @@ gistic2 \
 
 [3] Beroukhim, Rameen, Craig H. Mermel, Dale Porter, Guo Wei, Soumya Raychaudhuri, Jerry Donovan, Jordi Barretina et al. "The landscape of somatic copy-number alteration across human cancers." Nature 463, no. 7283 (2010): 899.
 
-[4] Van Loo, P., Nordgard, S. H., Lingjærde, O. C., Russnes, H. G., Rye, I. H., Sun, W. et al. "Allele-specific copy number analysis of tumors." Proceedings of the National Academy of Sciences, 107.39 (2010): 16910-16915.
+[4] Van Loo, P., Nordgard, S. H., Lingjaerde, O. C., Russnes, H. G., Rye, I. H., Sun, W. et al. "Allele-specific copy number analysis of tumors." Proceedings of the National Academy of Sciences, 107.39 (2010): 16910-16915.
