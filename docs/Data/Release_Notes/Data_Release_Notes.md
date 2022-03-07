@@ -46,24 +46,30 @@
 
 ### New updates
 
+#### New data files
 1.  The following data types have been replaced with new GENCODE v36 versions
     * RNA-Seq: all files, including alignments, gene expression files, and transcript fusion files.
     * WXS and Targeted Sequencing: annotated VCFs, single-caller MAFs, Ensemble MAFs.
     * WGS: BEDPE-format structural variants and gene-level copy number variants.
     * GENIE Targeted Sequencing files.
     * FM-AD Targeted Sequencing files.
-        * The primary-site-level FM-AD MAF files have been replaced with aliquot-level MAF files. 
-1. All WXS files for TCGA have been replaced with new versions.
-1. TCGA RNA-Seq has been changed to contain three alignments, STAR-counts files, and transcript fusion files for each aliquot.
-1. Files from the HT-Seq pipeline are no longer supported and will no longer appear in the portal.
+        * The primary-site-level FM-AD MAF files have been replaced with aliquot-level MAF files.
+1. All WXS files for TCGA have been replaced with new versions. Alignments will contain QC metrics and variants were produced using the same pipelines as newer projects.
+1. TCGA RNA-Seq has been changed to contain three alignments (genomic, transcriptome, and chimeric), STAR-counts files, and transcript fusion files for each aliquot.
 1. The project-level MAFs in TCGA and FM-AD have been replaced with aliquot-level MAFs.
-1. TCGA methylation data produced from the SeSAMe pipeline is now available. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
-1. TCGA copy number variation files produced from the DNACopy pipeline are no longer supported and will no longer appear in the portal.
 1. All mutations and genes in the Exploration page have been replaced with mutations and genes generated with GENCODE v36.
     * Note that TCGA mutations will no longer appear on the Exploration page unless they were detected by more than one mutation calling workflow. This rule has always applied to the other programs that were included in the exploration page.
     * Mutations from SomaticSniper will not appear on the Exploration page.
-1. BAM files that no longer appear in the portal but previously did will be available for six months past this release. They may not be available after that.
 1. Derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
+
+
+#### Removed data files and pipelines
+1. Files from the HT-Seq pipeline are no longer supported and will no longer appear in the portal.
+1. TCGA methylation data produced from the SeSAMe pipeline is now available. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
+1. TCGA copy number variation files produced from the DNACopy pipeline are no longer supported and will no longer appear in the portal.
+1. GENCODE v22 BAM files that no longer appear in the portal but previously did will be available for six months past this release. They may not be available after that.
+1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see list [here](XXXXX)).
+1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see list [here](XXXXX)).  
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
@@ -76,13 +82,14 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Known Issues and Workarounds
 
+* The clinical supplement for TARGET-ALL-P1 is not currently available due to XXXXX.
 * Copy number variations currently do not appear in the Exploration page.  This will be restored in a future release.
 * Mutations from SomaticSniper were erroneously labelled as LOH (loss of heterozygosity). This affects the VCF files, MAF files, and may cause SomaticSniper mutations to be absent from ensemble MAFs.
 * The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
-* Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
+* Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release. <!--DAT-1589-->
 * Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
 * Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
