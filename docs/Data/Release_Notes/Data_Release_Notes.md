@@ -60,7 +60,7 @@
 1. All mutations and genes in the Exploration page have been replaced with mutations and genes generated with GENCODE v36.
     * Note that TCGA mutations will no longer appear on the Exploration page unless they were detected by more than one mutation calling workflow. This rule has always applied to the other programs that were included in the exploration page.
     * Mutations from SomaticSniper will not appear on the Exploration page.
-1. Derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
+1. GENCODE v22 derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
 
 
 #### Removed data files and pipelines
