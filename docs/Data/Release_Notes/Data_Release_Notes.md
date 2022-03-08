@@ -61,7 +61,7 @@
     * Note that TCGA mutations will no longer appear on the Exploration page unless they were detected by more than one mutation calling workflow. This rule has always applied to the other programs that were included in the exploration page.
     * Mutations from SomaticSniper will not appear on the Exploration page.
 1. GENCODE v22 derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
-
+1.  Note that miRNA-Seq data remains unchanged. The miRNA-Seq pipeline uses the miRBase database, which is not affected by the GENCODE version change.
 
 #### Removed data files and pipelines
 1. Files from the HT-Seq pipeline are no longer supported and will no longer appear in the portal.
