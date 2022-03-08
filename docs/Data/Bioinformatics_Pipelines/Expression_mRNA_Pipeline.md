@@ -62,7 +62,7 @@ STAR
 --genomeDir <star_index_path>
 --genomeFastaFiles <reference>
 --sjdbOverhang 100
---sjdbGTFfile <gencode.v22.annotation.gtf>
+--sjdbGTFfile <gencode.v36.annotation.gtf>
 --runThreadN 8
 
 ### Step 2: Alignment 1st Pass.
