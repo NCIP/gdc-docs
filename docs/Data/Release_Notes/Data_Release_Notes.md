@@ -84,7 +84,8 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Known Issues and Workarounds
 
-* The clinical supplement for TARGET-ALL-P1 is not currently available due to XXXXX.
+* One methylation aliquot from the TCGA-COAD project, XXXX, was not added to the portal and will be added in a future release.
+* The clinical supplement for TARGET-ALL-P1 is not currently available. It will be made available in a future release.
 * Copy number variations currently do not appear in the Exploration page.  This will be restored in a future release.
 * Mutations from SomaticSniper were erroneously labelled as LOH (loss of heterozygosity). This affects the VCF files, MAF files, and may cause SomaticSniper mutations to be absent from ensemble MAFs.
 * The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
