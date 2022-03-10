@@ -61,15 +61,17 @@
     * Note that TCGA mutations will no longer appear on the Exploration page unless they were detected by more than one mutation calling workflow. This rule has always applied to the other programs that were included in the exploration page.
     * Mutations from SomaticSniper will not appear on the Exploration page.
 1. GENCODE v22 derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
+1. Methylation data produced from the SeSAMe pipeline is now available for all TCGA projects.
 1.  Note that miRNA-Seq data remains unchanged. The miRNA-Seq pipeline uses the miRBase database, which is not affected by the GENCODE version change.
 
+
 #### Removed data files and pipelines
-1. Files from the HT-Seq pipeline are no longer supported and will no longer appear in the portal.
-1. TCGA methylation data produced from the SeSAMe pipeline is now available. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
-1. TCGA copy number variation files produced from the DNACopy pipeline are no longer supported and will no longer appear in the portal.
-1. GENCODE v22 BAM files that no longer appear in the portal but previously did will be available for six months past this release. They may not be available after that.
-1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see list [here](XXXXX)).
-1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see list [here](XXXXX)).  
+1. Files from the HTSeq pipeline are no longer supported and will no longer appear in the portal.
+1. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
+1. GENCODE v22 BAM files that no longer appear in the portal will be available for six months past this release. They may not be available after that.
+1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](Removed_Aliquots.DR32.tsv)).
+1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.DR32.tsv)).
+1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.DR32.tsv)).  
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
