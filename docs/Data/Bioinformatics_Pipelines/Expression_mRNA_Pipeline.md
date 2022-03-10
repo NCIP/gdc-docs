@@ -26,7 +26,7 @@ As of Data Release 32 the reference annotation will be updated to GENCODE v36 an
 __Note that version numbers may vary in files downloaded from the GDC Data Portal due to ongoing pipeline development and improvement.__
 
 ```Original
-# STAR-2.4.2a
+# STAR-2
 
 ### For users with access to the ICGC pipeline:
 
@@ -124,7 +124,7 @@ STAR
 --outSAMattrRGline <formatted RG line provided by wrapper>
 ```
 ```DR15Plus
-# STAR-2.6.0c
+# STAR-2
 
 STAR \
 --readFilesIn <fastq_files> \
@@ -170,7 +170,7 @@ STAR
 --runThreadN 8
 
 # STAR Alignment
-# STAR v2.7.0f
+# STAR v2
 STAR
 --readFilesIn <fastq_files> \
 --outSAMattrRGline <read_group_strings> \
@@ -224,7 +224,7 @@ Note that the STAR counting results will not count reads that are mapped to more
 
 ### mRNA Quantification Command Line Parameters
 
-HTSeq-0.6.1p1
+HTSeq
 
 ```Current
 Counts are produced by STAR concurrent with alignment.
