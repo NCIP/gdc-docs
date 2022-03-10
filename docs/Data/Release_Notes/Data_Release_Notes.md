@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v32.0](Data_Release_Notes.md#data-release-320) | March XX, 2022 |
+| [v32.0](Data_Release_Notes.md#data-release-320) | March 14, 2022 |
 | [v31.0](Data_Release_Notes.md#data-release-310) | October 29, 2021 |
 | [v30.0](Data_Release_Notes.md#data-release-300) | September 23, 2021 |
 | [v29.0](Data_Release_Notes.md#data-release-290) | March 31, 2021 |
@@ -42,7 +42,7 @@
 ## Data Release 32.0
 
 * __GDC Product__: Data - GENCODE v36 Release
-* __Release Date__: March XX, 2022
+* __Release Date__: March 14, 2022
 
 ### New updates
 
@@ -84,6 +84,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Known Issues and Workarounds
 
+* 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
 * One methylation aliquot from the TCGA-COAD project, XXXX, was not added to the portal and will be added in a future release.
 * The clinical supplement for TARGET-ALL-P1 is not currently available. It will be made available in a future release.
 * Copy number variations currently do not appear in the Exploration page.  This will be restored in a future release.
