@@ -85,7 +85,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 ### Known Issues and Workarounds
 
 * 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
-* One methylation aliquot from the TCGA-COAD project, XXXX, was not added to the portal and will be added in a future release.
+* One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
 * The clinical supplement for TARGET-ALL-P1 is not currently available. It will be made available in a future release.
 * Copy number variations currently do not appear in the Exploration page.  This will be restored in a future release.
 * Mutations from SomaticSniper were erroneously labelled as LOH (loss of heterozygosity). This affects the VCF files, MAF files, and may cause SomaticSniper mutations to be absent from ensemble MAFs.
