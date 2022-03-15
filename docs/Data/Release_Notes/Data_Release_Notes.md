@@ -72,6 +72,7 @@
 1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](Removed_Aliquots.DR32.tsv)).
 1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.DR32.tsv)).
 1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.DR32.tsv)).  
+1. Due to the copy number variation pipeline transition from GISTIC to ASCAT, the CNV data was not included in the GDC Exploration page. This will be replaced in a future release once visualization of the new pipeline is fully assessed.
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
