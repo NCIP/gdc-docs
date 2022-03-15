@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v32.0](Data_Release_Notes.md#data-release-320) | March 14, 2022 |
+| [v32.0](Data_Release_Notes.md#data-release-320) | March 16, 2022 |
 | [v31.0](Data_Release_Notes.md#data-release-310) | October 29, 2021 |
 | [v30.0](Data_Release_Notes.md#data-release-300) | September 23, 2021 |
 | [v29.0](Data_Release_Notes.md#data-release-290) | March 31, 2021 |
@@ -42,7 +42,7 @@
 ## Data Release 32.0
 
 * __GDC Product__: Data - GENCODE v36 Release
-* __Release Date__: March 14, 2022
+* __Release Date__: March 16, 2022
 
 ### New updates
 
