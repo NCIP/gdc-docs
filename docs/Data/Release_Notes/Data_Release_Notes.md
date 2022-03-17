@@ -54,7 +54,7 @@
     * GENIE Targeted Sequencing files.
     * FM-AD Targeted Sequencing files.
         * The primary-site-level FM-AD MAF files have been replaced with aliquot-level MAF files.
-1. All WXS files for TCGA have been replaced with new versions. Alignments will contain QC metrics and variants were produced using the same pipelines as newer projects.
+1. All WXS files for TCGA have been replaced with new versions. Alignments will contain QC metrics and variants were produced using the same pipelines as all other GDC projects.
 1. TCGA RNA-Seq has been changed to contain three alignments (genomic, transcriptome, and chimeric), STAR-counts files, and transcript fusion files for each aliquot.
 1. The project-level MAFs in TCGA and FM-AD have been replaced with aliquot-level MAFs.
 1. All mutations and genes in the Exploration page have been replaced with mutations and genes generated with GENCODE v36.
