@@ -60,8 +60,8 @@
 1. The project-level MAFs in TCGA and FM-AD have been replaced with aliquot-level MAFs.
 1. GENCODE v22 derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
 1. Methylation data produced from the SeSAMe pipeline is now available for all TCGA projects.
-1.  Note that miRNA-Seq data remains unchanged. The miRNA-Seq pipeline uses the miRBase database, which is not affected by the GENCODE version change.
-
+1. Note that miRNA-Seq data remains unchanged. The miRNA-Seq pipeline uses the miRBase database, which is not affected by the GENCODE version change.
+1. A set of manifests were generated at the project-level that map each v22 file to its corresponding v36 file.  These can be used to help users transition from v22 to v36 and can be downloaded [here](https://github.com/NCI-GDC/gdc-docs/tree/develop/docs/Data/Release_Notes/GCv36_Manifests).
 
 #### Removed data files and pipelines
 1. Files from the HTSeq pipeline are no longer supported and will no longer appear in the portal. Normalized counts can now be found in the STAR-Counts files.  
