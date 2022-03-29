@@ -71,7 +71,7 @@
 1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.DR32.tsv)).
 1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.DR32.tsv)).  
 
-### Data Portal Exploration Data
+#### Data Portal Exploration Data
 1. The Data Portal Exploration Page is now populated based on open-access mutations from analyses that used GENCODE v36.
 1. Mutations from SomaticSniper will not appear on the Exploration page.
 1. Due to the copy number variation pipeline transition from GISTIC to ASCAT, the CNV data was not included in the GDC Exploration page. This will be replaced in a future release once visualization of the new pipeline is fully assessed.
