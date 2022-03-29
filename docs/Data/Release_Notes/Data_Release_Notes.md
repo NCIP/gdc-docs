@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v32.0](Data_Release_Notes.md#data-release-320) | March 16, 2022 |
+| [v32.0](Data_Release_Notes.md#data-release-320) | March 29, 2022 |
 | [v31.0](Data_Release_Notes.md#data-release-310) | October 29, 2021 |
 | [v30.0](Data_Release_Notes.md#data-release-300) | September 23, 2021 |
 | [v29.0](Data_Release_Notes.md#data-release-290) | March 31, 2021 |
@@ -42,7 +42,7 @@
 ## Data Release 32.0
 
 * __GDC Product__: Data - GENCODE v36 Release
-* __Release Date__: March 16, 2022
+* __Release Date__: March 29, 2022
 
 ### New updates
 
@@ -54,25 +54,34 @@
     * GENIE Targeted Sequencing files.
     * FM-AD Targeted Sequencing files.
         * The primary-site-level FM-AD MAF files have been replaced with aliquot-level MAF files.
+1. RNA-Seq STAR-Counts files now contain additional normalized counts such as FPKM, FPKM-UQ, and TPM.
 1. All WXS files for TCGA have been replaced with new versions. Alignments will contain QC metrics and variants were produced using the same pipelines as all other GDC projects.
 1. TCGA RNA-Seq has been changed to contain three alignments (genomic, transcriptome, and chimeric), STAR-counts files, and transcript fusion files for each aliquot.
 1. The project-level MAFs in TCGA and FM-AD have been replaced with aliquot-level MAFs.
-1. All mutations and genes in the Exploration page have been replaced with mutations and genes generated with GENCODE v36.
-    * Note that TCGA mutations will no longer appear on the Exploration page unless they were detected by more than one mutation calling workflow. This rule has always applied to the other programs that were included in the exploration page.
-    * Mutations from SomaticSniper will not appear on the Exploration page.
 1. GENCODE v22 derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
 1. Methylation data produced from the SeSAMe pipeline is now available for all TCGA projects.
 1.  Note that miRNA-Seq data remains unchanged. The miRNA-Seq pipeline uses the miRBase database, which is not affected by the GENCODE version change.
 
 
 #### Removed data files and pipelines
-1. Files from the HTSeq pipeline are no longer supported and will no longer appear in the portal.
+1. Files from the HTSeq pipeline are no longer supported and will no longer appear in the portal. Normalized counts can now be found in the STAR-Counts files.  
 1. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
 1. GENCODE v22 BAM files that no longer appear in the portal will be available for six months past this release. They may not be available after that.
 1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](Removed_Aliquots.DR32.tsv)).
 1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.DR32.tsv)).
 1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.DR32.tsv)).  
 1. Due to the copy number variation pipeline transition from GISTIC to ASCAT, the CNV data was not included in the GDC Exploration page. This will be replaced in a future release once visualization of the new pipeline is fully assessed.
+
+### Data Portal Exploration Data
+1. The Data Portal Exploration Page is now populated based on open-access mutations from analyses that used GENCODE v36.
+1. Mutations from SomaticSniper will not appear on the Exploration page
+1. The TCGA program mutations have been processed using the same pipeline as all other projects, which resulted in a 26% reduction in the number of open-access mutations. Some points on this change are listed below with TCGA-BRCA as the benchmark project:
+    * 97% of the previously released open-access mutations are still discoverable in the new GDC controlled-access MAFs. This number increases to 99.95% when focusing only on mutations that were also called by [MC3](https://gdc.cancer.gov/about-data/publications/pancanatlas).
+    * Somatic mutations will now be removed from the Data Portal Exploration Page unless they are detected by more than one variant calling software. This accounts for 40% of the total reduction.
+    * Somatic mutations will now be removed from the Data Portal Exploration Page if they are detected outside of the target capture region, while previously out-of-target mutations detected from the TCGA Gene Annotation File (GAF) regions were allowed. This accounts for 36% of the total reduction.  
+    * Some TCGA-specific variant-rescue steps have been removed in favor of a more robust and uniform filtering pipeline.
+    * Some other minor changes due to updates in the gene model or other databases (e.g., the ExAC germline variant database was replaced with gnomAD in DR32).
+
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
