@@ -70,11 +70,11 @@
 1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](Removed_Aliquots.DR32.tsv)).
 1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.DR32.tsv)).
 1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.DR32.tsv)).  
-1. Due to the copy number variation pipeline transition from GISTIC to ASCAT, the CNV data was not included in the GDC Exploration page. This will be replaced in a future release once visualization of the new pipeline is fully assessed.
 
 ### Data Portal Exploration Data
 1. The Data Portal Exploration Page is now populated based on open-access mutations from analyses that used GENCODE v36.
-1. Mutations from SomaticSniper will not appear on the Exploration page
+1. Mutations from SomaticSniper will not appear on the Exploration page.
+1. Due to the copy number variation pipeline transition from GISTIC to ASCAT, the CNV data was not included in the GDC Exploration page. This will be replaced in a future release once visualization of the new pipeline is fully assessed.
 1. The TCGA program mutations have been processed using the same pipeline as all other projects, which resulted in a 26% reduction in the number of open-access mutations. Some points on this change are listed below with TCGA-BRCA as the benchmark project:
     * 97% of the previously released open-access mutations are still discoverable in the new GDC controlled-access MAFs. This number increases to 99.95% when focusing only on mutations that were also called by [MC3](https://gdc.cancer.gov/about-data/publications/pancanatlas).
     * Somatic mutations will now be removed from the Data Portal Exploration Page unless they are detected by more than one variant calling software. This accounts for 40% of the total reduction.
