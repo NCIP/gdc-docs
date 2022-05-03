@@ -53,6 +53,7 @@
     * RNA-Seq - 45 Cases
     * WXS - 50 Cases
     * Targeted Sequencing - 41 Cases
+    * Mutations from WXS and Targeted Sequencing are present in the exploration page.
 2.  New Project: Molecular Profiling to Predict Response to Treatment - Wilms Tumor (MP2PRT-WT, phs001965)
     * WGS - 52 Cases
     * RNA-Seq - 52 Cases
