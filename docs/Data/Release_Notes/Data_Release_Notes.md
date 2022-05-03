@@ -58,7 +58,6 @@
     * RNA-Seq - 52 Cases
     * miRNA-Seq - 52 Cases
 3.  Methylation files from the SeSAMe pipeline are now available for CGCI-HTMCP-CC and the TARGET projects.
-4.  BEATAML1.0-COHORT mutations are now available in the exploration portal.
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
