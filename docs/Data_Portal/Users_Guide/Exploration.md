@@ -200,7 +200,7 @@ A list with links that lead to external databases with additional information ab
 *  [Uniprot](http://www.uniprot.org/)
 *  [Hugo Gene Nomenclature Committee](http://www.genenames.org/)
 *  [Online Mendelian Inheritance in Man](https://www.omim.org/)
-*  [Ensembl](http://may2015.archive.ensembl.org/index.html)
+*  [Ensembl](http://nov2020.archive.ensembl.org/index.html)
 *  [CIViC](https://civicdb.org/home)
 
 #### Cancer Distribution
