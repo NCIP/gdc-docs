@@ -65,6 +65,11 @@ A complete list of files for this release are listed for the GDC Data Portal and
 * [gdc_manifest_20220503_data_release_33.0_active.tsv.gz](gdc_manifest_20220503_data_release_33.0_active.tsv.gz)
 * [gdc_manifest_20220503_data_release_33.0_legacy.tsv.gz](gdc_manifest_20220503_data_release_33.0_legacy.tsv.gz)
 
+### Unavailable Files
+
+* The Arriba pipeline failed for one aliquot from EXCEPTIONAL-RESPONDERS-ER and is documented [here](Removed_Aliquots.tsv).
+
+
 ### Bugs Fixed Since Last Release
 
 * Gene-level copy number files from TCGA-THCA and TCGA-UCEC were set as controlled-access files.  These have been corrected to be available as open-access files.
@@ -151,8 +156,8 @@ A complete list of files for this release are listed for the GDC Data Portal and
 1. Files from the HTSeq pipeline are no longer supported and will no longer appear in the portal. Normalized counts can now be found in the STAR-Counts files.  
 1. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
 1. GENCODE v22 BAM files that no longer appear in the portal will be available for six months past this release. They may not be available after that.
-1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](Removed_Aliquots.DR32.tsv)).
-1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.DR32.tsv)).
+1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](Removed_Aliquots.tsv)).
+1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.tsv)).
 1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.DR32.tsv)).  
 
 #### Data Portal Exploration Data
