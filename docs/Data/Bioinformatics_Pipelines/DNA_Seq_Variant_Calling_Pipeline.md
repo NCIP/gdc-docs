@@ -634,6 +634,18 @@ Variants reported from the AACR Project GENIE are available from the GDC Data Po
 1. GENIE variants are lifted over to GRCh38 coordinates.
 1. Variants are annotated using VEP and made available via the GDC Data Portal.
 
+## Microsatellite Instability Detection
+
+The GDC adopts [MSIsensor2](https://github.com/niu-lab/msisensor2) to derive Microsatellite Instability (MSI) information from tumor DNA-Seq data. The MSIsensor2 software uses only the tumor BAM as input, and calculates the numeric MSI score (number of msi sites / all valid sites). The MSI status of MSI (Microsatellite Instable) or MSS (Microsatellite Stable) is then determined using a MSI score cutoff value of 20%.
+
+The output `msi_score` and `msi_status` values are stored directly as properties of the `aligned_reads` (BAM files), and can be [accessible via API](https://api.gdc.cancer.gov/files/82488c57-9789-449c-a09d-594172381dc1?pretty=true&fields=msi_score,msi_status,file_id,file_name). In addition, the portal/API can be filtered using these proprties by choosing "Add a File Filter" in the [Repository Page](https://portal.gdc.cancer.gov/repository) and selecting `msi_score` or `msi_status`.
+
+Please note:
+
+1.  MSI status generated from DNA-Seq by the GDC is considered bioinformatics-derived information, and is not considered clinical data. If performed by the clinical lab, the clinical MSI test result would be stored as a `laboratory_test` in the molecular_test entity.
+2.  MSIsensor2 can theoretically be applied to WGS, WXS, or Targeted Sequencing data. Given the number of MSI sites available in some Targeted Sequencing data, please consider the results carefully.
+3.  It is possible that multiple MSI statuses exist within the same sample/case if more than one DNA-Seq BAM was generated. It is the users' responsibility to check for their consistency, especially when the MSI scores are close to 20%.
+
 ## File Access and Availability
 
 Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Portal](https://portal.gdc.cancer.gov) in BAM, VCF, and MAF formats. Descriptions are listed below for all available data types and their respective file formats.
