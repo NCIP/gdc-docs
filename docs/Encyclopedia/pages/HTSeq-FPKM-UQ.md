@@ -20,7 +20,7 @@ Like [HTSeq - count](HTSeq-Counts.md) files, FPKM-UQ files are available as tab 
 - FPKM-UQ values tend to be much higher than FPKM values because of the large difference between the total mapped number of reads in an alignment and the mapped number of reads to one gene.  
 
 ### Tools ###
-1. [HTSeq Website](http://www-huber.embl.de/users/anders/HTSeq/doc/overview.html)
+1. [HTSeq Website](http://htseq.readthedocs.io/)
 
 ## References ##
 1. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq-a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
@@ -29,6 +29,6 @@ Like [HTSeq - count](HTSeq-Counts.md) files, FPKM-UQ files are available as tab 
 
 ## External Links##
 * [Ensembl Human Genome](http://www.ensembl.org/Homo_sapiens/Info/Annotation)
-* [GENCODE 22](http://www.gencodegenes.org/releases/22.html)
+* [GENCODE 22](https://www.gencodegenes.org/human/release_22.html)
 
 Categories: Workflow Type

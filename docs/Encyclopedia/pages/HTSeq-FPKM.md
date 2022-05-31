@@ -18,7 +18,7 @@ The scalar (10<sup>9</sup>) is added to normalize the data to "__kilo__ base" an
 Like [HTSeq - count](HTSeq-Counts.md) files, FPKM files are available as tab delimited files with the Ensembl gene IDs in the first column and the expression values in the second. See [HTSeq-FPKM-UQ](HTSeq-FPKM-UQ.md) for an alternative method of gene expression level normalization.
 
 ### Tools ###
-1. [HTSeq Website](http://www-huber.embl.de/users/anders/HTSeq/doc/overview.html)
+1. [HTSeq Website](http://htseq.readthedocs.io/)
 
 ## References ##
 1. Anders, S., Pyl, P.T. and Huber, W., 2014. HTSeq-a Python framework to work with high-throughput sequencing data. Bioinformatics, p.btu638.
@@ -27,6 +27,6 @@ Like [HTSeq - count](HTSeq-Counts.md) files, FPKM files are available as tab del
 
 ## External Links##
 * [Ensembl Human Genome](http://www.ensembl.org/Homo_sapiens/Info/Annotation)
-* [GENCODE 22](http://www.gencodegenes.org/releases/22.html)
+* [GENCODE 22](https://www.gencodegenes.org/human/release_22.html)
 
 Categories: Workflow Type
