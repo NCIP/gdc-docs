@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v33.1](Data_Release_Notes.md#data-release-331) | May 27, 2022 |
+| [v33.1](Data_Release_Notes.md#data-release-331) | May 31, 2022 |
 | [v33.0](Data_Release_Notes.md#data-release-330) | May 3, 2022 |
 | [v32.0](Data_Release_Notes.md#data-release-320) | March 29, 2022 |
 | [v31.0](Data_Release_Notes.md#data-release-310) | October 29, 2021 |
@@ -45,7 +45,7 @@
 ## Data Release 33.1
 
 * __GDC Product__: Data
-* __Release Date__: May 27, 2022
+* __Release Date__: May 31, 2022
 
 ### New updates
 
