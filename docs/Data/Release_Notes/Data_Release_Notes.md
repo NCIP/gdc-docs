@@ -53,12 +53,11 @@
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [XXX](XXX)
-* [XXX](XXX)
+* [gdc_manifest_20220531_data_release_33.1_active.tsv.gz](gdc_manifest_20220531_data_release_33.1_active.tsv.gz)
 
 ### Unavailable Files
 
-* The Arriba pipeline failed for one aliquot from EXCEPTIONAL-RESPONDERS-ER and is documented [here](Removed_Aliquots.tsv).
+* None
 
 
 ### Bugs Fixed Since Last Release
