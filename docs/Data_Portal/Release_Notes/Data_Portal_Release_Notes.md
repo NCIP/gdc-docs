@@ -38,7 +38,7 @@
 ## Release 1.30.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  July 8, 2021
+* __Release Date__:  July 8, 2022
 
 ### New Features and Changes
 
