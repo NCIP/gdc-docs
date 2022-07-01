@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v3.5.0](API_Release_Notes.md#v350) | July 8, 2022 |
 | [v3.3.0](API_Release_Notes.md#v330) | May 17, 2021 |
 | [v3.0.0](API_Release_Notes.md#v300) | August 14, 2020 |
 | [v2.1.2](API_Release_Notes.md#v212) | May 7, 2020 |
@@ -32,6 +33,25 @@
 | [v1.2.0](API_Release_Notes.md#v120) | August 9, 2016 |
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
+
+## v3.5.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__:  July 8, 2022
+
+### New Features and Changes
+
+* Features to support Data Portal performance were added.
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
 
 ## v3.3.0 <!--REQ-422-->
 
