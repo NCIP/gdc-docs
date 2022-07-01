@@ -169,3 +169,8 @@ For the GDC to release a project there is a minimum number of clinical propertie
 ## miRNA Submission
 
 The GDC requires that miRNA reads be adapter-trimmed before being uploaded to the GDC because miRNA datasets can have different trimming schemas. Uploading untrimmed miRNA reads will result in unusably low miRNA quantifications.  
+
+## Slide Image Submission
+
+To submit slide images to GDC, it is a requirement that images should not contain any label/captions as well as no macro views for compliance with patient information confidentiality.
+
