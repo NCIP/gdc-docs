@@ -59,9 +59,10 @@ __Example 2:__ A 98 year old patient is diagnosed with cancer and dies three yea
 
 ## Array Submission
 
-Certain fields in the GDC, such as diagnosis.sites_of_involvement, are of type "array".  This allows multiple values to be submitted on one property. These values need to be uploaded in a `|`-delimited format. See the example below.  
+Certain fields in the GDC, such as diagnosis.sites_of_involvement, are of type "array".  This allows multiple values to be submitted on one property. These values need to be uploaded in a `|`-delimited format for TSV formatted uploads and a JSON-type array for JSON formatted uploads. See the example below.  
 
-__Example:__ `"sites_of_involvement" : "Kidney, Upper Pole|Kidney, Middle"`
+*  __Example (TSV):__ `Kidney, Upper Pole|Kidney, Middle` (would appear under sites_of_involvement header)
+*  __Example (JSON):__ `"sites_of_involvement" : ["Kidney, Upper Pole", "Kidney, Middle"]`
 
 ## Submitting Complex Data Model Relationships
 
