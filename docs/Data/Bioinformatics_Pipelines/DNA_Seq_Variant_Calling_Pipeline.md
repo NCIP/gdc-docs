@@ -43,7 +43,7 @@ All alignments are performed using the human reference genome GRCh38.d1.vd1. Dec
 
 __Note that version numbers may vary in files downloaded from the GDC Portal due to ongoing pipeline development and improvement.__
 
-#### Step 1: Converting BAMs to FASTQs with Biobambam - biobambam2 2.0.54
+#### Step 1: Converting BAMs to FASTQs with Biobambam - biobambam2
 ```Shell
 bamtofastq \
 collate=1 \
@@ -61,7 +61,7 @@ outputperreadgroupsuffixO2=_o2.fq.gz \
 outputperreadgroupsuffixS=_s.fq.gz \
 tryoq=1 \
 ```
-#### Step 2: BWA Alignment - bwa 0.7.15 - samtools 1.3.1
+#### Step 2: BWA Alignment - bwa - samtools
 If mean read length is greater than or equal to 70bp:
 ```Shell
 bwa mem \
@@ -83,7 +83,7 @@ bwa sampe -r <read_group> <reference> <sai_1.sai> <sai_2.sai> <fastq_1.fq.gz> <f
 ```
 If the quality scores are encoded as Illumina 1.3 or 1.5, use BWA aln with the "-l" flag.  
 
-#### Step 3: BAM Sort - picard 2.6.0
+#### Step 3: BAM Sort - picard 2
 
 ```Shell
 java -jar picard.jar SortSam \
@@ -93,7 +93,7 @@ OUTPUT=<output.bam> \
 SORT_ORDER=coordinate \
 VALIDATION_STRINGENCY=STRICT
 ```
-#### Step 4: BAM Merge - picard 2.6.0
+#### Step 4: BAM Merge - picard 2
 ```Shell
 java -jar picard.jar MergeSamFiles \
 ASSUME_SORTED=false \
@@ -105,7 +105,7 @@ SORT_ORDER=coordinate \
 USE_THREADING=true \
 VALIDATION_STRINGENCY=STRICT
 ```
-#### Step 5: Mark Duplicates - picard 2.6.0
+#### Step 5: Mark Duplicates - picard 2
 ```Shell
 java -jar picard.jar MarkDuplicates \
 CREATE_INDEX=true \
@@ -214,7 +214,7 @@ At this time, germline variants are deliberately excluded as harmonized data. Th
 
 #### MuSE
 
-MuSEv1.0rc_submission_c039ffa; dbSNP v.144
+MuSEv1.0; dbSNP v.144
 
 __Step 1:__ MuSE call
 
@@ -241,7 +241,7 @@ __Note:__ -E is used for WXS data and -G can be used for WGS data.
 
 #### MuTect2
 
-GATK nightly-2016-02-25-gf39d340; dbSNP v.144
+GATK; dbSNP v.144
 
 ```Shell
 java -jar GenomeAnalysisTK.jar \
@@ -262,7 +262,7 @@ java -jar GenomeAnalysisTK.jar \
 
 
 #### SomaticSniper
-Somatic-sniper v1.0.5.0
+Somatic-sniper v1
 
 ```Shell
 bam-somaticsniper \
@@ -286,7 +286,7 @@ bam-somaticsniper \
 #### VarScan
 
 
-__Step 1:__ Mpileup; Samtools 1.1
+__Step 1:__ Mpileup; Samtools
 ```Shell
 samtools mpileup \
 -f <reference> \
@@ -297,7 +297,7 @@ samtools mpileup \
 <intermediate_mpileup.pileup>
 ```
 
-__Step 2:__ Varscan Somatic; Varscan.v2.3.9
+__Step 2:__ Varscan Somatic; Varscan.v2
 ```Shell
 java -jar VarScan.jar somatic \
 <intermediate_mpileup.pileup> \
@@ -316,7 +316,7 @@ java -jar VarScan.jar somatic \
 --output-vcf
 ```
 
-__Step 3:__ Varscan ProcessSomatic; Varscan.v2.3.9
+__Step 3:__ Varscan ProcessSomatic; Varscan.v2
 ```Shell
 java -jar VarScan.jar processSomatic \
 <intermediate_varscan_somatic.vcf> \
@@ -331,7 +331,7 @@ __Step 1:__ Filter Reads
 
 Filter BAM reads that are not unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary for both tumor and normal BAM files
 
-Tool: sambamba 0.7.0-pre1
+Tool: sambamba
 
 ```Shell
 Sambamba view $(input.bam) --filter "not (unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary)" --format bam --nthreads 1 --output-filename $(output.bam)
@@ -339,7 +339,7 @@ Sambamba view $(input.bam) --filter "not (unmapped or duplicate or secondary_ali
 
 __Step 2:__ Pindel
 
-[Pindel version 0.2.5b8, 20151210](https://github.com/genome/pindel/releases/tag/v0.2.5b8)
+[Pindel Repo](https://github.com/genome/pindel/releases/tag/v0.2.5b8)
 
 __Step 2a.:__ Calculate mean insert size
 ```Python
@@ -405,12 +405,12 @@ indel.filter.output = $(output.file.name.vcf)
 
 ```
 __Step 2f.:__ Apply somatic filter on pindel output
-Tool: pindel2vcf4tcga 0.6.3
+Tool: pindel2vcf4tcga
 ```Perl
 perl pindel/somatic_filter/somatic_indelfilter.pl $(somatic.indel.filter.config)
 ```
 __Step 3:__ Pindel
-Tool: Picard.jar 2.18.4-SNAPSHOT
+Tool: Picard.jar 2
 ```Shell
 java \
 -d64 \
@@ -473,7 +473,7 @@ Tumor only variant calling is performed on a tumor sample with no paired normal 
 
 ### Tumor-Only Variant Call Command-Line Parameters
 ```
-GATK4 v4.0.4.0
+GATK4 v4
 
 ## 1. Generate OXOG metrics:
 
@@ -619,7 +619,7 @@ AscatNGS, originally developed by [Raine *et al* (2016)]( https://doi.org/10.100
 * __Chromosome:__  The name of the chromosome on which the copy number change exists.
 * __Start:__  The starting position of the copy.
 * __End:__  The ending position of the copy.
-* __Copy Number:__  The weighted median of the strand copy numbers.
+* __Copy Number:__  The weighted median of the strand copy numbers [9].
 * __Major Copy Number:__ The greater strand copy number of the two strands of the DNA (copy number segment files only).
 * __Minor Copy number:__  The smaller strand copy number of the two strands of the DNA (copy number segment files only).
 * __Max. Copy number:__ The highest copy number for overlapped segment (copy number variant only).
@@ -633,6 +633,18 @@ Variants reported from the AACR Project GENIE are available from the GDC Data Po
 1. Variants are submitted directly to the GDC as a "Genomic Profile."
 1. GENIE variants are lifted over to GRCh38 coordinates.
 1. Variants are annotated using VEP and made available via the GDC Data Portal.
+
+## Microsatellite Instability Detection
+
+The GDC adopts [MSIsensor2](https://github.com/niu-lab/msisensor2) to derive Microsatellite Instability (MSI) information from tumor DNA-Seq data. The MSIsensor2 software uses only the tumor BAM as input, and calculates the numeric MSI score (number of msi sites / all valid sites). The MSI status of MSI (Microsatellite Instable) or MSS (Microsatellite Stable) is then determined using a MSI score cutoff value of 20%.
+
+The output `msi_score` and `msi_status` values are stored directly as properties of the `aligned_reads` (BAM files), and can be [accessible via API](https://api.gdc.cancer.gov/files/82488c57-9789-449c-a09d-594172381dc1?pretty=true&fields=msi_score,msi_status,file_id,file_name). In addition, the portal/API can be filtered using these proprties by choosing "Add a File Filter" in the [Repository Page](https://portal.gdc.cancer.gov/repository) and selecting `msi_score` or `msi_status`.
+
+Please note:
+
+1.  MSI status generated from DNA-Seq by the GDC is considered bioinformatics-derived information, and is not considered clinical data. If performed by the clinical lab, the clinical MSI test result would be stored as a `laboratory_test` in the molecular_test entity.
+2.  MSIsensor2 can theoretically be applied to WGS, WXS, or Targeted Sequencing data. Given the number of MSI sites available in some Targeted Sequencing data, please consider the results carefully.
+3.  It is possible that multiple MSI statuses exist within the same sample/case if more than one DNA-Seq BAM was generated. It is the users' responsibility to check for their consistency, especially when the MSI scores are close to 20%.
 
 ## File Access and Availability
 
@@ -658,8 +670,10 @@ Files from the GDC DNA-Seq analysis pipeline are available in the [GDC Data Port
 
 [5]. Larson, David E., Christopher C. Harris, Ken Chen, Daniel C. Koboldt, Travis E. Abbott, David J. Dooling, Timothy J. Ley, Elaine R. Mardis, Richard K. Wilson, and Li Ding. "SomaticSniper: identification of somatic point mutations in whole genome sequencing data." Bioinformatics 28, no. 3 (2012): 311-317.
 
-[6] McLaren, William, Bethan Pritchard, Daniel Rios, Yuan Chen, Paul Flicek, and Fiona Cunningham. "Deriving the consequences of genomic variants with the Ensembl API and SNP Effect Predictor." Bioinformatics 26, no. 16 (2010): 2069-2070.
+[6]. McLaren, William, Bethan Pritchard, Daniel Rios, Yuan Chen, Paul Flicek, and Fiona Cunningham. "Deriving the consequences of genomic variants with the Ensembl API and SNP Effect Predictor." Bioinformatics 26, no. 16 (2010): 2069-2070.
 
-[7] Riester, Markus, Angad P. Singh, A. Rose Brannon, Kun Yu, Catarina D. Campbell, Derek Y. Chiang, and Michael P. Morrissey. "PureCN: copy number calling and SNV classification using targeted short read sequencing." Source code for biology and medicine 11, no. 1 (2016): 13.
+[7]. Riester, Markus, Angad P. Singh, A. Rose Brannon, Kun Yu, Catarina D. Campbell, Derek Y. Chiang, and Michael P. Morrissey. "PureCN: copy number calling and SNV classification using targeted short read sequencing." Source code for biology and medicine 11, no. 1 (2016): 13.
 
-[8] Oh, Sehyun, Ludwig Geistlinger, Marcel Ramos, Martin Morgan, Levi Waldron, and Markus Riester. "Reliable analysis of clinical tumor-only whole exome sequencing data" bioRxiv 552711 (2019);
+[8]. Oh, Sehyun, Ludwig Geistlinger, Marcel Ramos, Martin Morgan, Levi Waldron, and Markus Riester. "Reliable analysis of clinical tumor-only whole exome sequencing data" bioRxiv 552711 (2019);
+
+[9]. Gene-level copy number data is generated by intersection of copy number segment and gene ranges. It is possible for one gene to overlap with multiple segments, and in this case, copy_number, min_copy_number and max_copy_number could take different values. In particular, the copy_number value is calculated as the median, weighted on length of overlapped bases, of segment copy numbers from all overlapped segments.

@@ -2,6 +2,11 @@
 
 | Version | Date |
 |---|---|
+| [v33.1](Data_Release_Notes.md#data-release-331) | May 31, 2022 |
+| [v33.0](Data_Release_Notes.md#data-release-330) | May 3, 2022 |
+| [v32.0](Data_Release_Notes.md#data-release-320) | March 29, 2022 |
+| [v31.0](Data_Release_Notes.md#data-release-310) | October 29, 2021 |
+| [v30.0](Data_Release_Notes.md#data-release-300) | September 23, 2021 |
 | [v29.0](Data_Release_Notes.md#data-release-290) | March 31, 2021 |
 | [v28.0](Data_Release_Notes.md#data-release-280) | February 2, 2021 |
 | [v27.0-fix](Data_Release_Notes.md#data-release-270-bug-fix) | November 9, 2020 |
@@ -35,6 +40,435 @@
 | [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
+
+## Data Release 33.1
+
+* __GDC Product__: Data
+* __Release Date__: May 31, 2022
+
+### New updates
+
+* None, see "Bugs Fixed Since Last Release" section below.
+
+A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+* [gdc_manifest_20220531_data_release_33.1_active.tsv.gz](gdc_manifest_20220531_data_release_33.1_active.tsv.gz)
+
+### Unavailable Files
+
+* None
+
+
+### Bugs Fixed Since Last Release
+
+* 32 cases from the EXCEPTIONAL_RESPONDERS-ER project were released as they were missing from the previous release.
+* All mutations from EXCEPTIONAL_RESPONDERS-ER in the exploration portal come from WXS data, whereas they were previously a mixture of WXS and Targeted Sequencing.
+
+### Known Issues and Workarounds
+
+* Pathology reports do not have any associated case/biospecimen information in the portal. This information can be found in the reports themselves. <!--SV-2118-->  
+* 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
+* One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
+* The clinical supplement for TARGET-ALL-P1 is not currently available. It will be made available in a future release.
+* Copy number variations currently do not appear in the Exploration page.  This will be restored in a future release.
+* Mutations from SomaticSniper were erroneously labelled as LOH (loss of heterozygosity). This affects the VCF files, MAF files, and may cause SomaticSniper mutations to be absent from ensemble MAFs.
+* The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
+* The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
+* Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+* Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release. <!--DAT-1589-->
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* TCGA Projects
+    * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+    * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Tumor grade property is not populated <!--SV-585-->
+    * Progression_or_recurrence property is not populated <!--SV-584-->
+* TARGET projects
+    * TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and concatenated into their original composite BAM files by CGHub.
+        * TARGET-20-PASJGZ-04A-02D
+        * TARGET-30-PAPTLY-01A-01D
+        * TARGET-20-PAEIKD-09A-01D
+        * TARGET-20-PASMYS-14A-02D
+        * TARGET-20-PAMYAS-14A-02D
+        * TARGET-10-PAPZST-09A-01D
+    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+    * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+    * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+    * Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+    * Some TARGET files are not connected to all related aliquots <!--SV-929-->
+    * Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+    * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+        *  All microarray data and metadata
+        *  All sequencing analyzed data and metadata
+        *  1180 of 12063 sequencing runs of raw data
+    * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+    * No data from TARGET-MDLS is available.
+* Issues in the Legacy Archive
+    * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+    * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+    * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+    * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+    * TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+
+
+## Data Release 33.0
+
+* __GDC Product__: Data
+* __Release Date__: May 3, 2022
+
+### New updates
+
+1.  New Project: NCI Exceptional Responders Initiative (EXCEPTIONAL_RESPONDERS-ER, phs001145)
+    * RNA-Seq - 45 Cases
+    * WXS - 50 Cases
+    * Targeted Sequencing - 41 Cases
+    * Mutations from WXS and Targeted Sequencing are present in the exploration page.
+2.  New Project: Molecular Profiling to Predict Response to Treatment - Wilms Tumor (MP2PRT-WT, phs001965)
+    * WGS - 52 Cases
+    * RNA-Seq - 52 Cases
+    * miRNA-Seq - 52 Cases
+3.  Methylation files from the SeSAMe pipeline are now available for CGCI-HTMCP-CC and the TARGET projects.
+
+A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+* [gdc_manifest_20220503_data_release_33.0_active.tsv.gz](gdc_manifest_20220503_data_release_33.0_active.tsv.gz)
+* [gdc_manifest_20220503_data_release_33.0_legacy.tsv.gz](gdc_manifest_20220503_data_release_33.0_legacy.tsv.gz)
+
+### Unavailable Files
+
+* The Arriba pipeline failed for one aliquot from EXCEPTIONAL-RESPONDERS-ER and is documented [here](Removed_Aliquots.tsv).
+
+
+### Bugs Fixed Since Last Release
+
+* Gene-level copy number files from TCGA-THCA and TCGA-UCEC were set as controlled-access files.  These have been corrected to be available as open-access files.
+* Due to a problem with the columns generated by the pipeline, all scRNA-Seq files have been replaced with a new version.
+
+### Known Issues and Workarounds
+
+* 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
+* One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
+* The clinical supplement for TARGET-ALL-P1 is not currently available. It will be made available in a future release.
+* Copy number variations currently do not appear in the Exploration page.  This will be restored in a future release.
+* Mutations from SomaticSniper were erroneously labelled as LOH (loss of heterozygosity). This affects the VCF files, MAF files, and may cause SomaticSniper mutations to be absent from ensemble MAFs.
+* The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
+* The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
+* Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+* Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release. <!--DAT-1589-->
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* TCGA Projects
+    * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+    * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Tumor grade property is not populated <!--SV-585-->
+    * Progression_or_recurrence property is not populated <!--SV-584-->
+* TARGET projects
+    * TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and concatenated into their original composite BAM files by CGHub.
+        * TARGET-20-PASJGZ-04A-02D
+        * TARGET-30-PAPTLY-01A-01D
+        * TARGET-20-PAEIKD-09A-01D
+        * TARGET-20-PASMYS-14A-02D
+        * TARGET-20-PAMYAS-14A-02D
+        * TARGET-10-PAPZST-09A-01D
+    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+    * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+    * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+    * Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+    * Some TARGET files are not connected to all related aliquots <!--SV-929-->
+    * Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+    * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+        *  All microarray data and metadata
+        *  All sequencing analyzed data and metadata
+        *  1180 of 12063 sequencing runs of raw data
+    * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+    * No data from TARGET-MDLS is available.
+* Issues in the Legacy Archive
+    * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+    * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+    * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+    * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+    * TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+
+## Data Release 32.0
+
+* __GDC Product__: Data - GENCODE v36 Release
+* __Release Date__: March 29, 2022
+
+### New updates
+
+#### New data files
+1.  The following data types have been replaced with new GENCODE v36 versions
+    * RNA-Seq: all files, including alignments, gene expression files, and transcript fusion files.
+    * WXS and Targeted Sequencing: annotated VCFs, single-caller MAFs, Ensemble MAFs.
+    * WGS: BEDPE-format structural variants and gene-level copy number variants.
+    * GENIE Targeted Sequencing files.
+    * FM-AD Targeted Sequencing files.
+        * The primary-site-level FM-AD MAF files have been replaced with aliquot-level MAF files.
+1. RNA-Seq STAR-Counts files now contain additional normalized counts such as FPKM, FPKM-UQ, and TPM.
+1. All WXS files for TCGA have been replaced with new versions. Alignments will contain QC metrics and variants were produced using the same pipelines as all other GDC projects.
+1. TCGA RNA-Seq has been changed to contain three alignments (genomic, transcriptome, and chimeric), STAR-counts files, and transcript fusion files for each aliquot.
+1. The project-level MAFs in TCGA and FM-AD have been replaced with aliquot-level MAFs.
+1. GENCODE v22 derived files (not BAM) that no longer appear in the portal will be downloadable as previous versions of v36 files.  
+1. Methylation data produced from the SeSAMe pipeline is now available for all TCGA projects.
+1. Note that miRNA-Seq data remains unchanged. The miRNA-Seq pipeline uses the miRBase database, which is not affected by the GENCODE version change.
+1. A set of manifests were generated at the project-level that map each v22 file to its corresponding v36 file.  These can be used to help users transition from v22 to v36 and can be downloaded [here](https://github.com/NCI-GDC/gdc-docs/tree/develop/docs/Data/Release_Notes/GCv36_Manifests).
+
+#### Removed data files and pipelines
+1. Files from the HTSeq pipeline are no longer supported and will no longer appear in the portal. Normalized counts can now be found in the STAR-Counts files.  
+1. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
+1. GENCODE v22 BAM files that no longer appear in the portal will be available for six months past this release. They may not be available after that.
+1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](Removed_Aliquots.tsv)).
+1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.tsv)).
+1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.DR32.tsv)).  
+
+#### Data Portal Exploration Data
+1. The Data Portal Exploration Page is now populated based on open-access mutations from analyses that used GENCODE v36.
+1. Mutations from SomaticSniper will not appear on the Exploration page.
+1. Due to the copy number variation pipeline transition from GISTIC to ASCAT, the CNV data was not included in the GDC Exploration page. This will be replaced in a future release once visualization of the new pipeline is fully assessed.
+1. The TCGA program mutations have been processed using the same pipeline as all other projects, which resulted in a 26% reduction in the number of open-access mutations. Some points on this change are listed below with TCGA-BRCA as the benchmark project:
+    * 97% of the previously released open-access mutations are still discoverable in the new GDC controlled-access MAFs. This number increases to 99.95% when focusing only on mutations that were also called by [MC3](https://gdc.cancer.gov/about-data/publications/pancanatlas).
+    * Somatic mutations will now be removed from the Data Portal Exploration Page unless they are detected by more than one variant calling software. This accounts for 40% of the total reduction.
+    * Somatic mutations will now be removed from the Data Portal Exploration Page if they are detected outside of the target capture region, while previously out-of-target mutations detected from the TCGA Gene Annotation File (GAF) regions were allowed. This accounts for 36% of the total reduction.  
+    * Some TCGA-specific variant-rescue steps have been removed in favor of a more robust and uniform filtering pipeline.
+    * Some other minor changes due to updates in the gene model or other databases (e.g., the ExAC germline variant database was replaced with gnomAD in DR32).
+
+
+A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+* [gdc_manifest_20220316_data_release_32.0_active.tsv.gz](gdc_manifest_20220316_data_release_32.0_active.tsv.gz)
+* [gdc_manifest_20220316_data_release_32.0_legacy.tsv.gz](gdc_manifest_20220316_data_release_32.0_legacy.tsv.gz)
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
+* One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
+* The clinical supplement for TARGET-ALL-P1 is not currently available. It will be made available in a future release.
+* Copy number variations currently do not appear in the Exploration page.  This will be restored in a future release.
+* Mutations from SomaticSniper were erroneously labelled as LOH (loss of heterozygosity). This affects the VCF files, MAF files, and may cause SomaticSniper mutations to be absent from ensemble MAFs.
+* The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
+* The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
+* Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+* Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release. <!--DAT-1589-->
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* TCGA Projects
+    * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+    * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Tumor grade property is not populated <!--SV-585-->
+    * Progression_or_recurrence property is not populated <!--SV-584-->
+* TARGET projects
+    * TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and concatenated into their original composite BAM files by CGHub.
+        * TARGET-20-PASJGZ-04A-02D
+        * TARGET-30-PAPTLY-01A-01D
+        * TARGET-20-PAEIKD-09A-01D
+        * TARGET-20-PASMYS-14A-02D
+        * TARGET-20-PAMYAS-14A-02D
+        * TARGET-10-PAPZST-09A-01D
+    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+    * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+    * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+    * Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+    * Some TARGET files are not connected to all related aliquots <!--SV-929-->
+    * Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+    * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+        *  All microarray data and metadata
+        *  All sequencing analyzed data and metadata
+        *  1180 of 12063 sequencing runs of raw data
+    * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+    * No data from TARGET-MDLS is available.
+* Issues in the Legacy Archive
+    * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+    * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+    * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+    * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+    * TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+
+
+
+
+## Data Release 31.0
+
+* __GDC Product__: Data
+* __Release Date__: October 29, 2021
+
+### New updates
+
+1.  TCGA Slide Images:
+    * All TCGA slide images that were removed earlier this year have been restored.
+    * Note that the UUIDs for most TCGA slide images have changed.  Older manifest files may not work when downloading slide images.
+2. CPTAC-3 clinical data has been refreshed and includes new follow up entities.
+3. REBC-THYR
+    * The clinical and biospecimen XML files were removed as they were not intended for release in DR 30.
+    * The case REBC-ADL5 was added, which includes one WGS pair.
+
+A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+* [gdc_manifest_20211029_data_release_31.0_active.tsv.gz](gdc_manifest_20211029_data_release_31.0_active.tsv.gz)
+* [gdc_manifest_20211029_data_release_31.0_legacy.tsv.gz](gdc_manifest_20211029_data_release_31.0_legacy.tsv.gz)
+
+### Bugs Fixed Since Last Release
+
+* One file from a previous version of the methylation pipeline appeared in the data portal (bd2f864a-3f00-47b5-815d-bd01ca21ef61; CPTAC-3).  This file should no longer appear in the data portal. <!--SV-2012-->
+
+### Known Issues and Workarounds
+
+* The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
+* The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
+* Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+* Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* TCGA Projects
+    * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+    * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Tumor grade property is not populated <!--SV-585-->
+    * Progression_or_recurrence property is not populated <!--SV-584-->
+* TARGET projects
+    * TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and concatenated into their original composite BAM files by CGHub.
+        * TARGET-20-PASJGZ-04A-02D
+        * TARGET-30-PAPTLY-01A-01D
+        * TARGET-20-PAEIKD-09A-01D
+        * TARGET-20-PASMYS-14A-02D
+        * TARGET-20-PAMYAS-14A-02D
+        * TARGET-10-PAPZST-09A-01D
+    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+    * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+    * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+    * Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+    * Some TARGET files are not connected to all related aliquots <!--SV-929-->
+    * Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+    * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+        *  All microarray data and metadata
+        *  All sequencing analyzed data and metadata
+        *  1180 of 12063 sequencing runs of raw data
+    * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+    * No data from TARGET-MDLS is available.
+* Issues in the Legacy Archive
+    * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+    * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+    * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+    * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+    * TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+
+## Data Release 30.0
+
+* __GDC Product__: Data
+* __Release Date__: September 23, 2021
+
+### New updates
+
+1.  New Projects:
+    * TRIO-CRU (phs001163) - Ukrainian National Research Center for Radiation Medicine Trio Study
+        * WGS Alignments
+    * REBC-THYR (phs001134) - Comprehensive genomic characterization of radiation-related papillary thyroid cancer in the Ukraine
+        * miRNA-Seq
+        * RNA-Seq
+        * WGS
+2.  CPTAC Program
+    * CPTAC-3 methylation data produced from the SeSAMe pipeline is now available.
+    * CPTAC-2 miRNA-Seq files have been replaced with better quality data.
+3. HCMI-CMDC
+    * 31 New cases have been released to the GDC Data Portal.
+    * Methylation data produced from the SeSAMe pipeline is now available.
+4. TCGA
+    * Protein expression data (RPPA) is now available for 32 projects.
+    * RNA-Seq data for TCGA-TGCT was replaced with files from an updated pipeline.
+5. TARGET-AML - New RNA-Seq and miRNA-Seq aliquots have been released.
+
+A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
+
+* [gdc_manifest_20210923_data_release_30.0_active.tsv.gz](gdc_manifest_20210923_data_release_30.0_active.tsv.gz)
+* [gdc_manifest_20210923_data_release_30.0_legacy.tsv.gz](gdc_manifest_20210923_data_release_30.0_legacy.tsv.gz)
+
+### Bugs Fixed Since Last Release
+
+*  None
+
+### Known Issues and Workarounds
+
+* One file from a previous version of the methylation pipeline appears in the data portal (bd2f864a-3f00-47b5-815d-bd01ca21ef61; CPTAC-3).  This file cannot be downloaded, but may cause bulk downloads to fail.  Remove this file from any manifest or cart you plan on downloading. <!--SV-2012-->
+* The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
+* Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+* Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
+* TCGA Projects
+    * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+    * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Tumor grade property is not populated <!--SV-585-->
+    * Progression_or_recurrence property is not populated <!--SV-584-->
+* TARGET projects
+    * TARGET CGI BAMs in the Legacy Archive for the following aliquots should not be used because they were not repaired and concatenated into their original composite BAM files by CGHub.
+        * TARGET-20-PASJGZ-04A-02D
+        * TARGET-30-PAPTLY-01A-01D
+        * TARGET-20-PAEIKD-09A-01D
+        * TARGET-20-PASMYS-14A-02D
+        * TARGET-20-PAMYAS-14A-02D
+        * TARGET-10-PAPZST-09A-01D
+    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
+    * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
+    * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
+    * Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
+    * Some TARGET files are not connected to all related aliquots <!--SV-929-->
+    * Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
+    * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+        *  All microarray data and metadata
+        *  All sequencing analyzed data and metadata
+        *  1180 of 12063 sequencing runs of raw data
+    * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
+    * No data from TARGET-MDLS is available.
+* Issues in the Legacy Archive
+    * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.* Slide barcodes (`submitter_id` values for Slide entities in the Legacy Archive) are not available <!-- DAT-10 -->
+    * SDF Files are not linked to Project or Case in the Legacy Archive <!--SV-332-->
+    * Two biotab files are not linked to Project or Case in the Legacy Archive <!--SV-535, DAT-493-->
+    * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
+    * TARGET-MDLS cases do not have disease_type or primary_site populated <!--SV-939-->
+
 
 ## Data Release 29.0
 

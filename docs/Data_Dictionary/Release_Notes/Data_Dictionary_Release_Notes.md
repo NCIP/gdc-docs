@@ -2,6 +2,8 @@
 
 | Version | Date |
 |---|---|
+| [v.2.4.1](Data_Dictionary_Release_Notes.md#v241) | August 23, 2021 |
+| [v.2.4.0](Data_Dictionary_Release_Notes.md#v240) | June 21, 2021 |
 | [v.2.3.0](Data_Dictionary_Release_Notes.md#v230) | January 5, 2021 |
 | [v.2.2.0](Data_Dictionary_Release_Notes.md#v220) | July 2, 2020 |
 | [v.2.1.0](Data_Dictionary_Release_Notes.md#v210) | March 10, 2020 |
@@ -19,6 +21,216 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v2.4.1
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: August 23, 2021
+
+### New Features and Changes
+
+* Altered `pathology_detail` Entity
+	* Changes made to `additional_pathology_findings`
+		* New permissible value: `Adenomyosis`
+		* New permissible value: `Atrophic endometrium`
+		* New permissible value: `Atypical hyperplasia/Endometrial intraepithelial neoplasia (EIN)`
+		* New permissible value: `Autoimmune atrophic chronic gastritis`
+		* New permissible value: `Asbestos bodies`
+		* New permissible value: `Benign endocervical polyp`
+		* New permissible value: `Bilateral ovaries with endometriotic cyst and surface adhesions`
+		* New permissible value: `Carcinoma in situ`
+		* New permissible value: `Cirrhosis`
+		* New permissible value: `Clostridioides difficile (c. diff)`
+		* New permissible value: `Colonization; bacterial`
+		* New permissible value: `Colonization; fungal`
+		* New permissible value: `Cyst(s)`
+		* New permissible value: `Diffuse and early nodular diabetic glomerulosclerosis`
+		* New permissible value: `Dysplasia; high grade`
+		* New permissible value: `Dysplasia; low grade`
+		* New permissible value: `Endometrial polyp`
+		* New permissible value: `Endometriosis`
+		* New permissible value: `Endometroid carcinoma with local mucinous differentiation`
+		* New permissible value: `Endosalpingiosis`
+		* New permissible value: `Epithelial dysplasia`
+		* New permissible value: `Epithelial hyperplasia`
+		* New permissible value: `Gallbladder adenomyomatosis`
+		* New permissible value: `Glomerular disease`
+		* New permissible value: `Hyperkeratosis`
+		* New permissible value: `Inflammation`
+		* New permissible value: `Intestinal metaplasia`
+		* New permissible value: `Keratinizing dysplasia; mild`
+		* New permissible value: `Keratinizing dysplasia; moderate`
+		* New permissible value: `Keratinizing dysplasia; severe (carcinoma in situ)`
+		* New permissible value: `Leiomyoma`
+		* New permissible value: `Leiomyomata w/ degenerative changes`
+		* New permissible value: `Nonkeratinizing dysplasia; mild`
+		* New permissible value: `Nonkeratinizing dysplasia; moderate`
+		* New permissible value: `Nonkeratinizing dysplasia; severe (carcinoma in situ)`
+		* New permissible value: `Other`
+		* New permissible value: `PD-L1 CPS (223C LDT) - 20%`
+		* New permissible value: `Platinum-resistant`
+		* New permissible value: `Pleural plaque`
+		* New permissible value: `Pulmonary interstitial fibrosis`
+		* New permissible value: `Sialadenitis`
+		* New permissible value: `Sinonasal papilloma`
+		* New permissible value: `Squamous metaplasia`
+		* New permissible value: `Squamous papilloma; solitary`
+		* New permissible value: `Squamous papillomatosis`
+		* New permissible value: `Tubular (papillary) adenoma(s)`
+		* New permissible value: `Tumor-associated lymphoid proliferation`
+		* New permissible value: `Tumor has rough spikey edges`
+		* Removed permissible value: `Pleurodesis, Talc`
+		* Removed permissible value: `Pleurodesis, NOS`
+* Altered `diagnosis` Entity
+	* `primary_disease` field changed to `diagnosis_is_primary_disease` for clarity.
+* Altered `treatment` Entity
+	* Changes made to `treatment_type`
+		* New permissible value: `Pleurodesis, Talc`
+		* New permissible value: `Pleurodesis, NOS`
+* Altered `molecular_test` Entity
+	* Changes made to `test_units`
+		* New permissible value: `mm^2`
+		* New permissible value: `ng/mL`
+		* New permissible value: `percent`
+		* New permissible value: `count x10^9/L`
+
+### Known Issues and Workarounds
+
+* The `mitotic_count` field in `diagnosis` is erroneously set as "deprecated" and does not appear in the dictionary viewer.  This field can be uploaded successfully without issue and will appear in the dictionary viewer at a later release. <!--SV-1939-->
+
+
+## v2.4.0
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: June 21, 2021
+
+### New Features and Changes
+
+* Added mix-max limitations on property values in `demographic`, `portion`, `aliquot`, `family_history`, `slide`, `follow_up`, `read_group`, `sample`, `analyte`, `exposure`, `diagnosis`, `treatment`, `molecular_test`
+* Altered `submitted_unaligned_reads`, `submitted_aligned_reads`, `annotated_somatic_mutation`, `simple_somatic_mutation`, `masked_somatic_mutation`, `submitted_genomic_profile`, `aligned_reads`, `aggregated_somatic_mutation`, `simple_germline_variation` Entities
+	* Changes made to `experimental_strategy`
+		* Removed permissible value: `Low Pass WGS`
+* Altered `follow_up` Entity
+	* New property: `eye_color`
+	* New property: `history_of_tumor`
+	* New property: `history_of_tumor_type`
+	* New property: `undescended_testis_corrected`
+	* New property: `undescended_testis_corrected_age`
+	* New property: `undescended_testis_corrected_laterality`
+	* New property: `undescended_testis_corrected_method`
+	* New property: `undescended_testis_history`
+	* New property: `undescended_testis_history_laterality`
+	* Changes made to `comorbidity`
+		* New permissible value: `Dermatomyosis`
+		* New permissible value: `Herpes Zoster`
+		* New permissible value: `Varicella Zoster Virus`
+	* Changes made to `risk_factor`
+		* New permissible value: `Dermatomyosis`
+		* New permissible value: `Herpes Zoster`
+		* New permissible value: `Varicella Zoster Virus`
+* Altered `read_group` Entity
+	* Changes made to `instrument_model`
+		* New permissible value: `Illumina NovaSeq 6000`
+	* Changes made to `single_cell_library`
+		* New permissible value: `Chromium scATAC v1 Library`
+	* Changes made to `target_capture_kit`
+		* New permissible value: `Twist Human Comprehensive Exome`
+* Altered `somatic_aggregation_workflow` Entity
+	* Added link: `simple_somatic_mutations`
+	* Changes made to `workflow_type`
+		* New permissible value: `CaVEMan Variant Aggregation and Masking`
+* Altered `sample` Entity
+	* Changes made to `sample_type`
+		* New permissible value: `Next Generation Cancer Model Expanded Under Non-conforming Conditions`
+	* Changes made to `sample_type_id`
+		* New permissible value: `87`
+* Altered `germline_mutation_calling_workflow` Entity
+	* New link: `submitted_genotyping_arrays`
+	* Changes made to `workflow_type`
+		* New permissible value: `Birdseed`
+* Altered `slide_image` Entity
+	* Changes made to `data_format`
+		* New permissible value: `JPEG 2000`
+* Altered `exposure` Entity
+	* New property: `exposure_duration_years`
+	* New property: `parent_with_radiation_exposure`
+	* Changes made to `exposure_type`
+		* New permissible value: `Radiation`
+* Altered `simple_germline_variation` Entity
+	* New property: `platform`
+	* Changes made to `data_format`
+		* New permissible value: `TSV`
+* Altered `pathology_detail` Entity
+	* New property: `consistent_pathology_review`
+	* New property: `residual_tumor`
+	* New property: `size_extraocular_nodule`
+	* New property: `tumor_thickness`
+* Altered `diagnosis` Entity
+	* New property: `adrenal_hormone`
+	* New property: `primary_disease`
+	* Changes made to `ajcc_pathologic_stage`
+		* New permissible value: `Stage IIIA1`
+		* New permissible value: `Stage IIIA2`
+	* Changes made to `metastasis_at_diagnosis_site`
+		* New permissible value: `Bladder`
+		* New permissible value: `Bronchus`
+		* New permissible value: `Head, Face or Neck, NOS`
+		* New permissible value: `Lymph Node, Regional`
+		* New permissible value: `Lymph Node, Subcarinal`
+	* Changes made to `method_of_diagnosis`
+		* New permissible value: `Exoresection`
+	* Changes made to `morphology`
+		* New permissible value: `8246/6`
+		* New permissible value: `8380/6`
+		* New permissible value: `8461/6`
+		* New permissible value: `8522/6`
+	* Changes made to `sites_of_involvement`
+		* New permissible value: `Mesothelium`
+* Altered `treatment` Entity
+	* New property: `route_of_administration`
+	* Changes made to `treatment_arm`
+		* New permissible value: `A081801`
+	* Changes made to `therapeutic_agents`
+		* New permissible value: `Interferon Alfa-2B`
+		* New permissible value: `Levoleucovorin Calcium`
+		* New permissible value: `Mistletoe Extract`
+* Altered `somatic_mutation_calling_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `Strelka2 RNA`
+* Altered `molecular_test` Entity
+	* New property: `days_to_test`
+	* New link: `diagnoses`
+	* Changes made to `antigen`
+		* New permissible value: `FMC-7`
+		* New permissible value: `Kappa, Surface`
+		* New permissible value: `Lambda, Surface`
+	* Changes made to `gene_symbol`
+		* New permissible value: `AQP1`
+		* New permissible value: `CALB2`
+		* New permissible value: `DNTT`
+		* New permissible value: `EPCAM`
+		* New permissible value: `GCET1`
+		* New permissible value: `PDPN`
+		* New permissible value: `PTGS2`
+	* Changes made to `laboratory_test`
+		* New permissible value: `BG8`
+		* New permissible value: `Circulating Endothelial Cells`
+		* New permissible value: `Cytokeratin 5`
+		* New permissible value: `Cytokeratin 6`
+		* New permissible value: `Dopamine-Secreting`
+		* New permissible value: `Epinephrine-Secreting`
+		* New permissible value: `Metanephrine-Secreting`
+		* New permissible value: `Methoxytyramine-Secreting`
+		* New permissible value: `Microsatellite Instability`
+		* New permissible value: `Norepinephrine-Secreting`
+		* New permissible value: `Normetanephrine-Secreting`
+		* New permissible value: `Serum Mesothelin`
+		* New permissible value: `TAG-72`
+
+### Known Issues and Workarounds
+
+* The `mitotic_count` field in `diagnosis` is erroneously set as "deprecated" and does not appear in the dictionary viewer.  This field can be uploaded successfully without issue and will appear in the dictionary viewer at a later release. <!--SV-1939-->
+
 
 ## v2.3.0
 
