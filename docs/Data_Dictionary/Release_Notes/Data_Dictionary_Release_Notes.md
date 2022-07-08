@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v.2.5.0](Data_Dictionary_Release_Notes.md#v250) | July 8, 2022 |
 | [v.2.4.1](Data_Dictionary_Release_Notes.md#v241) | August 23, 2021 |
 | [v.2.4.0](Data_Dictionary_Release_Notes.md#v240) | June 21, 2021 |
 | [v.2.3.0](Data_Dictionary_Release_Notes.md#v230) | January 5, 2021 |
@@ -21,6 +22,248 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v2.5.0
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: July 8, 2022
+
+### New Features and Changes
+
+* Altered `diagnosis` Entity
+	* New property: `double_expressor_lymphoma`
+	* New property: `double_hit_lymphoma`
+	* New property: `max_tumor_bulk_site`
+	* New property: `uicc_clinical_m`
+	* New property: `uicc_clinical_n`
+	* New property: `uicc_clinical_stage`
+	* New property: `uicc_clinical_t`
+	* New property: `uicc_pathologic_m`
+	* New property: `uicc_pathologic_n`
+	* New property: `uicc_pathologic_stage`
+	* New property: `uicc_pathologic_t`
+	* Changes made to `ajcc_pathologic_n`
+		* New permissible value: `N2mi`
+	* Changes made to `ajcc_pathologic_t`
+		* New permissible value: `T1c2`
+	* Changes made to `classification_of_tumor`
+		* New permissible value: `Prior primary`
+		* New permissible value: `Synchronous primary`
+	* Changes made to `metastasis_at_diagnosis_site`
+		* New permissible value: `Spleen`
+		* New permissible value: `Stomach`
+	* Changes made to `morphology`
+		* New permissible value: `8211/6`
+		* New permissible value: `8460/6`
+		* New permissible value: `8520/6`
+		* New permissible value: `9715/3`
+	* Changes made to `primary_diagnosis`
+		* New permissible value: `Breast implant-associated anaplastic large cell lymphoma`
+		* New permissible value: `Indolent T-cell lymphoproliferative disorder of gastrointestinal tract`
+	* Changes made to `sites_of_involvement`
+		* New permissible value: `Abdomen`
+		* New permissible value: `Adrenal gland, NOS`
+		* New permissible value: `Adnexa`
+		* New permissible value: `Anus, NOS`
+		* New permissible value: `Appendix`
+		* New permissible value: `Bladder, NOS`
+		* New permissible value: `Bone, NOS`
+		* New permissible value: `Bone marrow`
+		* New permissible value: `Brain, NOS`
+		* New permissible value: `Breast, NOS`
+		* New permissible value: `Bronchus`
+		* New permissible value: `Buccal mucosa`
+		* New permissible value: `Central nervous system`
+		* New permissible value: `Cerebrospinal fluid`
+		* New permissible value: `Chest wall`
+		* New permissible value: `Colon, NOS`
+		* New permissible value: `Diaphragm`
+		* New permissible value: `Ear`
+		* New permissible value: `Epididymis`
+		* New permissible value: `Esophagus`
+		* New permissible value: `Eye`
+		* New permissible value: `Gallbladder`
+		* New permissible value: `Heart`
+		* New permissible value: `Kidney, NOS`
+		* New permissible value: `Larynx, NOS`
+		* New permissible value: `Leptomeninges`
+		* New permissible value: `Liver`
+		* New permissible value: `Lower lobe, lung`
+		* New permissible value: `Lung, NOS`
+		* New permissible value: `Lymph node, NOS`
+		* New permissible value: `Mandible`
+		* New permissible value: `Maxilla`
+		* New permissible value: `Mediastinal soft tissue`
+		* New permissible value: `Mesentery`
+		* New permissible value: `Middle lobe, lung`
+		* New permissible value: `Mouth`
+		* New permissible value: `Nasopharynx`
+		* New permissible value: `Nasal soft tissue`
+		* New permissible value: `Neck`
+		* New permissible value: `Ocular orbits`
+		* New permissible value: `Oropharynx`
+		* New permissible value: `Pancreas`
+		* New permissible value: `Parotid gland`
+		* New permissible value: `Pelvis`
+		* New permissible value: `Pericardium`
+		* New permissible value: `Perineum`
+		* New permissible value: `Peri-orbital soft tissue`
+		* New permissible value: `Peripheral blood`
+		* New permissible value: `Peripheral nervous system`
+		* New permissible value: `Peritoneum, NOS`
+		* New permissible value: `Pleura`
+		* New permissible value: `Prostate`
+		* New permissible value: `Rectum`
+		* New permissible value: `Retroperitoneum`
+		* New permissible value: `Salivary gland`
+		* New permissible value: `Sigmoid colon`
+		* New permissible value: `Sinus`
+		* New permissible value: `Skin`
+		* New permissible value: `Small intestine`
+		* New permissible value: `Soft tissue`
+		* New permissible value: `Spleen`
+		* New permissible value: `Stomach`
+		* New permissible value: `Testes`
+		* New permissible value: `Thyroid`
+		* New permissible value: `Tongue`
+		* New permissible value: `Tonsil`
+		* New permissible value: `Trachea`
+		* New permissible value: `Transplanted kidney`
+		* New permissible value: `Transverse colon`
+		* New permissible value: `Upper lobe, lung`
+		* New permissible value: `Vagina`
+		* New permissible value: `Vertebrae`
+	* Changes made to `tumor_depth`
+		* New property: `minimum`
+* Altered `submitted_unaligned_reads` Entity
+	* Changes made to `experimental_strategy`
+		* New permissible value: `m6A MeRIP-Seq`
+		* Removed permissible value: `m6A RNA Methylation`
+* Altered `pathology_detail` Entity
+	* New property: `tumor_level_prostate`
+	* New property: `zone_of_origin_prostate`
+	* Changes made to `additional_pathology_findings`
+		* New permissible value: `Percent follicular component <= 10%`
+		* New permissible value: `Percent follicular component > 10%`
+* Altered `exposure` Entity
+	* New property: `asbestos_exposure_type`
+	* New property: `age_at_last_exposure`
+	* New property: `exposure_source`
+	* New property: `use_per_day`
+	* Removed property: `marijuana_use_per_week`
+	* Removed property: `smokeless_tobacco_quit_age`
+	* Removed property: `tobacco_use_per_day`
+	* Changes made to `alcohol_intensity`
+		* New permissible value: `Social Drinker`
+	* Added maximum to `exposure_duration_years`
+	* Changes made to `exposure_type`
+		* New permissible value: `Asbestos`
+		* New permissible value: `Chemical`
+		* New permissible value: `Radon`
+		* New permissible value: `Respirable Crystalline Silica`
+		* New permissible value: `Smokeless Tobacco`
+* Altered `case` Entity
+	* Added min/max to `days_to_consent`
+* Altered `analyte` Entity
+	* Changes made to `analyte_type`
+		* New permissible value: `m6A Enriched RNA`
+* Altered `read_group` Entity
+	* Changes made to `library_strategy`
+		* New permissible value: `m6A MeRIP-Seq`
+		* Removed permissible value: `m6A RNA Methylation`
+	* Changes made to `target_capture_kit`
+		* New permissible value: `Custom SeqCap EZ BeatAML Panel - 12.5 Mb`
+		* New permissible value: `Custom Twist MP2PRT-WT Panel - 52 Kb`
+* Altered `aligned_reads` Entity
+	* Changes made to `experimental_strategy`
+		* New permissible value: `m6A MeRIP-Seq`
+* Altered `follow_up` Entity
+	* Changes made to `comorbidity`
+		* New permissible value: `CNS Infection`
+		* New permissible value: `EBV Lymphoproliferation`
+		* New permissible value: `Hodgkin Lymphoma`
+		* New permissible value: `Lymphamatoid Papulosis`
+		* New permissible value: `Methicillin-Resistant Staphylococcus aureus (MRSA)`
+		* New permissible value: `Staph Osteomyelitis`
+		* New permissible value: `Thyroid Disease, Non-Cancer`
+		* New permissible value: `Urinary Tract Infection`
+	* Changes made to `diabetes_treatment_type`
+		* New permissible value: `Linagliptin`
+	* Changes made to `risk_factor`
+		* New permissible value: `Adenomyosis`
+		* New permissible value: `Human Herpesvirus-6 (HHV-6)`
+		* New permissible value: `Human Herpesvirus-8 (HHV-8)`
+	* Changes made to `undescended_testis_corrected_age`
+		* New property: `maximum`
+* Altered `molecular_test` Entity
+	* New property: `hpv_strain`
+	* Changes made to `antigen`
+		* New permissible value: `TAG-72`
+	* Changes made to `gene_symbol`
+		* New permissible value: `TLR2`
+	* Changes made to `laboratory_test`
+		* New permissible value: `Erythrocyte Sedimentation Rate`
+		* New permissible value: `Prothrombin Time`
+	* Changes made to `second_gene_symbol`
+		* New permissible value: `TLR2`
+	* Changes made to `test_result`
+		* New permissible value: `Stable`
+	* Changes made to `test_units`
+		* New permissible value: `cells/mL`
+		* New permissible value: `mcg/L`
+		* New permissible value: `mg/24 hr`
+* Altered `somatic_annotation_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `GATK4 MuTect2 Tumor-Only Annotation`
+* Altered `treatment` Entity
+	* New property: `clinical_trial_indicator`
+	* New property: `course_number`
+	* New property: `drug_category`
+	* New property: `embolic_agent`
+	* New property: `lesions_treated_number`
+	* New property: `number_of_fractions`
+	* New property: `prescribed_dose`
+	* New property: `protocol_identifier`
+	* New property: `treatment_dose_max`
+	* `route_of_administration`changed to array type.
+	* Changes made to `treatment_dose_units`
+		* New permissible value: `AUC`
+		* New permissible value: `g/day`
+		* New permissible value: `g/m2`
+		* New permissible value: `IU/kg`
+		* New permissible value: `IU/mg`
+		* New permissible value: `mCi`
+		* New permissible value: `mEq`
+		* New permissible value: `mg/day`
+		* New permissible value: `mg/dL`
+		* New permissible value: `mg/kg`
+		* New permissible value: `mg/kg/day`
+		* New permissible value: `mg/m2`
+		* New permissible value: `mg/m2/day`
+		* New permissible value: `mg/m2/wk`
+		* New permissible value: `mg/mL`
+		* New permissible value: `mg/wk`
+		* New permissible value: `mIU`
+		* New permissible value: `mL`
+		* New permissible value: `ug`
+		* New permissible value: `ug/m2`
+		* New permissible value: `Wafer`
+	* Changes made to `treatment_type`
+		* New permissible value: `Peptide Receptor Radionuclide Therapy (PRRT)`
+	* Changes made to `therapeutic_agents`
+		* New permissible value: `Canakinumab`
+		* New permissible value: `Rivaroxaban`
+* Altered `somatic_mutation_calling_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `GATK4 MuTect2 Tumor-Only`
+* Altered `submitted_aligned_reads` Entity
+	* Changes made to `experimental_strategy`
+		* New permissible value: `m6A MeRIP-Seq`
+		* Removed permissible value: `m6A RNA Methylation`
+
+### Known Issues and Workarounds
+
+* The `mitotic_count` field in `diagnosis` is erroneously set as "deprecated" and does not appear in the dictionary viewer.  This field can be uploaded successfully without issue and will appear in the dictionary viewer at a later release. <!--SV-1939-->
 
 ## v2.4.1
 
