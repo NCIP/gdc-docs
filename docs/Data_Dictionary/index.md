@@ -15,14 +15,14 @@ The GDC Data Dictionary consists of the following components:
 
 ### Standards and Conventions
 
-All properties and values in the GDC Data Dictionary include references to external standards defined and maintained by the [NCI Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/) (NCIt) and the [Cancer Data Standards Registry and Repository](https://wiki.nci.nih.gov/display/caDSR/caDSR+Wiki) (caDSR). Both of these standards are operated by groups at [NCI's Center for Bioinformatics and Information Technology](https://cbiit.cancer.gov/) (CBIIT).
+All properties and values in the GDC Data Dictionary include references to external standards defined and maintained by the [NCI Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/) (NCIt) and the [Cancer Data Standards Registry and Repository](https://wiki.nci.nih.gov/display/caDSR/caDSR+Wiki) (caDSR). Both of these standards are operated by groups at [NCI's Center for Bioinformatics and Information Technology](https://datascience.cancer.gov/) (CBIIT).
 
 Each property is assigned a [Common Data Element](https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search) (CDE) created by the caDSR. The CDE provides detailed information about the property including links to the NCIt through assigned concept codes. NCIt concepts are also assigned at the permissible value level for enumerated properties. The images below are an example of a caDSR CDE and its related property-level NCIt concepts.
 
 [![CDE Data Elements Details](images/CDE_Data_Element_Details.png)](images/CDE_Data_Element_Details.png "Click to see the full image.")
 [![CDE Details](images/CDE_Details.png)](images/CDE_Details.png "Click to see the full image.")
 
-In addition to the caDSR and NCIt references, many of the properties are defined by additional standards including, but not limited to the following: [International Classification of Diseases](https://www.who.int/health-topics/international-classification-of-diseases) ([ICD-O-3](http://codes.iarc.fr/) and [ICD-10](https://www.cdc.gov/nchs/icd/icd10cm.htm)), [American Joint Committee on Cancer](https://cancerstaging.org/Pages/default.aspx) staging classifications, [Children's Oncology Group](https://www.childrensoncologygroup.org/) (COG) categorizations, and the [International Federation of Gynecology and Obstetrics](https://www.figo.org/) (FIGO) classifications. When these additional standards are used to describe a property, this is referenced in the description and the list of allowable values will reflect the criteria defined by the standard.
+In addition to the caDSR and NCIt references, many of the properties are defined by additional standards including, but not limited to the following: [International Classification of Diseases](https://www.who.int/health-topics/international-classification-of-diseases) ([ICD-O-3](http://codes.iarc.fr/) and [ICD-10](https://www.cdc.gov/nchs/icd/icd10cm.htm)), [American Joint Committee on Cancer](https://www.facs.org/quality-programs/cancer-programs/american-joint-committee-on-cancer/) staging classifications, [Children's Oncology Group](https://www.childrensoncologygroup.org/) (COG) categorizations, and the [International Federation of Gynecology and Obstetrics](https://www.figo.org/) (FIGO) classifications. When these additional standards are used to describe a property, this is referenced in the description and the list of allowable values will reflect the criteria defined by the standard.
 
 Using external standards benefits both data contributors and data consumers at the GDC.  For example, the curated lists of synonyms provided by NCIt allows for easy mapping of other study-specific clinical data standards to the GDC data dictionary.  The available synonyms can be leveraged using the [GDC Data Dictionary Search](gdcmvs/).
 
@@ -56,7 +56,7 @@ This section also contains a "Download Template" link with a drop-down menu cont
 * __Links to Entity:__ Other nodes that can be connected to the focal node.
 * __Link Name:__ A simplified stand in for the node link structure (requirement, target type, multiplicity, label). Its declaration categorizes the relationship between nodes.
 * __Relationship:__ The written description for the association between the focal node and the other connected node.
-* __Required:__ Displays whether the link to the node is required for the existence of the focal node. To link the focal node to a parent node, use the __<Link Name\>.submitter_id__ with the value of that field set to the appropriate `submitter_id` in the parent node. For more information on creating links between nodes, please see the [Data Submission Walkthrough](Data_Submission_Portal/Users_Guide/Data_Submission_Walkthrough).
+* __Required:__ Displays whether the link to the node is required for the existence of the focal node. To link the focal node to a parent node, use the __<Link Name\>.submitter_id__ with the value of that field set to the appropriate `submitter_id` in the parent node. For more information on creating links between nodes, please see the [Data Submission Walkthrough](../Data_Submission_Portal/Users_Guide/Data_Submission_Walkthrough).
 
 #### Properties
 
@@ -143,7 +143,7 @@ The results from searches can be sorted into three different result fields:
 * __Dictionary:__ This result section will return two columns that display matches to values within the structure of the GDC Data Dictionary:
      [![GDC search general squamous dictionary](images/GDC_search_general_squamous_dictionary.png)](images/GDC_search_general_squamous_dictionary.png "Click to see the full image.")
     * __Name:__ This column displays the name of the Category, Node, or Property with a returned value total for each level.
-    * __Description:__ This column displays the GDC Data Dictionary description for each level. 
+    * __Description:__ This column displays the GDC Data Dictionary description for each level.
 
 ## Data Dictionary API
 

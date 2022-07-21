@@ -951,7 +951,7 @@ There was a major new release of the GDC Data Portal focused on Data Analysis, V
 *  The ability to export the current view of a table in TSV
 *  Retired GDC cBioPortal
 
-_For detailed updates please review the [Data Portal User Guide](../Data_Portal/Users_Guide/Getting_Started/)._
+_For detailed updates please review the [Data Portal User Guide](../Users_Guide/Getting_Started/)._
 
 ### Bugs Fixed Since Last Release
 

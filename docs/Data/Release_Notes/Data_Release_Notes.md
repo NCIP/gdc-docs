@@ -328,7 +328,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 1. GENCODE v22 BAM files that no longer appear in the portal will be available for six months past this release. They may not be available after that.
 1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](Removed_Aliquots.tsv)).
 1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.tsv)).
-1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.DR32.tsv)).  
+1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.tsv)).  
 
 #### Data Portal Exploration Data
 1. The Data Portal Exploration Page is now populated based on open-access mutations from analyses that used GENCODE v36.

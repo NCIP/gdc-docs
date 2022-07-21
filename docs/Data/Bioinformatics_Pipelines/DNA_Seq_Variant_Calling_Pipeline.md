@@ -180,7 +180,7 @@ java -jar GenomeAnalysisTK.jar \
 Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using five separate pipelines:
 
 - [MuSE](http://bioinformatics.mdanderson.org/main/MuSE) [[2]](http://www.biorxiv.org/content/early/2016/05/25/055467.abstract)
-- [MuTect2](https://gatkforums.broadinstitute.org/gatk/discussion/9183/how-to-call-somatic-snvs-and-indels-using-mutect2) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html)  
+- [MuTect2](https://gatk.broadinstitute.org/hc/en-us/articles/360037593851-Mutect2) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html)  
 - [VarScan2](http://dkoboldt.github.io/varscan/) [[4]](http://genome.cshlp.org/content/22/3/568.short)
 - [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short)
 - [Pindel](https://github.com/ucscCancer/pindel-tool)
