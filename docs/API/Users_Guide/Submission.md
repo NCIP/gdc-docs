@@ -68,7 +68,7 @@ The following is a sample shell command for submitting an XML file:
 
 ### Data File Formats
 
-The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, clinical and biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [GDC website](https://gdc.cancer.gov/node/266/).
+The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, clinical and biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=submittable_data_file).
 
 ## GDC Data Model
 
@@ -2692,7 +2692,7 @@ Second, the file node can be deleted or modified. See [Deleting Entities](#delet
 
 ### GraphQL Overview
 
-[GraphQL](https://facebook.github.io/graphql/) is a query language that makes it easy to search and retrieve data from graph data structures such as the GDC Data Model.
+[GraphQL](https://graphql.org/) is a query language that makes it easy to search and retrieve data from graph data structures such as the GDC Data Model.
 
 Unlike the methods outlined in [Search and Retrieval](Search_and_Retrieval.md), which provide access to public releases (or snapshots) of GDC data, the `/graphql` endpoint of GDC Submission API makes it possible for submitters to access "live" data, which provides a real-time view of the state of entities in a project.
 
