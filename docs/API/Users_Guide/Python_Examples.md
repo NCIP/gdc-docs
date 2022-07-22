@@ -1,6 +1,6 @@
 # Using Python to Query the GDC API
 
-Python can be a versatile tool for retrieving information from the GDC API and performing downstream processing. This page details some examples that demonstrate the basic API queries using Python. The examples in this guide will use the [requests](http://docs.python-requests.org/en/master/) Python library and should be compatible with Python3.
+Python can be a versatile tool for retrieving information from the GDC API and performing downstream processing. This page details some examples that demonstrate the basic API queries using Python. The examples in this guide will use the [requests](https://pypi.org/project/requests/) Python library and should be compatible with Python3.
 
 ## Querying Metadata
 

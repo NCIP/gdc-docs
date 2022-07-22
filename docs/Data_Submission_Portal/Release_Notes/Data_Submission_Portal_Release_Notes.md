@@ -223,7 +223,6 @@
 
 *  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
 <!--API-219-->
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
 ## Release 1.8.0
 
@@ -242,8 +241,6 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 
 *  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
 <!--API-219-->
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
-
 
 ## Release 1.7.0
 
@@ -262,8 +259,6 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 
 *  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
 <!--API-219-->
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
-
 
 ## Release 1.6.0
 
@@ -282,7 +277,6 @@ None
 
 *  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
 <!--API-219-->
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
 
 ## Release 1.5.1
@@ -322,7 +316,6 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 
 *  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
 <!--API-219-->
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
 ## Release 1.3.0
 
@@ -353,8 +346,6 @@ Not Applicable
 *  Reports are currently not available in the Data Submission Portal and will be added back in an upcoming version:
     *   Data Validation Report: The rows in the report are sometimes duplicated and #Files in error are not showing up in the report. The user should go to Project > Browse > Submitted Files to see the files in error and the error type<!--PGDC-1025 and PGDC-997-->.
     *   The Scientific Pre-alignment QC Report is not available.
-
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
 ## Release 1.2.2
 
@@ -399,8 +390,6 @@ Please refer to the GDC Data Submission Portal User's Guide for more details abo
     *   Data Validation Report: The rows in the report are sometimes duplicated and #Files in error are not showing up in the report. The user should go to Project > Browse > Submitted Files to see the files in error and the error type<!--PGDC-1025 and PGDC-997-->.
     *   The Scientific Pre-alignment QC Report is not available.
 
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
-
 ## Release 1.1.0
 
 * __GDC Product__: GDC Data Submission Portal
@@ -417,8 +406,6 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 ### Known Issues and Workarounds
 
 *	Some actions on the data submission portal are resource intensive and might result in timeout or errors. The team is currently working on a major update to the data submission portal expected to be available towards the end of the summer. This version will address performance issues and improve overall user experience.
-
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.3.24.1
 
@@ -452,7 +439,6 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 * The Scientific Pre-alignment QC Report is not available.
 * The Submission Portal is not meant to support XML file submission, users have to submit files through the GDC API.
 
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.3.21
 
@@ -479,8 +465,6 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
 *   Implementation of Submit and Release not finalized.
 *   XML file submission is returning a bad request error. The workaround is to submit files through the GDC API.
 *   Data Bundles - Lane Level Sequence: read group ID not unique, the message generated is not user friendly.
-
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
 
 ## Release 0.2.18.3
 
@@ -523,5 +507,3 @@ Release details are maintained in the [GDC Data Submission Portal Change Log](ht
     A workaround is to submit files through the API.
 *   Data Bundles - Lane Level Sequence: read group ID not unique, message generated is not user friendly.
 *   The projects dropdown show legacy projects, it should only show projects active for submission.
-
-Release details are maintained in the [GDC Data Submission Portal Change Log](https://github.com/NCI-GDC/submission-ui/blob/master/CHANGELOG.md).
