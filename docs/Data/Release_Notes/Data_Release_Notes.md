@@ -77,8 +77,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Bugs Fixed Since Last Release
 
-* Data from two HCMI-CMDC aliquots (HCM-BROD-0100-C15-85A-01D-A786-36 and HCM-BROD-0679-C43-85M-01D-A80U-36) were incorrectly selected for inclusion into the Exploration Page in Data Release 32 and has been replaced with the correct aliquots 
-(HCM-BROD-0100-C15-01A-11D-A786-36 and HCM-BROD-0679-C43-06A-11D-A80U-36). <!--DAT-3220-->
+* Data from two HCMI-CMDC aliquots (HCM-BROD-0100-C15-85A-01D-A786-36 and HCM-BROD-0679-C43-85M-01D-A80U-36) were incorrectly selected for inclusion into the Exploration Page in Data Release 32 and has been replaced with the correct aliquots (HCM-BROD-0100-C15-01A-11D-A786-36 and HCM-BROD-0679-C43-06A-11D-A80U-36). <!--DAT-3220-->
 
 ### Known Issues and Workarounds
 
