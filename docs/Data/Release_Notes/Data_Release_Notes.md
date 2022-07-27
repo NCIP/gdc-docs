@@ -46,7 +46,7 @@
 ## Data Release 34.0
 
 * __GDC Product__: Data
-* __Release Date__: July 26, 2022
+* __Release Date__: July 27, 2022
 
 ### New updates
 
@@ -68,7 +68,7 @@
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [XXXX](XXXX)
+* [gdc_manifest_20220727_data_release_34.0_active.tsv.gz](gdc_manifest_20220727_data_release_34.0_active.tsv.gz)
 
 ### Unavailable Files
 
