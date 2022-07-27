@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v34.0](Data_Release_Notes.md#data-release-340) | July 26, 2022 |
+| [v34.0](Data_Release_Notes.md#data-release-340) | July 27, 2022 |
 | [v33.1](Data_Release_Notes.md#data-release-331) | May 31, 2022 |
 | [v33.0](Data_Release_Notes.md#data-release-330) | May 3, 2022 |
 | [v32.0](Data_Release_Notes.md#data-release-320) | March 29, 2022 |
