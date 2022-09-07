@@ -2760,6 +2760,9 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_no
 Details are provided in [Data Release Manifest](Manifests/GDC_Data_v1_release_notes_manifest.txt)
 
 ### Download Open-access MAF files
+
+* Please note that these links no longer point to files and will be updated in the future.
+
 <a href="https://api.gdc.cancer.gov/data/abbe72a5-cb39-48e4-8df5-5fd2349f2bb2">TCGA.ACC.mutect.somatic.maf.gz</a><br>
 <a href="https://api.gdc.cancer.gov/data/cb97ef6e-7a13-4d42-81b4-1510c00d6373">TCGA.BLCA.mutect.somatic.maf.gz</a><br>
 <a href="https://api.gdc.cancer.gov/data/91ae5ca9-55c2-4c9c-929e-8638444dc7b5">TCGA.BRCA.mutect.somatic.maf.gz</a><br>
