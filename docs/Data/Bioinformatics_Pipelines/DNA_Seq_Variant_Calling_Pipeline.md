@@ -184,7 +184,7 @@ Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Cal
 - [VarScan2](http://dkoboldt.github.io/varscan/) [[4]](http://genome.cshlp.org/content/22/3/568.short)
 - [Pindel](https://github.com/ucscCancer/pindel-tool)
 
-Note that - [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short) was used and available on the GDC Data Portal. before GDC Data Release 35.
+Note that [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short) was used and available on the GDC Data Portal prior to GDC Data Release 35.
 
 Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](../File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
 
