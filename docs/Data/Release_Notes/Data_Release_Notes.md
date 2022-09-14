@@ -56,7 +56,7 @@
     * The aggregated somatic mutation and masked somatic mutation files (multi-caller MAFs) have been replaced to reflect the absence of variants from the SomaticSniper pipeline.
     * The mutations on the exploration portal reflect the above-mentioned masked somatic mutation files.
 * 10 snRNA-Seq samples were released from the CPTAC-3 project.
-* Additional cases and their associated files were released for the TARGET-AML project.
+* Additional RNA-Seq samples from 2,082 additional cases are now available for the TARGET-AML project.
 
 A complete list of files included in the GDC Data Portal can be found below:
 
