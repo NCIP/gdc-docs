@@ -8,6 +8,9 @@ VCF files are used to report sequence variations (e.g., SNPs, indels and larger 
 
 VCF files are generated at the GDC with one of four variant callers (MuSe, MuTect2, Pindel, VarScan) by comparing a tumor alignment to a normal alignment from the same patient. All GDC VCFs from patients are protected data and require dbGaP credentials to access.
 
+Please note that SomaticSniper was used as a fifth variant caller and VCFs and MAFs were available on the GDC Data Portal before GDC Data Release 35.
+
+
 VCF files are produced on a case-level for each variant caller (four VCF files per case). All VCF files within a project that were produced by a single pipeline are aggregated to produce a MAF file.  
 
 ### Structure ###
