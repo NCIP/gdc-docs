@@ -177,30 +177,30 @@ java -jar GenomeAnalysisTK.jar \
 
 
 ### Somatic Variant Calling Workflow
-Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using five separate pipelines:
+Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using four separate pipelines:
 
 - [MuSE](http://bioinformatics.mdanderson.org/main/MuSE) [[2]](http://www.biorxiv.org/content/early/2016/05/25/055467.abstract)
 - [MuTect2](https://gatk.broadinstitute.org/hc/en-us/articles/360037593851-Mutect2) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html)  
 - [VarScan2](http://dkoboldt.github.io/varscan/) [[4]](http://genome.cshlp.org/content/22/3/568.short)
-- [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short)
 - [Pindel](https://github.com/ucscCancer/pindel-tool)
+
+Note that [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short) was used and available on the GDC Data Portal prior to GDC Data Release 35.
 
 Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](../File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
 
 #### Pipeline Descriptions
-Five separate variant calling pipelines are implemented for GDC data harmonization. There is currently no scientific consensus on the best variant calling pipeline so the investigator is responsible for choosing the pipeline(s) most appropriate for the data. Some details about the pipelines are indicated below.
+Four separate variant calling pipelines are implemented for GDC data harmonization. There is currently no scientific consensus on the best variant calling pipeline so the investigator is responsible for choosing the pipeline(s) most appropriate for the data. Some details about the pipelines are indicated below.
 
 The [MuTect2 pipeline](https://gdc.cancer.gov/files/public/image/Broad_MuTect_0.png) employs a "Panel of Normals" to identify additional germline mutations. This panel is generated using TCGA blood normal genomes from thousands of individuals that were curated and confidently assessed to be cancer-free. This method allows for a higher level of confidence to be assigned to somatic variants that were called by the MuTect2 pipeline.
 
-Basic outlines for the other three of the pipelines can be found here:
+Basic outlines for the other two pipelines can be found here:
 
 - [VarScan2 pipeline](https://gdc.cancer.gov/files/public/image/varscan-somatic-variant-calling-pipeline.png)
 - [MuSE pipeline](https://gdc.cancer.gov/files/public/image/muse-somatic-variant-calling-pipeline.png)  
-- [SomaticSniper pipeline](https://gdc.cancer.gov/files/public/image/somaticsniper-variant-calling-pipeline.png)
 
 #### Indels
 
-Indel mutations that were generated with the MuTect2, Pindel, and VarScan pipelinesd are detected and reported in GDC VCF files.
+Indel mutations that were generated with the MuTect2, Pindel, and VarScan pipelines are detected and reported in GDC VCF files.
 
 #### Germline Variants
 At this time, germline variants are deliberately excluded as harmonized data. The GDC does not recommend using germline variants that were previously detected and stored in the Legacy Archive as they do not meet the GDC criteria for high-quality data.  
@@ -257,30 +257,6 @@ java -jar GenomeAnalysisTK.jar \
 -o <mutect_variants.vcf> \
 --output_mode EMIT_VARIANTS_ONLY \
 --disable_auto_index_creation_and_locking_when_reading_rods
-```
-
-
-
-#### SomaticSniper
-Somatic-sniper v1
-
-```Shell
-bam-somaticsniper \
--q 1 \
--L \
--G \
--Q 15 \
--s 0.01 \
--T 0.85 \
--N 2 \
--r 0.001 \
--n NORMAL \
--t TUMOR \
--F vcf \
--f ref.fa \
-<tumor.bam> \
-<normal.bam> \
-<somaticsniper_variants.vcf>
 ```
 
 #### VarScan
@@ -460,7 +436,7 @@ The VEP uses the coordinates and alleles in the VCF file to infer biological con
 
 Due to licensing constraints COSMIC is not utilized for annotation in the GDC VEP workflow.
 
-In addition to annotation, [False Positive Filter](https://github.com/ucscCancer/fpfilter-tool) is used to label low quality variants in VarScan and SomaticSniper outputs. Variants with SSQ < 25 in SomaticSniper are also removed.
+In addition to annotation, [False Positive Filter](https://github.com/ucscCancer/fpfilter-tool) is used to label low quality variants in VarScan.
 
 | I/O | Entity | Format |
 |---|---|---|
