@@ -57,6 +57,7 @@
     * The mutations on the exploration portal reflect the above-mentioned masked somatic mutation files.
 * 10 snRNA-Seq samples were released from the CPTAC-3 project.
 * Additional RNA-Seq samples from 2,082 additional cases are now available for the TARGET-AML project.
+* Demographic data has been added for 94 cases in TARGET-ALL-P2 and TARGET-ALL-P3 projects. A list of the updated cases can be found [here].(TARGET_demo_update.dr35.tsv)
 
 A complete list of files included in the GDC Data Portal can be found below:
 
