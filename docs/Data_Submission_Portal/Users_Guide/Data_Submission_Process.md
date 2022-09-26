@@ -241,7 +241,7 @@ You can see in the QC Reports Tab highlights of what data are present and the ty
 
 To find specific details for any node that contains errors you can click on the facet panel on the left to see those errors and to download a list of errors for that respective node. All potential errors are listed in the [Pre-harmonization Checklist](/Data_Submission_Portal/Users_Guide/Data_Submission_Process/#pre-harmonization-checklist).
 
-[![QC Errors for Submitted Unaligned Reads](images/SUR_QC_errors.png)](SUR_QC_errors.png "Click to see the full image.")
+[![QC Errors for Submitted Unaligned Reads](images/SUR_QC_errors.png)](images/SUR_QC_errors.png "Click to see the full image.")
 
 ## Submit Your Workspace Data to the GDC
 
