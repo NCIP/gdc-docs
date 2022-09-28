@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v35.0](Data_Release_Notes.md#data-release-350) | September XX, 2022 |
+| [v35.0](Data_Release_Notes.md#data-release-350) | September 28, 2022 |
 | [v34.0](Data_Release_Notes.md#data-release-340) | July 27, 2022 |
 | [v33.1](Data_Release_Notes.md#data-release-331) | May 31, 2022 |
 | [v33.0](Data_Release_Notes.md#data-release-330) | May 3, 2022 |
@@ -47,7 +47,7 @@
 ## Data Release 35.0
 
 * __GDC Product__: Data
-* __Release Date__: September XX, 2022
+* __Release Date__: September 28, 2022
 
 ### New Updates
 
@@ -62,7 +62,7 @@
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [XXX](XXX)
+* [gdc_manifest_20220928_data_release_34.0_active.tsv.gz](gdc_manifest_20220928_data_release_35.0_active.tsv.gz)
 
 ### Unavailable Files
 
