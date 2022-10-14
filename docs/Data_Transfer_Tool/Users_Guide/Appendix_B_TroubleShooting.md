@@ -5,7 +5,7 @@ If you encounter issues when using the Data Transfer Tool for downloading files 
 ## Speed Performance During Download
 The Data Transfer Tool has two performance tuning options that are presented during download operations.  The two options are:
 
-* --n - The "--n" option assists with assigning the number of threads to the download process.  The default is 4 and can not be lowered below three threads.
+* -n OR --n-processes  - The "-n" OR "--n-processes" option assists with assigning the number of threads to the download process.  The default is 4 and can not be lowered below three threads.
 
 * --http-chunk-size - The "--http-chunk-size" setting can improve performance but we do not provide any hard settings due to the eclectic nature of client networks and their connections to the internet but instead encourage clients to experiment with changing the default setting of 1048576 bytes to larger size ranges.       
 
