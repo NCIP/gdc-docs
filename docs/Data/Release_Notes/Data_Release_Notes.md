@@ -57,7 +57,7 @@
     * The mutations on the exploration portal reflect the above-mentioned masked somatic mutation files.
 * 10 snRNA-Seq samples were released from the CPTAC-3 project.
 * Additional RNA-Seq samples from 2,082 additional cases are now available for the TARGET-AML project.
-* Demographic data has been added for 94 cases in TARGET-ALL-P2 and TARGET-ALL-P3 projects. A list of the updated cases can be found 
+* Demographic data has been added for 94 cases in TARGET-ALL-P2 and TARGET-ALL-P3 projects. A list of the updated cases can be found
 [here](TARGET_demo_update.dr35.tsv).
 
 A complete list of files included in the GDC Data Portal can be found below:
@@ -75,6 +75,10 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Known Issues and Workarounds
 
+* The mutations on GDC Exploration were built with an incorrect gene model.
+    * The mutations are still correct in terms of the gene affected, coordinates, DNA changes, amino acid changes, and impact.
+    * Mutations associated with genes that were present in GENCODE v36 and not GENCODE v22 are not displayed. This affects less than 1% of mutations.
+    * Files downloaded from the the GDC Repository are not affected by this issue.  This only affects mutations that are downloaded from GDC Exploration.
 * Pathology reports do not have any associated case/biospecimen information in the portal. This information can be found in the reports themselves. <!--SV-2118-->  
 * 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
 * One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
