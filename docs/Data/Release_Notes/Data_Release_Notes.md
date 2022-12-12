@@ -81,7 +81,7 @@
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_20221209_data_release_36.0_active.tsv.gz](gdc_manifest_20221209_data_release_36.0_active.tsv.gz)
+* [gdc_manifest_20221212_data_release_36.0_active.tsv.gz](gdc_manifest_20221212_data_release_36.0_active.tsv.gz)
 
 ### Unavailable Files
 
