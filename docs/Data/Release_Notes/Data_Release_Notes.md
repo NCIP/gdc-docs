@@ -63,7 +63,7 @@
     * CMI-MPC - new RNA-Seq and WXS data
 
 * Data Migrated from the Legacy Archive to Active Portal
-    * WGS Alignments are now available for all TCGA Projects
+    * WGS Alignments are now available for 25 TCGA Projects
     * Pathology reports from TCGA
     * Affymetrix SNP6 Genotyping Array CEL files
     * A set of WXS and RNA-Seq samples from TCGA and TARGET that failed harmonization at launch have been rerun and are now available in the active portal.
@@ -100,8 +100,6 @@ A complete list of files included in the GDC Data Portal can be found below:
 * 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
 * One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
 * The clinical supplement for TARGET-ALL-P1 is not currently available. It will be made available in a future release.
-* Copy number variations currently do not appear in the Exploration page.  This will be restored in a future release.
-* Mutations from SomaticSniper were erroneously labelled as LOH (loss of heterozygosity). This affects the VCF files, MAF files, and may cause SomaticSniper mutations to be absent from ensemble MAFs.
 * The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
