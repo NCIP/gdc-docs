@@ -91,13 +91,11 @@ A complete list of files included in the GDC Data Portal can be found below:
 ### Bugs Fixed Since Last Release
 
 * The copy number variation data is now available on the GDC Exploration portal.
+* The mutations on GDC Exploration were re-built with the correct gene model.
+
 
 ### Known Issues and Workarounds
 
-* The mutations on GDC Exploration were built with an incorrect gene model.
-    * The mutations are still correct in terms of the gene affected, coordinates, DNA changes, amino acid changes, and impact.
-    * Mutations associated with genes that were present in GENCODE v36 and not GENCODE v22 are not displayed. This affects less than 1% of mutations.
-    * Files downloaded from the the GDC Repository are not affected by this issue.  This only affects mutations that are downloaded from GDC Exploration.
 * Pathology reports do not have any associated case/biospecimen information in the portal. This information can be found in the reports themselves. <!--SV-2118-->  
 * 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
 * One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
