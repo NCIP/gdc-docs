@@ -27,6 +27,8 @@
 
         <title>Not Found - {{ site_name }}</title>
 
+        <script src="https://assets.adobedtm.com/6a4249cd0a2c/073fd0859f8f/launch-39d47c17b228.min.js"></script>
+
         <link href="/css/bootstrap-custom.css" rel="stylesheet">
         <link href="/css/font-awesome-4.5.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/highlight.css">
@@ -160,7 +162,6 @@
             <script src="/js/gdc-common.js"></script>
             <script src="/js/remarkable-1.7.1.min.js"></script>
             <script src="/js/gdc-notifications.js"></script>
-            <script language="JavaScript" type="text/javascript" src="https://static.cancer.gov/webanalytics/wa_gdc_pageload.js"></script>
             <script>var base_url = '{{ base_url }}';</script>
             {%- for path in extra_javascript %}
             <script src="{{ path }}"></script>
@@ -168,5 +169,6 @@
 
             <script src="/js/404.js"></script>
         </div>
+        <script type="text/javascript">_satellite.pageBottom();</script>
     </body>
 </html>
