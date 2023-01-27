@@ -242,6 +242,15 @@
           switch (normalizedPropertyName) {
             case "enum":
             case "type":
+              if (propertyVal === "array") {
+                value = {
+                  propertyName: "Array",
+                  // When we support more array types, this code will need to be updated.
+                  propertyValue: property["items"]["enum"],
+                };
+                break;
+              }
+
               value = {
                 propertyName:
                   normalizedPropertyName === "enum"
