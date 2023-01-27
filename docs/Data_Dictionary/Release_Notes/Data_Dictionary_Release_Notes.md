@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | January X, 2023 |
+| [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | February X, 2023 |
 | [v.2.5.0](Data_Dictionary_Release_Notes.md#v250) | July 8, 2022 |
 | [v.2.4.1](Data_Dictionary_Release_Notes.md#v241) | August 23, 2021 |
 | [v.2.4.0](Data_Dictionary_Release_Notes.md#v240) | June 21, 2021 |
@@ -165,6 +165,9 @@
 	* Changes made to `lymph_node_involved_site`
 		* New permissable value: `Aortic`
 		* New permissable value: `Pelvis, NOS`
+* Altered `read_group` Entity
+	* Changes made to `target_capture_kit`
+		* New property: `Custom SureSelect CGCI-BLGSP Panel - 7.8 Mb`
 * Altered `sample` Entity
 	* New required property: `preservation_method`
 	* New required property: `specimen_type`
@@ -178,6 +181,11 @@
 * Altered `simple_germline_variation` Entity
 	* Changes made to `experimental_strategy`
 		* New permissable value: `Genotyping Array`
+* Altered `somatic_copy_number_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissable value: `ABSOLUTE LiftOver`
+		* New permissable value: `ASCAT3`
+		* New permissable value: `GATK4 CNV`
 * Altered `structural_variant_calling_workflow` Entity
 	* Changes made to `workflow_type`
 		* New permissable value: `SvABA`
@@ -337,10 +345,6 @@
 	* Changes made to `therapeutic_agents`
 		* New permissable value: `TLR9 Agonist SD-101`
 * New Entity: `copy_number_auxiliary_file`
-
-### Known Issues and Workarounds
-
-* Typos for two `occupation_type` enums have been found and will be corrected in the next release. 
 
 ## v2.5.0
 
