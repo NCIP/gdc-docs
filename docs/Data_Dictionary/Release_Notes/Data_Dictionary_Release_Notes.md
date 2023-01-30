@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | February X, 2023 |
+| [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | February 1, 2023 |
 | [v.2.5.0](Data_Dictionary_Release_Notes.md#v250) | July 8, 2022 |
 | [v.2.4.1](Data_Dictionary_Release_Notes.md#v241) | August 23, 2021 |
 | [v.2.4.0](Data_Dictionary_Release_Notes.md#v240) | June 21, 2021 |
@@ -27,7 +27,7 @@
 ## v2.6.0
 
 * __GDC Product__: GDC Data Dictionary
-* __Release Date__: January X, 2023
+* __Release Date__: February 1, 2023
 
 ### New Features and Changes
 
@@ -345,6 +345,10 @@
 	* Changes made to `therapeutic_agents`
 		* New permissable value: `TLR9 Agonist SD-101`
 * New Entity: `copy_number_auxiliary_file`
+
+### Known Issues and Workarounds
+
+* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) does not currently display permissible values for array type properties. This does not impact submission of permissible values for these properties. Data submitters that would like to submit data for these properties can contact the GDC Helpdesk (support@nci-gdc.datacommons.io) for a list of permissible values for the affected properties. This will be addressed in a future release. 
 
 ## v2.5.0
 
