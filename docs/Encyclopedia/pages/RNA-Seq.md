@@ -9,7 +9,7 @@ RNA-Seq data in the GDC is used to generate a gene expression profile for tumor 
 
 ### Data ###
 
-RNA-Seq data is available as aligned reads (BAM) and expression levels as: [raw counts](HTSeq-Counts.md) (TXT) and normalized (TXT) with [FPKM](HTSeq-FPKM.md) or [FPKM-UQ](HTSeq-FPKM-UQ.md). Reads that did not align are also included in BAM files to facilitate the retrieval of the original raw data.   
+RNA-Seq data is available as aligned reads (BAM) and expression levels as: raw counts and normalized with TPM, FPKM, or FPKM-UQ. Reads that did not align are also included in BAM files to facilitate the retrieval of the original raw data.   
 
 ## References ##
 1. [GDC mRNA Expression Pipeline](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
