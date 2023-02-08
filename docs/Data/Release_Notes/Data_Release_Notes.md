@@ -96,6 +96,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Known Issues and Workarounds
 
+* Outcome data for the CPTAC program is not up-to-date. Please visit the [Proteomic Data Commons](https://proteomic.datacommons.cancer.gov/pdc/) for updated outcome data for CPTAC.
 * Pathology reports do not have any associated case/biospecimen information in the portal. This information can be found in the reports themselves. <!--SV-2118-->  
 * 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
 * One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
