@@ -1,13 +1,8 @@
 Annotations for TCGA
 ===========================
-This document is retained for reference purposes for TCGA and should not be considered the current GDC standard.  For information on the existing GDC use of annotations please see the [Annotations Encyclopedia entry](/Encyclopedia/pages/Annotations/).
+This document is retained for reference purposes for TCGA and should not be considered the current GDC standard.  For information on the existing GDC use of annotations please see the [Annotations Encyclopedia Page](/Encyclopedia/pages/Annotations/).
 
-This document was adapted from https://wiki.nci.nih.gov/pages/viewpage.action?spaceKey=TCGA&title=Introduction+to+Annotations
-
-This section includes the following topics.
-
-**Contents of this page**
-
+This section includes the following topics:
 -   Annotations Overview
 -   Annotation Classification and Categories
 
@@ -15,8 +10,13 @@ This section includes the following topics.
 Annotations Overview
 --------------------
 
+<<<<<<< Updated upstream:docs/Encyclopedia/pages/Introduction+to+Annotations.md
 TCGA annotations contain important information about TCGA patients and samples needed for complete and accurate analysis and interpretation of TCGA data. The current general annotation types are: redaction, notification, CenterNotification, and observation. Redactions
 and notifications are made under Biospeciman Core Resource (BCR) authority. Each annotation is categorized using controlled vocabulary.
+=======
+TCGA annotations contain important information about TCGA patients and samples needed for complete and accurate analysis and interpretation of TCGA data. The current general annotation types
+are: redaction, notification, CenterNotification, and observation. Redactions and notifications are made under Biospecimen Core Resource (BCR) authority. Each annotation is categorized using controlled vocabulary.
+>>>>>>> Stashed changes:docs/Encyclopedia/pages/Annotations_TCGA.md
 
 An annotation has multiple components, described in the following table.
 
@@ -31,7 +31,11 @@ An annotation has multiple components, described in the following table.
 | Notes                     | Collection of free text notes, can be added to annotations after creation                                       |
 | Other metadata            | Timestamp, creator                                                                                              |
 
+<<<<<<< Updated upstream:docs/Encyclopedia/pages/Introduction+to+Annotations.md
 The following image illustrates an example of annotation components.
+=======
+The following image illustrated an example of annotation components.
+>>>>>>> Stashed changes:docs/Encyclopedia/pages/Annotations_TCGA.md
 
 ![search results page](images/ScreenShot_DOC-719.png)
 

@@ -7,9 +7,13 @@ Aliquots are typically the products shipped by a Biospecimen Core Resource (BCR)
 
 ## References ##
 1. [GDC Data Dictionary - Aliquot](/Data_Dictionary/viewer/#?view=table-definition-view&id=aliquot)
+<<<<<<< Updated upstream
 2. [GDC Biospecimen Data Encyclopedia Page](https://docs.gdc.cancer.gov/Encyclopedia/pages/Biospecimen_Data/)
+=======
+2. [GDC Biospecimen Data Encyclopedia Page](https://docs.gdc.cancer.gov/Encyclopedia/pages/Biospecimen_Data/ )
+>>>>>>> Stashed changes
 
 ## External Links ##
-* [Wikipedia Aliquot](https://en.wikipedia.org/wiki/Aliquot)
+* N/A
 
 Categories: General, Biospecimen
