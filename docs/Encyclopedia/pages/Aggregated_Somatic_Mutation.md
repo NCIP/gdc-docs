@@ -14,9 +14,9 @@ Aggregated Somatic Mutation files are available in MAF format. MAF files are tab
 ## References ##
 1. [GDC Data Dictionary - Aggregated Somatic Mutation](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aggregated_somatic_mutation)
 2. [GDC DNA-Seq Documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/)
-3. [Vcf2maf github](https://github.com/mskcc/vcf2maf)
+3. [vcf2maf GitHub](https://github.com/mskcc/vcf2maf)
 4. [GDC MAF File Format](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/)
-5. [GDC Portal](https://portal.gdc.cancer.gov/)
+5. [GDC Data Portal](https://portal.gdc.cancer.gov/)
 
 ## External Links ##
 * N/A

@@ -12,7 +12,7 @@ Aligned reads are available at the GDC Data Portal for:
 * Transcriptome Sequencing
 
 ### Data Formats ###
-Aligned reads are maintained in Binary Alignment Map (BAM) format.
+Aligned reads are maintained in [Binary Alignment Map (BAM) format](https://samtools.github.io/hts-specs/SAMv1.pdf).
 
 ## References ##
 1. [GDC Data Dictionary - Submitted Aligned Reads](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_aligned_reads)
