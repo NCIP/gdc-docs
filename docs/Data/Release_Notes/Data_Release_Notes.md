@@ -85,7 +85,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Unavailable Files
 
-* None None None
+* None
 
 
 ### Bugs Fixed Since Last Release
