@@ -69,11 +69,13 @@
 * New Data from Existing Projects
     * CPTAC-3 - 139 new cases and two new snRNA-Seq samples
     * HCMI-CMDC - 118 new cases
+    * TCGA-THCA - 941 new WGS alignments
+    * TARGET-OS and TARGET-ALL-P2 - Masked Somatic Mutation MAFs are now open access and their mutations now appear in the exploration portal.
 
 * Data Migrated from the Legacy Archive to Active Portal
     * Birdseed files that were generated from Affymetrix SNP6 arrays
     * Additional WGS Alignments are now available for TCGA projects
-    * Additional samples from XXXX are now available for TCGA projects
+    * Additional samples from RNA-Seq and WXS are now available for TCGA projects
 
 
 A complete list of files included in the GDC Data Portal can be found below:
