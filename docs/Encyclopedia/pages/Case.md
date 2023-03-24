@@ -14,9 +14,7 @@ Cases are also the basic unit of registration for the GDC Submission Portal. All
 ## References ##
 1. [GDC Data Dictionary - Case](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=case)
 2. [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-model-components)
-3. [GDC Portal Case Detail Page](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Cases_and_Files/#case-detail-page)
+3. [GDC Portal Case Detail Page](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Repository/#cases-list)
 
-## External Links ##
-* N/A
 
 Categories: General
