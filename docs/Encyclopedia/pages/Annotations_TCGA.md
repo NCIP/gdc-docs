@@ -1,13 +1,8 @@
-Introduction to Annotations
+Annotations for TCGA
 ===========================
-This document is retained for reference purposes for TCGA and should not be considered the current GDC standard.  For information on the existing GDC use of annotations please see the [Annotations Encyclopedia entry](/Encyclopedia/pages/Annotations/).
+This document is retained for reference purposes for TCGA and should not be considered the current GDC standard.  For information on the existing GDC use of annotations please see the [Annotations Encyclopedia Page](/Encyclopedia/pages/Annotations/).
 
-This document was adapted from https://wiki.nci.nih.gov/pages/viewpage.action?spaceKey=TCGA&title=Introduction+to+Annotations
-
-This section includes the following topics.
-
-**Contents of this page**
-
+This section includes the following topics:
 -   Annotations Overview
 -   Annotation Classification and Categories
 
@@ -15,15 +10,9 @@ This section includes the following topics.
 Annotations Overview
 --------------------
 
-The Annotations application allows authorized TCGA team members to add
-annotations about TCGA patients and samples down to the aliquot level. These
-annotations are searchable by the general public, and contain important
-information about TCGA patients and samples needed for complete and accurate
-analysis and interpretation of TCGA data. The current general annotation types
-are: redaction, notification, CenterNotification, and observation. Redactions
-and notifications are made under BCR authority. Each annotation is categorized
-using controlled vocabulary. Free-form text notes may also be added. Any TCGA
-user may search and download annotations against a number of metadata fields.
+TCGA annotations contain important information about TCGA patients and samples needed for complete and accurate
+analysis and interpretation of TCGA data. The current general annotation types are: redaction, notification, CenterNotification, and observation. Redactions
+and notifications are made under Biospeciman Core Resource (BCR) authority. Each annotation is categorized using controlled vocabulary.
 
 An annotation has multiple components, described in the following table.
 
@@ -31,14 +20,14 @@ An annotation has multiple components, described in the following table.
 |---------------------------|-----------------------------------------------------------------------------------------------------------------|
 | Item type                 | Patient, Sample, Portion, Slide, Analyte, Aliquot                                                               |
 | Disease                   | Tumor type, by [abbreviation](https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/sample-type-codes) |
-| Item Barcode              | [barcode](TCGA_Barcode.md) of TCGA item                                                              |
+| Item Barcode              | [Barcode](TCGA_Barcode.md) of TCGA item                                                              |
 | Item UUID                 | [UUID](UUID.md) of TCGA item                                                |
-| Annotation Classification | controlled vocabulary, see the table below                          |
-| Annotation Category       | controlled vocabulary, see the table below                          |
-| Notes                     | collection of free text notes, can be added to annotations after creation                                       |
-| Other metadata            | timestamp, creator                                                                                              |
+| Annotation Classification | Controlled vocabulary, see the table below                          |
+| Annotation Category       | Controlled vocabulary, see the table below                          |
+| Notes                     | Collection of free text notes, can be added to annotations after creation                                       |
+| Other metadata            | Timestamp, creator                                                                                              |
 
-The following image shows annotation components in the search results.
+The following image illustrates an example of annotation components.
 
 ![search results page](images/ScreenShot_DOC-719.png)
 
@@ -63,7 +52,7 @@ base and are 'unofficial'".
 | Redaction                     | Genotype mismatch                                                           | BCR             | (Patient+Analyte), (Sample+Analyte)      | Incorporates conditions such as "Failed SSTR"                                                                                                                        |
 | Redaction                     | Subject withdrew consent                                                    | BCR             | Patient                                  |                                                                                                                                                                      |
 | Redaction                     | Subject identity unknown                                                    | BCR             | Patient                                  | Applies to patients categorized under the wrong TSS-to-BCR mapping                                                                                                   |
-| Redaction                     | Duplicate case                                                              | BCR             | Patient                                  | Applies to the second (and higher) instance(s) of the same patient being accessioned through TCGA. E.g. "duplicated subject 0981"                                    |
+| Redaction                     | Duplicate case                                                              | BCR             | Patient                                  | Applies to the second (and higher) instance(s) of the same patient being accessioned through TCGA. e.g. "duplicated subject 0981"                                    |
 | Redaction                     | Administrative Compliance                                                   | BCR             | Patient                                  | Use Annotation Note to indicate details e.g. "Case not meeting regulatory requirements for TCGA"                                                                     |
 | Notification                  | Prior malignancy                                                            | BCR             | Patient                                  |                                                                                                                                                                      |
 | Notification                  | Neoadjuvant therapy                                                         | BCR             | Patient                                  |                                                                                                                                                                      |

@@ -22,6 +22,6 @@ If a submitter would like to create an annotation, please contact the GDC Suppor
 
 
 ## External Links ##
-
+* N/A
 
 Categories: Data Type

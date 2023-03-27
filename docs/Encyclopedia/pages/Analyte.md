@@ -7,9 +7,9 @@ An analyte is the specimen extracted for analysis from a portion or sample using
 The [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-model-components) relates analytes to aliquots or portions or samples but is not a required biospecimen entity.  
 
 ## References ##
-1. [GDC Data Dictionary - Analyte](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=analyte)
+1. [GDC Data Dictionary - Analyte](/Data_Dictionary/viewer/#?view=table-definition-view&id=analyte)
 
 ## External Links ##
-# [Analyte Wikipedia](https://en.wikipedia.org/wiki/Analyte)
+* N/A
 
 Categories: General, Biospecimen
