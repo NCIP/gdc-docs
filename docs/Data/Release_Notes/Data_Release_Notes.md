@@ -62,7 +62,7 @@
     * MATCH-Q - Genomic Characterization CS-MATCH-0007 Arm Q - phs001926
         *  35 cases
         *  WXS, RNA-Seq
-    * MATCH-Y - Genomic Characterization CS-MATCH-0007 Arm Y - phs001904
+    * MATCH-Y - Genomic Characterization CS-MATCH-0007 Arm Y - phs001904
         *  31 cases
         *  WXS, RNA-Seq
 
