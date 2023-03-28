@@ -90,6 +90,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 ### Bugs Fixed Since Last Release
 
 * Outcome data for the CPTAC program has been updated.
+* The `age_at_index` field was incorrectly reported in days in the GENIE program.  These values have been removed as it contained the same information as the `days_to_birth` field. <!--SV-2032-->
 
 
 ### Known Issues and Workarounds
