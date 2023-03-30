@@ -6,10 +6,7 @@ A read is a sequence obtained from a single sequencing experiment. An aligned re
 ## Overview ##
 The GDC supports the submission of aligned reads, in addition to unaligned reads. A data file containing aligned reads can be used as input for most GDC workflows<sup>1</sup>. During harmonization,  reads are aligned to the GRCh38 human genome with standardized protocols based on data type<sup>2,3</sup>. Generated aligned read files also contain unaligned reads to facilitate the retrieval of raw data by end users.
 
-Aligned reads are available at the GDC Data Portal for:
-* Whole Exome Sequencing
-* Whole Genome Sequencing
-* Transcriptome Sequencing
+Aligned reads are available at the GDC Data Portal for: Whole Exome Sequencing, Whole Genome Sequencing, Transcriptome Sequencing, Targeted Sequencing, and ATAC-Seq
 
 ### Data Formats ###
 Aligned reads are maintained in Binary Alignment Map (BAM) format.
