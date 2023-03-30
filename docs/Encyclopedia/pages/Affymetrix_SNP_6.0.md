@@ -8,7 +8,7 @@ Data from the Affymetrix SNP 6.0 platform is used by the GDC to produce harmoniz
 
 ## References ##
 1. [GDC Copy Number Variation Documentation](/Data/Bioinformatics_Pipelines/CNV_Pipeline/)
-2. [GDC Reference Files](/about-data/data-harmonization-and-generation/gdc-reference-files)
+2. [GDC Reference Files](https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files)
 
 ## External Links ##
 * [Affymetrix Genome Wide Human SNP 6.0 Array](https://www.affymetrix.com/support/downloads/manuals/genomewidesnp6_manual.pdf)
