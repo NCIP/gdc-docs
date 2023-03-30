@@ -23,7 +23,7 @@ Additionally, the biospecimen data that is available from the API is displayed o
 
 ## References ##
 1. [GDC Data Dictionary](/Data_Dictionary/viewer/)
-2. [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-model-components)
+2. [GDC Data Model](/developers/gdc-data-model/gdc-data-model-components)
 3. [TCGA Barcode](images/TCGA-TCGAbarcode-080518-1750-4378.pdf)
 
 ## External Links ##

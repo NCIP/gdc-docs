@@ -3,6 +3,7 @@ Annotations for TCGA
 This document is retained for reference purposes for TCGA and should not be considered the current GDC standard.  For information on the existing GDC use of annotations please see the [Annotations Encyclopedia Page](/Encyclopedia/pages/Annotations/).
 
 This section includes the following topics:
+
 -   Annotations Overview
 -   Annotation Classification and Categories
 
@@ -12,7 +13,7 @@ Annotations Overview
 
 TCGA annotations contain important information about TCGA patients and samples needed for complete and accurate
 analysis and interpretation of TCGA data. The current general annotation types are: redaction, notification, CenterNotification, and observation. Redactions
-and notifications are made under Biospeciman Core Resource (BCR) authority. Each annotation is categorized using controlled vocabulary.
+and notifications are made under Biospecimen Core Resource (BCR) authority. Each annotation is categorized using controlled vocabulary.
 
 An annotation has multiple components, described in the following table.
 
@@ -36,8 +37,6 @@ Annotation Classification and Categories
 
 Categories and types of annotations have been explicitly defined, as shown in
 the following table.
-
-Annotation authority
 
 If an annotation appears, it appears under the authority of a certain component
 of TCGA. The authorizing group can be determined from the annotation

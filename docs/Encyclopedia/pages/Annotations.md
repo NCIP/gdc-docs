@@ -15,7 +15,7 @@ If a submitter would like to create an annotation, please contact the GDC Suppor
 
 ## References ##
 1. [API User Guide](/API/Users_Guide/Search_and_Retrieval/#annotations-endpoint)
-2. [GDC Data Portal](https://portal.gdc.cancer.gov/annotations)
+2. [GDC Data Portal](/annotations)
 3. [GDC Data Portal User Guide](/Data_Portal/Users_Guide/Repository/#annotations-view)
 4. [GDC Data Dictionary](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotation)
 5. [TCGA Annotations](Annotations_TCGA/)
