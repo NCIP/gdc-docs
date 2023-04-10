@@ -2,7 +2,7 @@
 ## Description ##
 The GDC Data Portal<sup>1</sup> is a robust data-driven platform that allows users to search and download harmonized cancer data for analysis using modern web technologies.
 ## Overview ##
-The GDC Data Portal provides users with web-based access to harmonized data from cancer genomics studies. Harmonized data includes standardized biospecimen and clinical data, DNA and RNA sequence data that has been aligned to the latest reference genome build (GRCh38), and derived data generated through GDC pipelines<sup>2</sup>. 
+The GDC Data Portal provides users with web-based access to harmonized data from cancer genomics studies. Harmonized data includes standardized biospecimen and clinical data, DNA and RNA sequence data that has been aligned to the latest reference genome build (GRCh38), and derived data generated through GDC pipelines<sup>2</sup>.
 
 Key GDC Data Portal features include:
 
@@ -15,7 +15,6 @@ Key GDC Data Portal features include:
 ## References ##
 1. [GDC Data Portal](https://gdc-portal.nci.nih.gov)
 2. [GDC Data Portal User's Guide](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Getting_Started/)
-3. [GDC Legacy Archive](https://portal.gdc.cancer.gov/legacy-archive/search/f)
 
 ## External Links ##
 * N/A
