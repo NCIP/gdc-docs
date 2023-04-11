@@ -23,7 +23,6 @@ Notifications will indicate the GDC `components` to which they apply:
 | Component   | Description                                                              |
 |---------|----------------------------------------------------------------------|
 | PORTAL   | The GDC Data Portal         |
-| LEGACY   | The GDC Legacy Archive         |
 | SUBMISSION   | The GDC Data Submission Portal |
 | DOCUMENTATION | The GDC documentation site that contains GDC user guides, release notes, and the GDC Data Dictionary    |
 | WEBSITE    | The GDC project website that includes information about the system. This does not include any of the above-listed GDC components.           |
@@ -39,8 +38,7 @@ curl --request GET https://api.gdc.cancer.gov/v0/notifications
     {
       "level": "INFO",
       "components": [
-        "SUBMISSION_API",
-        "LEGACY_API"
+        "SUBMISSION_API"
       ],
       "message": "The system is up!"
     }
