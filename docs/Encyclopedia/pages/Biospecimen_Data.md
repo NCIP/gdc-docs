@@ -17,6 +17,7 @@ Biospecimen data can be downloaded from the GDC in several formats:
 
 * __API Retrieval:__ Specific information about each biospecimen entity can be queried from the API in a tab-delimited or JSON format. This information can be retrieved programatically.
 * __Biospecimen Supplements:__ Biospecimen supplements are stored in XML format and can be downloaded from the GDC Portal. Supplements may contain biospecimen fields that do not appear in the API as well as those that do. These can include fields that only apply to certain projects or have not yet been incorporated into the GDC Data Dictionary.
+* __Biotab Files:__ Biotab files specific supplemental files that are available in the GDC Data Portal as tab-delimited files on a project-level basis. These may also include fields that are not available in the GDC API. Biotab files can be found under the "Data Format: bcr biotab" filter.
 
 Additionally, the biospecimen data that is available from the API is displayed on the GDC Portal in the summary page for each case.
 
