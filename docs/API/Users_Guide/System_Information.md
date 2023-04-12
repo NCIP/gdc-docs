@@ -39,6 +39,7 @@ curl --request GET https://api.gdc.cancer.gov/v0/notifications
       "level": "INFO",
       "components": [
         "SUBMISSION_API"
+        "LEGACY_API"
       ],
       "message": "The system is up!"
     }
