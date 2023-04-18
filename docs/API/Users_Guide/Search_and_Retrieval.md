@@ -19,7 +19,6 @@ A typical search and retrieval API request specifies the following parameters:
 
 Requests can be executed using HTTP GET or HTTP POST. GET requests are limited by maximum URL length, so the POST method is recommended for large queries.
 
-**Note:** Requests for information stored in the GDC Legacy Archive must be directed to `legacy/` endpoints. See [Getting Started](Getting_Started.md#gdc-legacy-archive) for details.
 
 ### POST Example
 
