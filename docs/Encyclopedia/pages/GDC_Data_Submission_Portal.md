@@ -13,8 +13,8 @@ Key GDC Data Submission Portal features include<sup>2</sup>:
 * __Status and Alerts:__ Visual cues are implemented to easily identify incomplete submissions.
 
 ## References ##
-1. [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission/login?next=%2Fsubmission%2F)
-2. [GDC Data Submission Portal User's Guide](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Getting_Started/)
+1. [GDC Data Submission Portal](https://portal.gdc.cancer.gov/submission/)
+2. [GDC Data Submission Portal User's Guide](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Data_Submission_Overview/)
 
 ## External Links ##
 * N/A

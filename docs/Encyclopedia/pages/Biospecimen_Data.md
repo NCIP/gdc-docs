@@ -1,7 +1,7 @@
 # Biospecimen Data #
 
 ## Description ##
-Biospecimen data includes information about how a patient's tissue was processed and subsampled for use in histology and molecular assays. They can be represented in a hierarchical relationship to one another.
+Biospecimen data includes information on how a patient's tissue was processed and subsampled for use in histology and molecular assays. This data can be represented in a hierarchical relationship.
 
 ## Overview ##
 
@@ -22,9 +22,9 @@ Biospecimen data can be downloaded from the GDC in several formats:
 Additionally, the biospecimen data that is available from the API is displayed on the GDC Portal in the summary page for each case.
 
 ## References ##
-1. [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/)
+1. [GDC Data Dictionary](/Data_Dictionary/viewer/)
 2. [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-model-components)
-3. [TCGA Barcode](https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode)
+3. [TCGA Barcode](images/TCGA-TCGAbarcode-080518-1750-4378.pdf)
 
 ## External Links ##
 * [GDC Biospecimen Harmonization](https://gdc.cancer.gov/about-data/data-harmonization-and-generation/biospecimen-data-harmonization)
