@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mutation information from [VCF Files](VCF_Format.md) and are generated on a project-level. MAF files are produced through the [Somatic Aggregation Workflow](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_aggregation_workflow&_top=1)  The GDC produces MAF files at two permission levels: __protected__ and __somatic__ (or open-access). One MAF files is produced per variant calling pipeline per GDC project. MAFs are produced by aggregating the GDC annotated VCF files generated from one pipeline for one project.
+Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mutation information from [VCF Files](VCF_Format.md) and are generated on a project-level. MAF files are produced through the [Somatic Aggregation Workflow](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_aggregation_workflow&_top=1). The GDC produces MAF files at two permission levels: __protected__ and __somatic__ (or open-access). One MAF file is produced per variant calling pipeline per GDC project. MAFs are produced by aggregating the GDC annotated VCF files generated from one pipeline for one project.
 
 Annotated VCF files often have variants reported on multiple transcripts whereas the MAF files generated from the VCFs (\*protected.maf) only report the most critically affected one. Somatic MAFs (\*somatic.maf), which are also known as [Masked Somatic Mutation](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=masked_somatic_mutation) files, are further processed to remove lower quality and potential germline variants. For tumor samples that contain variants from multiple combinations of tumor-normal aliquot pairs, only one pair is selected in the Somatic MAF based on their sample type. Somatic MAFs are publicly available and can be freely distributed within the boundaries of the [GDC Data Access Policies](https://gdc.cancer.gov/access-data/data-access-policies).
 
-The GDC MAF file format is based on the [TCGA Mutation Annotation Format](https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification) specifications, with additional columns included.
+The GDC MAF file format is based on the TCGA Mutation Annotation Format specifications, with additional columns included.
 
 __Note:__ The criteria for allowing mutations into open-access are purposefully implemented to overcompensate and filter out germline variants. If omission of true-positive somatic mutations is a concern, the GDC recommends using protected MAFs.  
 
@@ -16,13 +16,13 @@ The process for modifying a protected MAF into a somatic MAF is as follows:
 
 *  Aliquot Selection: only one tumor-normal pair are selected for each tumor sample based on the plate number, sample type, analyte type and other features extracted from tumor TCGA aliquot barcode.
 *  Low quality variant filtering and germline masking:
-    1. Variants with __Mutation_Status != 'Somatic'__ or __GDC_FILTER = 'Gapfiller', 'ContEst', 'multiallelic', 'nonselectedaliquot', 'BCR_Duplicate' or 'BadSeq'__ are __removed__.
-    2. Remaining variants with __GDC_Valid_Somatic = True__ are __included__ in the Somatic MAF.
-    3. Remaining variants with __FILTER != 'panel_of_normals' or PASS__ are __removed__. Note that the `FILTER != panel_of_normals` value is only relevant for the variants generated from the MuTect2 pipeline.
-    4. Remaining variants with __MC3_Overlap = True__ are __included__ in the Somatic MAF.
-    5. Remaining variants with __GDC_FILTER = 'ndp', 'NonExonic', 'bitgt', 'gdc_pon'__ are __removed__.
-    6. Remaining variants with __SOMATIC != null__ are __included__ in the Somatic MAF.
-    7. Remaining variants with __dbSNP_RS = 'novel' or null__ are __included__ in the Somatic MAF.
+    1. Variants with ```Mutation_Status != 'Somatic'``` or ```GDC_FILTER = 'Gapfiller'```, ```'ContEst'```, ```'multiallelic'```, ```'nonselectedaliquot'```, ```'BCR_Duplicate'``` or ```'BadSeq'``` are __removed__.
+    2. Remaining variants with ```GDC_Valid_Somatic = True``` are __included__ in the Somatic MAF.
+    3. Remaining variants with ```FILTER != 'panel_of_normals'``` or ```PASS``` are __removed__. Note that the `FILTER != panel_of_normals` value is only relevant for the variants generated from the MuTect2 pipeline.
+    4. Remaining variants with ```MC3_Overlap = True``` are __included__ in the Somatic MAF.
+    5. Remaining variants with ```GDC_FILTER = 'ndp'```, ```'NonExonic'```, ```'bitgt'```, ```'gdc_pon'``` are __removed__.
+    6. Remaining variants with ```SOMATIC != null``` are __included__ in the Somatic MAF.
+    7. Remaining variants with ```dbSNP_RS = 'novel'``` or ```null``` are __included__ in the Somatic MAF.
     8. Remaining variants are __removed__.
 * Removal of the following columns:
     * vcf_region
@@ -137,7 +137,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 |84 - SAS_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined South Asian population |
 |85 - AA_MAF | Non-reference allele and frequency of existing variant in [NHLBI-ESP](http://evs.gs.washington.edu/EVS/) African American population |
 |86 - EA_MAF | Non-reference allele and frequency of existing variant in NHLBI-ESP European American population|
-|87 - CLIN_SIG | Clinical significance of variant from dbSNP |
+|87 - CLIN_SIG | Clinical significance of variant from dbSNP as annotated in ClinVar |
 |88 - SOMATIC |Somatic status of each ID reported under Existing_variation (0, 1, or null) |
 |89 - PUBMED | Pubmed ID(s) of publications that cite existing variant |
 |90 - MOTIF_NAME |The source and identifier of a transcription factor binding profile aligned at this position |
@@ -180,21 +180,21 @@ The table below describes the columns in a protected MAF and their definitions. 
 
 ### Notes About GDC MAF Implementation
 
-1. Column #4 __NCBI_Build__ is GRCh38 by default
-2. Column #32 __Sequencer__ includes the sequencers used. If different sequencers were used to generate normal and tumor data, the normal sequencer is listed first.
-3. Column #61 VEP name "STRAND" is changed to __TRANSCRIPT_STRAND__ to avoid confusion with Column#8 "Strand"
-4. Column #94 __IMPACT__ categories are defined by the VEP software and do not necessarily reflect the relative biological influence of each mutation.
-4. Column #122-125 __vcf_info, vcf_format, vcf_tumor_gt, and vcf_normal_gt__ are the corresponding columns from the VCF files. Including them facilitates parsing specific variant information.
-5. Column #120 __GDC_Validation_Status__: GDC also collects TCGA validation sequences. It compares these with variants derived from Next-Generation Sequencing data from the same sample and populates the comparison result in "GDC_Validation_Status".
+1. Column #4: __NCBI_Build__ is GRCh38 by default
+2. Column #32: __Sequencer__ includes the sequencers used. If different sequencers were used to generate normal and tumor data, the normal sequencer is listed first.
+3. Column #61: VEP name "STRAND" is changed to __TRANSCRIPT_STRAND__ to avoid confusion with Column#8 "Strand"
+4. Column #94: __IMPACT__ categories are defined by the VEP software and do not necessarily reflect the relative biological influence of each mutation.
+4. Column #122-125: __vcf_info, vcf_format, vcf_tumor_gt, and vcf_normal_gt__ are the corresponding columns from the VCF files. Including them facilitates parsing specific variant information.
+5. Column #120: __GDC_Validation_Status__: GDC also collects TCGA validation sequences. It compares these with variants derived from Next-Generation Sequencing data from the same sample and populates the comparison result in "GDC_Validation_Status".
     * "Valid", if the alternative allele(s) in the tumor validation sequence is(are) the same as GDC variant call
     * "Invalid", if none of the alternative allele(s) in the tumor validation sequence is the same as GDC variant call
     * "Inconclusive" if two alternative allele exists, and one matches while the other does not
     * "Unknown" if no validation sequence exists
-6. Column #121 __GDC_Valid_Somatic__ is TRUE if GDC_Validation_Status is "Valid" and the variant is "Somatic" in validation calls.  It is FALSE if these criteria are not met
+6. Column #121: __GDC_Valid_Somatic__ is TRUE if GDC_Validation_Status is "Valid" and the variant is "Somatic" in validation calls.  It is FALSE if these criteria are not met
 
 ### FILTER Value Definitions (column 111)
 
-* __oxog :__ Signifies that this variant was determined to be an OxoG artifact. This was calculated with [D-ToxoG](http://archive.broadinstitute.org/cancer/cga/dtoxog)
+* __oxog :__ Signifies that this variant was determined to be an OxoG artifact. This was calculated with [D-ToxoG](https://software.broadinstitute.org/cancer/cga/dtoxog)
 * __bPcr :__ Signifies that this variant was determined to be an artifact of bias on the PCR template strand.  This was calculated with the [DKFZ Bias Filter](https://github.com/eilslabs/DKFZBiasFilter).
 * __bSeq :__ Signifies that this variant was determined to be an artifact of bias on the forward/reverse strand. This was also calculated with the [DKFZ Bias Filter](https://github.com/eilslabs/DKFZBiasFilter).
 

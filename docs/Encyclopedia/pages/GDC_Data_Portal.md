@@ -13,7 +13,7 @@ Key GDC Data Portal features include:
 * Secure data download directly from the cart or using the GDC Data Transfer Tool
 
 ## References ##
-1. [GDC Data Portal](https://gdc-portal.nci.nih.gov)
+1. [GDC Data Portal](https://portal.gdc.cancer.gov)
 2. [GDC Data Portal User's Guide](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Getting_Started/)
 
 ## External Links ##

@@ -2,7 +2,7 @@
 
 The GDC API implements file download functionality using `data` and `manifest` endpoints. The `data` endpoint allows users to download files stored in the GDC by specifying file UUID(s). The `manifest` endpoint generates a download manifest file that can be used with the GDC Data Transfer Tool to transfer large volumes of data.
 
-**Note:** Downloading controlled access data requires the use of an authentication token. See [Getting Started: Authentication](Getting_Started.md#authentication) for details.
+>**Note:** Downloading controlled access data requires the use of an authentication token. See [Getting Started: Authentication](Getting_Started.md#authentication) for details.
 
 ## Data endpoint
 
@@ -40,7 +40,8 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/7efc039
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 															 Dload  Upload   Total   Spent    Left  Speed
 100 65353    0 65353    0     0  65353      0 --:--:-- --:--:-- --:--:--  102k
-curl: Saved to filename 'gdc_download_20180830_131817.826097.tar.gz'
+curl: Saved to filename 'BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_D04_1348436.nocnv_hg19.seg.txt'
+
 ```
 
 
@@ -58,7 +59,7 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/e322802
 curl: Saved to filename 'gdc_download_064d1aa8cc8cbab33e93979bebbf7d6af2d6a802.tar.gz'
 ```
 
-**Note:** This method supports downloading a limited number of files at one time. To download a large number of files, please use [POST](#downloading-multiple-files-using-post).
+>**Note:** This method supports downloading a limited number of files at one time. To download a large number of files, please use [POST](#downloading-multiple-files-using-post).
 
 #### Downloading an Uncompressed Group of Files
 
@@ -175,14 +176,15 @@ curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.t
 
 ## Manifest endpoint
 
-The `manifest` endpoint generates a download manifest file that can be used with the GDC Data Transfer Tool. The Data Transfer Tool is recommended for transferring large volumes of data. The GDC API can also generate a download manifest from a list of results that match a [Search and Retrieval](Search_and_Retrieval.md) query. To do this, append `&return_type=manifest` to the end of the query.
+The `manifest` endpoint generates a download manifest file that can be used with the [GDC Data Transfer Tool](../../Data_Transfer_Tool/Users_Guide/Getting_Started.md). The Data Transfer Tool is recommended for transferring large volumes of data. The GDC API can also generate a download manifest from a list of results that match a [Search and Retrieval](Search_and_Retrieval.md) query. To do this, append `&return_type=manifest` to the end of the query. Note that the "size" parameter does not work with the manifest endpoint and will return the entire set of files.
+
 
 ### Using the manifest endpoint
 
 The `manifest` endpoint allows users to create a download manifest, which can be used with the GDC Data Transfer Tool to download a large volume of data. The `manifest` endpoint generates a manifest file from a comma-separated list of UUIDs.
 
 ```shell
-curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/v0/manifest/ae9db773-78ab-48d0-972d-debe1bedd37d,3d815e6e-db97-419d-ad7f-dba4e4023b3e'
+curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/v0/manifest/a751cc7e-d2ff-4e9a-8645-09bf12612f1a,9c97e3fe-1610-4a92-9a24-ab3b9e4000e2'
 ```
 ```Output
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -199,11 +201,11 @@ The `manifest` endpoint also supports HTTP POST requests in the same format as t
 Alternatively, users can create a manifest by appending `&return_type=manifest` to a [Search and Retrieval](Search_and_Retrieval.md) query. In this example, we generate a download manifest for RNA-seq data files from solid tissue normal samples, that are part of the TCGA-KIRC project:
 
 ```Shell
-curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/files?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22experimental_strategy%22%2C%22value%22%3A%5B%22RNA-Seq%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%5B%22TCGA-KIRC%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.samples.sample_type%22%2C%22value%22%3A%5B%22Solid+Tissue+Normal%22%5D%7D%7D%5D%7D&size=30000&return_type=manifest'
+curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/files?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22experimental_strategy%22%2C%22value%22%3A%5B%22RNA-Seq%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%5B%22TCGA-KIRC%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.samples.sample_type%22%2C%22value%22%3A%5B%22Solid+Tissue+Normal%22%5D%7D%7D%5D%7D&return_type=manifest'
 ```
 ```Output
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 40663    0 40663    0     0  77109      0 --:--:-- --:--:-- --:--:-- 77306
-curl: Saved to filename 'gdc_manifest.2016-06-28T13:26:33.850459.tsv'
+curl: Saved to filename 'gdc_manifest.2021-04-05.txt'
 ```

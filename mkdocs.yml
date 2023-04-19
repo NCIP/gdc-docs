@@ -2,6 +2,8 @@ copyright: '&copy; 2015-2016'
 extra:
   dictionary_app_root: /apps/dictionary
   dictionary_viewer_page_id: Viewer
+  gdcmvs_app_root: /apps/gdcmvs
+  gdcmvs_viewer_page_id: Search
   encyclopedia_entries_page_title: EncyclopediaEntries
   encyclopedia_page_title: Encyclopedia
   nav_exclude:
@@ -28,6 +30,7 @@ pages:
   - BAM Slicing: API/Users_Guide/BAM_Slicing.md
   - Submission: API/Users_Guide/Submission.md
   - Python Examples: API/Users_Guide/Python_Examples.md
+  - GraphQL Examples: API/Users_Guide/GraphQL_Examples.md
   - System Information: API/Users_Guide/System_Information.md
   - Additional Examples: API/Users_Guide/Additional_Examples.md
   - 'Appendix A: Available Fields': API/Users_Guide/Appendix_A_Available_Fields.md
@@ -39,46 +42,35 @@ pages:
   - Getting Started: Data_Portal/Users_Guide/Getting_Started.md
   - Projects: Data_Portal/Users_Guide/Projects.md
   - Exploration: Data_Portal/Users_Guide/Exploration.md
+  - Analysis: Data_Portal/Users_Guide/Custom_Set_Analysis.md
   - Repository: Data_Portal/Users_Guide/Repository.md
-  - Genes and Mutations: Data_Portal/Users_Guide/Genes_and_Mutations.md
-  - Custom Set Analysis: Data_Portal/Users_Guide/Custom_Set_Analysis.md
-  - Annotations: Data_Portal/Users_Guide/Annotations.md
   - Advanced Search: Data_Portal/Users_Guide/Advanced_Search.md
-  - Authentication: Data_Portal/Users_Guide/Authentication.md
-  - Downloading Files: Data_Portal/Users_Guide/Cart.md
-  - File Cart: Data_Portal/Users_Guide/Cart.md
-  - Image Viewer: Data_Portal/Users_Guide/Image_viewer.md
+  - Cart and File Download: Data_Portal/Users_Guide/Cart.md
   - Legacy Archive: Data_Portal/Users_Guide/Legacy_Archive.md
   - Release Notes: Data_Portal/Release_Notes/Data_Portal_Release_Notes.md
   - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
-- Data Submission Portal:
-  - Getting Started: Data_Submission_Portal/Users_Guide/Getting_Started.md
-  - Submission Workflow: Data_Submission_Portal/Users_Guide/Submission_Workflow.md
-  - Authentication: Data_Submission_Portal/Users_Guide/Authentication.md
-  - Homepage: Data_Submission_Portal/Users_Guide/Homepage.md
-  - Dashboard: Data_Submission_Portal/Users_Guide/Dashboard.md
-  - Upload Data: Data_Submission_Portal/Users_Guide/Data_Upload_UG.md
-  - Submit Data: Data_Submission_Portal/Users_Guide/Submit_Data.md
-  - Release Data: Data_Submission_Portal/Users_Guide/Release_Data.md
-  - Transactions: Data_Submission_Portal/Users_Guide/Transactions.md
-  - Browse Data: Data_Submission_Portal/Users_Guide/Browse_Data.md
-  - Pre-Release Data Review: Data_Submission_Portal/Users_Guide/Pre_Release_QC.md
-  - Best Practices: Data_Submission_Portal/Users_Guide/Best_Practices.md
+- Data Submission:
+  - Before Submitting Data to the GDC Portal: Data_Submission_Portal/Users_Guide/Checklist.md
+  - Data Submission Overview: Data_Submission_Portal/Users_Guide/Data_Submission_Overview.md
+  - Data Submission Portal: Data_Submission_Portal/Users_Guide/Data_Submission_Process.md
+  - Data Upload Walkthrough: Data_Submission_Portal/Users_Guide/Data_Submission_Walkthrough.md
+  - Pre-Release Data Portal: Data_Submission_Portal/Users_Guide/Pre_Release_QC.md
+  - Submission Best Practices: Data_Submission_Portal/Users_Guide/Best_Practices.md
   - Release Notes: Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md
   - fa-file-text Download PDF /Data_Submission_Portal/PDF/Data_Submission_Portal_UG.pdf: Data_Submission_Portal/PDF/index.md
 - Data Transfer Tool:
   - Getting Started: Data_Transfer_Tool/Users_Guide/Getting_Started.md
-  - Accessing Built-in Help: Data_Transfer_Tool/Users_Guide/Accessing_Built-in_Help.md
   - Preparing for Data Download and Upload: Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md
-  - Data Download and Upload - Command Line: Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md
-  - Data Download - UI: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
-  - Key Terms: Data_Transfer_Tool/Users_Guide/Appendix_A_-_Key_Terms.md
+  - Data Transfer Tool Command Line Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md
   - Release Notes - Command Line: Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md
+  - Data Transfer Tool UI Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
   - Release Notes - UI: Data_Transfer_Tool/Release_Notes/DTT_UI_Release_Notes.md
+  - Troubleshooting Guide: Data_Transfer_Tool/Users_Guide/Appendix_B_TroubleShooting.md
   - fa-file-text Download PDF /Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf: Data_Transfer_Tool/PDF/index.md
 - Data Dictionary:
   - About: Data_Dictionary/index.md
   - Viewer: Data_Dictionary/viewer.md
+  - Search: Data_Dictionary/gdcmvs.md
   - Release Notes: Data_Dictionary/Release_Notes/Data_Dictionary_Release_Notes.md
 - Data:
   - Introduction: Data/Introduction.md
@@ -90,15 +82,18 @@ pages:
   - 'Bioinformatics Pipeline: mRNA Analysis': Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline.md
   - 'Bioinformatics Pipeline: miRNA Analysis': Data/Bioinformatics_Pipelines/miRNA_Pipeline.md
   - 'Bioinformatics Pipeline: Copy Number Variation Analysis': Data/Bioinformatics_Pipelines/CNV_Pipeline.md
-  - 'Bioinformatics Pipeline: Methylation Liftover Pipeline': Data/Bioinformatics_Pipelines/Methylation_LO_Pipeline.md
+  - 'Bioinformatics Pipeline: Methylation Analysis Pipeline': Data/Bioinformatics_Pipelines/Methylation_Pipeline.md
+  - 'Bioinformatics Pipeline: Protein Expression': Data/Bioinformatics_Pipelines/RPPA_intro.md
+  - Aligned Reads Summary Metrics: Data/Bioinformatics_Pipelines/Aligned_reads_summary_metrics.md
   - Release Notes: Data/Release_Notes/Data_Release_Notes.md
   - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: Data/PDF/index.md
 - Encyclopedia: Encyclopedia/index.md
 - EncyclopediaEntries:
   - Affymetrix SNP 6.0: Encyclopedia/pages/Affymetrix_SNP_6.0.md
+  - Annotations: Encyclopedia/pages/Annotations.md
+  - Annotations TCGA: Encyclopedia/pages/Annotations_TCGA.md
   - Aggregated Somatic Mutation: Encyclopedia/pages/Aggregated_Somatic_Mutation.md
   - Aliquot: Encyclopedia/pages/Aliquot.md
-  - Annotations: Encyclopedia/pages/Introduction+to+Annotations.md
   - Biospecimen Data: Encyclopedia/pages/Biospecimen_Data.md
   - Case: Encyclopedia/pages/Case.md
   - Cancer Genomics Hub: Encyclopedia/pages/Cancer_Genomics_Hub.md
@@ -119,13 +114,11 @@ pages:
   - Genomic Data Analysis Network (GDAN): Encyclopedia/pages/Genomic_Data_Analysis_Network.md
   - Genomic Data Commons: Encyclopedia/pages/Genomic_Data_Commons.md
   - Harmonized Data: Encyclopedia/pages/Harmonized_Data.md
-  - HTSeq-Counts: Encyclopedia/pages/HTSeq-Counts.md
-  - HTSeq-FPKM-UQ: Encyclopedia/pages/HTSeq-FPKM-UQ.md
-  - HTSeq-FPKM: Encyclopedia/pages/HTSeq-FPKM.md
   - Latest Data: Encyclopedia/pages/Latest_Data.md
   - Manifest File: Encyclopedia/pages/Manifest_File.md
   - MD5 Checksum: Encyclopedia/pages/MD5_Checksum.md
   - Mutation Annotation Format: Encyclopedia/pages/Mutation_Annotation_Format.md
+  - Mutation Annotation Format Legacy: Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2.md
   - Redaction: Encyclopedia/pages/Redaction.md
   - Release Number: Encyclopedia/pages/Release_Number.md
   - REST API: Encyclopedia/pages/REST_API.md
@@ -136,6 +129,7 @@ pages:
   - TCIA: Encyclopedia/pages/TCIA.md
   - UUID: Encyclopedia/pages/UUID.md
   - Variant Call Format: Encyclopedia/pages/Variant_Call_Format.md
+  - Variant Call Format Legacy: Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2.md
   - Variant Type: Encyclopedia/pages/Variant_Type.md
 repo_url: https://github.com/NCI-GDC/gdc-docs
 site_name: GDC Docs

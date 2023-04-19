@@ -16,5 +16,4 @@ The structure of the MAF is available in the [GDC MAF Specification](https://doc
 
 
 
-
 Categories: Data Format
