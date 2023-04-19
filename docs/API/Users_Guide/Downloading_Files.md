@@ -4,8 +4,6 @@ The GDC API implements file download functionality using `data` and `manifest` e
 
 >**Note:** Downloading controlled access data requires the use of an authentication token. See [Getting Started: Authentication](Getting_Started.md#authentication) for details.
 
->**Note:** Requests to download data from the GDC Legacy Archive may be directed to `legacy/data` or `data`. See [Getting Started: Legacy Archive](Getting_Started.md#gdc-legacy-archive) for details.
-
 ## Data endpoint
 
 To download a file, users can pass UUID(s) to the `data` endpoint.  If a single UUID is provided, the API will return the associated file. If a comma-separated list of UUIDs is provided, the API will return an archive file containing the requested files.
@@ -117,36 +115,36 @@ The payload is a string in the following format:
 
 where UUID# corresponds to the UUIDs of the files to be downloaded.
 
-In this example we use `curl` to download a set of files from the GDC Legacy Archive; the payload is stored in a plain text file named `Payload`.
+In this example we use `curl` to download a set of files from the GDC Portal; the payload is stored in a plain text file named `Payload`.
 
 
 ```Payload
 {
     "ids":[
-        "556e5e3f-0ab9-4b6c-aa62-c42f6a6cf20c",
-        "e0de63e2-02f3-4309-9b24-69f4c24e85fc",
-        "f1a06178-2ec2-4b06-83f3-3aedac332cfe",
-        "11a8aca0-c8e6-4ff8-8ab6-fe18a1b8ba82",
-        "69a69c84-00de-45ff-b397-fd2b6713ed4f",
-        "9ec48233-395d-401e-b205-951c971f8dd4",
-        "93129547-378c-4b69-b858-532abfff678e",
-        "8d4277e9-a472-4590-886d-24dc2538ea65",
-        "6733b412-56da-4f1c-a12b-ff804cb656d7",
-        "a72eec98-c5e0-4866-8953-765780acb6c1",
-        "e77b2294-1bdd-4fba-928a-d81d2622312f",
-        "965e01fc-318e-4c02-a801-d6fad60bfae4",
-        "21ad5409-fe0b-4728-97e4-15520b9fc287",
-        "1a777521-277c-4aeb-baf1-66871a7c2d2a",
-        "c13a3449-9e0d-45a9-bcc0-518f55e45c8a",
-        "5f2d329b-d59d-4112-b490-5114b830e34d",
-        "bb966617-6c1f-4bb0-a1ed-ceb37ecade67",
-        "05d11519-2b33-4742-aa87-3934632f2f2b",
-        "39bfafe2-9628-434e-bd72-148051a47477",
-        "481bea69-3cd5-45f3-8a52-2d4cc8fc8df7",
-        "f95e407b-de69-416c-920c-6be8c9414862",
-        "75940293-8fa6-47f9-ad5d-155b61933fdc",
-        "e8e84ccf-f8a8-4551-9257-ef731d02116f",
-        "e4991159-f088-4a2a-88b7-38d6ac47c6bc"
+        "0451fc55-33ef-4151-a68c-cac59be716dc",
+        "0cc3d450-2c60-4cb0-a073-d92dc979fa5e",
+        "0de9bc40-3ef8-4fe7-b7d6-80a9339b0bf8",
+        "0f8d8202-a1ca-4ea1-98b2-c20a6b08479a",
+        "144c0c29-83ec-48bb-877f-cec531ba0943",
+        "21abffb3-3e07-4022-86ff-51a41036cfc4",
+        "2eba08ae-3910-4d1d-99a2-f521147db353",
+        "6877b045-91f1-4030-82ff-b90507e11e17",
+        "7cf6d732-6fb7-4383-8363-07c4a5138f12",
+        "81a1b323-88b6-4837-bccf-ac84a79828b6",
+        "8818a98e-b097-4133-a0c0-0b074e9e10fa",
+        "b76f87b3-99c5-4297-b2df-8cbea8ecaf61",
+        "c6bf94a6-9940-4155-86b4-bbb10875dbdb",
+        "ca3f5dd7-7585-4ae4-9bf6-2a4b9faa3b35",
+        "d570eccc-3c1c-4c4f-ae04-96be71fbe016",
+        "e71121f1-dce2-493c-9406-d666dffdcf0b",
+        "fef57b45-ede1-49b0-b60d-957a55a15e0e",
+        "297933f5-1316-4cb6-b53f-9dbfa7f3d7ed",
+        "2f31e897-b3e8-49f1-a400-ccf9f00f294a",
+        "3132651d-c2d6-44ad-9234-939d98f356b9",
+        "66adfa4d-21ea-4fbe-80df-df06191096af",
+        "959a103d-59b1-4fdc-a675-27c3845b953b",
+        "ebd6cf90-4f6b-4193-887a-22fdb5645fbc",
+        "f7c0e9eb-afdb-40c8-83ed-1cd6a4626c16"
     ]
 }
 ```
