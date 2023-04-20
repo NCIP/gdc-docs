@@ -85,7 +85,7 @@ where UUID# corresponds to the UUIDs of the files to be downloaded.
 In this example we use `curl` to download a set of files from the GDC Data Portal. The payload is stored in a plain text file named `Payload`; `curl` includes the `Content-Type: application/x-www-form-urlencoded` header by default.
 
 ```Payload
-59eb3fc5-9172-4828-8dec-0d9988073103&ids=869b7d7c-ff35-482a-aa8d-1a8675c161d3&ids=b8ffff40-aa0e-4534-b05f-9311f16c2f6b&ids=51e14969-30a7-42d9-8168-4a5ea422ca4a&ids=adcfc856-990b-40fc-8f1e-67dfc2343fb7&ids=7f1e9aee-eb4e-4c79-8626-b603c9be124d&ids=62a8feb5-c660-4261-bcd6-67fbb79bb422
+ids=59eb3fc5-9172-4828-8dec-0d9988073103&ids=869b7d7c-ff35-482a-aa8d-1a8675c161d3&ids=b8ffff40-aa0e-4534-b05f-9311f16c2f6b&ids=51e14969-30a7-42d9-8168-4a5ea422ca4a&ids=adcfc856-990b-40fc-8f1e-67dfc2343fb7&ids=7f1e9aee-eb4e-4c79-8626-b603c9be124d&ids=62a8feb5-c660-4261-bcd6-67fbb79bb422
 ```
 ```Shell
 curl --remote-name --remote-header-name --request POST 'https://api.gdc.cancer.gov/data' --data @Payload
