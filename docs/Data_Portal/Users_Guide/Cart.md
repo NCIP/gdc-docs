@@ -79,7 +79,7 @@ Information on the GDC Data Transfer Tool is available in the [GDC Data Transfer
 
 If a user tries to download a cart containing controlled files and without being authenticated, a pop-up will be displayed to offer the user either to download only open access files or to login into the GDC Data Portal through eRA Commons. See [Authentication](#Authentication) for details.
 
-Once a user is logged in, controlled files that they have access to can be downloaded. To download files from the portal, users must agree to the GDC and individual project Data Use Agreements by selecting the agreement checkbox on the Access Alert message. 
+Once a user is logged in, controlled files that they have access to can be downloaded. To download files from the portal, users must agree to the GDC and individual project Data Use Agreements by selecting the agreement checkbox on the Access Alert message.
 
 [![Cart Page](images/gdc-data-portal-download-cart_v2.png)](images/gdc-data-portal-download-cart_v2.png "Click to see the full image.")
 

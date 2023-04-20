@@ -6,7 +6,7 @@ The copy number variation (CNV) pipeline uses either NGS or Affymetrix SNP 6.0 (
 
 * ASCAT
 * AACR GENIE
-* DNAcopy 
+* DNAcopy
 
 The first set of CNV pipelines are built upon the ASCAT [[4]](https://www.pnas.org/content/107/39/16910) algorithm for both WGS and SNP6 data. ASCAT is able to generate Allele-specific Copy Number Segment data with integer copy number values, and the derived integer Gene-Level Copy Number. The WGS copy number analysis pipeline, [ascatNGS](https://github.com/cancerit/ascatNgs), is described in detail [here](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#whole-genome-sequencing-variant-calling). The SNP6 copy number analysis pipeline, ASCAT2, is adopted from the [example ASCAT analysis](https://github.com/VanLoo-lab/ascat/blob/v2.5/ExampleData/ASCAT_examplePipeline.R) and generates data similar to ascatNGS.
 
