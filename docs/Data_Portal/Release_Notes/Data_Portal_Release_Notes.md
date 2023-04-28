@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v1.XXX.0](Data_Portal_Release_Notes.md#release-1304) | May 5, 2023 |
+| [v1.30.4](Data_Portal_Release_Notes.md#release-1304) | May 5, 2023 |
 | [v1.30.0](Data_Portal_Release_Notes.md#release-1300) | July 8, 2022 |
 | [v1.29.0](Data_Portal_Release_Notes.md#release-1290) | August 23, 2021 |
 | [v1.28.0](Data_Portal_Release_Notes.md#release-1280) | May 17, 2021 |
@@ -50,7 +50,7 @@
 
 ### Bugs Fixed Since Last Release
 
-* The Clinical TSV download in the case entity page and cart now contain TSVs for pathology detail entities.   <!--SV-2004-->
+* The Clinical TSV download in the case entity page and cart now contain TSVs for pathology detail, follow up, and molecular test entities.   <!--SV-2004-->
 * Fixed bug in which demographic information would not download as a TSV when diagnosis information was not available. <!--DEV-1238-->
 
 ### Known Issues and Workarounds
