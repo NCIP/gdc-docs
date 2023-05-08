@@ -29,6 +29,11 @@ Examples of tools that can help build GDC API calls:
 | [Percent-(URL)-encoding tool](https://codebeautify.org/url-encode-string)| Tool for percent-encoding strings |
 
 
+>**NOTE:** When using the command line tool curl be sure you use the bash shell only for compatibility reasons.  All examples using curl are using the bash shell.  
+
+The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
+
+
 ## API Endpoints
 
 Communicating with the GDC API involves making calls to API endpoints. Each GDC API endpoint represents specific API functionality, as summarized in the following table:
