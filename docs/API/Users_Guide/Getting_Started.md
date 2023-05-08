@@ -65,17 +65,17 @@ See [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md) for details.
 
 ## Sample Request
 
-The following is an example of a request to the `files` endpoint, which retrieves information about a BAM file stored in the GDC.
+The following is an example of a request to the `files` endpoint, which retrieves information about a MAF file stored in the GDC.
 
 ``` shell
-curl https://api.gdc.cancer.gov/files/d853e541-f16a-4345-9f00-88e03c2dc0bc?pretty=true
+curl https://api.gdc.cancer.gov/files/cb92f61d-041c-4424-a3e9-891b7545f351?pretty=true
 ```
 ``` python
 import requests
 import json
 
 file_endpt = 'https://api.gdc.cancer.gov/files/'
-file_uuid = 'd853e541-f16a-4345-9f00-88e03c2dc0bc'
+file_uuid = 'cb92f61d-041c-4424-a3e9-891b7545f351'
 response = requests.get(file_endpt + file_uuid)
 
 # OUTPUT METHOD 1: Write to a file.
