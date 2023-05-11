@@ -102,13 +102,13 @@ In the following example, an authentication token is saved as an environment var
 ```Shell
 token=$(cat <gdc-token-text-file.txt>)
 
-curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
+curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/fd89bfa5-b3a7-4079-bf90-709580c006e5'
 ```
 ```Output
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 31.4M  100 31.4M    0     0   290k      0  0:01:50  0:01:50 --:--:--  172k
-curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.tangent.copynumber.data.txt'
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                Dload  Upload   Total   Spent    Left  Speed
+100 4161M  100 4161M    0     0   281k      0  4:12:45  4:12:45 --:--:-- 1894k
+
 ```
 ```Python
 import requests
@@ -128,7 +128,7 @@ headers = {
           }
 
 data_endpt = 'https://api.gdc.cancer.gov/data/'
-data_uuid = 'a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
+data_uuid = 'fd89bfa5-b3a7-4079-bf90-709580c006e5'
 headers = {
            'X-Auth-Token': token_string
           }
