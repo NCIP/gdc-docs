@@ -57,29 +57,28 @@
 	* New property: `tumor_burden`
 	* New property: `ulceration_indicator`
 	* Changes made to `sites_of_involvement`
-		* Changes made to `items`
-			* New permissible value: `Ascites`
-			* New permissible value: `Common or Superficial Femoral Vein`
-			* New permissible value: `Distant Nodes`
-			* New permissible value: `Distant Organ`
-			* New permissible value: `Gastrointestinal Tract`
-			* New permissible value: `Great Blood Vessel`
-			* New permissible value: `Groin`
-			* New permissible value: `Head, Face or Neck, NOS`
-			* New permissible value: `Inferior Vena Cava`
-			* New permissible value: `Lymph Node, Axillary`
-			* New permissible value: `Lymph Node, Inguinal`
-			* New permissible value: `Lymph Node, Regional`
-			* New permissible value: `Lymph Node, Subcarinal`
-			* New permissible value: `Mediastinum`
-			* New permissible value: `Pelvic Vein, Common, External or Iliac`
-			* New permissible value: `Peritoneal Cavity`
-			* New permissible value: `Renal Vein`
-			* New permissible value: `Scalp`
-			* New permissible value: `Spinal Cord`
-			* New permissible value: `Urethra`
-			* New permissible value: `Vertebral Canal`
-			* New permissible value: `Vulva, NOS`
+		* New permissible value: `Ascites`
+		* New permissible value: `Common or Superficial Femoral Vein`
+		* New permissible value: `Distant Nodes`
+		* New permissible value: `Distant Organ`
+		* New permissible value: `Gastrointestinal Tract`
+		* New permissible value: `Great Blood Vessel`
+		* New permissible value: `Groin`
+		* New permissible value: `Head, Face or Neck, NOS`
+		* New permissible value: `Inferior Vena Cava`
+		* New permissible value: `Lymph Node, Axillary`
+		* New permissible value: `Lymph Node, Inguinal`
+		* New permissible value: `Lymph Node, Regional`
+		* New permissible value: `Lymph Node, Subcarinal`
+		* New permissible value: `Mediastinum`
+		* New permissible value: `Pelvic Vein, Common, External or Iliac`
+		* New permissible value: `Peritoneal Cavity`
+		* New permissible value: `Renal Vein`
+		* New permissible value: `Scalp`
+		* New permissible value: `Spinal Cord`
+		* New permissible value: `Urethra`
+		* New permissible value: `Vertebral Canal`
+		* New permissible value: `Vulva, NOS`
 * Altered `exposure` Entity
 	* New property: `exposure_duration_hrs_per_day`
 	* Changes made to `exposure_type`
@@ -90,13 +89,11 @@
 * Altered `follow_up` Entity
 	* New property: `discontiguous_lesion_count`
 	* Changes made to `comorbidities`
-		* Changes made to `items`
-			* New permissible value: `Pneumonia, NOS`
+		* New permissible value: `Pneumonia, NOS`
 	* Changes made to `first_event`
 		* New permissible value: `Presented with Metastases`
 	* Changes made to `risk_factors`
-		* Changes made to `items`
-			* New permissible value: `Pneumonia, NOS`
+		* New permissible value: `Pneumonia, NOS`
 	* Changes made to `timepoint_category`
 		* New permissible value: `Within 3 Months of Surgery`
 * Altered `masked_methylation_array` Entity
@@ -107,31 +104,7 @@
 		* New permissible value: `Illumina Methylation Epic v2`
 * Altered `molecular_test` Entity
 	* New property: `staining_intensity_scale`
-	* Changes made to `gene_symbol`
-		* New permissible value: `ACACA`
-		* New permissible value: `BRD1`
-		* New permissible value: `BTBD18`
-		* New permissible value: `CBFA2T2`
-		* New permissible value: `CEP164`
-		* New permissible value: `CEP170B`
-		* New permissible value: `CTDP1`
-		* New permissible value: `DOT1L`
-		* New permissible value: `FRYL`
-		* New permissible value: `GLIS2`
-		* New permissible value: `HMGB3`
-		* New permissible value: `HNRNPH1`
-		* New permissible value: `INO80D`
-		* New permissible value: `JARID2`
-		* New permissible value: `PHF23`
-		* New permissible value: `PIM3`
-		* New permissible value: `PTP4A1`
-		* New permissible value: `RPS15`
-		* New permissible value: `SETD1A`
-		* New permissible value: `SLC66A2 (aka PQLC1)`
-		* New permissible value: `TOP2B`
-		* New permissible value: `UBB`
-		* New permissible value: `ZEB2`
-	* Changes made to `second_gene_symbol`
+	* Changes made to `gene_symbol` and `second_gene_symbol`
 		* New permissible value: `ACACA`
 		* New permissible value: `BRD1`
 		* New permissible value: `BTBD18`
@@ -206,7 +179,7 @@
 
 ### Bugs Fixed Since Last Release
 
-The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) correctly displays permissible values for array-type properties.
+* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) correctly displays permissible values for array-type properties.
 
 ## v2.6.0
 
