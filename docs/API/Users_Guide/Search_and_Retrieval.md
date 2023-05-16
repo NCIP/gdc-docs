@@ -339,30 +339,30 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
 The `/files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID.  Note that the `/files` endpoint is inactive when querying for earlier file versions.  In that case, the `/history` or `/files/versions` endpoints should be used instead.
 
 ```Shell
-curl 'https://api.gdc.cancer.gov/files/874e71e0-83dd-4d3e-8014-10141b49f12c?pretty=true'
+curl 'https://api.gdc.cancer.gov/files/8ebe185d-59b3-4804-bd3b-cce3d6d20c92?pretty=true'
 ```
 ``` Output
 {
   "data": {
     "data_format": "VCF",
     "access": "controlled",
-    "file_name": "874e71e0-83dd-4d3e-8014-10141b49f12c.vcf.gz",
-    "submitter_id": "TCGA-V4-A9EZ-01A-11D-A39W-08_TCGA-V4-A9EZ-10A-01D-A39Z-08_mutect",
+    "file_name": "TCGA_BRCA.1a4deed3-03c8-4733-ba36-3d9669503ea1.wxs.VarScan2.somatic_annotation.vcf.gz",
+    "submitter_id": "77e685df-860a-4e44-a1df-db83a1dd3160",
     "data_category": "Simple Nucleotide Variation",
     "acl": [
       "phs000178"
     ],
-    "type": "simple_somatic_mutation",
-    "created_datetime": "2016-06-03T17:03:06.608739-05:00",
-    "file_size": 122293,
-    "updated_datetime": "2018-09-06T20:37:37.991443-05:00",
-    "md5sum": "acf2929b1b825bcd1377023e8b8767ec",
-    "file_id": "874e71e0-83dd-4d3e-8014-10141b49f12c",
-    "data_type": "Raw Simple Somatic Mutation",
+    "type": "annotated_somatic_mutation",
+    "file_size": 189289,
+    "created_datetime": "2022-02-07T14:01:14.083177-06:00",
+    "md5sum": "40df1e548d7eec220295de356e2bfa03",
+    "updated_datetime": "2022-02-09T12:19:01.898582-06:00",
+    "file_id": "8ebe185d-59b3-4804-bd3b-cce3d6d20c92",
+    "data_type": "Annotated Somatic Mutation",
     "state": "released",
     "experimental_strategy": "WXS",
-    "version": "1",
-    "data_release": "12.0 - 27.0"
+    "version": "2",
+    "data_release": "32.0 - 37.0"
   },
   "warnings": {}
 }
@@ -389,29 +389,20 @@ curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e8
     "size": 332092,
     "state": "validated",
     "release": "12.0",
-    "latest_id": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06",
-    "latest_filename": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06.vcf.gz",
-    "latest_version": "1",
-    "latest_md5": "c2f9b196e154906a70c7ec46492a859d",
-    "latest_size": 332092,
+    "latest_id": "76b3f4d8-c6b7-4662-ac42-1d27d4684281",
+    "latest_filename": "def1cc5b-55f0-4372-a3ff-df3ea93cf3e7.wxs.somaticsniper.raw_somatic_mutation.vcf.gz",
+    "latest_version": "2",
+    "latest_md5": "bbc66201eeb12e8f63fc6dcc156dbac9",
+    "latest_size": 357706,
     "latest_state": "validated",
     "latest_release": [
-      "12.0",
-      "13.0",
-      "14.0",
-      "15.0",
-      "16.0",
-      "17.0",
-      "18.0",
-      "19.0",
-      "20.0",
-      "21.0",
-      "22.0",
-      "23.0",
-      "24.0",
-      "25.0",
-      "26.0",
-      "27.0"
+      "32.0",
+      "33.0",
+      "33.1",
+      "34.0",
+      "35.0",
+      "36.0",
+      "37.0"
     ]
   },
   {
@@ -422,29 +413,20 @@ curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e8
     "size": 6653119038,
     "state": "validated",
     "release": "12.0",
-    "latest_id": "2a03abac-f1a2-49a9-a57c-7543739dd862",
-    "latest_filename": "a5d86cde-32ca-4ed6-b1a5-5a47575f2ac6_gdc_realn_rehead.bam",
-    "latest_version": "1",
-    "latest_md5": "48686fcd84ac713d44261ca9e26b89fb",
-    "latest_size": 6653119038,
+    "latest_id": "de0ce84d-c286-405c-a556-39dac14c7c74",
+    "latest_filename": "d45c33cc-88e2-4de5-a578-f7e31a6c0738.rna_seq.genomic.gdc_realn.bam",
+    "latest_version": "2",
+    "latest_md5": "5d4b0c13f1c1a235ed064d94278bc196",
+    "latest_size": 6223445806,
     "latest_state": "validated",
     "latest_release": [
-      "12.0",
-      "13.0",
-      "14.0",
-      "15.0",
-      "16.0",
-      "17.0",
-      "18.0",
-      "19.0",
-      "20.0",
-      "21.0",
-      "22.0",
-      "23.0",
-      "24.0",
-      "25.0",
-      "26.0",
-      "27.0"
+      "32.0",
+      "33.0",
+      "33.1",
+      "34.0",
+      "35.0",
+      "36.0",
+      "37.0"
     ]
   }
 ]
