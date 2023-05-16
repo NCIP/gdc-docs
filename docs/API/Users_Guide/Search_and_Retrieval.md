@@ -99,6 +99,21 @@ curl 'https://api.gdc.cancer.gov/projects?from=0&size=2&sort=project_id:asc&pret
   "data": {
     "hits": [
       {
+        "id": "APOLLO-LUAD",
+        "primary_site": [
+          "Bronchus and lung"
+        ],
+        "dbgap_accession_number": "phs003011",
+        "project_id": "APOLLO-LUAD",
+        "disease_type": [
+          "Adenomas and Adenocarcinomas"
+        ],
+        "name": "APOLLO1: Proteogenomic characterization of lung adenocarcinoma",
+        "releasable": false,
+        "state": "open",
+        "released": true
+      },
+      {
         "id": "BEATAML1.0-COHORT",
         "primary_site": [
           "Hematopoietic and reticuloendothelial systems"
@@ -106,42 +121,27 @@ curl 'https://api.gdc.cancer.gov/projects?from=0&size=2&sort=project_id:asc&pret
         "dbgap_accession_number": "phs001657",
         "project_id": "BEATAML1.0-COHORT",
         "disease_type": [
-          "Chronic Myeloproliferative Disorders",
-          "Unknown",
-          "Plasma Cell Tumors",
           "Myelodysplastic Syndromes",
+          "Leukemias, NOS",
+          "Unknown",
           "Myeloid Leukemias",
-          "Leukemias, NOS"
+          "Plasma Cell Tumors",
+          "Chronic Myeloproliferative Disorders"
         ],
-        "releasable": true,
         "name": "Functional Genomic Landscape of Acute Myeloid Leukemia",
-        "state": "open",
-        "released": true
-      },
-      {
-        "id": "BEATAML1.0-CRENOLANIB",
-        "primary_site": [
-          "Hematopoietic and reticuloendothelial systems"
-        ],
-        "dbgap_accession_number": "phs001628",
-        "project_id": "BEATAML1.0-CRENOLANIB",
-        "disease_type": [
-          "Myeloid Leukemias"
-        ],
-        "releasable": false,
-        "name": "Clinical Resistance to Crenolanib in Acute Myeloid Leukemia Due to Diverse Molecular Mechanisms",
+        "releasable": true,
         "state": "open",
         "released": true
       }
     ],
     "pagination": {
       "count": 2,
-      "total": 68,
+      "total": 78,
       "size": 2,
       "from": 0,
-      "sort": "project_id:asc",
+      "sort": "None",
       "page": 1,
-      "pages": 34
+      "pages": 39
     }
   },
   "warnings": {}
@@ -159,12 +159,27 @@ curl 'https://api.gdc.cancer.gov/projects/TARGET-NBL?expand=summary,summary.expe
 {
   "data": {
     "summary": {
-      "file_count": 5796,
+      "file_count": 5705,
       "data_categories": [
         {
-          "file_count": 941,
+          "file_count": 943,
           "case_count": 278,
           "data_category": "Sequencing Reads"
+        },
+        {
+          "file_count": 3080,
+          "case_count": 220,
+          "data_category": "Simple Nucleotide Variation"
+        },
+        {
+          "file_count": 3,
+          "case_count": 1119,
+          "data_category": "Clinical"
+        },
+        {
+          "file_count": 705,
+          "case_count": 225,
+          "data_category": "DNA Methylation"
         },
         {
           "file_count": 2,
@@ -172,73 +187,68 @@ curl 'https://api.gdc.cancer.gov/projects/TARGET-NBL?expand=summary,summary.expe
           "data_category": "Biospecimen"
         },
         {
-          "file_count": 322,
-          "case_count": 155,
-          "data_category": "Structural Variation"
-        },
-        {
-          "file_count": 3723,
-          "case_count": 219,
-          "data_category": "Simple Nucleotide Variation"
-        },
-        {
-          "file_count": 805,
+          "file_count": 324,
           "case_count": 155,
           "data_category": "Transcriptome Profiling"
         },
         {
-          "file_count": 3,
-          "case_count": 1120,
-          "data_category": "Clinical"
+          "file_count": 648,
+          "case_count": 155,
+          "data_category": "Structural Variation"
         }
       ],
       "experimental_strategies": [
         {
-          "file_count": 18,
-          "case_count": 9,
-          "experimental_strategy": "WGS"
-        },
-        {
-          "file_count": 1610,
+          "file_count": 1458,
           "case_count": 155,
           "experimental_strategy": "RNA-Seq"
         },
         {
-          "file_count": 4163,
-          "case_count": 221,
+          "file_count": 15,
+          "case_count": 8,
+          "experimental_strategy": "WGS"
+        },
+        {
+          "file_count": 3522,
+          "case_count": 222,
           "experimental_strategy": "WXS"
+        },
+        {
+          "file_count": 705,
+          "case_count": 225,
+          "experimental_strategy": "Methylation Array"
         }
       ],
       "case_count": 1132,
-      "file_size": 17132578153087
+      "file_size": 16968781125824
     },
     "primary_site": [
+      "Stomach",
+      "Bones, joints and articular cartilage of limbs",
+      "Heart, mediastinum, and pleura",
+      "Peripheral nerves and autonomic nervous system",
+      "Uterus, NOS",
       "Bones, joints and articular cartilage of other and unspecified sites",
       "Other endocrine glands and related structures",
+      "Renal pelvis",
+      "Retroperitoneum and peritoneum",
+      "Liver and intrahepatic bile ducts",
+      "Meninges",
+      "Connective, subcutaneous and other soft tissues",
+      "Adrenal gland",
+      "Unknown",
+      "Spinal cord, cranial nerves, and other parts of central nervous system",
+      "Skin",
+      "Other and ill-defined sites",
       "Kidney",
       "Lymph nodes",
-      "Connective, subcutaneous and other soft tissues",
-      "Renal pelvis",
-      "Bones, joints and articular cartilage of limbs",
-      "Meninges",
-      "Unknown",
-      "Peripheral nerves and autonomic nervous system",
-      "Skin",
-      "Liver and intrahepatic bile ducts",
-      "Adrenal gland",
-      "Heart, mediastinum, and pleura",
-      "Spinal cord, cranial nerves, and other parts of central nervous system",
-      "Uterus, NOS",
-      "Other and ill-defined sites",
-      "Hematopoietic and reticuloendothelial systems",
-      "Stomach",
-      "Retroperitoneum and peritoneum"
+      "Hematopoietic and reticuloendothelial systems"
     ],
     "dbgap_accession_number": "phs000467",
     "project_id": "TARGET-NBL",
     "disease_type": [
-      "Not Applicable",
-      "Neuroepitheliomatous Neoplasms"
+      "Neuroepitheliomatous Neoplasms",
+      "Not Applicable"
     ],
     "name": "Neuroblastoma",
     "releasable": true,
@@ -266,60 +276,58 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
   "data": {
     "hits": [
       {
-        "id": "b2f71ec9-2047-463f-9381-0ecedf178954",
+        "id": "0ab5e358-b1ff-4433-8959-c37c5890d9aa",
         "data_format": "BEDPE",
         "access": "controlled",
-        "file_name": "e62df973-80fb-4fd2-af97-7f991006b34c.star_fusion.rna_fusion.bedpe",
-        "data_category": "Structural Variation",
-        "submitter_id": "012c013d-e928-4bb6-9c1d-b4c9fa94763a",
+        "file_name": "090e2828-079c-48e6-97cb-735c763da8d3.wgs.BRASS.rerun_structural_variation.bedpe.gz",
+        "submitter_id": "247c3c9a-58b9-4b70-bda8-cb197acb5609",
+        "data_category": "Somatic Structural Variation",
         "acl": [
-          "phs000235",
-          "phs000528"
+          "phs001287"
         ],
         "type": "structural_variation",
-        "file_size": 229,
-        "created_datetime": "2020-10-07T12:37:53.507724-05:00",
-        "md5sum": "6e5690795ff424264402ab9d2661b62b",
-        "updated_datetime": "2020-10-20T21:09:05.135867-05:00",
-        "file_id": "b2f71ec9-2047-463f-9381-0ecedf178954",
-        "data_type": "Transcript Fusion",
+        "file_size": 20,
+        "created_datetime": "2022-04-08T20:27:04.633842-05:00",
+        "md5sum": "7029066c27ac6f5ef18d660d5741979a",
+        "updated_datetime": "2022-07-07T11:02:27.204310-05:00",
+        "file_id": "0ab5e358-b1ff-4433-8959-c37c5890d9aa",
+        "data_type": "Structural Rearrangement",
         "state": "released",
-        "experimental_strategy": "RNA-Seq",
+        "experimental_strategy": "WGS",
         "version": "1",
-        "data_release": "27.0"
+        "data_release": "34.0 - 37.0"
       },
       {
-        "id": "0acf98ae-2acb-4c08-ae10-166905c1c326",
+        "id": "a8bc2405-b57d-48bb-b241-18b3e28caa56",
         "data_format": "BEDPE",
         "access": "controlled",
-        "file_name": "aa39e53f-5a15-4ade-a85e-753933068327.star_fusion.rna_fusion.bedpe",
-        "data_category": "Structural Variation",
-        "submitter_id": "bfad2328-8120-45fb-b7af-0bb4d71e6a1c",
+        "file_name": "eae76f14-8aa7-427f-a90c-4e0ed095e0c2.wgs.BRASS.rerun_structural_variation.bedpe.gz",
+        "submitter_id": "618cd251-ddcb-4a7e-9a6d-efb132b0bd7a",
+        "data_category": "Somatic Structural Variation",
         "acl": [
-          "phs000235",
-          "phs000528"
+          "phs001287"
         ],
         "type": "structural_variation",
-        "file_size": 229,
-        "created_datetime": "2020-10-07T12:37:40.289456-05:00",
-        "md5sum": "6e5690795ff424264402ab9d2661b62b",
-        "updated_datetime": "2020-10-20T21:09:05.135867-05:00",
-        "file_id": "0acf98ae-2acb-4c08-ae10-166905c1c326",
-        "data_type": "Transcript Fusion",
+        "file_size": 20,
+        "created_datetime": "2022-04-08T20:43:16.505747-05:00",
+        "md5sum": "7029066c27ac6f5ef18d660d5741979a",
+        "updated_datetime": "2022-07-07T11:00:43.345766-05:00",
+        "file_id": "a8bc2405-b57d-48bb-b241-18b3e28caa56",
+        "data_type": "Structural Rearrangement",
         "state": "released",
-        "experimental_strategy": "RNA-Seq",
+        "experimental_strategy": "WGS",
         "version": "1",
-        "data_release": "27.0"
+        "data_release": "34.0 - 37.0"
       }
     ],
     "pagination": {
       "count": 2,
-      "total": 596758,
+      "total": 931947,
       "size": 2,
       "from": 0,
-      "sort": "file_size:asc",
+      "sort": "None",
       "page": 1,
-      "pages": 298379
+      "pages": 465974
     }
   },
   "warnings": {}
