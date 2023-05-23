@@ -331,7 +331,8 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
     }
   },
   "warnings": {}
-}
+} 
+
 ```
 
 #### Retrieval of file metadata using individual UUIDs:
