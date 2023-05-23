@@ -2007,34 +2007,34 @@ print response.content
 	<data>
 		<hits>
 			<item>
-				<id>375436b3-66ac-4d5e-b495-18a96d812a69</id>
-				<submitter_id>TCGA-F5-6810</submitter_id>
+				<id>0286c31b-a704-4d7d-99e3-0bc4e8975b8b</id>
+				<submitter_id>HCM-CSHL-0084-C25</submitter_id>
 			</item>
 			<item>
-				<id>74543fa4-ce73-46e4-9c59-224e8242b4a2</id>
-				<submitter_id>TCGA-AG-A01W</submitter_id>
+				<id>02f6d684-b6b5-419a-b0e1-b74d0a384a30</id>
+				<submitter_id>HCM-BROD-0408-C71</submitter_id>
 			</item>
 			<item>
-				<id>f8970455-bfb2-4b1d-ab71-3c5d619898ad</id>
-				<submitter_id>TCGA-ZN-A9VQ</submitter_id>
+				<id>03974dc9-0162-4de8-9897-09f88693681a</id>
+				<submitter_id>HCM-BROD-0334-C43</submitter_id>
 			</item>
 			<item>
-				<id>c739fd61-22b2-412d-bcf3-89bda45a2c0f</id>
-				<submitter_id>TCGA-3H-AB3X</submitter_id>
+				<id>03bfeb7c-cecf-4691-8263-33cdfe391ea9</id>
+				<submitter_id>HCM-BROD-0124-C25</submitter_id>
 			</item>
 			<item>
-				<id>340fef21-55d8-433f-b00a-51276b849356</id>
-				<submitter_id>TCGA-MQ-A4LI</submitter_id>
+				<id>04cbceab-f945-482b-956b-840756a17a4a</id>
+				<submitter_id>HCM-BROD-0421-C71</submitter_id>
 			</item>
 		</hits>
 		<pagination>
 			<count>5</count>
-			<total>84392</total>
+			<total>86962</total>
 			<size>5</size>
 			<from>0</from>
 			<sort/>
 			<page>1</page>
-			<pages>16879</pages>
+			<pages>17393</pages>
 		</pagination>
 	</data>
 	<warnings/>
