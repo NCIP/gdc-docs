@@ -437,75 +437,120 @@ curl --request POST --header "Content-Type: text/tsv"  https://api.gdc.cancer.go
 ```
 
 ``` Output2
-[{
-  "latest_size": 44857,
-  "state": "validated",
-  "latest_version": "1",
-  "filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml",
-  "latest_id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22",
-  "version": "1",
-  "latest_filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml",
-  "latest_release": [
-    "12.0"
-  ],
-  "latest_state": "validated",
-  "release": "12.0",
-  "latest_md5": "597aa4df24c4d544b6c25cbd8b25a33e",
-  "md5": "597aa4df24c4d544b6c25cbd8b25a33e",
-  "id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22",
-  "size": 44857
-},{
-  "latest_size": 27620,
-  "state": "validated",
-  "latest_version": "1",
-  "filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt",
-  "latest_id": "3edc7084-013c-4493-8507-c00b0e9962d8",
-  "version": "1",
-  "latest_filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt",
-  "latest_release": [
-    "12.0"
-  ],
-  "latest_state": "validated",
-  "release": "12.0",
-  "latest_md5": "35a18d990a05eedfaf96e753bee0b96d",
-  "md5": "35a18d990a05eedfaf96e753bee0b96d",
-  "id": "3edc7084-013c-4493-8507-c00b0e9962d8",
-  "size": 27620
-},{
-  "latest_size": 2346,
-  "state": "validated",
-  "latest_version": "1",
-  "filename": "a22f5e32-b16e-458f-a412-7e438056ece6.vep.vcf.gz",
-  "latest_id": "a22f5e32-b16e-458f-a412-7e438056ece6",
-  "version": "1",
-  "latest_filename": "a22f5e32-b16e-458f-a412-7e438056ece6.vep.vcf.gz",
-  "latest_release": [
-    "12.0"
-  ],
-  "latest_state": "validated",
-  "release": "12.0",
-  "latest_md5": "68b2433b31679bbbc6681919a1b81762",
-  "md5": "68b2433b31679bbbc6681919a1b81762",
-  "id": "a22f5e32-b16e-458f-a412-7e438056ece6",
-  "size": 2346
-},{
-  "latest_size": 35411,
-  "state": "validated",
-  "latest_version": "1",
-  "filename": "CYANS_p_TCGAb_422_423_424_NSP_GenomeWideSNP_6_G12_1513758.nocnv_grch38.seg.v2.txt",
-  "latest_id": "ac7d2078-bd6b-446e-b30a-d889da5624b6",
-  "version": "1",
-  "latest_filename": "CYANS_p_TCGAb_422_423_424_NSP_GenomeWideSNP_6_G12_1513758.nocnv_grch38.seg.v2.txt",
-  "latest_release": [
-    "12.0"
-  ],
-  "latest_state": "validated",
-  "release": "12.0",
-  "latest_md5": "6338826b620773062232830fad51ae64",
-  "md5": "6338826b620773062232830fad51ae64",
-  "id": "ac7d2078-bd6b-446e-b30a-d889da5624b6",
-  "size": 35411
-}]
+[
+  {
+    "id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22",
+    "filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml",
+    "version": "1",
+    "md5": "597aa4df24c4d544b6c25cbd8b25a33e",
+    "size": 44857,
+    "state": "validated",
+    "release": "12.0",
+    "latest_id": "0b20e27c-9a09-4f15-923f-d5b4f185dc22",
+    "latest_filename": "nationwidechildrens.org_clinical.TCGA-13-1500.xml",
+    "latest_version": "1",
+    "latest_md5": "597aa4df24c4d544b6c25cbd8b25a33e",
+    "latest_size": 44857,
+    "latest_state": "validated",
+    "latest_release": [
+      "12.0",
+      "13.0",
+      "14.0",
+      "15.0",
+      "16.0",
+      "17.0",
+      "18.0",
+      "19.0",
+      "20.0",
+      "21.0",
+      "22.0",
+      "23.0",
+      "24.0",
+      "25.0",
+      "26.0",
+      "27.0",
+      "28.0",
+      "29.0",
+      "30.0",
+      "31.0",
+      "32.0",
+      "33.0",
+      "33.1",
+      "34.0",
+      "35.0",
+      "36.0",
+      "37.0"
+    ]
+  },
+  {
+    "id": "3edc7084-013c-4493-8507-c00b0e9962d8",
+    "filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt",
+    "version": "1",
+    "md5": "35a18d990a05eedfaf96e753bee0b96d",
+    "size": 27620,
+    "state": "validated",
+    "release": "12.0",
+    "latest_id": "3edc7084-013c-4493-8507-c00b0e9962d8",
+    "latest_filename": "BUCKS_p_TCGA_272_273_N_GenomeWideSNP_6_G05_1320676.grch38.seg.v2.txt",
+    "latest_version": "1",
+    "latest_md5": "35a18d990a05eedfaf96e753bee0b96d",
+    "latest_size": 27620,
+    "latest_state": "validated",
+    "latest_release": [
+      "12.0",
+      "13.0",
+      "14.0",
+      "15.0",
+      "16.0",
+      "17.0",
+      "18.0",
+      "19.0",
+      "20.0",
+      "21.0",
+      "22.0",
+      "23.0",
+      "24.0",
+      "25.0",
+      "26.0",
+      "27.0",
+      "28.0",
+      "29.0",
+      "30.0",
+      "31.0",
+      "32.0",
+      "33.0",
+      "33.1",
+      "34.0",
+      "35.0",
+      "36.0",
+      "37.0"
+    ]
+  },
+  {
+    "id": "a22f5e32-b16e-458f-a412-7e438056ece6",
+    "filename": "a22f5e32-b16e-458f-a412-7e438056ece6.vep.vcf.gz",
+    "version": "1",
+    "md5": "68b2433b31679bbbc6681919a1b81762",
+    "size": 2346,
+    "state": "validated",
+    "release": "12.0",
+    "latest_id": "55491171-6170-45cb-af9d-d99345b289e5",
+    "latest_filename": "4b89bb97-41f6-43c4-a481-287556f7bb4a.targeted_sequencing.annotated_somatic_mutation.vcf.gz",
+    "latest_version": "2",
+    "latest_md5": "5b2faa8780317744331b8b852f7d9ef1",
+    "latest_size": 2618,
+    "latest_state": "validated",
+    "latest_release": [
+      "32.0",
+      "33.0",
+      "33.1",
+      "34.0",
+      "35.0",
+      "36.0",
+      "37.0"
+    ]
+  }
+]
 ```
 
 ### `Cases` Endpoint
