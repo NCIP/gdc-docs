@@ -2501,12 +2501,12 @@ print json.dumps(response.json(), indent=2)
     ],
     "pagination": {
       "count": 10,
-      "total": 84392,
+      "total": 86962,
       "size": 10,
       "from": 0,
-      "sort": "submitter_id:asc",
+      "sort": "None",
       "page": 1,
-      "pages": 8440
+      "pages": 8697
     }
   },
   "warnings": {}
@@ -2559,16 +2559,20 @@ print json.dumps(response.json(), indent=2)
             "key": "GENIE"
           },
           {
-            "doc_count": 2,
-            "key": "BEATAML1.0"
-          },
-          {
-            "doc_count": 2,
+            "doc_count": 3,
             "key": "CGCI"
           },
           {
-            "doc_count": 2,
+            "doc_count": 3,
             "key": "CMI"
+          },
+          {
+            "doc_count": 3,
+            "key": "MATCH"
+          },
+          {
+            "doc_count": 2,
+            "key": "BEATAML1.0"
           },
           {
             "doc_count": 2,
@@ -2576,7 +2580,19 @@ print json.dumps(response.json(), indent=2)
           },
           {
             "doc_count": 1,
+            "key": "APOLLO"
+          },
+          {
+            "doc_count": 1,
+            "key": "CDDP_EAGLE"
+          },
+          {
+            "doc_count": 1,
             "key": "CTSP"
+          },
+          {
+            "doc_count": 1,
+            "key": "EXCEPTIONAL_RESPONDERS"
           },
           {
             "doc_count": 1,
@@ -2592,6 +2608,10 @@ print json.dumps(response.json(), indent=2)
           },
           {
             "doc_count": 1,
+            "key": "MP2PRT"
+          },
+          {
+            "doc_count": 1,
             "key": "NCICCR"
           },
           {
@@ -2601,6 +2621,14 @@ print json.dumps(response.json(), indent=2)
           {
             "doc_count": 1,
             "key": "ORGANOID"
+          },
+          {
+            "doc_count": 1,
+            "key": "REBC"
+          },
+          {
+            "doc_count": 1,
+            "key": "TRIO"
           },
           {
             "doc_count": 1,
@@ -2615,12 +2643,12 @@ print json.dumps(response.json(), indent=2)
     },
     "pagination": {
       "count": 0,
-      "total": 67,
+      "total": 78,
       "size": 0,
       "from": 0,
-      "sort": "program.name:asc",
+      "sort": "None",
       "page": 1,
-      "pages": 67
+      "pages": 78
     }
   },
   "warnings": {}
@@ -2663,125 +2691,233 @@ curl --request POST --header "Content-Type: application/json" --data @Payload 'h
 ``` Response
 {
   "data": {
-    "pagination": {
-      "count": 0,
-      "sort": "",
-      "from": 0,
-      "page": 1,
-      "total": 941,
-      "pages": 941,
-      "size": 0
-    },
     "hits": [],
     "aggregations": {
       "project.primary_site": {
         "buckets": [
           {
-            "key": "Brain",
-            "doc_count": 1133
+            "doc_count": 1202,
+            "key": "kidney"
           },
           {
-            "key": "Breast",
-            "doc_count": 1098
+            "doc_count": 1191,
+            "key": "brain"
           },
           {
-            "key": "Lung",
-            "doc_count": 1089
+            "doc_count": 1176,
+            "key": "bronchus and lung"
           },
           {
-            "key": "Kidney",
-            "doc_count": 941
+            "doc_count": 1156,
+            "key": "breast"
           },
           {
-            "key": "Colorectal",
-            "doc_count": 635
+            "doc_count": 952,
+            "key": "colon"
           },
           {
-            "key": "Uterus",
-            "doc_count": 617
+            "doc_count": 947,
+            "key": "stomach"
           },
           {
-            "key": "Ovary",
-            "doc_count": 608
+            "doc_count": 878,
+            "key": "uterus, nos"
           },
           {
-            "key": "Head and Neck",
-            "doc_count": 528
+            "doc_count": 869,
+            "key": "ovary"
           },
           {
-            "key": "Thyroid",
-            "doc_count": 507
+            "doc_count": 821,
+            "key": "corpus uteri"
           },
           {
-            "key": "Prostate",
-            "doc_count": 500
+            "doc_count": 789,
+            "key": "other and unspecified parts of tongue"
           },
           {
-            "key": "Stomach",
-            "doc_count": 478
+            "doc_count": 670,
+            "key": "connective, subcutaneous and other soft tissues"
           },
           {
-            "key": "Skin",
-            "doc_count": 470
+            "doc_count": 633,
+            "key": "rectosigmoid junction"
           },
           {
-            "key": "Bladder",
-            "doc_count": 412
+            "doc_count": 586,
+            "key": "bones, joints and articular cartilage of other and unspecified sites"
           },
           {
-            "key": "Liver",
-            "doc_count": 377
+            "doc_count": 565,
+            "key": "thyroid gland"
           },
           {
-            "key": "Cervix",
-            "doc_count": 308
+            "doc_count": 528,
+            "key": "base of tongue"
           },
           {
-            "key": "Adrenal Gland",
-            "doc_count": 271
+            "doc_count": 528,
+            "key": "floor of mouth"
           },
           {
-            "key": "Soft Tissue",
-            "doc_count": 261
+            "doc_count": 528,
+            "key": "gum"
           },
           {
-            "key": "Bone Marrow",
-            "doc_count": 200
+            "doc_count": 528,
+            "key": "hypopharynx"
           },
           {
-            "key": "Esophagus",
-            "doc_count": 185
+            "doc_count": 528,
+            "key": "larynx"
           },
           {
-            "key": "Pancreas",
-            "doc_count": 185
+            "doc_count": 528,
+            "key": "lip"
           },
           {
-            "key": "Testis",
-            "doc_count": 150
+            "doc_count": 528,
+            "key": "oropharynx"
           },
           {
-            "key": "Thymus",
-            "doc_count": 124
+            "doc_count": 528,
+            "key": "other and ill-defined sites in lip, oral cavity and pharynx"
           },
           {
-            "key": "Pleura",
-            "doc_count": 87
+            "doc_count": 528,
+            "key": "other and unspecified parts of mouth"
           },
           {
-            "key": "Eye",
-            "doc_count": 80
+            "doc_count": 528,
+            "key": "palate"
           },
           {
-            "key": "Lymph Nodes",
-            "doc_count": 58
+            "doc_count": 528,
+            "key": "tonsil"
           },
           {
-            "key": "Bile Duct",
-            "doc_count": 51
+            "doc_count": 500,
+            "key": "prostate gland"
+          },
+          {
+            "doc_count": 498,
+            "key": "retroperitoneum and peritoneum"
+          },
+          {
+            "doc_count": 470,
+            "key": "skin"
+          },
+          {
+            "doc_count": 448,
+            "key": "heart, mediastinum, and pleura"
+          },
+          {
+            "doc_count": 428,
+            "key": "liver and intrahepatic bile ducts"
+          },
+          {
+            "doc_count": 412,
+            "key": "bladder"
+          },
+          {
+            "doc_count": 307,
+            "key": "cervix uteri"
+          },
+          {
+            "doc_count": 271,
+            "key": "adrenal gland"
+          },
+          {
+            "doc_count": 261,
+            "key": "bones, joints and articular cartilage of limbs"
+          },
+          {
+            "doc_count": 261,
+            "key": "meninges"
+          },
+          {
+            "doc_count": 261,
+            "key": "other and unspecified male genital organs"
+          },
+          {
+            "doc_count": 261,
+            "key": "peripheral nerves and autonomic nervous system"
+          },
+          {
+            "doc_count": 258,
+            "key": "hematopoietic and reticuloendothelial systems"
+          },
+          {
+            "doc_count": 208,
+            "key": "testis"
+          },
+          {
+            "doc_count": 185,
+            "key": "esophagus"
+          },
+          {
+            "doc_count": 185,
+            "key": "pancreas"
+          },
+          {
+            "doc_count": 179,
+            "key": "other and ill-defined sites"
+          },
+          {
+            "doc_count": 179,
+            "key": "other endocrine glands and related structures"
+          },
+          {
+            "doc_count": 179,
+            "key": "spinal cord, cranial nerves, and other parts of central nervous system"
+          },
+          {
+            "doc_count": 172,
+            "key": "rectum"
+          },
+          {
+            "doc_count": 172,
+            "key": "unknown"
+          },
+          {
+            "doc_count": 124,
+            "key": "thymus"
+          },
+          {
+            "doc_count": 80,
+            "key": "eye and adnexa"
+          },
+          {
+            "doc_count": 58,
+            "key": "lymph nodes"
+          },
+          {
+            "doc_count": 58,
+            "key": "other and unspecified major salivary glands"
+          },
+          {
+            "doc_count": 58,
+            "key": "small intestine"
+          },
+          {
+            "doc_count": 51,
+            "key": "gallbladder"
+          },
+          {
+            "doc_count": 51,
+            "key": "other and unspecified parts of biliary tract"
           }
         ]
       }
+    },
+    "pagination": {
+      "count": 0,
+      "total": 1202,
+      "size": 0,
+      "from": 0,
+      "sort": "",
+      "page": 1,
+      "pages": 1202
     }
   },
   "warnings": {}
@@ -2823,7 +2959,7 @@ The GDC Portal has a quicksearch functionality that allows for a project, case, 
 curl "https://api.gdc.cancer.gov/v0/all?query=TCGA&size=5"
 ```
 ```Response
-{"data":{"query":{"hits":[{"disease_type":["Gliomas"],"id":"UHJvamVjdDpUQ0dBLUxHRw==","name":"Brain Lower Grade Glioma","primary_site":["Brain"],"project_id":"TCGA-LGG","project_quicksearch":"Brain Lower Grade Glioma"},{"disease_type":["Myeloid Leukemias"],"id":"UHJvamVjdDpUQ0dBLUxBTUw=","name":"Acute Myeloid Leukemia","primary_site":["Hematopoietic and reticuloendothelial systems"],"project_id":"TCGA-LAML","project_quicksearch":"Acute Myeloid Leukemia"},{"disease_type":["Adenomas and Adenocarcinomas"],"id":"UHJvamVjdDpUQ0dBLUtJUkM=","name":"Kidney Renal Clear Cell Carcinoma","primary_site":["Kidney"],"project_id":"TCGA-KIRC","project_quicksearch":"Kidney Renal Clear Cell Carcinoma"},{"disease_type":["Complex Mixed and Stromal Neoplasms"],"id":"UHJvamVjdDpUQ0dBLVVDUw==","name":"Uterine Carcinosarcoma","primary_site":["Uterus, NOS"],"project_id":"TCGA-UCS","project_quicksearch":"Uterine Carcinosarcoma"},{"disease_type":["Germ Cell Neoplasms"],"id":"UHJvamVjdDpUQ0dBLVRHQ1Q=","name":"Testicular Germ Cell Tumors","primary_site":["Testis"],"project_id":"TCGA-TGCT","project_quicksearch":"Testicular Germ Cell Tumors"}],"total":195221}}}
+{"data":{"query":{"hits":[{"disease_type":["Adenomas and Adenocarcinomas"],"id":"UHJvamVjdDpUQ0dBLUFDQw==","name":"Adrenocortical Carcinoma","primary_site":["Adrenal gland"],"project_id":"TCGA-ACC","project_quicksearch":"Adrenocortical Carcinoma"},{"disease_type":["Adenomas and Adenocarcinomas"],"id":"UHJvamVjdDpUQ0dBLUtJQ0g=","name":"Kidney Chromophobe","primary_site":["Kidney"],"project_id":"TCGA-KICH","project_quicksearch":"Kidney Chromophobe"},{"disease_type":["Adenomas and Adenocarcinomas"],"id":"UHJvamVjdDpUQ0dBLUxJSEM=","name":"Liver Hepatocellular Carcinoma","primary_site":["Liver and intrahepatic bile ducts"],"project_id":"TCGA-LIHC","project_quicksearch":"Liver Hepatocellular Carcinoma"},{"disease_type":["Myeloid Leukemias"],"id":"UHJvamVjdDpUQ0dBLUxBTUw=","name":"Acute Myeloid Leukemia","primary_site":["Hematopoietic and reticuloendothelial systems"],"project_id":"TCGA-LAML","project_quicksearch":"Acute Myeloid Leukemia"},{"disease_type":["Adenomas and Adenocarcinomas"],"id":"UHJvamVjdDpUQ0dBLUtJUlA=","name":"Kidney Renal Papillary Cell Carcinoma","primary_site":["Kidney"],"project_id":"TCGA-KIRP","project_quicksearch":"Kidney Renal Papillary Cell Carcinoma"}],"total":183550}}}
 ```
 
 This endpoint can be used to quickly retrieve information about a file.  For example, if a user wanted to know the UUID for `nationwidechildrens.org_biospecimen.TCGA-EL-A4K1.xml`, the following query could be used to quickly retrieve it programmatically:
