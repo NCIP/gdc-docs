@@ -2051,7 +2051,7 @@ Returns when the `pretty` parameter is set to `true`, the API response is format
 curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5'
 ```
 ```Response1
-{"data": {"hits": [{"id": "be37f1f7-2f98-4f74-bc04-6dd2ae2afcad", "submitter_id": "01BR001"}, {"id": "e6915db0-7c89-484d-8f9f-15cca68b82fc", "submitter_id": "01BR008"}, {"id": "16614d46-172b-479c-992b-e80a8e9a2c59", "submitter_id": "01BR009"}, {"id": "567fc9e3-17a6-42b1-a896-5e9a9507d1d8", "submitter_id": "01BR010"}, {"id": "54e89878-a1bc-4f5a-9d68-4842a469586e", "submitter_id": "01BR015"}], "pagination": {"count": 5, "total": 84392, "size": 5, "from": 0, "sort": "submitter_id:asc", "page": 1, "pages": 16879}}, "warnings": {}}
+{"data": {"hits": [{"id": "be37f1f7-2f98-4f74-bc04-6dd2ae2afcad", "submitter_id": "01BR001"}, {"id": "e6915db0-7c89-484d-8f9f-15cca68b82fc", "submitter_id": "01BR008"}, {"id": "16614d46-172b-479c-992b-e80a8e9a2c59", "submitter_id": "01BR009"}, {"id": "567fc9e3-17a6-42b1-a896-5e9a9507d1d8", "submitter_id": "01BR010"}, {"id": "54e89878-a1bc-4f5a-9d68-4842a469586e", "submitter_id": "01BR015"}], "pagination": {"count": 5, "total": 86962, "size": 5, "from": 0, "sort": "None", "page": 1, "pages": 17393}}, "warnings": {}}
 ```
 ```Request2
 curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:asc&size=5&pretty=true'
@@ -2083,12 +2083,12 @@ curl  'https://api.gdc.cancer.gov/cases?fields=submitter_id&sort=submitter_id:as
     ],
     "pagination": {
       "count": 5,
-      "total": 84392,
+      "total": 86962,
       "size": 5,
       "from": 0,
-      "sort": "submitter_id:asc",
+      "sort": "None",
       "page": 1,
-      "pages": 16879
+      "pages": 17393
     }
   },
   "warnings": {}
