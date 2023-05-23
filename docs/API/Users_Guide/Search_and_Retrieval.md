@@ -2120,124 +2120,124 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "id": "c2cefea6-74d4-4859-8fe2-822767d6f68d",
+        "id": "d570eccc-3c1c-4c4f-ae04-96be71fbe016",
         "cases": [
           {
-            "submitter_id": "HCM-BROD-0003-C71"
+            "submitter_id": "TCGA-AN-A0FL"
           }
         ],
-        "file_name": "30f53128-5def-4d1c-b203-9717e9cf4401_wxs_gdc_realn.bam",
-        "file_id": "c2cefea6-74d4-4859-8fe2-822767d6f68d",
-        "file_size": 35753708766
+        "file_name": "TCGA-AN-A0FL-01Z-00-DX1.20A041C6-A306-4599-A7D1-65032A252AA9.svs",
+        "file_id": "d570eccc-3c1c-4c4f-ae04-96be71fbe016",
+        "file_size": 1055798681
       },
       {
-        "id": "070d2103-4350-477b-8bd7-ee529d9d24fb",
+        "id": "0f8d8202-a1ca-4ea1-98b2-c20a6b08479a",
         "cases": [
           {
-            "submitter_id": "HCM-CSHL-0142-C18"
+            "submitter_id": "TCGA-AN-A0FL"
           }
         ],
-        "file_name": "ca5a3304-2af0-4a5f-9479-881918520921.wxs.varscan2.raw_somatic_mutation.vcf.gz",
-        "file_id": "070d2103-4350-477b-8bd7-ee529d9d24fb",
-        "file_size": 53177
+        "file_name": "nationwidechildrens.org_ssf.TCGA-AN-A0FL.xml",
+        "file_id": "0f8d8202-a1ca-4ea1-98b2-c20a6b08479a",
+        "file_size": 15519
       },
       {
-        "id": "9133f158-4bea-4036-b94a-60c25385ed36",
+        "id": "b76f87b3-99c5-4297-b2df-8cbea8ecaf61",
         "cases": [
           {
-            "submitter_id": "HCM-BROD-0028-C71"
+            "submitter_id": "TCGA-BH-A18F"
           }
         ],
-        "file_name": "03203e90-6180-4994-bfc8-1521669a6a49.wxs.MuSE.somatic_annotation.vcf.gz",
-        "file_id": "9133f158-4bea-4036-b94a-60c25385ed36",
-        "file_size": 158597
+        "file_name": "7c4e4c2a-a0b1-424f-97d8-359825674429.wxs.aliquot_ensemble_masked.maf.gz",
+        "file_id": "b76f87b3-99c5-4297-b2df-8cbea8ecaf61",
+        "file_size": 21571
       },
       {
-        "id": "22a04866-c605-4b2d-a48e-816058028c6f",
+        "id": "be6d269d-4305-4643-b98e-af703a067761",
         "cases": [
           {
-            "submitter_id": "HCM-BROD-0002-C71"
+            "submitter_id": "TCGA-BH-A18F"
           }
         ],
-        "file_name": "07d8e937-79e3-4fac-83c1-2e67e7a6ae14.wxs.MuSE.aliquot.maf.gz",
-        "file_id": "22a04866-c605-4b2d-a48e-816058028c6f",
-        "file_size": 125050
+        "file_name": "HITCH_p_TCGASNP_b93_N_GenomeWideSNP_6_E11_741424.CEL",
+        "file_id": "be6d269d-4305-4643-b98e-af703a067761",
+        "file_size": 69084893
       },
       {
-        "id": "2843fe16-b371-44a9-b9ab-1a93c26d24db",
+        "id": "fed73119-1d5e-4f7e-9713-183d1916422b",
         "cases": [
           {
-            "submitter_id": "HCM-CSHL-0366-C50"
+            "submitter_id": "TCGA-BH-A18F"
           }
         ],
-        "file_name": "43f4ba37-92ed-4d30-86f5-e1eeb0109d9a.wgs.sanger_raw_pindel.raw_somatic_mutation.vcf.gz",
-        "file_id": "2843fe16-b371-44a9-b9ab-1a93c26d24db",
-        "file_size": 62812030
+        "file_name": "3b928f83-14a7-4bd6-a9b0-744b414d4495.wxs.varscan2.raw_somatic_mutation.vcf.gz",
+        "file_id": "fed73119-1d5e-4f7e-9713-183d1916422b",
+        "file_size": 35903
       },
       {
-        "id": "aea93c80-0551-459e-8408-6d16148a7210",
+        "id": "6877b045-91f1-4030-82ff-b90507e11e17",
         "cases": [
           {
-            "submitter_id": "HCM-CSHL-0461-D12"
+            "submitter_id": "TCGA-BH-A18F"
           }
         ],
-        "file_name": "c45b5b42-acfb-457c-9244-2e70368c29c5.FPKM-UQ.txt.gz",
-        "file_id": "aea93c80-0551-459e-8408-6d16148a7210",
-        "file_size": 406727
+        "file_name": "5057e3cb-25cd-4a67-8d31-6ac8508ba3c7.methylation_array.sesame.level3betas.txt",
+        "file_id": "6877b045-91f1-4030-82ff-b90507e11e17",
+        "file_size": 770500
       },
       {
-        "id": "d46795b7-2166-44af-97a9-c825585878d3",
+        "id": "07e8cdc7-d228-4752-ad19-800abd507277",
         "cases": [
           {
-            "submitter_id": "HCM-CSHL-0248-C19"
+            "submitter_id": "TCGA-BH-A0BM"
           }
         ],
-        "file_name": "e837ac90-f482-454f-a1e0-f16cea1d9f95.wgs.CaVEMan.raw_somatic_mutation.vcf.gz",
-        "file_id": "d46795b7-2166-44af-97a9-c825585878d3",
-        "file_size": 2658954
+        "file_name": "TCGA-BRCA.28dcad29-448e-4bcb-911d-556c6f4a5573.star_fusion.rna_fusion.tsv",
+        "file_id": "07e8cdc7-d228-4752-ad19-800abd507277",
+        "file_size": 234
       },
       {
-        "id": "7ba38c35-6491-48f7-811f-336b8487021f",
+        "id": "fef57b45-ede1-49b0-b60d-957a55a15e0e",
         "cases": [
           {
-            "submitter_id": "HCM-CSHL-0057-C18"
+            "submitter_id": "TCGA-BH-A0BM"
           }
         ],
-        "file_name": "9720b990-3ff4-4cb9-a900-ad57da72cff4.FPKM.txt.gz",
-        "file_id": "7ba38c35-6491-48f7-811f-336b8487021f",
-        "file_size": 358324
+        "file_name": "nationwidechildrens.org_biospecimen.TCGA-BH-A0BM.xml",
+        "file_id": "fef57b45-ede1-49b0-b60d-957a55a15e0e",
+        "file_size": 127218
       },
       {
-        "id": "3565c301-a03c-4334-9e06-3bb01f92c3f0",
+        "id": "81a1b323-88b6-4837-bccf-ac84a79828b6",
         "cases": [
           {
-            "submitter_id": "HCM-BROD-0002-C71"
+            "submitter_id": "TCGA-BH-A0BM"
           }
         ],
-        "file_name": "52f32e5d-d56d-4e54-b962-9a0ed377afd3.wgs.BRASS.raw_structural_variation.bedpe.gz",
-        "file_id": "3565c301-a03c-4334-9e06-3bb01f92c3f0",
-        "file_size": 9715
+        "file_name": "TCGA-BRCA.4570b87f-8116-48bf-86d3-b993536c88db.gene_level_copy_number.v36.tsv",
+        "file_id": "81a1b323-88b6-4837-bccf-ac84a79828b6",
+        "file_size": 3446816
       },
       {
-        "id": "2fe7b061-48d7-45af-b435-84919ce68e47",
+        "id": "c6bf94a6-9940-4155-86b4-bbb10875dbdb",
         "cases": [
           {
-            "submitter_id": "HCM-BROD-0012-C71"
+            "submitter_id": "TCGA-BH-A18F"
           }
         ],
-        "file_name": "53984f05-821c-492a-8a0b-6e2c0b340e92.rna_seq.star_splice_junctions.tsv.gz",
-        "file_id": "2fe7b061-48d7-45af-b435-84919ce68e47",
-        "file_size": 2865433
+        "file_name": "TCGA-BRCA.88cae21a-4890-4fdd-a678-c4864620942c.star_fusion.rna_fusion.bedpe",
+        "file_id": "c6bf94a6-9940-4155-86b4-bbb10875dbdb",
+        "file_size": 229
       }
     ],
     "pagination": {
       "count": 10,
-      "total": 596758,
+      "total": 931947,
       "size": 10,
       "from": 0,
       "sort": "",
       "page": 1,
-      "pages": 59676
+      "pages": 93195
     }
   },
   "warnings": {}
