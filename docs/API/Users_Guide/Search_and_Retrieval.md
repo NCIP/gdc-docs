@@ -928,7 +928,7 @@ This example is a query for versioning information associated with the follow wi
 curl 'https://api.gdc.cancer.gov/history/1dd28069-5777-4ff9-bd2b-d1ba68e88b06'
 ```
 ``` Output
-[{"uuid": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "version": "1", "file_change": "released", "release_date": "2018-08-23", "data_release": "12.0"}]
+[{"uuid": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "version": "1", "file_change": "superseded", "release_date": "2018-08-23", "data_release": "12.0"}, {"uuid": "76b3f4d8-c6b7-4662-ac42-1d27d4684281", "version": "2", "file_change": "released", "release_date": "2022-03-29", "data_release": "32.0"}]
 ```
 
 
