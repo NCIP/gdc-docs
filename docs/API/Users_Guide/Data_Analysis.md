@@ -160,14 +160,14 @@ __Example 1__: Similar to the `/genes` endpoint, a user would like to retrieve i
    "content":{
       "field":"cosmic_id",
       "value":[
-         "COSM4860838"
+         "COSM1135366"
       ]
    }
 }
 ```
 
 ```Shell
-curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%0A%22op%22%3A%22in%22%2C%0A%22content%22%3A%7B%0A%22field%22%3A%22cosmic_id%22%2C%0A%22value%22%3A%5B%0A%22COSM4860838%22%0A%5D%0A%7D%0A%7D%0A'
+curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%0A%22op%22%3A%22in%22%2C%0A%22content%22%3A%7B%0A%22field%22%3A%22cosmic_id%22%2C%0A%2value%22%3A%5B%0A%22COSM1135366%22%0A%5D%0A%7D%0A%7D%0A'
 ```
 
 ```Response
@@ -175,41 +175,34 @@ curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%0A%22op%22%3A%22in
   "data": {
     "hits": [
       {
-        "ncbi_build": "GRCh38",
-        "mutation_type": "Simple Somatic Mutation",
-        "mutation_subtype": "Single base substitution",
-        "end_position": 62438203,
-        "reference_allele": "C",
-        "ssm_id": "8b3c1a7a-e4e0-5200-9d46-5767c2982145",
-        "start_position": 62438203,
-        "cosmic_id": [
-          "COSM4860838",
-          "COSM731764",
-          "COSM731765"
-        ],
-        "id": "8b3c1a7a-e4e0-5200-9d46-5767c2982145",
-        "tumor_allele": "T",
+        "id": "edd1ae2c-3ca9-52bd-a124-b09ed304fcc2",
+        "start_position": 25245350,
         "gene_aa_change": [
-          "CADPS G1147G",
-          "CADPS G1187G",
-          "CADPS G1217G",
-          "CADPS G1226G",
-          "CADPS G127G",
-          "CADPS G218G",
-          "CADPS G95G"
+          "KRAS G12D"
         ],
-        "chromosome": "chr3",
-        "genomic_dna_change": "chr3:g.62438203C>T"
+        "reference_allele": "C",
+        "ncbi_build": "GRCh38",
+        "cosmic_id": [
+          "COSM1135366",
+          "COSM521"
+        ],
+        "mutation_subtype": "Single base substitution",
+        "mutation_type": "Simple Somatic Mutation",
+        "chromosome": "chr12",
+        "ssm_id": "edd1ae2c-3ca9-52bd-a124-b09ed304fcc2",
+        "genomic_dna_change": "chr12:g.25245350C>T",
+        "tumor_allele": "T",
+        "end_position": 25245350
       }
     ],
     "pagination": {
       "count": 1,
-      "sort": "",
-      "from": 0,
-      "page": 1,
       "total": 1,
-      "pages": 1,
-      "size": 10
+      "size": 10,
+      "from": 0,
+      "sort": "",
+      "page": 1,
+      "pages": 1
     }
   },
   "warnings": {}
@@ -228,113 +221,113 @@ curl 'https://api.gdc.cancer.gov/ssms/8b3c1a7a-e4e0-5200-9d46-5767c2982145?prett
     "consequence": [
       {
         "transcript": {
-          "aa_start": 127, 
-          "consequence_type": "synonymous_variant", 
-          "aa_end": 127, 
-          "transcript_id": "ENST00000466621", 
-          "is_canonical": false, 
-          "aa_change": "G127G", 
+          "aa_start": 127,
+          "consequence_type": "synonymous_variant",
+          "aa_end": 127,
+          "transcript_id": "ENST00000466621",
+          "is_canonical": false,
+          "aa_change": "G127G",
           "annotation": {
             "vep_impact": "LOW"
-          }, 
+          },
           "ref_seq_accession": ""
         }
-      }, 
+      },
       {
         "transcript": {
-          "aa_start": 95, 
-          "consequence_type": "synonymous_variant", 
-          "aa_end": 95, 
-          "transcript_id": "ENST00000613879", 
-          "is_canonical": false, 
-          "aa_change": "G95G", 
+          "aa_start": 95,
+          "consequence_type": "synonymous_variant",
+          "aa_end": 95,
+          "transcript_id": "ENST00000613879",
+          "is_canonical": false,
+          "aa_change": "G95G",
           "annotation": {
             "vep_impact": "LOW"
-          }, 
+          },
           "ref_seq_accession": ""
         }
-      }, 
+      },
       {
         "transcript": {
-          "aa_start": 218, 
-          "consequence_type": "synonymous_variant", 
-          "aa_end": 218, 
-          "transcript_id": "ENST00000473635", 
-          "is_canonical": false, 
-          "aa_change": "G218G", 
+          "aa_start": 218,
+          "consequence_type": "synonymous_variant",
+          "aa_end": 218,
+          "transcript_id": "ENST00000473635",
+          "is_canonical": false,
+          "aa_change": "G218G",
           "annotation": {
             "vep_impact": "LOW"
-          }, 
+          },
           "ref_seq_accession": ""
         }
-      }, 
+      },
       {
         "transcript": {
-          "aa_start": null, 
-          "consequence_type": "non_coding_transcript_exon_variant", 
-          "aa_end": null, 
-          "transcript_id": "ENST00000474560", 
-          "is_canonical": false, 
-          "aa_change": null, 
+          "aa_start": null,
+          "consequence_type": "non_coding_transcript_exon_variant",
+          "aa_end": null,
+          "transcript_id": "ENST00000474560",
+          "is_canonical": false,
+          "aa_change": null,
           "annotation": {
             "vep_impact": "MODIFIER"
-          }, 
+          },
           "ref_seq_accession": ""
         }
-      }, 
+      },
       {
         "transcript": {
-          "aa_start": 1226, 
-          "consequence_type": "synonymous_variant", 
-          "aa_end": 1226, 
-          "transcript_id": "ENST00000383710", 
-          "is_canonical": true, 
-          "aa_change": "G1226G", 
+          "aa_start": 1226,
+          "consequence_type": "synonymous_variant",
+          "aa_end": 1226,
+          "transcript_id": "ENST00000383710",
+          "is_canonical": true,
+          "aa_change": "G1226G",
           "annotation": {
             "vep_impact": "LOW"
-          }, 
+          },
           "ref_seq_accession": "NM_003716.3"
         }
-      }, 
+      },
       {
         "transcript": {
-          "aa_start": 1187, 
-          "consequence_type": "synonymous_variant", 
-          "aa_end": 1187, 
-          "transcript_id": "ENST00000283269", 
-          "is_canonical": false, 
-          "aa_change": "G1187G", 
+          "aa_start": 1187,
+          "consequence_type": "synonymous_variant",
+          "aa_end": 1187,
+          "transcript_id": "ENST00000283269",
+          "is_canonical": false,
+          "aa_change": "G1187G",
           "annotation": {
             "vep_impact": "LOW"
-          }, 
+          },
           "ref_seq_accession": "NM_183394.2"
         }
-      }, 
+      },
       {
         "transcript": {
-          "aa_start": 1147, 
-          "consequence_type": "synonymous_variant", 
-          "aa_end": 1147, 
-          "transcript_id": "ENST00000357948", 
-          "is_canonical": false, 
-          "aa_change": "G1147G", 
+          "aa_start": 1147,
+          "consequence_type": "synonymous_variant",
+          "aa_end": 1147,
+          "transcript_id": "ENST00000357948",
+          "is_canonical": false,
+          "aa_change": "G1147G",
           "annotation": {
             "vep_impact": "LOW"
-          }, 
+          },
           "ref_seq_accession": "NM_183393.2"
         }
-      }, 
+      },
       {
         "transcript": {
-          "aa_start": 1217, 
-          "consequence_type": "synonymous_variant", 
-          "aa_end": 1217, 
-          "transcript_id": "ENST00000612439", 
-          "is_canonical": false, 
-          "aa_change": "G1217G", 
+          "aa_start": 1217,
+          "consequence_type": "synonymous_variant",
+          "aa_end": 1217,
+          "transcript_id": "ENST00000612439",
+          "is_canonical": false,
+          "aa_change": "G1217G",
           "annotation": {
             "vep_impact": "LOW"
-          }, 
+          },
           "ref_seq_accession": ""
         }
       }
@@ -401,57 +394,57 @@ curl 'https://api.gdc.cancer.gov/ssm_occurrences/6fd8527d-5c40-5604-8fa9-0ce798e
 {
   "data": {
     "case": {
-      "disease_type": "Nevi and Melanomas", 
-      "updated_datetime": "2018-09-06T18:42:50.098635-05:00", 
-      "created_datetime": null, 
+      "disease_type": "Nevi and Melanomas",
+      "updated_datetime": "2018-09-06T18:42:50.098635-05:00",
+      "created_datetime": null,
       "summary": {
         "experimental_strategies": [
           {
-            "file_count": 3, 
+            "file_count": 3,
             "experimental_strategy": "miRNA-Seq"
-          }, 
+          },
           {
-            "file_count": 1, 
+            "file_count": 1,
             "experimental_strategy": "Tissue Slide"
-          }, 
+          },
           {
-            "file_count": 18, 
+            "file_count": 18,
             "experimental_strategy": "WXS"
-          }, 
+          },
           {
-            "file_count": 1, 
+            "file_count": 1,
             "experimental_strategy": "Diagnostic Slide"
-          }, 
+          },
           {
-            "file_count": 4, 
+            "file_count": 4,
             "experimental_strategy": "RNA-Seq"
-          }, 
+          },
           {
-            "file_count": 4, 
+            "file_count": 4,
             "experimental_strategy": "Genotyping Array"
-          }, 
+          },
           {
-            "file_count": 1, 
+            "file_count": 1,
             "experimental_strategy": "Methylation Array"
           }
         ]
-      }, 
-      "state": "released", 
-      "case_id": "590b5e18-d837-4c0e-becf-80520db57c0f", 
-      "primary_site": "Skin", 
-      "submitter_id": "TCGA-Z2-A8RT", 
+      },
+      "state": "released",
+      "case_id": "590b5e18-d837-4c0e-becf-80520db57c0f",
+      "primary_site": "Skin",
+      "submitter_id": "TCGA-Z2-A8RT",
       "available_variation_data": [
-        "cnv", 
+        "cnv",
         "ssm"
       ]
-    }, 
+    },
     "ssm_occurrence_id": "6fd8527d-5c40-5604-8fa9-0ce798eec231"
   }
 ```
 
 ## Copy Number Variation Endpoint Examples
 
-__Example 1:__ A user is interested in finding the first 30 cnvs found on chromosome 4 that have a cnv loss. 
+__Example 1:__ A user is interested in finding the first 30 cnvs found on chromosome 4 that have a cnv loss.
 
 ```Filter
 {
@@ -526,22 +519,22 @@ curl 'https://api.gdc.cancer.gov/cnvs/5052be09-2bbe-5175-a0ae-fc568ea75339?prett
 ```Json
 {
   "data": {
-    "ncbi_build": "GRCh38", 
-    "cnv_id": "5052be09-2bbe-5175-a0ae-fc568ea75339", 
-    "gene_level_cn": true, 
-    "cnv_change": "Gain", 
-    "end_position": 110346681, 
-    "start_position": 110338506, 
+    "ncbi_build": "GRCh38",
+    "cnv_id": "5052be09-2bbe-5175-a0ae-fc568ea75339",
+    "gene_level_cn": true,
+    "cnv_change": "Gain",
+    "end_position": 110346681,
+    "start_position": 110338506,
     "consequence": [
       {
         "gene": {
-          "symbol": "RBM15", 
-          "is_cancer_gene_census": "True", 
-          "biotype": "protein_coding", 
+          "symbol": "RBM15",
+          "is_cancer_gene_census": "True",
+          "biotype": "protein_coding",
           "gene_id": "ENSG00000162775"
         }
       }
-    ], 
+    ],
     "chromosome": "1"
   }
 ```
@@ -641,60 +634,60 @@ curl 'https://api.gdc.cancer.gov/cnv_occurrences/e76d2aaf-f951-5a51-a949-a241dba
 {
   "data": {
     "cnv": {
-      "ncbi_build": "GRCh38", 
-      "cnv_id": "0d475712-c11e-51fb-b6e6-407d12978057", 
-      "gene_level_cn": true, 
-      "cnv_change": "Gain", 
-      "end_position": 133348131, 
-      "variant_status": "Tumor only", 
-      "start_position": 133338323, 
+      "ncbi_build": "GRCh38",
+      "cnv_id": "0d475712-c11e-51fb-b6e6-407d12978057",
+      "gene_level_cn": true,
+      "cnv_change": "Gain",
+      "end_position": 133348131,
+      "variant_status": "Tumor only",
+      "start_position": 133338323,
       "chromosome": "9"
-    }, 
+    },
     "case": {
-      "disease_type": "Squamous Cell Neoplasms", 
-      "updated_datetime": "2018-09-06T11:07:45.510627-05:00", 
-      "created_datetime": null, 
+      "disease_type": "Squamous Cell Neoplasms",
+      "updated_datetime": "2018-09-06T11:07:45.510627-05:00",
+      "created_datetime": null,
       "demographic": {
-        "updated_datetime": "2018-09-06T11:07:45.510627-05:00", 
-        "created_datetime": null, 
-        "gender": "female", 
-        "year_of_birth": 1954, 
-        "submitter_id": "TCGA-EA-A3HR_demographic", 
-        "state": "released", 
-        "race": "white", 
-        "demographic_id": "dd8576a8-bd62-55e7-b0df-7233ceded2fb", 
-        "ethnicity": "not hispanic or latino", 
+        "updated_datetime": "2018-09-06T11:07:45.510627-05:00",
+        "created_datetime": null,
+        "gender": "female",
+        "year_of_birth": 1954,
+        "submitter_id": "TCGA-EA-A3HR_demographic",
+        "state": "released",
+        "race": "white",
+        "demographic_id": "dd8576a8-bd62-55e7-b0df-7233ceded2fb",
+        "ethnicity": "not hispanic or latino",
         "year_of_death": null
-      }, 
-      "submitter_id": "TCGA-EA-A3HR", 
-      "state": "released", 
-      "case_id": "638035f6-2909-4a44-980f-468ac5d74e18", 
-      "primary_site": "Cervix uteri", 
+      },
+      "submitter_id": "TCGA-EA-A3HR",
+      "state": "released",
+      "case_id": "638035f6-2909-4a44-980f-468ac5d74e18",
+      "primary_site": "Cervix uteri",
       "available_variation_data": [
-        "cnv", 
+        "cnv",
         "ssm"
-      ], 
+      ],
       "exposures": [
         {
-          "cigarettes_per_day": null, 
-          "weight": 86, 
-          "updated_datetime": "2018-09-06T11:07:45.510627-05:00", 
-          "created_datetime": null, 
-          "alcohol_intensity": null, 
-          "bmi": 40, 
-          "years_smoked": null, 
-          "submitter_id": "TCGA-EA-A3HR_exposure", 
-          "alcohol_history": null, 
-          "state": "released", 
-          "tobacco_smoking_status": null, 
-          "tobacco_smoking_onset_year": null, 
-          "tobacco_smoking_quit_year": null, 
-          "exposure_id": "0e7265ab-bf65-50c7-bf33-96a7ac452d7c", 
-          "height": 146, 
+          "cigarettes_per_day": null,
+          "weight": 86,
+          "updated_datetime": "2018-09-06T11:07:45.510627-05:00",
+          "created_datetime": null,
+          "alcohol_intensity": null,
+          "bmi": 40,
+          "years_smoked": null,
+          "submitter_id": "TCGA-EA-A3HR_exposure",
+          "alcohol_history": null,
+          "state": "released",
+          "tobacco_smoking_status": null,
+          "tobacco_smoking_onset_year": null,
+          "tobacco_smoking_quit_year": null,
+          "exposure_id": "0e7265ab-bf65-50c7-bf33-96a7ac452d7c",
+          "height": 146,
           "pack_years_smoked": null
         }
       ]
-    }, 
+    },
     "cnv_occurrence_id": "e76d2aaf-f951-5a51-a949-a241dba61f73"
   }
 ```
