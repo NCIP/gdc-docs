@@ -929,6 +929,7 @@ curl 'https://api.gdc.cancer.gov/history/1dd28069-5777-4ff9-bd2b-d1ba68e88b06'
 ```
 ``` Output
 [{"uuid": "1dd28069-5777-4ff9-bd2b-d1ba68e88b06", "version": "1", "file_change": "superseded", "release_date": "2018-08-23", "data_release": "12.0"}, {"uuid": "76b3f4d8-c6b7-4662-ac42-1d27d4684281", "version": "2", "file_change": "released", "release_date": "2022-03-29", "data_release": "32.0"}]
+
 ```
 
 
@@ -1121,863 +1122,778 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "id": "f8970455-bfb2-4b1d-ab71-3c5d619898ad",
-        "slide_ids": [
-          "324684b5-8f18-4aa3-9b32-78382b96760b",
-          "542a84f2-35e5-4843-9e98-c3d4bf0efe34"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-ZN-A9VQ-01Z-00-DX1",
-          "TCGA-ZN-A9VQ-01A-01-TS1"
-        ],
-        "disease_type": "Mesothelial Neoplasms",
-        "analyte_ids": [
-          "73491451-b44e-41b3-be8c-1d7e44e54d08",
-          "eda45603-7e65-4160-9963-e8907e7248b2",
-          "f8f4c5d9-b09d-46d4-9fc1-afbebae1a81d"
-        ],
-        "submitter_id": "TCGA-ZN-A9VQ",
-        "submitter_analyte_ids": [
-          "TCGA-ZN-A9VQ-01A-11D",
-          "TCGA-ZN-A9VQ-01A-11R",
-          "TCGA-ZN-A9VQ-10A-01D"
-        ],
-        "submitter_aliquot_ids": [
-          "TCGA-ZN-A9VQ-01A-11R-A40A-07",
-          "TCGA-ZN-A9VQ-10A-01D-A39T-01",
-          "TCGA-ZN-A9VQ-01A-11D-A39S-05",
-          "TCGA-ZN-A9VQ-01A-11D-A40F-26",
-          "TCGA-ZN-A9VQ-01A-11D-A39Q-01",
-          "TCGA-ZN-A9VQ-01A-11D-A761-36",
-          "TCGA-ZN-A9VQ-01A-11R-A404-13",
-          "TCGA-ZN-A9VQ-01A-11D-A39R-32",
-          "TCGA-ZN-A9VQ-10A-01D-A39U-32",
-          "TCGA-ZN-A9VQ-10A-01D-A761-36",
-          "TCGA-ZN-A9VQ-10A-01D-A40G-26"
-        ],
-        "aliquot_ids": [
-          "26e89986-bfd5-4d4e-a3ff-5ad612c48358",
-          "3d7835c0-388f-4cdc-9fe3-2dae11b71daa",
-          "3f076394-cb86-46ea-8cdc-88f385c6b54e",
-          "0b2cbe7c-8392-4072-95af-9ded20aa3888",
-          "6762b668-a952-4c66-8a63-af909dbdc3ec",
-          "dd85d29b-5883-4292-849a-8706698ff32b",
-          "0e3a5bc1-9fe1-49e6-9ae8-fe7e86198acd",
-          "4c1a209f-b005-4137-a344-c0befa66047c",
-          "418d6b09-cffc-4ca4-84eb-7c9b2b5aacaf",
-          "a09f740a-9529-4688-be12-978f13054e1e",
-          "c32fb3d0-2894-4859-be14-30f03e0d8997"
-        ],
-        "created_datetime": null,
-        "diagnosis_ids": [
-          "68b5b7ee-bbbe-502c-b087-f325c4ccde09"
-        ],
-        "sample_ids": [
-          "95830203-ccab-4a0d-8daf-e2b67ab95b86",
-          "089c6901-5fe6-48b0-97ab-39f00609255c",
-          "546ba1f1-7e16-4701-875a-8e9dd426fb76"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-ZN-A9VQ-10A",
-          "TCGA-ZN-A9VQ-01Z",
-          "TCGA-ZN-A9VQ-01A"
-        ],
-        "submitter_diagnosis_ids": [
-          "TCGA-ZN-A9VQ_diagnosis"
-        ],
-        "primary_site": "Heart, mediastinum, and pleura",
-        "updated_datetime": "2019-08-06T14:39:56.656272-05:00",
-        "case_id": "f8970455-bfb2-4b1d-ab71-3c5d619898ad",
-        "portion_ids": [
-          "5b4b99dc-a44e-4679-8b19-d1d78020aa9f",
-          "3e8db2c5-d5b3-4a9b-9ef5-948f16fe5cac",
-          "ae23fda4-25ac-44ad-bfba-75e393b4bec5"
-        ],
-        "state": "released",
-        "submitter_portion_ids": [
-          "TCGA-ZN-A9VQ-01A-21-A45O-20",
-          "TCGA-ZN-A9VQ-01A-11",
-          "TCGA-ZN-A9VQ-10A-01"
-        ]
-      },
-      {
-        "id": "c739fd61-22b2-412d-bcf3-89bda45a2c0f",
-        "slide_ids": [
-          "6aa9b64a-9624-424e-87be-2ca9902794a2",
-          "1c5ef953-b382-4b73-8bda-f2cfe8c86874"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-3H-AB3X-01A-01-TS1",
-          "TCGA-3H-AB3X-01Z-00-DX1"
-        ],
-        "disease_type": "Mesothelial Neoplasms",
-        "analyte_ids": [
-          "0be4a69c-50e5-4634-b3ad-cf75f5cea8c5",
-          "e208e95c-f999-41c2-b8df-6ee04af51f83",
-          "7f0ed3c8-f3b2-47bf-a911-fe6463502315"
-        ],
-        "submitter_id": "TCGA-3H-AB3X",
-        "submitter_analyte_ids": [
-          "TCGA-3H-AB3X-01A-11R",
-          "TCGA-3H-AB3X-10A-01D",
-          "TCGA-3H-AB3X-01A-11D"
-        ],
-        "aliquot_ids": [
-          "ba8caacf-7a47-48db-b375-58b2a417d073",
-          "4026d79f-155e-48e9-91de-dedbf201f55a",
-          "c895dbf4-5753-489a-b83a-dc7d80456388",
-          "d0253b2c-99e0-49ff-b7f6-314bf1729cbf",
-          "4a21ef3b-2d39-4588-8763-d2c26254932a",
-          "537d8c34-d69a-4982-92d1-4d2d48e8b9c5",
-          "41b7c449-47f2-470f-9f92-f3a4a02c8549",
-          "3127573c-6700-4b82-9262-2bcc9c72b56c",
-          "57dbf875-55a2-4a18-bccb-3a16df3ddbfa"
-        ],
-        "submitter_aliquot_ids": [
-          "TCGA-3H-AB3X-10A-01D-A39U-32",
-          "TCGA-3H-AB3X-01A-11D-A39S-05",
-          "TCGA-3H-AB3X-01A-11R-A40A-07",
-          "TCGA-3H-AB3X-01A-11D-A39Q-01",
-          "TCGA-3H-AB3X-01A-11D-A40F-26",
-          "TCGA-3H-AB3X-01A-11R-A404-13",
-          "TCGA-3H-AB3X-01A-11D-A39R-32",
-          "TCGA-3H-AB3X-10A-01D-A39T-01",
-          "TCGA-3H-AB3X-10A-01D-A40G-26"
-        ],
-        "created_datetime": null,
-        "diagnosis_ids": [
-          "9252ba53-0bd5-5f49-b154-aa1dd6473fd5"
-        ],
-        "sample_ids": [
-          "276c6d7b-712a-465c-913f-320de285cad4",
-          "b06b0a8a-e992-42aa-a6aa-e85685bbe3f9",
-          "ae48bc7d-fc5a-4d63-9399-783e1d7f50d6"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-3H-AB3X-01Z",
-          "TCGA-3H-AB3X-10A",
-          "TCGA-3H-AB3X-01A"
-        ],
-        "submitter_diagnosis_ids": [
-          "TCGA-3H-AB3X_diagnosis"
-        ],
-        "primary_site": "Bronchus and lung",
-        "updated_datetime": "2019-08-06T14:39:45.057305-05:00",
-        "case_id": "c739fd61-22b2-412d-bcf3-89bda45a2c0f",
-        "portion_ids": [
-          "7ec81582-1cb3-4f34-a68f-23a9d9804658",
-          "72bd54de-7e9f-46de-b62e-7994c9d4ad4d"
-        ],
-        "state": "released",
-        "submitter_portion_ids": [
-          "TCGA-3H-AB3X-10A-01",
-          "TCGA-3H-AB3X-01A-11"
-        ]
-      },
-      {
-        "id": "ae90972d-5bc2-4b53-b5ff-1b8c31f39342",
-        "slide_ids": [
-          "e94c1249-1f03-4a7f-9161-d1714ef546b2",
-          "e8bdc1d8-01c0-40a7-b308-cb5681f28b2f"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-CQ-A4CH-01A-01-TSA",
-          "TCGA-CQ-A4CH-01Z-00-DX1"
-        ],
-        "disease_type": "Squamous Cell Neoplasms",
-        "analyte_ids": [
-          "be4729cb-4f7d-4c9b-8df7-2de2328c40d4",
-          "53e0774f-2a36-4100-a73a-5fd8a45c4169",
-          "51e4cd09-e408-4077-9ec3-7c805296a016",
-          "d99212f6-8c23-44c4-8c30-87fc4166c9d0",
-          "f3adfcba-e014-43e0-8c9b-09039b84613e"
-        ],
-        "submitter_id": "TCGA-CQ-A4CH",
-        "submitter_analyte_ids": [
-          "TCGA-CQ-A4CH-10A-01W",
-          "TCGA-CQ-A4CH-01A-11D",
-          "TCGA-CQ-A4CH-01A-11R",
-          "TCGA-CQ-A4CH-10A-01D",
-          "TCGA-CQ-A4CH-01A-11W"
-        ],
-        "submitter_aliquot_ids": [
-          "TCGA-CQ-A4CH-01A-11R-A266-07",
-          "TCGA-CQ-A4CH-10A-01D-A25X-01",
-          "TCGA-CQ-A4CH-01A-11R-A25Z-13",
-          "TCGA-CQ-A4CH-01A-11W-A296-08",
-          "TCGA-CQ-A4CH-10A-01W-A296-08",
-          "TCGA-CQ-A4CH-10A-01D-A25Y-08",
-          "TCGA-CQ-A4CH-01A-11D-A25X-01",
-          "TCGA-CQ-A4CH-01A-11D-A265-05",
-          "TCGA-CQ-A4CH-01A-11D-A25Y-08"
-        ],
-        "aliquot_ids": [
-          "9eb34130-b3b9-4c92-8238-4053f8c6d06b",
-          "0c99ef22-b1ef-42c9-a184-4c98f674c7be",
-          "b77aa7fa-403b-4ee1-b537-695a799c80f5",
-          "3aeb1426-58f0-47bd-825e-8d1578dda18b",
-          "afd797fb-97d2-4482-ae15-753f5f66b828",
-          "73074dac-057b-456d-b0b8-761b149d10dc",
-          "48bbbc5e-34c0-46be-a3bb-2d28c2e7d357",
-          "818db1ea-5ae7-4d50-87cf-a85c62830566",
-          "92e8b340-322e-4411-95d8-7db81767f660"
-        ],
-        "created_datetime": null,
-        "diagnosis_ids": [
-          "7e574325-c82b-5054-bf4a-038f528c4110"
-        ],
-        "sample_ids": [
-          "273490d1-9862-4480-86aa-12522b35fe24",
-          "c7dc33be-768c-42a2-a1ab-2eb5b67be87e",
-          "465d6949-f5a4-4a9d-a082-1f1403876d85"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-CQ-A4CH-01Z",
-          "TCGA-CQ-A4CH-01A",
-          "TCGA-CQ-A4CH-10A"
-        ],
-        "submitter_diagnosis_ids": [
-          "TCGA-CQ-A4CH_diagnosis"
-        ],
-        "primary_site": "Other and unspecified parts of tongue",
-        "updated_datetime": "2019-08-06T14:25:53.026261-05:00",
-        "case_id": "ae90972d-5bc2-4b53-b5ff-1b8c31f39342",
-        "portion_ids": [
-          "3bf8dee3-ac07-4ab2-bb1c-c8b564e6b3e1",
-          "8c802162-a804-437a-9f54-93de7a4c21b3",
-          "5131b158-ca97-4afe-b236-5d6fc41f70fd"
-        ],
-        "state": "released",
-        "submitter_portion_ids": [
-          "TCGA-CQ-A4CH-01A-11",
-          "TCGA-CQ-A4CH-10A-01",
-          "TCGA-CQ-A4CH-01A-21-A45L-20"
-        ]
-      },
-      {
-        "id": "24c1cf70-bd67-431e-a623-d20f8d3f52b2",
-        "slide_ids": [
-          "0fb2f319-414d-4bd4-bd88-e61303208dfb",
-          "847e5a3f-c88a-40a3-926e-563de0a26ca0",
-          "15737384-02ba-47f3-8655-c11ba975edc5",
-          "50044cf9-fee9-4745-8904-8f5240d4d18d"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-CJ-4881-01Z-00-DX1",
-          "TCGA-CJ-4881-01A-01-BS1",
-          "TCGA-CJ-4881-11A-01-TS1",
-          "TCGA-CJ-4881-01A-01-TS1"
-        ],
-        "disease_type": "Adenomas and Adenocarcinomas",
-        "analyte_ids": [
-          "2f46942c-7f9c-4dab-ac3b-fb5abf0ca11c",
-          "986f008d-d05c-4dda-88fc-858bf4f1f379",
-          "e90c3295-7c25-4e34-9b89-eeb6838081e4",
-          "2fe03fe3-1036-40d2-81ea-9933be17e4d9",
-          "020b312a-7b12-49b0-9135-189eb5e1e42a",
-          "21fddcbd-2f48-4733-845e-089a4e9076a7",
-          "4a25c9f2-f1ff-4cb2-ba9a-77e55961c488"
-        ],
-        "submitter_id": "TCGA-CJ-4881",
-        "submitter_analyte_ids": [
-          "TCGA-CJ-4881-11A-01X",
-          "TCGA-CJ-4881-01A-01R",
-          "TCGA-CJ-4881-11A-01D",
-          "TCGA-CJ-4881-01A-01X",
-          "TCGA-CJ-4881-01A-01W",
-          "TCGA-CJ-4881-01A-01D",
-          "TCGA-CJ-4881-11A-01W"
-        ],
-        "submitter_aliquot_ids": [
-          "TCGA-CJ-4881-01A-01D-1303-05",
-          "TCGA-CJ-4881-01A-01R-1305-07",
-          "TCGA-CJ-4881-01A-01X-1371-10",
-          "TCGA-CJ-4881-11A-01X-1371-10",
-          "TCGA-CJ-4881-01A-01R-1762-13",
-          "TCGA-CJ-4881-01A-01D-2098-10",
-          "TCGA-CJ-4881-01A-01W-1369-10",
-          "TCGA-CJ-4881-01A-01R-1304-13",
-          "TCGA-CJ-4881-11A-01D-1302-01",
-          "TCGA-CJ-4881-11A-01D-2098-10",
-          "TCGA-CJ-4881-11A-01D-1303-05",
-          "TCGA-CJ-4881-11A-01W-1369-10",
-          "TCGA-CJ-4881-01A-01D-1373-10",
-          "TCGA-CJ-4881-01A-01D-1301-02",
-          "TCGA-CJ-4881-11A-01D-1301-02",
-          "TCGA-CJ-4881-11A-01D-1373-10",
-          "TCGA-CJ-4881-01A-01D-1302-01"
-        ],
-        "aliquot_ids": [
-          "581cae5b-a55e-4bd4-a9da-48b5480615c0",
-          "00d54c43-aba8-4503-827a-30444e38c704",
-          "290dd57c-0f01-431d-8b72-5f25f1a00ca7",
-          "63f47ca8-5a98-4c54-8d83-9f0f9c9f4559",
-          "ece4609c-ffe3-4330-a92b-c4847b618d77",
-          "30ec4e95-d07b-4a2d-9869-7b9008eb8d8b",
-          "e373d58b-dccf-49e3-ab23-c177883ea2bc",
-          "521d43d9-882f-42dd-ad21-ef5b6df5dae9",
-          "67d59b58-b34c-4616-8661-b58cbb32e726",
-          "9efca5db-e210-468a-a38e-9fcc83d3f113",
-          "26281187-0846-4578-8e8a-ad9886493af7",
-          "495dbab8-1e78-4cb4-b3e4-0ffda17c823a",
-          "ae20e2d0-5d39-4a94-a9ff-dee71503cbfe",
-          "d883e20c-5237-420c-a58b-98ca359f6b2a",
-          "ec4d0eff-cbe4-4dbb-8319-1f4b0b4a5d35",
-          "5d2fada9-5a0f-41b9-b602-9675623191ca",
-          "ffbf81f1-b5a5-4739-9f35-716169650023"
-        ],
-        "created_datetime": null,
-        "diagnosis_ids": [
-          "f9c1962f-13de-5ffe-b201-9d125adc590f"
-        ],
-        "sample_ids": [
-          "f00de7e8-d54d-4f07-85bc-8fa3f1d56b0c",
-          "1f8ce8ea-74b6-4d91-81e7-b689d11c26cd",
-          "534a3864-e8f4-462f-81a5-c0a3895cb68f"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-CJ-4881-01Z",
-          "TCGA-CJ-4881-01A",
-          "TCGA-CJ-4881-11A"
-        ],
-        "submitter_diagnosis_ids": [
-          "TCGA-CJ-4881_diagnosis"
-        ],
-        "primary_site": "Kidney",
-        "updated_datetime": "2019-08-06T14:29:28.932622-05:00",
-        "case_id": "24c1cf70-bd67-431e-a623-d20f8d3f52b2",
-        "portion_ids": [
-          "4f1a0956-ee24-4ba1-b8a3-b23fb8a26601",
-          "1a7f6ad8-97f3-416d-8d1e-1752bb6638f7",
-          "367e98f4-181c-4656-b28e-855fa6f265af"
-        ],
-        "state": "released",
-        "submitter_portion_ids": [
-          "TCGA-CJ-4881-11A-01",
-          "TCGA-CJ-4881-01A-01",
-          "TCGA-CJ-4881-01A-21-1739-20"
-        ]
-      },
-      {
-        "id": "12adefc4-c9fd-46d3-904b-8fc52d5f1913",
-        "slide_ids": [
-          "802aa0c2-d722-46b1-9a66-29333abba34c",
-          "6a956f2d-0040-498f-b0e6-68839fe8f668",
-          "3d0c023e-7023-4e11-931f-61c72105d828",
-          "cbd62e61-cc59-4533-bca2-518ce48c1ab3",
-          "d56c89b6-cda6-45f7-965a-1cf6dc037ad1"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-B0-4696-01A-01-TS1",
-          "TCGA-B0-4696-11A-01-TS1",
-          "TCGA-B0-4696-11A-01-BS1",
-          "TCGA-B0-4696-01A-01-BS1",
-          "TCGA-B0-4696-01Z-00-DX1"
-        ],
-        "disease_type": "Adenomas and Adenocarcinomas",
-        "analyte_ids": [
-          "a5399e3a-54ba-4971-b72a-a7bea9312511",
-          "41488c12-a3cd-4118-bc9d-abf8d28eac27",
-          "3da18be3-3bf7-475f-947e-5b2c22e7c046",
-          "6bb85779-d0a1-47ca-aacc-540c907604f4",
-          "06fd554d-32bb-4c13-aec8-33619b77fea6",
-          "474d8e2f-76b8-4cb3-b166-62266be78c42",
-          "26bf50f5-c51a-4c06-b68a-c23f271d0077"
-        ],
-        "submitter_id": "TCGA-B0-4696",
-        "submitter_analyte_ids": [
-          "TCGA-B0-4696-01A-01W",
-          "TCGA-B0-4696-01A-01X",
-          "TCGA-B0-4696-11A-01D",
-          "TCGA-B0-4696-11A-01W",
-          "TCGA-B0-4696-01A-01R",
-          "TCGA-B0-4696-11A-01X",
-          "TCGA-B0-4696-01A-01D"
-        ],
-        "aliquot_ids": [
-          "3c57f0c5-340c-478f-af17-55c0bda50cce",
-          "1701e9f3-22ba-4fd9-9a88-d310a3c9dc1e",
-          "c9c0689c-da29-476a-84bb-f52ae5698b50",
-          "f04d25de-d349-4ed4-94c7-aaf24528e77b",
-          "f00ce2ee-45c4-4232-8758-d4de6d85ea46",
-          "5ddfdefe-9b9d-438b-b55b-2953a2541378",
-          "504da228-bbe6-490f-9f59-94f6f00adb31",
-          "e9aedb52-652a-48b2-a9ef-e3a1010e5874",
-          "e3847aa2-047f-46ba-bb5c-e18d725defc2",
-          "92590459-3a3e-4160-9c57-30e078258103",
-          "57dac8d5-58bf-4beb-ad24-d34437d1b3e7",
-          "9e5b6046-1d2c-44af-8430-421ec0036bb6",
-          "a744ca75-7994-453c-a283-3db5778844f9",
-          "3128f70f-0a05-41dc-8657-2312f8af4104",
-          "70544bed-6e2a-45f0-9b7c-e4f44705935f",
-          "65197a42-c28f-47ee-909f-64555fb8478e"
-        ],
-        "submitter_aliquot_ids": [
-          "TCGA-B0-4696-01A-01R-1277-07",
-          "TCGA-B0-4696-01A-01D-1275-05",
-          "TCGA-B0-4696-11A-01D-1275-05",
-          "TCGA-B0-4696-11A-01D-1274-01",
-          "TCGA-B0-4696-01A-01D-2096-10",
-          "TCGA-B0-4696-11A-01D-1273-02",
-          "TCGA-B0-4696-01A-01X-1360-10",
-          "TCGA-B0-4696-01A-01D-1361-10",
-          "TCGA-B0-4696-01A-01D-1274-01",
-          "TCGA-B0-4696-11A-01X-1360-10",
-          "TCGA-B0-4696-11A-01W-1359-10",
-          "TCGA-B0-4696-01A-01W-1359-10",
-          "TCGA-B0-4696-01A-01D-1273-02",
-          "TCGA-B0-4696-11A-01D-1361-10",
-          "TCGA-B0-4696-11A-01D-2096-10",
-          "TCGA-B0-4696-01A-01R-1276-13"
-        ],
-        "created_datetime": null,
-        "diagnosis_ids": [
-          "34b6cdff-d3b0-55e6-9e92-4ff8e9f7803f"
-        ],
-        "sample_ids": [
-          "1ee83ac8-c90b-4364-9e4f-2ed76978ccda",
-          "1784f393-cf44-4bba-a0fd-98d0f6c50b83",
-          "9e30a07a-f227-4b6a-9c80-619abed6f7bd"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-B0-4696-01A",
-          "TCGA-B0-4696-11A",
-          "TCGA-B0-4696-01Z"
-        ],
-        "submitter_diagnosis_ids": [
-          "TCGA-B0-4696_diagnosis"
-        ],
-        "primary_site": "Kidney",
-        "updated_datetime": "2019-08-06T14:28:04.080572-05:00",
-        "case_id": "12adefc4-c9fd-46d3-904b-8fc52d5f1913",
-        "portion_ids": [
-          "1f4528b1-44c0-459d-a71e-b3c11575b6f4",
-          "e8148187-d209-4ee6-a261-c2860402f02f",
-          "2f3b0ffd-223c-4573-86e4-afdef6116698"
-        ],
-        "state": "released",
-        "submitter_portion_ids": [
-          "TCGA-B0-4696-01A-02-1738-20",
-          "TCGA-B0-4696-01A-01",
-          "TCGA-B0-4696-11A-01"
-        ]
-      },
-      {
-        "id": "c0edde5e-d229-4061-8820-14afc712c5b6",
-        "slide_ids": [
-          "b57e7804-588d-4e71-909b-257fa877e2ad",
-          "fc91a512-85a5-4479-ab07-9b8bd96fdf91"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-HD-A633-01A-01-TS1",
-          "TCGA-HD-A633-01Z-00-DX1"
-        ],
-        "disease_type": "Squamous Cell Neoplasms",
-        "analyte_ids": [
-          "c8cd9c1f-6688-4c3a-9414-ebede9a06622",
-          "cac22161-1b5d-4436-8ba3-12fba6aae76f",
-          "6b410bfe-a420-4268-a2a3-f3aac24e8761",
-          "22a7918c-6a39-444e-b995-2ba9e60eae90",
-          "a07ff300-0c9c-4b70-88a8-b4ac22936e0d"
-        ],
-        "submitter_id": "TCGA-HD-A633",
-        "submitter_analyte_ids": [
-          "TCGA-HD-A633-10A-01D",
-          "TCGA-HD-A633-10A-01W",
-          "TCGA-HD-A633-01A-11W",
-          "TCGA-HD-A633-01A-11R",
-          "TCGA-HD-A633-01A-11D"
-        ],
-        "submitter_aliquot_ids": [
-          "TCGA-HD-A633-01A-11W-A316-08",
-          "TCGA-HD-A633-01A-11D-A28R-08",
-          "TCGA-HD-A633-10A-01D-A28U-08",
-          "TCGA-HD-A633-01A-11R-A28V-07",
-          "TCGA-HD-A633-01A-11D-A28Q-01",
-          "TCGA-HD-A633-01A-11R-A28Z-13",
-          "TCGA-HD-A633-10A-01D-A28T-01",
-          "TCGA-HD-A633-10A-01W-A317-08",
-          "TCGA-HD-A633-01A-11D-A28S-05"
-        ],
-        "aliquot_ids": [
-          "19657bce-8994-4dc6-8923-6d3959874dec",
-          "10a6dce3-7446-4dc5-8df0-b36558aa8449",
-          "0eb29e0f-dff7-47fe-a184-f4d3247298dc",
-          "b492257f-17a5-48de-aee3-a21a9bedf5ee",
-          "db856f4b-d854-4bab-b92e-755dfdb8acea",
-          "d67c2939-353f-4299-88ea-e3d640fc4ac8",
-          "31641d8f-733a-469b-ae84-907430e8bf0a",
-          "36aead4f-8d43-426b-ad2c-7dcb249f579e",
-          "895828e4-db59-4f6a-9df3-c423ec3ec6b7"
-        ],
-        "created_datetime": null,
-        "diagnosis_ids": [
-          "3c27a0ae-0496-5d58-b9c6-1b6362b5da05"
-        ],
-        "sample_ids": [
-          "ec6326e4-1a3e-4afd-ae55-6a9fdb872d93",
-          "6ad70a8a-2d7e-406a-a419-b805b72eba56",
-          "1b65e4f9-45cb-47ed-bbae-e3f189b1c8f8"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-HD-A633-10A",
-          "TCGA-HD-A633-01A",
-          "TCGA-HD-A633-01Z"
-        ],
-        "submitter_diagnosis_ids": [
-          "TCGA-HD-A633_diagnosis"
-        ],
-        "primary_site": "Other and unspecified parts of mouth",
-        "updated_datetime": "2019-08-06T14:26:51.527876-05:00",
-        "case_id": "c0edde5e-d229-4061-8820-14afc712c5b6",
-        "portion_ids": [
-          "dd7bf6a5-9e94-470a-8fb4-9f2a2a56c173",
-          "d4475b19-78d8-4b71-ac0e-86a4230aa0cd",
-          "9c1c0a78-2d57-4157-bff1-00d5bb818c26"
-        ],
-        "state": "released",
-        "submitter_portion_ids": [
-          "TCGA-HD-A633-01A-11",
-          "TCGA-HD-A633-10A-01",
-          "TCGA-HD-A633-01A-21-A45M-20"
-        ]
-      },
-      {
-        "id": "ae2051a3-f851-4cb3-af18-029f4574b179",
-        "slide_ids": [
-          "90f06679-0397-4688-8c75-b1855efa4bd1",
-          "f8c610bf-7789-4b57-8a74-cf29106be142",
-          "30e6a59b-fdc9-4976-9040-e1a851232b1b",
-          "e6b71383-bd0f-4f2f-9483-f0048522c234"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-CV-7245-01A-01-TS1",
-          "TCGA-CV-7245-01A-01-BS1",
-          "TCGA-CV-7245-01Z-00-DX1",
-          "TCGA-CV-7245-11A-01-TS1"
-        ],
-        "disease_type": "Squamous Cell Neoplasms",
-        "analyte_ids": [
-          "4215b417-de72-49da-87f5-efee18f6166f",
-          "2acff637-98f6-454d-8217-70d42e5612c1",
-          "a55e555d-4858-4153-9047-4ce50794efe8",
-          "b30b89ec-e0f2-49b8-b47d-489730000460",
-          "b8c80ab1-d3f7-43da-8968-6c846f03724d",
-          "17ae48ec-047f-4cca-8182-a2635ce772be",
-          "f8115c36-56c0-4e68-bc96-a26331972298",
-          "d4c8a05a-a194-48fb-8c5d-2f9391613dcb"
-        ],
-        "submitter_id": "TCGA-CV-7245",
-        "submitter_analyte_ids": [
-          "TCGA-CV-7245-11A-01R",
-          "TCGA-CV-7245-01A-11R",
-          "TCGA-CV-7245-01A-11D",
-          "TCGA-CV-7245-10A-01D",
-          "TCGA-CV-7245-11A-01D",
-          "TCGA-CV-7245-11A-01W",
-          "TCGA-CV-7245-01A-11W",
-          "TCGA-CV-7245-10A-01W"
-        ],
-        "submitter_aliquot_ids": [
-          "TCGA-CV-7245-01A-11R-2015-13",
-          "TCGA-CV-7245-11A-01R-2015-13",
-          "TCGA-CV-7245-10A-01W-2033-08",
-          "TCGA-CV-7245-11A-01D-2010-01",
-          "TCGA-CV-7245-11A-01R-2016-07",
-          "TCGA-CV-7245-01A-11D-2014-05",
-          "TCGA-CV-7245-10A-01D-2011-01",
-          "TCGA-CV-7245-11A-01D-2014-05",
-          "TCGA-CV-7245-01A-11R-2016-07",
-          "TCGA-CV-7245-11A-01D-2012-08",
-          "TCGA-CV-7245-10A-01D-2013-08",
-          "TCGA-CV-7245-01A-11D-2012-08",
-          "TCGA-CV-7245-11A-01W-2033-08",
-          "TCGA-CV-7245-01A-11W-2032-08",
-          "TCGA-CV-7245-01A-11D-2010-01"
-        ],
-        "aliquot_ids": [
-          "c1a21df1-8265-4040-843a-2785b98b3463",
-          "95b2722d-f9c7-4d7f-8a70-7603080ecac5",
-          "265cfe54-10da-45c9-b0d1-2d5c65308be1",
-          "d73e8c20-b392-475e-936b-10d6bb173e6c",
-          "ce0c0c2e-902a-4ecb-b753-e696750ca407",
-          "0ead3f08-6ce9-4eea-8ac2-c8021f427f2b",
-          "0f19fa35-7bf4-4cec-b463-8b1e01dfefa0",
-          "56291b3c-595c-4388-a264-9037a48401d8",
-          "f84f8f63-06bf-40c7-8ba8-439aaf360c89",
-          "bdc58b10-1756-45bf-a34f-fa4095429476",
-          "081cec95-360f-4127-9fbc-e6bfd212c23f",
-          "61897747-36dc-4aad-b17a-fe935c605ca3",
-          "f28ead58-aa1c-490b-8b4c-e7dc2d76a563",
-          "b87cdd87-3663-4e8a-99f2-7d475f939cb6",
-          "fe4ca5c3-0767-4264-be28-2bb9891c0c02"
-        ],
-        "created_datetime": null,
-        "diagnosis_ids": [
-          "cceca036-354c-59e4-ad7a-886865aada46"
-        ],
-        "sample_ids": [
-          "aaa6607c-e333-4f99-b1dc-390c3cad4f1b",
-          "c8ac9749-82ff-4348-8d91-5ce677697a15",
-          "f0684e03-2d91-4e9b-9d11-a3063ccc2f34",
-          "d455327a-a947-4a67-8fb5-44438abe5976"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-CV-7245-10A",
-          "TCGA-CV-7245-01A",
-          "TCGA-CV-7245-01Z",
-          "TCGA-CV-7245-11A"
-        ],
-        "submitter_diagnosis_ids": [
-          "TCGA-CV-7245_diagnosis"
-        ],
-        "primary_site": "Larynx",
-        "updated_datetime": "2019-08-06T14:26:16.536997-05:00",
-        "case_id": "ae2051a3-f851-4cb3-af18-029f4574b179",
-        "portion_ids": [
-          "9d94c9a4-9d71-4843-86f7-be076d939415",
-          "90abd8dd-a40a-4433-9ae1-856021300eb4",
-          "3cfc5361-e915-4237-bc4d-a2b06f48cc3e",
-          "8bb93715-41cd-436a-8ee5-a35ea050b6c0"
-        ],
-        "state": "released",
-        "submitter_portion_ids": [
-          "TCGA-CV-7245-01A-13-2074-20",
-          "TCGA-CV-7245-11A-01",
-          "TCGA-CV-7245-10A-01",
-          "TCGA-CV-7245-01A-11"
-        ]
-      },
-      {
-        "id": "57959b73-534d-450c-b09d-f70ef1ffee25",
-        "slide_ids": [
-          "f7e2faec-0fd2-41f2-82dc-8a888a1c01a5",
-          "c9a0789f-cb9b-48f5-a8ce-489071fd618c",
-          "bb49cb73-66de-4c20-a6ef-8483da3fc0e2",
-          "f09ecda2-cab1-4f2b-a616-26f9ce4fd479",
-          "09b3f4a8-1366-41a0-b2ea-2dc010f431f8"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-BP-4346-01A-01-TS1",
-          "TCGA-BP-4346-11A-01-BS1",
-          "TCGA-BP-4346-01A-01-BS1",
-          "TCGA-BP-4346-01Z-00-DX1",
-          "TCGA-BP-4346-11A-01-TS1"
-        ],
-        "disease_type": "Adenomas and Adenocarcinomas",
-        "analyte_ids": [
-          "ce37810b-cf9e-4c0c-962f-432047dae3e7",
-          "ac583369-7b4e-4b96-ae8e-ae5769c075a5",
-          "5d9e9e98-e84d-4e33-8c73-b2ea951bbdbd",
-          "4cf5f5d3-436d-4f40-9beb-c3d2299c008b",
-          "a2debb38-75ec-456c-944a-d90aaa9fa032",
-          "f75a4f5c-5d8b-423e-b2b8-718b818a025b",
-          "8ab159b0-57f8-44b5-916e-3d0d709ffc38"
-        ],
-        "submitter_id": "TCGA-BP-4346",
-        "submitter_analyte_ids": [
-          "TCGA-BP-4346-01A-01W",
-          "TCGA-BP-4346-01A-01D",
-          "TCGA-BP-4346-11A-01D",
-          "TCGA-BP-4346-11A-01X",
-          "TCGA-BP-4346-01A-01X",
-          "TCGA-BP-4346-01A-01R",
-          "TCGA-BP-4346-11A-01W"
-        ],
-        "submitter_aliquot_ids": [
-          "TCGA-BP-4346-11A-01X-1364-10",
-          "TCGA-BP-4346-11A-01D-1283-01",
-          "TCGA-BP-4346-01A-01D-1283-01",
-          "TCGA-BP-4346-01A-01D-1282-02",
-          "TCGA-BP-4346-01A-01D-1284-05",
-          "TCGA-BP-4346-01A-01X-1364-10",
-          "TCGA-BP-4346-11A-01D-1366-10",
-          "TCGA-BP-4346-01A-01D-1366-10",
-          "TCGA-BP-4346-01A-01W-1362-10",
-          "TCGA-BP-4346-11A-01D-1284-05",
-          "TCGA-BP-4346-11A-01D-2097-10",
-          "TCGA-BP-4346-01A-01R-1289-07",
-          "TCGA-BP-4346-01A-01R-1288-13",
-          "TCGA-BP-4346-01A-01D-2097-10",
-          "TCGA-BP-4346-11A-01D-1282-02",
-          "TCGA-BP-4346-11A-01W-1362-10"
-        ],
-        "aliquot_ids": [
-          "81ad330a-2e60-4a6e-b301-6564875f41c4",
-          "b3ceb69a-6e16-41cf-9aa1-539b48aacca2",
-          "956d13ed-7b60-4e15-a6d2-adfc3ecff4f8",
-          "f1b05fbc-cda4-4015-a496-6d30c592fa3d",
-          "e680ec7b-d88c-4da8-b339-da043fda3dc6",
-          "a8b5426b-ff3a-435f-bffc-90bb4a06d77d",
-          "20735253-1ba8-41c9-b4ab-682c1af79b9d",
-          "391da188-dd73-40a8-afae-2f523354b95a",
-          "60bdedba-bdea-4734-b7ff-a171f274e7d4",
-          "109292f2-4bc0-4eff-8e5f-c829f51b835b",
-          "753e5d3b-0334-4202-8af4-45bc9aad100e",
-          "f58cda65-eaf7-4f4b-af5a-5c05618814d3",
-          "d758addf-a866-45b6-819a-159f814206cb",
-          "4f350288-6283-4f87-b1b4-6afae2edfa85",
-          "69e027cf-071a-4b3e-97de-c450555f38c1",
-          "0ca5fa21-f692-40cc-b501-cb3b670530b8"
-        ],
-        "created_datetime": null,
-        "diagnosis_ids": [
-          "c1d7ae9c-c61e-5509-aa35-7555f1d35493"
-        ],
-        "sample_ids": [
-          "a6180591-a96d-4d38-9937-5963fac6b3df",
-          "18c6c530-51e7-4e43-a1b9-f152d17c7c47",
-          "5306e996-869d-4cee-a990-dea934af0cb8"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-BP-4346-01Z",
-          "TCGA-BP-4346-11A",
-          "TCGA-BP-4346-01A"
-        ],
-        "submitter_diagnosis_ids": [
-          "TCGA-BP-4346_diagnosis"
-        ],
-        "primary_site": "Kidney",
-        "updated_datetime": "2019-08-06T14:28:51.268056-05:00",
-        "case_id": "57959b73-534d-450c-b09d-f70ef1ffee25",
-        "portion_ids": [
-          "8092a672-1506-4e71-a75d-ee15c8f4cbc4",
-          "386408e6-2197-4edc-a459-21bb444fbc7f",
-          "28206fd9-253b-4f2b-94f1-1e558edd32ed"
-        ],
-        "state": "released",
-        "submitter_portion_ids": [
-          "TCGA-BP-4346-01A-03-1737-20",
-          "TCGA-BP-4346-11A-01",
-          "TCGA-BP-4346-01A-01"
-        ]
-      },
-      {
-        "id": "714496c5-d221-4397-9c5a-cd2d22603e6f",
-        "slide_ids": [
-          "db5c34b9-d2c2-4bc7-a4e4-eb47eb806a1b",
-          "80e8f54c-2976-4dcb-a9c3-0954e841aec3",
-          "9c045280-8ea3-4ca5-a20b-4483dacc4c5c"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-CN-6013-01A-01-TS1",
-          "TCGA-CN-6013-01Z-00-DX1",
-          "TCGA-CN-6013-01A-01-BS1"
-        ],
-        "disease_type": "Squamous Cell Neoplasms",
-        "analyte_ids": [
-          "8a90c5f9-c866-4109-8058-b7da2ae79d4a",
-          "3eeca312-02c3-4e20-898d-04e3b8aa0aad",
-          "1b1ac5e8-63e9-4f9f-9231-00e0f91ae576",
-          "016a6a0b-6d11-4074-a8b4-98c74599a586",
-          "17b12617-8570-4d5f-85d6-39dc5a47dca6"
-        ],
-        "submitter_id": "TCGA-CN-6013",
-        "submitter_analyte_ids": [
-          "TCGA-CN-6013-01A-11R",
-          "TCGA-CN-6013-01A-11W",
-          "TCGA-CN-6013-10A-01W",
-          "TCGA-CN-6013-10A-01D",
-          "TCGA-CN-6013-01A-11D"
-        ],
-        "submitter_aliquot_ids": [
-          "TCGA-CN-6013-10A-01D-1683-08",
-          "TCGA-CN-6013-01A-11W-1767-08",
-          "TCGA-CN-6013-01A-11D-1681-02",
-          "TCGA-CN-6013-01A-11D-1683-08",
-          "TCGA-CN-6013-01A-11D-1684-05",
-          "TCGA-CN-6013-10A-01D-1681-02",
-          "TCGA-CN-6013-01A-11R-1685-13",
-          "TCGA-CN-6013-10A-01D-1682-01",
-          "TCGA-CN-6013-01A-11R-1686-07",
-          "TCGA-CN-6013-01A-11D-1682-01",
-          "TCGA-CN-6013-10A-01W-1767-08"
-        ],
-        "aliquot_ids": [
-          "e4a0cd96-81aa-41c8-b32c-1b6c57a08679",
-          "992de9b5-c394-48e7-b4e3-4c4aeacb4a23",
-          "0f8d7f78-2640-444d-a068-a348f50cde8f",
-          "2de7dbc6-2a3e-4e67-bb96-552e27137618",
-          "e996c35e-3614-4258-b99e-0eb444398931",
-          "78c2da9e-3837-4098-b662-3c10d8b5d14e",
-          "157aba21-4c81-45b9-914c-925813c537f6",
-          "762ca7da-6d6e-4709-b1aa-13621d962d35",
-          "1906f4b3-d226-4570-bbce-f2cbbb1d5ec2",
-          "9496355f-6aa6-4f6a-ac06-b17966b4208c",
-          "ffff755e-285f-466c-85c6-b372f4a7ae14"
-        ],
-        "created_datetime": null,
-        "diagnosis_ids": [
-          "7747a88f-1a9b-5833-9442-af0b1350bb4f"
-        ],
-        "sample_ids": [
-          "c0c84016-117e-498c-9ed9-52e279e89e33",
-          "d018cd44-6b01-44f2-9181-81153225aab8",
-          "8b510bc8-7b3c-4861-9a40-c2c30b7099e0"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-CN-6013-10A",
-          "TCGA-CN-6013-01A",
-          "TCGA-CN-6013-01Z"
-        ],
-        "submitter_diagnosis_ids": [
-          "TCGA-CN-6013_diagnosis"
-        ],
-        "primary_site": "Gum",
-        "updated_datetime": "2019-08-06T14:25:25.511101-05:00",
-        "case_id": "714496c5-d221-4397-9c5a-cd2d22603e6f",
-        "portion_ids": [
-          "4add0374-495b-4d4c-b96b-8494600fea26",
-          "436822b9-08d5-493e-b213-b9b5dfc161e9",
-          "acdd7eae-c26c-46c9-9dca-036ed3317718"
-        ],
-        "state": "released",
-        "submitter_portion_ids": [
-          "TCGA-CN-6013-10A-01",
-          "TCGA-CN-6013-01A-11",
-          "TCGA-CN-6013-01A-13-2072-20"
-        ]
-      },
-      {
-        "id": "74f89bda-bc2a-4cd3-9aa3-f89aa7282dd5",
+        "id": "03974dc9-0162-4de8-9897-09f88693681a",
         "lost_to_followup": null,
         "days_to_lost_to_followup": null,
-        "disease_type": "Myeloid Leukemias",
-        "submitter_id": "TARGET-20-PAUXKI",
-        "submitter_aliquot_ids": [
-          "TARGET-20-PAUXKI-09A-01R"
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "9747b614-624b-410a-8b94-854a16cd143a",
+          "c8974764-4836-4a34-aeb8-52b491f78d0e",
+          "bcea1ed5-b9cb-4a92-ad80-598d8a223fb3"
         ],
+        "submitter_id": "HCM-BROD-0334-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0334-C43-10A-01D",
+          "HCM-BROD-0334-C43-85M-01D",
+          "HCM-BROD-0334-C43-85M-01R"
+        ],
+        "days_to_consent": null,
         "aliquot_ids": [
-          "192d5f48-ba11-44cf-91d5-5eec5daea281"
+          "dcd74e48-12f3-4a86-a829-c7e055c215b7",
+          "ea182abf-041d-474a-bc53-f6fdd05cd999",
+          "33f3ba0a-c902-4288-9fa7-5696d959e51d"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0334-C43-85M-01R-A79O-41",
+          "HCM-BROD-0334-C43-10A-01D-A79L-36",
+          "HCM-BROD-0334-C43-85M-01D-A79L-36"
+        ],
+        "created_datetime": "2020-05-21T08:55:40.814734-05:00",
+        "diagnosis_ids": [
+          "3d666f1b-58c2-451f-8ebf-87b5caa02aaf",
+          "fedc3533-85f7-4fc6-b996-a1f596e021df"
         ],
         "sample_ids": [
-          "22b9ad16-7791-4c41-a1c5-0392b4d4721c"
+          "cd88baf4-b6eb-4df5-9b42-d55f3aad739c",
+          "eb79f8b4-1cc3-4a32-ad51-cfea8cf150f0"
         ],
-        "created_datetime": "2019-02-25T10:13:06.478422-06:00",
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0334-C43-10A",
+          "HCM-BROD-0334-C43-85M"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0334-C43_diagnosis2",
+          "HCM-BROD-0334-C43_diagnosis"
+        ],
+        "updated_datetime": "2021-03-03T15:15:08.075155-06:00",
+        "case_id": "03974dc9-0162-4de8-9897-09f88693681a",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "bd0bc175-5b54-47c1-96fc-c6d8afc0c115"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0334-C43-10A-01"
+        ]
+      },
+      {
+        "id": "03bfeb7c-cecf-4691-8263-33cdfe391ea9",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Adenomas and Adenocarcinomas",
+        "analyte_ids": [
+          "db8132c3-47a8-49ec-9b78-bc7d18debf67",
+          "f74bf217-dae2-4554-92e4-8707068ea7a7",
+          "01764f17-2a97-442e-a08b-8a21303b4770",
+          "c9884c81-3c8f-4ad9-a962-42c7459a2276",
+          "d4f1a9f8-f748-4f45-aa06-da4d760c4fab"
+        ],
+        "submitter_id": "HCM-BROD-0124-C25",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0124-C25-85A-01D",
+          "HCM-BROD-0124-C25-01A-01D",
+          "HCM-BROD-0124-C25-10A-01D",
+          "HCM-BROD-0124-C25-85A-01R",
+          "HCM-BROD-0124-C25-01A-01R"
+        ],
+        "aliquot_ids": [
+          "fe8e2565-749a-470a-b843-7afbe95ded81",
+          "092656af-b279-46b8-9ccf-b1eabfbd1d6f",
+          "677edb2c-fac3-4878-a28d-cf4e0d7873d7",
+          "8bb9fff4-24f8-426e-9f2a-4cb30a4ac5c2",
+          "f1c6f71d-b125-47bb-91ad-90d7cbff0012"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0124-C25-01A-01D-A78W-36",
+          "HCM-BROD-0124-C25-85A-01D-A786-36",
+          "HCM-BROD-0124-C25-01A-01R-A78X-41",
+          "HCM-BROD-0124-C25-10A-01D-A78W-36",
+          "HCM-BROD-0124-C25-85A-01R-A787-41"
+        ],
+        "created_datetime": "2019-04-16T11:21:56.471158-05:00",
         "diagnosis_ids": [
-          "2f7f2b8c-35fa-412f-894a-6c4b09cf8077"
+          "00184ed8-780a-4acf-b5f1-b1fcd6b08dcf"
+        ],
+        "sample_ids": [
+          "e6bc6b9d-553f-4c78-bc11-ebcf7b0d4f27",
+          "539593d1-bd9b-4379-8c86-16cdf607cd4e",
+          "b0c0b5b0-cf6d-4281-8f4d-43dc77e88bc6"
         ],
         "submitter_sample_ids": [
-          "TARGET-20-PAUXKI-09A"
+          "HCM-BROD-0124-C25-85A",
+          "HCM-BROD-0124-C25-01A",
+          "HCM-BROD-0124-C25-10A"
         ],
-        "primary_site": "Hematopoietic and reticuloendothelial systems",
+        "primary_site": "Pancreas",
         "submitter_diagnosis_ids": [
-          "TARGET-20-PAUXKI_diagnosis"
+          "HCM-BROD-0124-C25_diagnosis"
         ],
-        "updated_datetime": "2019-10-24T08:22:10.208559-05:00",
-        "case_id": "74f89bda-bc2a-4cd3-9aa3-f89aa7282dd5",
-        "index_date": null,
-        "state": "released"
+        "updated_datetime": "2021-07-12T12:25:55.528644-05:00",
+        "case_id": "03bfeb7c-cecf-4691-8263-33cdfe391ea9",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "303512c0-382b-4442-a5a7-2699ca8b1384",
+          "f07a4dae-2878-452e-9836-6f39c594d38d"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0124-C25-10A-01",
+          "HCM-BROD-0124-C25-01A-01"
+        ]
+      },
+      {
+        "id": "05f41641-ee22-4d41-bb87-2bfa47cd983f",
+        "lost_to_followup": null,
+        "slide_ids": [
+          "775be57f-6df8-40c3-9c4e-c06dd900a237",
+          "7bd1dea3-7819-43e5-a9e4-5fe0a189cc87"
+        ],
+        "submitter_slide_ids": [
+          "HCM-BROD-0095-C15-06A-01-S2-HE",
+          "HCM-BROD-0095-C15-06A-01-S1-HE"
+        ],
+        "days_to_lost_to_followup": null,
+        "disease_type": "Adenomas and Adenocarcinomas",
+        "analyte_ids": [
+          "3cd4c8b4-8c23-4c20-bffb-97e0f5e5ac0a",
+          "76ed5a0c-8129-4a73-bbd2-08d9b36bee62",
+          "d2acb3a5-7b51-4d86-8c2f-18b3f886a001",
+          "e6f06e9e-bf13-44fb-990c-d64b1096cd7c",
+          "331fc610-2b43-4b0a-a9b2-3a8a665cb000"
+        ],
+        "submitter_id": "HCM-BROD-0095-C15",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0095-C15-06A-11R",
+          "HCM-BROD-0095-C15-85A-01R",
+          "HCM-BROD-0095-C15-85A-01D",
+          "HCM-BROD-0095-C15-10B-01D",
+          "HCM-BROD-0095-C15-06A-11D"
+        ],
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "24b11e4f-5e04-4d28-875e-a242515f6d07",
+          "4af130bc-16ef-42c0-9f01-04dc601f4165",
+          "9bd07008-27df-4e7e-be83-2d0fbeb2db94",
+          "11efd698-fb14-4a52-aaec-0084afc5bbe0",
+          "3f7b05f1-a8cd-48f2-89f1-4a1e4eab92c5"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0095-C15-06A-11R-A79D-41",
+          "HCM-BROD-0095-C15-85A-01R-A79D-41",
+          "HCM-BROD-0095-C15-10B-01D-A79C-36",
+          "HCM-BROD-0095-C15-06A-11D-A79C-36",
+          "HCM-BROD-0095-C15-85A-01D-A79C-36"
+        ],
+        "created_datetime": "2019-04-04T14:07:27.780827-05:00",
+        "diagnosis_ids": [
+          "cd0da3ad-189b-4be0-a8c6-55e0294e7c73"
+        ],
+        "sample_ids": [
+          "5fcb1b3c-6711-4caa-9c6c-31ed2c0fc238",
+          "71568fd7-b545-4979-a907-ef8bf41e76db",
+          "d9db85d9-5ea2-41cd-96d2-d50462b5d4b6"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0095-C15-85A",
+          "HCM-BROD-0095-C15-06A",
+          "HCM-BROD-0095-C15-10B"
+        ],
+        "primary_site": "Esophagus",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0095-C15_diagnosis"
+        ],
+        "updated_datetime": "2021-01-06T22:55:10.531130-06:00",
+        "case_id": "05f41641-ee22-4d41-bb87-2bfa47cd983f",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "0ef29dec-13e5-4faf-997c-a9c9502a353b",
+          "c7660224-cef0-4d7d-b532-a4e9d4a7fb7c"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0095-C15-06A-11",
+          "HCM-BROD-0095-C15-10B-01"
+        ]
+      },
+      {
+        "id": "07a067d0-7dfc-4817-b4c5-9200da20a59f",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Adenomas and Adenocarcinomas",
+        "analyte_ids": [
+          "3a6a1f63-f9d3-44f0-8659-3b3cd19a42a0",
+          "6671382a-20f0-41d7-a35d-c09c7275d08a",
+          "d5034c0e-2790-4fb5-82b0-e36c0626b57c"
+        ],
+        "submitter_id": "HCM-SANG-0268-C18",
+        "submitter_analyte_ids": [
+          "HCM-SANG-0268-C18-85A-01D",
+          "HCM-SANG-0268-C18-85A-01R",
+          "HCM-SANG-0268-C18-10A-01D"
+        ],
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "e60dec0b-a2db-4b66-9e77-e8f0b8856a53",
+          "2a558468-cca8-4fe9-a745-8c76436ce6cb",
+          "ae8d0e5c-340b-488e-ba9e-d0912869ee8d",
+          "745432c8-ea7f-48e0-bd53-28ead61a7ec0",
+          "e2d32e2a-3161-40ab-88ef-0a4dfd3a72b4",
+          "c2328729-0a45-4740-a9cb-3b8ff31807b3",
+          "6b3085c9-63b8-4b82-8413-f775dbc6d993"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-SANG-0268-C18-85A-01D-A80T-32-aliquot",
+          "HCM-SANG-0268-C18-85A-01R-A80W-32-aliquot",
+          "HCM-SANG-0268-C18-10A-01D-A79M-36",
+          "HCM-SANG-0268-C18-10A-01D-A80T-32-aliquot",
+          "HCM-SANG-0268-C18-85A-01R-A79O-41",
+          "HCM-SANG-0268-C18-01A-01D-A80T-32-aliquot",
+          "HCM-SANG-0268-C18-85A-01D-A79M-36"
+        ],
+        "created_datetime": "2020-05-29T12:07:57.849637-05:00",
+        "diagnosis_ids": [
+          "78f3dc9e-9b51-42b2-b809-405e438f7f68"
+        ],
+        "sample_ids": [
+          "20b5f03e-26b9-4902-9bdd-667168727e6d",
+          "17766175-a251-454b-9263-76af20b77290",
+          "6a530ae1-79fa-4536-bbf5-86b14a80563e",
+          "9eb44d2a-80c0-43d2-822a-0598a7d8e68c",
+          "a3817d45-dbaa-4295-8d17-712c0c2438e4",
+          "475ac2f5-327f-4d94-bebf-e03058911b59"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-SANG-0268-C18-10A-01D-A80T-32",
+          "HCM-SANG-0268-C18-85A-01D-A80T-32",
+          "HCM-SANG-0268-C18-01A-01D-A80T-32",
+          "HCM-SANG-0268-C18-10A",
+          "HCM-SANG-0268-C18-85A-01R-A80W-32",
+          "HCM-SANG-0268-C18-85A"
+        ],
+        "primary_site": "Colon",
+        "submitter_diagnosis_ids": [
+          "HCM-SANG-0268-C18_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "07a067d0-7dfc-4817-b4c5-9200da20a59f",
+        "index_date": "Sample Procurement",
+        "state": "released",
+        "portion_ids": [
+          "4d2aeabd-3a5a-42fc-8bcd-301829a32883"
+        ],
+        "submitter_portion_ids": [
+          "HCM-SANG-0268-C18-10A-01"
+        ]
+      },
+      {
+        "id": "0a6a14db-ca5c-4bf9-9125-611d672bc67b",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Adenomas and Adenocarcinomas",
+        "analyte_ids": [
+          "4c154bcd-3cd5-4e3a-bb90-948cf4c92965",
+          "e8c8e41f-0a24-4d16-bcdd-3d7422150c4d",
+          "7ce86045-0051-465e-8744-f6299a007bce",
+          "f32ed211-100b-47ca-b0b0-774a15d58e60",
+          "a70c036b-ea29-46d5-ba7f-8152947146f8",
+          "117f4f00-2978-4a67-8a18-3acbd77fe930"
+        ],
+        "submitter_id": "HCM-SANG-0271-D12",
+        "submitter_analyte_ids": [
+          "HCM-SANG-0271-D12-86A-01R",
+          "HCM-SANG-0271-D12-86A-01D",
+          "HCM-SANG-0271-D12-85A-01R",
+          "HCM-SANG-0271-D12-31B-01D",
+          "HCM-SANG-0271-D12-10A-01D",
+          "HCM-SANG-0271-D12-85B-01D"
+        ],
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "d59f00c0-696c-4444-8e7f-c0140dbcd8e3",
+          "d1848dd2-dccb-43c6-bd29-bb7f331089ef",
+          "f7125c62-3864-412e-9afa-dc4970e43d05",
+          "3bfc0b7c-58c7-47c9-9664-5c2d087f4485",
+          "3109b83d-36ed-4850-9847-9710f3921413",
+          "8dda870c-374e-49ae-8f0b-44b50ef567cd",
+          "80d9347a-3684-4348-b1de-14bdca1471fd",
+          "0bc14c0a-9fb9-480d-bfb5-3b7d89c83efd",
+          "fe6747dd-12a0-4bb4-b2f3-9dd6f047df02",
+          "98284402-4f76-4aa8-893c-95c72b5fb395"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-SANG-0271-D12-85A-01R-A80W-32-aliquot",
+          "HCM-SANG-0271-D12-31B-01D-A80U-36",
+          "HCM-SANG-0271-D12-86A-01D-A85C-36",
+          "HCM-SANG-0271-D12-85A-01D-A80T-32-aliquot",
+          "HCM-SANG-0271-D12-01A-01D-A80T-32-aliquot",
+          "HCM-SANG-0271-D12-85B-01D-A80U-36",
+          "HCM-SANG-0271-D12-10A-01D-A80U-36",
+          "HCM-SANG-0271-D12-10A-01D-A80T-32-aliquot",
+          "HCM-SANG-0271-D12-85A-01R-A80V-41",
+          "HCM-SANG-0271-D12-86A-01R-A85D-41"
+        ],
+        "created_datetime": "2020-07-08T11:54:16.081928-05:00",
+        "diagnosis_ids": [
+          "17a41ef7-aafc-4b70-8d8f-484dc5cd27bd"
+        ],
+        "sample_ids": [
+          "ae2b48ea-7255-4d3d-ba00-1def687c3606",
+          "b16a3a6b-b0b1-4749-afbc-aea8f4eb3a5d",
+          "dc021e65-03cd-4210-a9b7-cdc971c22223",
+          "bc55eaf9-56fb-4f98-9fd8-2e80796b2873",
+          "5d4ac7e0-5a91-4e32-bf47-1febc9cc37d7",
+          "371a0350-a942-4a63-ac59-873da0cd1e86",
+          "4d8a7679-067e-4af7-9b11-d7722adc35ba",
+          "2ccc3dc4-042a-477a-8b3f-b8b7ff838762",
+          "fa202911-ce39-476e-9631-e81ffb46a402"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-SANG-0271-D12-85A-01R-A80W-32",
+          "HCM-SANG-0271-D12-85B",
+          "HCM-SANG-0271-D12-01A-01D-A80T-32",
+          "HCM-SANG-0271-D12-85A",
+          "HCM-SANG-0271-D12-10A-01D-A80T-32",
+          "HCM-SANG-0271-D12-10A",
+          "HCM-SANG-0271-D12-31B",
+          "HCM-SANG-0271-D12-86A",
+          "HCM-SANG-0271-D12-85A-01D-A80T-32"
+        ],
+        "primary_site": "Colon",
+        "submitter_diagnosis_ids": [
+          "HCM-SANG-0271-D12_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "0a6a14db-ca5c-4bf9-9125-611d672bc67b",
+        "index_date": "Sample Procurement",
+        "state": "released",
+        "portion_ids": [
+          "bcb558ac-e5bf-4b6c-af72-9b78b7b76722",
+          "a9aec562-c531-458d-95f1-768e2610aae7"
+        ],
+        "submitter_portion_ids": [
+          "HCM-SANG-0271-D12-10A-01",
+          "HCM-SANG-0271-D12-31B-01"
+        ]
+      },
+      {
+        "id": "0cf7d1fe-e9c7-4e84-9497-df13ca2ed2c9",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Adenomas and Adenocarcinomas",
+        "analyte_ids": [
+          "6ef5c20b-50c3-4fda-bd1e-de4876ccab7b",
+          "4a18990e-a0dc-4466-aaed-0053ffa0656a",
+          "0a62151e-6c10-4e23-80ff-93970fa20f7a",
+          "9b91bd41-f1f6-4712-84c9-54afa62d089b",
+          "038fc540-f8e2-44b7-944c-ac6f25cac665"
+        ],
+        "submitter_id": "HCM-SANG-0287-C20",
+        "submitter_analyte_ids": [
+          "HCM-SANG-0287-C20-85A-01D",
+          "HCM-SANG-0287-C20-01A-01D",
+          "HCM-SANG-0287-C20-85A-01R",
+          "HCM-SANG-0287-C20-10A-01D",
+          "HCM-SANG-0287-C20-01A-01R"
+        ],
+        "aliquot_ids": [
+          "43bb9903-2b44-494f-9275-62dd88803739",
+          "c0b86e70-1df5-4acb-9667-cfada31b7c5e",
+          "feb5f601-cd08-46bf-a8b3-4553d6ce24ba",
+          "1e9d473d-c7b7-4eca-82c5-4d8b40e482a8",
+          "22bc24d9-719b-4f3c-8587-e394cf409117",
+          "77b7d070-0fd0-4d33-9204-b6f8cd95c415",
+          "89ab0d1b-b692-4248-abc6-7dc698b54e67",
+          "1870408c-6d85-4e00-9c64-178350135992",
+          "48f6c991-9d58-4d1f-96e4-c62dcf0c6bf8"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-SANG-0287-C20-01A-01D-A78U-36",
+          "HCM-SANG-0287-C20-85A-01R-A80W-32-aliquot",
+          "HCM-SANG-0287-C20-85A-01R-A78V-41",
+          "HCM-SANG-0287-C20-10A-01D-A80T-32-aliquot",
+          "HCM-SANG-0287-C20-85A-01D-A80T-32-aliquot",
+          "HCM-SANG-0287-C20-01A-01D-A80T-32-aliquot",
+          "HCM-SANG-0287-C20-01A-01R-A78V-41",
+          "HCM-SANG-0287-C20-10A-01D-A78U-36",
+          "HCM-SANG-0287-C20-85A-01D-A78U-36"
+        ],
+        "created_datetime": "2019-10-14T10:45:59.013881-05:00",
+        "diagnosis_ids": [
+          "c91c84dc-0e49-412f-9c97-8c69b195cf02"
+        ],
+        "sample_ids": [
+          "a716e59b-6876-4c5e-85c9-a53869482d95",
+          "06c2d962-ede5-4f2f-81dd-dc9253a9ddf5",
+          "459eaa9f-e97f-4008-8cf6-f6671985fd30",
+          "31866d02-8351-497c-8c73-1fc5fef584aa",
+          "38243f28-93e3-4a8a-bf92-8019a07b3bec",
+          "62ec2e41-acac-4449-b9fe-fd2c938cc811",
+          "fa630ad7-f709-43ca-bf5c-d3e83dd51779"
+        ],
+        "submitter_sample_ids": [
+          "HCM-SANG-0287-C20-01A",
+          "HCM-SANG-0287-C20-85A-01D-A80T-32",
+          "HCM-SANG-0287-C20-85A-01R-A80W-32",
+          "HCM-SANG-0287-C20-10A",
+          "HCM-SANG-0287-C20-01A-01D-A80T-32",
+          "HCM-SANG-0287-C20-85A",
+          "HCM-SANG-0287-C20-10A-01D-A80T-32"
+        ],
+        "primary_site": "Rectum",
+        "submitter_diagnosis_ids": [
+          "HCM-SANG-0287-C20_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "0cf7d1fe-e9c7-4e84-9497-df13ca2ed2c9",
+        "index_date": "Sample Procurement",
+        "state": "released",
+        "portion_ids": [
+          "003cfb21-0ffb-44e2-9961-ebdd5c39f361",
+          "a7236e0c-decf-48c3-a977-d069436420b7"
+        ],
+        "submitter_portion_ids": [
+          "HCM-SANG-0287-C20-01A-01",
+          "HCM-SANG-0287-C20-10A-01"
+        ]
+      },
+      {
+        "id": "0e9a9e97-f0bf-4f4a-84cc-73eccfc627b1",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Adenomas and Adenocarcinomas",
+        "analyte_ids": [
+          "78c3017c-6de1-4ccb-bf4d-27922b0b1f38",
+          "f877946f-8a20-40dd-b5e0-5d4a350c2528",
+          "c70fdba0-7324-4ea1-b15c-8de62a459a50",
+          "9c7ccff1-5150-46a4-94dd-a928df9db3e7",
+          "9bc12019-74f2-4784-9322-0398a2c1b3d1"
+        ],
+        "submitter_id": "HCM-CSHL-0376-D37",
+        "submitter_analyte_ids": [
+          "HCM-CSHL-0376-D37-31A-11D",
+          "HCM-CSHL-0376-D37-10A-01D",
+          "HCM-CSHL-0376-D37-31A-11R",
+          "HCM-CSHL-0376-D37-85P-01D",
+          "HCM-CSHL-0376-D37-85P-01R"
+        ],
+        "aliquot_ids": [
+          "790b5310-35ac-4382-b062-db3078e8b20a",
+          "33019b27-f718-4436-95fd-ff4d8a28c923",
+          "6c69fc6a-6606-4f79-8ad8-4bf6bfaab56d",
+          "aa16d6e6-6a3d-487f-82b1-9ffa258b851e",
+          "5facfb50-5793-43a6-be50-5c1afe446dcc"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-CSHL-0376-D37-31A-11R-A78V-41",
+          "HCM-CSHL-0376-D37-85P-01D-A78T-36",
+          "HCM-CSHL-0376-D37-31A-11D-A78T-36",
+          "HCM-CSHL-0376-D37-85P-01R-A78V-41",
+          "HCM-CSHL-0376-D37-10A-01D-A78T-36"
+        ],
+        "created_datetime": "2019-10-14T13:24:10.078043-05:00",
+        "diagnosis_ids": [
+          "9ce37f22-bbde-4447-bbf0-28e85f4f2837"
+        ],
+        "sample_ids": [
+          "ac11b2da-38a9-444e-a922-3b78f15be942",
+          "cbfc2432-c011-41ee-81fd-5efd8c0dac79",
+          "76b129b9-954b-4471-949b-e118dc778e2d"
+        ],
+        "submitter_sample_ids": [
+          "HCM-CSHL-0376-D37-10A",
+          "HCM-CSHL-0376-D37-85P",
+          "HCM-CSHL-0376-D37-31A"
+        ],
+        "primary_site": "Colon",
+        "submitter_diagnosis_ids": [
+          "HCM-CSHL-0376-D37_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "0e9a9e97-f0bf-4f4a-84cc-73eccfc627b1",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "d0c90c2f-d6d9-4601-b2f8-6ca30b48f405",
+          "f2b394b2-35f1-492b-969e-df863a2714cc"
+        ],
+        "submitter_portion_ids": [
+          "HCM-CSHL-0376-D37-10A-01",
+          "HCM-CSHL-0376-D37-31A-11"
+        ]
+      },
+      {
+        "id": "149a8565-e0c5-4474-a693-d44f1b445c0c",
+        "lost_to_followup": "Yes",
+        "slide_ids": [
+          "846c933d-4bca-4995-ac45-1caf38ee481b",
+          "4be18133-d1ff-400f-b57b-dded404249c0",
+          "8f24d92e-cfee-4cce-8eec-e4f302766255",
+          "08650e03-96e9-4213-8892-b3da6928171f"
+        ],
+        "submitter_slide_ids": [
+          "HCM-BROD-0199-C71-01A-01-S2-HE",
+          "HCM-BROD-0199-C71-02A-01-S2-HE",
+          "HCM-BROD-0199-C71-01A-01-S1-HE",
+          "HCM-BROD-0199-C71-02A-01-S1-HE"
+        ],
+        "days_to_lost_to_followup": null,
+        "disease_type": "Gliomas",
+        "analyte_ids": [
+          "3b8a2f07-a6d0-4998-8fe8-c2138372e191",
+          "ae4eb402-7c13-46f0-bdf8-361c7fdc9430",
+          "b720a33e-c858-47f4-9e51-e58748004e96",
+          "fdf06863-7d14-4f79-ad2c-b46d443d235c",
+          "a4f88ff3-7c9e-4edc-808f-aa01378ec68d",
+          "cca66f05-89e0-48a7-8948-53e556fee5be",
+          "e658c087-c37d-47ac-9472-3b6b6eed7188",
+          "6be6aff1-9694-4c7f-8f43-f0f902b95849",
+          "39f9ce44-944c-49b8-b215-05b117d5e62d"
+        ],
+        "submitter_id": "HCM-BROD-0199-C71",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0199-C71-85A-01D",
+          "HCM-BROD-0199-C71-01A-11D",
+          "HCM-BROD-0199-C71-85S-01R",
+          "HCM-BROD-0199-C71-85A-01R",
+          "HCM-BROD-0199-C71-02A-11R",
+          "HCM-BROD-0199-C71-02A-11D",
+          "HCM-BROD-0199-C71-01A-11R",
+          "HCM-BROD-0199-C71-10A-01D",
+          "HCM-BROD-0199-C71-85R-01D"
+        ],
+        "aliquot_ids": [
+          "9f18daaa-cd67-436e-85a1-1e9b3e1e2135",
+          "eff144c4-4e2a-497d-998a-5ae6bccf2576",
+          "7ec23cac-61f4-4f8f-afa7-ed8a3ca1493f",
+          "6ea15978-902f-45ba-b148-cc4247341882",
+          "529f3cbf-f65d-4a60-a562-b3fcfbd7d4c9",
+          "22542d68-476b-47fd-91da-03db887756d6",
+          "7f4e7f6b-33b0-49da-95bd-88643d5e14ff",
+          "fc0121b9-5de8-4af6-90db-b36dd8207ebf",
+          "c9dd10db-bf23-4bb2-a6db-fec1b45549c8"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0199-C71-85R-01D-A80U-36",
+          "HCM-BROD-0199-C71-02A-11R-A80V-41",
+          "HCM-BROD-0199-C71-02A-11D-A80U-36",
+          "HCM-BROD-0199-C71-01A-11D-A786-36",
+          "HCM-BROD-0199-C71-10A-01D-A786-36",
+          "HCM-BROD-0199-C71-01A-11R-A787-41",
+          "HCM-BROD-0199-C71-85A-01D-A786-36",
+          "HCM-BROD-0199-C71-85S-01R-A80V-41",
+          "HCM-BROD-0199-C71-85A-01R-A787-41"
+        ],
+        "created_datetime": "2019-04-04T15:00:32.807421-05:00",
+        "diagnosis_ids": [
+          "df0230e6-d07c-4814-9aee-5be560d1ce58",
+          "2d72ecab-4038-4ef7-b921-79b88ad62722"
+        ],
+        "sample_ids": [
+          "b5919dd1-039e-4ab4-b6d5-37b9d483893f",
+          "769c5e1b-89e3-431c-9420-31de5efe5a22",
+          "5e0faf77-f1b3-4b1a-8b6a-8066270eddb4",
+          "ee0e94ad-b5b0-4ad6-912c-c4010f1a1d26",
+          "600a5b42-f871-47a2-8124-68184edf10bd",
+          "a1dbbc0c-173c-4455-a780-8682dd2e258a"
+        ],
+        "submitter_sample_ids": [
+          "HCM-BROD-0199-C71-85R",
+          "HCM-BROD-0199-C71-02A",
+          "HCM-BROD-0199-C71-85S",
+          "HCM-BROD-0199-C71-85A",
+          "HCM-BROD-0199-C71-10A",
+          "HCM-BROD-0199-C71-01A"
+        ],
+        "primary_site": "Brain",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0199-C71_diagnosis",
+          "HCM-BROD-0199-C71_diagnosis2"
+        ],
+        "updated_datetime": "2021-01-06T22:55:10.531130-06:00",
+        "case_id": "149a8565-e0c5-4474-a693-d44f1b445c0c",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "9dccf7ac-58a0-4c9e-9fb6-4ead8c37d48b",
+          "5afaa056-b09e-4328-ae5b-feb70faa3595",
+          "77827fa6-18a9-4e1a-b49f-800cec351fa8"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0199-C71-10A-01",
+          "HCM-BROD-0199-C71-02A-11",
+          "HCM-BROD-0199-C71-01A-11"
+        ]
+      },
+      {
+        "id": "19b1e69a-355a-4dd7-9c56-d701f6c2c5a0",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Adenomas and Adenocarcinomas",
+        "analyte_ids": [
+          "181d5e6e-026d-4983-97e8-f4d9e28a0cfe",
+          "293683aa-f2ef-4d14-8ec7-681c870d3b71",
+          "c1f6530c-004c-4b10-bae5-a571542aabd2",
+          "2140e379-dd8b-4440-a626-bb0e01f8fc00",
+          "4d337e44-6468-43b8-bf2f-4301750dab99"
+        ],
+        "submitter_id": "HCM-SANG-0299-C15",
+        "submitter_analyte_ids": [
+          "HCM-SANG-0299-C15-10B-01D",
+          "HCM-SANG-0299-C15-85X-01R",
+          "HCM-SANG-0299-C15-85A-01R",
+          "HCM-SANG-0299-C15-85X-01D",
+          "HCM-SANG-0299-C15-85A-01D"
+        ],
+        "aliquot_ids": [
+          "37fee31c-8669-4057-ae95-424586fa2a05",
+          "d17fd7af-fd14-4cb7-a6c1-c23339589288",
+          "65b7ffa3-0f1f-4918-a75f-2343720fe40c",
+          "a331201c-3aef-4eec-83d5-d38f4211c1b1",
+          "3ef40a4d-21cd-4be4-8c57-cba30c8e0778",
+          "b8af2a87-5b55-4c73-88f1-90ce5e1d05f5",
+          "a1988273-c9f8-4cd1-b1a6-5daa2c7a3e51",
+          "b535f87b-0a61-49bd-828b-bb5e3c11f2f7",
+          "3bb67aa8-5155-425e-9afc-9aca5120b0f0",
+          "fa20b306-a835-46d8-ab03-f8ea0b585381",
+          "65ec4e30-e782-4b6f-b985-33e9c7e72a0a"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-SANG-0299-C15-85B-01D-A80T-32-aliquot",
+          "HCM-SANG-0299-C15-10A-01D-A80T-32-aliquot",
+          "HCM-SANG-0299-C15-85A-01R-A78V-41",
+          "HCM-SANG-0299-C15-85A-01D-A78U-36",
+          "HCM-SANG-0299-C15-85A-01R-A80W-32-aliquot",
+          "HCM-SANG-0299-C15-85X-01D-A78U-36",
+          "HCM-SANG-0299-C15-85X-01R-A78V-41",
+          "HCM-SANG-0299-C15-85A-01D-A80T-32-aliquot",
+          "HCM-SANG-0299-C15-01A-01D-A80T-32-aliquot",
+          "HCM-SANG-0299-C15-85B-01R-A80W-32-aliquot",
+          "HCM-SANG-0299-C15-10B-01D-A78U-36"
+        ],
+        "created_datetime": "2019-10-14T10:46:36.257369-05:00",
+        "diagnosis_ids": [
+          "7c6aa4ce-6661-4491-a827-c0a8045743a6",
+          "c1a6f70f-b871-4b4e-a292-aef67c2d4776"
+        ],
+        "sample_ids": [
+          "c56f3f94-deda-4d21-8f8e-658108995dfa",
+          "ce46b9f4-5244-432d-aa87-026e0a27d71a",
+          "cf134dfb-5126-4bee-bcab-39d584335a21",
+          "34e0d6ee-97f5-420f-9b34-4784098125f7",
+          "ac8476c1-53bf-43b5-8695-db441ed1a720",
+          "9000b366-a14b-44bc-a782-484e09765b2d",
+          "8541bc01-57e6-4bf7-a42e-da1c8e790633",
+          "277d7ed9-4e6a-429b-8f4e-438ff0d2ba7a",
+          "d12d9184-5317-4730-af2e-a8428456a2a7"
+        ],
+        "submitter_sample_ids": [
+          "HCM-SANG-0299-C15-85X",
+          "HCM-SANG-0299-C15-85B-01D-A80T-32",
+          "HCM-SANG-0299-C15-85A-01R-A80W-32",
+          "HCM-SANG-0299-C15-10B",
+          "HCM-SANG-0299-C15-01A-01D-A80T-32",
+          "HCM-SANG-0299-C15-85A",
+          "HCM-SANG-0299-C15-85A-01D-A80T-32",
+          "HCM-SANG-0299-C15-85B-01R-A80W-32",
+          "HCM-SANG-0299-C15-10A-01D-A80T-32"
+        ],
+        "primary_site": "Esophagus",
+        "submitter_diagnosis_ids": [
+          "HCM-SANG-0299-C15_diagnosis2",
+          "HCM-SANG-0299-C15_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "19b1e69a-355a-4dd7-9c56-d701f6c2c5a0",
+        "index_date": "Sample Procurement",
+        "state": "released",
+        "portion_ids": [
+          "b8192c57-9cda-4dca-a590-1e13beadf2a0"
+        ],
+        "submitter_portion_ids": [
+          "HCM-SANG-0299-C15-10B-01"
+        ]
+      },
+      {
+        "id": "19f1d344-4c14-4733-abbd-c2db6737e210",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Ductal and Lobular Neoplasms",
+        "analyte_ids": [
+          "a21d5f05-af57-41bf-ab60-32d2c869611b",
+          "696f4b03-5f0d-4eaa-975d-a9feb64dae07",
+          "c8d4fb23-c55d-4bb6-bd3d-fc1f159d7a33",
+          "5db09eb8-fecc-433f-aa34-a12a7c9333dd",
+          "51598aba-be8e-42a0-bf6c-aca34776fc1f"
+        ],
+        "submitter_id": "HCM-CSHL-0081-C25",
+        "submitter_analyte_ids": [
+          "HCM-CSHL-0081-C25-11A-11D",
+          "HCM-CSHL-0081-C25-85A-01R",
+          "HCM-CSHL-0081-C25-85B-01D",
+          "HCM-CSHL-0081-C25-01A-11R",
+          "HCM-CSHL-0081-C25-01A-11D"
+        ],
+        "aliquot_ids": [
+          "0a65e1bd-6af3-44ba-924c-193eb8e099d6",
+          "61112c39-c838-4f84-89c7-a33bfe5dea88",
+          "25cd08c3-09a9-406d-8ec3-ab4946224cf1",
+          "973d4fa3-4fa7-4ff9-8176-cc51c53b7079",
+          "9aa21acf-1e24-4b7a-a3c1-73354bdd81b6"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-CSHL-0081-C25-11A-11D-A78M-36",
+          "HCM-CSHL-0081-C25-01A-11R-A78N-41",
+          "HCM-CSHL-0081-C25-85B-01D-A78M-36",
+          "HCM-CSHL-0081-C25-01A-11D-A78M-36",
+          "HCM-CSHL-0081-C25-85A-01R-A78N-41"
+        ],
+        "created_datetime": "2019-09-19T08:58:31.776805-05:00",
+        "diagnosis_ids": [
+          "c1cca3a7-e0ac-40a1-9db7-6902b48d3c62"
+        ],
+        "sample_ids": [
+          "d9f23187-9a29-426a-9ead-4bb3a2ce6cf9",
+          "3709004e-b04d-4473-aa29-8dd84176d17d",
+          "adcc54e3-074b-4ca6-b179-0a5df8efeb36",
+          "05478d15-885a-4c44-a46a-81bbe6c9ee11"
+        ],
+        "submitter_sample_ids": [
+          "HCM-CSHL-0081-C25-85B",
+          "HCM-CSHL-0081-C25-01A",
+          "HCM-CSHL-0081-C25-85A",
+          "HCM-CSHL-0081-C25-11A"
+        ],
+        "primary_site": "Pancreas",
+        "submitter_diagnosis_ids": [
+          "HCM-CSHL-0081-C25_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "19f1d344-4c14-4733-abbd-c2db6737e210",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "d9588542-d7ef-413e-900c-3f816b583525",
+          "b77573f1-e6a3-43c1-a56d-a207c39e18c4"
+        ],
+        "submitter_portion_ids": [
+          "HCM-CSHL-0081-C25-01A-11",
+          "HCM-CSHL-0081-C25-11A-11"
+        ]
       }
     ],
     "pagination": {
       "count": 10,
-      "total": 39092,
+      "total": 40232,
       "size": 10,
       "from": 0,
       "sort": "",
       "page": 1,
-      "pages": 3910
+      "pages": 4024
     }
   },
   "warnings": {}
