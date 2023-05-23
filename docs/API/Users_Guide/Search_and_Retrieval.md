@@ -2251,34 +2251,50 @@ The `expand` parameter provides a shortcut to request multiple related fields (f
 #### Example
 
 ```Shell
-curl 'https://api.gdc.cancer.gov/files/ac2ddebd-5e5e-4aea-a430-5a87c6d9c878?expand=cases.samples&pretty=true'
+curl 'https://api.gdc.cancer.gov/files/573ee7e9-b8bd-419e-808b-a027c4311731?expand=cases.samples&pretty=true'
 ```
 ```Response
 {
   "data": {
+    "proportion_reads_mapped": 0.9648433596149857,
+    "access": "controlled",
+    "proportion_base_mismatch": 0.004117986,
+    "contamination_error": 0,
+    "acl": [
+      "phs000178"
+    ],
+    "type": "aligned_reads",
+    "platform": "Illumina",
+    "created_datetime": "2022-05-12T14:42:10.014925-05:00",
+    "md5sum": "25e89d79c47d12b13f4eb8e8f39f7f64",
+    "updated_datetime": "2022-11-01T11:52:54.136033-05:00",
+    "pairs_on_diff_chr": 1170013,
+    "state": "released",
     "data_format": "BAM",
+    "total_reads": 379313036,
+    "proportion_coverage_30x": 0.000109,
     "cases": [
       {
         "samples": [
           {
-            "sample_type_id": "11",
-            "tumor_descriptor": null,
-            "sample_id": "b4e7558d-898e-4d68-a897-381edde0bbcc",
-            "sample_type": "Solid Tissue Normal",
-            "created_datetime": null,
+            "sample_type_id": "10",
+            "tumor_descriptor": "Not Reported",
+            "sample_id": "4e128a37-be58-477a-a01f-448179360b7c",
+            "sample_type": "Blood Derived Normal",
             "tumor_code": null,
+            "created_datetime": null,
             "time_between_excision_and_freezing": null,
-            "composition": null,
-            "updated_datetime": "2018-11-15T21:38:54.195821-06:00",
-            "days_to_collection": 5980,
+            "composition": "Not Reported",
+            "updated_datetime": "2022-04-28T22:05:09.013808-05:00",
+            "days_to_collection": 6755,
             "state": "released",
-            "initial_weight": 810.0,
+            "initial_weight": null,
             "preservation_method": null,
             "intermediate_dimension": null,
             "time_between_clamping_and_freezing": null,
             "freezing_method": null,
             "pathology_report_uuid": null,
-            "submitter_id": "TCGA-QQ-A5VA-11A",
+            "submitter_id": "TCGA-B6-A0RI-10A",
             "tumor_code_id": null,
             "shortest_dimension": null,
             "oct_embedded": "false",
@@ -2291,25 +2307,22 @@ curl 'https://api.gdc.cancer.gov/files/ac2ddebd-5e5e-4aea-a430-5a87c6d9c878?expa
         ]
       }
     ],
-    "access": "controlled",
-    "file_name": "000aa811c15656604161e8f0e3a0aae4_gdc_realn.bam",
-    "submitter_id": "32872121-d38a-4128-b96a-698a6f18f29d",
+    "file_name": "c9478f7d-bfe3-4e80-8161-39b3d440fa16_wgs_gdc_realn.bam",
+    "mean_coverage": 5.452655,
+    "proportion_reads_duplicated": 0.009253781617987946,
+    "submitter_id": "a4e380e5-420e-49af-986d-e721601065fb",
     "data_category": "Sequencing Reads",
-    "acl": [
-      "phs000178"
-    ],
-    "type": "aligned_reads",
-    "platform": "Illumina",
-    "created_datetime": "2016-05-26T18:55:53.506549-05:00",
-    "file_size": 12667634731,
-    "md5sum": "200475f5f6e42520204e5f6aadfe954f",
-    "updated_datetime": "2018-11-15T21:38:44.655215-06:00",
-    "file_id": "ac2ddebd-5e5e-4aea-a430-5a87c6d9c878",
+    "proportion_coverage_10x": 0.07674,
+    "file_size": 42958286722,
+    "contamination": 0,
+    "average_base_quality": 32,
+    "file_id": "573ee7e9-b8bd-419e-808b-a027c4311731",
     "data_type": "Aligned Reads",
-    "state": "released",
-    "experimental_strategy": "WXS",
+    "average_insert_size": 207,
+    "average_read_length": 51,
+    "experimental_strategy": "WGS",
     "version": "1",
-    "data_release": "12.0 - 27.0"
+    "data_release": "36.0 - 37.0"
   },
   "warnings": {}
 }
