@@ -2359,22 +2359,22 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "id": "c2cefea6-74d4-4859-8fe2-822767d6f68d",
-        "file_name": "30f53128-5def-4d1c-b203-9717e9cf4401_wxs_gdc_realn.bam"
+        "id": "d570eccc-3c1c-4c4f-ae04-96be71fbe016",
+        "file_name": "TCGA-AN-A0FL-01Z-00-DX1.20A041C6-A306-4599-A7D1-65032A252AA9.svs"
       },
       {
-        "id": "070d2103-4350-477b-8bd7-ee529d9d24fb",
-        "file_name": "ca5a3304-2af0-4a5f-9479-881918520921.wxs.varscan2.raw_somatic_mutation.vcf.gz"
+        "id": "0f8d8202-a1ca-4ea1-98b2-c20a6b08479a",
+        "file_name": "nationwidechildrens.org_ssf.TCGA-AN-A0FL.xml"
       }
     ],
     "pagination": {
       "count": 2,
-      "total": 596758,
+      "total": 931947,
       "size": 2,
       "from": 0,
       "sort": "",
       "page": 1,
-      "pages": 298379
+      "pages": 465974
     }
   },
   "warnings": {}
@@ -2398,34 +2398,34 @@ print json.dumps(response.json(), indent=2)
   "data": {
     "hits": [
       {
-        "id": "79c5e6ab-7d33-48fb-8ad3-1a353f1aa8a0",
-        "file_name": "bded93b7-da8b-467a-b301-bc0533780b7b.wxs.VarScan2.aliquot.maf.gz"
+        "id": "297933f5-1316-4cb6-b53f-9dbfa7f3d7ed",
+        "file_name": "TCGA-B6-A0RH-01A-02-TSB.ea83f31e-defb-4436-8a58-5b66b18d13b5.svs"
       },
       {
-        "id": "b8b730aa-6f8f-4c7c-ad64-d69f49df56a3",
-        "file_name": "5b930358-2132-4c5d-874c-9b94656dcf3b_gdc_realn.bam"
+        "id": "2f31e897-b3e8-49f1-a400-ccf9f00f294a",
+        "file_name": "URAEI_p_TCGASNP_b85_N_GenomeWideSNP_6_F01_735050.grch38.seg.v2.txt"
       },
       {
-        "id": "bd912d6c-7325-4e90-ab1d-c3a4880f1e84",
-        "file_name": "8a737363-742f-40df-ab4e-9a0bdd3adeed.wxs.varscan2.raw_somatic_mutation.vcf.gz"
+        "id": "ebd6cf90-4f6b-4193-887a-22fdb5645fbc",
+        "file_name": "TCGA-BRCA.5994c06d-ee9b-4ead-b3d1-2e1f286f7d6d.ascat2.allelic_specific.seg.txt"
       },
       {
-        "id": "a11d6196-7f01-4c62-8808-0a627250c59c",
-        "file_name": "4a030c3f-79e0-4737-92ad-59ba5af89977.wxs.aliquot_ensemble_raw.maf.gz"
+        "id": "aebd6b5a-e676-4357-93df-523b31b55ea0",
+        "file_name": "TCGA-BRCA.c737131c-636f-4e1b-89b8-bb2d6ddd8164.star_fusion.rna_fusion.bedpe"
       },
       {
-        "id": "6fc778a7-6c7d-4aba-b1e4-36c2bb752216",
-        "file_name": "2d9f75a7-95fd-418f-9c48-ae981b6853f1.star_fusion.rna_fusion.bedpe"
+        "id": "aa83a7e7-e9cc-4330-a7be-ca750cffb74c",
+        "file_name": "URAEI_p_TCGASNP_b85_N_GenomeWideSNP_6_F01_735050.birdseed.data.txt"
       }
     ],
     "pagination": {
       "count": 5,
-      "total": 596758,
+      "total": 931947,
       "size": 5,
       "from": 101,
       "sort": "",
       "page": 21,
-      "pages": 119352
+      "pages": 186390
     }
   },
   "warnings": {}
