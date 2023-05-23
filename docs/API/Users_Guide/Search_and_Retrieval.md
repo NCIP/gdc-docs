@@ -686,79 +686,78 @@ The `cases` endpoint supports a simple query format that retrieves the metadata 
 curl 'https://api.gdc.cancer.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pretty=true&expand=diagnoses'
 ```
 ```Response
-{
+
   "data": {
     "slide_ids": [
-      "a0826f0d-986a-491b-8c6f-b34f8929f3ee",
       "90154ea1-6b76-4445-870e-d531d6fa1239",
-      "1dd1cab5-5a81-428a-8153-91e8c4cf9905"
+      "1dd1cab5-5a81-428a-8153-91e8c4cf9905",
+      "a0826f0d-986a-491b-8c6f-b34f8929f3ee"
     ],
     "submitter_slide_ids": [
-      "TCGA-BH-A0EA-01Z-00-DX1",
       "TCGA-BH-A0EA-01A-01-MSA",
-      "TCGA-BH-A0EA-01A-01-TSA"
+      "TCGA-BH-A0EA-01A-01-TSA",
+      "TCGA-BH-A0EA-01Z-00-DX1"
     ],
     "disease_type": "Ductal and Lobular Neoplasms",
     "analyte_ids": [
-      "f19f408a-815f-43d9-8032-e9482b796371",
       "fe678556-acf4-4bde-a95e-860bb0150a95",
-      "69ddc092-88a0-4839-a2bb-9f1c9e760409",
       "66ed0f86-5ca5-4dec-ba76-7ee4dcf31831",
-      "30cb470f-66d4-4085-8c30-83a42e8453d4"
+      "30cb470f-66d4-4085-8c30-83a42e8453d4",
+      "69ddc092-88a0-4839-a2bb-9f1c9e760409",
+      "f19f408a-815f-43d9-8032-e9482b796371"
     ],
     "submitter_id": "TCGA-BH-A0EA",
     "submitter_analyte_ids": [
-      "TCGA-BH-A0EA-10A-01D",
       "TCGA-BH-A0EA-01A-11D",
       "TCGA-BH-A0EA-01A-11R",
       "TCGA-BH-A0EA-10A-01W",
-      "TCGA-BH-A0EA-01A-11W"
+      "TCGA-BH-A0EA-01A-11W",
+      "TCGA-BH-A0EA-10A-01D"
     ],
     "aliquot_ids": [
-      "cde982b7-3b0a-49eb-8710-a599cb0e44c1",
-      "b1a3739d-d554-4202-b96f-f25a444e2042",
       "eef9dce1-6ba6-432b-bbe2-53c7dbe64fe7",
-      "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
+      "2beb34c4-d493-4a73-b21e-de77d43251ff",
+      "b1a3739d-d554-4202-b96f-f25a444e2042",
       "262715e1-835c-4f16-8ee7-6900e26f7cf5",
       "cfbd5476-e83a-401d-9f9a-639c73a0e35b",
-      "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
-      "561b8777-801a-49ed-a306-e7dafeb044b6",
       "edad5bd3-efe0-4c5f-b05c-2c0c2951c45a",
+      "bcb7fc6d-60a0-48b7-aa81-14c0dda72d76",
       "42d050e4-e8ee-4442-b9c0-0ee14706b138",
-      "2beb34c4-d493-4a73-b21e-de77d43251ff",
-      "ca71ca96-cbb7-4eab-9487-251dda34e107"
+      "97c64d6a-7dce-4d0f-9cb3-b3e4eb4719c5",
+      "561b8777-801a-49ed-a306-e7dafeb044b6",
+      "ca71ca96-cbb7-4eab-9487-251dda34e107",
+      "cde982b7-3b0a-49eb-8710-a599cb0e44c1"
     ],
     "submitter_aliquot_ids": [
-      "TCGA-BH-A0EA-10A-01W-A12U-09",
-      "TCGA-BH-A0EA-01A-11D-A111-01",
-      "TCGA-BH-A0EA-01A-11D-A314-09",
-      "TCGA-BH-A0EA-01A-11D-A10X-02",
-      "TCGA-BH-A0EA-10A-01D-A10Z-02",
-      "TCGA-BH-A0EA-10A-01D-A110-09",
-      "TCGA-BH-A0EA-01A-11D-A10Y-09",
-      "TCGA-BH-A0EA-10A-01D-A113-01",
-      "TCGA-BH-A0EA-01A-11D-A112-05",
       "TCGA-BH-A0EA-01A-11R-A115-07",
-      "TCGA-BH-A0EA-01A-11W-A12T-09",
-      "TCGA-BH-A0EA-01A-11R-A114-13"
+      "TCGA-BH-A0EA-01A-11D-A112-05",
+      "TCGA-BH-A0EA-10A-01W-A12U-09",
+      "TCGA-BH-A0EA-01A-11D-A10X-02",
+      "TCGA-BH-A0EA-10A-01D-A113-01",
+      "TCGA-BH-A0EA-10A-01D-A110-09",
+      "TCGA-BH-A0EA-01A-11D-A314-09",
+      "TCGA-BH-A0EA-01A-11D-A10Y-09",
+      "TCGA-BH-A0EA-01A-11D-A111-01",
+      "TCGA-BH-A0EA-10A-01D-A10Z-02",
+      "TCGA-BH-A0EA-01A-11R-A114-13",
+      "TCGA-BH-A0EA-01A-11W-A12T-09"
     ],
     "diagnoses": [
       {
         "synchronous_malignancy": "Not Reported",
         "ajcc_pathologic_stage": "Stage IIA",
-        "tumor_stage": "stage iia",
         "days_to_diagnosis": 0,
         "created_datetime": null,
         "last_known_disease_status": "not reported",
         "tissue_or_organ_of_origin": "Breast, NOS",
         "days_to_last_follow_up": null,
-        "primary_diagnosis": "Infiltrating duct carcinoma, NOS",
         "age_at_diagnosis": 26548,
+        "primary_diagnosis": "Infiltrating duct carcinoma, NOS",
         "updated_datetime": "2019-08-08T16:25:42.215495-05:00",
         "prior_malignancy": "yes",
         "year_of_diagnosis": 2008,
-        "prior_treatment": "No",
         "state": "released",
+        "prior_treatment": "No",
         "days_to_last_known_disease_status": null,
         "ajcc_staging_system_edition": "6th",
         "ajcc_pathologic_t": "T1c",
@@ -781,8 +780,8 @@ curl 'https://api.gdc.cancer.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pret
     ],
     "sample_ids": [
       "55864d86-dab8-47bb-a3e3-8cfb198b06c1",
-      "9a6c71a6-82cd-42b1-a93f-f569370848d6",
-      "7f791228-dd77-4ab0-8227-d784a4c7fea1"
+      "7f791228-dd77-4ab0-8227-d784a4c7fea1",
+      "9a6c71a6-82cd-42b1-a93f-f569370848d6"
     ],
     "submitter_sample_ids": [
       "TCGA-BH-A0EA-01A",
@@ -797,13 +796,15 @@ curl 'https://api.gdc.cancer.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pret
     "case_id": "1f601832-eee3-48fb-acf5-80c4a454f26e",
     "state": "released",
     "portion_ids": [
+      "1ef8b20e-43e5-49d7-ac9a-03ce14f58daa",
       "cb6086d1-3416-4310-b109-e8fa6e8b72d4",
       "8629bf5a-cdaf-4f6a-90bb-27dd4a7565c5",
       "ae4f5816-f97a-4605-9b05-9ab820467dee"
     ],
     "submitter_portion_ids": [
-      "TCGA-BH-A0EA-10A-01",
       "TCGA-BH-A0EA-01A-21-A13C-20",
+      "TCGA-BH-A0EA-10A-01",
+      "TCGA-BH-A0EA-01A-21",
       "TCGA-BH-A0EA-01A-11"
     ]
   },
