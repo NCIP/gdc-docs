@@ -331,7 +331,7 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
     }
   },
   "warnings": {}
-} 
+}
 
 ```
 
@@ -340,25 +340,25 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
 The `/files` endpoint supports a simple query format that retrieves the metadata of a single file using its UUID.  Note that the `/files` endpoint is inactive when querying for earlier file versions.  In that case, the `/history` or `/files/versions` endpoints should be used instead.
 
 ```Shell
-curl 'https://api.gdc.cancer.gov/files/8ebe185d-59b3-4804-bd3b-cce3d6d20c92?pretty=true'
+curl 'https://api.gdc.cancer.gov/files/20f45e04-3c10-4f11-b57b-719880eab69e?pretty=true'
 ```
 ``` Output
 {
   "data": {
     "data_format": "VCF",
     "access": "controlled",
-    "file_name": "TCGA_BRCA.1a4deed3-03c8-4733-ba36-3d9669503ea1.wxs.VarScan2.somatic_annotation.vcf.gz",
-    "submitter_id": "77e685df-860a-4e44-a1df-db83a1dd3160",
+    "file_name": "TCGA_BRCA.8d9cb5ae-e568-41fc-8b53-14467c2623dc.wxs.MuTect2.somatic_annotation.vcf.gz",
+    "submitter_id": "675f31dd-70e5-4a72-8139-423b14b31564",
     "data_category": "Simple Nucleotide Variation",
     "acl": [
       "phs000178"
     ],
     "type": "annotated_somatic_mutation",
-    "file_size": 189289,
-    "created_datetime": "2022-02-07T14:01:14.083177-06:00",
-    "md5sum": "40df1e548d7eec220295de356e2bfa03",
-    "updated_datetime": "2022-02-09T12:19:01.898582-06:00",
-    "file_id": "8ebe185d-59b3-4804-bd3b-cce3d6d20c92",
+    "file_size": 6894331,
+    "created_datetime": "2022-02-07T08:48:39.178606-06:00",
+    "md5sum": "f4c0f52ba5bf24f0ca6ba3a923fecc5e",
+    "updated_datetime": "2022-02-09T12:11:12.781445-06:00",
+    "file_id": "20f45e04-3c10-4f11-b57b-719880eab69e",
     "data_type": "Annotated Somatic Mutation",
     "state": "released",
     "experimental_strategy": "WXS",
