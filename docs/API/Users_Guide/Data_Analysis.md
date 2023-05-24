@@ -212,7 +212,7 @@ curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%0A%22op%22%3A%22in
 __Example 2:__ Based on the previous example's `ssm_id` (`8b3c1a7a-e4e0-5200-9d46-5767c2982145`), a user would like to look at the consequences and the VEP impact due to this ssm.
 
 ```Shell
-curl 'https://api.gdc.cancer.gov/ssms/8b3c1a7a-e4e0-5200-9d46-5767c2982145?pretty=true&expand=consequence.transcript&fields=consequence.transcript.annotation.vep_impact'
+curl 'https://api.gdc.cancer.gov/ssms/edd1ae2c-3ca9-52bd-a124-b09ed304fcc2?pretty=true&expand=consequence.transcript&fields=consequence.transcript.annotation.vep_impact'
 ```
 
 ```JSON
@@ -221,118 +221,64 @@ curl 'https://api.gdc.cancer.gov/ssms/8b3c1a7a-e4e0-5200-9d46-5767c2982145?prett
     "consequence": [
       {
         "transcript": {
-          "aa_start": 127,
-          "consequence_type": "synonymous_variant",
-          "aa_end": 127,
-          "transcript_id": "ENST00000466621",
-          "is_canonical": false,
-          "aa_change": "G127G",
           "annotation": {
-            "vep_impact": "LOW"
+            "vep_impact": "MODERATE"
           },
+          "transcript_id": "ENST00000557334",
+          "aa_end": 12,
+          "consequence_type": "missense_variant",
+          "aa_start": 12,
+          "is_canonical": false,
+          "aa_change": "G12D",
           "ref_seq_accession": ""
         }
       },
       {
         "transcript": {
-          "aa_start": 95,
-          "consequence_type": "synonymous_variant",
-          "aa_end": 95,
-          "transcript_id": "ENST00000613879",
-          "is_canonical": false,
-          "aa_change": "G95G",
           "annotation": {
-            "vep_impact": "LOW"
+            "vep_impact": "MODERATE"
           },
-          "ref_seq_accession": ""
-        }
-      },
-      {
-        "transcript": {
-          "aa_start": 218,
-          "consequence_type": "synonymous_variant",
-          "aa_end": 218,
-          "transcript_id": "ENST00000473635",
-          "is_canonical": false,
-          "aa_change": "G218G",
-          "annotation": {
-            "vep_impact": "LOW"
-          },
-          "ref_seq_accession": ""
-        }
-      },
-      {
-        "transcript": {
-          "aa_start": null,
-          "consequence_type": "non_coding_transcript_exon_variant",
-          "aa_end": null,
-          "transcript_id": "ENST00000474560",
-          "is_canonical": false,
-          "aa_change": null,
-          "annotation": {
-            "vep_impact": "MODIFIER"
-          },
-          "ref_seq_accession": ""
-        }
-      },
-      {
-        "transcript": {
-          "aa_start": 1226,
-          "consequence_type": "synonymous_variant",
-          "aa_end": 1226,
-          "transcript_id": "ENST00000383710",
+          "transcript_id": "ENST00000256078",
+          "aa_end": 12,
+          "consequence_type": "missense_variant",
+          "aa_start": 12,
           "is_canonical": true,
-          "aa_change": "G1226G",
-          "annotation": {
-            "vep_impact": "LOW"
-          },
-          "ref_seq_accession": "NM_003716.3"
+          "aa_change": "G12D",
+          "ref_seq_accession": "NM_001369786.1&NM_033360.4"
         }
       },
       {
         "transcript": {
-          "aa_start": 1187,
-          "consequence_type": "synonymous_variant",
-          "aa_end": 1187,
-          "transcript_id": "ENST00000283269",
-          "is_canonical": false,
-          "aa_change": "G1187G",
           "annotation": {
-            "vep_impact": "LOW"
+            "vep_impact": "MODERATE"
           },
-          "ref_seq_accession": "NM_183394.2"
+          "transcript_id": "ENST00000311936",
+          "aa_end": 12,
+          "consequence_type": "missense_variant",
+          "aa_start": 12,
+          "is_canonical": false,
+          "aa_change": "G12D",
+          "ref_seq_accession": "NM_001369787.1&NM_004985.5"
         }
       },
       {
         "transcript": {
-          "aa_start": 1147,
-          "consequence_type": "synonymous_variant",
-          "aa_end": 1147,
-          "transcript_id": "ENST00000357948",
-          "is_canonical": false,
-          "aa_change": "G1147G",
           "annotation": {
-            "vep_impact": "LOW"
+            "vep_impact": "MODERATE"
           },
-          "ref_seq_accession": "NM_183393.2"
-        }
-      },
-      {
-        "transcript": {
-          "aa_start": 1217,
-          "consequence_type": "synonymous_variant",
-          "aa_end": 1217,
-          "transcript_id": "ENST00000612439",
+          "transcript_id": "ENST00000556131",
+          "aa_end": 12,
+          "consequence_type": "missense_variant",
+          "aa_start": 12,
           "is_canonical": false,
-          "aa_change": "G1217G",
-          "annotation": {
-            "vep_impact": "LOW"
-          },
+          "aa_change": "G12D",
           "ref_seq_accession": ""
         }
       }
     ]
-  }
+  },
+  "warnings": {}
+}
 ```
 
 ## Simple Somatic Mutation Occurrence Endpoint Examples
@@ -352,94 +298,77 @@ __Example 1:__ A user wants to determine the chromosome in case `TCGA-DU-6407` t
 curl "https://api.gdc.cancer.gov/ssm_occurrences?format=tsv&fields=ssm.chromosome&size=5000&filters=%7B%0D%0A%22op%22%3A%22in%22%2C%0D%0A%22content%22%3A%7B%0D%0A%22field%22%3A%22case.submitter_id%22%2C%0D%0A%22value%22%3A%5B%0D%0A%22TCGA-DU-6407%22%0D%0A%5D%0D%0A%7D%0D%0A%7D"
 ```
 ```tsv
-ssm.chromosome	id
-chr3	552c09d1-69b1-5c04-b543-524a6feae3eb
-chr10	391011ff-c1fd-5e2a-a128-652bc660f64c
-chr10	1378cbc4-af88-55bb-b2e5-185bb4246d7a
-chr10	3a2b3870-a395-5bc3-8c8f-0d40b0f2202c
-chr1	4a93d7a5-988d-5055-80da-999dc3b45d80
-chrX	22a07c7c-16ba-51df-a9a9-1e41e2a45225
-chr12	dbc5eafa-ea26-5f1c-946c-b6974a345b69
-chr11	02ae553d-1f27-565d-96c5-2c3cfca7264a
-chr2	faee73a9-4804-58ea-a91f-18c3d901774f
-chr6	97c5b38b-fc96-57f5-8517-cc702b3aa70a
-chr17	0010a89d-9434-5d97-8672-36ee394767d0
-chr19	f08dcc53-eadc-5ceb-bf31-f6b38629e4cb
-chrX	19ca262d-b354-54a0-b582-c4719e37e91d
-chr19	c44a93a1-5c73-5cff-b40e-98ce7e5fe57b
-chr3	b67f31b5-0341-518e-8fcc-811cd2e36af1
-chr1	94abd5fd-d539-5a4a-8719-9615cf7cec5d
-chr17	1476a543-2951-5ec4-b165-67551b47d810
-chr2	b4822fc9-f0cc-56fd-9d97-f916234e309d
-chr2	3548ecfe-5186-51e7-8f40-37f4654cd260
-chr16	105e7811-4601-5ccb-ae93-e7107923599e
-chr2	99b3aad4-d368-506d-99d6-047cbe5dff0f
-chr13	9dc3f7cd-9efa-530a-8524-30d067e49d54
-chr21	1267330b-ae6d-5e25-b19e-34e98523679e
-chr16	c77f7ce5-fbe6-5da4-9a7b-b528f8e530cb
-chr10	2cb06277-993e-5502-b2c5-263037c45d18
-chr17	d25129ad-3ad7-584f-bdeb-fba5c3881d32
-chr17	a76469cb-973c-5d4d-bf82-7cf4e8f6c129
-chr10	727c9d57-7b74-556f-aa5b-e1ca1f76d119
-chr15	b4a86ffd-e60c-5c9c-aaa1-9e9f02d86116
-chr5	3a023e72-da92-54f7-aa18-502c1076b2b0
+id	ssm.chromosome
+105e7811-4601-5ccb-ae93-e7107923599e	chr16
+faee73a9-4804-58ea-a91f-18c3d901774f	chr2
+99b3aad4-d368-506d-99d6-047cbe5dff0f	chr2
+2cb06277-993e-5502-b2c5-263037c45d18	chr10
+f08dcc53-eadc-5ceb-bf31-f6b38629e4cb	chr19
+97c5b38b-fc96-57f5-8517-cc702b3aa70a	chr6
+19ca262d-b354-54a0-b582-c4719e37e91d	chrX
+b4822fc9-f0cc-56fd-9d97-f916234e309d	chr2
+22a07c7c-16ba-51df-a9a9-1e41e2a45225	chrX
+0010a89d-9434-5d97-8672-36ee394767d0	chr17
+3a023e72-da92-54f7-aa18-502c1076b2b0	chr5
+391011ff-c1fd-5e2a-a128-652bc660f64c	chr10
+3548ecfe-5186-51e7-8f40-37f4654cd260	chr2
+b67f31b5-0341-518e-8fcc-811cd2e36af1	chr3
+4a93d7a5-988d-5055-80da-999dc3b45d80	chr1
+9dc3f7cd-9efa-530a-8524-30d067e49d54	chr13
+552c09d1-69b1-5c04-b543-524a6feae3eb	chr3
+dbc5eafa-ea26-5f1c-946c-b6974a345b69	chr12
+d25129ad-3ad7-584f-bdeb-fba5c3881d32	chr17
+1378cbc4-af88-55bb-b2e5-185bb4246d7a	chr10
+c44a93a1-5c73-5cff-b40e-98ce7e5fe57b	chr19
+1267330b-ae6d-5e25-b19e-34e98523679e	chr21
+1476a543-2951-5ec4-b165-67551b47d810	chr17
+727c9d57-7b74-556f-aa5b-e1ca1f76d119	chr10
+94abd5fd-d539-5a4a-8719-9615cf7cec5d	chr1
+a76469cb-973c-5d4d-bf82-7cf4e8f6c129	chr17
 ```
-__Example 2:__ A user has retrieved a `ssm_occurrence`, and would like to determine if that case also has tissue slides and transcriptome profiling data.
+__Example 2:__ A user has retrieved a `ssm_occurrence`, and would like to determine if that case also has diagnostic information.
 
 ```Shell
-curl 'https://api.gdc.cancer.gov/ssm_occurrences/6fd8527d-5c40-5604-8fa9-0ce798eec231?pretty=true&expand=case,case.summary.experimental_strategies'
+curl 'https://api.gdc.cancer.gov/ssm_occurrences/6fd8527d-5c40-5604-8fa9-0ce798eec231?pretty=true&expand=case.diagnoses'
 ```
 
 ```Json
 {
   "data": {
+    "ssm_occurrence_id": "6fd8527d-5c40-5604-8fa9-0ce798eec231",
     "case": {
-      "disease_type": "Nevi and Melanomas",
-      "updated_datetime": "2018-09-06T18:42:50.098635-05:00",
-      "created_datetime": null,
-      "summary": {
-        "experimental_strategies": [
-          {
-            "file_count": 3,
-            "experimental_strategy": "miRNA-Seq"
-          },
-          {
-            "file_count": 1,
-            "experimental_strategy": "Tissue Slide"
-          },
-          {
-            "file_count": 18,
-            "experimental_strategy": "WXS"
-          },
-          {
-            "file_count": 1,
-            "experimental_strategy": "Diagnostic Slide"
-          },
-          {
-            "file_count": 4,
-            "experimental_strategy": "RNA-Seq"
-          },
-          {
-            "file_count": 4,
-            "experimental_strategy": "Genotyping Array"
-          },
-          {
-            "file_count": 1,
-            "experimental_strategy": "Methylation Array"
-          }
-        ]
-      },
-      "state": "released",
-      "case_id": "590b5e18-d837-4c0e-becf-80520db57c0f",
-      "primary_site": "Skin",
-      "submitter_id": "TCGA-Z2-A8RT",
-      "available_variation_data": [
-        "cnv",
-        "ssm"
+      "diagnoses": [
+        {
+          "ajcc_pathologic_t": "T3b",
+          "synchronous_malignancy": "No",
+          "morphology": "8720/3",
+          "ajcc_pathologic_stage": "Stage IIB",
+          "ajcc_pathologic_n": "N0",
+          "ajcc_pathologic_m": "M0",
+          "submitter_id": "TCGA-Z2-A8RT_diagnosis",
+          "days_to_diagnosis": 0,
+          "last_known_disease_status": "not reported",
+          "tissue_or_organ_of_origin": "Skin, NOS",
+          "days_to_last_follow_up": 839.0,
+          "age_at_diagnosis": 15342,
+          "primary_diagnosis": "Malignant melanoma, NOS",
+          "classification_of_tumor": "not reported",
+          "prior_malignancy": "no",
+          "year_of_diagnosis": 2012,
+          "diagnosis_id": "1d06a202-c51a-52e2-805f-eeb5f7fac14e",
+          "icd_10_code": "C44.6",
+          "site_of_resection_or_biopsy": "Skin of upper limb and shoulder",
+          "prior_treatment": "No",
+          "state": "released",
+          "tumor_grade": "not reported",
+          "progression_or_recurrence": "not reported",
+          "ajcc_staging_system_edition": "7th"
+        }
       ]
-    },
-    "ssm_occurrence_id": "6fd8527d-5c40-5604-8fa9-0ce798eec231"
-  }
+    }
+  },
+  "warnings": {}
+}
 ```
 
 ## Copy Number Variation Endpoint Examples
