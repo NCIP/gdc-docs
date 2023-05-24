@@ -541,85 +541,77 @@ curl 'https://api.gdc.cancer.gov/cnv_occurrences?filters=%7B%0D%0A++++%22op%22%3
 ```
 
 ```tsv
-case.case_id	case.available_variation_data.1	case.available_variation_data.0	id
-638035f6-2909-4a44-980f-468ac5d74e18	ssm	cnv	e76d2aaf-f951-5a51-a949-a241dba61f73
-ad98977b-e159-410a-b8c2-f4e8a07f9784	ssm	cnv	ff3506b8-ee80-570f-ad2d-4ab4a7363b82
-c83c52f4-3815-4f49-8218-cf80aaa62e2f	ssm	cnv	e73696c5-386f-5cae-aa10-f8628f32ee0e
-dac27c24-cdbf-4527-9214-178fde3d098a	ssm	cnv	77885824-fae1-5116-9851-694255249cc8
-0e91d7b5-ce35-4671-ab9f-cfd5369b557c	ssm	cnv	526529ae-8e59-597e-aea1-cc0b06a82e76
-ea34663c-f40e-4a3e-9ac0-65d5e9eef12b	ssm	cnv	e4a0c034-44d4-5dea-912a-ce331d9a9512
-05026179-b1da-411e-a286-89727b1ae380	ssm	cnv	30bdc04c-54a5-53ca-bdd0-b808f23da266
-f1a1bbf9-4751-4fb4-8a2b-19f8d4ba57bd	ssm	cnv	02e3fbb3-da8f-5983-8d10-189e641ddf11
-a6ec75d4-1c90-4527-bfae-aa91d2dae082	ssm	cnv	94b0e8be-1130-5b88-9103-6756bdabf67b
-107f6b9a-2883-4499-a40a-ec25bc834a06	ssm	cnv	ad831f27-e6f5-5b78-8a15-0b652621ea4c
+case.available_variation_data.0	case.available_variation_data.1	case.case_id	id
+cnv	ssm	da30a845-c4d3-4c78-b8b0-210239224f8f	3caf6e3b-024f-57b6-bdd9-3b67e423cc11
+cnv	ssm	0809ba8b-4ab6-4f43-934c-c1ccbc014a7e	e6afe58e-c99c-5c8d-920e-8ba4daad4d89
+cnv	ssm	8e0e456e-85ee-4de5-8f0b-72393d6acde0	9d983d9c-8320-53f1-9054-e46926c5b834
+cnv	ssm	64a195f6-2212-4e81-bccc-e39c77a10908	8caeaecc-ad68-539d-8b3c-8320b3684763
+cnv	ssm	2f6a0e87-1e6c-41f3-93e0-3e505fa654b0	4862c166-0f37-5e3c-ae4e-a2964de01cea
+cnv	ssm	f0daf315-8909-4cda-886d-a2770b08db94	099ff6cd-bd28-56f4-a181-6b02f3ba7503
+cnv	ssm	ff3808e4-eece-4046-819b-fe1019317f8e	0c936aa2-393e-5463-a431-3613b4510021
+cnv	ssm	9205dc07-93f5-4b5e-924e-8e097616160f	133d27a7-fdc6-5082-a1f3-022b89f4e851
+cnv	ssm	79ae5209-f476-4d65-a6c0-ebc18d7c8942	7a5e6bb1-8af3-5964-a3cc-c53602c8b099
+cnv	ssm	ff7099e1-8ff9-48e4-842d-46e98076e7e6	fb27fa8f-aa31-5e20-84da-8f45bb675405
 ```
 
-__Example 2:__ A user is interested in the first cnv occurrence (`e76d2aaf-f951-5a51-a949-a241dba61f73`) from the previous example, and would like to know more about the case exposures and demographics.
+__Example 2:__ A user is interested in the first cnv occurrence (`3b9f7ecc-2280-5b89-80f9-ec8d6c5e604e`) from the previous example, and would like to know more about the case exposures and demographics.
 
 ```Shell
-curl 'https://api.gdc.cancer.gov/cnv_occurrences/e76d2aaf-f951-5a51-a949-a241dba61f73?pretty=true&expand=cnv,case,case.exposures,case.demographic'
+curl 'https://api.gdc.cancer.gov/cnv_occurrences/3b9f7ecc-2280-5b89-80f9-ec8d6c5e604e?pretty=true&expand=cnv,case,case.exposures,case.demographic'
 ```
 
 ```Json
 {
   "data": {
     "cnv": {
-      "ncbi_build": "GRCh38",
-      "cnv_id": "0d475712-c11e-51fb-b6e6-407d12978057",
+      "start_position": 68815994,
       "gene_level_cn": true,
       "cnv_change": "Gain",
-      "end_position": 133348131,
-      "variant_status": "Tumor only",
-      "start_position": 133338323,
-      "chromosome": "9"
+      "ncbi_build": "GRCh38",
+      "chromosome": "4",
+      "variant_status": "Tumor Only",
+      "cnv_id": "1a889109-30d5-51e3-848f-9f615c69f407",
+      "end_position": 68832023
     },
+    "cnv_occurrence_id": "3b9f7ecc-2280-5b89-80f9-ec8d6c5e604e",
     "case": {
-      "disease_type": "Squamous Cell Neoplasms",
-      "updated_datetime": "2018-09-06T11:07:45.510627-05:00",
-      "created_datetime": null,
-      "demographic": {
-        "updated_datetime": "2018-09-06T11:07:45.510627-05:00",
-        "created_datetime": null,
-        "gender": "female",
-        "year_of_birth": 1954,
-        "submitter_id": "TCGA-EA-A3HR_demographic",
-        "state": "released",
-        "race": "white",
-        "demographic_id": "dd8576a8-bd62-55e7-b0df-7233ceded2fb",
-        "ethnicity": "not hispanic or latino",
-        "year_of_death": null
-      },
-      "submitter_id": "TCGA-EA-A3HR",
-      "state": "released",
-      "case_id": "638035f6-2909-4a44-980f-468ac5d74e18",
-      "primary_site": "Cervix uteri",
+      "exposures": [
+        {
+          "cigarettes_per_day": 5.47945205479452,
+          "alcohol_history": "Not Reported",
+          "exposure_id": "f7b08a8e-d22b-5cb0-be9f-b922c9ca87d2",
+          "submitter_id": "TCGA-38-4629_exposure",
+          "state": "released",
+          "pack_years_smoked": 100.0
+        }
+      ],
+      "primary_site": "Bronchus and lung",
+      "disease_type": "Adenomas and Adenocarcinomas",
       "available_variation_data": [
         "cnv",
         "ssm"
       ],
-      "exposures": [
-        {
-          "cigarettes_per_day": null,
-          "weight": 86,
-          "updated_datetime": "2018-09-06T11:07:45.510627-05:00",
-          "created_datetime": null,
-          "alcohol_intensity": null,
-          "bmi": 40,
-          "years_smoked": null,
-          "submitter_id": "TCGA-EA-A3HR_exposure",
-          "alcohol_history": null,
-          "state": "released",
-          "tobacco_smoking_status": null,
-          "tobacco_smoking_onset_year": null,
-          "tobacco_smoking_quit_year": null,
-          "exposure_id": "0e7265ab-bf65-50c7-bf33-96a7ac452d7c",
-          "height": 146,
-          "pack_years_smoked": null
-        }
-      ]
-    },
-    "cnv_occurrence_id": "e76d2aaf-f951-5a51-a949-a241dba61f73"
-  }
+      "case_id": "127bf818-f7e5-46b5-a9de-39f6d96b8b83",
+      "submitter_id": "TCGA-38-4629",
+      "state": "released",
+      "demographic": {
+        "demographic_id": "9ea1f795-9510-5acc-a9a5-bf1379e6635a",
+        "ethnicity": "not hispanic or latino",
+        "gender": "male",
+        "race": "white",
+        "vital_status": "Dead",
+        "age_at_index": 68,
+        "submitter_id": "TCGA-38-4629_demographic",
+        "days_to_death": 864,
+        "days_to_birth": -25104,
+        "state": "released",
+        "year_of_death": 2005,
+        "year_of_birth": 1935
+      }
+    }
+  },
+  "warnings": {}
+}
 ```
 
 ## Analysis Endpoints
