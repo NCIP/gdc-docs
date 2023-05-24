@@ -406,66 +406,67 @@ curl 'https://api.gdc.cancer.gov/cnvs?filters=%7B%0D%0A+++%22op%22%3A+%22and%22%
 ```
 
 ```tsv
-ncbi_build	cnv_id	gene_level_cn	cnv_change	end_position	start_position	id	chromosome
-GRCh38	d18e0dc8-7d56-5d9e-84fd-4f2cf3353c66	True	Loss	88211 53285 d18e0dc8-7d56-5d9e-84fd-4f2cf3353c66	4
-GRCh38	357a6606-8a64-5827-b776-e71f44b7e05f	True	Loss	163989	124480	357a6606-8a64-5827-b776-e71f44b7e05f	4
-GRCh38	eda45f5f-6a57-5fae-b8ad-5d67a14423f1	True	Loss	305321	270675	eda45f5f-6a57-5fae-b8ad-5d67a14423f1	4
-GRCh38	64d82c29-0f20-5a8f-8599-7afb550ab403	True	Loss	384864	337814	64d82c29-0f20-5a8f-8599-7afb550ab403	4
-GRCh38	f9d24781-34cb-51ff-99c2-84c83a8348ac	True	Loss	499156	425815	f9d24781-34cb-51ff-99c2-84c83a8348ac	4
-GRCh38	56209b45-3b2c-5862-85bb-362722bae857	True	Loss	540196	499210	56209b45-3b2c-5862-85bb-362722bae857	4
-GRCh38	04b976d8-90ad-501d-b672-e14816582339	True	Loss	670782	625584	04b976d8-90ad-501d-b672-e14816582339	4
-GRCh38	574939d6-bf4f-57e9-9c86-629b3d8de664	True	Loss	674338	672436	574939d6-bf4f-57e9-9c86-629b3d8de664	4
-GRCh38	b2ebf724-0a08-542e-ad1e-392a30208140	True	Loss	682033	673580	b2ebf724-0a08-542e-ad1e-392a30208140	4
-GRCh38	4e37e683-6f9f-5e80-8e3b-78d0cdf3c28e	True	Loss	689441	681829	4e37e683-6f9f-5e80-8e3b-78d0cdf3c28e	4
-GRCh38	06837ab7-8242-518f-a24c-dce8a0140b01	True	Loss	770640	705748	06837ab7-8242-518f-a24c-dce8a0140b01	4
-GRCh38	9f877f14-55ea-5e19-afa0-d294d1700b4b	True	Loss	826198	784957	9f877f14-55ea-5e19-afa0-d294d1700b4b	4
-GRCh38	bde18311-8a8a-52ef-bcc0-3b6660509df0	True	Loss	932373	849276	bde18311-8a8a-52ef-bcc0-3b6660509df0	4
-GRCh38	31c65477-0e54-5be3-b1f6-3f249850ef79	True	Loss	958656	932387	31c65477-0e54-5be3-b1f6-3f249850ef79	4
-GRCh38	c26f1b4d-d4c3-5685-8789-fb0051f8a188	True	Loss	986895	958887	c26f1b4d-d4c3-5685-8789-fb0051f8a188	4
-GRCh38	0aa931e9-7ec1-57e7-9cb9-ec66a8da5689	True	Loss	993440	979073	0aa931e9-7ec1-57e7-9cb9-ec66a8da5689	4
-GRCh38	162a9e1d-e1ee-5478-9291-6ba8082d5776	True	Loss	1004506	986997	162a9e1d-e1ee-5478-9291-6ba8082d5776	4
-GRCh38	6a4d4aef-2289-54f5-b78b-797db8c3a9f2	True	Loss	1026897	1009936	6a4d4aef-2289-54f5-b78b-797db8c3a9f2	4
-GRCh38	3c26920b-fb93-5595-81a0-770df0c88246	True	Loss	1113562	1056250	3c26920b-fb93-5595-81a0-770df0c88246	4
-GRCh38	7036724d-1a73-5b2b-ae02-c2dc5b3333d7	True	Loss	1208962	1166932	7036724d-1a73-5b2b-ae02-c2dc5b3333d7	4
-GRCh38	30b408be-db7b-579b-bbde-4a265c6291ce	True	Loss	1249953	1211448	30b408be-db7b-579b-bbde-4a265c6291ce	4
-GRCh38	a7c6f097-bba8-5859-838d-8b3b4610c9e6	True	Loss	1340147	1289851	a7c6f097-bba8-5859-838d-8b3b4610c9e6	4
-GRCh38	8fd4f4e8-ddf3-574b-ac19-3112a2778b22	True	Loss	1388049	1347266	8fd4f4e8-ddf3-574b-ac19-3112a2778b22	4
-GRCh38	2315f6cc-9d91-58b8-9f3e-f0d36cd6846c	True	Loss	1395989	1391552	2315f6cc-9d91-58b8-9f3e-f0d36cd6846c	4
-GRCh38	1480d682-fe0e-5ba1-bf4e-ac84945f194a	True	Loss	1406331	1402932	1480d682-fe0e-5ba1-bf4e-ac84945f194a	4
-GRCh38	280e825e-1c51-506b-a4b5-3dc85fd79cbe	True	Loss	1684302	1617915	280e825e-1c51-506b-a4b5-3dc85fd79cbe	4
-GRCh38	607e36e3-6b1d-5564-9670-759668053ceb	True	Loss	1712555	1692800	607e36e3-6b1d-5564-9670-759668053ceb	4
-GRCh38	93b6ccc4-d88d-5040-936f-a23c9006a965	True	Loss	1721358	1715952	93b6ccc4-d88d-5040-936f-a23c9006a965	4
-GRCh38	f6f660d2-5a68-5e49-92b1-a816be39e0fe	True	Loss	1745176	1721490	f6f660d2-5a68-5e49-92b1-a816be39e0fe	4
-GRCh38	a0c069d1-dcb0-5833-8fff-211cd6e3719a	True	Loss	1808872	1793307	a0c069d1-dcb0-5833-8fff-211cd6e3719a	4
+chromosome	cnv_change	cnv_id	end_position	gene_level_cn	id	ncbi_build	start_position
+4	Loss	11381600-f064-5c42-90d2-a5c79c8b23e1	88208	True	11381600-f064-5c42-90d2-a5c79c8b23e1	GRCh38	53286
+4	Loss	edef0f2f-c1a7-507c-842f-e1f8a568df9d	202303	True	edef0f2f-c1a7-507c-842f-e1f8a568df9d	GRCh38	124501
+4	Loss	eba92f9a-b045-54a8-948a-451e439ed418	305474	True	eba92f9a-b045-54a8-948a-451e439ed418	GRCh38	270675
+4	Loss	89319453-2a3f-5ebe-be30-8af0426e0343	384868	True	89319453-2a3f-5ebe-be30-8af0426e0343	GRCh38	337814
+4	Loss	6567929c-4b6f-582b-aedf-acde2c0ec736	499156	True	6567929c-4b6f-582b-aedf-acde2c0ec736	GRCh38	425815
+4	Loss	2daff58b-5065-50cd-8239-253180eaee81	540200	True	2daff58b-5065-50cd-8239-253180eaee81	GRCh38	499210
+4	Loss	2b42c8d4-6d85-5352-96e1-9e52e722c248	576295	True	2b42c8d4-6d85-5352-96e1-9e52e722c248	GRCh38	573880
+4	Loss	2646cdc7-7602-59a4-ae4f-d171352bae88	670782	True	2646cdc7-7602-59a4-ae4f-d171352bae88	GRCh38	625573
+4	Loss	c11ad392-949f-593f-a3ab-d834b2f82809	674330	True	c11ad392-949f-593f-a3ab-d834b2f82809	GRCh38	672436
+4	Loss	f31be658-4de0-549e-81be-e79759879acf	682033	True	f31be658-4de0-549e-81be-e79759879acf	GRCh38	673580
+4	Loss	d72c62f2-fc29-5b83-9839-7f6b03970aff	689271	True	d72c62f2-fc29-5b83-9839-7f6b03970aff	GRCh38	681829
+4	Loss	45448d47-6e13-5d30-824d-96150a7f55c6	770640	True	45448d47-6e13-5d30-824d-96150a7f55c6	GRCh38	705748
+4	Loss	517e65ea-9084-54c2-abe0-b1b47e9f872c	826129	True	517e65ea-9084-54c2-abe0-b1b47e9f872c	GRCh38	784957
+4	Loss	b5a09c9b-d842-5b76-a500-56f18252c29d	932373	True	b5a09c9b-d842-5b76-a500-56f18252c29d	GRCh38	849276
+4	Loss	e3a3b61d-2881-5ad4-90bf-58ef29ae9ecb	958656	True	e3a3b61d-2881-5ad4-90bf-58ef29ae9ecb	GRCh38	932387
+4	Loss	8630a1b6-3215-5b71-903a-ad9845505afc	986895	True	8630a1b6-3215-5b71-903a-ad9845505afc	GRCh38	958887
+4	Loss	f748b06f-1fb7-53a9-a7d6-2c22a3ae6de5	993440	True	f748b06f-1fb7-53a9-a7d6-2c22a3ae6de5	GRCh38	979073
+4	Loss	a5e4a63f-c5f6-5f0f-a6b6-f51bfb643533	1004564	True	a5e4a63f-c5f6-5f0f-a6b6-f51bfb643533	GRCh38	986997
+4	Loss	73f6fbbe-6fd9-524c-a7c8-a7cf3f08ada4	1026898	True	73f6fbbe-6fd9-524c-a7c8-a7cf3f08ada4	GRCh38	1009936
+4	Loss	adad579a-b002-5022-823a-570c59549065	1113564	True	adad579a-b002-5022-823a-570c59549065	GRCh38	1056250
+4	Loss	d5a5c45e-594b-5cbc-97d5-75fc5155d021	1208962	True	d5a5c45e-594b-5cbc-97d5-75fc5155d021	GRCh38	1166932
+4	Loss	6c910993-faa8-5abc-b433-b3afcc5e9e11	1249953	True	6c910993-faa8-5abc-b433-b3afcc5e9e11	GRCh38	1211445
+4	Loss	4453b4cb-7d8a-5e26-a856-eac62eec287a	1340147	True	4453b4cb-7d8a-5e26-a856-eac62eec287a	GRCh38	1289887
+4	Loss	6db1001a-a41b-518d-9491-2bf41544d90f	1395989	True	6db1001a-a41b-518d-9491-2bf41544d90f	GRCh38	1345691
+4	Loss	6bef981a-ead1-5aa7-8a69-8d38e576e5c0	1406442	True	6bef981a-ead1-5aa7-8a69-8d38e576e5c0	GRCh38	1402932
+4	Loss	af6e0b49-922a-587e-b353-4b9414605cf1	1684261	True	af6e0b49-922a-587e-b353-4b9414605cf1	GRCh38	1617915
+4	Loss	400352ad-8526-562a-bbf4-29b90a48f46f	1712344	True	400352ad-8526-562a-bbf4-29b90a48f46f	GRCh38	1692731
+4	Loss	8811414d-2434-56c6-afe5-a998c9b18d47	1745171	True	8811414d-2434-56c6-afe5-a998c9b18d47	GRCh38	1712891
+4	Loss	169c4409-0256-5841-9314-f1a4dd2bcc38	1721358	True	169c4409-0256-5841-9314-f1a4dd2bcc38	GRCh38	1715952
+4	Loss	1712ccac-6e70-5fb3-b71e-1a029eaf047c	1808872	True	1712ccac-6e70-5fb3-b71e-1a029eaf047c	GRCh38	1793293
 ```
 
-__Example 2:__ A user wants to determine the location and identity of the gene affected by the cnv `5052be09-2bbe-5175-a0ae-fc568ea75339`, and determine whether the gene is found within the Cancer Gene Census.
+__Example 2:__ A user wants to determine the location and identity of the gene affected by the cnv `544c4896-0152-5787-8d77-894a16f0ded0`, and determine whether the gene is found within the Cancer Gene Census.
 
 ```Shell
-curl 'https://api.gdc.cancer.gov/cnvs/5052be09-2bbe-5175-a0ae-fc568ea75339?pretty=true&expand=consequence.gene'
+curl 'https://api.gdc.cancer.gov/cnvs/544c4896-0152-5787-8d77-894a16f0ded0?pretty=true&expand=consequence.gene'
 ```
 
 ```Json
 {
   "data": {
-    "ncbi_build": "GRCh38",
-    "cnv_id": "5052be09-2bbe-5175-a0ae-fc568ea75339",
-    "gene_level_cn": true,
-    "cnv_change": "Gain",
-    "end_position": 110346681,
-    "start_position": 110338506,
+    "start_position": 27100354,
     "consequence": [
       {
         "gene": {
-          "symbol": "RBM15",
-          "is_cancer_gene_census": "True",
           "biotype": "protein_coding",
-          "gene_id": "ENSG00000162775"
+          "symbol": "HOXA2",
+          "gene_id": "ENSG00000105996"
         }
       }
     ],
-    "chromosome": "1"
-  }
+    "gene_level_cn": true,
+    "cnv_change": "Gain",
+    "ncbi_build": "GRCh38",
+    "chromosome": "7",
+    "cnv_id": "544c4896-0152-5787-8d77-894a16f0ded0",
+    "end_position": 27102686
+  },
+  "warnings": {}
+}
 ```
 
 ## Copy Number Variation Occurrence Enpoint Examples
