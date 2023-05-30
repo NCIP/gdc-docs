@@ -628,25 +628,1013 @@ curl "https://api.gdc.cancer.gov/analysis/top_cases_counts_by_genes?gene_ids=ENS
 This JSON-formatted output is broken up by project. For an example, see the following text:
 
 ```json
+$ curl "https://api.gdc.cancer.gov/analysis/top_cases_counts_by_genes?gene_ids=ENSG00000155657&pretty=true"
+{
+  "took": 6,
+  "timed_out": false,
+  "_shards": {
+    "total": 12,
+    "successful": 12,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 5967,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": []
+  },
+  "aggregations": {
+    "projects": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "TCGA-BRCA",
+          "doc_count": 425,
           "genes": {
+            "doc_count": 4031450,
             "my_genes": {
+              "doc_count": 425,
               "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
                 "buckets": [
                   {
                     "key": "ENSG00000155657",
-                    "doc_count": 45
+                    "doc_count": 425
                   }
-                ],
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-LUSC",
+          "doc_count": 423,
+          "genes": {
+            "doc_count": 4123089,
+            "my_genes": {
+              "doc_count": 423,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
                 "sum_other_doc_count": 0,
-                "doc_count_error_upper_bound": 0
-              },
-              "doc_count": 45
-            },
-            "doc_count": 12305
-          },
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 423
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "CPTAC-3",
+          "doc_count": 421,
+          "genes": {
+            "doc_count": 251552,
+            "my_genes": {
+              "doc_count": 421,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 421
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-SKCM",
+          "doc_count": 391,
+          "genes": {
+            "doc_count": 3040929,
+            "my_genes": {
+              "doc_count": 391,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 391
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-LUAD",
+          "doc_count": 345,
+          "genes": {
+            "doc_count": 3188761,
+            "my_genes": {
+              "doc_count": 345,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 345
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-OV",
+          "doc_count": 341,
+          "genes": {
+            "doc_count": 3728561,
+            "my_genes": {
+              "doc_count": 341,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 341
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-STAD",
+          "doc_count": 300,
+          "genes": {
+            "doc_count": 2145783,
+            "my_genes": {
+              "doc_count": 300,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 300
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-UCEC",
+          "doc_count": 297,
+          "genes": {
+            "doc_count": 1637055,
+            "my_genes": {
+              "doc_count": 297,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 297
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-HNSC",
+          "doc_count": 293,
+          "genes": {
+            "doc_count": 2325617,
+            "my_genes": {
+              "doc_count": 293,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 293
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-COAD",
+          "doc_count": 288,
+          "genes": {
+            "doc_count": 1695280,
+            "my_genes": {
+              "doc_count": 288,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 288
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-BLCA",
+          "doc_count": 280,
+          "genes": {
+            "doc_count": 2466835,
+            "my_genes": {
+              "doc_count": 280,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 280
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "MMRF-COMMPASS",
+          "doc_count": 181,
+          "genes": {
+            "doc_count": 45977,
+            "my_genes": {
+              "doc_count": 181,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 181
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-LIHC",
+          "doc_count": 167,
+          "genes": {
+            "doc_count": 1216775,
+            "my_genes": {
+              "doc_count": 167,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 167
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-CESC",
+          "doc_count": 161,
+          "genes": {
+            "doc_count": 1103281,
+            "my_genes": {
+              "doc_count": 161,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 161
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-KIRC",
+          "doc_count": 161,
+          "genes": {
+            "doc_count": 842546,
+            "my_genes": {
+              "doc_count": 161,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 161
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "CPTAC-2",
+          "doc_count": 131,
+          "genes": {
+            "doc_count": 72575,
+            "my_genes": {
+              "doc_count": 131,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 131
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
           "key": "TCGA-GBM",
-          "doc_count": 45
+          "doc_count": 131,
+          "genes": {
+            "doc_count": 756809,
+            "my_genes": {
+              "doc_count": 131,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 131
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-ESCA",
+          "doc_count": 129,
+          "genes": {
+            "doc_count": 1210888,
+            "my_genes": {
+              "doc_count": 129,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 129
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-PRAD",
+          "doc_count": 101,
+          "genes": {
+            "doc_count": 379949,
+            "my_genes": {
+              "doc_count": 101,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 101
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "HCMI-CMDC",
+          "doc_count": 99,
+          "genes": {
+            "doc_count": 54829,
+            "my_genes": {
+              "doc_count": 99,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 99
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-READ",
+          "doc_count": 98,
+          "genes": {
+            "doc_count": 726313,
+            "my_genes": {
+              "doc_count": 98,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 98
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-LGG",
+          "doc_count": 95,
+          "genes": {
+            "doc_count": 424689,
+            "my_genes": {
+              "doc_count": 95,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 95
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-KIRP",
+          "doc_count": 93,
+          "genes": {
+            "doc_count": 521936,
+            "my_genes": {
+              "doc_count": 93,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 93
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-SARC",
+          "doc_count": 93,
+          "genes": {
+            "doc_count": 903111,
+            "my_genes": {
+              "doc_count": 93,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 93
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-TGCT",
+          "doc_count": 51,
+          "genes": {
+            "doc_count": 524456,
+            "my_genes": {
+              "doc_count": 51,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 51
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TARGET-ALL-P2",
+          "doc_count": 50,
+          "genes": {
+            "doc_count": 1882,
+            "my_genes": {
+              "doc_count": 50,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 50
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-KICH",
+          "doc_count": 43,
+          "genes": {
+            "doc_count": 353674,
+            "my_genes": {
+              "doc_count": 43,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 43
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-PAAD",
+          "doc_count": 43,
+          "genes": {
+            "doc_count": 300427,
+            "my_genes": {
+              "doc_count": 43,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 43
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "CGCI-HTMCP-CC",
+          "doc_count": 37,
+          "genes": {
+            "doc_count": 3606,
+            "my_genes": {
+              "doc_count": 37,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 37
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "CDDP_EAGLE-1",
+          "doc_count": 32,
+          "genes": {
+            "doc_count": 16980,
+            "my_genes": {
+              "doc_count": 32,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 32
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-ACC",
+          "doc_count": 29,
+          "genes": {
+            "doc_count": 283969,
+            "my_genes": {
+              "doc_count": 29,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 29
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "CMI-MBC",
+          "doc_count": 28,
+          "genes": {
+            "doc_count": 3581,
+            "my_genes": {
+              "doc_count": 28,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 28
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-THCA",
+          "doc_count": 28,
+          "genes": {
+            "doc_count": 89120,
+            "my_genes": {
+              "doc_count": 28,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 28
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-UCS",
+          "doc_count": 28,
+          "genes": {
+            "doc_count": 283673,
+            "my_genes": {
+              "doc_count": 28,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 28
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-MESO",
+          "doc_count": 21,
+          "genes": {
+            "doc_count": 137002,
+            "my_genes": {
+              "doc_count": 21,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 21
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-PCPG",
+          "doc_count": 19,
+          "genes": {
+            "doc_count": 99444,
+            "my_genes": {
+              "doc_count": 19,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 19
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TARGET-NBL",
+          "doc_count": 15,
+          "genes": {
+            "doc_count": 829,
+            "my_genes": {
+              "doc_count": 15,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 15
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-UVM",
+          "doc_count": 12,
+          "genes": {
+            "doc_count": 68201,
+            "my_genes": {
+              "doc_count": 12,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 12
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "EXCEPTIONAL_RESPONDERS-ER",
+          "doc_count": 11,
+          "genes": {
+            "doc_count": 10617,
+            "my_genes": {
+              "doc_count": 11,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 11
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-THYM",
+          "doc_count": 11,
+          "genes": {
+            "doc_count": 59647,
+            "my_genes": {
+              "doc_count": 11,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 11
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "BEATAML1.0-COHORT",
+          "doc_count": 10,
+          "genes": {
+            "doc_count": 279,
+            "my_genes": {
+              "doc_count": 10,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 10
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TARGET-OS",
+          "doc_count": 10,
+          "genes": {
+            "doc_count": 414,
+            "my_genes": {
+              "doc_count": 10,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 10
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-LAML",
+          "doc_count": 10,
+          "genes": {
+            "doc_count": 10175,
+            "my_genes": {
+              "doc_count": 10,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 10
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-DLBC",
+          "doc_count": 9,
+          "genes": {
+            "doc_count": 63497,
+            "my_genes": {
+              "doc_count": 9,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 9
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TCGA-CHOL",
+          "doc_count": 8,
+          "genes": {
+            "doc_count": 52960,
+            "my_genes": {
+              "doc_count": 8,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 8
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "CMI-MPC",
+          "doc_count": 7,
+          "genes": {
+            "doc_count": 365,
+            "my_genes": {
+              "doc_count": 7,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 7
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "CMI-ASC",
+          "doc_count": 6,
+          "genes": {
+            "doc_count": 5745,
+            "my_genes": {
+              "doc_count": 6,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 6
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TARGET-WT",
+          "doc_count": 3,
+          "genes": {
+            "doc_count": 51,
+            "my_genes": {
+              "doc_count": 3,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 3
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "TARGET-ALL-P3",
+          "doc_count": 2,
+          "genes": {
+            "doc_count": 66,
+            "my_genes": {
+              "doc_count": 2,
+              "gene_id": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": "ENSG00000155657",
+                    "doc_count": 2
+                  }
+                ]
+              }
+            }
+          }
         }
+      ]
+    }
+  }
+
 ```
 
 This portion of the output shows TCGA-GBM including 45 cases that have `ssms` in the gene `ENSG00000155657`.
@@ -669,7 +1657,7 @@ __Example 2:__ The following demonstrates a use of the `/analysis/top_mutated_ge
       {  
          "op":"in",
          "content":{  
-            "field":"case.ssm.consequence.transcript.annotation.impact",
+            "field":"case.ssm.consequence.transcript.annotation.vep_impact",
             "value":[  
                "HIGH",
                "MODERATE"
@@ -680,71 +1668,71 @@ __Example 2:__ The following demonstrates a use of the `/analysis/top_mutated_ge
 }
 ```
 ```Shell
-curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=gene_id,symbol&filters=%7B%22op%22%3A%22AND%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.project.project_id%22%2C%22value%22%3A%5B%22TCGA-DLBC%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.ssm.consequence.transcript.annotation.impact%22%2C%22value%22%3A%5B%22HIGH%22%2C%22MODERATE%22%5D%7D%7D%5D%7D&pretty=true"
+curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=gene_id,symbol&filters=%7B%20%20%0A%20%20%20%22op%22%3A%22AND%20%20%20%22content%22%3A%5B%20%20%0A%20%20%20%20%20%20%7B%20%20%0A%20%20%20%20%20%20%20%20%20%22op%22%3A%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%22content%22%3A%7B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%22case.project.project_id%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%5B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22TCGA-DLBC%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%20%20%0A%20%20%20%20%20%20%20%20%20%22op%22%3A%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%22content%22%3A%7B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%22case.ssm.consequence.transcript.annotation.vep_impact%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%5B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22HIGH%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22MODERATE%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%5D%0A%7D%0A&pretty=true"
 ```
 ```Response
 {
   "data": {
     "hits": [
       {
-        "_score": 14.0,
-        "symbol": "IGHV2-70",
-        "gene_id": "ENSG00000274576"
-      },
-      {
-        "_score": 14.0,
-        "symbol": "IGLV3-1",
-        "gene_id": "ENSG00000211673"
-      },
-      {
-        "_score": 14.0,
-        "symbol": "IGHM",
-        "gene_id": "ENSG00000211899"
-      },
-      {
-        "_score": 11.0,
         "symbol": "KMT2D",
-        "gene_id": "ENSG00000167548"
+        "gene_id": "ENSG00000167548",
+        "_score": 13.0
       },
       {
-        "_score": 11.0,
-        "symbol": "IGLL5",
-        "gene_id": "ENSG00000254709"
-      },
-      {
-        "_score": 11.0,
         "symbol": "BTG2",
-        "gene_id": "ENSG00000159388"
+        "gene_id": "ENSG00000159388",
+        "_score": 13.0
       },
       {
-        "_score": 9.0,
-        "symbol": "CARD11",
-        "gene_id": "ENSG00000198286"
+        "symbol": "B2M",
+        "gene_id": "ENSG00000166710",
+        "_score": 11.0
       },
       {
-        "_score": 9.0,
+        "symbol": "PIM1",
+        "gene_id": "ENSG00000137193",
+        "_score": 10.0
+      },
+      {
         "symbol": "IGHG1",
-        "gene_id": "ENSG00000211896"
+        "gene_id": "ENSG00000211896",
+        "_score": 10.0
       },
       {
-        "_score": 9.0,
-        "symbol": "IGLC2",
-        "gene_id": "ENSG00000211677"
+        "symbol": "CARD11",
+        "gene_id": "ENSG00000198286",
+        "_score": 10.0
       },
       {
-        "_score": 9.0,
-        "symbol": "LRP1B",
-        "gene_id": "ENSG00000168702"
+        "symbol": "H1-4",
+        "gene_id": "ENSG00000168298",
+        "_score": 9.0
+      },
+      {
+        "symbol": "PCLO",
+        "gene_id": "ENSG00000186472",
+        "_score": 9.0
+      },
+      {
+        "symbol": "IGHG2",
+        "gene_id": "ENSG00000211893",
+        "_score": 9.0
+      },
+      {
+        "symbol": "FAT4",
+        "gene_id": "ENSG00000196159",
+        "_score": 8.0
       }
     ],
     "pagination": {
       "count": 10,
-      "sort": "None",
+      "total": 3500,
+      "size": 10,
       "from": 0,
+      "sort": "None",
       "page": 1,
-      "total": 3214,
-      "pages": 322,
-      "size": 10
+      "pages": 350
     }
   },
   "warnings": {}
