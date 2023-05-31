@@ -85,7 +85,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Unavailable Files
 
-* 56 CPTAC-3 snRNA-Seq files are currently unavailable for download. A list of the affected files can be found [here](CPTAC-3_snRNA-Seq_download_affected_files.txt). These files will be restored for download by the next data release. 
+* 56 CPTAC-3 snRNA-Seq files are currently unavailable for download. A list of the affected files can be found [here](CPTAC-3_snRNA-Seq_download_affected_files.txt). These files will be restored for download by the next data release. <!--DAT-3433-->
 
 
 ### Bugs Fixed Since Last Release
