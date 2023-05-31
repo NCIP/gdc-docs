@@ -1742,119 +1742,127 @@ curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=ge
 __Example 3:__ The `/analysis/top_mutated_cases_by_gene` endpoint will generate information about the cases that are most affected by mutations in a given number of genes. Below, the file count for each category is given for the cases most affected by mutations in these 50 genes.  The size of the output is limited to two cases with the `size=2` parameter, but a higher value can be set by the user.
 
 ```Shell
-curl "https://api.gdc.cancer.gov/analysis/top_mutated_cases_by_gene?fields=diagnoses.days_to_death,diagnoses.age_at_diagnosis,diagnoses.vital_status,diagnoses.primary_diagnosis,demographic.gender,demographic.race,demographic.ethnicity,case_id,summary.data_categories.file_count,summary.data_categories.data_category&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-DLBC%22%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22genes.gene_id%22%2C%22value%22%3A%5B%22ENSG00000166710%22%2C%22ENSG00000005339%22%2C%22ENSG00000083857%22%2C%22ENSG00000168769%22%2C%22ENSG00000100906%22%2C%22ENSG00000184677%22%2C%22ENSG00000101680%22%2C%22ENSG00000101266%22%2C%22ENSG00000028277%22%2C%22ENSG00000140968%22%2C%22ENSG00000181827%22%2C%22ENSG00000116815%22%2C%22ENSG00000275221%22%2C%22ENSG00000139083%22%2C%22ENSG00000112851%22%2C%22ENSG00000112697%22%2C%22ENSG00000164134%22%2C%22ENSG00000009413%22%2C%22ENSG00000071626%22%2C%22ENSG00000135407%22%2C%22ENSG00000101825%22%2C%22ENSG00000104814%22%2C%22ENSG00000166415%22%2C%22ENSG00000142867%22%2C%22ENSG00000254585%22%2C%22ENSG00000139718%22%2C%22ENSG00000077721%22%2C%22ENSG00000130294%22%2C%22ENSG00000117245%22%2C%22ENSG00000117318%22%2C%22ENSG00000270550%22%2C%22ENSG00000163637%22%2C%22ENSG00000166575%22%2C%22ENSG00000065526%22%2C%22ENSG00000156453%22%2C%22ENSG00000128191%22%2C%22ENSG00000055609%22%2C%22ENSG00000204469%22%2C%22ENSG00000187605%22%2C%22ENSG00000185875%22%2C%22ENSG00000110888%22%2C%22ENSG00000007341%22%2C%22ENSG00000173198%22%2C%22ENSG00000115568%22%2C%22ENSG00000163714%22%2C%22ENSG00000125772%22%2C%22ENSG00000080815%22%2C%22ENSG00000189079%22%2C%22ENSG00000120837%22%2C%22ENSG00000143951%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22ssms.consequence.transcript.annotation.impact%22%2C%22value%22%3A%5B%22HIGH%22%5D%7D%7D%5D%7D&pretty=true&size=2"
+curl "https://api.gdc.cancer.gov/analysis/top_mutated_cases_by_gene?fields=diagnoses.age_at_diagnosis,diagnoses.primary_diagnosis,demographic.gender,demographic.race,demographic.ethnicity,case_id,summary.data_categories.file_count,summary.data_categories.data_category&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-DLBC%22%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22genes.gene_id%22%2C%22value%22%3A%5B%22ENSG00000166710%22%2C%22ENSG00000005339%22%2C%22ENSG00000083857%22%2C%22ENSG00000168769%22%2C%22ENSG00000100906%22%2C%22ENSG00000184677%22%2C%22ENSG00000101680%22%2C%22ENSG00000101266%22%2C%22ENSG00000028277%22%2C%22ENSG00000140968%22%2C%22ENSG00000181827%22%2C%22ENSG00000116815%22%2C%22ENSG00000275221%22%2C%22ENSG00000139083%22%2C%22ENSG00000112851%22%2C%22ENSG00000112697%22%2C%22ENSG00000164134%22%2C%22ENSG00000009413%22%2C%22ENSG00000071626%22%2C%22ENSG00000135407%22%2C%22ENSG00000101825%22%2C%22ENSG00000104814%22%2C%22ENSG00000166415%22%2C%22ENSG00000142867%22%2C%22ENSG00000254585%22%2C%22ENSG00000139718%22%2C%22ENSG00000077721%22%2C%22ENSG00000130294%22%2C%22ENSG00000117245%22%2C%22ENSG00000117318%22%2C%22ENSG00000270550%22%2C%22ENSG00000163637%22%2C%22ENSG00000166575%22%2C%22ENSG00000065526%22%2C%22ENSG00000156453%22%2C%22ENSG00000128191%22%2C%22ENSG00000055609%22%2C%22ENSG00000204469%22%2C%22ENSG00000187605%22%2C%22ENSG00000185875%22%2C%22ENSG00000110888%22%2C%22ENSG00000007341%22%2C%22ENSG00000173198%22%2C%22ENSG00000115568%22%2C%22ENSG00000163714%22%2C%22ENSG00000125772%22%2C%22ENSG00000080815%22%2C%22ENSG00000189079%22%2C%22ENSG00000120837%22%2C%22ENSG00000143951%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22ssms.consequence.transcript.annotation.vep_impact%22%2C%22value%22%3A%5B%22HIGH%22%5D%7D%7D%5D%7D&pretty=true&size=2"
 ```
 ```Response
 {
   "data": {
     "hits": [
       {
-        "_score": 7.0,
-        "diagnoses": [
-          {
-            "days_to_death": null,
-            "vital_status": "alive",
-            "age_at_diagnosis": 18691,
-            "primary_diagnosis": "c83.3"
-          }
-        ],
-        "case_id": "eda9496e-be80-4a13-bf06-89f0cc9e937f",
-        "demographic": {
-          "gender": "male",
-          "race": "white",
-          "ethnicity": "hispanic or latino"
-        },
         "summary": {
           "data_categories": [
             {
-              "file_count": 1,
-              "data_category": "DNA Methylation"
+              "file_count": 6,
+              "data_category": "Sequencing Reads"
             },
             {
-              "file_count": 5,
-              "data_category": "Transcriptome Profiling"
-            },
-            {
-              "file_count": 1,
+              "file_count": 14,
               "data_category": "Biospecimen"
+            },
+            {
+              "file_count": 8,
+              "data_category": "Copy Number Variation"
             },
             {
               "file_count": 16,
               "data_category": "Simple Nucleotide Variation"
             },
             {
-              "file_count": 1,
+              "file_count": 4,
+              "data_category": "Transcriptome Profiling"
+            },
+            {
+              "file_count": 3,
+              "data_category": "DNA Methylation"
+            },
+            {
+              "file_count": 8,
               "data_category": "Clinical"
             },
             {
               "file_count": 4,
-              "data_category": "Copy Number Variation"
+              "data_category": "Structural Variation"
             },
             {
-              "file_count": 4,
-              "data_category": "Raw Sequencing Data"
+              "file_count": 1,
+              "data_category": "Proteome Profiling"
             }
           ]
-        }
+        },
+        "case_id": "eda9496e-be80-4a13-bf06-89f0cc9e937f",
+        "diagnoses": [
+          {
+            "age_at_diagnosis": 18691,
+            "primary_diagnosis": "Malignant lymphoma, large B-cell, diffuse, NOS"
+          }
+        ],
+        "demographic": {
+          "ethnicity": "hispanic or latino",
+          "gender": "male",
+          "race": "white"
+        },
+        "_score": 7.0
       },
       {
-        "_score": 4.0,
-        "diagnoses": [
-          {
-            "days_to_death": null,
-            "vital_status": "alive",
-            "age_at_diagnosis": 27468,
-            "primary_diagnosis": "c83.3"
-          }
-        ],
-        "case_id": "a43e5f0e-a21f-48d8-97e0-084d413680b7",
-        "demographic": {
-          "gender": "male",
-          "race": "white",
-          "ethnicity": "not hispanic or latino"
-        },
         "summary": {
           "data_categories": [
             {
-              "file_count": 1,
-              "data_category": "DNA Methylation"
+              "file_count": 4,
+              "data_category": "Sequencing Reads"
             },
             {
-              "file_count": 5,
-              "data_category": "Transcriptome Profiling"
-            },
-            {
-              "file_count": 1,
+              "file_count": 13,
               "data_category": "Biospecimen"
+            },
+            {
+              "file_count": 8,
+              "data_category": "Copy Number Variation"
             },
             {
               "file_count": 16,
               "data_category": "Simple Nucleotide Variation"
             },
             {
-              "file_count": 1,
+              "file_count": 2,
+              "data_category": "Transcriptome Profiling"
+            },
+            {
+              "file_count": 3,
+              "data_category": "DNA Methylation"
+            },
+            {
+              "file_count": 8,
               "data_category": "Clinical"
             },
             {
               "file_count": 4,
-              "data_category": "Copy Number Variation"
-            },
-            {
-              "file_count": 4,
-              "data_category": "Raw Sequencing Data"
+              "data_category": "Structural Variation"
             }
           ]
-        }
+        },
+        "case_id": "7a589441-11ef-4158-87e7-3951d86bc2aa",
+        "diagnoses": [
+          {
+            "age_at_diagnosis": 20812,
+            "primary_diagnosis": "Malignant lymphoma, large B-cell, diffuse, NOS"
+          }
+        ],
+        "demographic": {
+          "ethnicity": "not hispanic or latino",
+          "gender": "female",
+          "race": "white"
+        },
+        "_score": 4.0
       }
     ],
     "pagination": {
       "count": 2,
-      "sort": "None",
+      "total": 32,
+      "size": 2,
       "from": 0,
+      "sort": "None",
       "page": 1,
-      "total": 27,
-      "pages": 14,
-      "size": 2
+      "pages": 16
     }
   },
   "warnings": {}
@@ -1868,416 +1876,810 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
 ```
 ```Response
 {
-  "hits": {
-    "hits": [],
-    "total": 14551,
-    "max_score": 0.0
-  },
+  "took": 8,
+  "timed_out": false,
   "_shards": {
-    "successful": 9,
-    "failed": 0,
-    "total": 9
+    "total": 12,
+    "successful": 12,
+    "skipped": 0,
+    "failed": 0
   },
-  "took": 4,
+  "hits": {
+    "total": {
+      "value": 86962,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": []
+  },
   "aggregations": {
     "projects": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
       "buckets": [
         {
+          "key": "FM-AD",
+          "doc_count": 18004,
           "case_summary": {
+            "doc_count": 54012,
             "case_with_ssm": {
-              "doc_count": 216
-            },
-            "doc_count": 637
-          },
-          "key": "TARGET-NBL",
-          "doc_count": 1127
+              "doc_count": 18004
+            }
+          }
         },
         {
+          "key": "GENIE-MSK",
+          "doc_count": 16824,
           "case_summary": {
+            "doc_count": 36470,
             "case_with_ssm": {
-              "doc_count": 1044
-            },
-            "doc_count": 7625
-          },
-          "key": "TCGA-BRCA",
-          "doc_count": 1098
+              "doc_count": 16823
+            }
+          }
         },
         {
+          "key": "GENIE-DFCI",
+          "doc_count": 14232,
           "case_summary": {
+            "doc_count": 28464,
             "case_with_ssm": {
-              "doc_count": 8
-            },
-            "doc_count": 579
-          },
+              "doc_count": 14232
+            }
+          }
+        },
+        {
+          "key": "GENIE-MDA",
+          "doc_count": 3857,
+          "case_summary": {
+            "doc_count": 3857,
+            "case_with_ssm": {
+              "doc_count": 3857
+            }
+          }
+        },
+        {
+          "key": "GENIE-JHU",
+          "doc_count": 3320,
+          "case_summary": {
+            "doc_count": 3320,
+            "case_with_ssm": {
+              "doc_count": 3320
+            }
+          }
+        },
+        {
+          "key": "GENIE-UHN",
+          "doc_count": 2632,
+          "case_summary": {
+            "doc_count": 2632,
+            "case_with_ssm": {
+              "doc_count": 2632
+            }
+          }
+        },
+        {
           "key": "TARGET-AML",
-          "doc_count": 988
+          "doc_count": 2492,
+          "case_summary": {
+            "doc_count": 10671,
+            "case_with_ssm": {
+              "doc_count": 22
+            }
+          }
         },
         {
+          "key": "GENIE-VICC",
+          "doc_count": 2052,
           "case_summary": {
+            "doc_count": 3833,
             "case_with_ssm": {
-              "doc_count": 34
-            },
-            "doc_count": 290
-          },
+              "doc_count": 2052
+            }
+          }
+        },
+        {
+          "key": "TARGET-ALL-P2",
+          "doc_count": 1587,
+          "case_summary": {
+            "doc_count": 6114,
+            "case_with_ssm": {
+              "doc_count": 717
+            }
+          }
+        },
+        {
+          "key": "CPTAC-3",
+          "doc_count": 1185,
+          "case_summary": {
+            "doc_count": 8162,
+            "case_with_ssm": {
+              "doc_count": 1169
+            }
+          }
+        },
+        {
+          "key": "TARGET-NBL",
+          "doc_count": 1132,
+          "case_summary": {
+            "doc_count": 3284,
+            "case_with_ssm": {
+              "doc_count": 220
+            }
+          }
+        },
+        {
+          "key": "TCGA-BRCA",
+          "doc_count": 1098,
+          "case_summary": {
+            "doc_count": 9660,
+            "case_with_ssm": {
+              "doc_count": 1098
+            }
+          }
+        },
+        {
+          "key": "GENIE-GRCC",
+          "doc_count": 1038,
+          "case_summary": {
+            "doc_count": 1038,
+            "case_with_ssm": {
+              "doc_count": 1038
+            }
+          }
+        },
+        {
+          "key": "MMRF-COMMPASS",
+          "doc_count": 995,
+          "case_summary": {
+            "doc_count": 3528,
+            "case_with_ssm": {
+              "doc_count": 959
+            }
+          }
+        },
+        {
+          "key": "BEATAML1.0-COHORT",
+          "doc_count": 826,
+          "case_summary": {
+            "doc_count": 2576,
+            "case_with_ssm": {
+              "doc_count": 444
+            }
+          }
+        },
+        {
+          "key": "GENIE-NKI",
+          "doc_count": 801,
+          "case_summary": {
+            "doc_count": 801,
+            "case_with_ssm": {
+              "doc_count": 801
+            }
+          }
+        },
+        {
           "key": "TARGET-WT",
-          "doc_count": 652
+          "doc_count": 652,
+          "case_summary": {
+            "doc_count": 1931,
+            "case_with_ssm": {
+              "doc_count": 39
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 396
-            },
-            "doc_count": 3197
-          },
           "key": "TCGA-GBM",
-          "doc_count": 617
+          "doc_count": 617,
+          "case_summary": {
+            "doc_count": 3840,
+            "case_with_ssm": {
+              "doc_count": 600
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 443
-            },
-            "doc_count": 3880
-          },
           "key": "TCGA-OV",
-          "doc_count": 608
+          "doc_count": 608,
+          "case_summary": {
+            "doc_count": 4927,
+            "case_with_ssm": {
+              "doc_count": 599
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 569
-            },
-            "doc_count": 3874
-          },
           "key": "TCGA-LUAD",
-          "doc_count": 585
+          "doc_count": 585,
+          "case_summary": {
+            "doc_count": 4821,
+            "case_with_ssm": {
+              "doc_count": 571
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 542
-            },
-            "doc_count": 3874
-          },
           "key": "TCGA-UCEC",
-          "doc_count": 560
+          "doc_count": 560,
+          "case_summary": {
+            "doc_count": 4551,
+            "case_with_ssm": {
+              "doc_count": 558
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 339
-            },
-            "doc_count": 3547
-          },
           "key": "TCGA-KIRC",
-          "doc_count": 537
+          "doc_count": 537,
+          "case_summary": {
+            "doc_count": 4757,
+            "case_with_ssm": {
+              "doc_count": 534
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 510
-            },
-            "doc_count": 3671
-          },
           "key": "TCGA-HNSC",
-          "doc_count": 528
+          "doc_count": 528,
+          "case_summary": {
+            "doc_count": 4569,
+            "case_with_ssm": {
+              "doc_count": 528
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 513
-            },
-            "doc_count": 3606
-          },
           "key": "TCGA-LGG",
-          "doc_count": 516
+          "doc_count": 516,
+          "case_summary": {
+            "doc_count": 4557,
+            "case_with_ssm": {
+              "doc_count": 516
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 496
-            },
-            "doc_count": 3536
-          },
           "key": "TCGA-THCA",
-          "doc_count": 507
+          "doc_count": 507,
+          "case_summary": {
+            "doc_count": 4429,
+            "case_with_ssm": {
+              "doc_count": 507
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 497
-            },
-            "doc_count": 3520
-          },
           "key": "TCGA-LUSC",
-          "doc_count": 504
-        },
-        {
+          "doc_count": 504,
           "case_summary": {
+            "doc_count": 4356,
             "case_with_ssm": {
-              "doc_count": 498
-            },
-            "doc_count": 3490
-          },
-          "key": "TCGA-PRAD",
-          "doc_count": 500
+              "doc_count": 504
+            }
+          }
         },
         {
+          "key": "TCGA-PRAD",
+          "doc_count": 500,
           "case_summary": {
+            "doc_count": 4341,
+            "case_with_ssm": {
+              "doc_count": 500
+            }
+          }
+        },
+        {
+          "key": "NCICCR-DLBCL",
+          "doc_count": 489,
+          "case_summary": {
+            "doc_count": 1451,
+            "case_with_ssm": {
+              "doc_count": 0
+            }
+          }
+        },
+        {
+          "key": "TCGA-SKCM",
+          "doc_count": 470,
+          "case_summary": {
+            "doc_count": 4108,
             "case_with_ssm": {
               "doc_count": 470
-            },
-            "doc_count": 3289
-          },
-          "key": "TCGA-SKCM",
-          "doc_count": 470
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 433
-            },
-            "doc_count": 3188
-          },
           "key": "TCGA-COAD",
-          "doc_count": 461
-        },
-        {
+          "doc_count": 461,
           "case_summary": {
+            "doc_count": 3868,
             "case_with_ssm": {
-              "doc_count": 441
-            },
-            "doc_count": 3095
-          },
-          "key": "TCGA-STAD",
-          "doc_count": 443
+              "doc_count": 461
+            }
+          }
         },
         {
+          "key": "TCGA-STAD",
+          "doc_count": 443,
           "case_summary": {
+            "doc_count": 3869,
+            "case_with_ssm": {
+              "doc_count": 443
+            }
+          }
+        },
+        {
+          "key": "REBC-THYR",
+          "doc_count": 440,
+          "case_summary": {
+            "doc_count": 2456,
+            "case_with_ssm": {
+              "doc_count": 380
+            }
+          }
+        },
+        {
+          "key": "TCGA-BLCA",
+          "doc_count": 412,
+          "case_summary": {
+            "doc_count": 3633,
             "case_with_ssm": {
               "doc_count": 412
-            },
-            "doc_count": 2884
-          },
-          "key": "TCGA-BLCA",
-          "doc_count": 412
+            }
+          }
         },
         {
+          "key": "TARGET-OS",
+          "doc_count": 383,
           "case_summary": {
+            "doc_count": 1362,
+            "case_with_ssm": {
+              "doc_count": 97
+            }
+          }
+        },
+        {
+          "key": "TCGA-LIHC",
+          "doc_count": 377,
+          "case_summary": {
+            "doc_count": 3193,
+            "case_with_ssm": {
+              "doc_count": 377
+            }
+          }
+        },
+        {
+          "key": "CPTAC-2",
+          "doc_count": 342,
+          "case_summary": {
+            "doc_count": 1349,
+            "case_with_ssm": {
+              "doc_count": 328
+            }
+          }
+        },
+        {
+          "key": "TRIO-CRU",
+          "doc_count": 339,
+          "case_summary": {
+            "doc_count": 339,
             "case_with_ssm": {
               "doc_count": 0
-            },
-            "doc_count": 0
-          },
-          "key": "TARGET-OS",
-          "doc_count": 381
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 375
-            },
-            "doc_count": 2635
-          },
-          "key": "TCGA-LIHC",
-          "doc_count": 377
-        },
-        {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 305
-            },
-            "doc_count": 2142
-          },
           "key": "TCGA-CESC",
-          "doc_count": 307
+          "doc_count": 307,
+          "case_summary": {
+            "doc_count": 2621,
+            "case_with_ssm": {
+              "doc_count": 306
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 288
-            },
-            "doc_count": 2033
-          },
           "key": "TCGA-KIRP",
-          "doc_count": 291
+          "doc_count": 291,
+          "case_summary": {
+            "doc_count": 2541,
+            "case_with_ssm": {
+              "doc_count": 291
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 255
-            },
-            "doc_count": 1821
-          },
           "key": "TCGA-SARC",
-          "doc_count": 261
+          "doc_count": 261,
+          "case_summary": {
+            "doc_count": 2309,
+            "case_with_ssm": {
+              "doc_count": 261
+            }
+          }
         },
         {
+          "key": "HCMI-CMDC",
+          "doc_count": 228,
           "case_summary": {
+            "doc_count": 1973,
             "case_with_ssm": {
-              "doc_count": 149
-            },
-            "doc_count": 1192
-          },
+              "doc_count": 227
+            }
+          }
+        },
+        {
+          "key": "CGCI-HTMCP-CC",
+          "doc_count": 212,
+          "case_summary": {
+            "doc_count": 1447,
+            "case_with_ssm": {
+              "doc_count": 205
+            }
+          }
+        },
+        {
+          "key": "CMI-MBC",
+          "doc_count": 200,
+          "case_summary": {
+            "doc_count": 653,
+            "case_with_ssm": {
+              "doc_count": 174
+            }
+          }
+        },
+        {
           "key": "TCGA-LAML",
-          "doc_count": 200
+          "doc_count": 200,
+          "case_summary": {
+            "doc_count": 1533,
+            "case_with_ssm": {
+              "doc_count": 200
+            }
+          }
         },
         {
+          "key": "TARGET-ALL-P3",
+          "doc_count": 191,
           "case_summary": {
+            "doc_count": 783,
             "case_with_ssm": {
-              "doc_count": 184
-            },
-            "doc_count": 1293
-          },
+              "doc_count": 87
+            }
+          }
+        },
+        {
           "key": "TCGA-ESCA",
-          "doc_count": 185
-        },
-        {
+          "doc_count": 185,
           "case_summary": {
+            "doc_count": 1605,
             "case_with_ssm": {
-              "doc_count": 183
-            },
-            "doc_count": 1285
-          },
-          "key": "TCGA-PAAD",
-          "doc_count": 185
+              "doc_count": 185
+            }
+          }
         },
         {
+          "key": "TCGA-PAAD",
+          "doc_count": 185,
           "case_summary": {
+            "doc_count": 1585,
+            "case_with_ssm": {
+              "doc_count": 185
+            }
+          }
+        },
+        {
+          "key": "TCGA-PCPG",
+          "doc_count": 179,
+          "case_summary": {
+            "doc_count": 1512,
             "case_with_ssm": {
               "doc_count": 179
-            },
-            "doc_count": 1253
-          },
-          "key": "TCGA-PCPG",
-          "doc_count": 179
+            }
+          }
         },
         {
+          "key": "OHSU-CNL",
+          "doc_count": 176,
           "case_summary": {
+            "doc_count": 336,
             "case_with_ssm": {
-              "doc_count": 158
-            },
-            "doc_count": 1169
-          },
-          "key": "TCGA-READ",
-          "doc_count": 172
+              "doc_count": 0
+            }
+          }
         },
         {
+          "key": "TCGA-READ",
+          "doc_count": 172,
           "case_summary": {
+            "doc_count": 1414,
+            "case_with_ssm": {
+              "doc_count": 171
+            }
+          }
+        },
+        {
+          "key": "TCGA-TGCT",
+          "doc_count": 150,
+          "case_summary": {
+            "doc_count": 1318,
             "case_with_ssm": {
               "doc_count": 150
-            },
-            "doc_count": 1018
-          },
-          "key": "TCGA-TGCT",
-          "doc_count": 150
+            }
+          }
         },
         {
-          "case_summary": {
-            "case_with_ssm": {
-              "doc_count": 123
-            },
-            "doc_count": 867
-          },
           "key": "TCGA-THYM",
-          "doc_count": 124
+          "doc_count": 124,
+          "case_summary": {
+            "doc_count": 1078,
+            "case_with_ssm": {
+              "doc_count": 124
+            }
+          }
         },
         {
+          "key": "CGCI-BLGSP",
+          "doc_count": 120,
           "case_summary": {
+            "doc_count": 804,
+            "case_with_ssm": {
+              "doc_count": 74
+            }
+          }
+        },
+        {
+          "key": "TCGA-KICH",
+          "doc_count": 113,
+          "case_summary": {
+            "doc_count": 685,
             "case_with_ssm": {
               "doc_count": 66
-            },
-            "doc_count": 556
-          },
-          "key": "TCGA-KICH",
-          "doc_count": 113
+            }
+          }
         },
         {
+          "key": "WCDT-MCRPC",
+          "doc_count": 101,
           "case_summary": {
+            "doc_count": 299,
+            "case_with_ssm": {
+              "doc_count": 0
+            }
+          }
+        },
+        {
+          "key": "TCGA-ACC",
+          "doc_count": 92,
+          "case_summary": {
+            "doc_count": 745,
             "case_with_ssm": {
               "doc_count": 92
-            },
-            "doc_count": 620
-          },
-          "key": "TCGA-ACC",
-          "doc_count": 92
+            }
+          }
         },
         {
+          "key": "APOLLO-LUAD",
+          "doc_count": 87,
           "case_summary": {
+            "doc_count": 510,
             "case_with_ssm": {
               "doc_count": 83
-            },
-            "doc_count": 605
-          },
-          "key": "TCGA-MESO",
-          "doc_count": 87
+            }
+          }
         },
         {
+          "key": "TCGA-MESO",
+          "doc_count": 87,
           "case_summary": {
+            "doc_count": 758,
+            "case_with_ssm": {
+              "doc_count": 87
+            }
+          }
+        },
+        {
+          "key": "EXCEPTIONAL_RESPONDERS-ER",
+          "doc_count": 84,
+          "case_summary": {
+            "doc_count": 412,
+            "case_with_ssm": {
+              "doc_count": 20
+            }
+          }
+        },
+        {
+          "key": "TCGA-UVM",
+          "doc_count": 80,
+          "case_summary": {
+            "doc_count": 652,
             "case_with_ssm": {
               "doc_count": 80
-            },
-            "doc_count": 560
-          },
-          "key": "TCGA-UVM",
-          "doc_count": 80
+            }
+          }
         },
         {
+          "key": "ORGANOID-PANCREATIC",
+          "doc_count": 70,
           "case_summary": {
+            "doc_count": 226,
+            "case_with_ssm": {
+              "doc_count": 58
+            }
+          }
+        },
+        {
+          "key": "TARGET-RT",
+          "doc_count": 69,
+          "case_summary": {
+            "doc_count": 404,
             "case_with_ssm": {
               "doc_count": 0
-            },
-            "doc_count": 163
-          },
-          "key": "TARGET-RT",
-          "doc_count": 75
+            }
+          }
         },
         {
+          "key": "CMI-MPC",
+          "doc_count": 63,
           "case_summary": {
+            "doc_count": 199,
             "case_with_ssm": {
-              "doc_count": 48
-            },
-            "doc_count": 346
-          },
-          "key": "TCGA-DLBC",
-          "doc_count": 58
+              "doc_count": 60
+            }
+          }
         },
         {
+          "key": "TCGA-DLBC",
+          "doc_count": 58,
           "case_summary": {
+            "doc_count": 441,
+            "case_with_ssm": {
+              "doc_count": 50
+            }
+          }
+        },
+        {
+          "key": "TCGA-UCS",
+          "doc_count": 57,
+          "case_summary": {
+            "doc_count": 504,
             "case_with_ssm": {
               "doc_count": 57
-            },
-            "doc_count": 399
-          },
-          "key": "TCGA-UCS",
-          "doc_count": 57
+            }
+          }
         },
         {
+          "key": "BEATAML1.0-CRENOLANIB",
+          "doc_count": 56,
           "case_summary": {
+            "doc_count": 108,
+            "case_with_ssm": {
+              "doc_count": 52
+            }
+          }
+        },
+        {
+          "key": "MP2PRT-WT",
+          "doc_count": 52,
+          "case_summary": {
+            "doc_count": 361,
             "case_with_ssm": {
               "doc_count": 51
-            },
-            "doc_count": 306
-          },
-          "key": "TCGA-CHOL",
-          "doc_count": 51
+            }
+          }
         },
         {
+          "key": "TCGA-CHOL",
+          "doc_count": 51,
           "case_summary": {
+            "doc_count": 378,
+            "case_with_ssm": {
+              "doc_count": 51
+            }
+          }
+        },
+        {
+          "key": "CDDP_EAGLE-1",
+          "doc_count": 50,
+          "case_summary": {
+            "doc_count": 384,
+            "case_with_ssm": {
+              "doc_count": 50
+            }
+          }
+        },
+        {
+          "key": "CTSP-DLBCL1",
+          "doc_count": 45,
+          "case_summary": {
+            "doc_count": 201,
             "case_with_ssm": {
               "doc_count": 0
-            },
-            "doc_count": 13
-          },
+            }
+          }
+        },
+        {
+          "key": "CGCI-HTMCP-LC",
+          "doc_count": 39,
+          "case_summary": {
+            "doc_count": 292,
+            "case_with_ssm": {
+              "doc_count": 34
+            }
+          }
+        },
+        {
+          "key": "CMI-ASC",
+          "doc_count": 36,
+          "case_summary": {
+            "doc_count": 124,
+            "case_with_ssm": {
+              "doc_count": 36
+            }
+          }
+        },
+        {
+          "key": "MATCH-Z1D",
+          "doc_count": 36,
+          "case_summary": {
+            "doc_count": 212,
+            "case_with_ssm": {
+              "doc_count": 34
+            }
+          }
+        },
+        {
+          "key": "MATCH-Q",
+          "doc_count": 35,
+          "case_summary": {
+            "doc_count": 203,
+            "case_with_ssm": {
+              "doc_count": 34
+            }
+          }
+        },
+        {
+          "key": "MATCH-Y",
+          "doc_count": 31,
+          "case_summary": {
+            "doc_count": 181,
+            "case_with_ssm": {
+              "doc_count": 30
+            }
+          }
+        },
+        {
+          "key": "TARGET-ALL-P1",
+          "doc_count": 24,
+          "case_summary": {
+            "doc_count": 62,
+            "case_with_ssm": {
+              "doc_count": 0
+            }
+          }
+        },
+        {
           "key": "TARGET-CCSK",
-          "doc_count": 13
+          "doc_count": 13,
+          "case_summary": {
+            "doc_count": 100,
+            "case_with_ssm": {
+              "doc_count": 0
+            }
+          }
+        },
+        {
+          "key": "VAREPOP-APOLLO",
+          "doc_count": 7,
+          "case_summary": {
+            "doc_count": 14,
+            "case_with_ssm": {
+              "doc_count": 7
+            }
+          }
         }
-      ],
-      "sum_other_doc_count": 0,
-      "doc_count_error_upper_bound": 0
+      ]
     }
-  },
-  "timed_out": false
+  }
 }
 ```
 ### Survival Analysis Endpoint
