@@ -163,15 +163,16 @@ The following is an example of a POST request, that simulates creating an entity
 
 ```Request
 {
-  "project_id": "TCGA-ALCH",
+  "project_id": "GDC-INTERNAL",
   "type": "case",
-  "submitter_id": "TCGA-ALCH-000001",
+  "submitter_id": "GDC-INTERNAL-000093",
   "disease_type": "Blood Vessel Tumors",
-	"" 
-	"projects": {
-    "code": "ALCH"
+  "primary_site": "Base of tongue",
+   "projects": {
+     "code": "INTERNAL"
   }
 }
+
 ```
 ```Command
 token=$(<gdc-token-text-file.txt)
@@ -188,13 +189,13 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "61f48d1c-9439-448c-a90c-d6dbe76b3654",
+      "id": "bfc1fb29-28db-4137-8379-3d1693ce3423",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": true,
@@ -204,7 +205,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": null,
+  "transaction_id": 5834800,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -215,7 +216,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 
 For convenience, the GDC enables users to commit earlier `_dry_run` transactions instead of uploading the same data again to execute the changes. This `commit` action is allowed on transactions that (1) have not been previously committed and (2) were successful `dry_run` transactions.
 
-Note that the `commit` action is a separate transaction with its own transaction id, and it can be executed [asynchronously](#asynchronous-transactions). If the state of the submission project has changed in a way that would make the original `_dry_run` transaction invalid if it were run again (e.g. entities with the same `submitter_id` have since been created in another transaction), then then `commit` action will fail.
+Note that the `commit` action is a separate transaction with its own transaction id, and it can be executed [asynchronously](#asynchronous-transactions). If the state of the submission project has changed in a way that would make the original `_dry_run` transaction invalid if it were run again (e.g. entities with the same `submitter_id` have since been created in another transaction), then the `commit` action will fail.
 
 To commit a transaction, submit a POST or PUT request to `/submission/Program.name/Project.code/transactions/transaction_id/commit`, replacing `Program.name`, `Project.code`, and `transaction_id` with values associated with the transaction.
 
@@ -264,11 +265,13 @@ The following is an example of a PUT request, that creates a case asynchronously
 
 ```Request
 {
-  "project_id": "TCGA-ALCH",
+  "project_id": "GDC-INTERNAL",
   "type": "case",
-  "submitter_id": "TCGA-ALCH-000001",
-  "projects": {
-    "code": "ALCH"
+  "submitter_id": "GDC-INTERNAL-000093",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+   "projects": {
+     "code": "INTERNAL"
   }
 }
 ```
@@ -349,12 +352,14 @@ The JSON in the request was generated using the `case` JSON template that can be
 
 ```Request1
 {
+  "project_id": "GDC-INTERNAL",
   "type": "case",
-  "submitter_id": "TCGA-ALCH-000001",
-  "projects": {
-    "code": "ALCH"
+  "submitter_id": "GDC-INTERNAL-000093",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+   "projects": {
+     "code": "INTERNAL"
   }
-
 }
 ```
 ```Command1
@@ -366,19 +371,19 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
-  "code": 201,
+  "code": 200,
   "created_entity_count": 1,
   "entities": [
     {
       "action": "create",
       "errors": [],
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "id": "bfc1fb29-28db-4137-8379-3d1693ce3423",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": true,
@@ -386,9 +391,9 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     }
   ],
   "entity_error_count": 0,
-  "message": "Transaction successful.",
+  "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": 215,
+  "transaction_id": 5834800,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -411,7 +416,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
           "keys": [
             "id"
           ],
-          "message": "Cannot create entity that already exists. Try updating entity (PUT instead of POST)",
+          "message": "Cannot create an entity with an id that already exists.",
           "type": "NOT_UNIQUE"
         }
       ],
@@ -420,8 +425,8 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": false,
@@ -431,7 +436,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 1,
   "message": "Transaction aborted due to 1 invalid entity.",
   "success": false,
-  "transaction_id": null,
+  "transaction_id": 5834802,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -450,13 +455,13 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --head
     {
       "action": "update",
       "errors": [],
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "id": "a35b8e26-3b43-4203-9d33-44c2b351f177",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": true,
@@ -466,7 +471,7 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --head
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 216,
+  "transaction_id": 5834803,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 1
