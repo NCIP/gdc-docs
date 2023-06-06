@@ -166,7 +166,9 @@ The following is an example of a POST request, that simulates creating an entity
   "project_id": "TCGA-ALCH",
   "type": "case",
   "submitter_id": "TCGA-ALCH-000001",
-  "projects": {
+  "disease_type": "Blood Vessel Tumors",
+	"" 
+	"projects": {
     "code": "ALCH"
   }
 }
