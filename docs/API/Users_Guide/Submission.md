@@ -490,7 +490,7 @@ In this example, an `aliquot` entity and a `sample` entity are created in a sing
 [
   {
     "type": "sample",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001",
+    "submitter_id": "GDC-INTERNAL-000001-SAMPLE000001",
     "sample_type": "Primary Tumor",
     "sample_type_id": "01",
     "cases": {
