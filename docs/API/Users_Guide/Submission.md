@@ -577,19 +577,20 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 [
   {
     "type": "sample",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001",
-    "id": "2aa7a07b-e706-4eef-aeba-b849972423a0",
-    "sample_type": "Primary Tumor",
-    "sample_type_id": "01",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "cases": {
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05"
+      "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093",
     "samples": {
-      "id": "2aa7a07b-e706-4eef-aeba-b849972423a0"
+      "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
     }
   }
 ]
@@ -597,7 +598,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/submission/GDC/INTERNAL
 ```
 ```Response
 {
@@ -609,18 +610,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "2aa7a07b-e706-4eef-aeba-b849972423a0",
+      "id": "9684fd7c-97b5-42a2-b350-2d86d41bbfdb",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
         }
       ],
       "valid": true,
@@ -629,18 +630,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "545096d5-ce1c-433f-80f0-fd0b04b56cb6",
+      "id": "cd5613ef-acb8-4b56-af4b-8bf3ab0e09d8",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093"
         }
       ],
       "valid": true,
@@ -650,7 +651,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 219,
+  "transaction_id": 5835208,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -662,9 +663,9 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 In this example, a TSV file containing metadata for two samples is uploaded to the GDC in dry run mode.
 
 ```Request
-type	project_id	submitter_id	cases.submitter_id	sample_type	sample_type_id	tumor_descriptor
-sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleA	GDC-INTERNAL-000022	Additional Metastatic	01
-sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleB	GDC-INTERNAL-000022	Solid Tissue Normal	02
+type	project_id	submitter_id	cases.submitter_id	specimen_type	tissue_type	tumor_descriptor	preservation_method
+sample	GDC-INTERNAL	GDC-INTERNAL-000093-sampleA	GDC-INTERNAL-000093	Solid Tissue	Tumor	Primary	Frozen
+sample	GDC-INTERNAL	GDC-INTERNAL-000093-sampleB	GDC-INTERNAL-000093	Solid Tissue	Normal	Not Reported	Frozen
 ```
 ```Command
 curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request PUT --data-binary @Samples.tsv 'https://api.gdc.cancer.gov/submission/GDC/INTERNAL/_dry_run'
@@ -679,18 +680,18 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
     {
       "action": "create",
       "errors": [],
-      "id": "b55e10af-5b7f-48f1-b230-0f8e6b7a7afe",
+      "id": "c3d401f1-d505-4240-b801-dc2b389ddea1",
       "related_cases": [
         {
-          "id": "6e2e3b31-c5d2-45df-a911-eb3577640b70",
-          "submitter_id": "GDC-INTERNAL-000022"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
           "project_id": "GDC-INTERNAL",
-          "submitter_id": "GDC-INTERNAL-000022-sampleA"
+          "submitter_id": "GDC-INTERNAL-000093-sampleA"
         }
       ],
       "valid": true,
@@ -699,18 +700,18 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
     {
       "action": "create",
       "errors": [],
-      "id": "15076660-fccc-4406-b981-c745eb992034",
+      "id": "d3c4be95-9c69-4e8e-9f37-61db455ded7a",
       "related_cases": [
         {
-          "id": "6e2e3b31-c5d2-45df-a911-eb3577640b70",
-          "submitter_id": "GDC-INTERNAL-000022"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
           "project_id": "GDC-INTERNAL",
-          "submitter_id": "GDC-INTERNAL-000022-sampleB"
+          "submitter_id": "GDC-INTERNAL-000093-sampleB"
         }
       ],
       "valid": true,
@@ -720,7 +721,7 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
   "entity_error_count": 0,
   "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": 51284,
+  "transaction_id": 5835321,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
