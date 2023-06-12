@@ -490,26 +490,27 @@ In this example, an `aliquot` entity and a `sample` entity are created in a sing
 [
   {
     "type": "sample",
-    "submitter_id": "GDC-INTERNAL-000001-SAMPLE000001",
-    "sample_type": "Primary Tumor",
-    "sample_type_id": "01",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "cases": {
-      "submitter_id": "TCGA-ALCH-000001"
+      "submitter_id": "GDC-INTERNAL-000093"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093",
     "samples": {
-      "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+      "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
     }
   }
-]
-```
+]```
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
 ```Response
 {
@@ -521,18 +522,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "48270338-6464-448f-bbef-b09d4f80b11b",
+      "id": "0a877533-0c85-4a7e-9309-733ccf295c1b",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
         }
       ],
       "valid": true,
@@ -541,18 +542,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "7af58da0-cb3e-43e2-a074-4bd8f27565ba",
+      "id": "45c57067-c92d-453b-8b6d-14a3fe08f802",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093"
         }
       ],
       "valid": true,
@@ -562,7 +563,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 222,
+  "transaction_id": 5835160,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
