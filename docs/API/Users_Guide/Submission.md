@@ -177,7 +177,7 @@ The following is an example of a POST request, that simulates creating an entity
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/_dry_run
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/_dry_run
 ```
 ```Response
 {
@@ -223,7 +223,7 @@ To commit a transaction, submit a POST or PUT request to `/submission/Program.na
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
 ```
 ```Response
 {
@@ -244,7 +244,7 @@ To close a transaction, submit a POST or PUT request to `/submission/Program.nam
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/close
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/close
 ```
 ```Response
 {
@@ -278,7 +278,7 @@ The following is an example of a PUT request, that creates a case asynchronously
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH?async=true
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL?async=true
 ```
 ```Response
 {
@@ -365,7 +365,7 @@ The JSON in the request was generated using the `case` JSON template that can be
 ```Command1
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
 ```Response1
 {
@@ -443,7 +443,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 }
 ```
 ```Command3
-curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
 ```Response3
 {
