@@ -163,18 +163,21 @@ The following is an example of a POST request, that simulates creating an entity
 
 ```Request
 {
-  "project_id": "TCGA-ALCH",
+  "project_id": "GDC-INTERNAL",
   "type": "case",
-  "submitter_id": "TCGA-ALCH-000001",
-  "projects": {
-    "code": "ALCH"
+  "submitter_id": "GDC-INTERNAL-000093",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+   "projects": {
+     "code": "INTERNAL"
   }
 }
+
 ```
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/_dry_run
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/_dry_run
 ```
 ```Response
 {
@@ -186,13 +189,13 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "61f48d1c-9439-448c-a90c-d6dbe76b3654",
+      "id": "bfc1fb29-28db-4137-8379-3d1693ce3423",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": true,
@@ -202,7 +205,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": null,
+  "transaction_id": 5834800,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -213,14 +216,14 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 
 For convenience, the GDC enables users to commit earlier `_dry_run` transactions instead of uploading the same data again to execute the changes. This `commit` action is allowed on transactions that (1) have not been previously committed and (2) were successful `dry_run` transactions.
 
-Note that the `commit` action is a separate transaction with its own transaction id, and it can be executed [asynchronously](#asynchronous-transactions). If the state of the submission project has changed in a way that would make the original `_dry_run` transaction invalid if it were run again (e.g. entities with the same `submitter_id` have since been created in another transaction), then then `commit` action will fail.
+Note that the `commit` action is a separate transaction with its own transaction id, and it can be executed [asynchronously](#asynchronous-transactions). If the state of the submission project has changed in a way that would make the original `_dry_run` transaction invalid if it were run again (e.g. entities with the same `submitter_id` have since been created in another transaction), then the `commit` action will fail.
 
 To commit a transaction, submit a POST or PUT request to `/submission/Program.name/Project.code/transactions/transaction_id/commit`, replacing `Program.name`, `Project.code`, and `transaction_id` with values associated with the transaction.
 
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
 ```
 ```Response
 {
@@ -241,7 +244,7 @@ To close a transaction, submit a POST or PUT request to `/submission/Program.nam
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/close
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/close
 ```
 ```Response
 {
@@ -262,18 +265,20 @@ The following is an example of a PUT request, that creates a case asynchronously
 
 ```Request
 {
-  "project_id": "TCGA-ALCH",
+  "project_id": "GDC-INTERNAL",
   "type": "case",
-  "submitter_id": "TCGA-ALCH-000001",
-  "projects": {
-    "code": "ALCH"
+  "submitter_id": "GDC-INTERNAL-000093",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+   "projects": {
+     "code": "INTERNAL"
   }
 }
 ```
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH?async=true
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL?async=true
 ```
 ```Response
 {
@@ -347,36 +352,38 @@ The JSON in the request was generated using the `case` JSON template that can be
 
 ```Request1
 {
+  "project_id": "GDC-INTERNAL",
   "type": "case",
-  "submitter_id": "TCGA-ALCH-000001",
-  "projects": {
-    "code": "ALCH"
+  "submitter_id": "GDC-INTERNAL-000093",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+   "projects": {
+     "code": "INTERNAL"
   }
-
 }
 ```
 ```Command1
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
 ```Response1
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
-  "code": 201,
+  "code": 200,
   "created_entity_count": 1,
   "entities": [
     {
       "action": "create",
       "errors": [],
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "id": "bfc1fb29-28db-4137-8379-3d1693ce3423",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": true,
@@ -384,9 +391,9 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     }
   ],
   "entity_error_count": 0,
-  "message": "Transaction successful.",
+  "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": 215,
+  "transaction_id": 5834800,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -409,7 +416,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
           "keys": [
             "id"
           ],
-          "message": "Cannot create entity that already exists. Try updating entity (PUT instead of POST)",
+          "message": "Cannot create an entity with an id that already exists.",
           "type": "NOT_UNIQUE"
         }
       ],
@@ -418,8 +425,8 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": false,
@@ -429,14 +436,14 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 1,
   "message": "Transaction aborted due to 1 invalid entity.",
   "success": false,
-  "transaction_id": null,
+  "transaction_id": 5834802,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
 }
 ```
 ```Command3
-curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
 ```Response3
 {
@@ -448,13 +455,13 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --head
     {
       "action": "update",
       "errors": [],
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "id": "a35b8e26-3b43-4203-9d33-44c2b351f177",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": true,
@@ -464,7 +471,7 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --head
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 216,
+  "transaction_id": 5834803,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 1
@@ -483,26 +490,27 @@ In this example, an `aliquot` entity and a `sample` entity are created in a sing
 [
   {
     "type": "sample",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001",
-    "sample_type": "Primary Tumor",
-    "sample_type_id": "01",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "cases": {
-      "submitter_id": "TCGA-ALCH-000001"
+      "submitter_id": "GDC-INTERNAL-000093"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093",
     "samples": {
-      "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+      "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
     }
   }
-]
-```
+]```
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
 ```Response
 {
@@ -514,18 +522,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "48270338-6464-448f-bbef-b09d4f80b11b",
+      "id": "0a877533-0c85-4a7e-9309-733ccf295c1b",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
         }
       ],
       "valid": true,
@@ -534,18 +542,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "7af58da0-cb3e-43e2-a074-4bd8f27565ba",
+      "id": "45c57067-c92d-453b-8b6d-14a3fe08f802",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093"
         }
       ],
       "valid": true,
@@ -555,7 +563,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 222,
+  "transaction_id": 5835160,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -569,19 +577,20 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 [
   {
     "type": "sample",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001",
-    "id": "2aa7a07b-e706-4eef-aeba-b849972423a0",
-    "sample_type": "Primary Tumor",
-    "sample_type_id": "01",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "cases": {
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05"
+      "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093",
     "samples": {
-      "id": "2aa7a07b-e706-4eef-aeba-b849972423a0"
+      "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
     }
   }
 ]
@@ -589,7 +598,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/submission/GDC/INTERNAL
 ```
 ```Response
 {
@@ -601,18 +610,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "2aa7a07b-e706-4eef-aeba-b849972423a0",
+      "id": "9684fd7c-97b5-42a2-b350-2d86d41bbfdb",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
         }
       ],
       "valid": true,
@@ -621,18 +630,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "545096d5-ce1c-433f-80f0-fd0b04b56cb6",
+      "id": "cd5613ef-acb8-4b56-af4b-8bf3ab0e09d8",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093"
         }
       ],
       "valid": true,
@@ -642,7 +651,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 219,
+  "transaction_id": 5835208,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -654,9 +663,9 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 In this example, a TSV file containing metadata for two samples is uploaded to the GDC in dry run mode.
 
 ```Request
-type	project_id	submitter_id	cases.submitter_id	sample_type	sample_type_id	tumor_descriptor
-sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleA	GDC-INTERNAL-000022	Additional Metastatic	01
-sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleB	GDC-INTERNAL-000022	Solid Tissue Normal	02
+type	project_id	submitter_id	cases.submitter_id	specimen_type	tissue_type	tumor_descriptor	preservation_method
+sample	GDC-INTERNAL	GDC-INTERNAL-000093-sampleA	GDC-INTERNAL-000093	Solid Tissue	Tumor	Primary	Frozen
+sample	GDC-INTERNAL	GDC-INTERNAL-000093-sampleB	GDC-INTERNAL-000093	Solid Tissue	Normal	Not Reported	Frozen
 ```
 ```Command
 curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request PUT --data-binary @Samples.tsv 'https://api.gdc.cancer.gov/submission/GDC/INTERNAL/_dry_run'
@@ -671,18 +680,18 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
     {
       "action": "create",
       "errors": [],
-      "id": "b55e10af-5b7f-48f1-b230-0f8e6b7a7afe",
+      "id": "c3d401f1-d505-4240-b801-dc2b389ddea1",
       "related_cases": [
         {
-          "id": "6e2e3b31-c5d2-45df-a911-eb3577640b70",
-          "submitter_id": "GDC-INTERNAL-000022"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
           "project_id": "GDC-INTERNAL",
-          "submitter_id": "GDC-INTERNAL-000022-sampleA"
+          "submitter_id": "GDC-INTERNAL-000093-sampleA"
         }
       ],
       "valid": true,
@@ -691,18 +700,18 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
     {
       "action": "create",
       "errors": [],
-      "id": "15076660-fccc-4406-b981-c745eb992034",
+      "id": "d3c4be95-9c69-4e8e-9f37-61db455ded7a",
       "related_cases": [
         {
-          "id": "6e2e3b31-c5d2-45df-a911-eb3577640b70",
-          "submitter_id": "GDC-INTERNAL-000022"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
           "project_id": "GDC-INTERNAL",
-          "submitter_id": "GDC-INTERNAL-000022-sampleB"
+          "submitter_id": "GDC-INTERNAL-000093-sampleB"
         }
       ],
       "valid": true,
@@ -712,182 +721,8 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
   "entity_error_count": 0,
   "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": 51284,
+  "transaction_id": 5835321,
   "transactional_error_count": 0,
-  "transactional_errors": [],
-  "updated_entity_count": 0
-}
-```
-
-### Example: Bulk Transaction
-
-To wrap multiple TSV or JSON files into a single transaction the bulk endpoint can be used.  In this example a TSV to create Clinical Supplement nodes is included in the same transactions as a JSON to create Demographic nodes.
-
-
-```Request
-[                                                                                                                                                                                              
-  {                                                                                
-    "name":"Demographic",                                             
-    "doc_format":"Json",                                                           
-    "doc":"[\n  {\n    \"submitter_id\": \"demographic1234\",\n    \"vital_status\": \"Dead\",\n    \"cases\": [\n      {\n        \"submitter_id\": \"GDC-INTERNAL-000021\"\n      }\n    ],\n    \"ethnicity\": \"not reported\",\n    \"gender\": \"male\",\n    \"race\": \"white\",\n    \"project_id\": \"GDC-INTERNAL\",\n    \"type\": \"demographic\"\n  },\n  {\n    \"submitter_id\": \"demographicABCD\",\n    \"vital_status\": \"Alive\",\n    \"cases\": [\n      {\n        \"submitter_id\": \"GDC-INTERNAL-000010\"\n      }\n    ],\n    \"ethnicity\": \"not reported\",\n    \"gender\": \"female\",\n    \"race\": \"white\",\n    \"project_id\": \"GDC-INTERNAL\",\n    \"type\": \"demographic\"\n  }\n]"
-  },
-    {                                                                                
-    "name":"Clinical Supplement",                                             
-    "doc_format":"Tsv",                                                           
-    "doc":"cases.submitter_id\tdiagnoses.id\tdiagnoses.submitter_id\tparent_samples.id\tparent_samples.submitter_id\ttissue_source_sites.id\ttissue_source_sites.code\ttype\tproject_id\tsubmitter_id\tsample_type\ttissue_type\tbiospecimen_anatomic_site\tbiospecimen_laterality\tcatalog_reference\tcomposition\tcurrent_weight\tdays_to_collection\tdays_to_sample_procurement\tdiagnosis_pathologically_confirmed\tdistance_normal_to_tumor\tdistributor_reference\tfreezing_method\tgrowth_rate\tinitial_weight\tintermediate_dimension\tis_ffpe\tlongest_dimension\tmethod_of_sample_procurement\toct_embedded\tpassage_count\tpathology_report_uuid\tpreservation_method\tsample_type_id\tshortest_dimension\ttime_between_clamping_and_freezing\ttime_between_excision_and_freezing\ttumor_code\ttumor_code_id\ttumor_descriptor\nGDC-INTERNAL-000021\t\t\t\t\t\t\tsample\tGDC-INTERNAL\tGDC-INTERNAL-000021-Sample1\tPrimary Tumor\tTumor\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary\nGDC-INTERNAL-000021\t\t\t\t\t\t\tsample\tGDC-INTERNAL\tGDC-INTERNAL-000021-Sample2\tPrimary Tumor\tTumor\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary\nGDC-INTERNAL-000021\t\t\t\t\t\t\tsample\tGDC-INTERNAL\tGDC-INTERNAL-000021-Sample3\tPrimary Tumor\tTumor\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary\n"
-  }                                                                              
-]
-```
-```Command
-curl -XPOST --header "X-Auth-Token: $token"  --data-binary @Request 'https://api.gdc.cancer.gov/submission/GDC/INTERNAL/bulk/_dry_run'
-```
-```Response
-{
-  "code": 200,
-  "created_entity_count": 5,
-  "document_error_count": 0,
-  "entity_error_count": 0,
-  "message": "Bulk Transaction succeeded.",
-  "subtransactions": [
-    {
-      "name": "Demographic",
-      "response_json": {
-        "cases_related_to_created_entities_count": 2,
-        "cases_related_to_updated_entities_count": 0,
-        "code": 200,
-        "created_entity_count": 2,
-        "entities": [
-          {
-            "action": "create",
-            "errors": [],
-            "id": "642ffbd6-f909-40b7-84a5-51458c28fab8",
-            "related_cases": [
-              {
-                "id": "b5622ca2-8f51-453e-b411-b2ac045bb04a",
-                "submitter_id": "GDC-INTERNAL-000021"
-              }
-            ],
-            "type": "demographic",
-            "unique_keys": [
-              {
-                "project_id": "GDC-INTERNAL",
-                "submitter_id": "demographic1234"
-              }
-            ],
-            "valid": true,
-            "warnings": []
-          },
-          {
-            "action": "create",
-            "errors": [],
-            "id": "3d3488c9-07d3-46bb-8c13-4671ced43033",
-            "related_cases": [
-              {
-                "id": "4ca09b58-5765-4034-8ec0-ede5d756ea5d",
-                "submitter_id": "GDC-INTERNAL-000010"
-              }
-            ],
-            "type": "demographic",
-            "unique_keys": [
-              {
-                "project_id": "GDC-INTERNAL",
-                "submitter_id": "demographicABCD"
-              }
-            ],
-            "valid": true,
-            "warnings": []
-          }
-        ],
-        "entity_error_count": 0,
-        "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
-        "success": true,
-        "transaction_id": 1636917,
-        "transactional_error_count": 0,
-        "transactional_errors": [],
-        "updated_entity_count": 0
-      }
-    },
-    {
-      "name": "Clinical Supplement",
-      "response_json": {
-        "cases_related_to_created_entities_count": 1,
-        "cases_related_to_updated_entities_count": 0,
-        "code": 200,
-        "created_entity_count": 3,
-        "entities": [
-          {
-            "action": "create",
-            "errors": [],
-            "id": "f0555c6b-8737-4d06-bf33-9641aab14497",
-            "related_cases": [
-              {
-                "id": "b5622ca2-8f51-453e-b411-b2ac045bb04a",
-                "submitter_id": "GDC-INTERNAL-000021"
-              }
-            ],
-            "type": "sample",
-            "unique_keys": [
-              {
-                "project_id": "GDC-INTERNAL",
-                "submitter_id": "GDC-INTERNAL-000021-Sample1"
-              }
-            ],
-            "valid": true,
-            "warnings": []
-          },
-          {
-            "action": "create",
-            "errors": [],
-            "id": "dbb07d81-cda3-47b3-87a4-3a50271b72b6",
-            "related_cases": [
-              {
-                "id": "b5622ca2-8f51-453e-b411-b2ac045bb04a",
-                "submitter_id": "GDC-INTERNAL-000021"
-              }
-            ],
-            "type": "sample",
-            "unique_keys": [
-              {
-                "project_id": "GDC-INTERNAL",
-                "submitter_id": "GDC-INTERNAL-000021-Sample2"
-              }
-            ],
-            "valid": true,
-            "warnings": []
-          },
-          {
-            "action": "create",
-            "errors": [],
-            "id": "d8b9fb1f-d94b-4c9c-8bf2-48e69daba6ba",
-            "related_cases": [
-              {
-                "id": "b5622ca2-8f51-453e-b411-b2ac045bb04a",
-                "submitter_id": "GDC-INTERNAL-000021"
-              }
-            ],
-            "type": "sample",
-            "unique_keys": [
-              {
-                "project_id": "GDC-INTERNAL",
-                "submitter_id": "GDC-INTERNAL-000021-Sample3"
-              }
-            ],
-            "valid": true,
-            "warnings": []
-          }
-        ],
-        "entity_error_count": 0,
-        "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
-        "success": true,
-        "transaction_id": 1636917,
-        "transactional_error_count": 0,
-        "transactional_errors": [],
-        "updated_entity_count": 0
-      }
-    }
-  ],
-  "success": true,
-  "transaction_id": 1636917,
   "transactional_errors": [],
   "updated_entity_count": 0
 }

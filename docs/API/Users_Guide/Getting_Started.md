@@ -28,6 +28,10 @@ Examples of tools that can help build GDC API calls:
 | [JSON Formatter](http://jsonformatter.org/) | Format, validate, and convert JSON to other formats |
 | [Percent-(URL)-encoding tool](https://codebeautify.org/url-encode-string)| Tool for percent-encoding strings |
 
+>**NOTE:** When using the command line tool curl be sure to use the bash shell only for compatibility reasons.  All examples using curl are using the bash shell.  
+
+The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
+
 
 ## API Endpoints
 
@@ -61,17 +65,17 @@ See [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md) for details.
 
 ## Sample Request
 
-The following is an example of a request to the `files` endpoint, which retrieves information about a BAM file stored in the GDC.
+The following is an example of a request to the `files` endpoint, which retrieves information about a MAF file stored in the GDC.
 
 ``` shell
-curl https://api.gdc.cancer.gov/files/d853e541-f16a-4345-9f00-88e03c2dc0bc?pretty=true
+curl https://api.gdc.cancer.gov/files/cb92f61d-041c-4424-a3e9-891b7545f351?pretty=true
 ```
 ``` python
 import requests
 import json
 
 file_endpt = 'https://api.gdc.cancer.gov/files/'
-file_uuid = 'd853e541-f16a-4345-9f00-88e03c2dc0bc'
+file_uuid = 'cb92f61d-041c-4424-a3e9-891b7545f351'
 response = requests.get(file_endpt + file_uuid)
 
 # OUTPUT METHOD 1: Write to a file.
@@ -98,13 +102,13 @@ In the following example, an authentication token is saved as an environment var
 ```Shell
 token=$(cat <gdc-token-text-file.txt>)
 
-curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
+curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/fd89bfa5-b3a7-4079-bf90-709580c006e5'
 ```
-```Shell Output
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 31.4M  100 31.4M    0     0   290k      0  0:01:50  0:01:50 --:--:--  172k
-curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.tangent.copynumber.data.txt'
+```Output
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                Dload  Upload   Total   Spent    Left  Speed
+100 4161M  100 4161M    0     0   281k      0  4:12:45  4:12:45 --:--:-- 1894k
+
 ```
 ```Python
 import requests
@@ -124,7 +128,7 @@ headers = {
           }
 
 data_endpt = 'https://api.gdc.cancer.gov/data/'
-data_uuid = 'a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
+data_uuid = 'fd89bfa5-b3a7-4079-bf90-709580c006e5'
 headers = {
            'X-Auth-Token': token_string
           }
