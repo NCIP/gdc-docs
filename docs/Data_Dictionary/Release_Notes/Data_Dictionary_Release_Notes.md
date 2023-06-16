@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.2.7.0](Data_Dictionary_Release_Notes.md#v260) | May XX, 2023 |
+| [v.2.6.6](Data_Dictionary_Release_Notes.md#v266) | June 16, 2023 |
 | [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | February 2, 2023 |
 | [v.2.5.0](Data_Dictionary_Release_Notes.md#v250) | July 8, 2022 |
 | [v.2.4.1](Data_Dictionary_Release_Notes.md#v241) | August 23, 2021 |
@@ -25,13 +25,14 @@
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
-## v2.7.0
+## v2.6.6
 
 * __GDC Product__: GDC Data Dictionary
-* __Release Date__: May XX, 2023
+* __Release Date__: June 16, 2023
 
 ### New Features and Changes
 
+* Updated CDE links to point to newer version of caDSR website.
 * Altered `aligned_reads` Entity
 	* New property: `wgs_coverage`
 * Altered `case` Entity
@@ -505,7 +506,7 @@
 
 ### Known Issues and Workarounds
 
-* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) does not currently display permissible values for array type properties. This does not impact submission of permissible values for these properties. Data submitters that would like to submit data for these properties can contact the GDC Helpdesk (support@nci-gdc.datacommons.io) for a list of permissible values for the affected properties. This will be addressed in a future release. 
+* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) does not currently display permissible values for array type properties. This does not impact submission of permissible values for these properties. Data submitters that would like to submit data for these properties can contact the GDC Helpdesk (support@nci-gdc.datacommons.io) for a list of permissible values for the affected properties. This will be addressed in a future release.
 
 ## v2.5.0
 
