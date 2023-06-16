@@ -131,17 +131,17 @@
 		* New permissible value: `ZEB2`
 	* Changes made to `test_value_range`
 		* New permissible value: `<10%`
-		* New permissible value: `10–19%`
-		* New permissible value: `20–29%`
-		* New permissible value: `30–39%`
-		* New permissible value: `40–49%`
-		* New permissible value: `50–59%`
-		* New permissible value: `60–69%`
-		* New permissible value: `70–79%`
-		* New permissible value: `80–89%`
-		* New permissible value: `90–99%`
+		* New permissible value: `10-19%`
+		* New permissible value: `20-29%`
+		* New permissible value: `30-39%`
+		* New permissible value: `40-49%`
+		* New permissible value: `50-59%`
+		* New permissible value: `60-69%`
+		* New permissible value: `70-79%`
+		* New permissible value: `80-89%`
+		* New permissible value: `90-99%`
 		* New permissible value: `<1%`
-		* New permissible value: `1–49%`
+		* New permissible value: `1-49%`
 		* New permissible value: `>=50%`
 	* Changes made to `timepoint_category`
 		* New permissible value: `Preoperative`
