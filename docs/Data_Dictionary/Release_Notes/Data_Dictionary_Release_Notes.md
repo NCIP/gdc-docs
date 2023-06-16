@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v.2.6.6](Data_Dictionary_Release_Notes.md#v266) | June 16, 2023 |
 | [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | February 2, 2023 |
 | [v.2.5.0](Data_Dictionary_Release_Notes.md#v250) | July 8, 2022 |
 | [v.2.4.1](Data_Dictionary_Release_Notes.md#v241) | August 23, 2021 |
@@ -23,6 +24,163 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v2.6.6
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: June 16, 2023
+
+### New Features and Changes
+
+* Updated CDE links to point to newer version of caDSR website.
+* Altered `aligned_reads` Entity
+	* New property: `wgs_coverage`
+* Altered `case` Entity
+	* New required property: `disease_type`
+	* New required property: `primary_site`
+	* Changes made to `primary_site`
+		* New permissible value: `Not Applicable`
+* Altered `demographic` Entity
+	* New property: `country_of_birth`
+	* New property: `education_level`
+	* New property: `marital_status`
+* Altered `diagnosis` Entity
+	* New deprecated property: `metastasis_at_diagnosis_site`
+	* New property: `clark_level`
+	* New property: `contiguous_organ_invaded`
+	* New property: `ensat_clinical_m`
+	* New property: `ensat_pathologic_n`
+	* New property: `ensat_pathologic_stage`
+	* New property: `ensat_pathologic_t`
+	* New property: `first_symptom_longest_duration`
+	* New property: `measurement_type`
+	* New property: `melanoma_known_primary`
+	* New property: `tumor_burden`
+	* New property: `ulceration_indicator`
+	* Changes made to `sites_of_involvement`
+		* New permissible value: `Ascites`
+		* New permissible value: `Common or Superficial Femoral Vein`
+		* New permissible value: `Distant Nodes`
+		* New permissible value: `Distant Organ`
+		* New permissible value: `Gastrointestinal Tract`
+		* New permissible value: `Great Blood Vessel`
+		* New permissible value: `Groin`
+		* New permissible value: `Head, Face or Neck, NOS`
+		* New permissible value: `Inferior Vena Cava`
+		* New permissible value: `Lymph Node, Axillary`
+		* New permissible value: `Lymph Node, Inguinal`
+		* New permissible value: `Lymph Node, Regional`
+		* New permissible value: `Lymph Node, Subcarinal`
+		* New permissible value: `Mediastinum`
+		* New permissible value: `Pelvic Vein, Common, External or Iliac`
+		* New permissible value: `Peritoneal Cavity`
+		* New permissible value: `Renal Vein`
+		* New permissible value: `Scalp`
+		* New permissible value: `Spinal Cord`
+		* New permissible value: `Urethra`
+		* New permissible value: `Vertebral Canal`
+		* New permissible value: `Vulva, NOS`
+* Altered `exposure` Entity
+	* New property: `exposure_duration_hrs_per_day`
+	* Changes made to `exposure_type`
+		* New permissible value: `Dust, NOS`
+* Altered `family_history` Entity
+	* New property: `relative_deceased`
+	* New property: `relative_smoker`
+* Altered `follow_up` Entity
+	* New property: `discontiguous_lesion_count`
+	* Changes made to `comorbidities`
+		* New permissible value: `Pneumonia, NOS`
+	* Changes made to `first_event`
+		* New permissible value: `Presented with Metastases`
+	* Changes made to `risk_factors`
+		* New permissible value: `Pneumonia, NOS`
+	* Changes made to `timepoint_category`
+		* New permissible value: `Within 3 Months of Surgery`
+* Altered `masked_methylation_array` Entity
+	* Changes made to `platform`
+		* New permissible value: `Illumina Methylation Epic v2`
+* Altered `methylation_beta_value` Entity
+	* Changes made to `platform`
+		* New permissible value: `Illumina Methylation Epic v2`
+* Altered `molecular_test` Entity
+	* New property: `staining_intensity_scale`
+	* Changes made to `gene_symbol` and `second_gene_symbol`
+		* New permissible value: `ACACA`
+		* New permissible value: `BRD1`
+		* New permissible value: `BTBD18`
+		* New permissible value: `CBFA2T2`
+		* New permissible value: `CEP164`
+		* New permissible value: `CEP170B`
+		* New permissible value: `CTDP1`
+		* New permissible value: `DOT1L`
+		* New permissible value: `FRYL`
+		* New permissible value: `GLIS2`
+		* New permissible value: `HMGB3`
+		* New permissible value: `HNRNPH1`
+		* New permissible value: `INO80D`
+		* New permissible value: `JARID2`
+		* New permissible value: `PHF23`
+		* New permissible value: `PIM3`
+		* New permissible value: `PTP4A1`
+		* New permissible value: `RPS15`
+		* New permissible value: `SETD1A`
+		* New permissible value: `SLC66A2 (aka PQLC1)`
+		* New permissible value: `TOP2B`
+		* New permissible value: `UBB`
+		* New permissible value: `ZEB2`
+	* Changes made to `test_value_range`
+		* New permissible value: `<10%`
+		* New permissible value: `10–19%`
+		* New permissible value: `20–29%`
+		* New permissible value: `30–39%`
+		* New permissible value: `40–49%`
+		* New permissible value: `50–59%`
+		* New permissible value: `60–69%`
+		* New permissible value: `70–79%`
+		* New permissible value: `80–89%`
+		* New permissible value: `90–99%`
+		* New permissible value: `<1%`
+		* New permissible value: `1–49%`
+		* New permissible value: `>=50%`
+	* Changes made to `timepoint_category`
+		* New permissible value: `Preoperative`
+* Altered `pathology_detail` Entity
+	* New property: `epithelioid_cell_percent`
+	* New property: `measurement_type`
+	* New property: `measurement_unit`
+	* New property: `spindle_cell_percent`
+	* New property: `tumor_depth_descriptor`
+	* New property: `tumor_depth_measurement`
+	* New property: `tumor_infiltrating_lymphocytes`
+	* New property: `tumor_infiltrating_macrophages`
+	* New property: `tumor_length_measurement`
+	* New property: `tumor_measurement_method`
+	* New property: `tumor_shape`
+	* New property: `tumor_width_measurement`
+	* Changes made to `additional_pathology_findings`
+		* New permissible value: `Extravascular Matrix Loops`
+		* New permissible value: `Other Complex Extravascular Matrix Patterns`
+		* New permissible value: `Poorly Differentiated`
+		* New permissible value: `Well Differentiated`
+* Altered `raw_methylation_array` Entity
+	* Changes made to `platform`
+		* New permissible value: `Illumina Methylation Epic v2`
+* Altered `sample` Entity
+	* Changes made to `preservation_method`
+		* New permissible value: `EDTA`
+	* Changes made to `specimen_type`
+		* New permissible value: `Derived Cell Lines and Sorted Cells`
+* Altered `treatment` Entity
+	* New deprecated property: `treatment_anatomic_site`
+	* New property: `treatment_anatomic_sites`
+	* Changes made to `protocol_identifier`
+		* New permissible value: `P9407`
+
+
+### Bugs Fixed Since Last Release
+
+* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) correctly displays permissible values for array-type properties.
 
 ## v2.6.0
 
@@ -348,7 +506,7 @@
 
 ### Known Issues and Workarounds
 
-* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) does not currently display permissible values for array type properties. This does not impact submission of permissible values for these properties. Data submitters that would like to submit data for these properties can contact the GDC Helpdesk (support@nci-gdc.datacommons.io) for a list of permissible values for the affected properties. This will be addressed in a future release. 
+* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) does not currently display permissible values for array type properties. This does not impact submission of permissible values for these properties. Data submitters that would like to submit data for these properties can contact the GDC Helpdesk (support@nci-gdc.datacommons.io) for a list of permissible values for the affected properties. This will be addressed in a future release.
 
 ## v2.5.0
 
