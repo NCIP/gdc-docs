@@ -739,27 +739,32 @@ New nodes are created in Request1.  Nodes in state `validated` are updated in Re
 
 ```Request1
 [
-   {
-    "type": "case",
-    "submitter_id": "QA-REGRESSION-0002",  
-    "projects": {
-    "code": "REGRESSION"
+{
+  "project_id": "GDC-INTERNAL",
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000092",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+  "projects": {
+    "code": "INTERNAL"
   }
-    },
-    {
+},
+  {
     "type": "sample",
-    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001",
-    "sample_type": "Primary Tumor",
-    "sample_type_id": "01",
+    "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "cases": {
-      "submitter_id": "QA-REGRESSION-0002"
+      "submitter_id": "GDC-INTERNAL-000092"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000092-SAMPLE000092-ALIQUOT000002",
     "samples": {
-      "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+      "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002"
     }
   }
 ]
@@ -779,13 +784,13 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
     {
       "action": "create",
       "errors": [],
-      "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+      "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "valid": true,
@@ -794,18 +799,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
     {
       "action": "create",
       "errors": [],
-      "id": "8a1872e6-c5e6-4f39-b9fe-15ecf45715c7",
+      "id": "0fa1e69b-4662-4e15-8e3b-a1dfb393cf56",
       "related_cases": [
         {
-          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
-          "submitter_id": "QA-REGRESSION-0002"
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002"
         }
       ],
       "valid": true,
@@ -814,18 +819,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
     {
       "action": "create",
       "errors": [],
-      "id": "e9279137-92b4-41ab-be28-a03e32e6fac7",
+      "id": "76547a46-339e-4f1e-9003-c70e869c1cf7",
       "related_cases": [
         {
-          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
-          "submitter_id": "QA-REGRESSION-0002"
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-SAMPLE000092-ALIQUOT000002"
         }
       ],
       "valid": true,
@@ -835,7 +840,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 920117,
+  "transaction_id": 5840293,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -843,28 +848,33 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
 ```
 ```Request2
 [
-   {
-    "type": "case",
-    "submitter_id": "QA-REGRESSION-0002",  
-    "projects": {
-    "code": "REGRESSION"
+{
+  "project_id": "GDC-INTERNAL",
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000092",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+  "projects": {
+    "code": "INTERNAL"
   }
-    },
-    {
+},
+  {
     "type": "sample",
-    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001",
-    "sample_type": "Primary Tumor",
+    "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "days_to_collection":5,
-    "sample_type_id": "01",
     "cases": {
-      "submitter_id": "QA-REGRESSION-0002"
+      "submitter_id": "GDC-INTERNAL-000092"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000092-SAMPLE000092-ALIQUOT000002",
     "samples": {
-      "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+      "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002"
     }
   }
 ]
@@ -884,13 +894,13 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
     {
       "action": "update",
       "errors": [],
-      "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+      "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "valid": true,
@@ -899,18 +909,18 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
     {
       "action": "update",
       "errors": [],
-      "id": "8a1872e6-c5e6-4f39-b9fe-15ecf45715c7",
+      "id": "0fa1e69b-4662-4e15-8e3b-a1dfb393cf56",
       "related_cases": [
         {
-          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
-          "submitter_id": "QA-REGRESSION-0002"
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002"
         }
       ],
       "valid": true,
@@ -919,18 +929,18 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
     {
       "action": "update",
       "errors": [],
-      "id": "e9279137-92b4-41ab-be28-a03e32e6fac7",
+      "id": "76547a46-339e-4f1e-9003-c70e869c1cf7",
       "related_cases": [
         {
-          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
-          "submitter_id": "QA-REGRESSION-0002"
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-SAMPLE000092-ALIQUOT000002"
         }
       ],
       "valid": true,
@@ -940,7 +950,7 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 920120,
+  "transaction_id": 5840294,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 3
@@ -1527,8 +1537,8 @@ curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: appl
   "updated_entity_count": 0
 }}
 ```
-```
-Command2
+
+```Command2
 curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @BCR_biospecimen_updated.xml 'https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION/xml/biospecimen/bcr'
 ```
 ```Response2
