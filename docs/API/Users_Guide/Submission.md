@@ -2369,6 +2369,99 @@ curl --header "X-Auth-Token: $token" --request DELETE https://api.gdc.cancer.gov
 ```
 
 ## Working With Files
+### Registering a Data File
+
+Registering a data file is a similar process to creating an entity. 
+
+
+
+```Request 1
+[
+{
+  "project_id": "GDC-INTERNAL",
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000092",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+  "projects": {
+    "code": "INTERNAL"
+  }
+},
+  {
+    "type": "clinical_supplement",
+    "submitter_id": "GDC-INTERNAL-000092-clinical_supplement000092",
+    "data_category": "Clinical",
+    "data_format": "BCR Biotab",
+    "data_type": "Clinical Supplement",
+    "file_name":"nationwidechildrens.org_clinical_drug_brca.txt",
+    "md5sum":"a83b5130bd671998aa1ec339a542121d",
+    "file_size":961048,
+    "cases": {
+      "submitter_id": "GDC-INTERNAL-000092"
+    }
+  }
+]
+```
+
+```Command
+token=$(<gdc-token-text-file.txt)
+
+curl --header "X-Auth-Token: $token" --request PUT --data-binary @Data_File_1.json --header 'Content-Type: application/json' https://api.gdc.cancer.gov/submission/GDC/INTERNAL
+```
+```Response
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 1,
+  "entities": [
+    {
+      "action": "update",
+      "errors": [],
+      "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+      "related_cases": [],
+      "type": "case",
+      "unique_keys": [
+        {
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "da48693a-8179-4b9e-a340-150da880b47e",
+      "related_cases": [
+        {
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
+        }
+      ],
+      "type": "clinical_supplement",
+      "unique_keys": [
+        {
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-clinical_supplement000092"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 5845406,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 1
+}
+```
+
+
 
 ### Uploading Data Files
 
