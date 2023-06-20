@@ -2371,7 +2371,7 @@ curl --header "X-Auth-Token: $token" --request DELETE https://api.gdc.cancer.gov
 ## Working With Files
 ### Registering a Data File
 
-Registering a data file is a similar process to creating an entity. 
+Registering a data file is a similar process to creating an entity.
 
 
 
@@ -2393,7 +2393,7 @@ Registering a data file is a similar process to creating an entity.
     "data_category": "Clinical",
     "data_format": "BCR Biotab",
     "data_type": "Clinical Supplement",
-    "file_name":"nationwidechildrens.org_clinical_drug_brca.txt",
+    "file_name":"clinical_drug.txt",
     "md5sum":"a83b5130bd671998aa1ec339a542121d",
     "file_size":961048,
     "cases": {
