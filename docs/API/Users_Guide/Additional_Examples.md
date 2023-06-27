@@ -11,56 +11,504 @@ This section contains additional examples for using endpoints.
 This example is a query for Projects contained in GDC. It returns only the first five projects sorted by project name.
 
 ```Query
-curl 'https://api.gdc.cancer.gov/projects?from=0&size=5&sort=project.name:asc&pretty=true'
+curl 'https://api.gdc.cancer.gov/projects?from=0&size=5&sort=name:asc&pretty=true'
 ```
 ```Response
 {
   "data": {
     "hits": [
       {
-        "state": "legacy",
-        "project_id": "TARGET-AML",
-        "primary_site": "Blood",
-        "disease_type": "Acute Myeloid Leukemia",
-        "name": "Acute Myeloid Leukemia"
+        "id": "GENIE-DFCI",
+        "primary_site": [
+          "Other and unspecified parts of biliary tract",
+          "Thymus",
+          "Gallbladder",
+          "Bladder",
+          "Colon",
+          "Small intestine",
+          "Prostate gland",
+          "Pancreas",
+          "Hypopharynx",
+          "Peripheral nerves and autonomic nervous system",
+          "Rectum",
+          "Other and ill-defined sites in lip, oral cavity and pharynx",
+          "Adrenal gland",
+          "Corpus uteri",
+          "Nasal cavity and middle ear",
+          "Meninges",
+          "Penis",
+          "Other and ill-defined digestive organs",
+          "Vagina",
+          "Stomach",
+          "Ovary",
+          "Heart, mediastinum, and pleura",
+          "Kidney",
+          "Anus and anal canal",
+          "Nasopharynx",
+          "Testis",
+          "Brain",
+          "Breast",
+          "Bronchus and lung",
+          "Liver and intrahepatic bile ducts",
+          "Other endocrine glands and related structures",
+          "Eye and adnexa",
+          "Esophagus",
+          "Hematopoietic and reticuloendothelial systems",
+          "Skin",
+          "Other and ill-defined sites",
+          "Oropharynx",
+          "Other and unspecified female genital organs",
+          "Spinal cord, cranial nerves, and other parts of central nervous system",
+          "Thyroid gland",
+          "Other and unspecified major salivary glands",
+          "Other and unspecified urinary organs",
+          "Cervix uteri",
+          "Larynx",
+          "Uterus, NOS",
+          "Unknown",
+          "Bones, joints and articular cartilage of other and unspecified sites",
+          "Retroperitoneum and peritoneum",
+          "Connective, subcutaneous and other soft tissues"
+        ],
+        "dbgap_accession_number": null,
+        "project_id": "GENIE-DFCI",
+        "disease_type": [
+          "Mesothelial Neoplasms",
+          "Adenomas and Adenocarcinomas",
+          "Blood Vessel Tumors",
+          "Fibromatous Neoplasms",
+          "Mucoepidermoid Neoplasms",
+          "Thymic Epithelial Neoplasms",
+          "Trophoblastic neoplasms",
+          "Adnexal and Skin Appendage Neoplasms",
+          "Miscellaneous Bone Tumors",
+          "Immunoproliferative Diseases",
+          "Neuroepitheliomatous Neoplasms",
+          "Basal Cell Neoplasms",
+          "Specialized Gonadal Neoplasms",
+          "Mesonephromas",
+          "Complex Epithelial Neoplasms",
+          "Myeloid Leukemias",
+          "Neoplasms of Histiocytes and Accessory Lymphoid Cells",
+          "Lipomatous Neoplasms",
+          "Nevi and Melanomas",
+          "Ductal and Lobular Neoplasms",
+          "Granular Cell Tumors and Alveolar Soft Part Sarcomas",
+          "Acinar Cell Neoplasms",
+          "Other Leukemias",
+          "Soft Tissue Tumors and Sarcomas, NOS",
+          "Paragangliomas and Glomus Tumors",
+          "Hodgkin Lymphoma",
+          "Mature B-Cell Lymphomas",
+          "Myxomatous Neoplasms",
+          "Lymphoid Leukemias",
+          "Chronic Myeloproliferative Disorders",
+          "Myomatous Neoplasms",
+          "Lymphatic Vessel Tumors",
+          "Epithelial Neoplasms, NOS",
+          "Plasma Cell Tumors",
+          "Gliomas",
+          "Fibroepithelial Neoplasms",
+          "Neoplasms, NOS",
+          "Mature T- and NK-Cell Lymphomas",
+          "Transitional Cell Papillomas and Carcinomas",
+          "Meningiomas",
+          "Synovial-like Neoplasms",
+          "Malignant Lymphomas, NOS or Diffuse",
+          "Myelodysplastic Syndromes",
+          "Germ Cell Neoplasms",
+          "Cystic, Mucinous and Serous Neoplasms",
+          "Squamous Cell Neoplasms",
+          "Giant Cell Tumors",
+          "Osseous and Chondromatous Neoplasms",
+          "Precursor Cell Lymphoblastic Lymphoma",
+          "Miscellaneous Tumors",
+          "Nerve Sheath Tumors",
+          "Complex Mixed and Stromal Neoplasms"
+        ],
+        "name": "AACR Project GENIE - Contributed by Dana-Farber Cancer Institute",
+        "releasable": true,
+        "state": "open",
+        "released": true
       },
       {
-        "state": "legacy",
-        "project_id": "TCGA-LAML",
-        "primary_site": "Blood",
-        "disease_type": "Acute Myeloid Leukemia",
-        "name": "Acute Myeloid Leukemia"
+        "id": "GENIE-GRCC",
+        "primary_site": [
+          "Other and unspecified parts of biliary tract",
+          "Thymus",
+          "Gallbladder",
+          "Bladder",
+          "Colon",
+          "Small intestine",
+          "Prostate gland",
+          "Pancreas",
+          "Hypopharynx",
+          "Peripheral nerves and autonomic nervous system",
+          "Rectum",
+          "Other and ill-defined sites in lip, oral cavity and pharynx",
+          "Adrenal gland",
+          "Corpus uteri",
+          "Nasal cavity and middle ear",
+          "Penis",
+          "Other and ill-defined digestive organs",
+          "Vagina",
+          "Stomach",
+          "Ovary",
+          "Heart, mediastinum, and pleura",
+          "Kidney",
+          "Nasopharynx",
+          "Anus and anal canal",
+          "Testis",
+          "Brain",
+          "Breast",
+          "Bronchus and lung",
+          "Liver and intrahepatic bile ducts",
+          "Esophagus",
+          "Skin",
+          "Other and ill-defined sites",
+          "Oropharynx",
+          "Connective, subcutaneous and other soft tissues",
+          "Spinal cord, cranial nerves, and other parts of central nervous system",
+          "Other and unspecified female genital organs",
+          "Thyroid gland",
+          "Other and unspecified major salivary glands",
+          "Other and unspecified urinary organs",
+          "Cervix uteri",
+          "Uterus, NOS",
+          "Unknown",
+          "Bones, joints and articular cartilage of other and unspecified sites",
+          "Retroperitoneum and peritoneum",
+          "Larynx"
+        ],
+        "dbgap_accession_number": null,
+        "project_id": "GENIE-GRCC",
+        "disease_type": [
+          "Mesothelial Neoplasms",
+          "Adenomas and Adenocarcinomas",
+          "Blood Vessel Tumors",
+          "Fibromatous Neoplasms",
+          "Mucoepidermoid Neoplasms",
+          "Thymic Epithelial Neoplasms",
+          "Adnexal and Skin Appendage Neoplasms",
+          "Miscellaneous Bone Tumors",
+          "Neuroepitheliomatous Neoplasms",
+          "Basal Cell Neoplasms",
+          "Specialized Gonadal Neoplasms",
+          "Complex Epithelial Neoplasms",
+          "Odontogenic Tumors",
+          "Lipomatous Neoplasms",
+          "Nevi and Melanomas",
+          "Ductal and Lobular Neoplasms",
+          "Granular Cell Tumors and Alveolar Soft Part Sarcomas",
+          "Acinar Cell Neoplasms",
+          "Soft Tissue Tumors and Sarcomas, NOS",
+          "Paragangliomas and Glomus Tumors",
+          "Myomatous Neoplasms",
+          "Epithelial Neoplasms, NOS",
+          "Gliomas",
+          "Neoplasms, NOS",
+          "Transitional Cell Papillomas and Carcinomas",
+          "Synovial-like Neoplasms",
+          "Germ Cell Neoplasms",
+          "Squamous Cell Neoplasms",
+          "Cystic, Mucinous and Serous Neoplasms",
+          "Osseous and Chondromatous Neoplasms",
+          "Nerve Sheath Tumors",
+          "Complex Mixed and Stromal Neoplasms"
+        ],
+        "name": "AACR Project GENIE - Contributed by Institut Gustave Roussy",
+        "releasable": true,
+        "state": "open",
+        "released": true
       },
       {
-        "state": "legacy",
-        "project_id": "TARGET-AML-IF",
-        "primary_site": "Blood",
-        "disease_type": "Acute Myeloid Leukemia Induction Failure",
-        "name": "Acute Myeloid Leukemia Induction Failure"
+        "id": "GENIE-JHU",
+        "primary_site": [
+          "Thymus",
+          "Bladder",
+          "Colon",
+          "Small intestine",
+          "Prostate gland",
+          "Pancreas",
+          "Peripheral nerves and autonomic nervous system",
+          "Rectum",
+          "Corpus uteri",
+          "Meninges",
+          "Other and ill-defined digestive organs",
+          "Vagina",
+          "Stomach",
+          "Ovary",
+          "Heart, mediastinum, and pleura",
+          "Anus and anal canal",
+          "Brain",
+          "Breast",
+          "Bronchus and lung",
+          "Liver and intrahepatic bile ducts",
+          "Other endocrine glands and related structures",
+          "Eye and adnexa",
+          "Esophagus",
+          "Hematopoietic and reticuloendothelial systems",
+          "Skin",
+          "Other and ill-defined sites",
+          "Oropharynx",
+          "Spinal cord, cranial nerves, and other parts of central nervous system",
+          "Thyroid gland",
+          "Uterus, NOS",
+          "Unknown",
+          "Bones, joints and articular cartilage of other and unspecified sites",
+          "Connective, subcutaneous and other soft tissues"
+        ],
+        "dbgap_accession_number": null,
+        "project_id": "GENIE-JHU",
+        "disease_type": [
+          "Mesothelial Neoplasms",
+          "Adenomas and Adenocarcinomas",
+          "Leukemias, NOS",
+          "Thymic Epithelial Neoplasms",
+          "Adnexal and Skin Appendage Neoplasms",
+          "Neuroepitheliomatous Neoplasms",
+          "Complex Epithelial Neoplasms",
+          "Myeloid Leukemias",
+          "Neoplasms of Histiocytes and Accessory Lymphoid Cells",
+          "Lipomatous Neoplasms",
+          "Nevi and Melanomas",
+          "Ductal and Lobular Neoplasms",
+          "Acinar Cell Neoplasms",
+          "Other Leukemias",
+          "Soft Tissue Tumors and Sarcomas, NOS",
+          "Myxomatous Neoplasms",
+          "Mature B-Cell Lymphomas",
+          "Lymphoid Leukemias",
+          "Chronic Myeloproliferative Disorders",
+          "Myomatous Neoplasms",
+          "Epithelial Neoplasms, NOS",
+          "Gliomas",
+          "Neoplasms, NOS",
+          "Mast Cell Tumors",
+          "Transitional Cell Papillomas and Carcinomas",
+          "Meningiomas",
+          "Synovial-like Neoplasms",
+          "Malignant Lymphomas, NOS or Diffuse",
+          "Myelodysplastic Syndromes",
+          "Cystic, Mucinous and Serous Neoplasms",
+          "Squamous Cell Neoplasms",
+          "Osseous and Chondromatous Neoplasms",
+          "Complex Mixed and Stromal Neoplasms"
+        ],
+        "name": "AACR Project GENIE - Contributed by Johns Hopkins Sidney Kimmel Comprehensive Cancer Center",
+        "releasable": true,
+        "state": "open",
+        "released": true
       },
       {
-        "state": "legacy",
-        "project_id": "TARGET-ALL-P2",
-        "primary_site": "Blood",
-        "disease_type": "Acute Lymphoblastic Leukemia",
-        "name": "Acute Lymphoblastic Leukemia - Phase II"
+        "id": "GENIE-MDA",
+        "primary_site": [
+          "Other and unspecified parts of biliary tract",
+          "Thymus",
+          "Gallbladder",
+          "Bladder",
+          "Colon",
+          "Small intestine",
+          "Prostate gland",
+          "Pancreas",
+          "Peripheral nerves and autonomic nervous system",
+          "Adrenal gland",
+          "Corpus uteri",
+          "Meninges",
+          "Other and ill-defined digestive organs",
+          "Vagina",
+          "Stomach",
+          "Ovary",
+          "Heart, mediastinum, and pleura",
+          "Kidney",
+          "Anus and anal canal",
+          "Nasopharynx",
+          "Testis",
+          "Brain",
+          "Breast",
+          "Bronchus and lung",
+          "Liver and intrahepatic bile ducts",
+          "Other endocrine glands and related structures",
+          "Eye and adnexa",
+          "Esophagus",
+          "Hematopoietic and reticuloendothelial systems",
+          "Skin",
+          "Other and ill-defined sites",
+          "Other and unspecified female genital organs",
+          "Spinal cord, cranial nerves, and other parts of central nervous system",
+          "Thyroid gland",
+          "Other and unspecified major salivary glands",
+          "Other and unspecified urinary organs",
+          "Cervix uteri",
+          "Uterus, NOS",
+          "Unknown",
+          "Bones, joints and articular cartilage of other and unspecified sites",
+          "Retroperitoneum and peritoneum",
+          "Connective, subcutaneous and other soft tissues"
+        ],
+        "dbgap_accession_number": null,
+        "project_id": "GENIE-MDA",
+        "disease_type": [
+          "Mesothelial Neoplasms",
+          "Adenomas and Adenocarcinomas",
+          "Leukemias, NOS",
+          "Blood Vessel Tumors",
+          "Fibromatous Neoplasms",
+          "Mucoepidermoid Neoplasms",
+          "Thymic Epithelial Neoplasms",
+          "Trophoblastic neoplasms",
+          "Miscellaneous Bone Tumors",
+          "Neuroepitheliomatous Neoplasms",
+          "Basal Cell Neoplasms",
+          "Specialized Gonadal Neoplasms",
+          "Complex Epithelial Neoplasms",
+          "Lipomatous Neoplasms",
+          "Nevi and Melanomas",
+          "Ductal and Lobular Neoplasms",
+          "Hodgkin Lymphoma",
+          "Mature B-Cell Lymphomas",
+          "Myomatous Neoplasms",
+          "Epithelial Neoplasms, NOS",
+          "Fibroepithelial Neoplasms",
+          "Gliomas",
+          "Neoplasms, NOS",
+          "Transitional Cell Papillomas and Carcinomas",
+          "Meningiomas",
+          "Synovial-like Neoplasms",
+          "Germ Cell Neoplasms",
+          "Malignant Lymphomas, NOS or Diffuse",
+          "Cystic, Mucinous and Serous Neoplasms",
+          "Squamous Cell Neoplasms",
+          "Osseous and Chondromatous Neoplasms",
+          "Miscellaneous Tumors",
+          "Nerve Sheath Tumors",
+          "Complex Mixed and Stromal Neoplasms"
+        ],
+        "name": "AACR Project GENIE - Contributed by MD Anderson Cancer Center",
+        "releasable": true,
+        "state": "open",
+        "released": true
       },
       {
-        "state": "legacy",
-        "project_id": "TARGET-ALL-P1",
-        "primary_site": "Blood",
-        "disease_type": "Acute Lymphoblastic Leukemia",
-        "name": "Acute Lymphoblastic Leukemia - Phase I"
+        "id": "GENIE-MSK",
+        "primary_site": [
+          "Other and unspecified parts of biliary tract",
+          "Thymus",
+          "Gallbladder",
+          "Bladder",
+          "Colon",
+          "Small intestine",
+          "Prostate gland",
+          "Pancreas",
+          "Hypopharynx",
+          "Peripheral nerves and autonomic nervous system",
+          "Rectum",
+          "Adrenal gland",
+          "Other and ill-defined sites in lip, oral cavity and pharynx",
+          "Corpus uteri",
+          "Nasal cavity and middle ear",
+          "Meninges",
+          "Penis",
+          "Other and ill-defined digestive organs",
+          "Vagina",
+          "Ovary",
+          "Heart, mediastinum, and pleura",
+          "Stomach",
+          "Kidney",
+          "Nasopharynx",
+          "Anus and anal canal",
+          "Testis",
+          "Brain",
+          "Breast",
+          "Bronchus and lung",
+          "Liver and intrahepatic bile ducts",
+          "Other endocrine glands and related structures",
+          "Eye and adnexa",
+          "Esophagus",
+          "Hematopoietic and reticuloendothelial systems",
+          "Skin",
+          "Other and ill-defined sites",
+          "Other and unspecified female genital organs",
+          "Oropharynx",
+          "Spinal cord, cranial nerves, and other parts of central nervous system",
+          "Thyroid gland",
+          "Other and unspecified major salivary glands",
+          "Other and unspecified urinary organs",
+          "Cervix uteri",
+          "Larynx",
+          "Uterus, NOS",
+          "Unknown",
+          "Bones, joints and articular cartilage of other and unspecified sites",
+          "Retroperitoneum and peritoneum",
+          "Connective, subcutaneous and other soft tissues"
+        ],
+        "dbgap_accession_number": null,
+        "project_id": "GENIE-MSK",
+        "disease_type": [
+          "Mesothelial Neoplasms",
+          "Adenomas and Adenocarcinomas",
+          "Blood Vessel Tumors",
+          "Fibromatous Neoplasms",
+          "Mucoepidermoid Neoplasms",
+          "Thymic Epithelial Neoplasms",
+          "Trophoblastic neoplasms",
+          "Adnexal and Skin Appendage Neoplasms",
+          "Miscellaneous Bone Tumors",
+          "Immunoproliferative Diseases",
+          "Neuroepitheliomatous Neoplasms",
+          "Basal Cell Neoplasms",
+          "Specialized Gonadal Neoplasms",
+          "Mesonephromas",
+          "Complex Epithelial Neoplasms",
+          "Neoplasms of Histiocytes and Accessory Lymphoid Cells",
+          "Myeloid Leukemias",
+          "Odontogenic Tumors",
+          "Lipomatous Neoplasms",
+          "Nevi and Melanomas",
+          "Ductal and Lobular Neoplasms",
+          "Granular Cell Tumors and Alveolar Soft Part Sarcomas",
+          "Acinar Cell Neoplasms",
+          "Soft Tissue Tumors and Sarcomas, NOS",
+          "Paragangliomas and Glomus Tumors",
+          "Hodgkin Lymphoma",
+          "Mature B-Cell Lymphomas",
+          "Myxomatous Neoplasms",
+          "Lymphoid Leukemias",
+          "Myomatous Neoplasms",
+          "Epithelial Neoplasms, NOS",
+          "Fibroepithelial Neoplasms",
+          "Gliomas",
+          "Plasma Cell Tumors",
+          "Neoplasms, NOS",
+          "Mature T- and NK-Cell Lymphomas",
+          "Mast Cell Tumors",
+          "Transitional Cell Papillomas and Carcinomas",
+          "Meningiomas",
+          "Synovial-like Neoplasms",
+          "Germ Cell Neoplasms",
+          "Malignant Lymphomas, NOS or Diffuse",
+          "Myelodysplastic Syndromes",
+          "Squamous Cell Neoplasms",
+          "Cystic, Mucinous and Serous Neoplasms",
+          "Osseous and Chondromatous Neoplasms",
+          "Miscellaneous Tumors",
+          "Nerve Sheath Tumors",
+          "Complex Mixed and Stromal Neoplasms"
+        ],
+        "name": "AACR Project GENIE - Contributed by Memorial Sloan Kettering Cancer Center",
+        "releasable": true,
+        "state": "open",
+        "released": true
       }
     ],
     "pagination": {
       "count": 5,
-      "sort": "project.name:asc",
+      "total": 78,
+      "size": 5,
       "from": 0,
-      "pages": 10,
-      "total": 46,
+      "sort": "None",
       "page": 1,
-      "size": 5
+      "pages": 16
     }
   },
   "warnings": {}
@@ -78,56 +526,58 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
   "data": {
     "hits": [
       {
-        "data_type": "Raw Simple Somatic Mutation",
-        "updated_datetime": "2017-03-04T16:45:40.925270-06:00",
-        "file_name": "9f78a291-2d50-472c-8f56-5f8fbd09ab2a.snp.Somatic.hc.vcf.gz",
-        "submitter_id": "TCGA-13-0757-01A-01W-0371-08_TCGA-13-0757-10A-01W-0371-08_varscan",
-        "file_id": "9f78a291-2d50-472c-8f56-5f8fbd09ab2a",
-        "file_size": 1120,
-        "id": "9f78a291-2d50-472c-8f56-5f8fbd09ab2a",
-        "created_datetime": "2016-05-04T14:50:54.560567-05:00",
-        "md5sum": "13c1ceb3519615e2c67128b350365fbf",
-        "data_format": "VCF",
-        "acl": [
-          "phs000178"
-        ],
+        "id": "0ab5e358-b1ff-4433-8959-c37c5890d9aa",
+        "data_format": "BEDPE",
         "access": "controlled",
-        "state": "live",
-        "data_category": "Simple Nucleotide Variation",
-        "type": "simple_somatic_mutation",
-        "file_state": "submitted",
-        "experimental_strategy": "WXS"
+        "file_name": "090e2828-079c-48e6-97cb-735c763da8d3.wgs.BRASS.rerun_structural_variation.bedpe.gz",
+        "submitter_id": "247c3c9a-58b9-4b70-bda8-cb197acb5609",
+        "data_category": "Somatic Structural Variation",
+        "acl": [
+          "phs001287"
+        ],
+        "type": "structural_variation",
+        "file_size": 20,
+        "created_datetime": "2022-04-08T20:27:04.633842-05:00",
+        "md5sum": "7029066c27ac6f5ef18d660d5741979a",
+        "updated_datetime": "2022-07-07T11:02:27.204310-05:00",
+        "file_id": "0ab5e358-b1ff-4433-8959-c37c5890d9aa",
+        "data_type": "Structural Rearrangement",
+        "state": "released",
+        "experimental_strategy": "WGS",
+        "version": "1",
+        "data_release": "34.0 - 37.0"
       },
       {
-        "data_type": "Raw Simple Somatic Mutation",
-        "updated_datetime": "2017-03-04T16:45:40.925270-06:00",
-        "file_name": "7780009b-abb6-460b-903d-accdac626c2e.snp.Somatic.hc.vcf.gz",
-        "submitter_id": "TCGA-HC-8261-01A-11D-2260-08_TCGA-HC-8261-10A-01D-2260-08_varscan",
-        "file_id": "7780009b-abb6-460b-903d-accdac626c2e",
-        "file_size": 1237,
-        "id": "7780009b-abb6-460b-903d-accdac626c2e",
-        "created_datetime": "2016-05-08T13:54:38.369393-05:00",
-        "md5sum": "fd9bb46c8022b96af730c48dc00e2c41",
-        "data_format": "VCF",
-        "acl": [
-          "phs000178"
-        ],
+        "id": "a8bc2405-b57d-48bb-b241-18b3e28caa56",
+        "data_format": "BEDPE",
         "access": "controlled",
-        "state": "live",
-        "data_category": "Simple Nucleotide Variation",
-        "type": "simple_somatic_mutation",
-        "file_state": "submitted",
-        "experimental_strategy": "WXS"
+        "file_name": "eae76f14-8aa7-427f-a90c-4e0ed095e0c2.wgs.BRASS.rerun_structural_variation.bedpe.gz",
+        "submitter_id": "618cd251-ddcb-4a7e-9a6d-efb132b0bd7a",
+        "data_category": "Somatic Structural Variation",
+        "acl": [
+          "phs001287"
+        ],
+        "type": "structural_variation",
+        "file_size": 20,
+        "created_datetime": "2022-04-08T20:43:16.505747-05:00",
+        "md5sum": "7029066c27ac6f5ef18d660d5741979a",
+        "updated_datetime": "2022-07-07T11:00:43.345766-05:00",
+        "file_id": "a8bc2405-b57d-48bb-b241-18b3e28caa56",
+        "data_type": "Structural Rearrangement",
+        "state": "released",
+        "experimental_strategy": "WGS",
+        "version": "1",
+        "data_release": "34.0 - 37.0"
       }
     ],
     "pagination": {
       "count": 2,
-      "sort": "file_size:asc",
+      "total": 931947,
+      "size": 2,
       "from": 0,
+      "sort": "None",
       "page": 1,
-      "total": 274724,
-      "pages": 137362,
-      "size": 2
+      "pages": 465974
     }
   },
   "warnings": {}
@@ -146,382 +596,325 @@ curl 'https://api.gdc.cancer.gov/cases?from=0&size=5&pretty=true'
   "data": {
     "hits": [
       {
-        "updated_datetime": "2017-03-09T10:01:14.834935-06:00",
-        "submitter_analyte_ids": [
-          "TCGA-ER-A193-06A-12D",
-          "TCGA-ER-A193-06A-12R",
-          "TCGA-ER-A193-06A-12W",
-          "TCGA-ER-A193-10A-01W",
-          "TCGA-ER-A193-10A-01D"
-        ],
+        "id": "0286c31b-a704-4d7d-99e3-0bc4e8975b8b",
+        "lost_to_followup": "Yes",
+        "days_to_lost_to_followup": null,
+        "disease_type": "Ductal and Lobular Neoplasms",
         "analyte_ids": [
-          "62e14ca4-95f5-4af3-848f-83f7273c3b70",
-          "6178b8aa-6afb-4951-bc92-bf9bfc57b9c7",
-          "e16b701c-7809-4fb5-a9e0-4ff71e5d1d84",
-          "5bfa8c9f-6797-4b2b-9122-854f8ab3bbba",
-          "9b73d64e-c973-45b6-be31-a486fb8d1708"
+          "1e1213a7-4c2b-401f-acf2-38ecd6a084b7",
+          "b86795d2-93d6-47ac-b197-ae7c4a3effcd",
+          "92b26409-6096-4b23-96e3-cbd63fb22580",
+          "684a5a28-dfdc-4554-837f-3fb03d2ed23f",
+          "f4a22f4b-5279-42e7-bfd6-f14b23c89268"
         ],
-        "submitter_id": "TCGA-ER-A193",
-        "case_id": "8ab09143-daf6-40a9-85d3-0fe9de7b3e06",
-        "id": "8ab09143-daf6-40a9-85d3-0fe9de7b3e06",
-        "disease_type": "Skin Cutaneous Melanoma",
+        "submitter_id": "HCM-CSHL-0084-C25",
+        "submitter_analyte_ids": [
+          "HCM-CSHL-0084-C25-11A-11D",
+          "HCM-CSHL-0084-C25-01A-11D",
+          "HCM-CSHL-0084-C25-85A-01R",
+          "HCM-CSHL-0084-C25-01A-11R",
+          "HCM-CSHL-0084-C25-85B-01D"
+        ],
+        "aliquot_ids": [
+          "a686fbd1-cfa8-424b-a4a9-3658515348e3",
+          "da425644-5762-455a-9d09-992bb0cf1f7a",
+          "c8af1fef-147f-4d2c-b41d-75930368b369",
+          "407645cb-481e-4ded-8709-48eebed12d51",
+          "2f755ce8-ed34-43b2-8a1c-75e55faef9bf"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-CSHL-0084-C25-85B-01D-A78M-36",
+          "HCM-CSHL-0084-C25-85A-01R-A78N-41",
+          "HCM-CSHL-0084-C25-11A-11D-A78M-36",
+          "HCM-CSHL-0084-C25-01A-11R-A78N-41",
+          "HCM-CSHL-0084-C25-01A-11D-A78M-36"
+        ],
+        "created_datetime": "2019-09-19T08:58:49.953315-05:00",
+        "diagnosis_ids": [
+          "70da7d37-590b-41a5-97c7-17238c0c8652"
+        ],
         "sample_ids": [
-          "378b3d8a-adbb-4912-a0bf-6b74a282113e",
-          "7a384d44-8b05-4197-9921-7d020ada2437"
+          "b253895e-9f1a-4aef-9353-be454fac8062",
+          "06c1a6af-3c39-4454-9667-d3b1b3f68eaa",
+          "1483d5e0-9037-4c92-aa5d-c655666af41e",
+          "77b0c06f-7407-4af2-9cc0-a9160c105043"
         ],
+        "submitter_sample_ids": [
+          "HCM-CSHL-0084-C25-85A",
+          "HCM-CSHL-0084-C25-01A",
+          "HCM-CSHL-0084-C25-85B",
+          "HCM-CSHL-0084-C25-11A"
+        ],
+        "primary_site": "Pancreas",
+        "submitter_diagnosis_ids": [
+          "HCM-CSHL-0084-C25_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "0286c31b-a704-4d7d-99e3-0bc4e8975b8b",
+        "index_date": "Diagnosis",
+        "state": "released",
         "portion_ids": [
-          "6680bbf2-9cf1-4f93-9ec3-04318cffb5ba",
-          "690d3b12-a61d-42fd-af2a-5a7a9a3e5de8",
-          "824d724e-6836-423e-a751-fee3260ef4d2"
+          "e4a3579c-2d21-4620-8d5a-2966cd84c4cd",
+          "11c9a726-6aab-4259-9d78-dfebf9cd0249"
         ],
         "submitter_portion_ids": [
-          "TCGA-ER-A193-06A-21-A20N-20",
-          "TCGA-ER-A193-10A-01",
-          "TCGA-ER-A193-06A-12"
+          "HCM-CSHL-0084-C25-01A-11",
+          "HCM-CSHL-0084-C25-11A-11"
+        ]
+      },
+      {
+        "id": "02f6d684-b6b5-419a-b0e1-b74d0a384a30",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Gliomas",
+        "analyte_ids": [
+          "30773bae-0ca1-467c-becc-574e3c9e7b5d",
+          "9ef57718-b3f0-48d7-868e-c48452c5464a",
+          "6e6b33fb-ce09-4c2c-a372-d468bdc1a11c"
         ],
-        "created_datetime": null,
-        "slide_ids": [
-          "d2751354-a8b7-4f7a-a4f1-d062de5ceb14"
+        "submitter_id": "HCM-BROD-0408-C71",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0408-C71-85R-01D",
+          "HCM-BROD-0408-C71-85R-01R",
+          "HCM-BROD-0408-C71-10A-01D"
         ],
-        "state": "live",
+        "days_to_consent": null,
         "aliquot_ids": [
-          "dc9f9544-6c76-4b45-b5c3-dd2fecd5acfe",
-          "390b3574-ba23-4ecb-acf8-f5ad8a958bd2",
-          "33f43961-b32d-46fc-ba11-264f1101e78d",
-          "cd17367c-3270-42ae-8ac5-941a3453ea33",
-          "b17269a2-79aa-459e-9c3d-589b7efe6fd9",
-          "28a7d729-7555-4545-924b-3dec49b54230",
-          "13256e77-0b0b-49e3-9959-3b6730d68732",
-          "87ca642a-dd4c-47ea-b81f-2d3402f2157a",
-          "8a1bfe0e-c97a-41c4-815f-cf5bb5cfc69f",
-          "5e1e9c82-99fd-49de-9dfb-a349d4d8ac94",
-          "67f00459-e423-4900-be23-9283b0478620",
-          "d939c477-a01f-4d54-bcfb-c9fdd957f2ec"
+          "65c0b96f-c527-489c-bede-4e2c8080c513",
+          "7b6f05de-cada-49c2-a7cc-df943fda0fdd",
+          "29b97383-b859-4895-8f25-18a943a7319b"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0408-C71-85R-01D-A80U-36",
+          "HCM-BROD-0408-C71-85R-01R-A80V-41",
+          "HCM-BROD-0408-C71-10A-01D-A80U-36"
+        ],
+        "created_datetime": "2020-06-15T13:40:11.094740-05:00",
+        "diagnosis_ids": [
+          "9fc0fac7-b813-4c0f-995d-4045f0db272c"
+        ],
+        "sample_ids": [
+          "d30766c0-22b9-4f63-8990-609b81bc2cfe",
+          "29e0bdfe-1618-41dc-90da-03907199151d"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0408-C71-85R",
+          "HCM-BROD-0408-C71-10A"
+        ],
+        "primary_site": "Brain",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0408-C71_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "02f6d684-b6b5-419a-b0e1-b74d0a384a30",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "0ce874cd-4701-4746-822f-5f60587c6f11"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0408-C71-10A-01"
+        ]
+      },
+      {
+        "id": "03974dc9-0162-4de8-9897-09f88693681a",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "9747b614-624b-410a-8b94-854a16cd143a",
+          "c8974764-4836-4a34-aeb8-52b491f78d0e",
+          "bcea1ed5-b9cb-4a92-ad80-598d8a223fb3"
+        ],
+        "submitter_id": "HCM-BROD-0334-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0334-C43-10A-01D",
+          "HCM-BROD-0334-C43-85M-01D",
+          "HCM-BROD-0334-C43-85M-01R"
+        ],
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "dcd74e48-12f3-4a86-a829-c7e055c215b7",
+          "ea182abf-041d-474a-bc53-f6fdd05cd999",
+          "33f3ba0a-c902-4288-9fa7-5696d959e51d"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0334-C43-85M-01R-A79O-41",
+          "HCM-BROD-0334-C43-10A-01D-A79L-36",
+          "HCM-BROD-0334-C43-85M-01D-A79L-36"
+        ],
+        "created_datetime": "2020-05-21T08:55:40.814734-05:00",
+        "diagnosis_ids": [
+          "3d666f1b-58c2-451f-8ebf-87b5caa02aaf",
+          "fedc3533-85f7-4fc6-b996-a1f596e021df"
+        ],
+        "sample_ids": [
+          "cd88baf4-b6eb-4df5-9b42-d55f3aad739c",
+          "eb79f8b4-1cc3-4a32-ad51-cfea8cf150f0"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0334-C43-10A",
+          "HCM-BROD-0334-C43-85M"
         ],
         "primary_site": "Skin",
-        "submitter_aliquot_ids": [
-          "TCGA-ER-A193-06A-12D-A18Y-02",
-          "TCGA-ER-A193-10A-01D-A193-01",
-          "TCGA-ER-A193-10A-01D-A190-02",
-          "TCGA-ER-A193-06A-12D-A197-08",
-          "TCGA-ER-A193-06A-12R-A18S-07",
-          "TCGA-ER-A193-06A-12W-A20H-08",
-          "TCGA-ER-A193-10A-01D-A199-08",
-          "TCGA-ER-A193-10A-01D-A38R-08",
-          "TCGA-ER-A193-10A-01W-A20J-08",
-          "TCGA-ER-A193-06A-12R-A18V-13",
-          "TCGA-ER-A193-06A-12D-A19C-05",
-          "TCGA-ER-A193-06A-12D-A191-01"
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0334-C43_diagnosis2",
+          "HCM-BROD-0334-C43_diagnosis"
         ],
-        "submitter_sample_ids": [
-          "TCGA-ER-A193-10A",
-          "TCGA-ER-A193-06A"
+        "updated_datetime": "2021-03-03T15:15:08.075155-06:00",
+        "case_id": "03974dc9-0162-4de8-9897-09f88693681a",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "bd0bc175-5b54-47c1-96fc-c6d8afc0c115"
         ],
-        "submitter_slide_ids": [
-          "TCGA-ER-A193-06A-01-TSA"
+        "submitter_portion_ids": [
+          "HCM-BROD-0334-C43-10A-01"
         ]
       },
       {
-        "updated_datetime": "2017-03-04T16:39:19.244769-06:00",
-        "submitter_analyte_ids": [
-          "TCGA-VR-AA4G-10A-01W",
-          "TCGA-VR-AA4G-01A-11R",
-          "TCGA-VR-AA4G-10A-01D",
-          "TCGA-VR-AA4G-01A-11D",
-          "TCGA-VR-AA4G-01A-11W"
-        ],
+        "id": "03bfeb7c-cecf-4691-8263-33cdfe391ea9",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Adenomas and Adenocarcinomas",
         "analyte_ids": [
-          "152d7d7a-c746-4b58-8c3f-4252454c7b7c",
-          "9090d556-bd2e-4851-8a0c-46e22cc61408",
-          "7118f4c3-b635-4428-8240-8db85281f2d9",
-          "1d8223ff-685a-4427-a3d1-f53887f2a19d",
-          "60dfb30a-bea0-426d-b11d-d5813ba39cfc"
+          "db8132c3-47a8-49ec-9b78-bc7d18debf67",
+          "f74bf217-dae2-4554-92e4-8707068ea7a7",
+          "01764f17-2a97-442e-a08b-8a21303b4770",
+          "c9884c81-3c8f-4ad9-a962-42c7459a2276",
+          "d4f1a9f8-f748-4f45-aa06-da4d760c4fab"
         ],
-        "submitter_id": "TCGA-VR-AA4G",
-        "case_id": "df5bd25c-d70b-4126-89cb-6c838044ae3b",
-        "id": "df5bd25c-d70b-4126-89cb-6c838044ae3b",
-        "disease_type": "Esophageal Carcinoma",
-        "sample_ids": [
-          "21456849-38a9-4190-9ece-ed69b3c24fda",
-          "6ee6d239-2af6-41cd-bc32-c5cdaf7742b0"
+        "submitter_id": "HCM-BROD-0124-C25",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0124-C25-85A-01D",
+          "HCM-BROD-0124-C25-01A-01D",
+          "HCM-BROD-0124-C25-10A-01D",
+          "HCM-BROD-0124-C25-85A-01R",
+          "HCM-BROD-0124-C25-01A-01R"
         ],
-        "portion_ids": [
-          "484b40d5-d77c-4e6f-9e80-1ef27ffbc8a5",
-          "fdc56e67-52ab-44fd-823a-5a3124876ff7"
-        ],
-        "submitter_portion_ids": [
-          "TCGA-VR-AA4G-10A-01",
-          "TCGA-VR-AA4G-01A-11"
-        ],
-        "created_datetime": null,
-        "slide_ids": [
-          "e950eba2-7d6e-4ffd-a2d5-e0eb6486848a"
-        ],
-        "state": "live",
         "aliquot_ids": [
-          "db6beed3-a5a2-469f-8dc8-00d838c1f37f",
-          "f5db4d36-034b-429b-a7be-26a872b702ee",
-          "16421a96-b843-4f7e-9f7c-64d2fb5b2a25",
-          "5d938cb5-7064-40bc-877d-57faa94c3333",
-          "d231404d-ece5-43c0-a8a3-e9f294ceb777",
-          "8c77dc3e-2ea3-4626-88f5-e74f242bedf3",
-          "993624d4-1c28-41a5-a0b6-094a0e442c36",
-          "105a18c9-df7e-4573-b1a2-6a987e57d553",
-          "af81c3bb-3b9e-41cb-b85a-b55c6437d05b",
-          "38938066-5fd9-415c-b00e-65efff14085e",
-          "20139afe-ad04-4571-b779-0c4a51e74ada"
+          "fe8e2565-749a-470a-b843-7afbe95ded81",
+          "092656af-b279-46b8-9ccf-b1eabfbd1d6f",
+          "677edb2c-fac3-4878-a28d-cf4e0d7873d7",
+          "8bb9fff4-24f8-426e-9f2a-4cb30a4ac5c2",
+          "f1c6f71d-b125-47bb-91ad-90d7cbff0012"
         ],
-        "primary_site": "Esophagus",
         "submitter_aliquot_ids": [
-          "TCGA-VR-AA4G-10A-01W-A44M-09",
-          "TCGA-VR-AA4G-01A-11D-A37B-01",
-          "TCGA-VR-AA4G-01A-11D-A37D-05",
-          "TCGA-VR-AA4G-10A-01D-A37F-09",
-          "TCGA-VR-AA4G-01A-11D-A37R-26",
-          "TCGA-VR-AA4G-01A-11R-A37J-13",
-          "TCGA-VR-AA4G-01A-11R-A37I-31",
-          "TCGA-VR-AA4G-01A-11D-A37C-09",
-          "TCGA-VR-AA4G-10A-01D-A37R-26",
-          "TCGA-VR-AA4G-10A-01D-A37E-01",
-          "TCGA-VR-AA4G-01A-11W-A44L-09"
+          "HCM-BROD-0124-C25-01A-01D-A78W-36",
+          "HCM-BROD-0124-C25-85A-01D-A786-36",
+          "HCM-BROD-0124-C25-01A-01R-A78X-41",
+          "HCM-BROD-0124-C25-10A-01D-A78W-36",
+          "HCM-BROD-0124-C25-85A-01R-A787-41"
+        ],
+        "created_datetime": "2019-04-16T11:21:56.471158-05:00",
+        "diagnosis_ids": [
+          "00184ed8-780a-4acf-b5f1-b1fcd6b08dcf"
+        ],
+        "sample_ids": [
+          "e6bc6b9d-553f-4c78-bc11-ebcf7b0d4f27",
+          "539593d1-bd9b-4379-8c86-16cdf607cd4e",
+          "b0c0b5b0-cf6d-4281-8f4d-43dc77e88bc6"
         ],
         "submitter_sample_ids": [
-          "TCGA-VR-AA4G-01A",
-          "TCGA-VR-AA4G-10A"
+          "HCM-BROD-0124-C25-85A",
+          "HCM-BROD-0124-C25-01A",
+          "HCM-BROD-0124-C25-10A"
         ],
-        "submitter_slide_ids": [
-          "TCGA-VR-AA4G-01A-01-TS1"
+        "primary_site": "Pancreas",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0124-C25_diagnosis"
+        ],
+        "updated_datetime": "2021-07-12T12:25:55.528644-05:00",
+        "case_id": "03bfeb7c-cecf-4691-8263-33cdfe391ea9",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "303512c0-382b-4442-a5a7-2699ca8b1384",
+          "f07a4dae-2878-452e-9836-6f39c594d38d"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0124-C25-10A-01",
+          "HCM-BROD-0124-C25-01A-01"
         ]
       },
       {
-        "updated_datetime": "2017-03-04T16:39:19.244769-06:00",
-        "submitter_analyte_ids": [
-          "TCGA-D1-A174-01A-11D",
-          "TCGA-D1-A174-01A-11W",
-          "TCGA-D1-A174-10A-01D",
-          "TCGA-D1-A174-10A-01W",
-          "TCGA-D1-A174-01A-11R"
-        ],
+        "id": "04cbceab-f945-482b-956b-840756a17a4a",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Gliomas",
         "analyte_ids": [
-          "96203028-f824-4a90-9758-22340285062c",
-          "f4878e33-b773-43b5-83a5-9fd8e539e668",
-          "8627ccd0-0575-4d03-b589-ca45642d523d",
-          "1183f7c6-992d-4084-946e-adce7c52f9cc",
-          "5343f6a8-8ac2-4446-ace5-a27d21e76844"
+          "6852014a-7cc2-447f-b09f-ba7c53403ab9",
+          "45446a95-ef00-4f45-8068-62e733f29129",
+          "b256dfa3-f988-4595-a276-d324b83928ac",
+          "643c8f31-9fd7-42a8-bcca-aa4528162718",
+          "d40b1ebb-c895-4732-9abc-0c9f818037ac"
         ],
-        "submitter_id": "TCGA-D1-A174",
-        "case_id": "fc7315b0-9f48-4206-b197-2268c0518eb4",
-        "id": "fc7315b0-9f48-4206-b197-2268c0518eb4",
-        "disease_type": "Uterine Corpus Endometrial Carcinoma",
+        "submitter_id": "HCM-BROD-0421-C71",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0421-C71-10A-01D",
+          "HCM-BROD-0421-C71-01B-11D",
+          "HCM-BROD-0421-C71-85A-01R",
+          "HCM-BROD-0421-C71-01B-11R",
+          "HCM-BROD-0421-C71-85A-01D"
+        ],
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "1689e951-b01b-4f81-8c00-83e3904058d0",
+          "e3747c4d-7822-494c-9ed2-30a632ffa8a6",
+          "ae4cc7ec-72ad-4d6c-b061-f67615d4ad2d",
+          "2cf507a2-a338-4b22-a176-bdb91dde35de",
+          "44270718-c802-4fb9-b784-fc8bc8d7a1aa"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0421-C71-01B-11D-A80U-36",
+          "HCM-BROD-0421-C71-01B-11R-A80V-41",
+          "HCM-BROD-0421-C71-10A-01D-A80U-36",
+          "HCM-BROD-0421-C71-85A-01R-A80V-41",
+          "HCM-BROD-0421-C71-85A-01D-A80U-36"
+        ],
+        "created_datetime": "2020-07-01T12:59:56.694185-05:00",
+        "diagnosis_ids": [
+          "252e0d9f-6cdb-4849-b981-e5a5ef0bb151"
+        ],
         "sample_ids": [
-          "df9a1f44-9b3f-48b2-96af-54aaabdfd243",
-          "ad5a9cb6-b3f9-4651-b6d1-13c78010bd88"
+          "009edc9d-3acf-4e70-b49b-5e83e54ae258",
+          "4c8febaa-bbc4-4870-8960-328da9cac009",
+          "6039b795-fe2d-4a71-b9b9-2e6caedb5cb5"
         ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0421-C71-10A",
+          "HCM-BROD-0421-C71-85A",
+          "HCM-BROD-0421-C71-01B"
+        ],
+        "primary_site": "Brain",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0421-C71_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "04cbceab-f945-482b-956b-840756a17a4a",
+        "index_date": "Diagnosis",
+        "state": "released",
         "portion_ids": [
-          "79dd516c-bae3-4f6e-b4cb-901de030acb7",
-          "6e55e6d9-902f-439b-b6f1-ca296c123fd3"
+          "20322504-bde0-4b32-8fda-f5d7dc5bcc47",
+          "87467751-20cc-4889-8d94-4adda1d74d76"
         ],
         "submitter_portion_ids": [
-          "TCGA-D1-A174-01A-11",
-          "TCGA-D1-A174-10A-01"
-        ],
-        "created_datetime": null,
-        "slide_ids": [
-          "7602727e-b46d-40fc-bd03-5ccf631041f8"
-        ],
-        "state": "live",
-        "aliquot_ids": [
-          "5c15542b-cd63-44b5-b278-e211410fb0aa",
-          "d661cfb9-248a-49e6-b0db-865ca257e8dc",
-          "83bd3bdb-9bd3-46fa-888c-f6f5efec530f",
-          "c46551c9-c0d0-4140-8d0a-946b53e504e2",
-          "96b511df-3a69-4168-908c-662060b4f976",
-          "0182d4e1-f835-46b5-a8f0-53decf5868de",
-          "e9563a06-0b86-4986-976e-43d4040f1d61",
-          "6bb2de6e-5b85-4e97-a930-1f2c6bf663a1",
-          "f6ee5558-a1b6-4b11-8f48-c17186fff39a",
-          "67f6f0d9-6581-4946-a9c7-a6629da86888",
-          "39e9a948-054a-4b50-b108-7d7aee686363",
-          "ddb4ca26-655d-4bdc-a00d-7caf26cadafe"
-        ],
-        "primary_site": "Uterus",
-        "submitter_aliquot_ids": [
-          "TCGA-D1-A174-01A-11D-A12F-02",
-          "TCGA-D1-A174-01A-01D-YYYY-23",
-          "TCGA-D1-A174-01A-11W-A139-09",
-          "TCGA-D1-A174-10A-01W-A139-09",
-          "TCGA-D1-A174-01A-11D-A12K-05",
-          "TCGA-D1-A174-10A-01D-A12F-02",
-          "TCGA-D1-A174-10A-01D-A12G-01",
-          "TCGA-D1-A174-01A-11R-A12I-07",
-          "TCGA-D1-A174-01A-11D-A12J-09",
-          "TCGA-D1-A174-10A-01D-A12J-09",
-          "TCGA-D1-A174-01A-11R-A12H-13",
-          "TCGA-D1-A174-01A-11D-A12G-01"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-D1-A174-01A",
-          "TCGA-D1-A174-10A"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-D1-A174-01A-01-TS1"
-        ]
-      },
-      {
-        "updated_datetime": "2017-03-04T16:39:19.244769-06:00",
-        "submitter_analyte_ids": [
-          "TCGA-XM-A8RL-10A-01D",
-          "TCGA-XM-A8RL-01A-11R",
-          "TCGA-XM-A8RL-01A-11D"
-        ],
-        "analyte_ids": [
-          "2c483e72-92b0-425d-ac1b-b75a169cf531",
-          "57f88d4f-8b3a-4349-88b0-3d2e58a95ed9",
-          "499bfbe1-639c-479c-abaa-42cbb11c0568"
-        ],
-        "submitter_id": "TCGA-XM-A8RL",
-        "case_id": "dd240b82-b1d6-4c0f-aa3e-6fcfe1364ec1",
-        "id": "dd240b82-b1d6-4c0f-aa3e-6fcfe1364ec1",
-        "disease_type": "Thymoma",
-        "sample_ids": [
-          "cb091cc1-7bbe-43a4-8460-01215af3aa21",
-          "cabc9729-c1e1-4f08-9959-985dcb7a00d5"
-        ],
-        "portion_ids": [
-          "e8ea57c9-729e-46ea-b1da-2db7a00b02bc",
-          "8e2edb92-753f-4cb0-a5b8-8c45dbefaf36",
-          "650fa4f2-9fa2-4d3a-8b63-ff4a9bd8c33e"
-        ],
-        "submitter_portion_ids": [
-          "TCGA-XM-A8RL-01A-21-A45R-20",
-          "TCGA-XM-A8RL-10A-01",
-          "TCGA-XM-A8RL-01A-11"
-        ],
-        "created_datetime": null,
-        "slide_ids": [
-          "08cedd34-aafd-4b47-891f-cf66ee1f627b"
-        ],
-        "state": "live",
-        "aliquot_ids": [
-          "df9d8553-8d5b-4c65-8b28-74030a8f8e76",
-          "47b7f634-b36f-49e9-a4dc-d8f5508fdc0a",
-          "e692ebed-9721-40db-8986-fcaba07d68f1",
-          "189ee080-95d1-4ccb-8618-955605c7bd55",
-          "83af7ff3-45be-4378-a8b5-5dff3584e95d",
-          "42ebb1f0-e236-48ae-847f-69a153969903",
-          "e8a4938f-6b93-4ad1-9324-31c97dd1d477"
-        ],
-        "primary_site": "Thymus",
-        "submitter_aliquot_ids": [
-          "TCGA-XM-A8RL-10A-01D-A426-09",
-          "TCGA-XM-A8RL-01A-11D-A423-09",
-          "TCGA-XM-A8RL-01A-11D-A422-01",
-          "TCGA-XM-A8RL-01A-11R-A42C-07",
-          "TCGA-XM-A8RL-10A-01D-A425-01",
-          "TCGA-XM-A8RL-01A-11R-A42W-13",
-          "TCGA-XM-A8RL-01A-11D-A424-05"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-XM-A8RL-10A",
-          "TCGA-XM-A8RL-01A"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-XM-A8RL-01A-01-TSA"
-        ]
-      },
-      {
-        "updated_datetime": "2017-03-04T16:39:19.244769-06:00",
-        "submitter_analyte_ids": [
-          "TCGA-B0-5120-01A-01W",
-          "TCGA-B0-5120-01A-01D",
-          "TCGA-B0-5120-01A-01R",
-          "TCGA-B0-5120-11A-01W",
-          "TCGA-B0-5120-11A-01D"
-        ],
-        "analyte_ids": [
-          "996336e6-fad7-4100-96ae-60adb5c276f1",
-          "0eb7da02-0b90-4f6d-abd2-b048a9cb2995",
-          "fa2861b9-67c1-486a-a1e0-95d8f8adf65b",
-          "7e9f5639-a462-493e-98f8-1b7aeee383c7",
-          "d51e9fd4-0c99-49ec-9de5-db3946b0bf43"
-        ],
-        "submitter_id": "TCGA-B0-5120",
-        "case_id": "c5bf474c-6919-47b4-ba59-34ab20c087d5",
-        "id": "c5bf474c-6919-47b4-ba59-34ab20c087d5",
-        "disease_type": "Kidney Renal Clear Cell Carcinoma",
-        "sample_ids": [
-          "b50d3c6f-fdec-488b-ab26-a9b690fad34f",
-          "f3148210-ecae-4314-b5f8-9bee2315a093"
-        ],
-        "portion_ids": [
-          "b8fcbf00-4c5a-42c3-95e9-fb6e169a8da9",
-          "34443e91-0210-4477-9511-53026ae62b38",
-          "e466f011-79a1-4158-b796-f8e9dda32d68"
-        ],
-        "submitter_portion_ids": [
-          "TCGA-B0-5120-01A-01",
-          "TCGA-B0-5120-11A-01",
-          "TCGA-B0-5120-01A-21-1740-20"
-        ],
-        "created_datetime": null,
-        "slide_ids": [
-          "e5a29e92-4125-4acb-a797-86822b4961a2",
-          "78d873e0-037f-4aef-8725-7c651598b1f8",
-          "43d8cec7-f5a0-45d5-a5f8-cc77d6b7b539"
-        ],
-        "state": "live",
-        "aliquot_ids": [
-          "b35280fe-dbfa-4e45-8f49-3d0489e68743",
-          "a2e3a2f2-c32b-44a1-9b29-911145d700b8",
-          "a064d108-e8b2-46fa-b277-0a7a89904a3a",
-          "59be71a1-50e3-4565-852a-173afc8a6851",
-          "136dff0e-b181-49c9-8305-b3289625ea2e",
-          "8fbb983b-53ad-44a9-976a-7945628eaa51",
-          "cecf40f8-7301-4db9-b276-a14317d4dd59",
-          "fac8b066-bf2c-4f08-b42b-251035596a28",
-          "fa55c92f-54e8-436b-b8c4-04cb68a24e93",
-          "007e3098-aaf9-4ee7-9ae1-f94b131a5ae0",
-          "6ce58fbc-6742-4ade-84b0-cd025266e030",
-          "9668e15e-a3fa-4ead-ad42-322c5700e0db",
-          "c1167003-0730-41d5-bdd5-1cbf501c1463",
-          "73aab074-cbd1-45f2-8266-9ef6f7c559bc"
-        ],
-        "primary_site": "Kidney",
-        "submitter_aliquot_ids": [
-          "TCGA-B0-5120-11A-01D-1416-02",
-          "TCGA-B0-5120-11A-01D-2099-10",
-          "TCGA-B0-5120-11A-01D-1418-05",
-          "TCGA-B0-5120-01A-01W-1475-10",
-          "TCGA-B0-5120-01A-01D-1421-08",
-          "TCGA-B0-5120-01A-01D-1416-02",
-          "TCGA-B0-5120-01A-01R-1419-13",
-          "TCGA-B0-5120-01A-01R-1420-07",
-          "TCGA-B0-5120-11A-01D-1421-08",
-          "TCGA-B0-5120-01A-01D-1417-01",
-          "TCGA-B0-5120-01A-01D-1418-05",
-          "TCGA-B0-5120-11A-01W-1475-10",
-          "TCGA-B0-5120-01A-01D-2099-10",
-          "TCGA-B0-5120-11A-01D-1417-01"
-        ],
-        "submitter_sample_ids": [
-          "TCGA-B0-5120-11A",
-          "TCGA-B0-5120-01A"
-        ],
-        "submitter_slide_ids": [
-          "TCGA-B0-5120-11A-01-TS1",
-          "TCGA-B0-5120-01A-01-BS1",
-          "TCGA-B0-5120-01A-01-TS1"
+          "HCM-BROD-0421-C71-01B-11",
+          "HCM-BROD-0421-C71-10A-01"
         ]
       }
     ],
     "pagination": {
       "count": 5,
-      "sort": "",
+      "total": 86962,
+      "size": 5,
       "from": 0,
+      "sort": "",
       "page": 1,
-      "total": 14551,
-      "pages": 2911,
-      "size": 5
+      "pages": 17393
     }
   },
   "warnings": {}
@@ -540,48 +933,46 @@ curl 'https://api.gdc.cancer.gov/annotations?from=0&size=2&pretty=true'
   "data": {
     "hits": [
       {
-        "category": "History of unacceptable prior treatment related to a prior/other malignancy",
-        "status": "Approved",
-        "entity_id": "51c37449-6a2e-4c3d-a7cc-06f901e1224f",
+        "id": "99a26957-3e1b-4c9f-835f-96859c4475ef",
+        "entity_submitter_id": "2432eaeb-d928-4e02-ab48-8349da12e909",
+        "notes": "Real somatic mutations were mistakenly labeled as LOH (Loss of Heterozygosity) in certain SomaticSniper VCF files.",
         "classification": "Notification",
-        "entity_type": "case",
-        "created_datetime": "2014-06-16T00:00:00",
-        "annotation_id": "3d086829-de62-5d08-b848-ce0724188ff0",
-        "notes": "unknown treatment history",
-        "updated_datetime": "2017-03-09T12:32:36.305475-06:00",
-        "submitter_id": "20743",
-        "state": "submitted",
-        "case_id": "51c37449-6a2e-4c3d-a7cc-06f901e1224f",
-        "case_submitter_id": "TCGA-AG-A014",
-        "entity_submitter_id": "TCGA-AG-A014",
-        "id": "3d086829-de62-5d08-b848-ce0724188ff0"
+        "entity_id": "b191c772-48b8-4b41-a16d-432bb36517a1",
+        "created_datetime": "2022-02-27T22:14:47.165866-06:00",
+        "annotation_id": "99a26957-3e1b-4c9f-835f-96859c4475ef",
+        "entity_type": "annotated_somatic_mutation",
+        "updated_datetime": "2022-02-27T22:14:47.165866-06:00",
+        "case_id": "03bfeb7c-cecf-4691-8263-33cdfe391ea9",
+        "state": "released",
+        "category": "General",
+        "status": "Approved",
+        "case_submitter_id": "HCM-BROD-0124-C25"
       },
       {
-        "category": "Center QC failed",
+        "id": "581cd77a-632b-4ce0-ae4f-287814271a56",
+        "entity_submitter_id": "ce49859e-afb5-4f8d-b687-e503c2b7ddc8",
+        "notes": "Real somatic mutations were mistakenly labeled as LOH (Loss of Heterozygosity) in certain SomaticSniper VCF files.",
+        "classification": "Notification",
+        "entity_id": "9ba2dd7b-7f5d-4385-abc0-fc5af745ff05",
+        "created_datetime": "2022-02-28T05:10:55.897983-06:00",
+        "annotation_id": "581cd77a-632b-4ce0-ae4f-287814271a56",
+        "entity_type": "annotated_somatic_mutation",
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "78b05ced-6b5e-44e0-b8e2-07ab9b69e440",
+        "state": "released",
+        "category": "General",
         "status": "Approved",
-        "entity_id": "733f0607-6c6b-4385-9868-fa6f155a9a2e",
-        "classification": "CenterNotification",
-        "entity_type": "aliquot",
-        "created_datetime": "2012-07-20T00:00:00",
-        "annotation_id": "5cf05f41-ce70-58a3-8ecb-6bfaf6264437",
-        "notes": "RNA-seq:INSUFFICIENT INPUT MATERIAL,LOW SEQUENCE YIELD/DIVERSITY;LOW 5/3 COVERAGE RATIO",
-        "updated_datetime": "2017-03-09T13:51:45.396638-06:00",
-        "submitter_id": "8764",
-        "state": "submitted",
-        "case_id": "3e8a51bf-7e1f-4eab-af83-3c60d04db1bf",
-        "case_submitter_id": "TCGA-13-0913",
-        "entity_submitter_id": "TCGA-13-0913-02A-01R-1564-13",
-        "id": "5cf05f41-ce70-58a3-8ecb-6bfaf6264437"
+        "case_submitter_id": "HCM-BROD-0716-C43"
       }
     ],
     "pagination": {
       "count": 2,
-      "sort": "",
+      "total": 75111,
+      "size": 2,
       "from": 0,
+      "sort": "",
       "page": 1,
-      "total": 2361,
-      "pages": 1181,
-      "size": 2
+      "pages": 37556
     }
   },
   "warnings": {}
