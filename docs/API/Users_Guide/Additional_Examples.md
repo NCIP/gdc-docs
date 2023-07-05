@@ -996,7 +996,7 @@ The following is an example of `filters` syntax, including the JSON object passe
       "content": {
         "field": "primary_site",
         "value": [
-          "Blood"
+          "Skin"
         ]
       }
     }
@@ -1004,35 +1004,668 @@ The following is an example of `filters` syntax, including the JSON object passe
 }
 ```
 ```Query
-curl 'https://api.gdc.cancer.gov/projects?filters=%7b%0d%0a++%22op%22%3a+%22and%22%2c%0d%0a++%22content%22%3a+%5b%0d%0a++++%7b%0d%0a++++++%22op%22%3a+%22in%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++%22field%22%3a+%22primary_site%22%2c%0d%0a++++++++%22value%22%3a+%5b%0d%0a++++++++++%22Blood%22%0d%0a++++++++%5d%0d%0a++++++%7d%0d%0a++++%7d%0d%0a++%5d%0d%0a%7d&pretty=true'
+curl 'https://api.gdc.cancer.gov/cases?filters=%7B%0A%20%20%22op%22%3A%20%22and%22%2C%0A%20%20%22content%22%3A%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%22field%22%3A%20%22primary_site%22%2C%0A%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%22Skin%22%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%5D%0A%7D&pretty=true'
 ```
 ```Response
 {
   "data": {
     "hits": [
       {
-        "dbgap_accession_number": "phs000465",
-        "disease_type": [
-          "Acute Myeloid Leukemia"
+        "id": "03974dc9-0162-4de8-9897-09f88693681a",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "9747b614-624b-410a-8b94-854a16cd143a",
+          "c8974764-4836-4a34-aeb8-52b491f78d0e",
+          "bcea1ed5-b9cb-4a92-ad80-598d8a223fb3"
         ],
-        "released": true,
-        "state": "legacy",
-        "primary_site": [
-          "Blood"
+        "submitter_id": "HCM-BROD-0334-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0334-C43-10A-01D",
+          "HCM-BROD-0334-C43-85M-01D",
+          "HCM-BROD-0334-C43-85M-01R"
         ],
-        "project_id": "TARGET-AML",
-        "id": "TARGET-AML",
-        "name": "Acute Myeloid Leukemia"
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "dcd74e48-12f3-4a86-a829-c7e055c215b7",
+          "ea182abf-041d-474a-bc53-f6fdd05cd999",
+          "33f3ba0a-c902-4288-9fa7-5696d959e51d"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0334-C43-85M-01R-A79O-41",
+          "HCM-BROD-0334-C43-10A-01D-A79L-36",
+          "HCM-BROD-0334-C43-85M-01D-A79L-36"
+        ],
+        "created_datetime": "2020-05-21T08:55:40.814734-05:00",
+        "diagnosis_ids": [
+          "3d666f1b-58c2-451f-8ebf-87b5caa02aaf",
+          "fedc3533-85f7-4fc6-b996-a1f596e021df"
+        ],
+        "sample_ids": [
+          "cd88baf4-b6eb-4df5-9b42-d55f3aad739c",
+          "eb79f8b4-1cc3-4a32-ad51-cfea8cf150f0"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0334-C43-10A",
+          "HCM-BROD-0334-C43-85M"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0334-C43_diagnosis2",
+          "HCM-BROD-0334-C43_diagnosis"
+        ],
+        "updated_datetime": "2021-03-03T15:15:08.075155-06:00",
+        "case_id": "03974dc9-0162-4de8-9897-09f88693681a",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "bd0bc175-5b54-47c1-96fc-c6d8afc0c115"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0334-C43-10A-01"
+        ]
+      },
+      {
+        "id": "1c54d889-a752-4025-90ce-af896cdb95d4",
+        "lost_to_followup": null,
+        "slide_ids": [
+          "21864471-d2bf-46d7-aa99-de91e2bd975f",
+          "bb901d03-1075-4ad9-88ce-61f2fde2505d"
+        ],
+        "submitter_slide_ids": [
+          "HCM-BROD-0643-C43-06A-01-S2-HE",
+          "HCM-BROD-0643-C43-06A-01-S1-HE"
+        ],
+        "days_to_lost_to_followup": null,
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "8c8b84e5-af2e-497e-beb6-addea8e64a4b",
+          "9dda998f-416d-4878-88ee-ab2e6aa800eb",
+          "4d8d9d56-957d-4d65-a3ba-73b266977f2e",
+          "b818d10c-b6c0-499c-8997-438d646a3b6f",
+          "d35a1c25-f02e-4cde-a48c-050528cf1923"
+        ],
+        "submitter_id": "HCM-BROD-0643-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0643-C43-85N-01R",
+          "HCM-BROD-0643-C43-85N-01D",
+          "HCM-BROD-0643-C43-06A-11D",
+          "HCM-BROD-0643-C43-10A-01D",
+          "HCM-BROD-0643-C43-06A-11R"
+        ],
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "eda70710-057b-47dc-8a3b-b070b51e5cf7",
+          "5e664a16-9ed4-4d47-876c-560bbd460211",
+          "62565e48-482f-43a3-8345-f126a906fcf9",
+          "d1567468-ec2c-4aae-ab8e-7487023fdae0",
+          "0986f594-ef25-4f51-b802-ddfacd38ee34"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0643-C43-06A-11D-A80U-36",
+          "HCM-BROD-0643-C43-10A-01D-A80U-36",
+          "HCM-BROD-0643-C43-06A-11R-A80V-41",
+          "HCM-BROD-0643-C43-85N-01D-A80U-36",
+          "HCM-BROD-0643-C43-85N-01R-A80V-41"
+        ],
+        "created_datetime": "2020-07-01T13:17:19.998786-05:00",
+        "diagnosis_ids": [
+          "3ea0fe35-fd02-4e73-b294-965afe66a719",
+          "379deec7-50a8-4219-9bd2-1737e7908d50"
+        ],
+        "sample_ids": [
+          "b68abcbc-6310-4422-a2ae-8134f2fb9bf5",
+          "6dbb5557-ba67-49d4-b4fa-b333246788f7",
+          "90aa1d3f-7ef3-4561-ad1e-9153215e756f"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0643-C43-06A",
+          "HCM-BROD-0643-C43-10A",
+          "HCM-BROD-0643-C43-85N"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0643-C43_diagnosis2",
+          "HCM-BROD-0643-C43_diagnosis"
+        ],
+        "updated_datetime": "2021-03-11T14:33:32.013919-06:00",
+        "case_id": "1c54d889-a752-4025-90ce-af896cdb95d4",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "53aa58c5-f1f1-47a7-b2f4-6ee81b772568",
+          "f6aebf1d-448b-4fd2-bd2f-08ac8de2c666"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0643-C43-06A-11",
+          "HCM-BROD-0643-C43-10A-01"
+        ]
+      },
+      {
+        "id": "1c906cee-df63-4348-9354-0a523ab88dfa",
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "4b6c6d11-172a-42a6-8a30-59a2055ed2d2",
+          "e340feee-6025-4f73-9f23-fade5a4169b7",
+          "f12b690e-bd8d-47b4-bf51-a1b488730e55",
+          "3a6ed58f-61c8-4516-8dc9-b27f68878e93",
+          "415de04e-7c98-47d4-8a98-896d718c2831"
+        ],
+        "submitter_id": "HCM-BROD-0758-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0758-C43-06A-01D",
+          "HCM-BROD-0758-C43-10A-01D",
+          "HCM-BROD-0758-C43-85N-01R",
+          "HCM-BROD-0758-C43-85N-01D",
+          "HCM-BROD-0758-C43-06A-01R"
+        ],
+        "aliquot_ids": [
+          "14ec708e-68de-4613-86fa-3214337f37af",
+          "ca35c0b9-62a7-4f04-b930-918d4b4867eb",
+          "e9b9a3e8-90f8-40b3-a0f9-7c07bfe30084",
+          "bb21ec5d-7bc0-4329-9315-7ce37379e7f0",
+          "be10bb2b-f25b-4636-8402-7a15b71e6e7b"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0758-C43-06A-01R-A85D-41",
+          "HCM-BROD-0758-C43-85N-01R-A85D-41",
+          "HCM-BROD-0758-C43-10A-01D-A85C-36",
+          "HCM-BROD-0758-C43-85N-01D-A85C-36",
+          "HCM-BROD-0758-C43-06A-01D-A85C-36"
+        ],
+        "created_datetime": "2021-06-03T11:55:23.082303-05:00",
+        "diagnosis_ids": [
+          "640cca22-1494-46df-82e5-8f9bffd253ce",
+          "8a52bb8c-67a6-4130-b4e6-19e0d0ed4c52"
+        ],
+        "sample_ids": [
+          "a61d1220-138c-482e-be8d-91f13a394d34",
+          "933dc8cb-176f-4df8-8b72-b492e9a4fb9e",
+          "6d16bdfb-35ee-4efa-a7ee-e95c6ad861af"
+        ],
+        "submitter_sample_ids": [
+          "HCM-BROD-0758-C43-85N",
+          "HCM-BROD-0758-C43-06A",
+          "HCM-BROD-0758-C43-10A"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0758-C43_diagnosis",
+          "HCM-BROD-0758-C43_diagnosis2"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "1c906cee-df63-4348-9354-0a523ab88dfa",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "6c5bf5f0-4dac-4397-89f9-4a06ce49883d",
+          "da103752-c408-46b4-aed4-69d51bf80170"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0758-C43-06A-01",
+          "HCM-BROD-0758-C43-10A-01"
+        ]
+      },
+      {
+        "id": "3b84c894-91d7-4c3e-8f17-4d6adc8bb468",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "38dbed8f-f9c9-4f98-a76f-b44031a1e83c",
+          "6d410531-100f-46f5-8ad0-f05b0dc6eba5",
+          "f14b1ef0-f2a8-4c03-a451-4b4b8cc076c2",
+          "34550b5b-3cfa-49cc-92ae-d9eebfc6dac7"
+        ],
+        "submitter_id": "HCM-BROD-0339-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0339-C43-10A-01D",
+          "HCM-BROD-0339-C43-06A-01D",
+          "HCM-BROD-0339-C43-85M-01D",
+          "HCM-BROD-0339-C43-85M-01R"
+        ],
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "8b878538-7036-4f10-a4a6-619151156020",
+          "cb9b9bbe-34fb-451a-923d-4b9f6103b3cd",
+          "8adc893c-8bb2-4fdb-b716-40845a595e21",
+          "0f698098-853a-481e-82a4-d9be5793b562"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0339-C43-10A-01D-A79C-36",
+          "HCM-BROD-0339-C43-85M-01D-A79C-36",
+          "HCM-BROD-0339-C43-85M-01R-A79D-41",
+          "HCM-BROD-0339-C43-06A-01D-A79C-36"
+        ],
+        "created_datetime": "2020-01-08T16:03:51.205115-06:00",
+        "diagnosis_ids": [
+          "f2100f46-97ee-4a53-82a8-95c975e1b147",
+          "1c9f6d6d-12e9-4e4d-b301-8e9ec59c12d8"
+        ],
+        "sample_ids": [
+          "816e34cd-335c-48f4-b2d0-3eb6c4bbe39f",
+          "b129099e-1ad5-4b5d-a47d-2dbf1f44a5c5",
+          "b37c5fa5-2dc5-462c-a957-b09ebd55e2d8"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0339-C43-06A",
+          "HCM-BROD-0339-C43-85M",
+          "HCM-BROD-0339-C43-10A"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0339-C43_diagnosis2",
+          "HCM-BROD-0339-C43_diagnosis"
+        ],
+        "updated_datetime": "2021-01-06T22:55:10.531130-06:00",
+        "case_id": "3b84c894-91d7-4c3e-8f17-4d6adc8bb468",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "3829676e-9cdf-4a2b-bb42-e29536e760ed",
+          "255a1955-5d1f-4764-aba1-f3b5334424d3"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0339-C43-06A-01",
+          "HCM-BROD-0339-C43-10A-01"
+        ]
+      },
+      {
+        "id": "47322ea3-6bbe-442b-a656-c48469cc99c1",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "f9a2e102-f495-4ec8-b038-25beaa892cc1",
+          "107931a1-6be8-4b2c-8f7c-de22523b3045",
+          "e7fd0047-27bb-4ffd-837f-6ff05d54baaf"
+        ],
+        "submitter_id": "HCM-BROD-0335-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0335-C43-10A-01D",
+          "HCM-BROD-0335-C43-85M-01D",
+          "HCM-BROD-0335-C43-85M-01R"
+        ],
+        "aliquot_ids": [
+          "839a15d8-9c22-4f82-a89a-c6dcf8c1e0bd",
+          "06d1a983-858f-454a-9b0d-448bf29670cc",
+          "31c27aec-0049-4da6-b748-0dd5d93d76c5"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0335-C43-85M-01R-A78V-41",
+          "HCM-BROD-0335-C43-10A-01D-A78T-36",
+          "HCM-BROD-0335-C43-85M-01D-A78T-36"
+        ],
+        "created_datetime": "2019-10-14T10:42:44.170730-05:00",
+        "diagnosis_ids": [
+          "280cf92a-e646-417e-bb6b-8d34b6d13f43",
+          "207053c5-a053-449c-94c4-a3e36f19b161"
+        ],
+        "sample_ids": [
+          "2ccdf84e-0d53-4b91-9dcc-939951f722b6",
+          "6cacdfa9-89e3-4984-926c-69e94ee7ca1a"
+        ],
+        "submitter_sample_ids": [
+          "HCM-BROD-0335-C43-85M",
+          "HCM-BROD-0335-C43-10A"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0335-C43_diagnosis2",
+          "HCM-BROD-0335-C43_diagnosis"
+        ],
+        "updated_datetime": "2021-07-12T12:25:55.528644-05:00",
+        "case_id": "47322ea3-6bbe-442b-a656-c48469cc99c1",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "b848a38c-2e03-4518-b5e3-0f6ab0144719"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0335-C43-10A-01"
+        ]
+      },
+      {
+        "id": "4e828c35-5fc3-40af-a2ee-10b4281c77b8",
+        "lost_to_followup": null,
+        "slide_ids": [
+          "b4917938-a3f4-4fb5-a0a8-f8d4fbdf0d3d",
+          "e3c181f3-a364-43a4-946a-d4882d7ef68e"
+        ],
+        "submitter_slide_ids": [
+          "HCM-BROD-0569-C43-06A-01-S2-HE",
+          "HCM-BROD-0569-C43-06A-01-S1-HE"
+        ],
+        "days_to_lost_to_followup": null,
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "e516dc5f-729f-46b3-8a44-a0db98f47eb8",
+          "fee1b1e1-6604-4da1-950e-991f68f3dc05",
+          "3d51694f-9814-483a-b0d0-25e81b453624",
+          "b2b8b533-a8fb-4521-a09a-483cc833c08f",
+          "a829df29-620c-406b-ac8c-ca8565ce9aa9"
+        ],
+        "submitter_id": "HCM-BROD-0569-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0569-C43-10A-01D",
+          "HCM-BROD-0569-C43-85M-01R",
+          "HCM-BROD-0569-C43-06A-11D",
+          "HCM-BROD-0569-C43-85M-01D",
+          "HCM-BROD-0569-C43-06A-11R"
+        ],
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "68b0d1e1-1da8-4331-9178-89a736b07fff",
+          "56bb2b64-77e5-4155-8a62-328eb67036e3",
+          "e44bf205-ac59-4a29-bf50-1b9da39671a4",
+          "8e4a9a37-f5b3-4720-86e9-8999126c2a6f",
+          "8bd0ad30-1df5-49bf-847b-0aecbf846043"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0569-C43-06A-11D-A80U-36",
+          "HCM-BROD-0569-C43-85M-01D-A80U-36",
+          "HCM-BROD-0569-C43-06A-11R-A80V-41",
+          "HCM-BROD-0569-C43-10A-01D-A80U-36",
+          "HCM-BROD-0569-C43-85M-01R-A80V-41"
+        ],
+        "created_datetime": "2020-07-01T13:12:41.873804-05:00",
+        "diagnosis_ids": [
+          "5191a8e6-4ec6-4a84-af18-70d24c53d97d",
+          "e795772c-a156-49cc-8578-4ba5901f374e"
+        ],
+        "sample_ids": [
+          "dafc8b78-87eb-4210-bb30-6356aa644f8a",
+          "68e1cc96-9b30-4724-9842-cc3ff548d569",
+          "ad9ab2ba-a70b-4c57-9aa6-8965d0be6071"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0569-C43-10A",
+          "HCM-BROD-0569-C43-06A",
+          "HCM-BROD-0569-C43-85M"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0569-C43_diagnosis2",
+          "HCM-BROD-0569-C43_diagnosis"
+        ],
+        "updated_datetime": "2021-03-11T14:31:21.933263-06:00",
+        "case_id": "4e828c35-5fc3-40af-a2ee-10b4281c77b8",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "da022483-8c21-4fbd-9c0b-2a64dea62a55",
+          "a2285ada-e582-466f-b977-d0e00921ce41"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0569-C43-06A-11",
+          "HCM-BROD-0569-C43-10A-01"
+        ]
+      },
+      {
+        "id": "6ded7d89-1235-4b52-90aa-52c57c669301",
+        "lost_to_followup": null,
+        "slide_ids": [
+          "a47ad461-0c22-45f6-b1bd-b133d74a2efe",
+          "e6feb344-ef68-4396-a492-0bc3a45fda12"
+        ],
+        "submitter_slide_ids": [
+          "HCM-BROD-0557-C43-06A-01-S1-HE",
+          "HCM-BROD-0557-C43-06A-01-S2-HE"
+        ],
+        "days_to_lost_to_followup": null,
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "88a810b1-530b-4e27-b702-c47fb1687e77",
+          "9fdad739-b2aa-443c-8c1c-3837864d90fa",
+          "43e7a638-003e-4186-93c2-7804a28e1d52",
+          "f30e086a-453c-4d9c-a81f-925c35300534",
+          "b2870252-b41e-4053-ab3c-e4fd14299f09"
+        ],
+        "submitter_id": "HCM-BROD-0557-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0557-C43-06A-11R",
+          "HCM-BROD-0557-C43-85M-01D",
+          "HCM-BROD-0557-C43-06A-11D",
+          "HCM-BROD-0557-C43-10A-01D",
+          "HCM-BROD-0557-C43-85M-01R"
+        ],
+        "days_to_consent": null,
+        "aliquot_ids": [
+          "51c2fa6b-eefa-4510-9a9c-adcc06865865",
+          "75fda0d3-eb62-4ddf-bc41-3ade57851870",
+          "a8eb1adc-2ae7-423f-9c86-2a4ac6cf7c23",
+          "b95fb706-4a05-41cb-bfd0-fa46afaef8d9",
+          "da3182a4-2327-495a-88ec-2069757dab87"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0557-C43-85M-01R-A80V-41",
+          "HCM-BROD-0557-C43-06A-11D-A80U-36",
+          "HCM-BROD-0557-C43-06A-11R-A80V-41",
+          "HCM-BROD-0557-C43-10A-01D-A80U-36",
+          "HCM-BROD-0557-C43-85M-01D-A80U-36"
+        ],
+        "created_datetime": "2020-07-01T13:20:18.566669-05:00",
+        "diagnosis_ids": [
+          "4e02019a-674d-49a1-9d7c-af3daeaec684",
+          "cce3cf4e-5bc1-475b-908e-113edf8aca5d"
+        ],
+        "sample_ids": [
+          "61123977-af2f-4d0c-8fb4-39e35c76569a",
+          "fd17be83-b1ce-4c36-867b-d3fb0c6c7142",
+          "e22af195-1cda-484f-ab99-ad508dd8bd8d"
+        ],
+        "consent_type": null,
+        "submitter_sample_ids": [
+          "HCM-BROD-0557-C43-85M",
+          "HCM-BROD-0557-C43-10A",
+          "HCM-BROD-0557-C43-06A"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0557-C43_diagnosis",
+          "HCM-BROD-0557-C43_diagnosis2"
+        ],
+        "updated_datetime": "2021-03-11T14:30:11.765496-06:00",
+        "case_id": "6ded7d89-1235-4b52-90aa-52c57c669301",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "34a0076b-12b5-4fbf-8568-05177e163ff0",
+          "903a130b-bea0-4e3f-9a7b-31ba1aa3ca21"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0557-C43-10A-01",
+          "HCM-BROD-0557-C43-06A-11"
+        ]
+      },
+      {
+        "id": "71dd56c3-0048-4ec9-89cb-53b5e966255a",
+        "lost_to_followup": "Yes",
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "7ede93ee-b336-4985-9a3f-a3ae69489e74",
+          "1271a757-a30d-409d-bff8-5f8373dba1c7",
+          "c9ab7c21-69cd-40a0-be3c-b1387db18b41"
+        ],
+        "submitter_id": "HCM-BROD-0702-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0702-C43-85M-01R",
+          "HCM-BROD-0702-C43-85M-01D",
+          "HCM-BROD-0702-C43-10A-01D"
+        ],
+        "aliquot_ids": [
+          "724da8ab-341f-45f0-afe0-e1f41acb7def",
+          "2c853383-6f59-48e4-a746-e7ceda4614d2",
+          "b7cecd5a-7213-45c2-98bd-9efe487220a5"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0702-C43-10A-01D-A82H-36",
+          "HCM-BROD-0702-C43-85M-01D-A82H-36",
+          "HCM-BROD-0702-C43-85M-01R-A82J-41"
+        ],
+        "created_datetime": "2020-10-30T18:06:47.894645-05:00",
+        "diagnosis_ids": [
+          "9ce4d590-fc03-4b3f-9cb3-012ae0639d37",
+          "228d20c0-aa60-46f5-938b-3b10fcdea7dd"
+        ],
+        "sample_ids": [
+          "811ac38b-49ce-4151-8d2a-b18d63976993",
+          "22d64afc-53fe-4f15-a785-012efd7a75e3"
+        ],
+        "submitter_sample_ids": [
+          "HCM-BROD-0702-C43-10A",
+          "HCM-BROD-0702-C43-85M"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0702-C43_diagnosis2",
+          "HCM-BROD-0702-C43_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "71dd56c3-0048-4ec9-89cb-53b5e966255a",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "413604a8-a20d-4da4-9051-083ecc44754f"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0702-C43-10A-01"
+        ]
+      },
+      {
+        "id": "78b05ced-6b5e-44e0-b8e2-07ab9b69e440",
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "ae460685-2852-4bc7-87f9-b324c76d0558",
+          "d57bf160-5c4b-4282-bd91-2c8a23356c23",
+          "64309926-7ff2-4de6-b07d-0abbd6eee3c2",
+          "63966681-3f4f-404f-9211-eae9b235ebcd",
+          "f928c0d6-8f0a-40cc-8d67-59555b0b1e1e"
+        ],
+        "submitter_id": "HCM-BROD-0716-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0716-C43-06B-01R",
+          "HCM-BROD-0716-C43-85N-01D",
+          "HCM-BROD-0716-C43-06B-01D",
+          "HCM-BROD-0716-C43-10A-01D",
+          "HCM-BROD-0716-C43-85N-01R"
+        ],
+        "aliquot_ids": [
+          "4acb7fa8-42b7-43c9-bf49-65871fe91266",
+          "87afffdd-0116-4577-944d-826f0539cf96",
+          "6410ddef-a4aa-4e43-8206-2f6abf8b0cc9",
+          "f2e67431-ac19-4ddb-874a-541cb159a49e",
+          "c34938b3-41d9-4ddd-83c0-6e4e44a2b823"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0716-C43-06B-01R-A83V-41",
+          "HCM-BROD-0716-C43-85N-01R-A83V-41",
+          "HCM-BROD-0716-C43-06B-01D-A83U-36",
+          "HCM-BROD-0716-C43-85N-01D-A83U-36",
+          "HCM-BROD-0716-C43-10A-01D-A83U-36"
+        ],
+        "created_datetime": "2021-02-18T16:46:32.260492-06:00",
+        "diagnosis_ids": [
+          "05a718a8-d606-4fd7-aac3-0a2ff8f0960a",
+          "3c60679c-040d-4809-aa03-24d976c7d4c2"
+        ],
+        "sample_ids": [
+          "71fe789c-8b80-4bfd-b8c4-00868d725e46",
+          "784ff8ad-8f7f-42fd-be62-bcbd3e1e20b1",
+          "af10a9ce-db9d-48f7-b72f-022ca11f7654"
+        ],
+        "submitter_sample_ids": [
+          "HCM-BROD-0716-C43-85N",
+          "HCM-BROD-0716-C43-10A",
+          "HCM-BROD-0716-C43-06B"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0716-C43_diagnosis2",
+          "HCM-BROD-0716-C43_diagnosis"
+        ],
+        "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
+        "case_id": "78b05ced-6b5e-44e0-b8e2-07ab9b69e440",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "7d850d7a-83a0-4436-9c96-658f98505bab",
+          "754e0275-3ee9-42e2-8b11-3e0e3cf932d7"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0716-C43-10A-01",
+          "HCM-BROD-0716-C43-06B-01"
+        ]
+      },
+      {
+        "id": "7ec96446-8a5e-400a-966b-986452c972e4",
+        "lost_to_followup": null,
+        "days_to_lost_to_followup": null,
+        "disease_type": "Nevi and Melanomas",
+        "analyte_ids": [
+          "5254b24f-0249-4e25-9976-ddb94bbb1ee2",
+          "936fe6c5-b03f-4523-bd25-640021351611",
+          "66e6a1ba-cd18-4080-8706-98b218051c66"
+        ],
+        "submitter_id": "HCM-BROD-0227-C43",
+        "submitter_analyte_ids": [
+          "HCM-BROD-0227-C43-10A-01D",
+          "HCM-BROD-0227-C43-85M-01D",
+          "HCM-BROD-0227-C43-85M-01R"
+        ],
+        "aliquot_ids": [
+          "2f1e377a-74d2-425d-841e-dec6329c9cc3",
+          "38b885f6-7017-4910-bf17-6e233f084122",
+          "2a96d2b9-f90a-4ef5-ab05-5554bb148a9a"
+        ],
+        "submitter_aliquot_ids": [
+          "HCM-BROD-0227-C43-85M-01D-A78T-36",
+          "HCM-BROD-0227-C43-85M-01R-A78V-41",
+          "HCM-BROD-0227-C43-10A-01D-A78T-36"
+        ],
+        "created_datetime": "2019-10-14T10:42:12.652588-05:00",
+        "diagnosis_ids": [
+          "538d631d-9d1b-4fac-b5df-36547334d590",
+          "0ce3d300-8b58-4f01-98ee-d4c4ff4b664b"
+        ],
+        "sample_ids": [
+          "b0e2c28b-6ac9-41ed-85fc-0a91f0049193",
+          "f7b79a6c-610e-450b-98a9-04d1095d40ad"
+        ],
+        "submitter_sample_ids": [
+          "HCM-BROD-0227-C43-85M",
+          "HCM-BROD-0227-C43-10A"
+        ],
+        "primary_site": "Skin",
+        "submitter_diagnosis_ids": [
+          "HCM-BROD-0227-C43_diagnosis",
+          "HCM-BROD-0227-C43_diagnosis2"
+        ],
+        "updated_datetime": "2021-01-06T22:55:10.531130-06:00",
+        "case_id": "7ec96446-8a5e-400a-966b-986452c972e4",
+        "index_date": "Diagnosis",
+        "state": "released",
+        "portion_ids": [
+          "0ed2f9c1-da3e-4cd2-ae8b-c8feea4a1e7a"
+        ],
+        "submitter_portion_ids": [
+          "HCM-BROD-0227-C43-10A-01"
+        ]
       }
     ],
     "pagination": {
-      "count": 1,
-      "sort": "",
+      "count": 10,
+      "total": 2898,
+      "size": 10,
       "from": 0,
+      "sort": "",
       "page": 1,
-      "total": 1,
-      "pages": 1,
-      "size": 10
+      "pages": 290
     }
   },
   "warnings": {}
