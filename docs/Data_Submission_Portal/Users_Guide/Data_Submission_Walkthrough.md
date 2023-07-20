@@ -33,14 +33,16 @@ The `case` entity can be added in JSON or TSV format. A template for any entity 
 {
     "type": "case",
     "submitter_id": "PROJECT-INTERNAL-000055",
+    "disease_type": "Blood Vessel Tumors",
+    "primary_site": "Base of tongue",
     "projects": {
         "code": "INTERNAL"
     }
 }
 ```
 ```TSV
-type  submitter_id  projects.code
-case  PROJECT-INTERNAL-000055 INTERNAL   
+type  submitter_id  projects  disease_type  disease_type
+case  PROJECT-INTERNAL-000055 INTERNAL  Blood Vessel Tumors Blood Vessel Tumors   
 ```
 
 >__Note:__ JSON and TSV formats handle links between entities (`case` and `project`) differently.  JSON includes the `code` field nested within `projects` while TSV appends `code` to `projects` with a period.  
