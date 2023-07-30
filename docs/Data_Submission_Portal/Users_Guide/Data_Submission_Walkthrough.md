@@ -92,6 +92,8 @@ CASE.json is detailed below.
 {
     "type": "case",
     "submitter_id": "PROJECT-INTERNAL-000055",
+    "disease_type": "Blood Vessel Tumors",
+    "primary_site": "Base of tongue",
     "projects": {
         "code": "INTERNAL"
     }
@@ -140,11 +142,12 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
     "ethnicity": "not hispanic or latino",
     "gender": "male",
     "race": "asian",
+    "vital_status": "Dead",
 }
 ```
 ```TSV
-type	cases.submitter_id	ethnicity	gender	race
-demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian
+type	cases.submitter_id	ethnicity	gender	race vital_status
+demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian Dead
 ```
 
 ## Submitting a Diagnosis Entity to a Case
