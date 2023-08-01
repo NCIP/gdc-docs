@@ -131,6 +131,7 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
 * __`ethnicity`:__ An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
 * __`gender`:__ Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.
 * __`race`:__ An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
+* __`vital_status`:__ The survival state of the person registered on the protocol.
 
 ```JSON
 {
@@ -157,18 +158,11 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 * __`submitter_id`:__ A unique key to identify the `diagnosis` entity.
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `diagnosis` entity to the `case`.
 * __`age_at_diagnosis`:__ Age at the time of diagnosis expressed in number of days since birth.
-* __`days_to_last_follow_up`:__  Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
-* __`days_to_last_known_disease_status`:__ Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
-* __`days_to_recurrence`:__ Time interval from the date of new tumor event including progression, recurrence and new primary malignancies to the date of initial pathologic diagnosis, represented as a calculated number of days.
-* __`last_known_disease_status`:__  The state or condition of an individual's neoplasm at a particular point in time.
 * __`morphology`:__  The third edition of the International Classification of Diseases for Oncology, published in 2000 used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The study of the structure of the cells and their arrangement to constitute tissues and, finally, the association among these to form organs. In pathology, the microscopic process of identifying normal and abnormal morphologic characteristics in tissues, by employing various cytochemical and immunocytochemical stains. A system of numbered categories for representation of data.
 * __`primary_diagnosis`:__  Text term for the structural pattern of cancer cells used to define a microscopic diagnosis.
-* __`progression_or_recurrence`:__ Yes/No/Unknown indicator to identify whether a patient has had a new tumor event after initial treatment.
 * __`site_of_resection_or_biopsy`:__ The third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The description of an anatomical region or of a body part. Named locations of, or within, the body. A system of numbered categories for representation of data.
 * __`tissue_or_organ_of_origin`:__ Text term that describes the anatomic site of the tumor or disease.
-* __`tumor_grade`:__ Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness.
-* __`tumor_stage`:__ The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body. The accepted values for tumor_stage depend on the tumor site, type, and accepted staging system. These items should accompany the tumor_stage value as associated metadata.
-* __`vital_status`:__ The survival state of the person registered on the protocol.
+* __`diagnosis_is_primary_disease`:__ Indicates whether this specific diagnosis represents the disease that was the primary focus of the study. Additionally, this diagnosis is reflected at the case level, which is captured using the case.disease_type property.
 
 ```JSON
 {
@@ -177,19 +171,15 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
     "cases": {
         "submitter_id": "GDC-INTERNAL-000099"
     },
-    "age_at_diagnosis": 10256,
-    "days_to_last_follow_up": 34,
-    "days_to_last_known_disease_status": 34,
-    "days_to_recurrence": 45,
     "last_known_disease_status": "Tumor free",
     "morphology": "8260/3",
     "primary_diagnosis": "ACTH-producing tumor",
-    "progression_or_recurrence": "no",
     "site_of_resection_or_biopsy": "Lung, NOS",
     "tissue_or_organ_of_origin": "Lung, NOS",
-    "tumor_grade": "not reported",
-    "tumor_stage": "stage i",
-    "vital_status": "alive"
+    "diagnosis_is_primary_disease": "true",
+    "age_at_diagnosis": "65",
+
+
 }
 ```
 ```TSV
