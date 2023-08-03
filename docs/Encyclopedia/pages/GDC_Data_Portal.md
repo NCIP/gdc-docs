@@ -14,7 +14,7 @@ Key GDC Data Portal features include:
 
 ## References ##
 1. [GDC Data Portal](https://portal.gdc.cancer.gov)
-2. [GDC Data Portal User's Guide](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Getting_Started/)
+2. [GDC Data Portal User's Guide](/Data_Portal/Users_Guide/Getting_Started/)
 3. [GDC Legacy Archive](https://portal.gdc.cancer.gov/legacy-archive/search/f)
 
 ## External Links ##

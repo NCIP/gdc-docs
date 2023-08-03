@@ -11,9 +11,9 @@ MAF files are generated at the GDC using the Variant Aggregation pipeline<sup>2<
 The structure of the MAF is available in the [GDC MAF Specification](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/) along with descriptions for each field<sup>3</sup>.
 
 ## References ##
-1. [GDC DNA-Seq Analysis](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/)
-2. [GDC-Dictionary: Somatic Aggregation Pipeline](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_aggregation_workflow)
-3. [GDC MAF TCGA (Legacy) Format ](https://docs.gdc.cancer.gov/Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2/)
+1. [GDC DNA-Seq Analysis](/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/)
+2. [GDC-Dictionary: Somatic Aggregation Pipeline](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_aggregation_workflow)
+3. [GDC MAF TCGA (Legacy) Format ](/Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2/)
 
 
 
