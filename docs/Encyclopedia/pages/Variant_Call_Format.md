@@ -18,7 +18,7 @@ Details about the structure of the VCF is available in the VCF 4.1 Specification
 
 ## References ##
 1. [VCF 4.1 Specification](https://samtools.github.io/hts-specs/VCFv4.1.pdf)
-2. [GDC VCF Format](https://gdc-docs.nci.nih.gov/Data/File_Formats/VCF_Format/)
+2. [GDC VCF Format](https://docs.gdc.cancer.gov/Data/File_Formats/VCF_Format/)
 
 ## External Links ##
 * [VCF 4.1 Specification](https://samtools.github.io/hts-specs/VCFv4.1.pdf)

@@ -14,7 +14,7 @@ Key GDC Data Submission Portal features include<sup>2</sup>:
 
 ## References ##
 1. [GDC Data Submission Portal](https://gdc-portal.nci.nih.gov/submission/login?next=%2Fsubmission%2F)
-2. [GDC Data Submission Portal User's Guide](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Getting_Started/)
+2. [GDC Data Submission Portal User's Guide](/Data_Submission_Portal/Users_Guide/Getting_Started/)
 
 ## External Links ##
 * N/A

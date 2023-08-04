@@ -17,14 +17,14 @@ In the GDC, clinical data is searchable in the API, Data Portal, or Legacy Archi
 
 ## References ##
 
-1. [GDC Clinical Data Dictionary Entries](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=clinical)
+1. [GDC Clinical Data Dictionary Entries](/Data_Dictionary/viewer/#?view=table-entity-list&anchor=clinical)
 2. [GDC Clinical Data Harmonization](https://gdc.cancer.gov/about-data/data-harmonization-and-generation/clinical-data-harmonization)
 3. [Selecting Common Cross-Study Clinical Data Elements](https://gdc.cancer.gov/node/777/)
 4. [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model)
 
 ## External Links ##
 
-* https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html
-* https://cbiit.nci.nih.gov/
+* [CDE Browser](https://cadsr.cancer.gov/onedata/Home.jsp)
+* [Center for Biomedical Informatics & Information Technology](https://cbiit.nci.nih.gov/)
 
 Categories: Data Category
