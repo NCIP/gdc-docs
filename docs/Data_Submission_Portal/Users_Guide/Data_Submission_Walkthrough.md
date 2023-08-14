@@ -183,8 +183,8 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 }
 ```
 ```TSV
-type	submitter_id	cases.submitter_id	age_at_diagnosis    days_to_last_follow_up	days_to_last_known_disease_status	days_to_recurrence	last_known_disease_status	morphology	primary_diagnosis	progression_or_recurrence	site_of_resection_or_biopsy	tissue_or_organ_of_origin	tumor_grade	tumor_stage	vital_status
-diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	GDC-INTERNAL-000099	10256	34	34	45	Tumor free	8260/3	ACTH-producing tumor	no	Lung, NOS	Lung, NOS	not reported	stage i	alive
+type	submitter_id	cases.submitter_id	age_at_diagnosis last_known_disease_status	morphology	primary_diagnosis  site_of_resection_or_biopsy	tissue_or_organ_of_origin tumor_stage	vital_status
+diagnosis	PROJECT-INTERNAL-000055-DIAGNOSIS-1	GDC-INTERNAL-000099	65	Tumor free	8260/3	ACTH-producing tumor	Lung, NOS	Lung, NOS	stage i	alive
 ```
 
 ### Submitting an Exposure Entity to a Case
