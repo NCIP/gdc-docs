@@ -19,8 +19,8 @@ FPKM files are available as tab delimited files with the Ensembl gene IDs in the
 
 
 ## References ##
-1. [STAR-Fusion pipeline](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#star-fusion-pipeline)
-2. [GDC mRNA-Seq Documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
+1. [STAR-Fusion pipeline](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#star-fusion-pipeline)
+2. [GDC mRNA-Seq Documentation](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/)
 
 
 ## External Links ##

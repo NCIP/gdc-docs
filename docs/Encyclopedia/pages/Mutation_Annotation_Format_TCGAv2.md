@@ -93,7 +93,7 @@ Following categories of somatic mutations are reported in MAF files:
 -   Silent mutations
 
 -   Indels that overlap the coding region or splice site of a gene or the
-    targeted region of a genetic element of interest.
+    targeted region of a genetic element of interest
 
 -   Frameshift mutations
 
@@ -240,27 +240,27 @@ fail if any of the below are not true for a MAF file:
 2.  Values under column headers listed in the specification (Table 1) as not
     null must have values
 
-3.  Values that are specified in Table 1 as Case Sensitive must be.
+3.  Values that are specified in Table 1 as Case Sensitive must be
 
 4.  If column headers are listed in the specification as having *enumerated*
     values (*i.e.* a "Yes" in the "Enumerated" column), then the values under
-    those column must come from the enumerated values listed under "Enumerated".
+    those column must come from the enumerated values listed under "Enumerated"
 
 5.  If column headers are listed in the specification as having *set* values
     (*i.e.* a "Set" in the "Enumerated" column), then the values under those
     column must come from the enumerated values of that domain (*e.g.* HUGO gene
-    symbols).
+    symbols)
 
 6.  All Allele-based columns must contain- (deletion), or a string composed of
-    the following capitalized letters: A, T, G, C.
+    the following capitalized letters: A, T, G, C
 
 7.  IfValidation_Status== "Untested"
     thenTumor_Validation_Allele1,Tumor_Validation_Allele2,Match_Norm_Validation_Allele1,Match_Norm_Validation_Allele2can
-    be null (depending onValidation_Status).
+    be null (depending onValidation_Status)
 
     1.  IfValidation_Status== "Inconclusive"
         thenTumor_Validation_Allele1,Tumor_Validation_Allele2,Match_Norm_Validation_Allele1,Match_Norm_Validation_Allele2can
-        be null (depending onValidation_Status)**.**
+        be null (depending onValidation_Status)
 
 8.  If Validation_Status == Valid, then Validated_Tumor_Allele1 and
     Validated_Tumor_Allele2must be populated (one of A, C, G, T, and -)
@@ -281,7 +281,7 @@ fail if any of the below are not true for a MAF file:
 
     1.  If Mutation_Status == "Germline" and Validation_Status == "Valid", then
         Tumor_Validation_Allele1 == Match_Norm_Validation_Allele1 and
-        Tumor_Validation_Allele2 == Match_Norm_Validation_Allele2.
+        Tumor_Validation_Allele2 == Match_Norm_Validation_Allele2
 
     2.  If Mutation_Status == "Somatic" and Validation_Status == "Valid", then
         Match_Norm_Validation_Allele1 == Match_Norm_Validation_Allele2 ==
@@ -292,7 +292,7 @@ fail if any of the below are not true for a MAF file:
         Tumor_Validation_Allele1 == Tumor_Validation_Allele2 and
         Match_Norm_Validation_Allele1 != Match_Norm_Validation_Allele2 and
         Tumor_Validation_Allele1 == (Match_Norm_Validation_Allele1 or
-        Match_Norm_Validation_Allele2).
+        Match_Norm_Validation_Allele2)
 
 10. Check that Start_position \<= End_position
 
@@ -337,7 +337,7 @@ fail if any of the below are not true for a MAF file:
         Tumor_Sample_UUID and Matched_Norm_Sample_UUID respectively
 
 13. If Validation_Status == "Valid" or "Invalid", then Validation_Method !=
-    "none" (case insensitive) .
+    "none" (case insensitive)
 
 MAF naming convention
 =====================

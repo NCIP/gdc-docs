@@ -1,6 +1,6 @@
 # Controlled Access #
 ## Description ##
-Data in the GDC is considered either open or controlled access.  Access to controlled-access (i.e. protected) data in the GDC is granted on a per project basis via dbGaP.
+Data in the GDC is considered either open or controlled access.  Access to controlled-access (i.e. protected) data in the GDC is granted on a per project basis via the database of Genotypes and Phenotypes (dbGaP).
 
 ## Overview ##
 
