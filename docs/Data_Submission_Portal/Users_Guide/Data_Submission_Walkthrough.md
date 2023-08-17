@@ -194,7 +194,7 @@ Submitting an [__Exposure__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 * __`alcohol_history`:__ A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.
 * __`alcohol_intensity`:__ Category to describe the patient's current level of alcohol use as self-reported by the patient.
 * __`alcohol_days_per_week`:__ Numeric value used to describe the average number of days each week that a person consumes an alchoolic beverage.
-* __`years_smoked`:__ Numeric value (or unknown) to represent the number of years a person has been smoking.
+* __`pack_years_smoked`:__ Numeric computed value to represent lifetime tobacco exposure defined as number of cigarettes smoked per day x number of years smoked divided by 20.
 * __`tobacco_smoking_onset_year`:__ The year in which the participant began smoking.
 * __`tobacco_smoking_quit_year`:__ The year in which the participant quit smoking.
 
@@ -208,14 +208,14 @@ Submitting an [__Exposure__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
     "alcohol_history": "yes",
     "alcohol_intensity": "Drinker",
     "alcohol_days_per_week": 2,
-    "years_smoked": 5,
+    "pack_years_smoked": 15,
     "tobacco_smoking_onset_year": 2007,
     "tobacco_smoking_quit_year": 2012
 }
 ```
 ```TSV
-type	submitter_id	cases.submitter_id	alcohol_history alcohol_intensity   alcohol_days_per_week years_smoked  tobacco_smoking_onset_year  tobacco_smoking_quit_year
-exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes Drinker 2 5 2007    2012
+type	submitter_id	cases.submitter_id	alcohol_history alcohol_intensity   alcohol_days_per_week pack_years_smoked  tobacco_smoking_onset_year  tobacco_smoking_quit_year
+exposure	PROJECT-INTERNAL-000055-EXPOSURE-1	PROJECT-INTERNAL-000055	yes Drinker 2 15 2007    2012
 ```
 
 >__Note:__ Submitting a clinical entity uses the same conventions as submitting a `case` entity (detailed above).
