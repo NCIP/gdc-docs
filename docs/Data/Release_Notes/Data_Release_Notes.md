@@ -82,7 +82,6 @@
     * Release of remaining data for CGCI projects CGCI-BGLSP and CGCI-HTMCP-CC
 
 * New Metadata
-    * The `sample_type` field has been broken into four orthogonal fields for easier querying. While the `sample_type` field is still present, we recommend using the following fields: `tissue_type`, `tumor_descriptor`, `specimen_type`, `preservation_method`
     * The QC metrics for applicable BAMs are now queryable through the GDC Data Portal and API.
     * The `msi_status` and `msi_score` fields, which were produced using MSISensor2, are now queryable through the GDC Data Portal and API
 
