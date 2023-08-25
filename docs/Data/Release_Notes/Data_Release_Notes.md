@@ -74,11 +74,12 @@
 
 * New Data Sets
     * 9,368 WGS alignments from the TCGA program
-        * XXXX Cases
+        * 4,676 Cases
         * 9,368 Aliquots
     * All methylation files that were produced with the SeSAMe pipeline was replaced with a new version.
     * TCGA SNP6 data processed with the ASCAT3 and ABSOLUTE pipelines
     * 172 CEL and birdseed files from TCGA SNP6
+    * Release of remaining data for CGCI projects CGCI-BGLSP and CGCI-HTMCP-CC
 
 * New Metadata
     * The `sample_type` field has been broken into four orthogonal fields for easier querying. While the `sample_type` field is still present, we recommend using the following fields: `tissue_type`, `tumor_descriptor`, `specimen_type`, `preservation_method`
@@ -86,12 +87,10 @@
     * The `msi_status` and `msi_score` fields, which were produced using MSISensor2, are now queryable through the GDC Data Portal and API
 
 
-
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [XXXX](XXXX)
-* [XXXX](XXXX)
-
+* [gdc_manifest_2023Aug24_data_release_38.0_active.tsv.gz](gdc_manifest_2023Aug24_data_release_38.0_active.tsv.gz)
+* [DR38 Project Level Manifests](DR38_project_manifests.tar.gz)
 
 ### Bugs Fixed Since Last Release
 
