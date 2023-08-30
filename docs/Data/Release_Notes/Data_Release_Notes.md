@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v38.0](Data_Release_Notes.md#data-release-380) | August XX, 2023 |
+| [v38.0](Data_Release_Notes.md#data-release-380) | August 31, 2023 |
 | [v37.0](Data_Release_Notes.md#data-release-370) | March 29, 2023 |
 | [v36.0](Data_Release_Notes.md#data-release-360) | December 12, 2022 |
 | [v35.0](Data_Release_Notes.md#data-release-350) | September 28, 2022 |
@@ -50,7 +50,7 @@
 ## Data Release 38.0
 
 * __GDC Product__: Data
-* __Release Date__: August XX, 2023
+* __Release Date__: August 31, 2023
 
 ### New Updates
 
@@ -69,8 +69,9 @@
         *  WXS, RNA-Seq
 
 * New Cases from Existing Projects
-    * CPTAC-3 - GBM and Kidney cohorts 
+    * CPTAC-3 - GBM and Kidney cohorts - 50 cases
     * HCMI-CMDC - 31 cases
+    * CGCI-BLGSP - 204 cases
 
 * New Data Sets
     * 9,368 WGS alignments from the TCGA program
@@ -82,6 +83,7 @@
     * Release of remaining data for CGCI projects CGCI-BGLSP and CGCI-HTMCP-CC
 
 * New Metadata
+    * The `wgs_coverage` field is now populated for most BAMs and will allow for WGS BAMs to be queried by coverage range category.
     * The QC metrics for applicable BAMs are now queryable through the GDC Data Portal and API.
     * The `msi_status` and `msi_score` fields, which were produced using MSISensor2, are now queryable through the GDC Data Portal and API
 
@@ -94,9 +96,11 @@ A complete list of files included in the GDC Data Portal can be found below:
 ### Bugs Fixed Since Last Release
 
 * The files produced with the SeSAMe pipeline had unfiltered methylation beta values that should be set as N/A for quality reasons.  These files were replaced.
+* An bug in which certain files were shown to be associated with many more aliquot than usual has been fixed.  
 
 ### Known Issues and Workarounds
 
+* The slide image viewer does not display for any non-TCGA slides. At this time, these slides will need to be downloaded and viewed locally.
 * Pathology reports do not have any associated case/biospecimen information in the portal. This information can be found in the reports themselves. <!--SV-2118-->  
 * 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
 * One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
@@ -104,12 +108,9 @@ A complete list of files included in the GDC Data Portal can be found below:
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
-* Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release. <!--DAT-1589-->
 * Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
 * Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
-* Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
-* Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
