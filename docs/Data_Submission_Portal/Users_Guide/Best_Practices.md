@@ -163,6 +163,13 @@ It is critical for many cancer bioinformatics pipelines to specify which normal 
 
 Note that we will only run variant calling for a particular tumor aliquot per experimental strategy once. You must make sure that the appropriate normal control is uploaded to the GDC when Requesting Submission. Uploading a different normal sample later will not result in reanalysis by the GDC.
 
+## Submission of Single-Cell RNA-Seq Data
+
+For any submitter that is uploading scRNA-Seq data, please follow these guidelines:
+
+* If the data is single-nuclei RNA-Seq, please populate the associated aliquot field `analyte_type` with `Nuclei RNA`.
+* Please only submit the molecular files as `submitted_unaligned_reads` in FASTQ format.
+
 ## Clinical Data Requirements
 
 For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal cross-project GDC requirements include age, gender, and diagnosis information.  Other requirements may be added when the submitter is approved for submission to the GDC.
