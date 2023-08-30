@@ -90,7 +90,7 @@
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_2023Aug24_data_release_38.0_active.tsv.gz](gdc_manifest_2023Aug24_data_release_38.0_active.tsv.gz)
+* [gdc_manifest_20230830_data_release_38.0_active.tsv.gz](gdc_manifest_20230830_data_release_38.0_active.tsv.gz)
 * [DR38 Project Level Manifests](DR38_project_manifests.tar.gz)
 
 ### Bugs Fixed Since Last Release
