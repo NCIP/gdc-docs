@@ -72,6 +72,7 @@
     * CPTAC-3 - GBM and Kidney cohorts - 50 cases
     * HCMI-CMDC - 31 cases
     * CGCI-BLGSP - 204 cases
+    * TCGA-TGCT - 113 cases
 
 * New Data Sets
     * 9,368 WGS alignments from the TCGA program
