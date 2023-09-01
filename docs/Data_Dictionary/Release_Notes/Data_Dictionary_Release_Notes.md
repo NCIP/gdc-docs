@@ -834,7 +834,8 @@
 
 ### New Features and Changes
 
-* Added mix-max limitations on property values in `demographic`, `portion`, `aliquot`, `family_history`, `slide`, `follow_up`, `read_group`, `sample`, `analyte`, `exposure`, `diagnosis`, `treatment`, `molecular_test`
+* Added min-max limitations on property values in `demographic`, `portion`, `aliquot`, `family_history`, `slide`, `follow_up`, `read_group`, 
+`sample`, `analyte`, `exposure`, `diagnosis`, `treatment`, `molecular_test`
 * Altered `submitted_unaligned_reads`, `submitted_aligned_reads`, `annotated_somatic_mutation`, `simple_somatic_mutation`, `masked_somatic_mutation`, `submitted_genomic_profile`, `aligned_reads`, `aggregated_somatic_mutation`, `simple_germline_variation` Entities
 	* Changes made to `experimental_strategy`
 		* Removed permissible value: `Low Pass WGS`
