@@ -97,15 +97,14 @@ A complete list of files included in the GDC Data Portal can be found below:
 ### Bugs Fixed Since Last Release
 
 * The files produced with the SeSAMe pipeline had unfiltered methylation beta values that should be set as N/A for quality reasons.  These files were replaced.
-* An bug in which certain files were shown to be associated with many more aliquot than usual has been fixed.  
+* A bug in which certain files were shown to be associated with more aliquots than usual has been fixed.  
 
 ### Known Issues and Workarounds
 
-* The slide image viewer does not display for any non-TCGA slides. At this time, these slides will need to be downloaded and viewed locally.
+* The slide image viewer does not display for any non-TCGA slides. At this time, these slides will need to be downloaded and viewed locally. Additionally, the slide image viewer does not display properly for 14 TCGA slides, which are identified [here](missing_tiling.txt).
 * Pathology reports do not have any associated case/biospecimen information in the portal. This information can be found in the reports themselves. <!--SV-2118-->  
 * 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
 * One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
-* The slide image viewer does not display properly for 14 slides, which are identified [here](missing_tiling.txt).  The full slide image can be downloaded as an SVS file.
 * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
 * Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
 * The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
@@ -117,18 +116,18 @@ A complete list of files included in the GDC Data Portal can be found below:
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
     * Some TARGET cases are missing `age_at_diagnosis` <!--SV-933-->
     * Some TARGET files are not connected to all related aliquots <!--SV-929-->
     * Samples of TARGET sample_type `Recurrent Blood Derived Cancer - Bone Marrow` are mislabeled as `Recurrent Blood Derived Cancer - Peripheral Blood`.  A workaround is to look at the sample barcode, which is -04 for `Recurrent Blood Derived Cancer - Bone Marrow`. (e.g. `TARGET-20-PAMYAS-04A-03R`) <!--SV-918-->
-    * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the [TARGET Data Matrix](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
+    * The latest TARGET data is not yet available at the GDC.  For the complete and latest data, please see the NCI's webpage on [Using TARGET Data](https://ocg.cancer.gov/programs/target/data-matrix).  Data that is not present or is not the most up to date includes:
         *  All microarray data and metadata
         *  All sequencing analyzed data and metadata
         *  1180 of 12063 sequencing runs of raw data
@@ -217,7 +216,7 @@ A complete list of files included in the GDC Data Portal can be found below:
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -321,7 +320,7 @@ A complete list of files included in the GDC Data Portal can be found below:
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -408,7 +407,7 @@ A complete list of files included in the GDC Data Portal can be found below:
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -498,7 +497,7 @@ A complete list of files included in the GDC Data Portal can be found below:
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -576,7 +575,7 @@ A complete list of files included in the GDC Data Portal can be found below:
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -663,7 +662,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -769,7 +768,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -844,7 +843,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -926,7 +925,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -999,7 +998,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1082,7 +1081,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
             * TARGET-20-PASMYS-14A-02D
             * TARGET-20-PAMYAS-14A-02D
             * TARGET-10-PAPZST-09A-01D
-        * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+        * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
         * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
         * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
         * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1149,7 +1148,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1226,7 +1225,7 @@ A complete list of files for DR27.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1305,7 +1304,7 @@ A complete list of files for DR26.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1389,7 +1388,7 @@ A complete list of files for DR26.0 are listed for the GDC Data Portal and the G
             * TARGET-20-PASMYS-14A-02D
             * TARGET-20-PAMYAS-14A-02D
             * TARGET-10-PAPZST-09A-01D
-        * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+        * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
         * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
         * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
         * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1467,7 +1466,7 @@ A complete list of files for DR24.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1557,7 +1556,7 @@ A complete list of files for DR23.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1639,7 +1638,7 @@ A complete list of files for DR22.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1716,7 +1715,7 @@ A complete list of files for DR21.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1793,7 +1792,7 @@ A complete list of files for DR20.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1873,7 +1872,7 @@ A complete list of files for DR19.1 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -1953,7 +1952,7 @@ A complete list of files for DR19.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -2033,7 +2032,7 @@ A complete list of files for DR18.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -2099,7 +2098,7 @@ A complete list of files for DR17.1 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -2173,7 +2172,7 @@ A complete list of files for DR17.0 are listed for the GDC Data Portal and the G
         * TARGET-20-PASMYS-14A-02D
         * TARGET-20-PAMYAS-14A-02D
         * TARGET-10-PAPZST-09A-01D
-    * 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+    * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
     * There are 5051 TARGET files for which `experimental_strategy`, `data_format`, `platform`, and `data_subtype` are blank <!--SV-944-->
     * There are two cases with identical submitter_id `TARGET-10-PARUYU` <!--SV-940-->
     * Some TARGET cases are missing `days_to_last_follow_up` <!--SV-934-->
@@ -2230,7 +2229,7 @@ A complete list of files for DR16.0 are listed for the GDC Data Portal and the G
     * TARGET-10-PAPZST-09A-01D
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
 * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
-* 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+* 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
 <!--TT-602, DAT-1489-->
@@ -2296,7 +2295,7 @@ A complete list of files for DR15.0 are listed for the GDC Data Portal and the G
     * TARGET-10-PAPZST-09A-01D
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
 * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
-* 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+* 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
 <!--TT-602, DAT-1489-->
@@ -2362,7 +2361,7 @@ A complete list of files for DR14.0 are listed for the GDC Data Portal and the G
     * TARGET-10-PAPZST-09A-01D
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
 * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
-* 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+* 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
 <!--TT-602, DAT-1489-->
@@ -2433,7 +2432,7 @@ A complete list of files for DR13.0 are listed for the GDC Data Portal and the G
     * TARGET-10-PAPZST-09A-01D
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
 * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
-* 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+* 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
 <!--TT-602, DAT-1489-->
@@ -2494,7 +2493,7 @@ A complete list of files for DR12.0 are listed for the GDC Data Portal [here](gd
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
 * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
 * 36 Diagnostic TCGA slides are not yet available in the active GDC Portal. They are still available in the GDC Legacy Archive.  <!--SV-1109-->
-* 11 bam files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
+* 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
 <!--TT-602, DAT-1489-->
