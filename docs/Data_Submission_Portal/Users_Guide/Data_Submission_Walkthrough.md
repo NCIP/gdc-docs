@@ -227,11 +227,11 @@ One of the main features of the GDC is the genomic data harmonization workflow. 
 
 ## Sample Submission
 
-[![GDC Data Model 3](images/Sample_Submission_part1.png)](images/GDC-Data-Model-Sample.png "Click to see the full image.")
+[![GDC Data Model 3](images/GDC-Data-Model-Sample.png)](images/GDC-Data-Model-Sample.png "Click to see the full image.")
 
 A `sample` submission has the same general structure as a `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require one additional value:  `sample_type`. This peripheral data is required because it is necessary for the data to be interpreted. For example, an investigator using this data would need to know whether the `sample` came from tumor or normal tissue.  
 
-[![Dictionary Sample](images/Dictionary_Sample.png)](images/Dictionary_Sample.png "Click to see the full image.")
+[![Dictionary Sample](images/Sample_Submission_part1.png)](images/Dictionary_Sample.png "Click to see the full image.")
 
 Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=sample) entity requires:
 
