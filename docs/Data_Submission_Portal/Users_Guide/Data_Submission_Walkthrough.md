@@ -235,9 +235,9 @@ A `sample` submission has the same general structure as a `case` submission as i
 [![Dictionary Sample](images/Dictionary_Sample_Part2.png)](images/Dictionary_Sample_Part2.png "Click to see the full image.")
 Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=sample) entity requires:
 
-* __`submitter_id`:__ A unique key to identify the `sample`.
-* __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `sample` to the `case`.
-* __`sample_type`:__ Type of the `sample`. Named for its cellular source, molecular composition, and/or therapeutic treatment.
+* __`specimen_type`:__ The type of a material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes. This includes particular types of cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory substances.
+* __`preservation_method`:__ Text term that represents the method used to preserve the sample.
+* __`tumor_descriptor`:__ Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint.
 * __`tissue_type`:__ Text term that represents a description of the kind of tissue collected with respect to disease status or proximity to tumor tissue.
 
 >__Note:__ The `case` must be "committed" to the project before a `sample` can be linked to it.  This also applies to all other links between entities.
@@ -248,9 +248,11 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
     "cases": {
         "submitter_id": "PROJECT-INTERNAL-000055"
     },
-    "sample_type": "Blood Derived Normal",
+    "tumor_descriptor": "Primary",
     "submitter_id": "Blood-00001SAMPLE_55"
     "tissue_type": "Normal"
+    "specimen_type": "Peripheral Whole Blood"
+    "preservation_method": "Fresh"
 }
 ```
 ```TSV
