@@ -249,9 +249,9 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
         "submitter_id": "PROJECT-INTERNAL-000055"
     },
     "tumor_descriptor": "Primary",
-    "submitter_id": "Blood-00001SAMPLE_55"
-    "tissue_type": "Normal"
-    "specimen_type": "Peripheral Whole Blood"
+    "submitter_id": "Blood-00001SAMPLE_55",
+    "tissue_type": "Normal",
+    "specimen_type": "Peripheral Whole Blood",
     "preservation_method": "Fresh"
 }
 ```
