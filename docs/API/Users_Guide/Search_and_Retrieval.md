@@ -770,7 +770,7 @@ curl 'https://api.gdc.cancer.gov/cases/1f601832-eee3-48fb-acf5-80c4a454f26e?pret
         "diagnosis_id": "84654ad5-2a2c-5c3b-8340-ecac6a5550fe",
         "icd_10_code": "C50.9",
         "site_of_resection_or_biopsy": "Breast, NOS",
-        "tumor_grade": "not reported",
+        "tumor_grade": "Not Reported",
         "progression_or_recurrence": "not reported"
       }
     ],
