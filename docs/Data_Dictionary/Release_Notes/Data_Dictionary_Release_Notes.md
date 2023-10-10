@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v.2.X.X](Data_Dictionary_Release_Notes.md#v266) | October XX, 2023 |
 | [v.2.6.6](Data_Dictionary_Release_Notes.md#v266) | June 16, 2023 |
 | [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | February 2, 2023 |
 | [v.2.5.0](Data_Dictionary_Release_Notes.md#v250) | July 8, 2022 |
@@ -24,6 +25,135 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v2.X.X
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: October XX, 2023
+
+### New Features and Changes
+
+* Altered `annotation` Entity
+	* Changes made to `links`
+		* `other_clinical_attributes` added to subgroup
+* Altered `demographic` Entity
+	* New deprecated property: `premature_at_birth`
+	* New deprecated property: `weeks_gestation_at_birth`
+* Altered `diagnosis` Entity
+	* Changes made to `morphology`
+		* New permissible value: `8980/6`
+	* Changes made to `primary_diagnosis`
+		* New permissible value: `Diffuse Pediatric-type High Grade Glioma`
+	* Changes made to `sites_of_involvement`
+		* New permissible value: `Thyroid Gland Isthmus`
+	* Changes made to `tumor_grade`
+		* Removed deprecated value: `not reported`
+	* New deprecated property `pregnant_at_diagnosis`
+	* Removed property: `measurement_type`
+* Altered `exposure` Entity
+	* Changes made to `exposure_source`
+		* New permissible value: `Home`
+		* New permissible value: `Social`
+		* New permissible value: `Work`
+* Altered `follow_up` Entity
+	* Changes made to `imaging_anatomic_site`
+		* New permissible value: `Lymph Node`
+	* Changes made to `imaging_type`
+		* New permissible value: `Ultrasound`
+	* New deprecated property: `aids_risk_factors`
+	* New deprecated property: `bmi`
+	* New deprecated property: `body_surface_area`
+	* New deprecated property: `cd4_count`
+	* New deprecated property: `cdc_hiv_risk_factors`
+	* New deprecated property: `comorbidity_method_of_diagnosis`
+	* New deprecated property: `comorbidities`
+	* New deprecated property: `days_to_comorbidity`
+	* New deprecated property: `diabetes_treatment_type`
+	* New deprecated property: `dlco_ref_predictive_percent`
+	* New deprecated property: `eye_color`
+	* New deprecated property: `fev1_fvc_post_bronch_percent`
+	* New deprecated property: `fev1_fvc_pre_bronch_percent`
+	* New deprecated property: `fev1_ref_post_bronch_percent`
+	* New deprecated property: `fev1_ref_pre_bronch_percent`
+	* New deprecated property: `haart_treatment_indicator`
+	* New deprecated property: `height`
+	* New deprecated property: `hepatitis_sustained_virological_response`
+	* New deprecated property: `hiv_viral_load`
+	* New deprecated property: `hormonal_contraceptive_type`
+	* New deprecated property: `hormonal_contraceptive_use`
+	* New deprecated property: `hormone_replacement_therapy_type`
+	* New deprecated property: `hysterectomy_margins_involved`
+	* New deprecated property: `hysterectomy_type`
+	* New deprecated property: `immunosuppressive_treatment_type`
+	* New deprecated property: `menopause_status`
+	* New deprecated property: `nadir_cd4_count`
+	* New deprecated property: `pancreatitis_onset_year`
+	* New deprecated property: `pregnancy_count`
+	* New deprecated property: `pregnancy_outcome`
+	* New deprecated property: `reflux_treatment_type`
+	* New deprecated property: `risk_factor_method_of_diagnosis`
+	* New deprecated property: `risk_factor_treatment`
+	* New deprecated property: `risk_factors`
+	* New deprecated property: `undescended_testis_corrected`
+	* New deprecated property: `undescended_testis_corrected_age`
+	* New deprecated property: `undescended_testis_corrected_laterality`
+	* New deprecated property: `undescended_testis_corrected_method`
+	* New deprecated property: `undescended_testis_history`
+	* New deprecated property: `undescended_testis_history_laterality`
+	* New deprecated property: `viral_hepatitis_serologies`
+	* New deprecated property: `weight`
+* Altered `molecular_test` Entity
+	* New property: `staining_intensity_value`
+	* Changes made to `antigen`
+		* New permissible value: `CD43`
+	* Changes made to `molecular_analysis_method`
+		* New permissible value: `Microscopy, NOS`
+	* Changes made to `test_result`
+		* New permissible value: `Mitotic Count Reported`
+		* New permissible value: `Staining Intensity Value Reported`
+	* Changes made to `test_units`
+		* Removed deprecated value: `count x10^9/L`
+	* Changes made to `timepoint_category`
+		* New permissible value: `Prior to Treatment`
+* Altered `pathology_detail` Entity
+	* Changes made to `lymph_node_involved_site`
+		* New permissible value: `Cervical, Central`
+		* New permissible value: `Cervical, Lateral`
+		* New permissible value: `Cervical, NOS`
+		* New deprecated value: `Cervical`
+	* Changes made to `measurement_type`
+		* New permissible value: `Echographic`
+	* New property: `days_to_pathology_detail`
+	* New property: `extracapsular_extension_present`
+	* New property: `extrathyroid_extension`
+	* New property: `histologic_progression_type`
+	* New property: `micrometastasis_present`
+	* Removed property: `tumor_measurement_method`
+* Altered `read_group` Entity
+	* Changes made to `instrument_model`
+		* New permissible value: `Illumina NovaSeq X`
+* Altered `sample` Entity
+	* Changes made to `biospecimen_anatomic_site`
+		* New permissible value: `Head, Face or Neck, NOS`
+		* New deprecated value: `Head - Face Or Neck, Nos`
+* Altered `submitted_aligned_reads` Entity
+	* Changes made to `experimental_strategy`
+		* New deprecated value: `scRNA-Seq`
+* Altered `treatment` Entity
+	* Changes made to `timepoint_category`
+		* New permissible value: `First Treatment`
+		* New permissible value: `Prior to Treatment`
+	* Changes made to `treatment_anatomic_sites`
+		* New deprecated value: `Head - Face Or Neck, Nos`
+		* New permissible value: `Head, Face or Neck, NOS`
+	* New property: `radiosensitizing_agent`
+	* New property: `reason_treatment_not_given`
+	* New property: `therapeutic_levels_achieved`
+* New Entity: `other_clinical_attribute`
+
+### Bugs Fixed Since Last Release
+
+* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) correctly displays links to terms for properties that were previously listed as 'null'. 
 
 ## v2.6.6
 
