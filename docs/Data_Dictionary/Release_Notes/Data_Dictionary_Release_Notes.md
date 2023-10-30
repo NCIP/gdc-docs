@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.3.0.0](Data_Dictionary_Release_Notes.md#v266) | October 30, 2023 |
+| [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
 | [v.2.6.6](Data_Dictionary_Release_Notes.md#v266) | June 16, 2023 |
 | [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | February 2, 2023 |
 | [v.2.5.0](Data_Dictionary_Release_Notes.md#v250) | July 8, 2022 |
