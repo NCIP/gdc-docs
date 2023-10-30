@@ -360,7 +360,7 @@ curl 'https://api.gdc.cancer.gov/ssm_occurrences/6fd8527d-5c40-5604-8fa9-0ce798e
           "site_of_resection_or_biopsy": "Skin of upper limb and shoulder",
           "prior_treatment": "No",
           "state": "released",
-          "tumor_grade": "not reported",
+          "tumor_grade": "Not Reported",
           "progression_or_recurrence": "not reported",
           "ajcc_staging_system_edition": "7th"
         }

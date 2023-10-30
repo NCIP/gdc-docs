@@ -12,8 +12,8 @@ Various summary metrics are added to the aligned reads entity for query by the u
 * msi_status
 * pairs_on_diff_chr
 * proportion_base_mismatch
-* proportion_coverage_10X
-* proportion_coverage_30X
+* proportion_coverage_10x
+* proportion_coverage_30x
 * proportion_reads_duplicated
 * proportion_reads_mapped
 * proportion_targets_no_coverage

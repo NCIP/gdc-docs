@@ -182,7 +182,7 @@ Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
     "progression_or_recurrence": "no",
     "site_of_resection_or_biopsy": "Lung, NOS",
     "tissue_or_organ_of_origin": "Lung, NOS",
-    "tumor_grade": "not reported",
+    "tumor_grade": "Not Reported",
     "tumor_stage": "stage i",
     "vital_status": "alive"
 }
