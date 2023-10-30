@@ -33,6 +33,7 @@
 
 ### New Features and Changes
 
+* New Entity: `other_clinical_attribute`
 * Altered `annotation` Entity
 	* Changes made to `links`
 		* `other_clinical_attributes` added to subgroup
@@ -149,7 +150,6 @@
 	* New property: `radiosensitizing_agent`
 	* New property: `reason_treatment_not_given`
 	* New property: `therapeutic_levels_achieved`
-* New Entity: `other_clinical_attribute`
 
 ### Bugs Fixed Since Last Release
 
