@@ -155,6 +155,10 @@
 
 * The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) correctly displays links to terms for properties that were previously listed as 'null'. 
 
+### Known Issues and Workarounds
+
+* The enum `Head - Face Or Neck, Nos` has been deprecated for the property `treatment_anatomic_sites` on the `treatment` entity, but still appears in the Data Dictionary viewer. This will be resolved in a future release. 
+
 ## v2.6.6
 
 * __GDC Product__: GDC Data Dictionary
