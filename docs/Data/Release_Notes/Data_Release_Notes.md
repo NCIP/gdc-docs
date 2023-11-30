@@ -47,38 +47,36 @@
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
 
-## Data Release 38.0
+## Data Release 39.0
 
 * __GDC Product__: Data
-* __Release Date__: November 30, 2023
+* __Release Date__: December 4, 2023
 
 ### New Updates
 
 * New Projects
     * MATCH-H - Genomic Characterization CS-MATCH-0007 Arm H - phs001888
-        *  XXX cases
+        *  21 cases
         *  WXS, RNA-Seq
     * MATCH-I - Genomic Characterization CS-MATCH-0007 Arm I - phs002181
-        *  XXX cases
+        *  60 cases
         *  WXS, RNA-Seq
     * MATCH-U - Genomic Characterization CS-MATCH-0007 Arm U - phs002179
-        *  XXX cases
+        *  23 cases
         *  WXS, RNA-Seq
     * MATCH-W - Genomic Characterization CS-MATCH-0007 Arm W - phs001948
-        *  XXX cases
+        *  45 cases
         *  WXS, RNA-Seq
     * MATCH-Z1A - Genomic Characterization CS-MATCH-0007 Arm Z1A - phs001973
-        *  XXX cases
+        *  45 cases
         *  WXS, RNA-Seq
 
 * New Cases from Existing Projects
     * HCMI-CMDC - 19 cases
 
 * New Data Sets
-    * XXXX WGS alignments from the TCGA program
-        * XXXX Cases
-        * XXXX Aliquots
-    * XXXX sets of WGS variants from TCGA
+    * 6,957 WGS alignments from the TCGA program
+    * 1,002 sets of WGS variants from TCGA
     * MP2PRT-ALL:  WXS and RNA-Seq data
     * Tumor-only data produced with a new pipeline. This includes raw and annotated VCFs and MAFs for the following projects. Note that all tumor-only variants are controlled-access:
         * BEATAML1.0-COHORT
@@ -102,10 +100,13 @@
 
 * New Metadata
     * Sample type refactoring:
-        * Four fields (tissue_type, specimen_type, preservation_method, tumor_descriptor) have been populated to contain the information that was previously populated in the sample_type field.
-        * The new field, specimen_type, is now available in the API to accommodate information about the biological makeup of the sample.
-    * The follow up data for CPTAC-3 has been updated.
+        * Four fields (tissue_type, specimen_type, preservation_method, tumor_descriptor) have been populated to contain the information that was previously populated in the sample_type field
+        * The new field, specimen_type, is now available in the API to accommodate information about the biological makeup of the sample
+    * The follow up data for CPTAC-3 has been updated
 
+* Other Updates
+    * The GENIE program was removed from the GDC Portal because it did not correspond with the latest version of GENIE released
+        * GENIE data can be accessed from the [AACR Repositories](https://www.aacr.org/professionals/research/aacr-project-genie/aacr-project-genie-data/)
 
 A complete list of files included in the GDC Data Portal can be found below:
 
@@ -114,8 +115,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Bugs Fixed Since Last Release
 
-* The files produced with the SeSAMe pipeline had unfiltered methylation beta values that should be set as N/A for quality reasons.  These files were replaced.
-* A bug in which certain files were shown to be associated with more aliquots than usual has been fixed.  
+* None
 
 ### Known Issues and Workarounds
 
