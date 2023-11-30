@@ -288,7 +288,6 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
         "type": "structural_variation",
         "file_size": 20,
         "created_datetime": "2022-04-08T20:27:04.633842-05:00",
-        "md5sum": "7029066c27ac6f5ef18d660d5741979a",
         "updated_datetime": "2022-07-07T11:02:27.204310-05:00",
         "file_id": "0ab5e358-b1ff-4433-8959-c37c5890d9aa",
         "data_type": "Structural Rearrangement",
@@ -310,7 +309,6 @@ curl 'https://api.gdc.cancer.gov/files?from=0&size=2&sort=file_size:asc&pretty=t
         "type": "structural_variation",
         "file_size": 20,
         "created_datetime": "2022-04-08T20:43:16.505747-05:00",
-        "md5sum": "7029066c27ac6f5ef18d660d5741979a",
         "updated_datetime": "2022-07-07T11:00:43.345766-05:00",
         "file_id": "a8bc2405-b57d-48bb-b241-18b3e28caa56",
         "data_type": "Structural Rearrangement",
@@ -356,7 +354,6 @@ curl 'https://api.gdc.cancer.gov/files/20f45e04-3c10-4f11-b57b-719880eab69e?pret
     "type": "annotated_somatic_mutation",
     "file_size": 6894331,
     "created_datetime": "2022-02-07T08:48:39.178606-06:00",
-    "md5sum": "f4c0f52ba5bf24f0ca6ba3a923fecc5e",
     "updated_datetime": "2022-02-09T12:11:12.781445-06:00",
     "file_id": "20f45e04-3c10-4f11-b57b-719880eab69e",
     "data_type": "Annotated Somatic Mutation",
@@ -393,7 +390,6 @@ curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e8
     "latest_id": "76b3f4d8-c6b7-4662-ac42-1d27d4684281",
     "latest_filename": "def1cc5b-55f0-4372-a3ff-df3ea93cf3e7.wxs.somaticsniper.raw_somatic_mutation.vcf.gz",
     "latest_version": "2",
-    "latest_md5": "bbc66201eeb12e8f63fc6dcc156dbac9",
     "latest_size": 357706,
     "latest_state": "validated",
     "latest_release": [
@@ -417,7 +413,6 @@ curl 'https://api.gdc.cancer.gov/files/versions/1dd28069-5777-4ff9-bd2b-d1ba68e8
     "latest_id": "de0ce84d-c286-405c-a556-39dac14c7c74",
     "latest_filename": "d45c33cc-88e2-4de5-a578-f7e31a6c0738.rna_seq.genomic.gdc_realn.bam",
     "latest_version": "2",
-    "latest_md5": "5d4b0c13f1c1a235ed064d94278bc196",
     "latest_size": 6223445806,
     "latest_state": "validated",
     "latest_release": [
@@ -537,7 +532,6 @@ curl --request POST --header "Content-Type: text/tsv"  https://api.gdc.cancer.go
     "latest_id": "55491171-6170-45cb-af9d-d99345b289e5",
     "latest_filename": "4b89bb97-41f6-43c4-a481-287556f7bb4a.targeted_sequencing.annotated_somatic_mutation.vcf.gz",
     "latest_version": "2",
-    "latest_md5": "5b2faa8780317744331b8b852f7d9ef1",
     "latest_size": 2618,
     "latest_state": "validated",
     "latest_release": [
@@ -1115,7 +1109,7 @@ filt = {"op":"=",
 params = {'filters':json.dumps(filt), 'sort':'demographic.gender:asc'}
 # requests URL-encodes automatically
 response = requests.get(cases_endpt, params = params)
-print json.dumps(response.json(), indent=2)
+print(json.dumps(response.json(), indent=2))
 ```
 ``` Output
 {
@@ -1977,7 +1971,7 @@ cases_endpt = 'https://api.gdc.cancer.gov/cases'
 params = {'fields':'submitter_id',
           'format':'TSV'}
 response = requests.get(cases_endpt, params = params)
-print response.content
+print(response.content)
 ```
 ```response1
 id	submitter_id
@@ -1999,7 +1993,7 @@ params = {'fields':'submitter_id',
           'format':'XML',
           'pretty':'true'}
 response = requests.get(cases_endpt, params = params)
-print response.content
+print(response.content)
 ```
 ```Output2
 <?xml version="1.0" ?>
@@ -2113,7 +2107,7 @@ import json
 files_endpt = 'https://api.gdc.cancer.gov/files'
 params = {'fields':'cases.submitter_id,file_id,file_name,file_size'}
 response = requests.get(files_endpt, params = params)
-print json.dumps(response.json(), indent=2)
+print(json.dumps(response.json(), indent=2))
 ```
 ```Response
 {
@@ -2266,7 +2260,6 @@ curl 'https://api.gdc.cancer.gov/files/573ee7e9-b8bd-419e-808b-a027c4311731?expa
     "type": "aligned_reads",
     "platform": "Illumina",
     "created_datetime": "2022-05-12T14:42:10.014925-05:00",
-    "md5sum": "25e89d79c47d12b13f4eb8e8f39f7f64",
     "updated_datetime": "2022-11-01T11:52:54.136033-05:00",
     "pairs_on_diff_chr": 1170013,
     "state": "released",
@@ -2351,7 +2344,7 @@ files_endpt = 'https://api.gdc.cancer.gov/files'
 params = {'fields':'file_name',
           'from':0, 'size':2}
 response = requests.get(files_endpt, params = params)
-print json.dumps(response.json(), indent=2)
+print(json.dumps(response.json(), indent=2))
 
 ```
 ```Response1
@@ -2391,7 +2384,7 @@ files_endpt = 'https://api.gdc.cancer.gov/files'
 params = {'fields':'file_name',
           'from':101, 'size':5}
 response = requests.get(files_endpt, params = params)
-print json.dumps(response.json(), indent=2)
+print(json.dumps(response.json(), indent=2))
 ```
 ``` Output2
 {
@@ -2451,7 +2444,7 @@ cases_endpt = 'https://api.gdc.cancer.gov/cases'
 params = {'fields':'submitter_id',
           'sort':'submitter_id:asc'}
 response = requests.get(cases_endpt, params = params)
-print json.dumps(response.json(), indent=2)
+print(json.dumps(response.json(), indent=2))
 
 ```
 ``` Output
@@ -2537,7 +2530,7 @@ params = {'facets':'program.name',
           'from':0, 'size':0,
           'sort':'program.name:asc'}
 response = requests.get(projects_endpt, params = params)
-print json.dumps(response.json(), indent=2)
+print(json.dumps(response.json(), indent=2))
 ```
 ```Response
 {
@@ -2551,24 +2544,20 @@ print json.dumps(response.json(), indent=2)
             "key": "TCGA"
           },
           {
+            "doc_count": 10,
+            "key": "MATCH"
+          },
+          {
             "doc_count": 9,
             "key": "TARGET"
           },
           {
-            "doc_count": 8,
-            "key": "GENIE"
-          },
-          {
-            "doc_count": 3,
+            "doc_count": 4,
             "key": "CGCI"
           },
           {
             "doc_count": 3,
             "key": "CMI"
-          },
-          {
-            "doc_count": 3,
-            "key": "MATCH"
           },
           {
             "doc_count": 2,
@@ -2577,6 +2566,10 @@ print json.dumps(response.json(), indent=2)
           {
             "doc_count": 2,
             "key": "CPTAC"
+          },
+          {
+            "doc_count": 2,
+            "key": "MP2PRT"
           },
           {
             "doc_count": 1,
@@ -2605,10 +2598,6 @@ print json.dumps(response.json(), indent=2)
           {
             "doc_count": 1,
             "key": "MMRF"
-          },
-          {
-            "doc_count": 1,
-            "key": "MP2PRT"
           },
           {
             "doc_count": 1,
@@ -2643,12 +2632,12 @@ print json.dumps(response.json(), indent=2)
     },
     "pagination": {
       "count": 0,
-      "total": 78,
+      "total": 79,
       "size": 0,
       "from": 0,
       "sort": "None",
       "page": 1,
-      "pages": 78
+      "pages": 79
     }
   },
   "warnings": {}

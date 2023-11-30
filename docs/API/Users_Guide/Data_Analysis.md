@@ -1876,7 +1876,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
 ```
 ```Response
 {
-  "took": 8,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 12,
@@ -1886,7 +1886,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
   },
   "hits": {
     "total": {
-      "value": 86962,
+      "value": 44451,
       "relation": "eq"
     },
     "max_score": null,
@@ -1908,72 +1908,12 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           }
         },
         {
-          "key": "GENIE-MSK",
-          "doc_count": 16824,
-          "case_summary": {
-            "doc_count": 36470,
-            "case_with_ssm": {
-              "doc_count": 16823
-            }
-          }
-        },
-        {
-          "key": "GENIE-DFCI",
-          "doc_count": 14232,
-          "case_summary": {
-            "doc_count": 28464,
-            "case_with_ssm": {
-              "doc_count": 14232
-            }
-          }
-        },
-        {
-          "key": "GENIE-MDA",
-          "doc_count": 3857,
-          "case_summary": {
-            "doc_count": 3857,
-            "case_with_ssm": {
-              "doc_count": 3857
-            }
-          }
-        },
-        {
-          "key": "GENIE-JHU",
-          "doc_count": 3320,
-          "case_summary": {
-            "doc_count": 3320,
-            "case_with_ssm": {
-              "doc_count": 3320
-            }
-          }
-        },
-        {
-          "key": "GENIE-UHN",
-          "doc_count": 2632,
-          "case_summary": {
-            "doc_count": 2632,
-            "case_with_ssm": {
-              "doc_count": 2632
-            }
-          }
-        },
-        {
           "key": "TARGET-AML",
           "doc_count": 2492,
           "case_summary": {
-            "doc_count": 10671,
+            "doc_count": 10780,
             "case_with_ssm": {
               "doc_count": 22
-            }
-          }
-        },
-        {
-          "key": "GENIE-VICC",
-          "doc_count": 2052,
-          "case_summary": {
-            "doc_count": 3833,
-            "case_with_ssm": {
-              "doc_count": 2052
             }
           }
         },
@@ -1981,19 +1921,29 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TARGET-ALL-P2",
           "doc_count": 1587,
           "case_summary": {
-            "doc_count": 6114,
+            "doc_count": 5562,
             "case_with_ssm": {
               "doc_count": 717
             }
           }
         },
         {
-          "key": "CPTAC-3",
-          "doc_count": 1185,
+          "key": "MP2PRT-ALL",
+          "doc_count": 1510,
           "case_summary": {
-            "doc_count": 8162,
+            "doc_count": 10472,
             "case_with_ssm": {
-              "doc_count": 1169
+              "doc_count": 1508
+            }
+          }
+        },
+        {
+          "key": "CPTAC-3",
+          "doc_count": 1235,
+          "case_summary": {
+            "doc_count": 8508,
+            "case_with_ssm": {
+              "doc_count": 1218
             }
           }
         },
@@ -2001,7 +1951,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TARGET-NBL",
           "doc_count": 1132,
           "case_summary": {
-            "doc_count": 3284,
+            "doc_count": 3007,
             "case_with_ssm": {
               "doc_count": 220
             }
@@ -2011,19 +1961,9 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-BRCA",
           "doc_count": 1098,
           "case_summary": {
-            "doc_count": 9660,
+            "doc_count": 9735,
             "case_with_ssm": {
               "doc_count": 1098
-            }
-          }
-        },
-        {
-          "key": "GENIE-GRCC",
-          "doc_count": 1038,
-          "case_summary": {
-            "doc_count": 1038,
-            "case_with_ssm": {
-              "doc_count": 1038
             }
           }
         },
@@ -2041,19 +1981,9 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "BEATAML1.0-COHORT",
           "doc_count": 826,
           "case_summary": {
-            "doc_count": 2576,
+            "doc_count": 2891,
             "case_with_ssm": {
-              "doc_count": 444
-            }
-          }
-        },
-        {
-          "key": "GENIE-NKI",
-          "doc_count": 801,
-          "case_summary": {
-            "doc_count": 801,
-            "case_with_ssm": {
-              "doc_count": 801
+              "doc_count": 759
             }
           }
         },
@@ -2061,9 +1991,9 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TARGET-WT",
           "doc_count": 652,
           "case_summary": {
-            "doc_count": 1931,
+            "doc_count": 3045,
             "case_with_ssm": {
-              "doc_count": 39
+              "doc_count": 631
             }
           }
         },
@@ -2071,7 +2001,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-GBM",
           "doc_count": 617,
           "case_summary": {
-            "doc_count": 3840,
+            "doc_count": 3867,
             "case_with_ssm": {
               "doc_count": 600
             }
@@ -2081,7 +2011,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-OV",
           "doc_count": 608,
           "case_summary": {
-            "doc_count": 4927,
+            "doc_count": 5028,
             "case_with_ssm": {
               "doc_count": 599
             }
@@ -2091,7 +2021,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-LUAD",
           "doc_count": 585,
           "case_summary": {
-            "doc_count": 4821,
+            "doc_count": 4825,
             "case_with_ssm": {
               "doc_count": 571
             }
@@ -2101,9 +2031,9 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-UCEC",
           "doc_count": 560,
           "case_summary": {
-            "doc_count": 4551,
+            "doc_count": 4559,
             "case_with_ssm": {
-              "doc_count": 558
+              "doc_count": 559
             }
           }
         },
@@ -2111,7 +2041,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-KIRC",
           "doc_count": 537,
           "case_summary": {
-            "doc_count": 4757,
+            "doc_count": 4768,
             "case_with_ssm": {
               "doc_count": 534
             }
@@ -2121,7 +2051,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-HNSC",
           "doc_count": 528,
           "case_summary": {
-            "doc_count": 4569,
+            "doc_count": 4577,
             "case_with_ssm": {
               "doc_count": 528
             }
@@ -2131,7 +2061,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-LGG",
           "doc_count": 516,
           "case_summary": {
-            "doc_count": 4557,
+            "doc_count": 4570,
             "case_with_ssm": {
               "doc_count": 516
             }
@@ -2141,7 +2071,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-THCA",
           "doc_count": 507,
           "case_summary": {
-            "doc_count": 4429,
+            "doc_count": 4442,
             "case_with_ssm": {
               "doc_count": 507
             }
@@ -2151,7 +2081,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-LUSC",
           "doc_count": 504,
           "case_summary": {
-            "doc_count": 4356,
+            "doc_count": 4425,
             "case_with_ssm": {
               "doc_count": 504
             }
@@ -2161,7 +2091,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-PRAD",
           "doc_count": 500,
           "case_summary": {
-            "doc_count": 4341,
+            "doc_count": 4365,
             "case_with_ssm": {
               "doc_count": 500
             }
@@ -2181,7 +2111,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-SKCM",
           "doc_count": 470,
           "case_summary": {
-            "doc_count": 4108,
+            "doc_count": 4125,
             "case_with_ssm": {
               "doc_count": 470
             }
@@ -2191,7 +2121,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-COAD",
           "doc_count": 461,
           "case_summary": {
-            "doc_count": 3868,
+            "doc_count": 3888,
             "case_with_ssm": {
               "doc_count": 461
             }
@@ -2201,7 +2131,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-STAD",
           "doc_count": 443,
           "case_summary": {
-            "doc_count": 3869,
+            "doc_count": 3884,
             "case_with_ssm": {
               "doc_count": 443
             }
@@ -2221,7 +2151,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-BLCA",
           "doc_count": 412,
           "case_summary": {
-            "doc_count": 3633,
+            "doc_count": 3645,
             "case_with_ssm": {
               "doc_count": 412
             }
@@ -2231,7 +2161,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TARGET-OS",
           "doc_count": 383,
           "case_summary": {
-            "doc_count": 1362,
+            "doc_count": 1276,
             "case_with_ssm": {
               "doc_count": 97
             }
@@ -2241,7 +2171,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-LIHC",
           "doc_count": 377,
           "case_summary": {
-            "doc_count": 3193,
+            "doc_count": 3204,
             "case_with_ssm": {
               "doc_count": 377
             }
@@ -2268,10 +2198,20 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           }
         },
         {
+          "key": "CGCI-BLGSP",
+          "doc_count": 324,
+          "case_summary": {
+            "doc_count": 2076,
+            "case_with_ssm": {
+              "doc_count": 262
+            }
+          }
+        },
+        {
           "key": "TCGA-CESC",
           "doc_count": 307,
           "case_summary": {
-            "doc_count": 2621,
+            "doc_count": 2623,
             "case_with_ssm": {
               "doc_count": 306
             }
@@ -2281,9 +2221,29 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-KIRP",
           "doc_count": 291,
           "case_summary": {
-            "doc_count": 2541,
+            "doc_count": 2568,
             "case_with_ssm": {
               "doc_count": 291
+            }
+          }
+        },
+        {
+          "key": "HCMI-CMDC",
+          "doc_count": 278,
+          "case_summary": {
+            "doc_count": 2420,
+            "case_with_ssm": {
+              "doc_count": 277
+            }
+          }
+        },
+        {
+          "key": "TCGA-TGCT",
+          "doc_count": 263,
+          "case_summary": {
+            "doc_count": 2124,
+            "case_with_ssm": {
+              "doc_count": 262
             }
           }
         },
@@ -2298,22 +2258,12 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           }
         },
         {
-          "key": "HCMI-CMDC",
-          "doc_count": 228,
-          "case_summary": {
-            "doc_count": 1973,
-            "case_with_ssm": {
-              "doc_count": 227
-            }
-          }
-        },
-        {
           "key": "CGCI-HTMCP-CC",
           "doc_count": 212,
           "case_summary": {
-            "doc_count": 1447,
+            "doc_count": 1452,
             "case_with_ssm": {
-              "doc_count": 205
+              "doc_count": 206
             }
           }
         },
@@ -2341,9 +2291,9 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TARGET-ALL-P3",
           "doc_count": 191,
           "case_summary": {
-            "doc_count": 783,
+            "doc_count": 782,
             "case_with_ssm": {
-              "doc_count": 87
+              "doc_count": 86
             }
           }
         },
@@ -2351,7 +2301,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-ESCA",
           "doc_count": 185,
           "case_summary": {
-            "doc_count": 1605,
+            "doc_count": 1623,
             "case_with_ssm": {
               "doc_count": 185
             }
@@ -2361,7 +2311,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-PAAD",
           "doc_count": 185,
           "case_summary": {
-            "doc_count": 1585,
+            "doc_count": 1720,
             "case_with_ssm": {
               "doc_count": 185
             }
@@ -2381,9 +2331,9 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "OHSU-CNL",
           "doc_count": 176,
           "case_summary": {
-            "doc_count": 336,
+            "doc_count": 494,
             "case_with_ssm": {
-              "doc_count": 0
+              "doc_count": 158
             }
           }
         },
@@ -2398,16 +2348,6 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           }
         },
         {
-          "key": "TCGA-TGCT",
-          "doc_count": 150,
-          "case_summary": {
-            "doc_count": 1318,
-            "case_with_ssm": {
-              "doc_count": 150
-            }
-          }
-        },
-        {
           "key": "TCGA-THYM",
           "doc_count": 124,
           "case_summary": {
@@ -2418,20 +2358,10 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           }
         },
         {
-          "key": "CGCI-BLGSP",
-          "doc_count": 120,
-          "case_summary": {
-            "doc_count": 804,
-            "case_with_ssm": {
-              "doc_count": 74
-            }
-          }
-        },
-        {
           "key": "TCGA-KICH",
           "doc_count": 113,
           "case_summary": {
-            "doc_count": 685,
+            "doc_count": 705,
             "case_with_ssm": {
               "doc_count": 66
             }
@@ -2451,7 +2381,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-ACC",
           "doc_count": 92,
           "case_summary": {
-            "doc_count": 745,
+            "doc_count": 809,
             "case_with_ssm": {
               "doc_count": 92
             }
@@ -2471,7 +2401,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-MESO",
           "doc_count": 87,
           "case_summary": {
-            "doc_count": 758,
+            "doc_count": 813,
             "case_with_ssm": {
               "doc_count": 87
             }
@@ -2491,9 +2421,19 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TCGA-UVM",
           "doc_count": 80,
           "case_summary": {
-            "doc_count": 652,
+            "doc_count": 700,
             "case_with_ssm": {
               "doc_count": 80
+            }
+          }
+        },
+        {
+          "key": "CGCI-HTMCP-DLBCL",
+          "doc_count": 70,
+          "case_summary": {
+            "doc_count": 465,
+            "case_with_ssm": {
+              "doc_count": 50
             }
           }
         },
@@ -2501,9 +2441,9 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "ORGANOID-PANCREATIC",
           "doc_count": 70,
           "case_summary": {
-            "doc_count": 226,
+            "doc_count": 225,
             "case_with_ssm": {
-              "doc_count": 58
+              "doc_count": 57
             }
           }
         },
@@ -2524,6 +2464,16 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
             "doc_count": 199,
             "case_with_ssm": {
               "doc_count": 60
+            }
+          }
+        },
+        {
+          "key": "MATCH-I",
+          "doc_count": 60,
+          "case_summary": {
+            "doc_count": 345,
+            "case_with_ssm": {
+              "doc_count": 57
             }
           }
         },
@@ -2551,9 +2501,9 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "BEATAML1.0-CRENOLANIB",
           "doc_count": 56,
           "case_summary": {
-            "doc_count": 108,
+            "doc_count": 107,
             "case_with_ssm": {
-              "doc_count": 52
+              "doc_count": 51
             }
           }
         },
@@ -2598,6 +2548,26 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           }
         },
         {
+          "key": "MATCH-W",
+          "doc_count": 45,
+          "case_summary": {
+            "doc_count": 265,
+            "case_with_ssm": {
+              "doc_count": 44
+            }
+          }
+        },
+        {
+          "key": "MATCH-Z1A",
+          "doc_count": 45,
+          "case_summary": {
+            "doc_count": 262,
+            "case_with_ssm": {
+              "doc_count": 43
+            }
+          }
+        },
+        {
           "key": "CGCI-HTMCP-LC",
           "doc_count": 39,
           "case_summary": {
@@ -2638,6 +2608,16 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           }
         },
         {
+          "key": "MATCH-B",
+          "doc_count": 33,
+          "case_summary": {
+            "doc_count": 187,
+            "case_with_ssm": {
+              "doc_count": 32
+            }
+          }
+        },
+        {
           "key": "MATCH-Y",
           "doc_count": 31,
           "case_summary": {
@@ -2651,9 +2631,39 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
           "key": "TARGET-ALL-P1",
           "doc_count": 24,
           "case_summary": {
-            "doc_count": 62,
+            "doc_count": 86,
             "case_with_ssm": {
               "doc_count": 0
+            }
+          }
+        },
+        {
+          "key": "MATCH-U",
+          "doc_count": 23,
+          "case_summary": {
+            "doc_count": 137,
+            "case_with_ssm": {
+              "doc_count": 22
+            }
+          }
+        },
+        {
+          "key": "MATCH-H",
+          "doc_count": 21,
+          "case_summary": {
+            "doc_count": 122,
+            "case_with_ssm": {
+              "doc_count": 21
+            }
+          }
+        },
+        {
+          "key": "MATCH-N",
+          "doc_count": 21,
+          "case_summary": {
+            "doc_count": 120,
+            "case_with_ssm": {
+              "doc_count": 21
             }
           }
         },
@@ -2682,6 +2692,7 @@ curl "https://api.gdc.cancer.gov/analysis/mutated_cases_count_by_project?size=0&
   }
 }
 ```
+
 ### Survival Analysis Endpoint
 
 [Survival plots](/Data_Portal/Users_Guide/Exploration/#survival-analysis) are generated for different subsets of data, based on variants or projects, in the GDC Data Portal. The `/analysis/survival` endpoint can be used to programmatically retrieve the raw data used to generate these plots and apply different filters. Note that the `fields` and `format` parameters cannot be modified.

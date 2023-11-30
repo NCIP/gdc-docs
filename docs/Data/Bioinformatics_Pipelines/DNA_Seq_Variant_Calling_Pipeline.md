@@ -601,15 +601,6 @@ AscatNGS, originally developed by [Raine *et al* (2016)]( https://doi.org/10.100
 * __Max. Copy number:__ The highest copy number for overlapped segment (copy number variant only).
 * __Min. Copy number:__ The lowest copy number for overlapped segment (copy number variant only).
 
-
-### Harmonization for GENIE variants
-
-Variants reported from the AACR Project GENIE are available from the GDC Data Portal in MAF format.  These variants were produced using an abridged pipeline in which the Genomic Data Commons received the variants directly instead of calling them from aligned reads.  For an outline of the harmonization process, see the steps below:
-
-1. Variants are submitted directly to the GDC as a "Genomic Profile."
-1. GENIE variants are lifted over to GRCh38 coordinates.
-1. Variants are annotated using VEP and made available via the GDC Data Portal.
-
 ## Microsatellite Instability Detection
 
 The GDC adopts [MSIsensor2](https://github.com/niu-lab/msisensor2) to derive Microsatellite Instability (MSI) information from tumor DNA-Seq data. The MSIsensor2 software uses only the tumor BAM as input, and calculates the numeric MSI score (number of msi sites / all valid sites). The MSI status of MSI (Microsatellite Instable) or MSS (Microsatellite Stable) is then determined using a MSI score cutoff value of 20%.
