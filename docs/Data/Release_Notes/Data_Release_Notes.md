@@ -105,8 +105,20 @@
     * The follow up data for CPTAC-3 has been updated
 
 * Other Updates
+    * CNV mutations are now available on the exploration page for projects that only had ASCAT CNV data from WGS files. This includes CNV mutations for the following projects:
+        * APOLLO-LUAD
+        * CDDP_EAGLE-1
+        * CGCI-BLGSP
+        * CGCI-HTMCP-CC
+        * CGCI-HTMCP-DLBCL
+        * CGCI-HTMCP-LC
+        * CPTAC-3
+        * HCMI-CMDC
+        * MP2PRT-ALL
+        * REBC-THYR
     * The GENIE program was removed from the GDC Portal because it did not correspond with the latest version of GENIE released
         * GENIE data can be accessed from the [AACR Repositories](https://www.aacr.org/professionals/research/aacr-project-genie/aacr-project-genie-data/)
+
 
 A complete list of files included in the GDC Data Portal can be found below:
 
