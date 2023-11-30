@@ -135,7 +135,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 |82 - EAS_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined East Asian population |
 |83 - EUR_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined European population |
 |84 - SAS_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined South Asian population |
-|85 - AA_MAF | Non-reference allele and frequency of existing variant in [NHLBI-ESP](http://evs.gs.washington.edu/EVS/) African American population |
+|85 - AA_MAF | Non-reference allele and frequency of existing variant in [NHLBI-ESP](https://esp.gs.washington.edu/drupal/) African American population |
 |86 - EA_MAF | Non-reference allele and frequency of existing variant in NHLBI-ESP European American population|
 |87 - CLIN_SIG | Clinical significance of variant from dbSNP as annotated in ClinVar |
 |88 - SOMATIC |Somatic status of each ID reported under Existing_variation (0, 1, or null) |

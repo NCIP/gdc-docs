@@ -7,7 +7,7 @@ Clinical data is a collection of data related to patient diagnosis, demographics
 
 A core focus of the GDC is to enable the comparison of cancer genomic data to patient clinical data.  This may include patient diagnosis, exposures, laboratory tests, and family relationships.  To allow for comparisons across projects the GDC adheres to a common set of clinical terms.
 
-Clinical data vocabulary in the GDC is defined in the GDC Data Dictionary<sup>1</sup>.  A simple list of all GDC clinical terms can be found on the GDC Website<sup>2</sup>. Whenever possible each clinical data property is associated with a Common Data Element defined in the [CDE Browser](https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html), which is part of the [Center for Biomedical Informatics & Information Technology](https://cbiit.nci.nih.gov/).  CDEs and their component definitions in the [NCI Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/) provide very precise descriptions of clinical data, which allows data consumers and submitters to understand precisely what data in the GDC represents.
+Clinical data vocabulary in the GDC is defined in the GDC Data Dictionary<sup>1</sup>.  A simple list of all GDC clinical terms can be found on the GDC Website<sup>2</sup>. Whenever possible each clinical data property is associated with a Common Data Element defined in the [caDSR II Browser](https://cadsr.cancer.gov/onedata/Home.jsp), which is part of the [Center for Biomedical Informatics & Information Technology](https://datascience.cancer.gov/).  CDEs and their component definitions in the [NCI Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/) provide very precise descriptions of clinical data, which allows data consumers and submitters to understand precisely what data in the GDC represents.
 
 Additional information on the goals and origins of the GDC clinical terminology can be found in this GDC scientific report<sup>3</sup>.  Additional information on how the clinical data relates to overall GDC Data Model can be found on the GDC Website<sup>4</sup>.
 
@@ -25,6 +25,6 @@ In the GDC, clinical data is searchable in the API or Data Portal.  This only in
 ## External Links ##
 
 * [CDE Browser](https://cadsr.cancer.gov/onedata/Home.jsp)
-* [Center for Biomedical Informatics & Information Technology](https://cbiit.nci.nih.gov/)
+* [Center for Biomedical Informatics & Information Technology](https://datascience.cancer.gov/)
 
 Categories: Data Category

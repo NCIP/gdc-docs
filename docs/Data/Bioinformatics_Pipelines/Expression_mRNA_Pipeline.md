@@ -323,7 +323,7 @@ The analysis pipeline, which uses the Seurat software, generates three files fro
 
 * Analysis - PCA, UMAP, tSNE values, and graph-based clustering results with associated metadata (TSV).
 * Differential gene expression - DEG information comparing cells from one cluster to the rest of the cells (TSV).
-* Full Seurat analysis log as a loom object in [HDF5](https://portal.hdfgroup.org/display/knowledge/HDF+Knowledge+Base) format.
+* Full Seurat analysis log as a loom object in [HDF5](https://portal.hdfgroup.org/hdf5/v1_14/_u_g.html) format.
 
 When the input RNA was extracted from nuclei instead of cytoplasm, a slightly modified quantification method is implemented to include introns. Currently, these single-nuclei RNA-Seq (snRNA-Seq) analyses share the same experimental strategy (scRNA-Seq) in the Data Portal, and can be filtered by querying for aliquot.analyte_type = "Nuclei RNA".
 

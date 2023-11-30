@@ -17,7 +17,7 @@ The GDC Data Dictionary consists of the following components:
 
 All properties and values in the GDC Data Dictionary include references to external standards defined and maintained by the [NCI Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/) (NCIt) and the [Cancer Data Standards Registry and Repository](https://wiki.nci.nih.gov/display/caDSR/caDSR+Wiki) (caDSR). Both of these standards are operated by groups at [NCI's Center for Bioinformatics and Information Technology](https://datascience.cancer.gov/) (CBIIT).
 
-Each property is assigned a [Common Data Element](https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search) (CDE) created by the caDSR. The CDE provides detailed information about the property including links to the NCIt through assigned concept codes. NCIt concepts are also assigned at the permissible value level for enumerated properties. The images below are an example of a caDSR CDE and its related property-level NCIt concepts.
+Each property is assigned a [Common Data Element](https://cadsr.cancer.gov/onedata/Home.jsp) (CDE) created by the caDSR. The CDE provides detailed information about the property including links to the NCIt through assigned concept codes. NCIt concepts are also assigned at the permissible value level for enumerated properties. The images below are an example of a caDSR CDE and its related property-level NCIt concepts.
 
 [![CDE Data Elements Details](images/CDE_Data_Element_Details.png)](images/CDE_Data_Element_Details.png "Click to see the full image.")
 [![CDE Details](images/CDE_Details.png)](images/CDE_Details.png "Click to see the full image.")
@@ -147,6 +147,6 @@ The results from searches can be sorted into three different result fields:
 
 ## Data Dictionary API
 
-In technical terms, the dictionary is a set of YAML files that define JSON schemas for each entity in the dictionary. The files are available [on GitHub](https://github.com/NCI-GDC/gdcdictionary/tree/develop/gdcdictionary/schemas).
+In technical terms, the dictionary is a set of YAML files that define JSON schemas for each entity in the dictionary. The files are available [on GitHub](https://github.com/NCI-GDC/gdcdictionary/tree/develop/src/gdcdictionary/schemas).
 
 The GDC API can generate entity JSON schemas in JSON format. The API also provides the template generation functionality accessible via the GDC Data Dictionary Viewer. See [API documentation](../API/Users_Guide/Submission/#gdc-data-dictionary-endpoints) for details on how to access these functions programmatically.

@@ -119,7 +119,7 @@ The alignment quality is further improved by the [Co-cleaning workflow](/Data_Di
 
 #### Indel Local Realignment
 
-Local realignment of insertions and deletions is performed using [IndelRealigner](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.php). This step locates regions that contain misalignments across BAM files, which can often be caused by insertion-deletion (indel) mutations with respect to the reference genome. Misalignment of indel mutations, which can often be erroneously scored as substitutions, reduces the accuracy of downstream variant calling steps.
+Local realignment of insertions and deletions is performed using [IndelRealigner](https://github.com/broadinstitute/gatk-docs/blob/master/gatk3-tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.json). This step locates regions that contain misalignments across BAM files, which can often be caused by insertion-deletion (indel) mutations with respect to the reference genome. Misalignment of indel mutations, which can often be erroneously scored as substitutions, reduces the accuracy of downstream variant calling steps.
 
 #### Base Quality Score Recalibration
 
