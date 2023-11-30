@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v39.0](Data_Release_Notes.md#data-release-390) | November 30, 2023 |
+| [v39.0](Data_Release_Notes.md#data-release-390) | December 4, 2023 |
 | [v38.0](Data_Release_Notes.md#data-release-380) | August 31, 2023 |
 | [v37.0](Data_Release_Notes.md#data-release-370) | March 29, 2023 |
 | [v36.0](Data_Release_Notes.md#data-release-360) | December 12, 2022 |
@@ -86,9 +86,9 @@
         * HCMI-CMDC
         * MATCH-B
         * MATCH-H
+        * MATCH-I
         * MATCH-N
         * MATCH-Q
-        * MATCH-R
         * MATCH-U
         * MATCH-W
         * MATCH-Y
@@ -96,6 +96,9 @@
         * MATCH-Z1D
         * OHSU-CNL
         * ORGANOID-PANCREATIC
+        * TARGET-ALL-P3
+        * TARGET-WT
+        * VAREPOP-APOLLO
 
 
 * New Metadata
