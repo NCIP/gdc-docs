@@ -125,8 +125,8 @@
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [XXXXX](XXXX)
-* [XXXXX](XXXX)
+* [gdc_manifest_20231204_data_release_39.0_active.tsv.gz](gdc_manifest_20231204_data_release_39.0_active.tsv.gz)
+* [DR39 Project Level Manifests](DR39_project_manifests.tar.gz)
 
 ### Bugs Fixed Since Last Release
 
