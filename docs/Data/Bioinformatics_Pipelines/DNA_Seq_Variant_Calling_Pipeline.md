@@ -487,7 +487,7 @@ GetSampleName \
 ## 5. Run MuTect2 using only tumor sample on chromosome level (25 commands with different intervals)
 
 java -Djava.io.tmpdir=/tmp/job_tmp_3 -d64 -jar -Xmx3G -XX:+UseSerialGC \
-/bin/gatk-4.0.4.0/gatk-package-4.0.4.0-local.jar \
+/bin/gatk-4.2.4.0/gatk-package-4.2.4.0-local.jar \
 Mutect2 \
 -R GRCh38.d1.vd1.fa \
 -L chr4:1-190214555 \ # Specify chromosome
