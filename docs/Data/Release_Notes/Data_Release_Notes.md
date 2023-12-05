@@ -119,7 +119,7 @@
         * HCMI-CMDC
         * MP2PRT-ALL
         * REBC-THYR
-    * The GENIE program was removed from the GDC Portal because it did not correspond with the latest version of GENIE released
+    * The GENIE program was removed from the GDC Portal because it was not representative of the latest version of GENIE 
         * GENIE data can be accessed from the [AACR Repositories](https://www.aacr.org/professionals/research/aacr-project-genie/aacr-project-genie-data/)
 
 
