@@ -32,13 +32,13 @@ Users may only be interested in browsing through or downloading a subset of file
 * **Platform**: Technological platform on which experimental data was produced.
 * **Access**: Indicator of whether access to the data file is open or controlled.
 
- Values within each facet can be sorted alphabetically by choosing the “AZ” button on the top left of each card. Alternatively, the frequency sort button next to the "Files" labeled may be selected to sort the values by the number of files available.
+ Values within each facet can be sorted alphabetically by choosing the "AZ" button on the top left of each card. Alternatively, the frequency sort button next to the "Files" labeled may be selected to sort the values by the number of files available.
 
 Note that the categories displayed in the filters represent the values available for the active cohort.
 
 [![Full Repository](images/FullRepo.png)](images/FullRepo.png "Click to see the full image.")
 
-If a different filter needs to be used, a custom filter can be applied by choosing the “Add a File Filter” button at the top of the default filters. Each custom filter can then be searched and chosen within the pop-up window. Once a custom filter is selected, a new filter card will appear at the top of the default filters.  Custom filters can be removed from the Repository by choosing the X at the top right of each filter card.
+If a different filter needs to be used, a custom filter can be applied by choosing the "Add a File Filter" button at the top of the default filters. Each custom filter can then be searched and chosen within the pop-up window. Once a custom filter is selected, a new filter card will appear at the top of the default filters.  Custom filters can be removed from the Repository by choosing the X at the top right of each filter card.
 
 [![Custom File Filter](images/CustomFileFilter.png)](images/CustomFileFilter.png "Click to see the full image.")
 

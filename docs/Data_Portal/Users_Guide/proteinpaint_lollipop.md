@@ -221,7 +221,7 @@ Clicking on the colored box next to the protein domain label removes the color f
 
 Custom protein domains are added by clicking on the '+add protein domain' button at the bottom of the list. An input box appears requiring the following information:
 1. Name, text with space, no semicolon: This is the name of the protein domain
-2. Range, two integers joined by space: This is the codon position – start and stop
+2. Range, two integers joined by space: This is the codon position - start and stop
 3. Color (e.g., red, #FF0000, rgb (255,0,0)): This is the color to assign to the protein domain.
 
 ### GDC Mutations
