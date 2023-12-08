@@ -9,17 +9,18 @@ copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
 - Data Portal:
-  - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
-  - Projects: 'Data_Portal/Users_Guide/Projects.md'
-  - Exploration: Data_Portal/Users_Guide/Exploration.md
-  - Repository: Data_Portal/Users_Guide/Repository.md
-  - Genes and Mutations: Data_Portal/Users_Guide/Genes_and_Mutations.md
-  - Annotations: 'Data_Portal/Users_Guide/Annotations.md'
-  - Advanced Search: 'Data_Portal/Users_Guide/Advanced_Search.md'
-  - Authentication: 'Data_Portal/Users_Guide/Authentication.md'
-  - File Cart: 'Data_Portal/Users_Guide/Cart.md'
-  - Image Viewer: 'Data_Portal/Users_Guide/Image_viewer.md'
-  - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
+  - Quick Start: 'Data_Portal/Users_Guide/quick_start.md'
+  - Tutorial Videos: 'Data_Portal/Users_Guide/tutorial_videos.md'
+  - Cohort Builder: Data_Portal/Users_Guide/cohort_builder.md
+  - Analysis Center: Data_Portal/Users_Guide/analysis_center.md
+  - Repository: Data_Portal/Users_Guide/repository.md
+  - Projects: 'Data_Portal/Users_Guide/projects.md'
+  - Clinical Data Analysis: 'Data_Portal/Users_Guide/clinical_data_analysis.md'
+  - Mutation Frequency: 'Data_Portal/Users_Guide/mutation_frequency.md'
+  - Set Operations: 'Data_Portal/Users_Guide/set_operations.md'
+  - ProteinPaint: 'Data_Portal/Users_Guide/proteinpaint_lollipop.md'
+  - Sequence Reads: 'Data_Portal/Release_Notes/proteinpaint_bam.md'
+  - OncoMatrix: 'Data_Portal/Release_Notes/oncomatrix.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'

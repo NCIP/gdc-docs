@@ -1,177 +1,120 @@
 # Repository
 
-The Repository Page is the primary method of accessing data in the GDC Data Portal. It provides an overview of all cases and files available in the GDC and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the [Repository Page](https://portal.gdc.cancer.gov/repository) from the GDC Data Portal Home Page or from the Data Portal toolbar.
+## Introduction ##
 
-## Filters / Facets
-On the left, a panel of data facets allows users to filter cases and files using a variety of criteria. If facet filters are applied, the tabs on the right will display information about matching cases and files. If no filters are applied, the tabs on the right will display information about all available data.
+The Repository tool is where the files associated with each case in the current cohort can be browsed and downloaded. It also offers users a variety of file filters for identifying files of interest.
 
-On the right, two tabs contain information about available data:
+The Repository tool can be reached in one of these two ways:
+* choosing the Repository link in the GDC Data Portal header
+* clicking the play button on the Repository card in the Analysis Center
 
-* `Files` tab provides a list of files, select information about each file, and links to [individual file detail pages](#file-summary-page).
-* `Cases` tab provides a list of cases, select information about each case, and links to [individual case summary pages](Exploration.md#case-summary-page).
+[![Repository In Header](images/ToolLinksInHeader.png)](images/ToolLinksInHeader.png "Click to see the full image.")
 
-The banner above the tabs on the right displays any active facet filters and provides access to advanced search.
+## Choosing a Cohort ##
 
-The top of the Repository Page, in the "Files" tab, contains a few summary pie charts for Primary Sites, Projects, Data Category, Data Type, and Data Format. These reflect all available data or, if facet filters are applied, only the data that matches the filters. Clicking on a specific slice in a pie chart, or on a number in a table, applies corresponding facet filters. The scope of these pie chart will change depending on whether you have the "Files" tab or the "Cases" tab selected.
+When searching for files to download, many users will have in mind a specific cohort whose associated files they wish to download. The set of files displayed in the Repository at any time will reflect the files that are associated with the active cohort. The current active cohort can be seen in the Main Toolbar (namely on top of the page in the Analysis Center):
 
-[![Data View](images/gdc-data-portal-repository-view_v2.png)](images/gdc-data-portal-repository-view_v2.png "Click to see the full image.")
+[![Main Cohort Toolbar](images/MainCohortToolbar.png)](images/MainCohortToolbar.png "Click to see the full image.")
 
-### Facets Panel
+The active cohort can be changed by clicking the cohort name and choosing a new one from the dropdown menu.  If the cohort of interest does not appear in the list, try [creating a new cohort.](quick_start.md#main-toolbar)
 
-Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the cases and files presented in the tabs on the right.
+For users who want to browse all files that are available at the GDC, create a new cohort via the main toolbar and use it with the Repository tool.
 
-The facets panel is divided into two tabs, with the `Files` tab containing facets pertaining to data files and experimental strategies, while the `Cases` tab containing facets pertaining to the cases and biospecimen information. Users can apply filters in both tabs simultaneously. The applied filters will be displayed in the banner above the tabs on the right, with the option to open the filter in [Advanced Search](Advanced_Search.md) to further refine the query.
+## Filtering a Set of Files ##
 
-[![Facet Filters Applied in Data View](images/data-view-with-facet-filters-applied_v2.png)](images/data-view-with-facet-filters-applied_v2.png "Click to see the full image.")
+Users may only be interested in browsing through or downloading a subset of files associated with the current cohort. For this purpose, a set of commonly-used default facet cards is provided in the left panel of the Repository tool to allow users to filter the files presented in the table on the right. The facet cards are as follow:
 
-The default set of facets is listed below.
+* **Data Category**: A high-level data file category, such as "Raw Sequencing Data" or "Transcriptome Profiling".
+* **Data Type**: Data file type, such as "Aligned Reads" or "Gene Expression Quantification". Data Type is more granular than Data Category.
+* **Experimental Strategy**: Experimental strategies used for molecular characterization of the cancer.
+* **Workflow Type**: Bioinformatics workflow used to generate or harmonize the data file.
+* **Data Format**: Format of the data file.
+* **Platform**: Technological platform on which experimental data was produced.
+* **Access**: Indicator of whether access to the data file is open or controlled.
 
-*Files* facets tab:
+ Values within each facet can be sorted alphabetically by choosing the “AZ” button on the top left of each card. Alternatively, the frequency sort button next to the "Files" labeled may be selected to sort the values by the number of files available.
 
-* __File__: Specify individual files using filename or UUID.
-* __Data Category__: A high-level data file category, such as "Raw Sequencing Data" or "Transcriptome Profiling".
-* __Data Type__: Data file type, such as "Aligned Reads" or "Gene Expression Quantification". Data Type is more granular than Data Category.
-* __Experimental Strategy__: Experimental strategies used for molecular characterization of the cancer.
-* __Workflow Type__: Bioinformatics workflow used to generate or harmonize the data file.
-* __Data Format__: Format of the data file.
-* __Platform__: Technological platform on which experimental data was produced.
-* __Access Level__: Indicator of whether access to the data file is open or controlled.
+Note that the categories displayed in the filters represent the values available for the active cohort.
 
-*Cases* facets tab:
+[![Full Repository](images/FullRepo.png)](images/FullRepo.png "Click to see the full image.")
 
-* __Case__: Specify individual cases using submitter ID (barcode) or UUID.
-* __Case ID__: Search for cases using a part (prefix) of the submitter ID (barcode).
-* __Primary Site__: Anatomical site of the cancer under investigation or review.
-* __Program__: A cancer research program, typically consisting of multiple focused projects.
-* __Project__: A cancer research project, typically part of a larger cancer research program.
-* __Disease Type__: Type of cancer studied.
-* __Gender__: Gender of the patient.
-* __Age at Diagnosis__: Patient age at the time of diagnosis.
-* __Vital Status__: Indicator of whether the patient was living or deceased at the date of last contact.
-* __Days to Death__: Number of days from date of diagnosis to death of the patient.
-* __Race__: Race of the patient.
-* __Ethnicity__: Ethnicity of the patient.
+If a different filter needs to be used, a custom filter can be applied by choosing the “Add a File Filter” button at the top of the default filters. Each custom filter can then be searched and chosen within the pop-up window. Once a custom filter is selected, a new filter card will appear at the top of the default filters.  Custom filters can be removed from the Repository by choosing the X at the top right of each filter card.
 
-### Adding Custom Facets
+[![Custom File Filter](images/CustomFileFilter.png)](images/CustomFileFilter.png "Click to see the full image.")
 
-The Repository Page provides access to additional data facets beyond the automatically listed group filters. Facets corresponding to additional properties listed in the [GDC Data Dictionary](../../Data_Dictionary/index.md) can be added using the "Add a Filter" link available at the top of the `Cases` and `Files` facet tabs:
+## Downloading a Set of Files ##
 
-[![Add a Facet](images/gdc-data-portal-data-add-facet.png)](images/gdc-data-portal-data-add-facet.png "Click to see the full image.")
+When filtering has been completed, files are ready to be downloaded.  Depending on the number and size of files, the GDC has several options and recommendations for downloading them.  While any amount of data can be downloaded using the GDC Data Transfer Tool or the API, files can be downloaded directly from the Data Portal if the size is 5 GB or less in total and the number of files does not exceed 10,000. For any downloads larger than 5 GB or 10,000 files, it’s recommended that the download be performed using the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).
 
-The link opens a search window that allows the user to find an additional facet by name or description. Not all facets have values available for filtering; checking the "Only show fields with values" checkbox will limit the search results to only those that do. When selecting a facet from the list of search results below the search box will add it to the facets panel.
+### Adding/Removing Files to the Cart for Download ####
 
-[![Search for a Facet](images/gdc-data-portal-data-facet-search.png)](images/gdc-data-portal-data-facet-search.png "Click to see the full image.")
+To perform a download, first, add a set of files to the Cart. This can be done using the following methods:
+* By clicking on the cart icon at the left to each file, it will toggle between adding to / removing the file from the cart.
+* (Coming Soon!) Selecting the Add All Files to Cart button. This will add all the files in the current cohort to the Cart, subject to any filtering that has been applied in the Repository.
+* JSON / TSV Buttons: These two buttons will download the files' details (file name, file size, data category, access type, etc) in JSON and TSV format, respectively
+* The Manifest button will generate a manifest file in text format that contains file details required for batch download (using Data Transfer Tools).
+* View Images: When image slides files selected, this button will create open the Slide Image Viewer, containing a collection of image files selected.
 
-Newly added facets will show up at the top of the facets panel and can be removed individually by clicking on the "__x__" to the right of the facet name. The default set of facets can be restored by clicking "Reset".
+<!-- TOOD (wt) update image when pari's pr is in -->
+[![Add Files To Cart](images/AddFilesToCart.png)](images/AddAllFilesToCart.png "Click to see the full image.")
 
-[![Customize Facet](images/gdc-data-portal-data-facet-tumor_stage.png)](images/gdc-data-portal-data-facet-tumor_stage.png "Click to see the full image.")
+### Cart
 
-## Annotations View
+The Cart page can then be reached by clicking the Cart icon at the top right of the portal.
 
-The Annotations View provides an overview of the available annotations and allows users to browse and filter the annotations based on a number of annotation properties (facets), such as the type of entity the annotation is attached to or the annotation category. This page can be found by clicking on the [Browse Annotations](https://portal.gdc.cancer.gov/annotations) link, located at the top right of the repository page.
+At the upper-right of the page is a summary of all files currently in the cart:
+* Number of files.
+* Number of cases associated with the files.
+* Total file size.
 
-[![Annotations View](images/Browse_Annotations.png)](images/Browse_Annotations.png "Click to see the full image.")
+The Cart page displays the file count by project and authorization level, as well as a table of all files that have been added to the Cart.  Files can be removed from the Cart using the trash icons at the left of each file in the table or by selecting the "Remove from Cart" option at the top of the Cart page, which removes either all files or the unauthorized ones.
 
-The view presents a list of annotations in tabular format on the right, and a facet panel on the left that allows users to filter the annotations displayed in the table. If facet filters are applied, the tabs on the right will display only the matching annotations. If no filters are applied, the tabs on the right will display information about all available annotations.
+Similar to the main page, JSON / TSV buttons will download the files' details (file name, file size, data category, access type, etc) in JSON and TSV format, respectively.
 
-[![Annotations View](images/gdc-data-portal-annotations.png)](images/gdc-data-portal-annotations.png "Click to see the full image.")
+[![Cart Page](images/CartPage.png)](images/CartPage.png "Click to see the full image.")
 
-Clicking on an annotation ID in the annotations list will take the user to the Annotation Summary Page. The Annotation Summary Page provides more details about a specific annotation.
+### Cart Items Table
 
-[![Annotation Entity Page](images/annotations-entity-page.png)](images/annotations-entity-page.png "Click to see the full image.")
+The Cart Items table shows the list of all the files that were added to the Cart. The table gives the following information for each file in the cart:
 
-## Results
+* **Access**: Displays whether the file is open or controlled access. Users must login to the GDC Portal and have the appropriate credentials to access these files.
+* **File Name**: Name of the file. Clicking the link will bring the user to the File Summary Page.
+* **Cases**: The number of cases associated with the file.
+* **Project**: The Project that the file belongs to. Clicking the link will bring the user to the Project Summary Page.
+* **Data Category**: Type of data.
+* **Data Format**: The file format.
+* **File Size**: The size of the file.
+* **Annotations**: Whether there are any annotations.
 
-### Navigation
+### Downloading Files from the Cart
 
-After utilizing the Repository Page to narrow down a specific set of cases, users can choose to continue to explore the mutations and genes affected by these cases by clicking the `View Cases in Exploration` button as shown in the image below.
+To download files in the Cart, select the Download Cart button and choose either:
+* **Manifest**: Downloads a manifest for the files that can be passed to the GDC Data Transfer Tool. A manifest file contains a list of the UUIDs that correspond to the files in the cart.
+* **Cart**: Download the files directly through the browser. Users have to be cautious of the amount of data in the cart since this option will not optimize bandwidth and will not provide resume capabilities. This option can only be used if the total size of the files in the Cart does not exceed 5 GB.
 
-[![Exploration File Navigation](images/gdc-view-in-exploration_v3.png)](images/gdc-view-in-exploration_v3.png "Click to see the full image.")
+### Additional Data Download
 
-Clicking this button will navigate the users to the [Exploration Page](Exploration.md), filtered by the cases within the cohort.
+Additional data can be downloaded from the Cart page using the Download Associated Data button at the top of the page and choosing one of the available options.
 
-### Files List
+[![Cart Metadata](images/CartAssociatedData.png)](images/CartAssociatedData.png "Click to see the full image.")
+* Clinical: TSV / Clinical: JSON (Coming Soon!) - This includes all clinical information from the cases that are associated with the files (available as TSV or JSON)
+* Biospecimen: TSV / Biospecimen: JSON (Coming Soon!) - This includes all biospecimen information from the cases that are associated with the files (available as TSV or JSON).
+* Sample Sheet -  A TSV with commonly-used elements associated with each file, such as sample barcode and sample type.
+* Metadata - This includes all of the metadata associated with each and every file in the cart.  Note that this file is only available in JSON format and may take several minutes to download.
 
-The `Files` tab on the right provides a list of available files and select information about each file. If facet filters are applied, the list includes only matching files. Otherwise, the list includes all data files available in the GDC Data Portal.
+## File Summary Page ##
 
-[![Files Tab](images/gdc-data-portal-data-files.png)](images/gdc-data-portal-data-files.png "Click to see the full image.")
+Users can launch the File Summary Page by clicking on a file name in the tables that appear on both the Repository and Cart pages. The File Summary Page provides information about a data file, including file properties like size, MD5 checksum, and data format; information on the type of data included; links to the associated cases and biospecimen; and information about how the data file was generated or processed.
 
-The "*File Name*" column includes links to [File Summary Pages](#file-summary-page) where the user can learn more about each file.
+The page also includes buttons to download the file, add it to the file cart, or (for BAM files) utilize the BAM slicing function.
 
-Users can add individual file(s) to the [cart](Cart.md) using the cart button next to each file. Alternatively, all files that match the current facet filters can be added to the cart using the menu in the top left corner of the table:
-
-[![Files Tab](images/gdc-data-portal-data-files-add-cart.png)](images/gdc-data-portal-data-files-add-cart.png "Click to see the full image.")
-
-## File Summary Page
-
-The File Summary page provides information about a data file, including file properties like size, MD5 checksum, and data format; information on the type of data included; links to the associated cases and biospecimen; and information about how the data file was generated or processed.
-
-The page also includes buttons to download the file, add it to the file [cart](Cart.md), or (for BAM files) utilize the BAM slicing function.
-
-[![Files Detail Page](images/gdc-data-portal-files-entity-page.png)](images/gdc-data-portal-files-entity-page.png "Click to see the full image.")
+[![File Summary Page](images/FileSummaryPage.png)](images/FileSummaryPage.png "Click to see the full image.")
 
 In the lower section of the screen, the following tables provide more details about the file and its characteristics:
 
-* __Associated Cases / Biospecimen__: List of cases or biospecimen the file is directly attached to.
+* __Associated Cases/Biospecimen__: List of cases or biospecimen the file is directly attached to.
 * __Analysis and Reference Genome__: Information on the workflow and reference genome used for file generation.
 * __Read Groups__: Information on the read groups associated with the file.
 * __Metadata Files__: Experiment metadata, run metadata and analysis metadata associated with the file.
 * __Downstream Analysis Files__: List of downstream analysis files generated by the file.
 * __File Versions__: List of all versions of the file.
-
-
-[![Files Entity Page](images/gdc-data-portal-files-entity-page-part2_v2.png)](images/gdc-data-portal-files-entity-page-part2_v2.png "Click to see the full image.")
-
-### BAM Slicing
-
-BAM file Summary Pages have a "BAM Slicing" button. This function allows the user to specify a region of a BAM file for download. Clicking on it will open the BAM Slicing window:
-
-[![BAM Slicing Window](images/gdc-data-portal-bam-slicing_v2.png)](images/gdc-data-portal-bam-slicing_v2.png "Click to see the full image.")
-
-During preparation of the slice, the icon on the BAM Slicing button will be spinning, and the file will be offered for download to the user as soon as it is ready.
-
-### Cases List
-
-The `Cases` tab on the right provides a list of available cases and select information about each case. If facet filters are applied, the list includes only matching cases. Otherwise, the list includes all cases available in the GDC Data Portal.
-
-[![Cases Tab](images/gdc-data-portal-data-cases_v3.png)](images/gdc-data-portal-data-cases_v3.png "Click to see the full image.")
-
-From the left side, the list starts with a shopping cart icon, allowing the user to add all files associated with a case to the [file cart](Cart.md) for downloading at a later time. The following columns in the list includes links to [Case Summary Pages](Exploration.md#case-summary-page) in the *Case UUID* column, the Submitter ID (i.e. TCGA Barcode), and counts of the available file types for each case. Clicking on a count will apply facet filters to display the corresponding files. On the last column, there are image slide icons and a number that indicate whether there are slide images available and how many.
-
-## Image Viewer
-
-The Image Viewer allows users to visualize tissue and diagnostic slide images.
-
-[![Image Viewer](images/Image_viewer_browser.png)](images/Image_viewer_browser.png "Click to see the full image.")
-
-### How to Access the Image Viewer
-
-* __Repository Page__: From the main search on the Repository Page by clicking on the "View images" button. It will display the tissue slide images of all the cases resulting from the query.
-
-[![Image Viewer](images/Image_Viewer_from_Repository.png)](images/Image_Viewer_from_Repository.png "Click to see the full image.")
-
-* __Case Table in Repository Page__: Click on the image viewer icon in the Case table. It will display in the image viewer all the tissue slide images attached to the Case.
-
-[![Cases Tab](images/gdc-data-portal-data-cases_v3.png)](images/gdc-data-portal-data-cases_v3.png "Click to see the full image.")
-
-* __Case Summary Page:__ Selecting a Case ID in the Repository Cases table will direct the user to the [Case Summary Page](Exploration.md#case-summary-page). For cases with images, the Image Viewer icon will appear in the Case Summary section or in the Biospecimen - Slides details section. Clicking on the Image Viewer icon will display the Image Viewer for the slide images attached to the case.
-
- [![Image Viewer](images/Image_viewer_case_summary.png)](images/Image_viewer_case_summary.png "Click to see the full image.")
- [![Image Viewer](images/Image_viewer_case_slide_section.png)](images/Image_viewer_case_slide_section.png "Click to see the full image.")
-
-* __The Image File Page__: You can visualize the slide image directly in the File Summary Page by selecting an image file in the Repository's files table.
-
-[![Image Viewer](images/Repository_select_image.png)](images/Repository_select_image.png "Click to see the full image.")
-
-[![Image Viewer](images/Image_viewer_File_entity.png)](images/Image_viewer_File_entity.png "Click to see the full image.")
-
-### Image Viewer Features
-In the image viewer, a user can:
-
-* Zoom in and zoom out by clicking on + and - icons.
-* Reset to default display by clicking on the Home icon.
-* Display the image in full screen mode by clicking on the Expand icon.
-* View the slide detail by clicking on "Details" button.
-* Selecting the area of interest with the thumbnail at the top-right corner.
-
-[![Image Viewer](images/Image_viewer_features.png)](images/Image_viewer_features.png "Click to see the full image.")
