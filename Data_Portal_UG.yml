@@ -13,7 +13,7 @@ pages:
   - Tutorial Videos: 'Data_Portal/Users_Guide/tutorial_videos.md'
   - Cohort Builder: Data_Portal/Users_Guide/cohort_builder.md
   - Analysis Center: Data_Portal/Users_Guide/analysis_center.md
-  - Repository: Data_Portal/Users_Guide/repository.md
+  - Repository: Data_Portal/Users_Guide/Repository.md
   - Projects: 'Data_Portal/Users_Guide/projects.md'
   - Clinical Data Analysis: 'Data_Portal/Users_Guide/clinical_data_analysis.md'
   - Mutation Frequency: 'Data_Portal/Users_Guide/mutation_frequency.md'
