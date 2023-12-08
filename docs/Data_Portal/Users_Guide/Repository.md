@@ -44,7 +44,7 @@ If a different filter needs to be used, a custom filter can be applied by choosi
 
 ## Downloading a Set of Files ##
 
-When filtering has been completed, files are ready to be downloaded.  Depending on the number and size of files, the GDC has several options and recommendations for downloading them.  While any amount of data can be downloaded using the GDC Data Transfer Tool or the API, files can be downloaded directly from the Data Portal if the size is 5 GB or less in total and the number of files does not exceed 10,000. For any downloads larger than 5 GB or 10,000 files, it’s recommended that the download be performed using the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).
+When filtering has been completed, files are ready to be downloaded.  Depending on the number and size of files, the GDC has several options and recommendations for downloading them.  While any amount of data can be downloaded using the GDC Data Transfer Tool or the API, files can be downloaded directly from the Data Portal if the size is 5 GB or less in total and the number of files does not exceed 10,000. For any downloads larger than 5 GB or 10,000 files, it's recommended that the download be performed using the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).
 
 ### Adding/Removing Files to the Cart for Download ####
 
