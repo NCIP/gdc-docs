@@ -7,7 +7,7 @@ Each row is a gene and each cell, or a column represents a case. At any point in
 
 ## Accessing the Matrix Chart
 
-At the Analysis Center, click on the “OncoMatrix” card to launch the app.
+At the Analysis Center, click on the "OncoMatrix" card to launch the app.
 [![Analysis Tools with Oncomatrix Card](./images/oncomatrix/1-analysis_center.png)](./images/oncomatrix/1-analysis_center.png 'Click to see the full image.')
 
 View publicly available genes as well as login with credentials to access controlled data.
@@ -153,7 +153,7 @@ Click the second option `CNV+SSM > SSM only` to change the sorting as shown belo
 
 [![Sort cases by SSM+CNV > SSM only](./images/oncomatrix/24-sort_cases.png)](./images/oncomatrix/24-sort_cases.png 'Click to see the full image.')
 
-Sorting ‘By Case name, ID or label’ sorts on the basis of the order of the name of cases or ID as shown below.
+Sorting 'By Case name, ID or label' sorts on the basis of the order of the name of cases or ID as shown below.
 
 [![Sort cases by name, ID or label](./images/oncomatrix/73-sort_cases_name.png)](./images/oncomatrix/73-sort_cases_name.png 'Click to see the full image.')
 

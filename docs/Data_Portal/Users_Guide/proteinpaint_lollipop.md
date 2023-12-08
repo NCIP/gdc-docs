@@ -5,7 +5,7 @@
 ProteinPaint is a web based, dynamic visualization tool that displays a lollipop chart based on the multidimensional skewer version 3 (mds3 track). This tool utilizes variant annotations from GDC datasets. Given a particular gene, it displays variants associated with that gene as well as the occurrence, disease type, and demographic information of the associated case given a case.
 
 ### Accessing the Lollipop Chart
-At the Analysis Center, click on the “ProteinPaint” card to launch the app.
+At the Analysis Center, click on the "ProteinPaint" card to launch the app.
 
 [![Analysis Center](images/lollipop1.png)](images/lollipop1.png "Click to see the full image.")
 
@@ -28,7 +28,7 @@ There are 3 main panels as outlined in the figure below:
 
 [![Search Box](images/lollipop4.png)](images/lollipop4.png "Click to see the full image.")
 
-The example below uses the KRAS gene. The name of the gene (e.g., ‘KRAS’), GENCODE accession no. (e.g., [ENST00000311936](http://useast.ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000133703;r=12:25205246-25250936;t=ENST00000311936), [ENSP00000308495](http://useast.ensembl.org/Homo_sapiens/Transcript/ProteinSummary?db=core;g=ENSG00000133703;r=12:25205246-25250936;t=ENST00000311936)) or RefSeq accession (e.g., NM_004985) can be used as the search item. In case a wrong gene is entered, the search box will display an error. For gene searches only, typing a few letters reveals a menu of possible matches. Choose from either a menu option or hit enter.
+The example below uses the KRAS gene. The name of the gene (e.g., 'KRAS'), GENCODE accession no. (e.g., [ENST00000311936](http://useast.ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000133703;r=12:25205246-25250936;t=ENST00000311936), [ENSP00000308495](http://useast.ensembl.org/Homo_sapiens/Transcript/ProteinSummary?db=core;g=ENSG00000133703;r=12:25205246-25250936;t=ENST00000311936)) or RefSeq accession (e.g., NM_004985) can be used as the search item. In case a wrong gene is entered, the search box will display an error. For gene searches only, typing a few letters reveals a menu of possible matches. Choose from either a menu option or hit enter.
 
 [![Search Box Example](images/lollipop5.png)](images/lollipop5.png "Click to see the full image.")
 
@@ -81,7 +81,7 @@ Clickable links for the number of cases (e.g. 1315 samples) and number of varian
 ## Viewing Variants and Case Samples
 
 ### Variant Annotations and Chart Manipulation
-Click on the number of variants linked to the left of the lollipop for viewing annotations and manipulating the lollipop. For variant annotation, click on ‘List’.
+Click on the number of variants linked to the left of the lollipop for viewing annotations and manipulating the lollipop. For variant annotation, click on 'List'.
 
 [![Variant Annotation](images/lollipop12.png)](images/lollipop12.png "Click to see the full image.")
 
@@ -94,21 +94,21 @@ Click on the variant of interest and a new annotation table appears. From the ta
 
 The first sample that is highlighted in yellow is a male with ductal and lobular neoplasms with a tumor DNA MAF of 31/125. This indicates 31 mutant alleles were found out of 125 total alleles.
 
-The GDC dataset includes an ‘Access’ column to indicate whether the data is controlled or open. Users must obtain permission from dbGaP to view controlled data [See Obtaining Access to Controlled Data](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data). Click on the sample hyperlink and the GDC’s case summary for the sample will appear in a new tab.
+The GDC dataset includes an 'Access' column to indicate whether the data is controlled or open. Users must obtain permission from dbGaP to view controlled data [See Obtaining Access to Controlled Data](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data). Click on the sample hyperlink and the GDC's case summary for the sample will appear in a new tab.
 
-Click ‘Back to list’ and select another sample, as shown below.
+Click 'Back to list' and select another sample, as shown below.
 
 [![Back to List](images/lollipop15.png)](images/lollipop15.png "Click to see the full image.")
 
-After clicking on the variant menu again, select the ‘Collapse’ option to collapse all skewers in the lollipop.
+After clicking on the variant menu again, select the 'Collapse' option to collapse all skewers in the lollipop.
 
 [![Collapse](images/lollipop16.png)](images/lollipop16.png "Click to see the full image.")
 
-To expand any previously collapsed skewers, open the variant menu, and click on ‘Expand’.
+To expand any previously collapsed skewers, open the variant menu, and click on 'Expand'.
 
 [![Expand](images/lollipop17.png)](images/lollipop17.png "Click to see the full image.")
 
-The lollipop chart includes an option to arrange variants by the range of occurrences. Open the variant menu and click on  ‘Occurrence as Y axis’.
+The lollipop chart includes an option to arrange variants by the range of occurrences. Open the variant menu and click on  'Occurrence as Y axis'.
 
 [![Occurrence as Y Axis](images/lollipop18.png)](images/lollipop18.png "Click to see the full image.")
 
@@ -126,11 +126,11 @@ Clicking on the sample hyperlink on the left of the lollipop (e.g. 1315 samples)
 
 [![Menu to List All Samples](images/lollipop21.png)](images/lollipop21.png "Click to see the full image.")
 
-Click on 1315 samples to view annotations grouped by attributes such as: Disease type, Primary site, Project id, Gender, Race, Ethnicity, etc.. For each attribute, the number of values is represented by ‘n’ to the right of the group label. In the figure below, 21 values for Disease type are reported.
+Click on 1315 samples to view annotations grouped by attributes such as: Disease type, Primary site, Project id, Gender, Race, Ethnicity, etc.. For each attribute, the number of values is represented by 'n' to the right of the group label. In the figure below, 21 values for Disease type are reported.
 
 [![Annotations Grouped by Attributes Example: Disease type](images/lollipop22.png)](images/lollipop22.png "Click to see the full image.")
 
-To start filtering, click on the value label or the value’s sample fraction. Clicking on ‘Adenomas and Adenocarcinomas’ or ‘675/ 4866’ for example, loads a new lollipop subtrack underneath the main GDC lollipop track.
+To start filtering, click on the value label or the value's sample fraction. Clicking on 'Adenomas and Adenocarcinomas' or '675/ 4866' for example, loads a new lollipop subtrack underneath the main GDC lollipop track.
 
 [![Filtering Example: Adenomas and Adenocarcinomas](images/lollipop23.png)](images/lollipop23.png "Click to see the full image.")
 
@@ -142,19 +142,19 @@ Each subtrack offers advanced filtering, shown below, for users to narrow down p
 
 [![Advanced Filtering](images/lollipop25.png)](images/lollipop25.png "Click to see the full image.")
 
-Clicking on ‘Filter’ displays a pop-up window with the feature the user selected previously from the sample annotation menu (e.g. Disease type: Adenomas and Adenocarcinomas). Clicking on either +AND or +OR displays a new pop-up with a search bar. Search for the desired term and click on the term’s button. In the image below a user selected ‘gender’ by clicking the ‘+AND’.
+Clicking on 'Filter' displays a pop-up window with the feature the user selected previously from the sample annotation menu (e.g. Disease type: Adenomas and Adenocarcinomas). Clicking on either +AND or +OR displays a new pop-up with a search bar. Search for the desired term and click on the term's button. In the image below a user selected 'gender' by clicking the '+AND'.
 
 [![Filter Pop-Up Window](images/lollipop26.png)](images/lollipop26.png "Click to see the full image.")
 
-By clicking on ‘Gender’, all available values appear with checkboxes (i.e. male and female) as shown below. In this example, male with 293 data points is selected.
+By clicking on 'Gender', all available values appear with checkboxes (i.e. male and female) as shown below. In this example, male with 293 data points is selected.
 
 [![Gender Filter Example 1](images/lollipop27.png)](images/lollipop27.png "Click to see the full image.")
 
-Click ‘Apply’ and the subtrack re-renders to reflect the updated filter. In the example below, the subtrack reduces from 675 samples to the 293 male samples with adenomas and adenocarcinomas. The figure shows the difference in mutations in the two tracks. Out of the original 333 samples, 72 of 293 males report the G12D mutation.
+Click 'Apply' and the subtrack re-renders to reflect the updated filter. In the example below, the subtrack reduces from 675 samples to the 293 male samples with adenomas and adenocarcinomas. The figure shows the difference in mutations in the two tracks. Out of the original 333 samples, 72 of 293 males report the G12D mutation.
 
 [![Gender Filter Example 2](images/lollipop28.png)](images/lollipop28.png "Click to see the full image.")
 
-Click on the ‘Close’ option to remove the subtrack from the page.
+Click on the 'Close' option to remove the subtrack from the page.
 
 [![Remove Subtrack](images/lollipop29.png)](images/lollipop29.png "Click to see the full image.")
 
@@ -163,13 +163,13 @@ In the lollipop chart, users can drag the protein track down by clicking the nam
 
 [![Protein Track](images/lollipop30.png)](images/lollipop30.png "Click to see the full image.")
 
-Detailed variant annotation is viewable by clicking on the variant disc next to the label. For G12D highlighted in a red outline in the image above, click on the ‘333’ disc. A sunburst chart will appear, shown below.
+Detailed variant annotation is viewable by clicking on the variant disc next to the label. For G12D highlighted in a red outline in the image above, click on the '333' disc. A sunburst chart will appear, shown below.
 
 The center displays the occurrence of the variant (333) above the variant label. The ring
 
 [![Variant Occurrence](images/lollipop31.png)](images/lollipop31.png "Click to see the full image.")
 
-hierarchy is arranged by disease types then broken down by primary sites. Hovering over the inner ring displays the disease type, number of samples, and cohort size. In this example, the inner green ring displays ‘Plasma Cell Tumors’ with 28 samples out of a total 949 samples.
+hierarchy is arranged by disease types then broken down by primary sites. Hovering over the inner ring displays the disease type, number of samples, and cohort size. In this example, the inner green ring displays 'Plasma Cell Tumors' with 28 samples out of a total 949 samples.
 
 The outer ring represents the primary sites. Hovering over the primary site displays the number of samples relative to the disease type. In the figure below, for Ductal and lobular
 
@@ -179,15 +179,15 @@ neoplasms, there are 105 samples with the primary site as pancreas out of 316 to
 
 [![Node](images/lollipop33.png)](images/lollipop33.png "Click to see the full image.")
 
-Clicking on a node displays a sample table for the disease type or primary site. In the figure below, the user selected ‘Plasma Cell Tumors’. The sample annotation table appears for all Plasma Cell Tumors.
+Clicking on a node displays a sample table for the disease type or primary site. In the figure below, the user selected 'Plasma Cell Tumors'. The sample annotation table appears for all Plasma Cell Tumors.
 
 [![Sample Annotation Table 1](images/lollipop34.png)](images/lollipop34.png "Click to see the full image.")
 
-An aggregate sample table is available by clicking the ‘Info’ button in the center of the sunburst. This displays all the samples associated with that variant. In the screen recording below the aggregate sample table appears for KRAS - G12D.
+An aggregate sample table is available by clicking the 'Info' button in the center of the sunburst. This displays all the samples associated with that variant. In the screen recording below the aggregate sample table appears for KRAS - G12D.
 
 [![Sample Annotation Table 2](images/lollipop35.gif)](images/lollipop35.gif "Click to see the full image.")
 
-Clicking on the sample name hyperlink opens a new tab to the sample’s  GDC Case Summary page.
+Clicking on the sample name hyperlink opens a new tab to the sample's  GDC Case Summary page.
 
 Clicking on the variant label in the center removes the sunburst chart.
 
@@ -204,7 +204,7 @@ The zoom buttons in the toolbar is the second option to zoom in and out based on
 
 [![Zoom Options](images/lollipop36.png)](images/lollipop36.png "Click to see the full image.")
 
-Zooming in causes the protein track to display the codons and the nucleotides as shown below. Hovering over the nucleotide position displays a tooltip with the exon, amino acids position, RNA position, and protein domain. As shown in the image below, at codon 12, the second exon of the transcript, RNA position 225 bp, the reference allele is a ‘G’. There is a substitution at ‘G’ to A, V and D in the KRAS gene for isoform NM_004985 for which the cases are as shown below.
+Zooming in causes the protein track to display the codons and the nucleotides as shown below. Hovering over the nucleotide position displays a tooltip with the exon, amino acids position, RNA position, and protein domain. As shown in the image below, at codon 12, the second exon of the transcript, RNA position 225 bp, the reference allele is a 'G'. There is a substitution at 'G' to A, V and D in the KRAS gene for isoform NM_004985 for which the cases are as shown below.
 
 [![Codons and Nucleotides](images/lollipop37.png)](images/lollipop37.png "Click to see the full image.")
 
@@ -219,7 +219,7 @@ Clicking on the colored box next to the protein domain label removes the color f
 
 [![Remove Color from Protein Track](images/lollipop39.png)](images/lollipop39.png "Click to see the full image.")
 
-Custom protein domains are added by clicking on the ‘+add protein domain’ button at the bottom of the list. An input box appears requiring the following information:
+Custom protein domains are added by clicking on the '+add protein domain' button at the bottom of the list. An input box appears requiring the following information:
 1. Name, text with space, no semicolon: This is the name of the protein domain
 2. Range, two integers joined by space: This is the codon position – start and stop
 3. Color (e.g., red, #FF0000, rgb (255,0,0)): This is the color to assign to the protein domain.
@@ -233,27 +233,27 @@ The classification for the type of variant is color coded as follows:
 
 [![Color Coding Classification](images/lollipop41.png)](images/lollipop41.png "Click to see the full image.")
 
-Clicking on a mutation prompts a pop-up menu to appear with the description of the mutation. Options to ‘hide’ or ‘show only’ are specific to the mutation. The option ‘show all’ includes all previously hidden mutations. Selecting ‘MISSENSE’ shown in the figure below by the yellow highlight displays the initial menu with the ‘hide’ and ‘show only’ buttons.
+Clicking on a mutation prompts a pop-up menu to appear with the description of the mutation. Options to 'hide' or 'show only' are specific to the mutation. The option 'show all' includes all previously hidden mutations. Selecting 'MISSENSE' shown in the figure below by the yellow highlight displays the initial menu with the 'hide' and 'show only' buttons.
 
 [![Mutation Pop-Up Menu](images/lollipop42.png)](images/lollipop42.png "Click to see the full image.")
 
-Clicking ‘Hide’ removes all of the mutation discs from the lollipop. The mutation is reordered to the end of the list and the font is striked through and grayed out. The discs reappear when the mutation label is clicked again.
+Clicking 'Hide' removes all of the mutation discs from the lollipop. The mutation is reordered to the end of the list and the font is striked through and grayed out. The discs reappear when the mutation label is clicked again.
 
 [![Hide Mutation Discs](images/lollipop43.png)](images/lollipop43.png "Click to see the full image.")
 
 # More Options
 
-ProteinPaint offers methods to download figures and data. Click the ‘More’ button in the toolbar to display various options as shown below.
+ProteinPaint offers methods to download figures and data. Click the 'More' button in the toolbar to display various options as shown below.
 
 [![ProteinPaint More Options](images/lollipop44.png)](images/lollipop44.png "Click to see the full image.")
 
 ### Exporting the Figure
 
-Click “Export SVG” to download the lollipop and legend as an SVG file.
+Click "Export SVG" to download the lollipop and legend as an SVG file.
 
 [![Export SVG](images/lollipop45.png)](images/lollipop45.png "Click to see the full image.")
 
-The exported figure will contain following contents, reflecting a user’s customization:
+The exported figure will contain following contents, reflecting a user's customization:
 * Displayed datasets, including custom data
 * Expand/fold states of all mutations
 * Sequences in the protein if at zoom-in level
@@ -265,11 +265,11 @@ The exported figure will contain following contents, reflecting a user’s custo
 
 ### Copying the DNA Sequence
 
-The ‘More’ button also includes a ‘DNA sequence’ button.
+The 'More' button also includes a 'DNA sequence' button.
 
 [![DNA Sequence](images/lollipop46.png)](images/lollipop46.png "Click to see the full image.")
 
-Clicking on ‘DNA sequence’ displays the DNA sequence as plain text for easy copying and pasting.
+Clicking on 'DNA sequence' displays the DNA sequence as plain text for easy copying and pasting.
 
 [![DNA Sequence Plan Text](images/lollipop47.png)](images/lollipop47.png "Click to see the full image.")
 

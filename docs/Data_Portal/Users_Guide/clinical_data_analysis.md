@@ -67,7 +67,7 @@ The box and QQ plot types support these features:
 
 * View the quartiles (Q1, Q2/median, and Q3) as well as the mean, minimum, and maximum values in the cohort for the clinical field as a box plot
 * View the descriptive statistics in the cohort for the clinical field in tabular format
-* Plot the quantiles of the clinical field’s distribution with quantiles of a theoretical normal distribution as a QQ plot
+* Plot the quantiles of the clinical field's distribution with quantiles of a theoretical normal distribution as a QQ plot
 * Download the box and QQ plot visualizations in SVG or PNG format
 * Download the raw data used to generate the QQ plot in JSON or TSV format
 

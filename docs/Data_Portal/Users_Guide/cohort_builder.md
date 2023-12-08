@@ -45,7 +45,7 @@ Toward the bottom of the list of filter categories, "Available Data" can be sele
 
 ## Custom Filters ##
 
-If the necessary filter cannot be found within one of the categories, use the “Add a Custom Filter” button in the "Custom Filters" category to access additional filters. Browse through the list of additional filters, or use the search box to search for filters by name. Once a filter is selected, it is then added to the “Custom Filters” category.  A custom filter can be removed from this category by choosing the “X” at the top right of the filter card.
+If the necessary filter cannot be found within one of the categories, use the "Add a Custom Filter" button in the "Custom Filters" category to access additional filters. Browse through the list of additional filters, or use the search box to search for filters by name. Once a filter is selected, it is then added to the "Custom Filters" category.  A custom filter can be removed from this category by choosing the "X" at the top right of the filter card.
 
 [![Custom Filter](images/CustomFilter.png)](images/CustomFilter.png "Image of Custom Filter search box. Click to see the full image.")
 
