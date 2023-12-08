@@ -44,7 +44,7 @@ pages:
   - Cohort Builder: Data_Portal/Users_Guide/cohort_builder.md
   - Analysis Center: Data_Portal/Users_Guide/analysis_center.md
   - Repository: Data_Portal/Users_Guide/Repository.md
-  - Projects: 'Data_Portal/Users_Guide/projects.md'
+  - Projects: 'Data_Portal/Users_Guide/Projects.md'
   - Clinical Data Analysis: 'Data_Portal/Users_Guide/clinical_data_analysis.md'
   - Mutation Frequency: 'Data_Portal/Users_Guide/mutation_frequency.md'
   - Set Operations: 'Data_Portal/Users_Guide/set_operations.md'
