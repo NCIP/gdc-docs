@@ -20,11 +20,11 @@ GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](XXXLINK2PlaylistX
 <tr>
 <td>
 Cohorts are created using the <b>Cohort Builder</b>, which allows users to specify cases with custom filters for things like disease characteristics, patient demographics, data type, and more.
-
+<br>
 In this video, learn how to use the <b>Cohort Builder</b> to build a cohort of patients with lung cancer, that are over the age of 50, and have harmonized RNA-Seq data.
 </td>
 
-<td><iframe width="320" height="240" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 
 </td></tr>
 </table>
@@ -33,12 +33,12 @@ In this video, learn how to use the <b>Cohort Builder</b> to build a cohort of p
 
 <table>
 <tr>
-<td><iframe width="320" height="240" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 </td>
 <td>
-Once a cohort is created, the cohort can be analyzed using an analysis tool in the <b>Analysis Center<b>.
-
-In this video, learn how to analyze a cohort in the <b>Analysis Center<b>. Instructional videos are available for each analysis tool.
+Once a cohort is created, the cohort can be analyzed using an analysis tool in the <b>Analysis Center</b>.
+<br>
+In this video, learn how to analyze a cohort in the <b>Analysis Center</b>. Instructional videos are available for each analysis tool.
 
 </td>
 </tr>
@@ -91,6 +91,22 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <td><b>Set Operations</b></td>
 <td>Display a Venn diagram and compare/contrast your cohorts or sets of the same type</td>
 <td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+</td>
+</tr>
+</table>
+
+## Download Cohort Data
+
+<table>
+<tr>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+</td>
+<td>
+Genomic, clinical, and biospecimen data associated with a cohort can be downloaded using the <b>Repository</b>.
+<br>
+In this video, learn how to download data associated with a cohort in the <b>Repository</b>.
+
+
 </td>
 </tr>
 </table>
