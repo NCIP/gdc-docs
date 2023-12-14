@@ -33,7 +33,7 @@ In this video, learn how to use the <b>Cohort Builder</b> to build a cohort of p
 
 <table>
 <tr>
-<td><iframe width="400" height="300" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/pE59W-mtX1Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 </td>
 <td>
 Once a cohort is created, the cohort can be analyzed using an analysis tool in the <b>Analysis Center</b>.
@@ -54,7 +54,7 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <tr>
 <td><b>Clinical Data Analysis</b></td>
 <td>Use clinical variables to perform basic statistical analysis of your cohort</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/jDdL2bMQXfE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
@@ -66,31 +66,31 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <tr>
 <td><b>Mutation Frequency</b></td>
 <td>Visualize most frequently mutated genes and somatic mutations</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/mufb0Hx2438" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>OncoMatrix</b></td>
 <td>Visualize the top most mutated cases and genes affected by high impact mutations in your cohort</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>ProteinPaint</b></td>
 <td>Visualize mutations in protein-coding genes by consequence type and protein domain</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/exUcuUd5rsM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>Sequence Reads</b></td>
 <td>Visualize sequencing reads for a given gene, position, SNP, or variant</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/7qpKPiOZrks" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>Set Operations</b></td>
 <td>Display a Venn diagram and compare/contrast your cohorts or sets of the same type</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/SiFBZtkAwoI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 </table>
@@ -99,7 +99,7 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 
 <table>
 <tr>
-<td><iframe width="400" height="300" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/1WQsAt4S2D0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 </td>
 <td>
 Genomic, clinical, and biospecimen data associated with a cohort can be downloaded using the <b>Repository</b>.
