@@ -31,7 +31,7 @@ Additional features can be accessed at the top right of each card's header to fa
 
 [![Cohort Builder Card Features](images/search_flip_reset_card.png)](images/search_flip_reset_card.png "Image of Cohort Builder Card Features. Click to see the full image.")
 
-In addition, filters in each card can be sorted, either alphabetically or in descending order of number of cases based on current filters, by selecting one of the two icons directly underneath the card title. The default sort is alphabetical order.
+In addition, filters in each card can be sorted, either alphabetically or by the number of cases based on current filters, by selecting one of the two headers directly underneath the card title. The default sort is alphabetical order.
 
 [![Cohort Builder Card Filter Sort](images/alpha_desc_card_filter_order.png)](images/alpha_desc_card_filter_order.png "Image of Cohort Builder Card Filter Sort. Click to see the full image.")
 
