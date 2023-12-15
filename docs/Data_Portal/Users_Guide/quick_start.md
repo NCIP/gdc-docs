@@ -42,7 +42,7 @@ On the right side of the home page are a human anatomical outline and a bar grap
 
 [![Home Page](images/HomePage.png)](images/HomePage.png "Click to see the full image.")
 
-On the right side of the home page is a visualization that displays human figures with the available cancer primary sites for cases in the GDC Data Portal (Coming Soon!). Clicking on a colored bar or the cancer primary site will link out to the [Cohort Builder](cohort_builder.md) tool with cases filtered with the primary site selected. Further filtering can then be performed on this cohort.
+On the right side of the home page is a visualization that displays human figures with the available cancer primary sites for cases in the GDC Data Portal. Clicking on a colored bar or the cancer primary site will link out to the [Cohort Builder](cohort_builder.md) tool with cases filtered with the primary site selected. Further filtering can then be performed on this cohort.
 
 ## Analysis Center
 
