@@ -26,9 +26,9 @@ On the right are the following features:
 
 ## Cohorts
 
-The GDC Data Portal V2 is a cohort-centric cancer research platform. Users can create custom cohorts of interest based on specific projects, primary sites, disease types, or any combination of clinical, biospecimen, and molecular features. Custom cohorts can then be used with various tools in the Analysis Center to perform further analysis. Files from custom cohorts can also be downloaded for further analysis with other research tools.
+The GDC Data Portal 2.0 is a cohort-centric cancer research platform. Users can create custom cohorts of interest based on specific projects, primary sites, disease types, or any combination of clinical, biospecimen, and molecular features. Custom cohorts can then be used with various tools in the Analysis Center to perform further analysis. Files from custom cohorts can also be downloaded for further analysis with other research tools.
 
-If the user does not already have a custom cohort when they are in the Analysis Center, a custom cohort ("New Unsaved Cohort") containing all the cases in the GDC will be automatically created for them. This allows the user to explore the Analysis Center without first needing to create a cohort.
+If the user does not already have a custom cohort when they are in the Analysis Center, a custom cohort ("Unsaved_Cohort") containing all the cases in the GDC will be automatically created for them. This allows the user to explore the Analysis Center without first needing to create a cohort.
 
 Additional cohorts can be created using the main toolbar in the Analysis Center. Cohorts can also be saved or deleted using the main toolbar. See the section below on the Analysis Center for more information on the main toolbar.
 
