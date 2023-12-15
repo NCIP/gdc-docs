@@ -1,8 +1,7 @@
 # Quick Start Page
 
-## Accessing the GDC Data Portal V2
-<!-- First, log into the "qa-uat" VPN and go to the [GDC Portal V2](https://portal.gdc.cancer.gov/v2/). -->
-First, go to [GDC Portal V2](https://uat-portal.gdc.cancer.gov/v2).
+## Accessing the GDC Data Portal 2.0
+First, go to [GDC Portal 2.0](https://portal.gdc.cancer.gov/).
 
 ## GDC Data Portal Header
 
