@@ -32,7 +32,7 @@ Users may only be interested in browsing through or downloading a subset of file
 * **Platform**: Technological platform on which experimental data was produced.
 * **Access**: Indicator of whether access to the data file is open or controlled.
 
- Values within each facet can be sorted alphabetically by choosing the "Name" header on the top left of each card. Alternatively, the the "Files" header may be selected to sort the values by the number of files available.
+ Values within each facet can be sorted alphabetically by choosing the "Name" header on the top left of each card. Alternatively, the "Files" header may be selected to sort the values by the number of files available.
 
 Note that the categories displayed in the filters represent the values available for the active cohort.
 
