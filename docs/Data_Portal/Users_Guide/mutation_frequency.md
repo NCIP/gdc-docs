@@ -20,17 +20,7 @@ The mutation frequency survival plot is represented with a Kaplan-Meier curve fo
 
 ## Gene/Mutation Table
 
-<!-- The gene/mutation table displays the most frequently mutated genes or the most frequent mutations in the active cohort by percent frequency in descending order. Additional columns show CNV information as well as the number of affected cases. The "Cohort" toggle can be used to filter the current cohort by a specific gene or mutation, and the "Survival" button allows the user to modify the survival plot. The red arrow button allows for the percentage of affected cases to be displayed on a project-level. The data displayed in the table can be exported as a JSON or TSV using the buttons at the top left of the table.
-
-
-[![Mutation Table](images/MutationTable.png)](images/MutationTable.png "Click to see the full image.")
-
-Additionally, the table can be searched using the field at the top right of the table.
-
-[![Mutation Search](images/MutSearch.png)](images/MutSearch.png "Click to see the full image.") -->
-
-
-The gene/mutation table displays the most frequently mutated genes or the most frequent mutations in the active cohort by percent frequency in descending order. Additional columns show CNV information as well as the number of affected cases. The "Cohort" toggle can be used to filter the current cohort by a specific gene or mutation, and the "Survival" button allows the user to modify the survival plot. The red arrow button allows for the percentage of affected cases to be displayed on a project-level. The data displayed in the table can be exported as a JSON or TSV using the buttons at the top left of the table. Additional cohorts can be created using buttons located within the table.
+The gene/mutation table displays the most frequently mutated genes or the most frequent mutations in the active cohort by percent frequency in descending order. Additional columns show CNV information as well as the number of affected cases. The "Cohort" toggle can be used to filter the current cohort by a specific gene or mutation, and the "Survival" button allows the user to modify the survival plot. The red arrow button allows for the percentage of affected cases to be displayed on a project-level. The data displayed in the table can be exported as a TSV using the button at the top left of the table. Additional cohorts can be created using buttons located within the table.
 
 [![Mutation Table](images/MutationTableWithButtons.png)](images/MutationTableWithButtons.png "Click to see the full image.")
 
