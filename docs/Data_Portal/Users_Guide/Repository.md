@@ -24,11 +24,12 @@ For users who want to browse all files that are available at the GDC, create a n
 
 Users may only be interested in browsing through or downloading a subset of files associated with the current cohort. For this purpose, a set of commonly-used default facet cards is provided in the left panel of the Repository tool to allow users to filter the files presented in the table on the right. The facet cards are as follow:
 
+* **Experimental Strategy**: Experimental strategies used for molecular characterization of the cancer.
+* **WGS Coverage**: Range of coverage for WGS aligned reads.
 * **Data Category**: A high-level data file category, such as "Raw Sequencing Data" or "Transcriptome Profiling".
 * **Data Type**: Data file type, such as "Aligned Reads" or "Gene Expression Quantification". Data Type is more granular than Data Category.
-* **Experimental Strategy**: Experimental strategies used for molecular characterization of the cancer.
-* **Workflow Type**: Bioinformatics workflow used to generate or harmonize the data file.
 * **Data Format**: Format of the data file.
+* **Workflow Type**: Bioinformatics workflow used to generate or harmonize the data file.
 * **Platform**: Technological platform on which experimental data was produced.
 * **Access**: Indicator of whether access to the data file is open or controlled.
 
