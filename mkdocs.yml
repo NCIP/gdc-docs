@@ -51,6 +51,9 @@ pages:
   - ProteinPaint: 'Data_Portal/Users_Guide/proteinpaint_lollipop.md'
   - Sequence Reads: 'Data_Portal/Users_Guide/proteinpaint_bam.md'
   - OncoMatrix: 'Data_Portal/Users_Guide/oncomatrix.md'
+  - Cohort MAF: 'Data_Portal/Users_Guide/cohortMAF.md'
+  - BAM Slicing: 'Data_Portal/Users_Guide/BAMslicing.md'
+  - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
 - Data Portal V1:
   - Getting Started: Data_Portal_V1/Users_Guide/Getting_Started.md
   - Projects: Data_Portal_V1/Users_Guide/Projects.md
@@ -60,7 +63,7 @@ pages:
   - Advanced Search: Data_Portal_V1/Users_Guide/Advanced_Search.md
   - Cart and File Download: Data_Portal_V1/Users_Guide/Cart.md
   - Release Notes: Data_Portal_V1/Release_Notes/Data_Portal_V1_Release_Notes.md
-  - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal_V1/PDF/index.md
+  - fa-file-text Download PDF /Data_Portal_V1/PDF/Data_Portal_V1_UG.pdf: Data_Portal_V1/PDF/index.md
 - Data Submission:
   - Before Submitting Data to the GDC Portal: Data_Submission_Portal/Users_Guide/Checklist.md
   - Data Submission Overview: Data_Submission_Portal/Users_Guide/Data_Submission_Overview.md

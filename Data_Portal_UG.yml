@@ -21,6 +21,8 @@ pages:
   - ProteinPaint: 'Data_Portal/Users_Guide/proteinpaint_lollipop.md'
   - Sequence Reads: 'Data_Portal/Users_Guide/proteinpaint_bam.md'
   - OncoMatrix: 'Data_Portal/Users_Guide/oncomatrix.md'
+  - Cohort MAF: 'Data_Portal/Users_Guide/cohortMAF.md'
+  - BAM Slicing: 'Data_Portal/Users_Guide/BAMslicing.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
