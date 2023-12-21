@@ -1,8 +1,7 @@
 # Quick Start Page
 
-## Accessing the GDC Data Portal V2
-<!-- First, log into the "qa-uat" VPN and go to the [GDC Portal V2](https://portal.gdc.cancer.gov/v2/). -->
-First, go to [GDC Portal V2](https://uat-portal.gdc.cancer.gov/v2).
+## Accessing the GDC Data Portal 2.0
+First, go to [GDC Portal 2.0](https://portal.gdc.cancer.gov/).
 
 ## GDC Data Portal Header
 
@@ -18,7 +17,7 @@ On the upper-left is the GDC Data Portal logo, which links to the home page of t
 
 On the right are the following features:
 * **Browse Annotations**: links to the Annotations Browser, where the user can view and search for annotations that may be of use when analyzing GDC data.
-* **Manage Sets** (Coming Soon!): allows the user to review gene and mutation sets that have been saved, upload new sets, and delete existing sets.
+* **Manage Sets**: allows the user to review gene and mutation sets that have been saved, upload new sets, and delete existing sets.
 * **Cart**: where data files of interest can be added for download.
 * **Login**: allows authentication for access to controlled access datasets.
 * **GDC Applications**: contains links to other GDC sites and applications.
@@ -27,9 +26,9 @@ On the right are the following features:
 
 ## Cohorts
 
-The GDC Data Portal V2 is a cohort-centric cancer research platform. Users can create custom cohorts of interest based on specific projects, primary sites, disease types, or any combination of clinical, biospecimen, and molecular features. Custom cohorts can then be used with various tools in the Analysis Center to perform further analysis. Files from custom cohorts can also be downloaded for further analysis with other research tools.
+The GDC Data Portal 2.0 is a cohort-centric cancer research platform. Users can create custom cohorts of interest based on specific projects, primary sites, disease types, or any combination of clinical, biospecimen, and molecular features. Custom cohorts can then be used with various tools in the Analysis Center to perform further analysis. Files from custom cohorts can also be downloaded for further analysis with other research tools.
 
-If the user does not already have a custom cohort when they are in the Analysis Center, a custom cohort ("New Unsaved Cohort") containing all the cases in the GDC will be automatically created for them. This allows the user to explore the Analysis Center without first needing to create a cohort.
+If the user does not already have a custom cohort when they are in the Analysis Center, a custom cohort ("Unsaved_Cohort") containing all the cases in the GDC will be automatically created for them. This allows the user to explore the Analysis Center without first needing to create a cohort.
 
 Additional cohorts can be created using the main toolbar in the Analysis Center. Cohorts can also be saved or deleted using the main toolbar. See the section below on the Analysis Center for more information on the main toolbar.
 
@@ -42,8 +41,6 @@ The Analysis Center can be accessed by clicking on the "Explore Our Cancer Datas
 On the right side of the home page are a human anatomical outline and a bar graph. Choosing a site on the outline or graph will lead the user to the Analysis Center and automatically create a custom cohort consisting of cases corresponding to that site.
 
 [![Home Page](images/HomePage.png)](images/HomePage.png "Click to see the full image.")
-
-On the right side of the home page is a visualization that displays human figures with the available cancer primary sites for cases in the GDC Data Portal (Coming Soon!). Clicking on a colored bar or the cancer primary site will link out to the [Cohort Builder](cohort_builder.md) tool with cases filtered with the primary site selected. Further filtering can then be performed on this cohort.
 
 ## Analysis Center
 

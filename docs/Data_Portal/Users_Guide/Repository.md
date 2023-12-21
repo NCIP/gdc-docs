@@ -32,13 +32,13 @@ Users may only be interested in browsing through or downloading a subset of file
 * **Platform**: Technological platform on which experimental data was produced.
 * **Access**: Indicator of whether access to the data file is open or controlled.
 
- Values within each facet can be sorted alphabetically by choosing the "AZ" button on the top left of each card. Alternatively, the frequency sort button next to the "Files" labeled may be selected to sort the values by the number of files available.
+ Values within each facet can be sorted alphabetically by choosing the "Name" header on the top left of each card. Alternatively, the "Files" header may be selected to sort the values by the number of files available.
 
 Note that the categories displayed in the filters represent the values available for the active cohort.
 
 [![Full Repository](images/FullRepo.png)](images/FullRepo.png "Click to see the full image.")
 
-If a different filter needs to be used, a custom filter can be applied by choosing the "Add a File Filter" button at the top of the default filters. Each custom filter can then be searched and chosen within the pop-up window. Once a custom filter is selected, a new filter card will appear at the top of the default filters.  Custom filters can be removed from the Repository by choosing the X at the top right of each filter card.
+If a different filter needs to be used, a custom filter can be applied by choosing the "Add a Custom Filter" button at the top of the default filters. Each custom filter can then be searched and chosen within the pop-up window. Once a custom filter is selected, a new filter card will appear at the top of the default filters.  Custom filters can be removed from the Repository by choosing the X at the top right of each filter card.
 
 [![Custom File Filter](images/CustomFileFilter.png)](images/CustomFileFilter.png "Click to see the full image.")
 
@@ -50,12 +50,11 @@ When filtering has been completed, files are ready to be downloaded.  Depending 
 
 To perform a download, first, add a set of files to the Cart. This can be done using the following methods:
 * By clicking on the cart icon at the left to each file, it will toggle between adding to / removing the file from the cart.
-* (Coming Soon!) Selecting the Add All Files to Cart button. This will add all the files in the current cohort to the Cart, subject to any filtering that has been applied in the Repository.
+* Selecting the Add All Files to Cart button. This will add all the files in the current cohort to the Cart, subject to any filtering that has been applied in the Repository.
 * JSON / TSV Buttons: These two buttons will download the files' details (file name, file size, data category, access type, etc) in JSON and TSV format, respectively
 * The Manifest button will generate a manifest file in text format that contains file details required for batch download (using Data Transfer Tools).
 * View Images: When image slides files selected, this button will create open the Slide Image Viewer, containing a collection of image files selected.
 
-<!-- TOOD (wt) update image when pari's pr is in -->
 [![Add Files To Cart](images/AddFilesToCart.png)](images/AddAllFilesToCart.png "Click to see the full image.")
 
 ### Cart
@@ -97,8 +96,8 @@ To download files in the Cart, select the Download Cart button and choose either
 Additional data can be downloaded from the Cart page using the Download Associated Data button at the top of the page and choosing one of the available options.
 
 [![Cart Metadata](images/CartAssociatedData.png)](images/CartAssociatedData.png "Click to see the full image.")
-* Clinical: TSV / Clinical: JSON (Coming Soon!) - This includes all clinical information from the cases that are associated with the files (available as TSV or JSON)
-* Biospecimen: TSV / Biospecimen: JSON (Coming Soon!) - This includes all biospecimen information from the cases that are associated with the files (available as TSV or JSON).
+* Clinical: TSV / Clinical: JSON - This includes all clinical information from the cases that are associated with the files (available as TSV or JSON)
+* Biospecimen: TSV / Biospecimen: JSON - This includes all biospecimen information from the cases that are associated with the files (available as TSV or JSON).
 * Sample Sheet -  A TSV with commonly-used elements associated with each file, such as sample barcode and sample type.
 * Metadata - This includes all of the metadata associated with each and every file in the cart.  Note that this file is only available in JSON format and may take several minutes to download.
 

@@ -12,7 +12,7 @@ On the left, a panel of facets allows users to apply filters to find projects of
 
 The right side of the Projects tool displays a table that contains a list of projects and specific details about each project, such as the number of cases, types of diseases and primary sites, the program involved, and the experimental strategies available. When a project contains more than one value for the disease type and primary site properties, the full list of values can be expanded by choosing the drop down icon next to the name of the property.
 
-[![Project Page](images/ProjectPage.png)](images/ProjectPage.png "Click to see the full image.")
+[![Project Page](images/ProjectsPage.png)](images/ProjectsPage.png "Click to see the full image.")
 
 ### Facets Panel
 
@@ -30,9 +30,9 @@ Filters can be applied by selecting values of interest in the available facets, 
 
 ## Creating Cohorts From Selected Projects
 
-Custom cohorts consisting of specific projects can be created by selecting those projects in the table using the check boxes next to the project names and clicking the "Create New Cohort" button above the table.
+Custom cohorts consisting of specific projects can be created by selecting those projects in the table using the check boxes next to the project names and clicking the "Save New Cohort" button above the table.
 
-[![Create Cohorts](images/ProjectCreateCohorts.png)](images/ProjectCreateCohorts.png "Click to see the full image.")
+[![Create Cohorts](images/ProjectsCreateCohorts.png)](images/ProjectsCreateCohorts.png "Click to see the full image.")
 
 ## Project Summary Page
 
@@ -42,7 +42,7 @@ Clicking the link for each project name on the table will bring users to that sp
 
 Four buttons on the left of the header allow the user to perform a variety of actions related to the project: 
 
-* __Create New Cohort__: Creates a new unsaved cohort consisting of all the cases in the project.
-* __Biospecimen__ (Coming Soon!): Downloads biospecimen metadata associated with all cases in the project in either TSV or JSON format.
-* __Clinical__ (Coming Soon!): Downloads clinical metadata about all cases in the project in either TSV or JSON format.
+* __Save New Cohort__: Creates a new cohort consisting of all the cases in the project.
+* __Biospecimen__: Downloads biospecimen metadata associated with all cases in the project in either TSV or JSON format.
+* __Clinical__: Downloads clinical metadata about all cases in the project in either TSV or JSON format.
 * __Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the GDC Data Transfer Tool to download the files.
