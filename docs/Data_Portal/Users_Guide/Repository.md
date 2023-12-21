@@ -12,7 +12,7 @@ The Repository tool can be reached in one of these two ways:
 
 ## Choosing a Cohort ##
 
-When searching for files to download, many users will have in mind a specific cohort whose associated files they wish to download. The set of files displayed in the Repository at any time will reflect the files that are associated with the active cohort. The current active cohort can be seen in the Main Toolbar (namely on top of the page in the Analysis Center):
+When searching for files to download, many users will have in mind a specific cohort whose associated files they wish to download. The set of files displayed in the Repository at any time will reflect the files that are associated with the active cohort. The current active cohort can be seen in the Main Toolbar (namely at the top of the page in the Analysis Center):
 
 [![Main Cohort Toolbar](images/MainCohortToolbar.png)](images/MainCohortToolbar.png "Click to see the full image.")
 
@@ -43,18 +43,40 @@ If a different filter needs to be used, a custom filter can be applied by choosi
 
 [![Custom File Filter](images/CustomFileFilter.png)](images/CustomFileFilter.png "Click to see the full image.")
 
+## Viewing Images ##
+
+To view images associated with the active cohort, select the View Images button above the files table to launch the Slide Image Viewer. 
+
+## Files Table
+
+The table shows the list of all the files associated with the active cohort, subject to any filtering that has been applied in the Repository. By default, the table provides the following information for each file:
+
+* **Access**: Displays whether the file is open or controlled access. Users must login to the GDC Portal and have the appropriate credentials to access these files.
+* **File Name**: Name of the file. Clicking the link will bring the user to the File Summary Page.
+* **Cases**: The number of cases associated with the file.
+* **Project**: The Project that the file belongs to. Clicking the link will bring the user to the Project Summary Page.
+* **Data Category**: Type of data.
+* **Data Format**: The file format.
+* **File Size**: The size of the file.
+* **Annotations**: Whether there are any annotations.
+
+Additional information such as Data Type and Experimental Strategy can be displayed using the Customize Columms button above the table. The table can be sorted by clicking on the headers, and the search bar above the table can be used to locate specific files.
+
+The JSON / TSV buttons will download the files' details (file name, file size, data category, access type, etc.) in JSON and TSV format, respectively.
+
 ## Downloading a Set of Files ##
 
-When filtering has been completed, files are ready to be downloaded.  Depending on the number and size of files, the GDC has several options and recommendations for downloading them.  While any amount of data can be downloaded using the GDC Data Transfer Tool or the API, files can be downloaded directly from the Data Portal if the size is 5 GB or less in total and the number of files does not exceed 10,000. For any downloads larger than 5 GB or 10,000 files, it's recommended that the download be performed using the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).
+When filtering has been completed, files are ready to be downloaded. Depending on the number and size of files, the GDC has several options and recommendations for downloading them. While any amount of data can be downloaded using the GDC Data Transfer Tool or the API, files can be downloaded directly from the Data Portal if the size is 5 GB or less in total and the number of files does not exceed 10,000. For any downloads larger than 5 GB or 10,000 files, it's recommended that the download be performed using the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool). 
 
-### Adding/Removing Files to the Cart for Download ####
+### Generating a Manifest File for the Data Transfer Tool ###
 
-To perform a download, first, add a set of files to the Cart. This can be done using the following methods:
-* By clicking on the cart icon at the left to each file, it will toggle between adding to / removing the file from the cart.
+Select the Manifest button above the table to generate a manifest file required for batch download using the Data Transfer Tool. The manifest contains a list of the UUIDs corresponding to the files associated with the active cohort, subject to any filtering in the Repository.  
+
+### Adding/Removing Files to the Cart for Download ###
+
+Downloads can also be performed using the Cart by first adding a set of files to the Cart. This can be done using the following methods:
+* Clicking the cart icon on the left of each file. This will toggle between adding to and removing the file from the cart.
 * Selecting the Add All Files to Cart button. This will add all the files in the current cohort to the Cart, subject to any filtering that has been applied in the Repository.
-* JSON / TSV Buttons: These two buttons will download the files' details (file name, file size, data category, access type, etc) in JSON and TSV format, respectively
-* The Manifest button will generate a manifest file in text format that contains file details required for batch download (using Data Transfer Tools).
-* View Images: When image slides files selected, this button will create open the Slide Image Viewer, containing a collection of image files selected.
 
 [![Add Files To Cart](images/AddFilesToCart.png)](images/AddFilesToCart.png "Click to see the full image.")
 
@@ -69,13 +91,11 @@ At the upper-right of the page is a summary of all files currently in the cart:
 
 The Cart page displays the file count by project and authorization level, as well as a table of all files that have been added to the Cart.  Files can be removed from the Cart using the trash icons at the left of each file in the table or by selecting the "Remove from Cart" option at the top of the Cart page, which removes either all files or the unauthorized ones.
 
-Similar to the main page, JSON / TSV buttons will download the files' details (file name, file size, data category, access type, etc) in JSON and TSV format, respectively.
-
 [![Cart Page](images/CartPage.png)](images/CartPage.png "Click to see the full image.")
 
 ### Cart Items Table
 
-The Cart Items table shows the list of all the files that were added to the Cart. The table gives the following information for each file in the cart:
+The Cart Items table shows the list of all the files that were added to the Cart and has the same functionality as the table in the Repository. By default, it displays the following information for each file:
 
 * **Access**: Displays whether the file is open or controlled access. Users must login to the GDC Portal and have the appropriate credentials to access these files.
 * **File Name**: Name of the file. Clicking the link will bring the user to the File Summary Page.
@@ -85,6 +105,10 @@ The Cart Items table shows the list of all the files that were added to the Cart
 * **Data Format**: The file format.
 * **File Size**: The size of the file.
 * **Annotations**: Whether there are any annotations.
+
+
+Additional information can be displayed using the Customize Columms button above the table. Sort can be applied by clicking on the table headers, and the search bar provides additional options for locating specific files. Details of the files can be downloaded using the JSON and TSV buttons above the table.
+
 
 ### Downloading Files from the Cart
 
