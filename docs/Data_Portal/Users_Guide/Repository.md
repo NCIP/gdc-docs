@@ -55,7 +55,7 @@ To perform a download, first, add a set of files to the Cart. This can be done u
 * The Manifest button will generate a manifest file in text format that contains file details required for batch download (using Data Transfer Tools).
 * View Images: When image slides files selected, this button will create open the Slide Image Viewer, containing a collection of image files selected.
 
-[![Add Files To Cart](images/AddFilesToCart.png)](images/AddAllFilesToCart.png "Click to see the full image.")
+[![Add Files To Cart](images/AddFilesToCart.png)](images/AddFilesToCart.png "Click to see the full image.")
 
 ### Cart
 
