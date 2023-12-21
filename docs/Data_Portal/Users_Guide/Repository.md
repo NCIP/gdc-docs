@@ -70,7 +70,7 @@ When filtering has been completed, files are ready to be downloaded. Depending o
 
 ### Generating a Manifest File for the Data Transfer Tool ###
 
-Select the Manifest button above the table to generate a manifest file required for batch download using the Data Transfer Tool. The manifest contains a list of the UUIDs corresponding to the files associated with the active cohort, subject to any filtering in the Repository.  
+Select the Manifest button above the table to generate a manifest file required for batch download using the Data Transfer Tool. The manifest contains a list of the UUIDs corresponding to the files associated with the active cohort, subject to any filtering in the Repository. 
 
 ### Adding/Removing Files to the Cart for Download ###
 
