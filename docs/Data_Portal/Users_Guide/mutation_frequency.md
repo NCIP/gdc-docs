@@ -14,7 +14,9 @@ The most frequently mutated genes are represented with a histogram that shows th
 
 ## Survival Plot for Mutated Genes and Mutations
 
-The mutation frequency survival plot is represented with a Kaplan-Meier curve for the active cohort. This can also be separated into two curves based on cases with and without a specific mutation or mutated gene. The Log-Rank Test p-value is also displayed here. The survival plot can be downloaded as an image (SVG/PNG) or raw data (JSON/TSV) and the view can be reset using the buttons at the top right of the graphic.
+The mutation frequency survival plot is represented with two Kaplan-Meier curves based on cases with and without a specific mutation or mutated gene. Cases for both curves can be further filtered using the various filters available in the left panel of the Mutation Frequency tool. For example, selecting "high" for the VEP impact filter will limit the cases in both curves to those whose mutations have a high VEP impact.
+
+The Log-Rank Test p-value is also displayed here. The survival plot can be downloaded as an image (SVG/PNG) or raw data (JSON/TSV) and the view can be reset using the buttons at the top right of the graphic.
 
 [![Mutation Table](images/MutSurvival.png)](images/MutSurvival.png "Click to see the full image.")
 
