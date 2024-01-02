@@ -1,23 +1,28 @@
 # GDC Analysis Center
 
 
-The Analysis Center is the central hub for accessing tools to support cohort analysis. To access the Analysis Center, click on the Analysis Center button from the GDC Data Portal's main page.
+The Analysis Center is the central hub for accessing tools to support cohort analysis. The Analysis Center can be accessed by clicking on the Analysis Center button in the GDC Data Portal header, on the "Explore Our Cancer Datasets" button on the home page, or on one of the sites in the human anatomical outline or bar graph.
 
 [![Analysis Center View](images/FullAnalysisCenter.png)](images/FullAnalysisCenter.png "Click to see the full image.")
 
 The Analysis Center consists of a main toolbar and a query expressions section, both of which are always displayed. The main toolbar displays the active cohort and can be used to create and manage custom cohorts. The query expression section displays the filters applied to the active cohort.
 
-A variety of cards are displayed in the Analysis Center. Each card represents an individual tool that is available in the GDC Data Portal.
+Available tools are displayed under the Query Expression section of the Analysis Center. Each analysis tool is showcased within a tool 'card', which has several items related to the analysis tool such as:
+
+* A teal 'Play' button to launch the analysis tool on the given cohort
+* A 'Demo' button that launches a demonstration of the analysis tool on an example cohort
+* Clicking on the name of the analysis tool in the tool card toggles a drop down description of the analysis tool
+* The number of cases from the cohort that the analysis will be performed on is at the bottom of the card
 
 ## Core Tools ##
 
-This section contains the core GDC tools.  This includes the [Projects](LINKHERE) tool, the [Cohort Builder](LINKHERE), and the [Repository](LINKHERE). These can be selected for use with your current cohort by clicking on each from the Core Tools section.
+This section contains the core GDC tools.  This includes the [Projects](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/Projects.md) tool, the [Cohort Builder](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/cohort_builder.md), and the [Repository](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/Repository.md). These can be selected for use with your current cohort by clicking on each from the Core Tools section.
 
 ## Analysis Tools ##
 
-The Analysis Tools section contains the analysis tools available in the Analysis Center: [BAM Slicing Download](LINKHERE), [Clinical Data Analysis](LINKHERE), [Cohort Comparison](LINKHERE), [Gene Expression Clustering](LINKHERE), [MAF Aggregation](LINKHERE), [Mutation Frequency](LINKHERE), [OncoMatrix](LINKHERE), [ProteinPaint](LINKHERE), [Sequence Reads](LINKHERE), and [Set Operations](LINKHERE).
+The Analysis Tools section contains the analysis tools available in the Analysis Center: [BAM Slicing Download](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/BAMslicing.md), [Clinical Data Analysis](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/clinical_data_analysis.md), [Cohort Comparison](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/cohort_comparison.md), [Gene Expression Clustering](LINKHERE), [MAF Aggregation](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/cohortMAF.md), [Mutation Frequency](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/mutation_frequency.md), [OncoMatrix](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/oncomatrix.md), [ProteinPaint](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/proteinpaint_lollipop.md), [Sequence Reads](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/proteinpaint_bam.md), and [Set Operations](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/set_operations.md).
 
-These can be used by directly selecting the tool cards.
+These can be launched by clicking the Play buttons in each of the tool cards.
 
 If there is not sufficient data in the active cohort to use a particular tool, the play button will be grayed out and will not be usable until a new cohort with sufficient data is selected.
 
