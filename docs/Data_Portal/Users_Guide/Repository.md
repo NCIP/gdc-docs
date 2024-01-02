@@ -24,14 +24,14 @@ For users who want to browse all files that are available at the GDC, create a n
 
 Users may only be interested in browsing through or downloading a subset of files associated with the current cohort. For this purpose, a set of commonly-used default facet cards is provided in the left panel of the Repository tool to allow users to filter the files presented in the table on the right. The facet cards are as follow:
 
-* **Experimental Strategy**: Experimental strategies used for molecular characterization of the cancer.
-* **WGS Coverage**: Range of coverage for WGS aligned reads.
-* **Data Category**: A high-level data file category, such as "Raw Sequencing Data" or "Transcriptome Profiling".
+* **Experimental Strategy**: Experimental strategies used for molecular characterization of the cancer
+* **WGS Coverage**: Range of coverage for WGS aligned reads
+* **Data Category**: A high-level data file category, such as "Raw Sequencing Data" or "Transcriptome Profiling"
 * **Data Type**: Data file type, such as "Aligned Reads" or "Gene Expression Quantification". Data Type is more granular than Data Category.
-* **Data Format**: Format of the data file.
-* **Workflow Type**: Bioinformatics workflow used to generate or harmonize the data file.
-* **Platform**: Technological platform on which experimental data was produced.
-* **Access**: Indicator of whether access to the data file is open or controlled.
+* **Data Format**: Format of the data file
+* **Workflow Type**: Bioinformatics workflow used to generate or harmonize the data file
+* **Platform**: Technological platform on which experimental data was produced
+* **Access**: Indicator of whether access to the data file is open or controlled
 
  Values within each facet can be sorted alphabetically by choosing the "Name" header on the top left of each card. Alternatively, the "Files" header may be selected to sort the values by the number of files available.
 
@@ -53,12 +53,12 @@ The table shows the list of all the files associated with the active cohort, sub
 
 * **Access**: Displays whether the file is open or controlled access. Users must login to the GDC Portal and have the appropriate credentials to access these files.
 * **File Name**: Name of the file. Clicking the link will bring the user to the File Summary Page.
-* **Cases**: The number of cases associated with the file.
+* **Cases**: The number of cases associated with the file
 * **Project**: The Project that the file belongs to. Clicking the link will bring the user to the Project Summary Page.
-* **Data Category**: Type of data.
-* **Data Format**: The file format.
-* **File Size**: The size of the file.
-* **Annotations**: Whether there are any annotations.
+* **Data Category**: Type of data
+* **Data Format**: The file format
+* **File Size**: The size of the file
+* **Annotations**: Whether there are any annotations
 
 Additional information such as Data Type and Experimental Strategy can be displayed using the Customize Columms button above the table. The table can be sorted by clicking on the headers, and the search bar above the table can be used to locate specific files.
 
@@ -85,9 +85,9 @@ Downloads can also be performed using the Cart by first adding a set of files to
 The Cart page can then be reached by clicking the Cart icon at the top right of the portal.
 
 At the upper-right of the page is a summary of all files currently in the cart:
-* Number of files.
-* Number of cases associated with the files.
-* Total file size.
+* Number of files
+* Number of cases associated with the files
+* Total file size
 
 The Cart page displays the file count by project and authorization level, as well as a table of all files that have been added to the Cart.  Files can be removed from the Cart using the trash icons at the left of each file in the table or by selecting the "Remove from Cart" option at the top of the Cart page, which removes either all files or the unauthorized ones.
 
@@ -99,12 +99,12 @@ The Cart Items table shows the list of all the files that were added to the Cart
 
 * **Access**: Displays whether the file is open or controlled access. Users must login to the GDC Portal and have the appropriate credentials to access these files.
 * **File Name**: Name of the file. Clicking the link will bring the user to the File Summary Page.
-* **Cases**: The number of cases associated with the file.
+* **Cases**: The number of cases associated with the file
 * **Project**: The Project that the file belongs to. Clicking the link will bring the user to the Project Summary Page.
-* **Data Category**: Type of data.
-* **Data Format**: The file format.
-* **File Size**: The size of the file.
-* **Annotations**: Whether there are any annotations.
+* **Data Category**: Type of data
+* **Data Format**: The file format
+* **File Size**: The size of the file
+* **Annotations**: Whether there are any annotations
 
 
 Additional information can be displayed using the Customize Columms button above the table. Sort can be applied by clicking on the table headers, and the search bar provides additional options for locating specific files. Details of the files can be downloaded using the JSON and TSV buttons above the table.
@@ -136,9 +136,9 @@ The page also includes buttons to download the file, add it to the file cart, or
 
 In the lower section of the screen, the following tables provide more details about the file and its characteristics:
 
-* __Associated Cases/Biospecimen__: List of cases or biospecimen the file is directly attached to.
-* __Analysis and Reference Genome__: Information on the workflow and reference genome used for file generation.
-* __Read Groups__: Information on the read groups associated with the file.
-* __Metadata Files__: Experiment metadata, run metadata and analysis metadata associated with the file.
-* __Downstream Analysis Files__: List of downstream analysis files generated by the file.
-* __File Versions__: List of all versions of the file.
+* __Associated Cases/Biospecimen__: List of cases or biospecimen the file is directly attached to
+* __Analysis and Reference Genome__: Information on the workflow and reference genome used for file generation
+* __Read Groups__: Information on the read groups associated with the file
+* __Metadata Files__: Experiment metadata, run metadata and analysis metadata associated with the file
+* __Downstream Analysis Files__: List of downstream analysis files generated by the file
+* __File Versions__: List of all versions of the file
