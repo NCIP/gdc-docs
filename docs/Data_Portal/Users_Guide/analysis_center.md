@@ -16,11 +16,11 @@ Available tools are displayed under the Query Expression section of the Analysis
 
 ## Core Tools ##
 
-This section contains the core GDC tools.  This includes the [Projects](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/Projects.md) tool, the [Cohort Builder](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/cohort_builder.md), and the [Repository](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/Repository.md). These can be selected for use with your current cohort by clicking on each from the Core Tools section.
+This section contains the core GDC tools.  This includes the [Projects](Projects.md) tool, the [Cohort Builder](cohort_builder.md), and the [Repository](Repository.md). These can be selected for use with your current cohort by clicking on each from the Core Tools section.
 
 ## Analysis Tools ##
 
-The Analysis Tools section contains the analysis tools available in the Analysis Center: [BAM Slicing Download](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/BAMslicing.md), [Clinical Data Analysis](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/clinical_data_analysis.md), [Cohort Comparison](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/cohort_comparison.md), [Gene Expression Clustering](LINKHERE), [MAF Aggregation](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/cohortMAF.md), [Mutation Frequency](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/mutation_frequency.md), [OncoMatrix](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/oncomatrix.md), [ProteinPaint](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/proteinpaint_lollipop.md), [Sequence Reads](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/proteinpaint_bam.md), and [Set Operations](https://github.com/NCI-GDC/gdc-docs/blob/develop-v2/docs/Data_Portal/Users_Guide/set_operations.md).
+The Analysis Tools section contains the analysis tools available in the Analysis Center: [BAM Slicing Download](BAMslicing.md), [Clinical Data Analysis](clinical_data_analysis.md), [Cohort Comparison](cohort_comparison.md), [Gene Expression Clustering](LINKHERE), [MAF Aggregation](cohortMAF.md), [Mutation Frequency](mutation_frequency.md), [OncoMatrix](oncomatrix.md), [ProteinPaint](proteinpaint_lollipop.md), [Sequence Reads](proteinpaint_bam.md), and [Set Operations](set_operations.md).
 
 These can be launched by clicking the Play buttons in each of the tool cards.
 
