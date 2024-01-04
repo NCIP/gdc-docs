@@ -7,7 +7,7 @@ Cohort MAF tool is a web based tool for searching and selecting a desired set of
 
 ### Data query
 
-To retrieve all open-access MAF files with specified workflow type select experimental strategy as illustrated by clicking either ‘WXS’ or ‘Targeted sequencing’. Users can then visualize all MAF files with the specific experimental strategy. Users may choose MAF files of interest by selecting the cases/project of interest from rows as shown in the table.
+To retrieve all open-access MAF files with specified workflow type select experimental strategy as illustrated by clicking either 'WXS' or 'Targeted sequencing'. Users can then visualize all MAF files with the specific experimental strategy. Users may choose MAF files of interest by selecting the cases/project of interest from rows as shown in the table.
 
 [![Querying Data to retrieve MAF files](./images/CohortMAF/Data_query.png)](./images/CohortMAF/Data_query.png 'Click to see the full image.')
 

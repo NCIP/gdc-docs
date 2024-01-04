@@ -18,32 +18,32 @@ A user may also choose to browse the first thousand BAM files. Click on the labe
 
 ### Selecting Variant/Gene, Position or Unmapped reads
 
-Upon searching by a string id, the following view is displayed. User must select an Entity ID associated with the case ID as shown. This view shows the ‘Experimental strategy’, ‘Sample Type’, and ‘Size’ of the file associated with that entity id.
+Upon searching by a string id, the following view is displayed. User must select an Entity ID associated with the case ID as shown. This view shows the 'Experimental strategy', 'Sample Type', and 'Size' of the file associated with that entity id.
 
 [![Selecting Entities](./images/BAM_slicing/selecting_entities.png)](./images/BAM_slicing/selecting_entities.png 'Click to see the full image.')
 
-Choosing a BAM file directly from the thousand files will display the following view. This view has selected an entity id chosen by the user with ‘miRNA-Seq’ as the experimental strategy, sample type being the ‘Primary Tumor’ with a file size of 83.03 MB.
+Choosing a BAM file directly from the thousand files will display the following view. This view has selected an entity id chosen by the user with 'miRNA-Seq' as the experimental strategy, sample type being the 'Primary Tumor' with a file size of 83.03 MB.
 
 [![View upon Selection](./images/BAM_slicing/selecting_entities02.png)](./images/BAM_slicing/selecting_entities02.png 'Click to see the full image.')
 
 ### Selecting a Variant
 
-From the view as shown above, user can choose from 48 variants. Select WDR44 as shown and click ‘Submit’ to download the BAM slice for this case and gene variant.
+From the view as shown above, user can choose from 48 variants. Select WDR44 as shown and click 'Submit' to download the BAM slice for this case and gene variant.
 
 [![Selecting a variant](./images/BAM_slicing/selecting_variants.png)](./images/BAM_slicing/selecting_variants.png 'Click to see the full image.')
 
 ### Selecting a Gene
 
-Click on the next tab to access the view that allows selecting BAM files for a particular gene, snp or a specific position/range in the genome. After making your selection, click the ‘Submit’ button at the bottom of the view to download the slices.
+Click on the next tab to access the view that allows selecting BAM files for a particular gene, snp or a specific position/range in the genome. After making your selection, click the 'Submit' button at the bottom of the view to download the slices.
 
 [![Selecting a gene](./images/BAM_slicing/selecting_genes.png)](./images/BAM_slicing/selecting_genes.png 'Click to see the full image.')
 
 ### Selecting unmapped reads
 
-Click the tab for accessing the ‘Unmapped reads’ as shown below. Click ‘Submit’ to download the unmapped reads.
+Click the tab for accessing the 'Unmapped reads' as shown below. Click 'Submit' to download the unmapped reads.
 
 [![Selecting unmapped reads](./images/BAM_slicing/selecting_unmapped_reads.png)](./images/BAM_slicing/selecting_unmapped_reads.png 'Click to see the full image.')
 
 ## Saved Downloads
 
-All downloads are saved in the ‘Downloads’ folder. 
+All downloads are saved in the 'Downloads' folder. 
