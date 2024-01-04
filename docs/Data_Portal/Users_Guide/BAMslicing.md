@@ -10,7 +10,7 @@ The GDC BAM slicing download feature is a tool for slicing individual BAM files 
 ### Searching for a case
 To search for a case, enter a string id which could be a file name, file id, case UUID or case ID. For example, enter and search for the case 'TCGA-C8-A12N' as shown. Please note that the complete id must be used. Partial ids are not allowed.
 
-[![Searching by a string id](images/BAM_Slicing/search_by_string.png.png)](images/BAM_Slicing/search_by_string.png 'Click to see the full image.')
+[![Searching by a string id](images/BAM_Slicing/search_by_string.png)](images/BAM_Slicing/search_by_string.png 'Click to see the full image.')
 
 A user may also choose to browse the first thousand BAM files. Click on the label "Or, browse first 1000 BAM files out of 141461 total" to load the following view. Scroll and select the case of interest.
 
