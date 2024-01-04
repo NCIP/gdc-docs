@@ -10,18 +10,20 @@ The header of the GDC Data Portal contains frequently used links and features.
 [![Header](images/Header.png)](images/Header.png "Click to see the full image.")
 
 On the upper-left is the GDC Data Portal logo, which links to the home page of the GDC Data Portal. Below the logo are links in the following order:
-* **Analysis Center**: links to [Analysis Center](analysis_center.md) page, the central hub for accessing all the tools in the GDC Data Portal.
+* **Analysis Center**: links to [Analysis Center](analysis_center.md) page, the central hub for accessing all the tools in the GDC Data Portal
 * **Projects**: a shortcut to the [Projects](projects.md) tool in the Analysis Center. The Projects tool allows exploration of all the projects within the GDC Data Portal.
 * **Cohort Builder**: a shortcut to the [Cohort Builder](cohort_builder.md) tool in the Analysis Center. The Cohort Builder tool consists of a variety of clinical and biospecimen filters for building a custom cohort for analysis.
 * **Repository**: a shortcut to the [Repository](repository.md) tool in the Analysis Center. The Repository tool allows exploration of files associated with a cohort.
 
 On the right are the following features:
-* **Browse Annotations**: links to the Annotations Browser, where the user can view and search for annotations that may be of use when analyzing GDC data.
-* **Manage Sets**: allows the user to review gene and mutation sets that have been saved, upload new sets, and delete existing sets.
-* **Cart**: where data files of interest can be added for download.
-* **Login**: allows authentication for access to controlled access datasets.
-* **GDC Applications**: contains links to other GDC sites and applications.
-* **Search**: allows searching of projects, cases, files, genes, mutations, and annotations within the GDC Data Portal.
+* **Video Guides**: links to videos demonstrating the various features of the Data Portal
+* **Send Feedback**: provides information on how to send feedback to our team
+* **Browse Annotations**: links to the Annotations Browser, where the user can view and search for annotations that may be of use when analyzing GDC data
+* **Manage Sets**: allows the user to review gene and mutation sets that have been saved, upload new sets, and delete existing sets
+* **Cart**: where data files of interest can be added for download
+* **Login**: allows authentication for access to controlled access datasets
+* **GDC Applications**: contains links to other GDC sites and applications
+* **Search**: allows searching of projects, cases, files, genes, mutations, and annotations within the GDC Data Portal
 
 
 ## Cohorts
@@ -47,8 +49,8 @@ On the right side of the home page are a human anatomical outline and a bar grap
 The Analysis Center can be accessed by clicking on the corresponding link in the GDC Data Portal header, on the "Explore Our Cancer Datasets" button on the home page, or on one of the sites in the human anatomical outline or bar graph.
 
 The Analysis Center has following sections:
-* **Main Toolbar**: contains functionality for managing and creating custom cohorts.
-* **Query Expressions**: displays the filters applied on the current cohort.
+* **Main Toolbar**: contains functionality for managing and creating custom cohorts
+* **Query Expressions**: displays the filters applied on the current cohort
 * **Analysis Tools**: all analysis tools available are located in the Analysis Center as individual cards. When individual analysis tools are launched, they are displayed in this section of the [Analysis Center](analysis_center.md).
 
 ### Main Toolbar ##
@@ -63,7 +65,7 @@ The main toolbar also contains a set of buttons that are used to manage or creat
 
 To the right of the cohort name are the following buttons:
 * **Save Cohort** - Saves the active cohort and any changes made to it. Cohorts with unsaved changes have a yellow exclamation mark icon displayed next to their names. Custom cohorts that are saved should persist through releases and continue to be accessible if the same browser is used. **It is recommended that users export and securely store any cohort that cannot be easily recreated in case the browser session is cleared.**
-* **Create New Unsaved Cohort** - Adds a new unsaved cohort with all the cases in the GDC and changes the active cohort to this new cohort.
+* **Create New Unsaved Cohort** - Adds a new unsaved cohort with all the cases in the GDC and changes the active cohort to this new cohort
 * **Delete Cohort** - Deletes the current active cohort.  This action cannot be undone.
 * **Import New Cohort** - Allows for a set of cases to be imported. These can be imported as a plain text list of UUIDs or submitter_ids (barcodes).
 * **Export Cohort** -  Allows for the current cohort to be exported to a file. A cohort will be exported as a list of UUIDs.
@@ -76,9 +78,9 @@ Two other buttons are located on the extreme right of the toolbar:
 
 Cohort summary charts allow users to view graphics that display the number of cases with each value of a set of commonly used properties. The following buttons are available at the top of the summary charts:
 
-* __Files:__  Displays the number of files associated with the active cohort and provides the ability to add these files to the cart, download a manifest, or download metadata associated with the files.
-* __Custom Filters:__ Allows for the cohort to be filtered by a custom set of cases, mutations, or genes.
-* __Biospecimen/Clinical:__ Downloads the biospecimen/clinical metadata for the cohort in JSON or TSV format.
+* __Files:__  Displays the number of files associated with the active cohort and provides the ability to add these files to the cart, download a manifest, or download metadata associated with the files
+* __Custom Filters:__ Allows for the cohort to be filtered by a custom set of cases, mutations, or genes
+* __Biospecimen/Clinical:__ Downloads the biospecimen/clinical metadata for the cohort in JSON or TSV format
 
 In the default view, the number of cases for the top five most common values are displayed. Other values can be searched by choosing the magnifying glass button at the top right of each card.
 
@@ -97,7 +99,7 @@ The top right of the case table features a search function that can be used to q
 
 * __Save New Cohort:__  Allows for a new cohort to be created based on the selected cases from the table. The new cohort can comprise only the selected cases, the selected cases added to the active cohort, or the selected cases subtracted from the active cohort.
 * __Biospecimen/Clinical:__ Downloads the biospecimen/clinical metadata for the cohort in JSON or TSV format. When no cases are selected, the metadata pertains to the entire cohort. When cases are selected, the metadata pertains to only the selected cases.
-* __JSON/TSV:__ Downloads the information in the case table in JSON or TSV format.
+* __JSON/TSV:__ Downloads the information in the case table in JSON or TSV format
 
 The case summary panel can be collapsed by selecting the 'Collapse' button that replaces the 'Expand' button.
 
@@ -153,18 +155,18 @@ Each analysis tool is showcased within a tool 'card', which has several items re
 To build and analyze a cohort of interest using an analysis tool in the Analysis Center:
 
 1. Choose the Cohort Builder icon on either the GDC Data Portal header, or click on the Cohort Builder card in the Analysis Center.  The [Cohort Builder](cohort_builder.md) will appear on the screen.
-2. Create a custom cohort based on filters available in the Cohort Builder.
+2. Create a custom cohort based on filters available in the Cohort Builder
 
 [![Cohort Builder](images/CohortBuilderQuickStart.png)](images/CohortBuilderQuickStart.png "Image of the GDC Cohort Builder Tool. Click to see the full image.")
 
 3. Either choose the Analysis Center icon on the GDC Data Portal header, or click on the "X" on the left of the Cohort Builder header. All the tools in the [Analysis Center](analysis_center.md) will be displayed on the screen.
-4. Choose an analysis tool from the list of tools in the Analysis Center to perform an analysis of a cohort.
+4. Choose an analysis tool from the list of tools in the Analysis Center to perform an analysis of a cohort
 
 ## File Download ##
 
 To download files from a cohort of interest:
 1. Choose the Cohort Builder icon on the GDC Data Portal header, or click on the Cohort Builder card in the Analysis Center.  The [Cohort Builder](cohort_builder.md) will appear on the screen.
-2. Create a custom cohort based on filters available in the Cohort Builder.
+2. Create a custom cohort based on filters available in the Cohort Builder
 3. Either choose the Repository icon on the header, or click on the "X" on the left of the Cohort Builder header and then click the Repository tool card. The [Repository](repository.md) will appear on the screen.
 
 [![Repository Header](images/RepositoryHeader.png)](images/RepositoryHeader.png "Click to see the full image.")
@@ -204,6 +206,6 @@ A text file containing the ID of each gene or UUID of each mutation is downloade
 
 There are a few buttons in the list of sets that allows a user to get further information about each one.
 
-* __# Items__: Clicking the button under the # Items column launches a table with Gene ID and Symbol for gene sets or Mutation ID and Consequence for mutation sets.
+* __# Items__: Clicking the button under the # Items column launches a table with Gene ID and Symbol for gene sets or Mutation ID and Consequence for mutation sets
 
-* __Delete/Download__: To the right of the # Items column are buttons that will delete the set or download the list as a TSV file.
+* __Delete/Download__: To the right of the # Items column are buttons that will delete the set or download the list as a TSV file

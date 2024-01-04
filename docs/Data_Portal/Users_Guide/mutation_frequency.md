@@ -14,20 +14,23 @@ The most frequently mutated genes are represented with a histogram that shows th
 
 ## Survival Plot for Mutated Genes and Mutations
 
-The mutation frequency survival plot is represented with a Kaplan-Meier curve for the active cohort. This can also be separated into two curves based on cases with and without a specific mutation or mutated gene. The Log-Rank Test p-value is also displayed here. The survival plot can be downloaded as an image (SVG/PNG) or raw data (JSON/TSV) and the view can be reset using the buttons at the top right of the graphic.
+The mutation frequency survival plot is represented with two Kaplan-Meier curves based on cases with and without a specific mutation or mutated gene. Cases for both curves can be further filtered using the various filters available in the left panel of the Mutation Frequency tool. For example, selecting "high" for the VEP impact filter will limit the cases in both curves to those whose mutations have a high VEP impact.
+
+The Log-Rank Test p-value is also displayed here. The survival plot can be downloaded as an image (SVG/PNG) or raw data (JSON/TSV) and the view can be reset using the buttons at the top right of the graphic.
 
 [![Mutation Table](images/MutSurvival.png)](images/MutSurvival.png "Click to see the full image.")
 
-## Gene/Mutation Table
+## Genes/Mutations Table
 
-The gene/mutation table displays the most frequently mutated genes or the most frequent mutations in the active cohort by percent frequency in descending order. Additional columns show CNV information as well as the number of affected cases. The "Cohort" toggle can be used to filter the current cohort by a specific gene or mutation, and the "Survival" button allows the user to modify the survival plot. The red arrow button allows for the percentage of affected cases to be displayed on a project-level. The data displayed in the table can be exported as a TSV using the button at the top left of the table. Additional cohorts can be created using buttons located within the table.
+The genes/mutations table displays the most frequently mutated genes or the most frequent mutations in the active cohort by percent frequency in descending order. Additional columns show CNV information as well as the number of affected cases. The "Cohort" toggle can be used to filter the current cohort by a specific gene or mutation, and the "Survival" button allows the user to modify the survival plot. The red arrow button allows for the percentage of affected cases to be displayed on a project-level. The data displayed in the table can be exported as a TSV using the button at the top left of the table. Additional cohorts can be created using buttons located within the table.
 
 [![Mutation Table](images/MutationTableWithButtons.png)](images/MutationTableWithButtons.png "Click to see the full image.")
 
-
-Additionally, the table can be searched using the field at the top right of the table.
+The table can be searched using the field at the top right of the table.
 
 [![Mutation Search](images/MutSearchWithButtons.png)](images/MutSearchWithButtons.png "Click to see the full image.")
+
+Additionally, clicking the button in the "# Mutations" column within the genes table will automatically apply a search for the corresponding gene in the mutations table. This is a convenient way to view the specific mutations in a given gene.
 
 ### Gene and Mutation Summary Pages
 
