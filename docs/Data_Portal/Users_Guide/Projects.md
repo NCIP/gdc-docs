@@ -46,3 +46,9 @@ Four buttons on the left of the header allow the user to perform a variety of ac
 * __Biospecimen__: Downloads biospecimen metadata associated with all cases in the project in either TSV or JSON format.
 * __Clinical__: Downloads clinical metadata about all cases in the project in either TSV or JSON format.
 * __Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the GDC Data Transfer Tool to download the files.
+
+### Primary Sites Table
+
+Summary pages for projects with multiple primary sites also include a Primary Sites table. Each row of the table contains information relevant to a specific primary site within the project, and additional cohorts can be created using buttons located within the table.
+
+[![Primary Sites Table](images/PrimarySitesTable.png)](images/PrimarySitesTable.png "Click to see the full image.")
