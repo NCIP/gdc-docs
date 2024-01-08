@@ -23,6 +23,7 @@ pages:
   - OncoMatrix: 'Data_Portal/Users_Guide/oncomatrix.md'
   - Cohort MAF: 'Data_Portal/Users_Guide/cohortMAF.md'
   - BAM Slicing: 'Data_Portal/Users_Guide/BAMslicing.md'
+  - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'
