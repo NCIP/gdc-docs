@@ -21,7 +21,7 @@ On the right are the following features:
 * **Browse Annotations**: links to the Annotations Browser, where the user can view and search for [annotations](/Encyclopedia/pages/Annotations/) that may be of use when analyzing GDC data
 * **Manage Sets**: allows the user to review gene and mutation sets that have been saved, upload new sets, and delete existing sets
 * **Cart**: where data files of interest can be added for download
-* **Login**: allows authentication for access to controlled access datasets
+* **Login**: allows authentication for access to [controlled access datasets](/Encyclopedia/pages/Controlled_Access/). Once authentication is successful, the eRA Commons username will be displayed in place of the "Login" button. Clicking on the username will then allow users to see which projects they have access to and to download an [authentication token](/Data/Data_Security/Data_Security/#authentication-tokens) for use with the [GDC Data Transfer Tool](/Data_Transfer_Tool/Users_Guide/Getting_Started/) and the [API](/API/Users_Guide/Getting_Started/).
 * **GDC Applications**: contains links to other GDC sites and applications
 * **Search**: allows searching of projects, cases, files, genes, mutations, and annotations within the GDC Data Portal
 
