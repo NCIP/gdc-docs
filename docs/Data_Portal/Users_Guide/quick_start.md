@@ -18,7 +18,7 @@ On the upper-left is the GDC Data Portal logo, which links to the home page of t
 On the right are the following features:
 * **Video Guides**: links to videos demonstrating the various features of the Data Portal
 * **Send Feedback**: provides information on how to send feedback to our team
-* **Browse Annotations**: links to the Annotations Browser, where the user can view and search for annotations that may be of use when analyzing GDC data
+* **Browse Annotations**: links to the Annotations Browser, where the user can view and search for [annotations](/Encyclopedia/pages/Annotations/) that may be of use when analyzing GDC data
 * **Manage Sets**: allows the user to review gene and mutation sets that have been saved, upload new sets, and delete existing sets
 * **Cart**: where data files of interest can be added for download
 * **Login**: allows authentication for access to controlled access datasets
