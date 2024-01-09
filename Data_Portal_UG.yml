@@ -10,7 +10,6 @@ theme_dir: theme
 pages:
 - Data Portal:
   - Quick Start: 'Data_Portal/Users_Guide/quick_start.md'
-  - Tutorial Videos: 'Data_Portal/Users_Guide/tutorial_videos.md'
   - Cohort Builder: Data_Portal/Users_Guide/cohort_builder.md
   - Analysis Center: Data_Portal/Users_Guide/analysis_center.md
   - Repository: Data_Portal/Users_Guide/Repository.md
