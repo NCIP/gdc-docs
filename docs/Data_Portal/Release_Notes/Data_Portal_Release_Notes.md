@@ -54,7 +54,7 @@ The GDC Data Portal has been completely revamped to include the following featur
     * __Mutation Frequency:__ Analyze somatic mutations that were called in the WXS and Targeted Sequencing pipelines and their associated genes
     * __Clinical Data Analysis:__ Analyze and visualize clinical data associated with your cohort
     * __Cohort Comparison:__ Analyze the properties of multiple cohorts
-    * Set Operations:__ - Display a Venn diagram and compare/contrast cohorts or gene/mutation sets
+    * __Set Operations:__ Display a Venn diagram and compare/contrast cohorts or gene/mutation sets
     * __BAM Slicing Download:__ Download a specific region of a BAM file created by the GDC
     * __ProteinPaint:__ Visualize somatic mutations on a specific linear gene or chromosomal region
     * __Gene Expression Clustering:__ Visualizes gene expression clustering for a specific cohort
@@ -67,7 +67,10 @@ The GDC Data Portal has been completely revamped to include the following featur
 
 ### Known Issues and Workarounds
 
-*  TBD
+* The TSV of the cases table may not contain the expected tabs. <!--DEV-2324-->
+* When a selection has been made in an Available Data filter within the Cohort Builder, other Available data filters may not display the expected values. <!--PEAR-1449-->
+* The Repository app may display an incorrect file size total of 0 bytes when in-app filtering is used with an active cohort containing Available Data filters.
+* Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes.
 
 ## Release 1.30.4
 
