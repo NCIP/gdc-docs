@@ -1,6 +1,6 @@
 # Getting Started
 
-## The GDC Data Portal: An Overview
+## The GDC Data Portal v1.0: An Overview
 
 The Genomic Data Commons (GDC) Data Portal provides users with web-based access to data from cancer genomics studies. Key GDC Data Portal features include:
 
