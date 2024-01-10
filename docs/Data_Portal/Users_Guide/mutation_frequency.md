@@ -76,7 +76,7 @@ A table is displayed below that lists information about each mutation including:
 * __Type:__ A general classification of the mutation
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
 * __# Affected Cases in Gene:__ The number of affected cases, expressed as number across all mutations within the Gene
-* __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project
+* __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project.
 * __Impact:__ A subjective classification of the severity of the variant consequence. This is determined using [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html), [PolyPhen](http://genetics.bwh.harvard.edu/pph/), and [SIFT](http://sift.jcvi.org/). The categories are outlined [here](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/#impact-categories).
 
 *Note: The Mutation UUID can be displayed in this table by selecting it from the Customize Columns button, represented by three parallel lines*
@@ -151,22 +151,22 @@ A set of frequently-used properties are available to filter genes and mutations 
 * __Is Cancer Gene Census:__ Whether or not a gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/). Note that this is switched on as a default.
 * __Impact:__ A subjective classification of the severity of the variant consequence. These scores are determined using the following three tools:
     * __[VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html):__
-        * __HIGH (H):__ The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay.
-        * __MODERATE (M):__ A non-disruptive variant that might change protein effectiveness.
-        * __LOW (L):__ Assumed to be mostly harmless or unlikely to change protein behavior.
-        * __MODIFIER (MO):__ Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact.
+        * __HIGH (H):__ The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
+        * __MODERATE (M):__ A non-disruptive variant that might change protein effectiveness
+        * __LOW (L):__ Assumed to be mostly harmless or unlikely to change protein behavior
+        * __MODIFIER (MO):__ Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
     * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/):__
-        * __probably damaging (PR):__ It is with high confidence supposed to affect protein function or structure.
-        * __possibly damaging (PO):__ It is supposed to affect protein function or structure.
-        * __benign (BE):__ Most likely lacking any phenotypic effect.
-        * __unknown (UN):__ When in some rare cases, the lack of data does not allow PolyPhen to make a prediction.
+        * __probably damaging (PR):__ It is with high confidence supposed to affect protein function or structure
+        * __possibly damaging (PO):__ It is supposed to affect protein function or structure
+        * __benign (BE):__ Most likely lacking any phenotypic effect
+        * __unknown (UN):__ When in some rare cases, the lack of data does not allow PolyPhen to make a prediction
     * __[SIFT](http://sift.jcvi.org/):__
-        * __tolerated:__ Not likely to have a phenotypic effect.
-        * __tolerated_low_confidence:__ More likely to have a phenotypic effect than 'tolerated'.
-        * __deleterious:__ Likely to have a phenotypic effect.
-        * __deleterious_low_confidence:__ Less likely to have a phenotypic effect than 'deleterious'.
-* __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms.
-* __Type:__ A general classification of the mutation.
+        * __tolerated:__ Not likely to have a phenotypic effect
+        * __tolerated_low_confidence:__ More likely to have a phenotypic effect than 'tolerated'
+        * __deleterious:__ Likely to have a phenotypic effect
+        * __deleterious_low_confidence:__ Less likely to have a phenotypic effect than 'deleterious'
+* __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms
+* __Type:__ A general classification of the mutation
 
 ### Saving a Gene or Mutation Set
 

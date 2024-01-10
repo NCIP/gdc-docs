@@ -18,10 +18,10 @@ On the upper-left is the GDC Data Portal logo, which links to the home page of t
 On the right are the following features:
 * **Video Guides**: links to videos demonstrating the various features of the Data Portal
 * **Send Feedback**: provides information on how to send feedback to our team
-* **Browse Annotations**: links to the Annotations Browser, where the user can view and search for annotations that may be of use when analyzing GDC data
+* **Browse Annotations**: links to the Annotations Browser, where the user can view and search for [annotations](../../Encyclopedia/pages/Annotations.md) that may be of use when analyzing GDC data
 * **Manage Sets**: allows the user to review gene and mutation sets that have been saved, upload new sets, and delete existing sets
 * **Cart**: where data files of interest can be added for download
-* **Login**: allows authentication for access to controlled access datasets
+* **Login**: allows authentication for access to [controlled access datasets](../../Encyclopedia/pages/Controlled_Access.md). Once authentication is successful, the eRA Commons username will be displayed in place of the "Login" button. Clicking on the username will then allow users to see which projects they have access to and to download an [authentication token](../../Data/Data_Security/Data_Security.md#authentication-tokens) for use with the [GDC Data Transfer Tool](../../Data_Transfer_Tool/Users_Guide/Getting_Started.md) and the [API](../../API/Users_Guide/Getting_Started.md).
 * **GDC Applications**: contains links to other GDC sites and applications
 * **Search**: allows searching of projects, cases, files, genes, mutations, and annotations within the GDC Data Portal
 
@@ -64,7 +64,7 @@ The name of the current cohort is displayed in a field on the left. Previously c
 The main toolbar also contains a set of buttons that are used to manage or create new cohorts. To the left of the cohort name is the "Discard Changes" button, which discards unsaved changes that have been made to the current cohort.
 
 To the right of the cohort name are the following buttons:
-* **Save Cohort** - Saves the active cohort and any changes made to it. Cohorts with unsaved changes have a yellow exclamation mark icon displayed next to their names. Custom cohorts that are saved should persist through releases and continue to be accessible if the same browser is used. **It is recommended that users export and securely store any cohort that cannot be easily recreated in case the browser session is cleared.**
+* **Save Cohort** - Two options for saving cohorts are available in the dropdown menu. Select the "Save" option to save the active cohort and any changes made to it. Select the "Save As" option to save the active cohort, along with any changes made to it, as a new cohort. Cohorts with unsaved changes have a yellow exclamation mark icon displayed next to their names. Custom cohorts that are saved should persist through releases and continue to be accessible if the same browser is used. **It is recommended that users export and securely store any cohort that cannot be easily recreated in case the browser session is cleared.**
 * **Create New Unsaved Cohort** - Adds a new unsaved cohort with all the cases in the GDC and changes the active cohort to this new cohort
 * **Delete Cohort** - Deletes the current active cohort.  This action cannot be undone.
 * **Import New Cohort** - Allows for a set of cases to be imported. These can be imported as a plain text list of UUIDs or submitter_ids (barcodes).
