@@ -11,9 +11,9 @@ The header of the GDC Data Portal contains frequently used links and features.
 
 On the upper-left is the GDC Data Portal logo, which links to the home page of the GDC Data Portal. Below the logo are links in the following order:
 * **Analysis Center**: links to [Analysis Center](analysis_center.md) page, the central hub for accessing all the tools in the GDC Data Portal
-* **Projects**: a shortcut to the [Projects](projects.md) tool in the Analysis Center. The Projects tool allows exploration of all the projects within the GDC Data Portal.
+* **Projects**: a shortcut to the [Projects](Projects.md) tool in the Analysis Center. The Projects tool allows exploration of all the projects within the GDC Data Portal.
 * **Cohort Builder**: a shortcut to the [Cohort Builder](cohort_builder.md) tool in the Analysis Center. The Cohort Builder tool consists of a variety of clinical and biospecimen filters for building a custom cohort for analysis.
-* **Repository**: a shortcut to the [Repository](repository.md) tool in the Analysis Center. The Repository tool allows exploration of files associated with a cohort.
+* **Repository**: a shortcut to the [Repository](Repository.md) tool in the Analysis Center. The Repository tool allows exploration of files associated with a cohort.
 
 On the right are the following features:
 * **Video Guides**: links to videos demonstrating the various features of the Data Portal
