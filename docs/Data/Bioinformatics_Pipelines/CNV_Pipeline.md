@@ -18,7 +18,7 @@ The third set of CNV pipelines are built onto the existing TCGA level 2 SNP6 dat
 ### Data Processing Steps
 #### Copy Number Segmentation
 
-The [Somatic Copy Number Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_copy_number_workflow) uses a tumor-normal pair of either SNP6 raw CEL data, or WGS data as input. The ASCAT algorithm derives allele-specific copy number segments while estimating and adjusting for tumor purity and ploidy [[1]](https://www.pnas.org/content/107/39/16910). Because there are two parental strands, the resulting Copy Number Segment or Allele-Specific Copy Number Segment files contain 3 different copy number integer values: Major_Copy_Number refers to the larger strand copy number, Minor_Copy_Number refers to the smaller strand copy number, Copy_Number is the sum of Major_Copy_Number and Minor_Copy_Number, and thus equals to the total copy number at the locus.   
+The [Somatic Copy Number Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_copy_number_workflow) uses a tumor-normal pair of either SNP6 raw CEL data, or WGS data as input. The ASCAT algorithm derives allele-specific copy number segments while estimating and adjusting for tumor purity and ploidy [[1]](https://www.pnas.org/content/107/39/16910). Because there are two parental strands, the resulting Copy Number Segment or Allele-Specific Copy Number Segment files contain 3 different copy number integer values: Major_Copy_Number refers to the larger strand copy number, Minor_Copy_Number refers to the smaller strand copy number, Copy_Number is the sum of Major_Copy_Number and Minor_Copy_Number, and thus equals to the total copy number at the locus.
 
 
 | I/O | Entity | Format |
