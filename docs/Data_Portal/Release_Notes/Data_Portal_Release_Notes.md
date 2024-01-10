@@ -71,6 +71,7 @@ The GDC Data Portal has been completely revamped to include the following featur
 * When a selection has been made in an Available Data filter within the Cohort Builder, other Available data filters may not display the expected values. <!--PEAR-1449-->
 * The Repository app may display an incorrect file size total of 0 bytes when in-app filtering is used with an active cohort containing Available Data filters.
 * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes.
+* The case counts displayed on the card for the Gene Expression Clustering app in the Analysis Center may be incorrect. <!--SV-2332--> 
 
 ## Release 1.30.4
 
