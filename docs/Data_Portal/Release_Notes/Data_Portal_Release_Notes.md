@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.0.0](Data_Portal_Release_Notes.md#release-200) | January 31, 2024 |
 | [v1.30.4](Data_Portal_Release_Notes.md#release-1304) | May 11, 2023 |
 | [v1.30.0](Data_Portal_Release_Notes.md#release-1300) | July 8, 2022 |
 | [v1.29.0](Data_Portal_Release_Notes.md#release-1290) | August 23, 2021 |
@@ -35,6 +36,43 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.0.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  January 31, 2024
+
+### New Features and Changes
+
+The GDC Data Portal has been completely revamped to include the following features:
+* A cohort-centric workflow in which a cohort is first built and then analyzed using tools on the Data Portal. All of these functionalities can be reached from the Analysis Center.  
+    * This includes a toolbar, that can be used to view or modify an existing cohort while using any analysis tool.
+* Core tools that compose the main functionalities of the GDC Data Portal:
+    * __Cohort Builder:__ Build a cohort of cases using clinical and biospecimen properties
+    * __Repository:__ Download files based on a specific cohort
+    * __Projects:__ Browse, filter, and create cohorts based on GDC projects
+* Analysis tools that analyze specific cohorts:
+    * __Mutation Frequency:__ Analyze somatic mutations that were called in the WXS and Targeted Sequencing pipelines and their associated genes
+    * __Clinical Data Analysis:__ Analyze and visualize clinical data associated with your cohort
+    * __Cohort Comparison:__ Analyze the properties of multiple cohorts
+    * __Set Operations:__ Display a Venn diagram and compare/contrast cohorts or gene/mutation sets
+    * __BAM Slicing Download:__ Download a specific region of a BAM file created by the GDC
+    * __ProteinPaint:__ Visualize somatic mutations on a specific linear gene or chromosomal region
+    * __Gene Expression Clustering:__ Visualizes gene expression clustering for a specific cohort
+    * __Sequence Reads:__ Visualize the reads within a specific BAM file
+    * __OncoMatrix:__ Visualize the most commonly mutated genes across a cohort
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* The TSV of the cases table may not contain the expected tabs. <!--DEV-2324-->
+* When a selection has been made in an Available Data filter within the Cohort Builder, other Available data filters may not display the expected values. <!--PEAR-1449-->
+* The Repository app may display an incorrect file size total of 0 bytes when in-app filtering is used with an active cohort containing Available Data filters.
+* Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes.
+* The case counts displayed on the card for the Gene Expression Clustering app in the Analysis Center may be incorrect. <!--SV-2332--> 
+
 ## Release 1.30.4
 
 * __GDC Product__: GDC Data Portal
