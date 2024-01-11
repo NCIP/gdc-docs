@@ -41,9 +41,10 @@ pages:
 - Data Portal:
   - Quick Start: 'Data_Portal/Users_Guide/quick_start.md'
   - Tutorial Videos: 'Data_Portal/Users_Guide/Video_Tutorials.md'
-  - Cohort Builder: Data_Portal/Users_Guide/cohort_builder.md
-  - Analysis Center: Data_Portal/Users_Guide/analysis_center.md
-  - Repository: Data_Portal/Users_Guide/Repository.md
+  - Cohort Builder: 'Data_Portal/Users_Guide/cohort_builder.md'
+  - Cohort Comparison: 'Data_Portal/Users_Guide/cohort_comparison.md'
+  - Analysis Center: 'Data_Portal/Users_Guide/analysis_center.md'
+  - Repository: 'Data_Portal/Users_Guide/Repository.md'
   - Projects: 'Data_Portal/Users_Guide/Projects.md'
   - Clinical Data Analysis: 'Data_Portal/Users_Guide/clinical_data_analysis.md'
   - Mutation Frequency: 'Data_Portal/Users_Guide/mutation_frequency.md'
