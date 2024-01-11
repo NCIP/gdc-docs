@@ -80,5 +80,5 @@ Alternatively, users can select the Analysis Center link or any of the other lin
 Changes made to the cohort with the Cohort Builder will persist through the other sections of the GDC Data Portal.
 
 Users can then perform the following actions:
-* Download files associated with the cohort from the [Repository](repository.md)
+* Download files associated with the cohort from the [Repository](Repository.md)
 * Analyze data from the cohort in the [Analysis Center](analysis_center.md)
