@@ -167,7 +167,7 @@ To build and analyze a cohort of interest using an analysis tool in the Analysis
 To download files from a cohort of interest:
 1. Choose the Cohort Builder icon on the GDC Data Portal header, or click on the Cohort Builder card in the Analysis Center.  The [Cohort Builder](cohort_builder.md) will appear on the screen.
 2. Create a custom cohort based on filters available in the Cohort Builder
-3. Either choose the Repository icon on the header, or click on the "X" on the left of the Cohort Builder header and then click the Repository tool card. The [Repository](repository.md) will appear on the screen.
+3. Either choose the Repository icon on the header, or click on the "X" on the left of the Cohort Builder header and then click the Repository tool card. The [Repository](Repository.md) will appear on the screen.
 
 [![Repository Header](images/RepositoryHeader.png)](images/RepositoryHeader.png "Click to see the full image.")
 
