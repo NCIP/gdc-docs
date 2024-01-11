@@ -10,7 +10,7 @@ In this GDC 2.0 Video Tutorial, learn how to:
 * Analyze a cohort using GDC analysis tools
 * Download data associated with a cohort
 
-GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](XXXLINK2PlaylistXXX). For additional details, please see the [GDC 2.0 User's Guide](../quick_start.md).
+GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](XXXLINK2PlaylistXXX). For additional details, please see the [GDC 2.0 User's Guide](quick_start.md).
 
 [![GDC 2.0 Workflow Flowchart](images/WorkflowFlowchart.png)](images/WorkflowFlowchart.png "Click to see the full image.")
 
