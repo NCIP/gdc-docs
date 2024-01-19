@@ -9,10 +9,11 @@ In this GDC 2.0 Video Tutorial, learn how to:
 * Build a cohort
 * Analyze a cohort using GDC analysis tools
 * Download data associated with a cohort
+* View projects and available data in the GDC, and filter to create custom cohorts
 
 GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](XXXLINK2PlaylistXXX). For additional details, please see the [GDC 2.0 User's Guide](../quick_start.md).
 
-[![GDC 2.0 Workflow Flowchart](images/WorkflowFlowchart.png)](images/WorkflowFlowchart.png "Click to see the full image.")
+[![GDC 2.0 Workflow Flowchart](images/v2_workflow.png)](images/v2_workflow.png "Click to see the full image.")
 
 ## Build Cohort
 
@@ -28,6 +29,10 @@ In this video, learn how to use the <b>Cohort Builder</b> to build a cohort of p
 
 </td></tr>
 </table>
+
+
+
+## Analyze Cohort
 
 ## Analysis Center
 
@@ -60,6 +65,12 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <tr>
 <td><b>Cohort Comparison</b></td>
 <td>Display the survival analysis of your cohorts and compare characteristics such as gender, vital status and age at diagnosis</td>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+</td>
+</tr>
+<tr>
+<td><b>Gene Expression Clustering</b></td>
+<td>Display gene expression visualization </td>
 <td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
@@ -105,8 +116,21 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 Genomic, clinical, and biospecimen data associated with a cohort can be downloaded using the <b>Repository</b>.
 <br>
 In this video, learn how to download data associated with a cohort in the <b>Repository</b>.
+</td>
+</tr>
+</table>
 
+## View Projects
 
+<table>
+<tr>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/1WQsAt4S2D0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+</td>
+<td>
+
+GDC data is organized by projects within a larger cancer research program. Projects are generally composed of a particular type of cancer, such as the low-grade glioma (LGG) and sarcoma (SARC) projects within the TCGA program.
+<br>
+In this video, learn how to use The GDC Data Portal to access project-level information via the Projects tool and Project Summary Page and navigate and filter data to create custom cohorts.
 </td>
 </tr>
 </table>
