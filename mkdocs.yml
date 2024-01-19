@@ -56,7 +56,7 @@ pages:
   - BAM Slicing: 'Data_Portal/Users_Guide/BAMslicing.md'
   - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
   - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
-- Data Portal V1:
+- Data Portal v1.0:
   - Getting Started: Data_Portal_V1/Users_Guide/Getting_Started.md
   - Projects: Data_Portal_V1/Users_Guide/Projects.md
   - Exploration: Data_Portal_V1/Users_Guide/Exploration.md

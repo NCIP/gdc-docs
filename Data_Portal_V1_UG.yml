@@ -8,7 +8,7 @@ repo_url: https://github.com/NCI-GDC/gdc-docs
 copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
-- Data Portal V1:
+- Data Portal v1.0:
   - Getting Started: 'Data_Portal_V1/Users_Guide/Getting_Started.md'
   - Projects: 'Data_Portal_V1/Users_Guide/Projects.md'
   - Exploration: Data_Portal_V1/Users_Guide/Exploration.md
