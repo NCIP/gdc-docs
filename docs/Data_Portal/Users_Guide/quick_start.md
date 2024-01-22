@@ -10,12 +10,14 @@ The header of the GDC Data Portal contains frequently used links and features.
 [![Header](images/Header.png)](images/Header.png "Click to see the full image.")
 
 On the upper-left is the GDC Data Portal logo, which links to the home page of the GDC Data Portal. Below the logo are links in the following order:
+
 * **Analysis Center**: links to [Analysis Center](analysis_center.md) page, the central hub for accessing all the tools in the GDC Data Portal
 * **Projects**: a shortcut to the [Projects](Projects.md) tool in the Analysis Center. The Projects tool allows exploration of all the projects within the GDC Data Portal.
 * **Cohort Builder**: a shortcut to the [Cohort Builder](cohort_builder.md) tool in the Analysis Center. The Cohort Builder tool consists of a variety of clinical and biospecimen filters for building a custom cohort for analysis.
 * **Repository**: a shortcut to the [Repository](Repository.md) tool in the Analysis Center. The Repository tool allows exploration of files associated with a cohort.
 
 On the right are the following features:
+
 * **Video Guides**: links to videos demonstrating the various features of the Data Portal
 * **Send Feedback**: provides information on how to send feedback to our team
 * **Browse Annotations**: links to the Annotations Browser, where the user can view and search for [annotations](../../Encyclopedia/pages/Annotations.md) that may be of use when analyzing GDC data
@@ -127,6 +129,7 @@ The query expressions section displays information about the filters applied to 
 In the top-left corner of this section is the name of the current cohort. To its right is a "Clear All" option, which will remove all filtering applied on the current cohort.
 
 On the top-right corner of this section are the following two buttons:
+
 * **Collapse/Expand Selected Values**: by default, a full list of all the values that have been selected for each property is displayed. This button allows the user to switch from this default expanded view to a minimized view, which only displays the number of values selected for each property.
 * **Collapse/Expand Filters Section**: by default, a maximum of three rows will be displayed at a time for the filters selected for the current cohort. This button allows the user to switch from displaying a maximum of three rows for the selected filters to displaying an unlimited number of rows. This button is only enabled if the display of the selected filters for the current cohort exceeds three rows.
 
@@ -146,6 +149,7 @@ Available tools are displayed under the Query Expression section of the Analysis
 [![Analysis Center Tools](images/AnalysisCenterTools.png)](images/AnalysisCenterTools.png "Click to see the full image.")
 
 Each analysis tool is showcased within a tool 'card', which has several items related to the analysis tool such as:
+
 * A green 'Play' button to launch the analysis tool on the given cohort
 * A 'Demo' button that launches a demonstration of the analysis tool on an example cohort
 * Clicking on the name of the analysis tool in the tool card toggles a drop down description of the analysis tool
@@ -165,6 +169,7 @@ To build and analyze a cohort of interest using an analysis tool in the Analysis
 ## File Download ##
 
 To download files from a cohort of interest:
+
 1. Choose the Cohort Builder icon on the GDC Data Portal header, or click on the Cohort Builder card in the Analysis Center.  The [Cohort Builder](cohort_builder.md) will appear on the screen.
 2. Create a custom cohort based on filters available in the Cohort Builder
 3. Either choose the Repository icon on the header, or click on the "X" on the left of the Cohort Builder header and then click the Repository tool card. The [Repository](Repository.md) will appear on the screen.
