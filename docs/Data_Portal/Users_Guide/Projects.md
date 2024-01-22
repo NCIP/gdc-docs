@@ -14,6 +14,8 @@ The right side of the Projects tool displays a table that contains a list of pro
 
 [![Project Page](images/ProjectsPage.png)](images/ProjectsPage.png "Click to see the full image.")
 
+Cohorts can be created by selecting individual projects and using the Save New Cohort button above the table. The checkbox in the header allows all projects on the current page of the table to be selected at the same time.
+
 ### Facets Panel
 
 Facets represent properties of the data that can be used for filtering. The facets panel on the left allows users to filter the projects presented in the Table.

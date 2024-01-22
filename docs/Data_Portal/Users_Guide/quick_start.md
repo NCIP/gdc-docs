@@ -92,7 +92,7 @@ The middle button at the top right of each card allows for the selection view to
 
 #### Cohort Case Table
 
-The case table displays a list of cases in the active cohort along with associated metadata.  It also allows for each case to be selected with a checkbox for saving a new cohort or exporting metadata.  
+The case table displays a list of cases in the active cohort along with associated metadata.  It also allows for each case to be selected with a checkbox for saving a new cohort or exporting metadata. All cases on the current page of the table can be selected at the same time by using the checkbox in the header.
 
 [![Cohort Table](images/CohortTable.png)](images/CohortTable.png "Cohort Summary Table. Click to see the full image.")
 
