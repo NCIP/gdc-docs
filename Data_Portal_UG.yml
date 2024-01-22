@@ -21,7 +21,7 @@ pages:
   - ProteinPaint: 'Data_Portal/Users_Guide/proteinpaint_lollipop.md'
   - Sequence Reads: 'Data_Portal/Users_Guide/proteinpaint_bam.md'
   - OncoMatrix: 'Data_Portal/Users_Guide/oncomatrix.md'
-  - Cohort MAF: 'Data_Portal/Users_Guide/cohortMAF.md'
+  # - Cohort MAF: 'Data_Portal/Users_Guide/cohortMAF.md'
   - BAM Slicing: 'Data_Portal/Users_Guide/BAMslicing.md'
   - Developers Guide: 'Data_Portal/Users_Guide/Developers_Guide.md'
   - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'

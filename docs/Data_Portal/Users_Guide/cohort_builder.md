@@ -25,6 +25,7 @@ At the left side of the panel are a series of broad filter categories can be sel
 Each card within the Cohort Builder can be used to apply the corresponding filters on the current cohort. As filters are applied, they will be displayed on the [Query Expressions](quick_start.md#query-expressions) section.
 
 Additional features can be accessed at the top right of each card's header to facilitate filtering:
+
 * **Search**: the search icon can be selected to reveal or hide a search field for entering text to search within the values of the current card. This feature is only available when the values are enums.
 * **Flip Card**: cards can be flipped to reveal or hide a summary chart. This feature is only available when the values can be meaningfully displayed as bar graphs.
 * **Reset Card**: this button will reset any filtering that has been applied within the card

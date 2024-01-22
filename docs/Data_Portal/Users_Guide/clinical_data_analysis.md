@@ -102,7 +102,9 @@ The box and QQ plot types support these features:
 
 Note that the box and QQ plots apply to, and can be displayed for, continuous variables only.
 
-Certain continuous variables that are measured with units of time, such as Days to Birth, include a toggle to switch between displaying the data in years or days.
+Certain continuous variables that are measured with units of time, such as Days to Birth, include a toggle to switch between displaying the data in years or days. A standard formula is employed for converting between years and days:
+
+* 1 year = 365.25 days
 
 [![Year and Day Toggle](images/CDAYearsDaysToggle.png)](images/CDAYearsDaysToggle.png "Click to see the full image.")
 

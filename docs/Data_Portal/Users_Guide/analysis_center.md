@@ -20,7 +20,7 @@ This section contains the core GDC tools.  This includes the [Projects](Projects
 
 ## Analysis Tools ##
 
-The Analysis Tools section contains the analysis tools available in the Analysis Center: [BAM Slicing Download](BAMslicing.md), [Clinical Data Analysis](clinical_data_analysis.md), [Cohort Comparison](cohort_comparison.md), [Gene Expression Clustering](LINKHERE), [MAF Aggregation](cohortMAF.md), [Mutation Frequency](mutation_frequency.md), [OncoMatrix](oncomatrix.md), [ProteinPaint](proteinpaint_lollipop.md), [Sequence Reads](proteinpaint_bam.md), and [Set Operations](set_operations.md).
+The Analysis Tools section contains the analysis tools available in the Analysis Center: [BAM Slicing Download](BAMslicing.md), [Clinical Data Analysis](clinical_data_analysis.md), [Cohort Comparison](cohort_comparison.md), [Gene Expression Clustering](LINKHERE), [Mutation Frequency](mutation_frequency.md), [OncoMatrix](oncomatrix.md), [ProteinPaint](proteinpaint_lollipop.md), [Sequence Reads](proteinpaint_bam.md), and [Set Operations](set_operations.md).
 
 These can be launched by clicking the Play buttons in each of the tool cards.
 
