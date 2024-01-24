@@ -697,7 +697,9 @@ calling the GDC API and downloading the data. The `DownloadButton` component wil
 a progress bar or spinner to display the progress of the download.
 
 The `SaveCohortButton` component is used in the repository application to save a cohort.
+
 ![img.png](images/create_cohort_button.png)
+
 The `SaveCohortButton` component takes a number of arguments:
 
 ```tsx
