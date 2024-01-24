@@ -1253,7 +1253,7 @@ The above code registers the Project Center application with the GDC Portal. The
 When the app is registered, it will be available in the GDC Portal. The application can be accessed by clicking on the app card.
 The visual elements of the card are:
 
-![application_card.png](images%2Fapplication_card.png)
+![application_card.png](images/application_card.png)
 
 *Application Card and it's elements*
 
