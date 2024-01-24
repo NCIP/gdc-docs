@@ -776,7 +776,7 @@ const BarChart = dynamic(() => import("@/components/charts/BarChart"), {
 
 * `Cancer Distribution` - a cancer distribution chart
 
-  ![cancer distribution](images/most-frequently-mutated-genes-bar-chart.png)
+ ![cancer distribution](images/most-frequently-mutated-genes-bar-chart.png)
 
 The `CancerDistribution` component (based on Plotly) is different as it passed the Gene Symbol
 and optionally cohort and gene filters.
@@ -800,42 +800,42 @@ Facet components are provided for use in building local filters for your applica
 * `DateFacet` - a facet that is used to filter a date field
 * `NumericRangeFacet` - a facet that is used to filter on a range field
 * `PercentileFacet` - a facet that is used to filter on a percentile field
-* 'AgeRangeFacet' - a facet that is used to filter on an age range field
+* `AgeRangeFacet` - a facet that is used to filter on an age range field
 * `TextFacet` - a facet that is used to filter a text field
 * `BooleanFacet` - a facet that is used to filter on a boolean field
 
-<img src="images/components/enum_facet.png" alt="Enum Facet Component" width="800" height="auto">
+![Enum Facet Component](images/components/enum_facet.png)
 
 *Enum Facet*
 
-<img src="images/components/numeric_range_facet.png" alt="Range Facet Component" width="600" height="auto">
+![Range Facet Component](images/components/numeric_range_facet.png)
 
 *Range Facet*
 
-<img src="images/components/date_range_facet.png" alt="Date Range Facet Component" width="600" height="auto">
+![Date Range Facet Component](images/components/date_range_facet.png)
 
 *Date Range Facet*
 
 
-<img src="images/components/number_range.png" alt="Number Range Facet Component" width="600" height="auto">
+![Number Range Facet Component](images/components/number_range.png)
 
 *Number Range Facet*
 
-<img src="images/components/percentile_facet.png" alt="Percent Range Facet Component" width="600" height="auto">
+![Percent Range Facet Component](images/components/percentile_facet.png)
 
 *Percentile Facet*
 
 
-<img src="images/components/age_range_facet.png" alt="Age Range Facet Component" width="600" height="auto">
+![Age Range Facet Component](images/components/age_range_facet.png)
 
 *Age Range Facet*
 
 
-<img src="images/components/exact_value_facet.png" alt="Exact Value Facet Component" width="600" height="auto">
+![Exact Value Facet Component](images/components/exact_value_facet.png)
 
 *Exact Value Facet*
 
-<img src="images/components/toggle_facet.png" alt="Boolean Toggle Facet Component" width="600" height="auto">
+![Boolean Toggle Facet Component](images/components/toggle_facet.png)
 
 *Toggle Facet*
 
