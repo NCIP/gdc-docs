@@ -725,9 +725,9 @@ modals that can be used for various purposes. One such modal is the `SaveCohortM
 
 * `SaveCohortModal` - a modal that can be used to save a cohort.
 * Various modals for displaying information on Sets:
-  * `CaseSetModal`
-  * `GeneSetModal`
-  * `MutationSetModal`
+    * `CaseSetModal`
+    * `GeneSetModal`
+    * `MutationSetModal`
 * `SaveOrCreateEntityModal` - a modal that can be used to save or create a new entity.
 
 These modals and others, are documented in the Portal V2 SDK API documentation.
