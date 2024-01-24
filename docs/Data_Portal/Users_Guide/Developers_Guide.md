@@ -2,54 +2,7 @@
 
 ## Introduction
 
-This guide will detail the process of developing applications for the GDC Portal Version 2.0. It describes the
-structure of the GDC Portal, how to use the GDC Portal API, and how to develop applications for the GDC Portal.
-
-The GDC Portal is designed to support the development of applications that allow for analysis, visualization,
-and refinement of cohorts. The GDC Portal is built on top of the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/),
-which provides access to the GDC data. The GDC Portal provides a framework for developing applications that
-can be used to analyze and visualize data from the GDC.
-
-## Table of Contents
-
-- [Introduction](#introduction)
-  - [Overview of an Application](#overview-of-an-application)
-  - [Local vs Global Filters](#local-vs-global-filters)
-  - [Cohorts and Filters](#cohorts-and-filters)
-- [Using the Portal Application API](#using-the-portal-application-api)
-  - [Case Information](#case-information)
-  - [File Information](#file-information)
-  - [Sets: Gene, SSMS, and Case](#sets-gene-ssms-and-case)
-  - [Creating a cohort](#creating-a-cohort)
-  - [Altering a cohort](#altering-a-cohort)
-    - [Updating, removing, and clearing filters](#updating-removing-and-clearing-filters)
-    - [Updating the cohort name](#updating-the-cohort-name)
-    - [Setting the current cohort](#setting-the-current-cohort)
-  - [Count Information](#count-information)
-  - [Component Library](#component-library)
-    - [Buttons](#buttons)
-    - [Modals](#modals)
-    - [Charts](#charts)
-    - [Facets](#facets)
-    - [VerticalTable](#verticaltable)
-- [Application Development](#application-development)
-  - [Getting Started](#getting-started)
-  - [Application Layout](#application-layout)
-  - [Local State](#local-state)
-  - [Persisting the local State](#persisting-the-local-state)
-  - [Application Hooks](#application-hooks)
-  - [Creating a new cohort](#creating-a-new-cohort)
-  - [Application Registration](#application-registration)
-  - [Source code layout](#source-code-layout)
-
-
-- [Appendix](#appendix)
-  - [Using selectors and hooks](#using-selectors-and-hooks)
-    - [Selectors](#selectors)
-    - [Hooks](#hooks)
-  - [Querying the GDC API Directly](#querying-the-gdc-api-directly)
-
-## Introduction
+This guide will detail the process of developing applications for the GDC Portal Version 2.0. It describes the structure of the GDC Portal, how to use the GDC Portal API, and how to develop applications for the GDC Portal.
 
 The GDC Portal is designed to support the development of applications that allow for analysis, visualization,
 and refinement of cohorts. The GDC Portal is built on top of the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/),
