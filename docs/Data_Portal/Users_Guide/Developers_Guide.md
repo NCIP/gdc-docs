@@ -447,7 +447,7 @@ As the above hooks are Redux Toolkit Query hooks, namely mutation hooks, they re
     }
     ;
   }
- ```
+```
 
 Once a set is created it can be altered using the following hooks:
 * `useAppendToGeneSetMutation`
@@ -511,14 +511,14 @@ The current cohort's filters can be accessed via the `selectCurrentCohortFilters
 ### Updating, removing, and clearing filters
 
 to update the current selected cohort's filter, the `updateCohortFilter` action can be used. The `updateCohortFilter` action takes two arguments:
-```typescript
 
+```typescript
 interface UpdateFilterParams {
   field: string;
   operation: Operation;
 }
-
 ```
+
 where `field` is the field to update and `operation` is the operation to apply to the field. For example to update the
 `cases.project.project_id` field to include the project `TCGA-ACC` the following code can be used:
 
@@ -736,7 +736,7 @@ The charts provided are:
 
 * `BarChart` - a bar chart
 
-  ![Bar Chart](images/primary_site.png)
+![Bar Chart](images/primary_site.png)
 
 The `BarChart` component (based on Plotly) is passed data in the form:
 
@@ -940,9 +940,7 @@ If is desirable to persist the local state. This can be done using the `persistR
 persisted store and passing the reducer to the `persistReducer` function. For example, the `createAppStore` function
 can be modified to persist the local filter state as:
 
-
-
-```typescript #title="src/appApi.ts"
+```typescript
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
