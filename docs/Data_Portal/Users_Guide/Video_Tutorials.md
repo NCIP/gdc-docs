@@ -25,7 +25,7 @@ Cohorts are created using the <b>Cohort Builder</b>, which allows users to speci
 In this video, learn how to use the <b>Cohort Builder</b> to build a cohort of patients with lung cancer, that are over the age of 50, and have harmonized RNA-Seq data.
 </td>
 
-<td><iframe width="400" height="300" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/ppEYuxbarGw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 
 </td></tr>
 </table>
@@ -38,7 +38,7 @@ In this video, learn how to use the <b>Cohort Builder</b> to build a cohort of p
 
 <table>
 <tr>
-<td><iframe width="400" height="300" src="https://www.youtube.com/embed/pE59W-mtX1Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/N2my3pTtSiU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 </td>
 <td>
 Once a cohort is created, the cohort can be analyzed using an analysis tool in the <b>Analysis Center</b>.
@@ -59,13 +59,13 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <tr>
 <td><b>Clinical Data Analysis</b></td>
 <td>Use clinical variables to perform basic statistical analysis of your cohort</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/jDdL2bMQXfE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/0DuI4NEQ6CU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>Cohort Comparison</b></td>
 <td>Display the survival analysis of your cohorts and compare characteristics such as gender, vital status and age at diagnosis</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/NT7-TB78VjA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
@@ -101,7 +101,7 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <tr>
 <td><b>Set Operations</b></td>
 <td>Display a Venn diagram and compare/contrast your cohorts or sets of the same type</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/SiFBZtkAwoI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/QHJwyL_pLak" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 </table>
@@ -110,7 +110,7 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 
 <table>
 <tr>
-<td><iframe width="400" height="300" src="https://www.youtube.com/embed/1WQsAt4S2D0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/edipjoF1Tyk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 </td>
 <td>
 Genomic, clinical, and biospecimen data associated with a cohort can be downloaded using the <b>Repository</b>.
@@ -124,7 +124,7 @@ In this video, learn how to download data associated with a cohort in the <b>Rep
 
 <table>
 <tr>
-<td><iframe width="400" height="300" src="https://www.youtube.com/embed/1WQsAt4S2D0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/rKn2WJuA850" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 </td>
 <td>
 
