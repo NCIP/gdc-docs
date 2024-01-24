@@ -69,7 +69,7 @@ The GDC Data Portal has been completely revamped to include the following featur
 ### Known Issues and Workarounds
 
 * Cohorts:
-    * Cohorts are under active development and their behavior may change in the first several months after the release of GDC Portal 2.0. As this process may result in the loss of saved cohorts on the portal, we highly recommend [exporting cohorts](quick_start.md#main-toolbar) locally.
+    * Cohorts are under active development and their behavior may change in the first several months after the release of GDC Portal 2.0. As this process may result in the loss of saved cohorts on the portal, we highly recommend [exporting cohorts](/Data_Portal/Users_Guide/quick_start.md#main-toolbar) locally.
     * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes.
     * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR=1616-->
     * When saving a cohort, the confirmation notification may be automatically dismissed before the saving dialog has closed. <!--SV-2366-->
