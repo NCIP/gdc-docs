@@ -68,11 +68,35 @@ The GDC Data Portal has been completely revamped to include the following featur
 
 ### Known Issues and Workarounds
 
+* Cohorts:
+    * Cohorts are under active development and their behavior may change in the first several months after the release of GDC Portal 2.0. As this process may result in the loss of saved cohorts on the portal, we highly recommend [exporting cohorts](quick_start.md#main-toolbar) locally.
+    * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes.
+    * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR=1616-->
+    * When saving a cohort, the confirmation notification may be automatically dismissed before the saving dialog has closed. <!--SV-2366-->
+    * Using "Save As" to replace a cohort with itself will result in an error notification despite the replacement being successful. <!--SV-2363--> 
+* Accessibility:
+    * Equivalent alternatives to the Box plots, QQ plots, Venn diagrams, and the body plot are not available.
+    * Some text can be difficult to read on a small screen at a 200% zoom level.
+    * Keyboard focus is not returned to the triggering element when some modals close.
+    * Assistive technologies may not behave correctly with some custom controls due to incorrect, missing, or redundant labels, attributes, or roles.
+* Cohort Builder:
+    * Filters related to numeric values may display a smaller number than what the user entered within the Cohort Builder. This is a visual issue and does not affect the filters applied to the cohort. <!--SV-2383-->
+    * When a selection has been made in an Available Data filter within the Cohort Builder, other Available data filters may not display the expected values. <!--PEAR-1449-->
+* Survival Plot:
+    * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
+    * The survival plot in Mutation Frequency may flicker when the cohort has 0 cases. <!--SV-2331/PEAR-1701-->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* Cart:
+    * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
+    * More than 5 GB of files in total may be downloaded at a time via the browser if the user first attempts to download controlled access data without being logged in, then logs in via the information dialog displayed before continuing with the download. <!--SV-2342-->
+* When the Cohort Comparison app is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360--> 
 * The TSV of the cases table may not contain the expected tabs. <!--DEV-2324-->
-* When a selection has been made in an Available Data filter within the Cohort Builder, other Available data filters may not display the expected values. <!--PEAR-1449-->
-* The Repository app may display an incorrect file size total of 0 bytes when in-app filtering is used with an active cohort containing Available Data filters.
-* Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes.
-* The case counts displayed on the card for the Gene Expression Clustering app in the Analysis Center may be incorrect. <!--SV-2332-->
+* The Repository app may display an incorrect file size total of 0 bytes when in-app filtering is used with an active cohort containing Available Data filters. <!--SV-2376-->
+* The Slide Image Viewer will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* In Set Operations, the saving of gene and mutation sets may be unsuccessful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
+* Clicking the X button on the Unexpected Error dialog box does not dismiss it as expected. <!--SV-2367-->
+
 
 ## Release 1.30.4
 
