@@ -94,7 +94,7 @@ The middle button at the top right of each card allows for the selection view to
 
 #### Cohort Case Table
 
-The case table displays a list of cases in the active cohort along with associated metadata.  It also allows for each case to be selected with a checkbox for saving a new cohort or exporting metadata. All cases on the current page of the table can be selected at the same time by using the checkbox in the header.
+The case table displays a list of cases in the active cohort along with associated metadata.  It also allows for each case to be selected with a checkbox for saving a new cohort or exporting metadata. All cases on the current page of the table can be selected at the same time by using the checkbox in the header. Note that expanding the case table, with the cohort bar pinned, may obscure the view of the analysis center or analysis tools.
 
 [![Cohort Table](images/CohortTable.png)](images/CohortTable.png "Cohort Summary Table. Click to see the full image.")
 
@@ -107,13 +107,13 @@ The top right of the case table features a search function that can be used to q
 
 The case summary panel can be collapsed by selecting the 'Collapse' button that replaces the 'Expand' button.
 
-Case Summary Page
+### Case Summary Page
 
 Users can launch the Case Summary Page by clicking a Case ID in the Cohort Case Table. The Case Summary Page displays case details including the project and disease information, data files that are available for that case, and the experimental strategies employed. A button in the top-left corner of the page allows the user to add all files associated with the case to the file cart.
 
 [![Case Summary Page](images/CaseSummaryPage.png)](images/CaseSummaryPage.png "Click to see the full image.")
 
-Import New Cohort:
+### Import New Cohort
 
 The Import New Cohort button in the main toolbar allows for a set of cases to be imported. These can be entered directly into the text box as a plain text list of UUIDs or submitter_ids (barcodes) or imported as a CSV, TSV, or TXT file. Users can hover over the orange (i) to verify accepted case identifiers, delimiters, and file formats.
 
