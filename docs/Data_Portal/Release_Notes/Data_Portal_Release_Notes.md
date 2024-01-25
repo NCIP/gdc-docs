@@ -72,7 +72,7 @@ The GDC Data Portal has been completely revamped to include the following featur
     * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
         * Equivalent alternatives to the Box plots, QQ plots, Venn diagrams, and the body plot are not available.
         * Some text can be difficult to read on a small screen at a 200% zoom level.
-        * Keyboard focus is not returned to the triggering element when some modals close.
+        * Keyboard focus is not returned to the triggering element when modals are closed.
         * Assistive technologies may not behave correctly with some custom controls due to incorrect, missing, or redundant labels, attributes, or roles.
         * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
         * Heatmaps within the Sequence Reads do not contain concise alternative text or equivalent alternatives.
