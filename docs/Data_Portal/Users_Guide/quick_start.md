@@ -51,6 +51,7 @@ On the right side of the home page are a human anatomical outline and a bar grap
 The Analysis Center can be accessed by clicking on the corresponding link in the GDC Data Portal header, on the "Explore Our Cancer Datasets" button on the home page, or on one of the sites in the human anatomical outline or bar graph.
 
 The Analysis Center has following sections:
+
 * **Main Toolbar**: contains functionality for managing and creating custom cohorts
 * **Query Expressions**: displays the filters applied on the current cohort
 * **Analysis Tools**: all analysis tools available are located in the Analysis Center as individual cards. When individual analysis tools are launched, they are displayed in this section of the [Analysis Center](analysis_center.md).
@@ -66,6 +67,7 @@ The name of the current cohort is displayed in a field on the left. Previously c
 The main toolbar also contains a set of buttons that are used to manage or create new cohorts. To the left of the cohort name is the "Discard Changes" button, which discards unsaved changes that have been made to the current cohort.
 
 To the right of the cohort name are the following buttons:
+
 * **Save Cohort** - Two options for saving cohorts are available in the dropdown menu. Select the "Save" option to save the active cohort and any changes made to it. Select the "Save As" option to save the active cohort, along with any changes made to it, as a new cohort. Cohorts with unsaved changes have a yellow exclamation mark icon displayed next to their names. Custom cohorts that are saved should persist through releases and continue to be accessible if the same browser is used. **It is recommended that users export and securely store any cohort that cannot be easily recreated in case the browser session is cleared.**
 * **Create New Unsaved Cohort** - Adds a new unsaved cohort with all the cases in the GDC and changes the active cohort to this new cohort
 * **Delete Cohort** - Deletes the current active cohort.  This action cannot be undone.
