@@ -71,37 +71,43 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <tr>
 <td><b>Gene Expression Clustering</b></td>
 <td>Display gene expression visualization </td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ucKM6JxzljM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/f58U6hL4Wok" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>Mutation Frequency</b></td>
 <td>Visualize most frequently mutated genes and somatic mutations</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/mufb0Hx2438" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/dbbuk-zhmvc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>OncoMatrix</b></td>
 <td>Visualize the top most mutated cases and genes affected by high impact mutations in your cohort</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/tk1nEX2gnqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/ZgSeJCqLmzY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>ProteinPaint</b></td>
 <td>Visualize mutations in protein-coding genes by consequence type and protein domain</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/exUcuUd5rsM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/5AXvhtFd_Es" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>Sequence Reads</b></td>
 <td>Visualize sequencing reads for a given gene, position, SNP, or variant</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/embed/7qpKPiOZrks" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/PkQ6cEzRCds" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>
 <td><b>Set Operations</b></td>
 <td>Display a Venn diagram and compare/contrast your cohorts or sets of the same type</td>
 <td><iframe width="240" height="160" src="https://www.youtube.com/embed/QHJwyL_pLak" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+</td>
+</tr>
+<tr>
+<td><b>BAM Slicing</b></td>
+<td>Slice a specific region, gene, or chromosome from a GDC-harmonized BAM file.</td>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/Nd9Ex9s_prk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 </table>
