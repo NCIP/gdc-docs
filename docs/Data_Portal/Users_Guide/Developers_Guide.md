@@ -1,4 +1,4 @@
-# GDC Portal V2 Application Developer Guide
+# GDC Portal 2.0 Application Developer Guide
 
 ## Introduction
 
@@ -645,7 +645,7 @@ The `DownloadButton` component is used in the repository application to download
 
 ```
 
-The parameters for the DownloadButton are defined in the Portal V2 SDK API documentation. The `DownloadButton` component will take care of
+The parameters for the DownloadButton are defined in the Portal 2.0 SDK API documentation. The `DownloadButton` component will take care of
 calling the GDC API and downloading the data. The `DownloadButton` component will also provide status that can be used with
 a progress bar or spinner to display the progress of the download.
 
@@ -683,7 +683,7 @@ modals that can be used for various purposes. One such modal is the `SaveCohortM
     * `MutationSetModal`
 * `SaveOrCreateEntityModal` - a modal that can be used to save or create a new entity.
 
-These modals and others, are documented in the Portal V2 SDK API documentation.
+These modals and others, are documented in the Portal 2.0 SDK API documentation.
 
 ### Charts
 
@@ -743,7 +743,7 @@ interface CNVPlotProps {
 }
 ```
 
-These charts and others are documented in the Portal V2 SDK API documentation.
+These charts and others are documented in the Portal 2.0 SDK API documentation.
 
 ### Facets
 
@@ -793,7 +793,7 @@ Facet components are provided for use in building local filters for your applica
 *Toggle Facet*
 
 
-The facet components are documented in the Portal V2 SDK API documentation. As these components are passed data fetcher
+The facet components are documented in the Portal 2.0 SDK API documentation. As these components are passed data fetcher
 and filter management hooks, they can be used for both cohort and local filters in an application.
 
 ### VerticalTable
@@ -805,16 +805,16 @@ in the table, and is where the fields of the data tp be rendered are.
 The table has support for searching, sorting, and pagination. It can be configured to render many different types of columns, including text, numeric, and date. The table can also be configured
 to use React components for rendering columns.
 The Vertical Table is used for most of the table views in the GDC Portal. There are a number of examples of its use and
-is documented in the Portal V2 SDK API documentation.
+is documented in the Portal 2.0 SDK API documentation.
 
-![vertical_table.png](images%2Fcomponents%2Fvertical_table.png)
+![vertical_table.png](images/components/vertical_table.png)
 *Vertical Table*
 
 # Application Development
 
 ## Getting Started
 
-The GDC Portal V2 is a monorepo that contains all the code for the GDC Portal. The monorepo is managed using [lerna](https://lerna.js.org) and [npm]().
+The GDC Portal 2.0 is a monorepo that contains all the code for the GDC Portal. The monorepo is managed using [lerna](https://lerna.js.org) and [npm](https://www.npmjs.com/).
 The monorepo contains the following packages:
 
 * `@gff/core` - contains the core components and hooks for the GDC Portal.
@@ -1239,7 +1239,7 @@ const currentCohort = useSelector(selectCurrentCohort);
 
 ```
 
-The selector will return the current value of the item in the store. Consult the GDC V2 API documentation for a complete
+The selector will return the current value of the item in the store. Consult the GDC 2.0 API documentation for a complete
 list of selectors.
 
 ### Hooks
