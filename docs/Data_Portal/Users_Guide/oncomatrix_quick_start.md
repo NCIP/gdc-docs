@@ -8,7 +8,7 @@ The OncoMatrix tool is a web-based tool for visualizing coding mutations such as
 
 At the Analysis Center, click on the 'OncoMatrix' card to launch the app.
 
-[![Analysis Tools with OncoMatrix Card](./images/oncomatrix/1-analysis_center.png)](./images/oncomatrix/1-analysis_center.png 'Click to see the full image.')
+[![Analysis Tools with OncoMatrix Card](.images/oncomatrix/1-analysis_center.png)](.images/oncomatrix/1-analysis_center.png 'Click to see the full image.')
 
 Users can view publicly available genes as well as login with credentials to access controlled data.
 
@@ -16,13 +16,13 @@ Users can view publicly available genes as well as login with credentials to acc
 
 There are three main panels in the OncoMatrix tool: [control panel](#control-panel), [matrix plot](#matrix-plot), and [legend panel](#legend-panel).
 
-[![OncoMatrix Overview](/images/oncomatrix_overview.png)](/images/oncomatrix_overview.png 'Click to see the full image.')
+[![OncoMatrix Overview](images/oncomatrix_overview.png)](images/oncomatrix_overview.png 'Click to see the full image.')
 
 ### Control Panel
 
 The control panel has various functionalities with which users can change or modify the appearance of the matrix. The control panel provides flexibility and a wide range of options to maximize user control.
 
-[![OncoMatrix Control Panel](/images/oncomatrix_control_panel.png)](/images/oncomatrix_control_panel.png 'Click to see the full image.')
+[![OncoMatrix Control Panel](images/oncomatrix_control_panel.png)](images/oncomatrix_control_panel.png 'Click to see the full image.')
 
 __Control Panel:__
 
@@ -48,35 +48,35 @@ The OncoMatrix plot displays the genes along the left panel with each column rep
 
 Each column in the matrix represents a case. Hovering over a cell will display the corresponding case submitter_id, gene name, copy number information, and mutation(s)/mutation class(es) if any are provided.
 
-[![Hovering over a cell](/images/oncomatrix_cell_hover.png)](/images/oncomatrix_cell_hover.png 'Click to see the full image.')
+[![Hovering over a cell](images/oncomatrix_cell_hover.png)](images/oncomatrix_cell_hover.png 'Click to see the full image.')
 
 Clicking on a cell also gives users the option to launch the Disco Plot.
 
-[![Disco Plot button](/images/oncomatrix_disco_plot_button.png)](/images/oncomatrix_disco_plot_button.png 'Click to see the full image.')
+[![Disco Plot button](images/oncomatrix_disco_plot_button.png)](images/oncomatrix_disco_plot_button.png 'Click to see the full image.')
 
 The Disco Plot is a circular plot that shows all the mutations and CNVs for a given case. The Disco Plot also displays the legend for the mutation class and the CNV.
 
-[![Disco Plot](/images/oncomatrix_disco_plot.png)](/images/oncomatrix_disco_plot.png 'Click to see the full image.')
+[![Disco Plot](images/oncomatrix_disco_plot.png)](images/oncomatrix_disco_plot.png 'Click to see the full image.')
 
 #### Drag to zoom
 
 To perform an automatic zoom, users can click on and hold a case column then drag the mouse from left to right to form a zoom boundary. From the pop-up window, users can choose to zoom in to the cases, list all highlighted cases, or create a cohort of the selected cases.
 
-[![Dragging and zooming on case columns](/images/oncomatrix_zoom.png)](/images/oncomatrix_zoom.png 'Click to see the full image.')
+[![Dragging and zooming on case columns](images/oncomatrix_zoom.png)](images/oncomatrix_zoom.png 'Click to see the full image.')
 
 The individual case columns are now visible with a demarcated boundary. Above the cases, a slider has been provided for moving from one view to another to accommodate all cases.
 
-[![Zoom using input control and slider](/images/oncomatrix_zoom2.png)](/images/oncomatrix_zoom2.png 'Click to see the full image.')
+[![Zoom using input control and slider](images/oncomatrix_zoom2.png)](images/oncomatrix_zoom2.png 'Click to see the full image.')
 
 #### Genes
 
 In the panel of genes on the left, users can hover over a gene to view the number of mutated samples, a breakdown of consequence type, and the counts of copy number gains and losses.
 
-[![Hover over gene](/images/oncomatrix_gene_hover.png)](/images/oncomatrix_gene_hover.png 'Click to see the full image.')
+[![Hover over gene](images/oncomatrix_gene_hover.png)](images/oncomatrix_gene_hover.png 'Click to see the full image.')
 
 Clicking on a gene opens a pop-up window where users can rename it, launch the [ProteinPaint Lollipop plot](proteinpaint_lollipop.md), display the GDC [Gene Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages), and replace or remove the gene.
 
-[![Click on a gene](/images/oncomatrix_gene_click.png)](/images/oncomatrix_gene_click.png 'Click to see the full image.')
+[![Click on a gene](images/oncomatrix_gene_click.png)](images/oncomatrix_gene_click.png 'Click to see the full image.')
 
 #### Variables
 
@@ -96,16 +96,16 @@ By default, the genes in the matrix are sorted in descending order according to 
 
 Below the matrix, the legend displays color coding for mutation classes, CNV, as well as each variable that is selected to appear in the plot.
 
-[![OncoMatrix Legend](/images/oncomatrix_legend.png)](/images/oncomatrix_legend.png 'Click to see the full image.')
+[![OncoMatrix Legend](images/oncomatrix_legend.png)](images/oncomatrix_legend.png 'Click to see the full image.')
 
 Clicking on `Consequences` offers options to show only truncating mutations, show only protein-changing mutations, or hide consequences.
 
-[![OncoMatrix Legend - Consequences button](/images/oncomatrix_legend_consequences.png)](/images/oncomatrix_legend_consequences.png 'Click to see the full image.')
+[![OncoMatrix Legend - Consequences button](images/oncomatrix_legend_consequences.png)](images/oncomatrix_legend_consequences.png 'Click to see the full image.')
 
 Clicking on `CNV` allows users to hide CNV.
 
-[![OncoMatrix Legend - CNV button](/images/oncomatrix_legend_cnv.png)](/images/oncomatrix_legend_cnv.png 'Click to see the full image.')
+[![OncoMatrix Legend - CNV button](images/oncomatrix_legend_cnv.png)](images/oncomatrix_legend_cnv.png 'Click to see the full image.')
 
 Additionally, users can click on a variable's category to hide a specific group, only show a specific group, or show all groups for the selected variable.
 
-[![OncoMatrix Legend - variable category](/images/oncomatrix_legend_var_cat.png)](/images/oncomatrix_legend_var_cat.png 'Click to see the full image.')
+[![OncoMatrix Legend - variable category](images/oncomatrix_legend_var_cat.png)](images/oncomatrix_legend_var_cat.png 'Click to see the full image.')
