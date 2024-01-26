@@ -80,7 +80,7 @@ Not applicable as this is the initial release of GDC 2.0.
 * Cohorts:
     * Cohorts are under active development and their behavior may change in the first several months after the release of GDC Portal 2.0. As this process may result in the loss of saved cohorts on the portal, we highly recommend [exporting cohorts](/Data_Portal/Users_Guide/quick_start.md#main-toolbar) locally.
     * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes. As a workaround, first filter by the mutated genes before creating cohorts based on CNV losses and gains.
-    * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR=1616-->
+    * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
     * When saving a cohort, the confirmation notification may be automatically dismissed before the saving dialog has closed. <!--SV-2366-->
     * Using "Save As" to replace a cohort with itself will result in an error notification despite the replacement being successful. <!--SV-2363--> 
 * Cohort Builder:
@@ -106,7 +106,7 @@ Not applicable as this is the initial release of GDC 2.0.
 * The Repository tool may display an incorrect file size total of 0 bytes when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
 * The Slide Image Viewer will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * In Set Operations, the saving of gene and mutation sets may be unsuccessful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
-* Clicking the X button on the Unexpected Error dialog box does not dismiss it as expected. <!--SV-2367-->
+* Clicking the X button on the Unexpected Error dialog box does not dismiss it as expected. The workaround is to click the OK button. <!--SV-2367-->
 
 
 ## Release 1.30.4
