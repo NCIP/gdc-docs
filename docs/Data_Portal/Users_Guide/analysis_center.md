@@ -11,11 +11,11 @@ A variety of cards are displayed in the Analysis Center. Each card represents an
 
 ## Core Tools ##
 
-This section contains the core GDC tools.  This includes the [Projects](LINKHERE) tool, the [Cohort Builder](LINKHERE), and the [Repository](LINKHERE). These can be selected for use with your current cohort by clicking on each from the Core Tools section.
+This section contains the core GDC tools.  This includes the [Projects](Projects.md) tool, the [Cohort Builder](cohort_builder.md), and the [Repository](Repository.md). These can be selected for use with your current cohort by clicking on each from the Core Tools section.
 
 ## Analysis Tools ##
 
-The Analysis Tools section contains the analysis tools available in the Analysis Center: [BAM Slicing Download](LINKHERE), [Clinical Data Analysis](LINKHERE), [Cohort Comparison](LINKHERE), [Gene Expression Clustering](LINKHERE), [MAF Aggregation](LINKHERE), [Mutation Frequency](LINKHERE), [OncoMatrix](LINKHERE), [ProteinPaint](LINKHERE), [Sequence Reads](LINKHERE), and [Set Operations](LINKHERE).
+The Analysis Tools section contains the analysis tools available in the Analysis Center: [BAM Slicing Download](BAMslicing.md), [Clinical Data Analysis](clinical_data_analysis.md), [Cohort Comparison](cohort_comparison.md), [Gene Expression Clustering](gene_expression_clustering.md), [MAF Aggregation](cohortMAF.md), [Mutation Frequency](mutation_frequency.md), [OncoMatrix](oncomatrix.md), [ProteinPaint](proteinpaint_lollipop.md), [Sequence Reads](proteinpaint_bam.md), and [Set Operations](set_operations.md).
 
 These can be used by directly selecting the tool cards.
 

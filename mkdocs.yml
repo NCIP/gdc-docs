@@ -53,6 +53,7 @@ pages:
   - OncoMatrix: 'Data_Portal/Users_Guide/oncomatrix.md'
   - Cohort MAF: 'Data_Portal/Users_Guide/cohortMAF.md'
   - BAM Slicing: 'Data_Portal/Users_Guide/BAMslicing.md'
+  - Gene Expression Clustering: 'Data_Portal/Users_Guide/gene_expression_clustering.md'
   - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
 - Data Portal V1:
   - Getting Started: Data_Portal_V1/Users_Guide/Getting_Started.md
