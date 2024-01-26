@@ -43,7 +43,7 @@
 
 ### New Features and Changes
 
-The GDC Data Portal has been completely revamped to include the following features:
+GDC 2.0 is a major update to the original GDC Data Portal introduced in 2016. This latest version adopts a “cohort-centric” workflow, in which users build custom sets of cases to analyze, and introduces several new analysis tools. New features of GDC 2.0 include:
 
 * A cohort-centric workflow in which a cohort is first built and then analyzed using tools on the Data Portal. All of these functionalities can be reached from the Analysis Center.  
     * This includes a toolbar, that can be used to view or modify an existing cohort while using any analysis tool.
@@ -64,7 +64,7 @@ The GDC Data Portal has been completely revamped to include the following featur
 
 ### Bugs Fixed Since Last Release
 
-* None
+Not applicable as this is the initial release of GDC 2.0.
 
 ### Known Issues and Workarounds
 
@@ -97,6 +97,10 @@ The GDC Data Portal has been completely revamped to include the following featur
 * Mutation Frequency:
     * Gene/mutation sets created from the tables in Mutation Frequency may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
     * Attempting to download a TSV of all the mutations in the GDC may result in an error due to the length of time needed to generate the TSV. As a workaround, limit the number of mutations downloaded by using a smaller cohort with the tool. <!--SV-2388-->
+* Gene Expression Clustering:
+    * A spinner overlay can scroll over the entire page if a user scrolls while the overlay is present.
+    * The label to the right of the gene expression cluster heatmap gets cut off. 
+    * The tool displays "no data" as an error message when trying to plot a project without gene expression data.
 * When the Cohort Comparison tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360--> 
 * The TSV of the cases table may not contain the expected tabs. <!--DEV-2324-->
 * The Repository tool may display an incorrect file size total of 0 bytes when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
