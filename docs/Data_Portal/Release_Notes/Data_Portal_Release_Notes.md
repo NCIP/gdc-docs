@@ -94,7 +94,9 @@ The GDC Data Portal has been completely revamped to include the following featur
 * Cart:
     * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
     * More than 5 GB of files in total may be downloaded at a time via the browser if the user first attempts to download controlled access data without being logged in, then logs in via the information dialog displayed before continuing with the download. <!--SV-2342-->
-* Gene/mutation sets created from the tables in Mutation Frequency may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
+* Mutation Frequency:
+    * Gene/mutation sets created from the tables in Mutation Frequency may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
+    * Attempting to download a TSV of all the mutations in the GDC may result in an error due to the length of time needed to generate the TSV. As a workaround, limit the number of mutations downloaded by using a smaller cohort with the tool. <!--SV-2388-->
 * When the Cohort Comparison tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360--> 
 * The TSV of the cases table may not contain the expected tabs. <!--DEV-2324-->
 * The Repository tool may display an incorrect file size total of 0 bytes when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
