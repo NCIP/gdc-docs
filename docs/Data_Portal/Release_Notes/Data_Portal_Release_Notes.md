@@ -70,23 +70,22 @@ The GDC Data Portal has been completely revamped to include the following featur
 
 * Section 508 Accessibility:
     * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
-        * Equivalent alternatives to the Box plots, QQ plots, Venn diagrams, and the body plot are not available.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. Additionally, equivalent alternatives to the Box plots, QQ plots, Venn diagrams, and the body plot are not available.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * Some text can be difficult to read on a small screen at a 200% zoom level.
         * Keyboard focus is not returned to the triggering element when modals are closed.
-        * Assistive technologies may not behave correctly with some custom controls due to incorrect, missing, or redundant labels, attributes, or roles.
-        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
-        * Heatmaps within the Sequence Reads do not contain concise alternative text or equivalent alternatives.
-        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
-        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads Tool to convey consequence type but there are no distinguishing patterns.
+        * Assistive technologies may not behave correctly with some controls due to incorrect, missing, or redundant labels, attributes, or roles.
 * Cohorts:
     * Cohorts are under active development and their behavior may change in the first several months after the release of GDC Portal 2.0. As this process may result in the loss of saved cohorts on the portal, we highly recommend [exporting cohorts](/Data_Portal/Users_Guide/quick_start.md#main-toolbar) locally.
-    * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes.
+    * Cohorts created based on CNV losses or gains from may not have the correct composition when filtered by additional mutated genes. As a workaround, first filter by the mutated genes before creating cohorts based on CNV losses and gains.
     * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR=1616-->
     * When saving a cohort, the confirmation notification may be automatically dismissed before the saving dialog has closed. <!--SV-2366-->
     * Using "Save As" to replace a cohort with itself will result in an error notification despite the replacement being successful. <!--SV-2363--> 
 * Cohort Builder:
     * Filters related to numeric values may display a smaller number than what the user entered within the Cohort Builder. This is a visual issue and does not affect the filters applied to the cohort. <!--SV-2383-->
-    * When a selection has been made in an Available Data filter within the Cohort Builder, other Available data filters may not display the expected values. <!--PEAR-1449-->
+    * When a selection has been made in an Available Data filter within the Cohort Builder, other Available Data filters may not display the expected values. <!--PEAR-1449-->
 * Survival Plot:
     * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
     * The survival plot in Mutation Frequency may flicker when the cohort has 0 cases. <!--SV-2331/PEAR-1701-->
