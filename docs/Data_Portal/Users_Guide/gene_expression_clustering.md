@@ -6,7 +6,7 @@ The Gene Expression Clustering tool is a web-based tool for performing sample cl
 
 ## Accessing the Gene Expression Clustering Heatmap
 
-At the analysis center, click the ‘Gene Expression Clustering’ card to launch the heatmap.
+At the Analysis Center, click the ‘Gene Expression Clustering’ card to launch the heatmap.
 
 [![Analysis Center Gene Expression Clustering Card](images/analysis_center_GEC_tool.png)](images/analysis_center_GEC_tool.png "Click to see the full image.")
 
@@ -26,16 +26,16 @@ The control panel has various functionalities with which users can change or mod
 
 __Control Panel:__
 
-* __Clustering:__ Modify the default clustering of the heatmap (Average or Complete), alter the column and row dendrogram measurements, and change the z-score cap
+* __Clustering:__ Modify the default clustering of the heatmap (Average or Complete), alter the column and row dendrogram dimensions, and change the z-score cap
 * __Cases:__ Adjust the visible characters of the case labels
 * __Genes:__ Modify how cases are represented for each gene (Absolute, Percent, or None), row group and label lengths, rendering style, and the existing gene set
     * __Edit Group:__ Displays a panel of currently selected genes, which can be modified by clicking on a gene to remove it from the gene set, searching for a particular gene to add, loading top variably expressed genes, or loading a pre-defined gene set provided by the MSigDB database
     * __Create Group:__ Create a new gene set by searching for a particular gene, loading top mutated genes, or loading a pre-defined gene set provided by the MSigDB database
 * __Variables:__ Search and select variables to add to the matrix below the heatmap
-* __Cell Layout:__ Modify the format of the cells by changing colors, cell measurements, and label formatting
-* __Legend Layout:__ Alter the legend by changing the font size, measurements, and other formatting preferences
+* __Cell Layout:__ Modify the format of the cells by changing colors, cell dimensions, and label formatting
+* __Legend Layout:__ Alter the legend by changing the font size, dimensions, and other formatting preferences
 * __Download:__ Download the plot in svg format
-* __Zoom:__ Adjust the zoom level by using the up and down arrows on the input box, entering a number, or using the sliding scale to view the case lables
+* __Zoom:__ Adjust the zoom level by using the up and down arrows on the input box, entering a number, or using the sliding scale to view the case labes
 * __Undo:__ Undo changes made to the matrix
 * __Redo:__ Redo changes made to the matrix
 * __Restore:__ Restore the matrix to its default settings
