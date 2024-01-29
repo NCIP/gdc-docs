@@ -18,6 +18,7 @@ Descriptions for fields present in GDC Harmonized Methylation Beta Values File a
 | Beta Value | Represents the ratio between the methylated array intensity and total array intensity, falls between 0 (lower levels of methylation) and 1 (higher levels of methylation) |
 
 ---
+
 | I/O | Entity | Format |
 |---|---|---|
 | Input | [Raw Methylation Array](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=raw_methylation_array) | IDAT |
@@ -52,6 +53,7 @@ Using probe sequence information provided in the manufacturer's manifest, HM27 a
 | Feature Type | The position of the CpG site in reference to the island: Island, N_Shore or S_Shore (0-2 kb upstream or downstream from CGI), or N_Shelf or S_Shelf (2-4 kbp upstream or downstream from CGI) |
 
 ---
+
 | I/O | Entity | Format |
 |---|---|---|
 | Input | [Submitted Methylation Beta Values](/Data_Dictionary/viewer/#?view=table-definition-view&id=submitted_methylation_beta_value) |  TXT |

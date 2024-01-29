@@ -48,6 +48,33 @@ Note that the histogram plot applies to, and can be displayed for, both categori
 
 ### Survival Plot
 
+The survival analysis is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Thus, the values are retrieved from [GDC Data Dictionary](../../../Data_Dictionary) properties and a survival analysis requires the following fields:
+
+*  Data on the time to a particular event (days to death or last follow up).
+    * Fields:  __demographic.days_to_death__ or __demographic.days_to_last_follow_up__
+*  Information on whether the event has occurred (alive/deceased).
+    * Fields:  __demographic.vital_status__
+*  Data split into different categories or groups (i.e. gender, etc.).
+    * Fields:  __demographic.gender__
+
+The survival analysis in the GDC uses a Kaplan-Meier estimator:
+
+[![Kaplan-Meier Estimator](images/gdc-kaplan-meier-estimator2.png)](images/gdc-kaplan-meier-estimator2.png "Click to see the full image.")
+
+Where:
+
+ * S(t) is the estimated survival probability for any particular one of the t time periods.
+ * n<sub>i</sub> is the number of subjects at risk at the beginning of time period t<sub>i</sub>.
+ * and d<sub>i</sub> is the number of subjects who die during time period t<sub>i</sub>.
+
+The table below is an example data set to calculate survival for a set of seven cases:
+
+[![Sample Survival Analysis Table](images/gdc-sample-survival-table.png)](images/gdc-sample-survival-table.png "Click to see the full image.")
+
+The calculated cumulated survival probability can be plotted against the interval to obtain a survival plot like the one shown below.
+
+[![Sample Survival Analysis Plot](images/gdc-survival-plot.png)](images/gdc-survival-plot.png "Click to see the full image.")
+
 The survival plot type supports these features:
 
 * View the distribution of cases (# and % of cases) in the cohort for the clinical field's data categories as a table.
@@ -73,9 +100,11 @@ The box and QQ plot types support these features:
 
 [![Clinical Data Analysis Box and QQ Plots](images/CDABoxQQPlots.png)](images/CDABoxQQPlots.png "Click to see the full image.")
 
-Note that the box and QQ plots apply to, and can be displayed for, continuous variables only. 
+Note that the box and QQ plots apply to, and can be displayed for, continuous variables only.
 
-Certain continuous variables that are measured with units of time, such as Days to Birth, include a toggle to switch between displaying the data in years or days.
+Certain continuous variables that are measured with units of time, such as Days to Birth, include a toggle to switch between displaying the data in years or days. A standard formula is employed for converting between years and days:
+
+* 1 year = 365.25 days
 
 [![Year and Day Toggle](images/CDAYearsDaysToggle.png)](images/CDAYearsDaysToggle.png "Click to see the full image.")
 

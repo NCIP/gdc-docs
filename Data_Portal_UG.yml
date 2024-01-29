@@ -10,10 +10,10 @@ theme_dir: theme
 pages:
 - Data Portal:
   - Quick Start: 'Data_Portal/Users_Guide/quick_start.md'
-  - Tutorial Videos: 'Data_Portal/Users_Guide/tutorial_videos.md'
-  - Cohort Builder: Data_Portal/Users_Guide/cohort_builder.md
-  - Analysis Center: Data_Portal/Users_Guide/analysis_center.md
-  - Repository: Data_Portal/Users_Guide/Repository.md
+  - Cohort Builder: 'Data_Portal/Users_Guide/cohort_builder.md'
+  - Cohort Comparison: 'Data_Portal/Users_Guide/cohort_comparison.md'
+  - Analysis Center: 'Data_Portal/Users_Guide/analysis_center.md'
+  - Repository: 'Data_Portal/Users_Guide/Repository.md'
   - Projects: 'Data_Portal/Users_Guide/Projects.md'
   - Clinical Data Analysis: 'Data_Portal/Users_Guide/clinical_data_analysis.md'
   - Mutation Frequency: 'Data_Portal/Users_Guide/mutation_frequency.md'
@@ -21,9 +21,11 @@ pages:
   - ProteinPaint: 'Data_Portal/Users_Guide/proteinpaint_lollipop.md'
   - Sequence Reads: 'Data_Portal/Users_Guide/proteinpaint_bam.md'
   - OncoMatrix: 'Data_Portal/Users_Guide/oncomatrix.md'
-  - Cohort MAF: 'Data_Portal/Users_Guide/cohortMAF.md'
+  # - Cohort MAF: 'Data_Portal/Users_Guide/cohortMAF.md'
   - BAM Slicing: 'Data_Portal/Users_Guide/BAMslicing.md'
   - Gene Expression Clustering: 'Data_Portal/Users_Guide/gene_expression_clustering.md'
+  - Developers Guide: 'Data_Portal/Users_Guide/Developers_Guide.md'
+  - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
 extra:
   project_root_dir: '/'
   project_org: 'GDC'

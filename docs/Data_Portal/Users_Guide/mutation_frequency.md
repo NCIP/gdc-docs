@@ -14,20 +14,23 @@ The most frequently mutated genes are represented with a histogram that shows th
 
 ## Survival Plot for Mutated Genes and Mutations
 
-The mutation frequency survival plot is represented with a Kaplan-Meier curve for the active cohort. This can also be separated into two curves based on cases with and without a specific mutation or mutated gene. The Log-Rank Test p-value is also displayed here. The survival plot can be downloaded as an image (SVG/PNG) or raw data (JSON/TSV) and the view can be reset using the buttons at the top right of the graphic.
+The mutation frequency survival plot is represented with two Kaplan-Meier curves based on cases with and without a specific mutation or mutated gene. Cases for both curves can be further filtered using the various filters available in the left panel of the Mutation Frequency tool. For example, selecting "high" for the VEP impact filter will limit the cases in both curves to those whose mutations have a high VEP impact.
+
+The Log-Rank Test p-value is also displayed here. The survival plot can be downloaded as an image (SVG/PNG) or raw data (JSON/TSV) and the view can be reset using the buttons at the top right of the graphic.
 
 [![Mutation Table](images/MutSurvival.png)](images/MutSurvival.png "Click to see the full image.")
 
-## Gene/Mutation Table
+## Genes/Mutations Table
 
-The gene/mutation table displays the most frequently mutated genes or the most frequent mutations in the active cohort by percent frequency in descending order. Additional columns show CNV information as well as the number of affected cases. The "Cohort" toggle can be used to filter the current cohort by a specific gene or mutation, and the "Survival" button allows the user to modify the survival plot. The red arrow button allows for the percentage of affected cases to be displayed on a project-level. The data displayed in the table can be exported as a TSV using the button at the top left of the table. Additional cohorts can be created using buttons located within the table.
+The genes/mutations table displays the most frequently mutated genes or the most frequent mutations in the active cohort by percent frequency in descending order. Additional columns show CNV information as well as the number of affected cases. The "Cohort" toggle can be used to filter the current cohort by a specific gene or mutation, and the "Survival" button allows the user to modify the survival plot. The red arrow button allows for the percentage of affected cases to be displayed on a project-level. The data displayed in the table can be exported as a TSV using the button at the top left of the table. Additional cohorts can be created using buttons located within the table.
 
 [![Mutation Table](images/MutationTableWithButtons.png)](images/MutationTableWithButtons.png "Click to see the full image.")
 
-
-Additionally, the table can be searched using the field at the top right of the table.
+The table can be searched using the field at the top right of the table.
 
 [![Mutation Search](images/MutSearchWithButtons.png)](images/MutSearchWithButtons.png "Click to see the full image.")
+
+Additionally, clicking the button in the "# Mutations" column within the genes table will automatically apply a search for the corresponding gene in the mutations table. This is a convenient way to view the specific mutations in a given gene.
 
 ### Gene and Mutation Summary Pages
 
@@ -73,7 +76,7 @@ A table is displayed below that lists information about each mutation including:
 * __Type:__ A general classification of the mutation
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
 * __# Affected Cases in Gene:__ The number of affected cases, expressed as number across all mutations within the Gene
-* __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project
+* __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project.
 * __Impact:__ A subjective classification of the severity of the variant consequence. This is determined using [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html), [PolyPhen](http://genetics.bwh.harvard.edu/pph/), and [SIFT](http://sift.jcvi.org/). The categories are outlined [here](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/#impact-categories).
 
 *Note: The Mutation UUID can be displayed in this table by selecting it from the Customize Columns button, represented by three parallel lines*
@@ -148,22 +151,22 @@ A set of frequently-used properties are available to filter genes and mutations 
 * __Is Cancer Gene Census:__ Whether or not a gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/). Note that this is switched on as a default.
 * __Impact:__ A subjective classification of the severity of the variant consequence. These scores are determined using the following three tools:
     * __[VEP](http://useast.ensembl.org/info/genome/variation/prediction/index.html):__
-        * __HIGH (H):__ The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay.
-        * __MODERATE (M):__ A non-disruptive variant that might change protein effectiveness.
-        * __LOW (L):__ Assumed to be mostly harmless or unlikely to change protein behavior.
-        * __MODIFIER (MO):__ Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact.
+        * __HIGH (H):__ The variant is assumed to have high (disruptive) impact in the protein, probably causing protein truncation, loss of function or triggering nonsense mediated decay
+        * __MODERATE (M):__ A non-disruptive variant that might change protein effectiveness
+        * __LOW (L):__ Assumed to be mostly harmless or unlikely to change protein behavior
+        * __MODIFIER (MO):__ Usually non-coding variants or variants affecting non-coding genes, where predictions are difficult or there is no evidence of impact
     * __[PolyPhen](http://genetics.bwh.harvard.edu/pph/):__
-        * __probably damaging (PR):__ It is with high confidence supposed to affect protein function or structure.
-        * __possibly damaging (PO):__ It is supposed to affect protein function or structure.
-        * __benign (BE):__ Most likely lacking any phenotypic effect.
-        * __unknown (UN):__ When in some rare cases, the lack of data does not allow PolyPhen to make a prediction.
+        * __probably damaging (PR):__ It is with high confidence supposed to affect protein function or structure
+        * __possibly damaging (PO):__ It is supposed to affect protein function or structure
+        * __benign (BE):__ Most likely lacking any phenotypic effect
+        * __unknown (UN):__ When in some rare cases, the lack of data does not allow PolyPhen to make a prediction
     * __[SIFT](http://sift.jcvi.org/):__
-        * __tolerated:__ Not likely to have a phenotypic effect.
-        * __tolerated_low_confidence:__ More likely to have a phenotypic effect than 'tolerated'.
-        * __deleterious:__ Likely to have a phenotypic effect.
-        * __deleterious_low_confidence:__ Less likely to have a phenotypic effect than 'deleterious'.
-* __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms.
-* __Type:__ A general classification of the mutation.
+        * __tolerated:__ Not likely to have a phenotypic effect
+        * __tolerated_low_confidence:__ More likely to have a phenotypic effect than 'tolerated'
+        * __deleterious:__ Likely to have a phenotypic effect
+        * __deleterious_low_confidence:__ Less likely to have a phenotypic effect than 'deleterious'
+* __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms
+* __Type:__ A general classification of the mutation
 
 ### Saving a Gene or Mutation Set
 

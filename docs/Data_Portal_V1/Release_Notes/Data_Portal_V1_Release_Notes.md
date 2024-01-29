@@ -2,37 +2,37 @@
 
 | Version | Date |
 |---|---|
-| [v1.30.4](Data_Portal_Release_Notes.md#release-1304) | May 11, 2023 |
-| [v1.30.0](Data_Portal_Release_Notes.md#release-1300) | July 8, 2022 |
-| [v1.29.0](Data_Portal_Release_Notes.md#release-1290) | August 23, 2021 |
-| [v1.28.0](Data_Portal_Release_Notes.md#release-1280) | May 17, 2021 |
-| [v1.25.1](Data_Portal_Release_Notes.md#release-1251) | August 14, 2020 |
-| [v1.25.0](Data_Portal_Release_Notes.md#release-1250) | July 2, 2020 |
-| [v1.24.1](Data_Portal_Release_Notes.md#release-1240) | March 10, 2020 |
-| [v1.23.1](Data_Portal_Release_Notes.md#release-1231) | December 10, 2019 |
-| [v1.23.0](Data_Portal_Release_Notes.md#release-1230) | November 6, 2019 |
-| [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
-| [v1.21.0](Data_Portal_Release_Notes.md#release-1210) | June 5, 2019 |
-| [v1.20.0](Data_Portal_Release_Notes.md#release-1200) | April 17, 2019 |
-| [v1.19.0](Data_Portal_Release_Notes.md#release-1190) | February 20, 2019 |
-| [v1.18.0](Data_Portal_Release_Notes.md#release-1180) | December 18, 2018 |
-| [v1.17.0](Data_Portal_Release_Notes.md#release-1170) | November 7, 2018 |
-| [v1.16.0](Data_Portal_Release_Notes.md#release-1160) | September 27, 2018 |
-| [v1.15.0](Data_Portal_Release_Notes.md#release-1150) | August 23, 2018 |
-| [v1.14.0](Data_Portal_Release_Notes.md#release-1140) | June 13, 2018 |
-| [v1.13.0](Data_Portal_Release_Notes.md#release-1130) | May 21, 2018 |
-| [v1.12.0](Data_Portal_Release_Notes.md#release-1120) | February 15, 2018 |
-| [v1.11.0](Data_Portal_Release_Notes.md#release-1110) | December 21, 2017 |
-| [v1.10.0](Data_Portal_Release_Notes.md#release-1100) | November 16, 2017 |
-| [v1.9.0](Data_Portal_Release_Notes.md#release-190) | October 24, 2017 |
-| [v1.8.0](Data_Portal_Release_Notes.md#release-180)| August 22, 2017 |
-| [v1.6.0](Data_Portal_Release_Notes.md#release-160) | June 29, 2017 |
-| [v1.5.2](Data_Portal_Release_Notes.md#release-152) | May 9, 2017 |
-| [v1.4.1](Data_Portal_Release_Notes.md#release-141) | October 31, 2016 |
-| [v1.3.0](Data_Portal_Release_Notes.md#release-130) | September 7, 2016 |
-| [v1.2.0](Data_Portal_Release_Notes.md#release-120) | August 9th, 2016 |
-| [v1.1.0](Data_Portal_Release_Notes.md#release-110) | June 1st, 2016 |
-| [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
+| [v1.30.4](Data_Portal_V1_Release_Notes.md#release-1304) | May 11, 2023 |
+| [v1.30.0](Data_Portal_V1_Release_Notes.md#release-1300) | July 8, 2022 |
+| [v1.29.0](Data_Portal_V1_Release_Notes.md#release-1290) | August 23, 2021 |
+| [v1.28.0](Data_Portal_V1_Release_Notes.md#release-1280) | May 17, 2021 |
+| [v1.25.1](Data_Portal_V1_Release_Notes.md#release-1251) | August 14, 2020 |
+| [v1.25.0](Data_Portal_V1_Release_Notes.md#release-1250) | July 2, 2020 |
+| [v1.24.1](Data_Portal_V1_Release_Notes.md#release-1240) | March 10, 2020 |
+| [v1.23.1](Data_Portal_V1_Release_Notes.md#release-1231) | December 10, 2019 |
+| [v1.23.0](Data_Portal_V1_Release_Notes.md#release-1230) | November 6, 2019 |
+| [v1.22.0](Data_Portal_V1_Release_Notes.md#release-1220) | July 31, 2019 |
+| [v1.21.0](Data_Portal_V1_Release_Notes.md#release-1210) | June 5, 2019 |
+| [v1.20.0](Data_Portal_V1_Release_Notes.md#release-1200) | April 17, 2019 |
+| [v1.19.0](Data_Portal_V1_Release_Notes.md#release-1190) | February 20, 2019 |
+| [v1.18.0](Data_Portal_V1_Release_Notes.md#release-1180) | December 18, 2018 |
+| [v1.17.0](Data_Portal_V1_Release_Notes.md#release-1170) | November 7, 2018 |
+| [v1.16.0](Data_Portal_V1_Release_Notes.md#release-1160) | September 27, 2018 |
+| [v1.15.0](Data_Portal_V1_Release_Notes.md#release-1150) | August 23, 2018 |
+| [v1.14.0](Data_Portal_V1_Release_Notes.md#release-1140) | June 13, 2018 |
+| [v1.13.0](Data_Portal_V1_Release_Notes.md#release-1130) | May 21, 2018 |
+| [v1.12.0](Data_Portal_V1_Release_Notes.md#release-1120) | February 15, 2018 |
+| [v1.11.0](Data_Portal_V1_Release_Notes.md#release-1110) | December 21, 2017 |
+| [v1.10.0](Data_Portal_V1_Release_Notes.md#release-1100) | November 16, 2017 |
+| [v1.9.0](Data_Portal_V1_Release_Notes.md#release-190) | October 24, 2017 |
+| [v1.8.0](Data_Portal_V1_Release_Notes.md#release-180)| August 22, 2017 |
+| [v1.6.0](Data_Portal_V1_Release_Notes.md#release-160) | June 29, 2017 |
+| [v1.5.2](Data_Portal_V1_Release_Notes.md#release-152) | May 9, 2017 |
+| [v1.4.1](Data_Portal_V1_Release_Notes.md#release-141) | October 31, 2016 |
+| [v1.3.0](Data_Portal_V1_Release_Notes.md#release-130) | September 7, 2016 |
+| [v1.2.0](Data_Portal_V1_Release_Notes.md#release-120) | August 9th, 2016 |
+| [v1.1.0](Data_Portal_V1_Release_Notes.md#release-110) | June 1st, 2016 |
+| [v1.0.1](Data_Portal_V1_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
 ## Release 1.30.4
