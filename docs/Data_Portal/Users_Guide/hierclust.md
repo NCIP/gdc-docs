@@ -205,7 +205,7 @@ User can choose to change variable name by deleting and typing in a new name in 
 
 ### Hovering over/Clicking a cell
 
-Hover over a cell of the heatmap to show information about the case. The information displayed shows the case id, the gene name (CCND1) and the z-score transformed value (4.04…..)
+Hover over a cell of the heatmap to show information about the case. The information displayed shows the case id, the gene name (CCND1) and the z-score transformed value (4.04..)
 
 [![Hovering over a case](./images/geneexpclust/33-hover-over-case.png)](./images/geneexpclust/33-hover-over-case.png 'Click to see the full image.')
 
