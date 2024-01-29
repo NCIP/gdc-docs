@@ -216,3 +216,10 @@ There are a few buttons in the list of sets that allows a user to get further in
 * __# Items__: Clicking the button under the # Items column launches a table with Gene ID and Symbol for gene sets or Mutation ID and Consequence for mutation sets
 
 * __Delete/Download__: To the right of the # Items column are buttons that will delete the set or download the list as a TSV file
+
+
+## Test
+
+[![Animation of Filtering Process](images/agifs/Filter-animation.gif)](images/agifs/Filter-animation.gif "Click to see the full image.")
+
+<img src="images/agifs/Filter-animation.gif" alt="Animation of Filtering Process">
