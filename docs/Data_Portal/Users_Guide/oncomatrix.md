@@ -7,7 +7,7 @@ Each row is a gene and each cell, or a column represents a case. At any point in
 
 ## Accessing the Matrix Chart
 
-At the Analysis Center, click on the “OncoMatrix” card to launch the app.
+At the Analysis Center, click on the "OncoMatrix" card to launch the app.
 [![Analysis Tools with Oncomatrix Card](./images/oncomatrix/1-analysis_center.png)](./images/oncomatrix/1-analysis_center.png 'Click to see the full image.')
 
 View publicly available genes as well as login with credentials to access controlled data.
@@ -89,7 +89,7 @@ Click on ‘Replace’ as shown above to replace TP53 gene variable with ‘Prim
 
 [<img src="./images/oncomatrix/14-term-replaced.png" width="500"/>](./images/oncomatrix/14-term-replaced.png 'Click to see the full image.')
 
-Click on the label ‘Primary site’ and click the option ‘Remove’ as shown to remove the row completely. 
+Click on the label ‘Primary site’ and click the option ‘Remove’ as shown to remove the row completely.
 
 [<img src="./images/oncomatrix/15-remove-primary.png" width="500"/>](./images/oncomatrix/15-remove-primary.png 'Click to see the full image.')
 
@@ -99,7 +99,7 @@ Click on `Replace` as shown above to replace TP53 gene variable with `Primary si
 
 ### Drag and Drop Gene Label/Variable
 
-The genes on the matrix are sorted by default on the number of cases with the gene having the highest number of cases at the top of the matrix. A user may choose to override this by dragging a gene label and dropping it above or below any other gene in order to customize their own gene groupings. 
+The genes on the matrix are sorted by default on the number of cases with the gene having the highest number of cases at the top of the matrix. A user may choose to override this by dragging a gene label and dropping it above or below any other gene in order to customize their own gene groupings.
 
 Select ‘PTEN’ gene label and drag it below the gene labeled ‘EGFR’ as shown. When dragging a gene label, hover over EGFR such that the EGFR gene label would appear blue.
 
@@ -136,7 +136,7 @@ These sections are described below.
 
 #### Sort Cases
 
-The default sort setting sorts the cases by row with first displaying samples with both CNV and SSM followed by SSM only and lastly CNV only. 
+The default sort setting sorts the cases by row with first displaying samples with both CNV and SSM followed by SSM only and lastly CNV only.
 
 Click the second option ‘CNV+SSM > SSM only’’ to change the sorting as shown.
 
@@ -170,7 +170,7 @@ Drag the red lines on the density distribution to select binning or input number
 
 [<img src="./images/oncomatrix/24-binning.png" width="500"/>](./images/oncomatrix/24-binning.png 'Click to see the full image.')
 
-The matrix reloads with new bin groupings The labels for the groups are user controlled and hence can be modified according to user requirements. 
+The matrix reloads with new bin groupings The labels for the groups are user controlled and hence can be modified according to user requirements.
 
 Click on the blue pill for ‘Age at diagnosis’ again and click ‘Replace’. Select ‘Primary site’ as shown.
 
@@ -186,7 +186,7 @@ This will remove all and any groupings and show the default view again.
 
 ### Sort Case Groups
 
-Add the variable ‘Age at diagnosis’ again using the ‘Group Cases by’ button as shown in the previous section. By default, groups are loaded ordered by their name. Change the selection to ‘Case count’ as shown below. 
+Add the variable ‘Age at diagnosis’ again using the ‘Group Cases by’ button as shown in the previous section. By default, groups are loaded ordered by their name. Change the selection to ‘Case count’ as shown below.
 
 [![Sorting Case groups](./images/oncomatrix/27-sort-case-groups.png)](./images/oncomatrix/27-sort-case-groups.png 'Click to see the full image.')
 
@@ -218,7 +218,7 @@ Click on the button `50 Genes` to display the menu and select `Percent` as shown
 
 [<img src="./images/oncomatrix/29-genes-percent.png" width="500"/>](./images/oncomatrix/29-genes-percent.png 'Click to see the full image.')
 
-This shows the case counts as a percentage of the absolute values as shown. 
+This shows the case counts as a percentage of the absolute values as shown.
 
 [<img src="./images/oncomatrix/30-genes-percent-display.png" width="600"/>](./images/oncomatrix/30-genes-percent-display.png 'Click to see the full image.')
 

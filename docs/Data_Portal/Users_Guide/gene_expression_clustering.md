@@ -6,7 +6,7 @@ The Gene Expression Clustering tool is a web-based tool for performing sample cl
 
 ## Accessing the Gene Expression Clustering Heatmap
 
-At the Analysis Center, click the ‘Gene Expression Clustering’ card to launch the heatmap.
+At the Analysis Center, click the 'Gene Expression Clustering' card to launch the heatmap.
 
 [![Analysis Center Gene Expression Clustering Card](images/analysis_center_GEC_tool.png)](images/analysis_center_GEC_tool.png "Click to see the full image.")
 
@@ -14,7 +14,7 @@ Users can view publicly available genes as well as login with credentials to acc
 
 ## Gene Expression Clustering Tool Features
 
-There are four main panels in the Gene Expression Clustering tool: [controls](#Controls), [heatmap](#Heatmap), [variables](#Variables), and [legend](#Legend). 
+There are four main panels in the Gene Expression Clustering tool: [controls](#Controls), [heatmap](#Heatmap), [variables](#Variables), and [legend](#Legend).
 
 [![Gene Expression Clustering Tool Features](images/GEC_tool_features.png)](images/GEC_tool_features.png "Click to see the full image.")
 
@@ -42,7 +42,7 @@ __Control Panel:__
 
 ### Heatmap
 
-The Gene Expression Clustering heatmap displays the active cohort's cases along the top horizontally, genes along the left column, and the z-score transformed gene expression value. 
+The Gene Expression Clustering heatmap displays the active cohort's cases along the top horizontally, genes along the left column, and the z-score transformed gene expression value.
 
 [![Gene Expression Clustering Tool Heatmap](images/GEC_tool_heatmap.png)](images/GEC_tool_heatmap.png "Click to see the full image.")
 
@@ -78,13 +78,13 @@ Any variables added to the matrix appear below the heatmap. Users can hover over
 
 #### Clicking a Variable
 
-Click on a variable to rename it, edit it by excluding categories, replace it with a different variable, or remove it entirely. 
+Click on a variable to rename it, edit it by excluding categories, replace it with a different variable, or remove it entirely.
 
 [![Gene Expression Clustering Tool Variable Selection](images/GEC_tool_variable_selection.png)](images/GEC_tool_variable_selection.png "Click to see the full image.")
 
 ### Legend
 
-In addition to the color coding system for the gene expression values, the legend displays the number of cases from the active cohort in each category for all variables that are selected to appear in the matrix. 
+In addition to the color coding system for the gene expression values, the legend displays the number of cases from the active cohort in each category for all variables that are selected to appear in the matrix.
 
 [![Gene Expression Clustering Tool Legend](images/GEC_tool_legend.png)](images/GEC_tool_legend.png "Click to see the full image.")
 
