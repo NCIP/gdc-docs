@@ -10,6 +10,7 @@ theme_dir: theme
 pages:
 - Data Portal:
   - Quick Start: 'Data_Portal/Users_Guide/quick_start.md'
+  - Getting Started: 'Data_Portal/Users_Guide/getting_started.md'
   - Cohort Builder: 'Data_Portal/Users_Guide/cohort_builder.md'
   - Cohort Comparison: 'Data_Portal/Users_Guide/cohort_comparison.md'
   - Analysis Center: 'Data_Portal/Users_Guide/analysis_center.md'
