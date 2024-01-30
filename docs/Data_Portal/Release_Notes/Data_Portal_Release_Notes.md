@@ -43,7 +43,7 @@
 
 ### New Features and Changes
 
-GDC 2.0 is a major update to the original GDC Data Portal introduced in 2016. This latest version adopts a “cohort-centric” workflow, in which users build custom sets of cases to analyze, and introduces several new analysis tools. New features of GDC 2.0 include:
+GDC 2.0 is a major update to the original GDC Data Portal introduced in 2016. This latest version adopts a "cohort-centric" workflow, in which users build custom sets of cases to analyze, and introduces several new analysis tools. New features of GDC 2.0 include:
 
 * A cohort-centric workflow in which a cohort is first built and then analyzed using tools on the Data Portal. All of these functionalities can be reached from the Analysis Center.  
     * This includes a toolbar, that can be used to view or modify an existing cohort while using any analysis tool.
