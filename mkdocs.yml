@@ -40,6 +40,7 @@ pages:
   - fa-file-text Download PDF /API/PDF/API_UG.pdf: API/PDF/index.md
 - Data Portal:
   - Quick Start: 'Data_Portal/Users_Guide/quick_start.md'
+  - Getting Started: 'Data_Portal/Users_Guide/getting_started.md'
   - Tutorial Videos: 'Data_Portal/Users_Guide/Video_Tutorials.md'
   - Cohort Builder: 'Data_Portal/Users_Guide/cohort_builder.md'
   - Cohort Comparison: 'Data_Portal/Users_Guide/cohort_comparison.md'
