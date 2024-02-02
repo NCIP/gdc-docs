@@ -55,8 +55,8 @@ To the left of the Lollipop, users can click on the number of variants and numbe
 Clicking on the number of variants link opens a menu where users can view annotations and manipulate the Lollipop:
 
 * __List:__ Display all variants, each of which can be selected to launch the annotation table which displays consequence, mutation, sample submitter_id, and other data related to the sample
-    * __Mutation:__ Clicking on the mutation hyperlink will launch the [GDC Mutation Summary Page](mutation_frequency.md/#gene-and-mutation-summary-pages)
-    * __Sample:__ Clicking on the sample hyperlink will launch the [GDC Case Summary Page](quick_start.md/#cohort-case-table). Users also have the ability to create a new cohort or launch the [Disco plot](oncomatrix.md/#disco-plot)
+    * __Mutation:__ Clicking on the mutation hyperlink will launch the [GDC Mutation Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages)
+    * __Sample:__ Clicking on the sample hyperlink will launch the [GDC Case Summary Page](quick_start.md#cohort-case-table). Users also have the ability to create a new cohort or launch the [Disco plot](oncomatrix.md#disco-plot)
 * __Collapse/Expand:__ Collapse or expand all skewers in the lollipop
 * __Download:__ Download the mutations in a TXT file
 * __As lollipops:__ Display variants via circular discs proportional to the number of occurrences
@@ -82,9 +82,9 @@ An aggregate table displaying all the samples associated with that variant is av
 
 [![Sample Annotation Table](images/lollipop_sample_table.png)](images/lollipop_sample_table.png "Click to see the full image.")
 
-The top of the table displays consequence, mutation, and occurrence count with a hyperlink to the [GDC Mutation Summary Page](mutation_frequency.md/#gene-and-mutation-summary-pages). 
+The top of the table displays consequence, mutation, and occurrence count with a hyperlink to the [GDC Mutation Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages). 
 
-The sample table contains a number of columns for various associated features per sample such as Disease type, Mutations, and Tumor DNA Mutant Allele Frequency (MAF). Users can create a new cohort by selecting the checkboxes in the first column then clicking 'Create Cohort' in the bottom right corner of the table. The table also includes options to launch the [Disco plot](oncomatrix.md/#disco-plot) and the [GDC Case Summary Page](quick_start.md/#cohort-case-table) for each sample.
+The sample table contains a number of columns for various associated features per sample such as Disease type, Mutations, and Tumor DNA Mutant Allele Frequency (MAF). Users can create a new cohort by selecting the checkboxes in the first column then clicking 'Create Cohort' in the bottom right corner of the table. The table also includes options to launch the [Disco plot](oncomatrix.md#disco-plot) and the [GDC Case Summary Page](quick_start.md#cohort-case-table) for each sample.
 
 #### Protein View
 
