@@ -42,7 +42,7 @@ __Step 4:__ The cohort you created is now your active cohort.  Go to the Analysi
 
 ## Downloading Files
 
-__Step 1:__ Have an active cohort selected.  If you do not have an active cohort, [create one](#building-and-analyzing-a-cohort).
+__Step 1:__ Select your cohort of interest, [create one](#building-and-analyzing-a-cohort) if you have not already.
 
 <details>
   <summary><i>Click to Expand/Collapse Animation</i></summary>
@@ -60,7 +60,7 @@ __Step 2:__ Go to the Repository tool from the Analysis Center or the top left o
 
 ---
 
-__Step 3:__ In the Repository tool, the files will only be those that are associated with the cases in your active cohort. Narrow down your file selection by filtering them using the panel on the left.
+__Step 3:__ The Repository tool will display files that are associated with the cases in your active cohort. Narrow down your file selection by filtering them using the panel on the left.
 
 <details>
   <summary><i>Click to Expand/Collapse Animation</i></summary>
@@ -69,7 +69,7 @@ __Step 3:__ In the Repository tool, the files will only be those that are associ
 
 ---
 
-__Step 4:__ When you are done filtering.  Add the files to your cart.  Then go to the cart.
+__Step 4:__ When you are done filtering, add the files to your cart.  Then go to the cart.
 
 <details>
   <summary><i>Click to Expand/Collapse Animation</i></summary>
@@ -78,9 +78,9 @@ __Step 4:__ When you are done filtering.  Add the files to your cart.  Then go t
 
 ---
 
-__Step 5:__ The files in the cart can be downloaded directly from the browser or a manifest can be downloaded and passed to the GDC Data Transfer Tool.
+__Step 5:__ The files in the cart can be downloaded directly from the browser or a manifest can be downloaded and passed to the [GDC Data Transfer Tool](Data_Transfer_Tool/Users_Guide/Getting_Started.md).
 
 <details>
   <summary><i>Click to Expand/Collapse Animation</i></summary>
-[![Download Data In the Cart](images/agifs/DownloadCart-animation.gif)](images/agifs/DownloadCart-animation.gif "Click to see the full image.")
+[![Animation of Selecting the Cart or Manifest Download In the Cart Page](images/agifs/DownloadCart-animation.gif)](images/agifs/DownloadCart-animation.gif "Click to see the full image.")
 </details>
