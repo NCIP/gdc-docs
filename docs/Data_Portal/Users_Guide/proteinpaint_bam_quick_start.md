@@ -10,13 +10,13 @@ At the Analysis Center, click on the 'Sequence Reads' card to launch the app.
 
 [![Analysis Center](images/seq_read_vis.png)](images/seq_read_vis.png "Click to see the full image.")
 
-This features requires access to controlled data, which is maintained by the Database of Genotypes and Phenotypes (dbGaP) [See Obtaining Access to Controlled Data](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data). In order to use this tool, users must be logged in with valid credentials. Otherwise, users will be prompted to login.
+This feature requires access to controlled data, which is maintained by the Database of Genotypes and Phenotypes (dbGaP) [See Obtaining Access to Controlled Data](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data). In order to use this tool, users must be logged in with valid credentials. Otherwise, users will be prompted to login.
 
 ## Selecting BAM Files and Variants
 
 Once logged in, the Sequence Reads tool will display a search bar, as well as a link to browse the first 1,000 available BAM files for the active cohort. Users can choose to select a BAM from the available list, or search for a specific BAM file by entering four types of inputs: file name, file UUID, case ID, or case UUID. 
 
-The tool will verify the query string and return all matching GDC BAM files in a table, from which the user can select one or multiple to use with the app.
+The tool will verify the query string and return all matching GDC BAM files in a table, from which the user can select one or multiple to use with the tool.
 
 [![Search Bar](images/proteinpaint_sequence_reads_BAM_search.png)](images/proteinpaint_sequence_reads_BAM_search.png "Click to see the full image.")
 
@@ -36,7 +36,7 @@ Once at least one BAM file is selected and a gene, position, SNP, or variant is 
 
 ## Sequence Reads Features
 
-There are multiple features in the Sequence Reads tool: [toolbar](#Toolbar), [Reference genome build](#Reference-Genome-Sequence), [Gene models](Gene-Models), [BAM track](#ProteinPaint-BAM-Track), and [Read alignment plot](#Read-alignment-plot).
+There are multiple features in the Sequence Reads tool: [toolbar](#Toolbar), [Reference genome build](#Reference-Genome-Sequence), [Gene models](#Gene-Models), [BAM track](#ProteinPaint-BAM-Track), and [Read alignment plot](#Read-alignment-plot).
 
 [![ProteinPaint Genome Browser](images/pp_gen_browse.png)](images/pp_gen_browse.png "Click to see the full image.")
 
@@ -54,7 +54,7 @@ The Reference Genome Sequence displays the reference genome build against which 
 
 The Genome Models row displays the gene model structure from the view range. When zoomed into a coding exon, the letters correspond to the 1-letter amino acid code for each amino acid and are placed under its corresponding 3-letter nucleotide codon under the reference genome sequence. The arrows describe the orientation of the strand of the gene model being displayed (right arrow for forward strand and left arrow for reverse strand).
 
-Graphical representation of the reads as they are aligned on the chromosome. Sequence can be read when zoomed in
+Graphical representations of the reads are displayed as they are aligned on the chromosome. Sequence can be read when zoomed in
 
 ### ProteinPaint BAM Track
 
@@ -63,13 +63,6 @@ Graphical representation of the reads as they are aligned on the chromosome. Seq
 The Pileup Plot shows the total read depth at each nucleotide position of the region being displayed.
 
 [![Pileup plot](images/pileup_plot.png)](images/pileup_plot.png "Click to see the full image.")
-
-The bars are color-coded to represent various possibilities with gray corresponding to reference allele nucleotides, blue corresponding to soft clipped nucleotides, and the following mismatches:
-
-* nucleotide "A" - Red (color code: #ca0020)
-* nucleotide "T" - Orange (color code: #f4a582)
-* nucleotide "C" - Light blue (color code: #92c5de)
-* nucleotide "G" - Dark blue (color code: #0571b0)
 
 #### Read Alignment Plot
 
@@ -85,7 +78,7 @@ Clicking on a read in the plot launches a window that displays the alignment bet
 
 [![Read Information Panel](images/read_info.png)](images/read_info.png "Click to see the full image.")
 
-__Rendering of Various Mutations__
+#### Rendering of Various Mutations
 
 Various mutations are rendered as follows:
 
@@ -108,7 +101,7 @@ Various mutations are rendered as follows:
     [![Splicing](images/splicing.png)](images/splicing.png "Click to see the full image.")
 
 
-__Color Coding of Reads__
+#### Color Coding of Reads
 
 Color codes in the background of the read describe the quality of the read alignment and its mate (in case of paired-end sequencing). These colors are assigned both on the basis of the CIGAR sequence (if it contains a softclip) and the flag value of both the read and its mate.
 

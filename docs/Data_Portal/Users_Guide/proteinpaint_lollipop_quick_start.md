@@ -113,6 +113,7 @@ The Protein View color codes regions by the protein domain present on the full-l
 The legend offers simple filtering for the variants shown in the lollipop. To the right of `PROTEIN`, users can click on the color to hide that particular protein domain. Clicking on the color again shows the protein domain.
 
 Custom protein domains are added by clicking on the `+ add protein domain` button at the bottom of the list. An input box appears requiring the following information:
+
 1. Name, text with space, no semicolon: Name of the protein domain
 2. Range, two integers joined by space: Codon position - start and stop
 3. Color (e.g., red, #FF0000, rgb (255,0,0)): Color to assign to the protein domain
