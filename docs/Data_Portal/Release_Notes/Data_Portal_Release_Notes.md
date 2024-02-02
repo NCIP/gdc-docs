@@ -111,8 +111,6 @@ Not applicable as this is the initial release of GDC 2.0.
 * In Set Operations, the saving of gene and mutation sets may be unsuccessful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
 * Clicking the X button on the Unexpected Error dialog box does not dismiss it as expected. The workaround is to click the OK button. <!--SV-2367-->
 
-
-
 ## Release 1.30.4
 
 * __GDC Product__: GDC Data Portal
