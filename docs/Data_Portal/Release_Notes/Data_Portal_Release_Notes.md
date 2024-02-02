@@ -85,8 +85,6 @@ Not applicable as this is the initial release of GDC 2.0.
     * Using "Save As" to replace a cohort with itself will result in an error notification despite the replacement being successful. <!--SV-2363--> 
     * Cohorts containing FM-AD cases may not update correctly when users with dbGaP access to FM-AD (phs001179) log in or out. As a workaround, logging in before creating cohorts with FM-AD cases is recommended. <!--SV-2389-->
     * Cohorts with mutated gene or SSM filters may not display data in Mutation Frequency and the summary charts if filters are removed from the cohort such that they temporarily result in 0 cases while the filters are being removed. As a workaround, remove the gene and SSM filters, then add them back to the cohorts. <!--SV-2414-->
-After filters are removed from 
-
 * Survival Plot:
     * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
     * The survival plot in Mutation Frequency may flicker when the cohort has 0 cases. <!--SV-2331/PEAR-1701-->
