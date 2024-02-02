@@ -151,14 +151,10 @@ Available tools are displayed under the Query Expression section of the Analysis
 
 [![Analysis Center Tools](images/AnalysisCenterTools.png)](images/AnalysisCenterTools.png "Click to see the full image.")
 
-Each analysis tool is showcased within a tool 'card', which has several items related to the analysis tool such as:
-
-* A green 'Play' button to launch the analysis tool on the given cohort
-* A 'Demo' button that launches a demonstration of the analysis tool on an example cohort
-* Clicking on the name of the analysis tool in the tool card toggles a drop down description of the analysis tool
-* The number of cases from the cohort that the analysis can be performed on is at the bottom of the card
+Each tool is showcased within a 'card', which can be launched using the teal 'Play' button.
 
 ## Cohort Builder and Cohort Analysis ##
+
 To build and analyze a cohort of interest using an analysis tool in the Analysis Center:
 
 1. Choose the Cohort Builder icon on either the GDC Data Portal header, or click on the Cohort Builder card in the Analysis Center.  The [Cohort Builder](cohort_builder.md) will appear on the screen.

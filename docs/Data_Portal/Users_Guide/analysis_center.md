@@ -1,7 +1,7 @@
 # GDC Analysis Center
 
 
-The Analysis Center is the central hub for accessing tools to support cohort analysis. The Analysis Center can be accessed by clicking on the Analysis Center button in the GDC Data Portal header, on the "Explore Our Cancer Datasets" button on the home page, or on one of the sites in the human anatomical outline or bar graph.
+The Analysis Center is the central hub for accessing the tools that support cohort analysis. The Analysis Center can be accessed by clicking on the 'Analysis Center' icon in the GDC Data Portal header, the "Explore Our Cancer Datasets" button on the home page, or  one of the sites in the human anatomical outline or bar graph.
 
 [![Analysis Center View](images/FullAnalysisCenter.png)](images/FullAnalysisCenter.png "Click to see the full image.")
 
@@ -16,13 +16,28 @@ Available tools are displayed under the Query Expression section of the Analysis
 
 ## Core Tools ##
 
-This section contains the core GDC tools.  This includes the [Projects](Projects.md) tool, the [Cohort Builder](cohort_builder.md), and the [Repository](Repository.md). These can be selected for use with your current cohort by clicking on each from the Core Tools section.
+The 'Core Tools' section contains the GDC tools that constitute the main functionality of the Data Portal.
+
+* [Projects](Projects.md) tool
+* [Cohort Builder](cohort_builder.md)
+* [Repository](Repository.md)
 
 ## Analysis Tools ##
 
-The Analysis Tools section contains the analysis tools available in the Analysis Center: [BAM Slicing Download](BAMslicing.md), [Clinical Data Analysis](clinical_data_analysis.md), [Cohort Comparison](cohort_comparison.md), [Gene Expression Clustering](gene_expression_clustering.md), [MAF Aggregation](cohortMAF.md), [Mutation Frequency](mutation_frequency.md), [OncoMatrix](oncomatrix.md), [ProteinPaint](proteinpaint_lollipop.md), [Sequence Reads](proteinpaint_bam.md), and [Set Operations](set_operations.md).
+The 'Analysis Tools' section contains the tools available for specific analyses available for the active cohort.
 
-These can be launched by clicking the Play buttons in each of the tool cards.
+* [BAM Slicing Download](BAMslicing.md)
+* [Clinical Data Analysis](clinical_data_analysis.md)
+* [Cohort Comparison](cohort_comparison.md)
+* [Gene Expression Clustering](gene_expression_clustering.md)
+* [MAF Aggregation](cohortMAF.md)
+* [Mutation Frequency](mutation_frequency.md)
+* [OncoMatrix](oncomatrix.md)
+* [ProteinPaint](proteinpaint_lollipop.md)
+* [Sequence Reads](proteinpaint_bam.md)
+* [Set Operations](set_operations.md)
+
+Each can be launched by clicking the Play buttons in each of the tool cards.
 
 If there is not sufficient data in the active cohort to use a particular tool, the play button will be grayed out and will not be usable until a new cohort with sufficient data is selected.
 
@@ -30,7 +45,7 @@ If there is not sufficient data in the active cohort to use a particular tool, t
 
 ## Tool Panel
 
-As each tool is selected, it is loaded in the Analysis Center within a panel.
+As each tool is selected, it is loaded in the 'Analysis Center' within a panel.
 
 [![Analysis Center Tools Panel](images/AnalysisCenterToolPanel.png)](images/AnalysisCenterToolPanel.png "Click to see the full image.")
 
