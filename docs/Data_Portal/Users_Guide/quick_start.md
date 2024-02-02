@@ -84,3 +84,48 @@ __Step 5:__ The files in the cart can be downloaded directly from the browser or
   <summary><i>Click to Expand/Collapse Animation</i></summary>
 [![Animation of Selecting the Cart or Manifest Download In the Cart Page](images/agifs/DownloadCart-animation.gif)](images/agifs/DownloadCart-animation.gif "Click to see the full image.")
 </details>
+
+## Viewing Mutations
+
+__Step 1:__ Select your cohort of interest or [create one](#building-and-analyzing-a-cohort) if you have not already.
+
+<details>
+  <summary><i>Click to Expand/Collapse Animation</i></summary>
+[![Animation of Selecting an Active Cohort](images/agifs/ChangeCohort-animation.gif)](images/agifs/ChangeCohort-animation.gif "Click to see the full image.")
+</details>
+
+---
+
+__Step 2:__ Launch the Mutation Frequency tool from the Analysis Center.
+
+<details>
+  <summary><i>Click to Expand/Collapse Animation</i></summary>
+[![Animation of Launching the Mutation Frequency Tool](images/agifs/GoToMutFreq-animation.gif)](images/agifs/GoToMutFreq-animation.gif "Click to see the full image.")
+</details>
+
+---
+
+__Step 3:__ The Mutation Frequency tool visualizes the most frequently mutated genes and the most frequent somatic mutations for the active cohort. Narrow down your results by filtering them using the panel on the left.
+
+<details>
+  <summary><i>Click to Expand/Collapse Animation</i></summary>
+[![Animation of Filtering Mutation Frequency](images/agifs/SelectFiltersMF-animation.gif)](images/agifs/SelectFiltersMF-animation.gif "Click to see the full image.")
+</details>
+
+---
+
+__Step 4:__ To view the most frequent somatic mutations, navigate to the Mutations tab.
+
+<details>
+  <summary><i>Click to Expand/Collapse Animation</i></summary>
+[![Animation of Toggling to the Mutations Table](images/agifs/ViewMutationsTable-animation.gif)](images/agifs/ViewMutationsTable-animation.gif "Click to see the full image.")
+</details>
+
+---
+
+__Step 5:__ The mutation table can be downloaded by clicking on the TSV button at the top of the table.
+
+<details>
+  <summary><i>Click to Expand/Collapse Animation</i></summary>
+[![Animation of Downloading the Mutations Table](images/agifs/DownloadMutationsTable-animation.gif)](images/agifs/DownloadMutationsTable-animation.gif "Click to see the full image.")
+</details>
