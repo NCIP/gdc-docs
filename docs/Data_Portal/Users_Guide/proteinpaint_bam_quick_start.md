@@ -14,11 +14,11 @@ This features requires access to controlled data, which is maintained by the Dat
 
 ## Selecting BAM Files and Variants
 
-Once logged in, the Sequence Reads tool will display a search bar, where users can find a BAM file by entering four types of inputs: file name, file UUID, case ID, or case UUID. 
+Once logged in, the Sequence Reads tool will display a search bar, as well as a link to browse the first 1,000 available BAM files for the active cohort. Users can choose to select a BAM from the available list, or search for a specific BAM file by entering four types of inputs: file name, file UUID, case ID, or case UUID. 
 
 The tool will verify the query string and return all matching GDC BAM files in a table, from which the user can select one or multiple to use with the app.
 
-[![Search Bar](images/search_bar.png)](images/search_bar.png "Click to see the full image.")
+[![Search Bar](images/proteinpaint_sequence_reads_BAM_search.png)](images/proteinpaint_sequence_reads_BAM_search.png "Click to see the full image.")
 
 If an exact match is entered (i.e. a file name or file UUID), the Sequence Reads tool will find that BAM and present brief information about the file. 
 
