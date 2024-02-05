@@ -21,7 +21,7 @@ For users who want to browse all files that are available at the GDC, create a n
 
 ## Filtering a Set of Files ##
 
-As most users are searching for specific type of file, a set of commonly-used default facet cards can be used in the left panel of the Repository tool to allow users to filter the files presented in the table on the right. The facet cards are as follow:
+As most users are searching for specific types of files, a set of commonly-used default facet cards can be used in the left panel of the Repository tool to allow users to filter the files presented in the table on the right. The facet cards are as follows:
 
 * **Experimental Strategy**: Experimental strategies used for molecular characterization of the cancer
 * **WGS Coverage**: Range of coverage for WGS aligned reads

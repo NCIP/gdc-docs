@@ -41,7 +41,7 @@ The first six (or fewer) filters are shown for each card, but can be expanded to
 
 ### Available Data Filters
 
-Toward the bottom of the list of filter categories, "Available Data" can be selected.  These filters differ from the other default filters as they allow for cases that have certain types of associated data files. For example, filtering in the "Experimental Strategy" card for "RNA-Seq" will only display cases in the active cohort that have associated RNA-Seq files. These filters may be useful for analyses that requires only cases for which a certain type of analysis was performed.
+Toward the bottom of the list of filter categories, "Available Data" can be selected.  These filters differ from the other default filters as they allow for cases that have certain types of associated data files. For example, filtering in the "Experimental Strategy" card for "RNA-Seq" will only display cases in the active cohort that have associated RNA-Seq files. These filters may be useful for studies that require only cases for which a certain type of analysis was performed.
 
 ## Custom Filters ##
 
