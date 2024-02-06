@@ -1,10 +1,14 @@
 # Quick Start Page
 
-The purpose of this guide is to quickly introduce researchers to the GDC Data Portal. This is not a comprehensive overview of the Data Portal. Please see the rest of the Data Portal documentation pages for information about specific tools.
+The purpose of this guide is to quickly introduce researchers to the GDC Data Portal. This is not a comprehensive overview of the Data Portal and may not contain details for your specific use-case. Please see the rest of the Data Portal documentation pages for information about specific tools.
 
 Start at [https://portal.gdc.cancer.gov/](https://portal.gdc.cancer.gov/).
 
 ## Building and Analyzing a Cohort
+
+<table>
+<tr>
+<td>
 
 __Step 1:__ Go to the Cohort Builder at the top left of the Data Portal.
 
@@ -40,7 +44,15 @@ __Step 4:__ The cohort you created is now your active cohort.  Go to the Analysi
 [![Animation of Browsing to the Analysis Center](images/agifs/GotoAC-animation.gif)](images/agifs/GotoAC-animation.gif "Click to see the full image.")
 </details>
 
+
+</td></tr>
+</table>
+
 ## Downloading Files
+
+<table>
+<tr>
+<td>
 
 __Step 1:__ Select your cohort of interest, [create one](#building-and-analyzing-a-cohort) if you have not already.
 
@@ -86,7 +98,14 @@ __Step 5:__ The files in the cart can be downloaded directly from the browser or
 </details>
 
 
+</td></tr>
+</table>
+
 ## Viewing Mutations
+
+<table>
+<tr>
+<td>
 
 __Step 1:__ Select your cohort of interest or [create one](#building-and-analyzing-a-cohort) if you have not already.
 
@@ -130,3 +149,7 @@ __Step 5:__ The mutation table can be downloaded by clicking on the TSV button a
   <summary><i>Click to Expand/Collapse Animation</i></summary>
 [![Animation of Downloading the Mutations Table](images/agifs/DownloadMutationsTable-animation.gif)](images/agifs/DownloadMutationsTable-animation.gif "Click to see the full image.")
 </details>
+
+
+</td></tr>
+</table>
