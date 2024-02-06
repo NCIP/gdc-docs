@@ -11,7 +11,7 @@ In this GDC 2.0 Video Tutorial, learn how to:
 * Download data associated with a cohort
 * View projects and available data in the GDC, and filter to create custom cohorts
 
-GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](XXXLINK2PlaylistXXX). For additional details, please see the [GDC 2.0 User's Guide](quick_start.md).
+GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](XXXLINK2PlaylistXXX). For additional details, please see the [GDC 2.0 User's Guide](getting_started.md).
 
 [![GDC 2.0 Workflow Flowchart](images/v2_workflow.png)](images/v2_workflow.png "Click to see the full image.")
 
@@ -21,6 +21,7 @@ GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](XXXLINK2PlaylistX
 <tr>
 <td>
 Cohorts are created using the <b>Cohort Builder</b>, which allows users to specify cases with custom filters for things like disease characteristics, patient demographics, data type, and more.
+<br>
 <br>
 In this video, learn how to use the <b>Cohort Builder</b> to build a cohort of patients with lung cancer, that are over the age of 50, and have harmonized RNA-Seq data.
 </td>
@@ -34,7 +35,7 @@ In this video, learn how to use the <b>Cohort Builder</b> to build a cohort of p
 
 ## Analyze Cohort
 
-## Analysis Center
+### Analysis Center
 
 <table>
 <tr>
@@ -43,15 +44,17 @@ In this video, learn how to use the <b>Cohort Builder</b> to build a cohort of p
 <td>
 Once a cohort is created, the cohort can be analyzed using an analysis tool in the <b>Analysis Center</b>.
 <br>
+<br>
+
 In this video, learn how to analyze a cohort in the <b>Analysis Center</b>. Instructional videos are available for each analysis tool.
 
 </td>
 </tr>
 </table>
 
-## Analysis Tools
+### Analysis Tools
 
-A cohort can be analyzed by selecting an analysis tool in the Analysis Center. The GDC provides analysis tools for performing both gene-level variant analysis and clinical data analysis. Table 1 identifies and describes each tool, and provides video instruction.
+A cohort can be analyzed by selecting an analysis tool in the Analysis Center. The GDC provides analysis tools for performing both gene-level variant analysis and clinical data analysis. The table below identifies and describes each tool, and provides video instruction.
 
 <table>
 <tr><td><b>Tool</b></td> <td><b>Description</b></td><td><b>Video</b></td></tr>
@@ -116,12 +119,13 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 
 <table>
 <tr>
-<td><iframe width="400" height="300" src="https://www.youtube.com/embed/edipjoF1Tyk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
-</td>
 <td>
 Genomic, clinical, and biospecimen data associated with a cohort can be downloaded using the <b>Repository</b>.
 <br>
+<br>
 In this video, learn how to download data associated with a cohort in the <b>Repository</b>.
+</td>
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/edipjoF1Tyk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
 </td>
 </tr>
 </table>
