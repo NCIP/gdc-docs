@@ -1,10 +1,10 @@
 # Projects
 
-At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to look at particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC Data Portal allows users to access aggregate project-level information via the Projects tool and Project Summary Pages.
+At a high level, data in the Genomic Data Commons is organized by project. Typically, a project is a specific effort to study a particular type(s) of cancer undertaken as part of a larger cancer research program. The GDC Data Portal allows users to access aggregate project-level information via the Projects tool and Project Summary Pages.
 
 ## Projects Tool
 
-The Projects tool provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access the Projects tool from the GDC Data Portal header.
+The Projects tool provides an overview of all harmonized data available in the GDC, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access the Projects tool from the GDC Data Portal header.
 
 [![Project Tool In Header](images/ToolLinksInHeader.png)](images/ToolLinksInHeader.png "Click to see the full image.")
 
@@ -28,7 +28,7 @@ Users can filter by the following facets:
 *   __Data Category__: Type of data available in the project
 *   __Experimental Strategy__: Experimental strategies used for molecular characterization of the cancer
 
-Filters can be applied by selecting values of interest in the available facets, for example "WXS" and "RNA-Seq" in the "Experimental Strategy" facet and "Brain" in the "Primary Site" facet. When facet filters are applied, the Table is updated to display matching projects.
+Filters can be applied by selecting values of interest in the available facets, for example "WXS" and "RNA-Seq" in the "Experimental Strategy" facet, and "Brain" in the "Primary Site" facet. When facet filters are applied, the Table is updated to display matching projects.
 
 ## Creating Cohorts From Selected Projects
 
@@ -42,7 +42,7 @@ Clicking the link for each project name on the table will bring users to that sp
 
 [![Project Entity](images/ProjectEntity.png)](images/ProjectEntity.png "Click to see the full image.")
 
-Four buttons on the left of the header allow the user to perform a variety of actions related to the project: 
+Four buttons on the left of the header allow the user to perform a variety of actions related to the project:
 
 * __Save New Cohort__: Creates a new cohort consisting of all the cases in the project
 * __Biospecimen__: Downloads biospecimen metadata associated with all cases in the project in either TSV or JSON format

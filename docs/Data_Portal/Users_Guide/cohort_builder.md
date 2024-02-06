@@ -1,8 +1,9 @@
 # Cohort Builder
 
-The Cohort Builder is a good starting point for users looking to gather information for a specific disease, project, or group of patients.  Building a cohort allows users to download files, perform analyses, and query metadata for the same group of cases in multiple sections of the GDC Data Portal. This section will cover the process of building a cohort and downstream actions will be documented in their respective sections.
+The Cohort Builder is a good starting point for users looking to gather information for a specific disease, project, or group of patients. Building a cohort allows users to download files, perform analyses, and query metadata for the same group of cases in multiple sections of the GDC Data Portal. This section will cover the process of building a cohort and downstream actions will be documented in their respective sections.
 
 The Cohort Builder can be accessed in one of the following ways:
+
 * Selecting the Cohort Builder link in the GDC Data Portal header
 
 [![Cohort Builder In Header](images/ToolLinksInHeader.png)](images/ToolLinksInHeader.png "Click to see the full image.")
@@ -15,9 +16,7 @@ The Cohort Builder can be accessed in one of the following ways:
 
 [![Cohort Builder Panel](images/CohortBuilderPanel.png)](images/CohortBuilderPanel.png "Image of Cohort Builder Panel. Click to see the full image.")
 
-The Cohort Builder tool will be displayed as a panel in the Analysis Center.
-
-The Cohort Builder is used to filter the current cohort to a specific set of cases. The current cohort is always displayed in the [main toolbar](quick_start.md#main-toolbar) and can be changed from the main toolbar.
+The Cohort Builder tool will be displayed as a panel in the Analysis Center and is used to filter the current cohort to a specific set of cases. The current cohort is always displayed in the [main toolbar](getting_started.md#main-toolbar) and can be changed from the main toolbar.
 
 At the left side of the panel are a series of broad filter categories can be selected. Each filter category contains a set of specific filters within cohort builder cards that can be used to narrow your cohort to the desired set.
 
@@ -42,11 +41,11 @@ The first six (or fewer) filters are shown for each card, but can be expanded to
 
 ### Available Data Filters
 
-Toward the bottom of the list of filter categories, "Available Data" can be selected.  These filters differ from the other default filters as it allows for only cases that have certain types of associated data files to be displayed. For example, filtering in the "Experimental Strategy" card for "RNA-Seq" will only display cases in the active cohort that have associated files with an experimental strategy of "RNA-Seq". These filters may be useful for analyses that requires only cases for which a certain type of analysis was performed.
+Toward the bottom of the list of filter categories, "Available Data" can be selected.  These filters differ from the other default filters as they allow for cases that have certain types of associated data files. For example, filtering in the "Experimental Strategy" card for "RNA-Seq" will only display cases in the active cohort that have associated RNA-Seq files. These filters may be useful for studies that require only cases for which a certain type of analysis was performed.
 
 ## Custom Filters ##
 
-If the necessary filter cannot be found within one of the categories, use the "Add a Custom Filter" button in the "Custom Filters" category to access additional filters. Browse through the list of additional filters, or use the search box to search for filters by name. Once a filter is selected, it is then added to the "Custom Filters" category.  A custom filter can be removed from this category by choosing the "X" at the top right of the filter card.
+If a filter cannot be found within one of the categories, use the "Add a Custom Filter" button in the "Custom Filters" category to access any filters that are not displayed. Browse through the list of additional filters, or use the search box to search for filters by name. Once a filter is selected, it is then added to the "Custom Filters" category.  A custom filter can be removed from this category by choosing the "X" at the top right of the filter card.
 
 [![Custom Filter](images/CustomFilter.png)](images/CustomFilter.png "Image of Custom Filter search box. Click to see the full image.")
 
@@ -60,7 +59,7 @@ The Cohort Builder includes the ability to search across all the cards within it
 
 [![Cohort Builder Header](images/CohortBuilderHeader.png)](images/CohortBuilderHeader.png "Image of Cohort Builder Header. Click to see the full image.")
 
-As the desired search term is entered, the Cohort Builder Search feature will display a list of properties that contain matching results. When a result is moused over, additional information is displayed to its left, including a description of the property and a list of all values that match the search term.
+As a search term is entered, the Cohort Builder Search feature will display a list of properties that contain matching results. When a result is moused over, additional information is displayed to its left, including a description of the property and a list of values that match the search term.
 
 [![Cohort Builder Search Results](images/CohortBuilderSearchResults.png)](images/CohortBuilderSearchResults.png "Image of Cohort Builder Search Results. Click to see the full image.")
 
@@ -81,5 +80,6 @@ Alternatively, users can select the Analysis Center link or any of the other lin
 Changes made to the cohort with the Cohort Builder will persist through the other sections of the GDC Data Portal.
 
 Users can then perform the following actions:
+
 * Download files associated with the cohort from the [Repository](Repository.md)
 * Analyze data from the cohort in the [Analysis Center](analysis_center.md)
