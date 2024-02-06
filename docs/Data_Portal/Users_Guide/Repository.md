@@ -26,7 +26,7 @@ As most users are searching for specific types of files, a set of commonly-used 
 * **Experimental Strategy**: Experimental strategies used for molecular characterization of the cancer
 * **WGS Coverage**: Range of coverage for WGS aligned reads
 * **Data Category**: A high-level data file category, such as "Raw Sequencing Data" or "Transcriptome Profiling"
-* **Data Type**: Data file type, such as "Aligned Reads" or "Gene Expression Quantification". Data Type is more granular than Data Category
+* **Data Type**: Data file type, such as "Aligned Reads" or "Gene Expression Quantification". Data Type is more granular than Data Category.
 * **Data Format**: Format of the data file
 * **Workflow Type**: Bioinformatics workflow used to generate or harmonize the data file
 * **Platform**: Technological platform on which experimental data was produced
