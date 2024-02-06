@@ -11,7 +11,7 @@ In this GDC 2.0 Video Tutorial, learn how to:
 * Download data associated with a cohort
 * View projects and available data in the GDC, and filter to create custom cohorts
 
-GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](XXXLINK2PlaylistXXX). For additional details, please see the [GDC 2.0 User's Guide](quick_start.md).
+GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](XXXLINK2PlaylistXXX). For additional details, please see the [GDC 2.0 User's Guide](getting_started.md).
 
 [![GDC 2.0 Workflow Flowchart](images/v2_workflow.png)](images/v2_workflow.png "Click to see the full image.")
 
