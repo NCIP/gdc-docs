@@ -68,11 +68,11 @@ The main toolbar also contains a set of buttons that are used to manage or creat
 
 To the right of the cohort name are the following buttons:
 
-* **Save Cohort:** Two options for saving cohorts are available in the dropdown menu. Select the "Save" option to save the active cohort and any changes made to it. Select the "Save As" option to save the active cohort, along with any changes made to it, as a new cohort. Cohorts with unsaved changes have a yellow exclamation mark icon displayed next to their names. Custom cohorts that are saved should persist through releases and continue to be accessible if the same browser is used. **It is recommended that users export and securely store any cohort that cannot be easily recreated in case the browser session is cleared.**
+* **Save Cohort:** Two options for saving cohorts are available in the dropdown menu. Select the "Save" option to save the active cohort and any changes made to it. Select the "Save As" option to save the active cohort, along with any changes made to it, as a new cohort. Cohorts with unsaved changes have a yellow exclamation mark icon displayed next to their names. Custom cohorts that are saved should persist through releases and continue to be accessible if the same browser is used. When the GDC releases new data, saved cohorts will be updated to include the newly released cases matching the filters applied to the cohort. **It is recommended that users export and securely store any cohort that cannot be easily recreated in case the browser session is cleared.**
 * **Create New Unsaved Cohort:** Adds a new unsaved cohort with all the cases in the GDC and changes the active cohort to this new cohort
 * **Delete Cohort:** Deletes the current active cohort.  This action cannot be undone.
 * **Import New Cohort:** Imports a set of cases as a cohort. These can be imported as a plain text list of UUIDs or submitter_ids (barcodes).
-* **Export Cohort:**  Exports the active cohort to a file. A cohort will be exported as a list of UUIDs.
+* **Export Cohort:**  Exports the active cohort to a file. A cohort will be exported as a list of UUIDs. Exporting a cohort allow users to obtain a static list of the cases which are in their cohort at the time of export.
 
 Two other buttons are located on the far right of the toolbar:
 
