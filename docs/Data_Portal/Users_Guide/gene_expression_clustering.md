@@ -33,9 +33,11 @@ The control panel can modify the displayed data or the appearance of the matrix.
 * __Legend Layout:__ Alter the legend by changing the font size, dimensions, and other formatting preferences
 * __Download:__ Download the plot in svg format
 * __Zoom:__ Adjust the zoom level by using the up and down arrows on the input box, entering a number, or using the sliding scale to view the case labels
-* __Undo:__ Undo changes made to the matrix
-* __Redo:__ Redo changes made to the matrix
-* __Restore:__ Restore the matrix to its default settings
+<!--
+* __Undo:__ Undo changes made to the matrix (Coming Soon)
+* __Redo:__ Redo changes made to the matrix (Coming Soon)
+* __Restore:__ Restore the matrix to its default settings (Coming Soon)
+-->
 
 ### Heatmap
 
@@ -59,7 +61,7 @@ Click on a case in the dendrogram to showcase the Disco plot or the GDC [Case Su
 
 [![Gene Expression Clustering Tool Heatmap Case Selection](images/GEC_tool_heatmap_case_selection.png)](images/GEC_tool_heatmap_case_selection.png "Click to see the full image.")
 
-In the column of genes on the left, click on a gene to rename it, launch the [ProteinPaint Lollipop plot](proteinpaint_lollipop.md), display the GDC [Gene Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages), or remove the gene.
+In the column of genes on the left, click on a gene to rename it, launch the [ProteinPaint Lollipop plot](proteinpaint_lollipop.md), display the GDC [Gene Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages), or remove the gene. The lollipop plot displays all cases across the GDC affected by SSMs in the selected gene.
 
 [![Gene Expression Clustering Tool Gene Selection](images/GEC_tool_gene.png)](images/GEC_tool_gene.png "Click to see the full image.")
 

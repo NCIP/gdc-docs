@@ -34,10 +34,12 @@ __Control Panel:__
 * __Cell Layout:__ Modify the format of the cells by changing colors, cell dimensions and spacing, and label formatting
 * __Legend Layout:__ Alter the legend by changing the font size, dimensions and spacing, and other formatting preferences
 * __Download:__ Download the matrix in svg format
-* __Zoom:__ Adjust the zoom level by using the up and down arrows on the input box, entering a number, or using the sliding scale to view the case lables
+* __Zoom:__ Adjust the zoom level by using the up and down arrows on the input box, entering a number, or using the sliding scale to view the case labels.
+<!--
 * __Undo:__ Undo changes made to the matrix
 * __Redo:__ Redo changes made to the matrix
 * __Restore:__ Restore the matrix to its default settings
+-->
 
 ### Matrix Plot
 
@@ -69,7 +71,7 @@ In the panel of genes on the left, users can hover over a gene to view the numbe
 
 [![Hover over gene](images/oncomatrix_gene_hover.png)](images/oncomatrix_gene_hover.png 'Click to see the full image.')
 
-Clicking on a gene opens a pop-up window where users can rename it, launch the [ProteinPaint Lollipop plot](proteinpaint_lollipop.md), display the [Gene Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages), and replace or remove the gene.
+Clicking on a gene opens a pop-up window where users can rename it, launch the [ProteinPaint Lollipop plot](proteinpaint_lollipop.md), display the [Gene Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages), and replace or remove the gene. The lollipop plot displays all cases across the GDC affected by SSMs in the selected gene.
 
 [![Click on a gene](images/oncomatrix_gene_click.png)](images/oncomatrix_gene_click.png 'Click to see the full image.')
 
@@ -447,6 +449,7 @@ To reset the zoom level to default, click on the `Reset` button as shown. This w
 
 [![Reset Zoom](./images/oncomatrix/55-reset_zoom.png)](./images/oncomatrix/55-reset_zoom.png 'Click to see the full image.')
 
+<!--
 ## Undo/Redo/Restore
 
 User may also choose to undo settings by clicking the undo button on the control panel as shown below.
@@ -462,6 +465,7 @@ User may also choose to restore the initial state by clicking the Restore button
 This restores the chart back to default settings as shown.
 
 [![Default matrix on restore](./images/oncomatrix/58-default-view.png)](./images/oncomatrix/58-default-view.png 'Click to see the full image.')
+-->
 
 ## Download
 
