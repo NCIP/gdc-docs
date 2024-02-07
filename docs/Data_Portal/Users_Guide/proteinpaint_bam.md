@@ -74,9 +74,9 @@ Clicking on a read in the plot launches a window that displays the alignment bet
 
 [![Read Information Panel](images/read_info.png)](images/read_info.png "Click to see the full image.")
 
-#### Rendering of Various Mutations
+#### Mutation Rendering
 
-Various mutations are rendered as follows:
+Mutations are rendered as follows:
 
 * __Insertion:__ The alphabet representing the nucleotides is displayed between the two reference nucleotides in cyan color, with the shade scaled by base quality
     * If more than one nucleotide is inserted, a number is printed between the two reference nucleotides indicating the number of inserted nucleotides
@@ -117,12 +117,6 @@ The BAM Track Configuration Panel, which can be accessed by clicking the `CONFIG
 In single-end display each read is displayed individually without displaying any connections with its respective mate. In case of the paired-end display the two paired reads are joined by a gray dotted-line if the coordinates of the two reads do not overlap. When the coordinates of the two read-pairs overlap, the overlapped region is highlighted by a blue line.
 
 The BAM Track Configuration Panel also provides a check box to show/hide PCR and optical duplicated reads.
-
-
-
-
-
-
 
 ## Launch the Sequence Reads Tool
 At the Analysis Center, click on the "Sequence Reads" card to launch the app.
