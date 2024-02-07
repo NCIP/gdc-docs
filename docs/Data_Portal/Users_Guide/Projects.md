@@ -47,7 +47,7 @@ Four buttons on the left of the header allow the user to perform a variety of ac
 * __Save New Cohort__: Creates a new cohort consisting of all the cases in the project
 * __Biospecimen__: Downloads biospecimen metadata associated with all cases in the project in either TSV or JSON format
 * __Clinical__: Downloads clinical metadata about all cases in the project in either TSV or JSON format
-* __Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the GDC Data Transfer Tool to download the files.
+* __Manifest__: Downloads a manifest for all data files available in the project. The manifest can be used with the [GDC Data Transfer Tool](../../Data_Transfer_Tool/Users_Guide/Getting_Started.md) to download the files.
 
 ### Primary Sites Table
 
