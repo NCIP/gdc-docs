@@ -50,7 +50,7 @@ The Reference Genome Sequence displays the reference genome build against which 
 
 The Genome Models row displays the gene model structure from the view range. When zoomed into a coding exon, the letters correspond to the 1-letter amino acid code for each amino acid and are placed under its corresponding 3-letter nucleotide codon under the reference genome sequence. The arrows describe the orientation of the strand of the gene model being displayed (right arrow for forward strand and left arrow for reverse strand).
 
-Graphical representations of the reads are displayed as they are aligned on the chromosome. Sequence can be read when zoomed in
+Graphical representations of the reads are displayed as they are aligned on the chromosome. Sequence can be read when zoomed in.
 
 ### ProteinPaint BAM Track
 

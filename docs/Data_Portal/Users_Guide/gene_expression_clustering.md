@@ -96,7 +96,7 @@ At the analysis center, click the 'Gene Expression Clustering' card to launch th
 
 ## Features
 
-The following features are viewable once the default heatmap is loaded. The default heatmap shows all the glioma cases. There are four main panels as outlined in the figure i.e., the 'Controls', 'Heatmap', 'Variables' and the 'Legend'. Each of the features and functionalities are described in detail in the following sections sections.
+The following features are viewable once the default heatmap is loaded. The default heatmap shows all the glioma cases. There are four main panels as outlined in the figure i.e., the 'Controls', 'Heatmap', 'Variables' and the 'Legend'. Each of the features and functionalities are described in detail in the following sections.
 
 [![Default view](./images/geneexpclust/2-default-view.png)](./images/geneexpclust/2-default-view.png 'Click to see the full image.')
 
@@ -138,7 +138,7 @@ Similary, row dendrogram width can also be modified as per user requirement as s
 
 Z scores are used to compare gene expression across samples. A Z-score of zero indicates that the gene's expression level is the same as the mean expression level across all samples, while a positive Z-score indicates that the gene is expressed at a higher level than the mean, and a negative Z-score indicates that the gene is expressed at a lower level than the mean.
 
-User can increase or decrease the Z-score Capping. Increase the Z-score cap from 5 to 10 as shown. Samples with lower gene expression get more lighter to allow highlighting of clusters with higher expression values as shown in red in the heatmap.
+User can increase or decrease the Z-score Capping. Increase the Z-score cap from 5 to 10 as shown. Samples with lower gene expression gets lighter to allow highlighting of clusters with higher expression values as shown in red in the heatmap.
 
 [![Z-score capping](./images/geneexpclust/10-zscore-cap.png)](./images/geneexpclust/10-zscore-capt.png 'Click to see the full image.')
 
@@ -218,7 +218,7 @@ To do so, click the button 'Genes' and click 'Edit Group'.
 
 [![Genes as variables](./images/geneexpclust/21-gene-as-var.png)](./images/geneexpclust/21-gene-as-var.png 'Click to see the full image.')
 
-From the dropdown, select 'Variables' as shown
+From the dropdown, select 'Variables' as shown.
 
 [![Choosing variables from dropdown](./images/geneexpclust/22-dropdown-var.png)](./images/geneexpclust/22-dropdown-var.png 'Click to see the full image.')
 
