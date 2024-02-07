@@ -395,7 +395,7 @@ Click `Submit` and the matrix will update to reflect the selected MSigDB gene se
 
 ## Variables
 
-The third button from the left called ``Variables` allows user to add in additional variables in the form of rows on the matrix. Click `Variables` to display a tree of variables and select `Disease type`, `Index date` and `Primary site`. Click the button `Submit 3 variables` as shown.
+The third button from the left called `Variables` allows user to add in additional variables in the form of rows on the matrix. Click `Variables` to display a tree of variables and select `Disease type`, `Index date` and `Primary site`. Click the button `Submit 3 variables` as shown.
 
 [<img src="./images/oncomatrix/46-variables.png" width="300"/>](./images/oncomatrix/46-variables.png 'Click to see the full image.')
 
@@ -476,6 +476,7 @@ The download will get saved to the default download folder as shown at the botto
 ## Legend
 
 The legend for the matrix is below the plot and shows color coding for different mutation classes as well as color codes for CNV as shown here. This legend is interactive and user may choose to hide or show features such as mutation classes or copy number changes.
+
 
 Click on the legend icons to hide anything.
 
