@@ -4,7 +4,7 @@ The purpose of this guide is to quickly introduce researchers to the GDC Data Po
 
 Start at [https://portal.gdc.cancer.gov/](https://portal.gdc.cancer.gov/).
 
- Building and Analyzing a Cohort
+### Building and Analyzing a Cohort
 
 
 __Step 1:__ Go to the Cohort Builder at the top left of the Data Portal.
@@ -23,7 +23,7 @@ __Step 4:__ The cohort you created is now your active cohort.  Go to the Analysi
 
 <details><summary><i>Click to Expand/Collapse Animation</i></summary> [![Animation of Browsing to the Analysis Center](images/agifs/GotoAC-animation.gif)](images/agifs/GotoAC-animation.gif "Click to see the full image.") </details>
 
-## Downloading Files
+### Downloading Files
 
 __Step 1:__ Select your cohort of interest, [create one](#building-and-analyzing-a-cohort) if you have not already.
 
@@ -68,7 +68,7 @@ __Step 5:__ The files in the cart can be downloaded directly from the browser or
 [![Animation of Selecting the Cart or Manifest Download In the Cart Page](images/agifs/DownloadCart-animation.gif)](images/agifs/DownloadCart-animation.gif "Click to see the full image.")
 </details>
 
-## Viewing Mutations
+### Viewing Mutations
 
 __Step 1:__ Select your cohort of interest or [create one](#building-and-analyzing-a-cohort) if you have not already.
 
