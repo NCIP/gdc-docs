@@ -33,11 +33,11 @@ drill down to specific genes and mutation types of interest in the cohort.
 A Portal application's input can be anything including a single cohort or multiple cohorts. The application then can either add filters to refine the cohort by adding filters, create additional cohorts, or display the data in a visualization. Applications typically
 have:
 
-* Local filters that are used to refine the data displayed in the application.
+* Local filters that are used to refine the data displayed in the application
 * Cohort filters that are used to refine the cohort
-* UI components that are used to display the data in the application.
-* State that is used to store the data displayed in the application.
-* Actions that are used to update the state of the application.
+* UI components that are used to display the data in the application
+* State that is used to store the data displayed in the application
+* Actions that are used to update the state of the application
 
 Applications can also create new cohorts. These cohorts can be used by other Portal applications.
 
