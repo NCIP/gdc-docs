@@ -72,7 +72,7 @@ To the right of the cohort name are the following buttons:
 * **Create New Unsaved Cohort:** Adds a new unsaved cohort with all the cases in the GDC and changes the active cohort to this new cohort
 * **Delete Cohort:** Deletes the current active cohort.  This action cannot be undone.
 * **Import New Cohort:** Imports a set of cases as a cohort. These can be imported as a plain text list of UUIDs or submitter_ids (barcodes).
-* **Export Cohort:**  Exports the active cohort to a file. A cohort will be exported as a list of UUIDs. Exporting a cohort allow users to obtain a static list of the cases which are in their cohort at the time of export.
+* **Export Cohort:**  Exports the active cohort to a file. A cohort will be exported as a list of UUIDs. Exporting a cohort allows users to obtain a static list of the cases which are in their cohort at the time of export.
 
 Two other buttons are located on the far right of the toolbar:
 
