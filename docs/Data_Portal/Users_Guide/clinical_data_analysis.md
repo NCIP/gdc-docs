@@ -115,7 +115,7 @@ For each clinical variable, whether categorical or continuous, users can create 
 * Histogram and associated data table
 * Survival plot and associated data table
 
-Custom bins can be reset to their defaults at any time for each card.  Note that custom bins are __saved per analysis__.
+Custom bins can be reset to their defaults at any time for each card by selecting the *__Reset to Default__* option after clicking *__Customize Bins__*.
 
 ### Categorical Binning
 

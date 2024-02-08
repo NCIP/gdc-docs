@@ -8,7 +8,7 @@ The Cohort Comparison tool displays graphs and tables that demonstrate the simil
 
 * A selectable survival plot that compares both sets with information about the percentage of represented cases
 
-* A breakdown of each cohort by selectable clinical facets with a bar graph and table. The facets included are `Vital_Status`, `Gender`, `Race`, `Ethnicity`, and `Age_at_Diagnosis`.
+* A breakdown of each cohort by selectable clinical facets with a bar graph and table. The facets included are `Vital_Status`, `Gender`, `Race`, `Ethnicity`, and `Age_at_Diagnosis`. A p-value (if it can be calculated from the data) that demonstrates whether the statuses are proportionally represented is displayed for the `Vital_Status`, `Gender`, and `Ethnicity` facets.
 
 * Additional cohorts can be created containing subsets of these two cohorts
 
