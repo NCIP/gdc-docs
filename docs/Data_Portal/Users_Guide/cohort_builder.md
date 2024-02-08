@@ -10,7 +10,7 @@ The Cohort Builder can be accessed in one of the following ways:
 
 * Selecting the play button on the Cohort Builder card in the Analysis Center
 
-[![Cohort Builder Play Buttons](images/CohortBuilderInAnalysisCenter.png)](imagesCohortBuilderInAnalysisCenter.png "Click to see the full image.")
+[![Cohort Builder Play Buttons](images/CohortBuilderInAnalysisCenter.png)](images/CohortBuilderInAnalysisCenter.png "Click to see the full image.")
 
 ## Cohort Builder Panel ##
 
