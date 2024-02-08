@@ -2,7 +2,7 @@
 
 ## Overview
 
-The [GDC Data Portal 2.0](https://portal.gdc.cancer.goc) centers around the idea of building cohorts, or groups of cases, before analyzing or downloading data.
+The [GDC Data Portal 2.0](https://portal.gdc.cancer.gov) centers around the idea of building cohorts, or groups of cases, before analyzing or downloading data.
 
 In this GDC 2.0 Video Tutorial, learn how to:
 
