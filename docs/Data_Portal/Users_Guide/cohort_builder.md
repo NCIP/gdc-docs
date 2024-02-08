@@ -21,7 +21,7 @@ The Cohort Builder tool will be displayed as a panel in the Analysis Center and 
 At the left side of the panel are a series of broad filter categories can be selected. Each filter category contains a set of specific filters within cohort builder cards that can be used to narrow your cohort to the desired set.
 
 ## Cohort Builder Cards
-Each card within the Cohort Builder can be used to apply the corresponding filters on the current cohort. As filters are applied, they will be displayed on the [Query Expressions](quick_start.md#query-expressions) section.
+Each card within the Cohort Builder can be used to apply the corresponding filters on the current cohort. As filters are applied, they will be displayed on the [Query Expressions](getting_started.md#query-expressions) section.
 
 Additional features can be accessed at the top right of each card's header to facilitate filtering:
 
