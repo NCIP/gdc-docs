@@ -82,7 +82,7 @@ Not applicable as this is the initial release of GDC 2.0.
     * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes. As a workaround, first filter by the mutated genes before creating cohorts based on CNV losses and gains.
     * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
     * When saving a cohort, the confirmation notification may be automatically dismissed before the saving dialog has closed. <!--SV-2366-->
-    * Using "Save As" to replace a cohort with itself will result in an error notification despite the replacement being successful. <!--SV-2363--> 
+    * Using "Save As" to replace a cohort with itself will result in an error notification despite the replacement being successful. <!--SV-2363-->
     * Cohorts containing FM-AD cases may not update correctly when users with dbGaP access to FM-AD (phs001179) log in or out. As a workaround, logging in before creating cohorts with FM-AD cases is recommended. <!--SV-2389-->
     * If removing gene/mutation filters from a cohort temporarily results in 0 cases, cohorts may not display data in Mutation Frequency, Cohort Builder, and the summary charts. As a workaround, remove the gene and mutation filters, then add them back. <!--SV-2414-->
 * __Survival Plot__:
@@ -101,16 +101,16 @@ Not applicable as this is the initial release of GDC 2.0.
     * Attempting to download the **Clinical/Biospecimen TSV or JSON** before the cohort has fully loaded may result in an error. <!--SV-2402-->
     * The TSV of the **cases table** may not contain the expected tabs. <!--DEV-2324-->
 * __OncoMatrix__:
-    * Manually deleting all genes will result in an error message “Error: Cannot read properties of undefined (reading 'lst')”. The user can close and re-open OncoMatrix for use.
+    * Manually deleting all genes will result in an error message "Error: Cannot read properties of undefined (reading 'lst')". The user can close and re-open OncoMatrix for use.
     * Dragging genes only works once. After one gene is dragged to a new position, no genes can be dragged to new positions.
 * __ProteinPaint__:
-    * A nested filter may be constructed for a Lollipop subtrack, e.g. sex=male AND ( primarysite=aa OR disease=bb ), but cannot be translated into GDC cohort filters. The translation code has a preliminary implementation that only works for “flat” filters without nesting.
+    * A nested filter may be constructed for a Lollipop subtrack, e.g. sex=male AND ( primarysite=aa OR disease=bb ), but cannot be translated into GDC cohort filters. The translation code has a preliminary implementation that only works for "flat" filters without nesting.
     * Cohorts cannot be created using the Create Cohort button in ProteinPaint for a single sample.
-* In the __Gene Expression Clustering__ tool, if any part of the dendrogram is selected and the current cohort is modified, then the new dendrogram will render with scattered subtrees selected. 
-* The “A” in the Allele Summary text is cut off in the __Sequence Reads__ tool.
+* In the __Gene Expression Clustering__ tool, if any part of the dendrogram is selected and the current cohort is modified, then the new dendrogram will render with scattered subtrees selected.
+* The "A" in the Allele Summary text is cut off in the __Sequence Reads__ tool.
 * __Quick Search__ may not display results if the the same search input is applied twice quickly. As a workaround, temporarily change the input before reentering the intended search. <!--SV-2410-->
 * Filters related to numeric values may display a smaller number than what the user entered within the __Cohort Builder__. This is a visual issue and does not affect the filters applied to the cohort. <!--SV-2383-->
-* When the __Cohort Comparison__ tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360--> 
+* When the __Cohort Comparison__ tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360-->
 * The __Repository__ tool may display an incorrect file size total of 0 bytes when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * In __Set Operations__, the saving of gene and mutation sets may be unsuccessful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
