@@ -1,6 +1,6 @@
 # Repository
 
-The Repository Page is the primary method of accessing data in the GDC Data Portal. It provides an overview of all cases and files available in the GDC and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the [Repository Page](https://portal.gdc.cancer.gov/repository) from the GDC Data Portal Home Page or from the Data Portal toolbar.
+The Repository Page is the primary method of accessing data in the GDC Data Portal. It provides an overview of all cases and files available in the GDC and offers users a variety of filters for identifying and browsing cases and files of interest. Users can access the [Repository Page](https://portal.gdc.cancer.gov/v1/repository) from the GDC Data Portal Home Page or from the Data Portal toolbar.
 
 ## Filters / Facets
 On the left, a panel of data facets allows users to filter cases and files using a variety of criteria. If facet filters are applied, the tabs on the right will display information about matching cases and files. If no filters are applied, the tabs on the right will display information about all available data.
@@ -68,7 +68,7 @@ Newly added facets will show up at the top of the facets panel and can be remove
 
 ## Annotations View
 
-The Annotations View provides an overview of the available annotations and allows users to browse and filter the annotations based on a number of annotation properties (facets), such as the type of entity the annotation is attached to or the annotation category. This page can be found by clicking on the [Browse Annotations](https://portal.gdc.cancer.gov/annotations) link, located at the top right of the repository page.
+The Annotations View provides an overview of the available annotations and allows users to browse and filter the annotations based on a number of annotation properties (facets), such as the type of entity the annotation is attached to or the annotation category. This page can be found by clicking on the [Browse Annotations](https://portal.gdc.cancer.gov/v1/annotations) link, located at the top right of the repository page.
 
 [![Annotations View](images/Browse_Annotations.png)](images/Browse_Annotations.png "Click to see the full image.")
 

@@ -4,7 +4,7 @@ At a high level, data in the Genomic Data Commons is organized by project. Typic
 
 ## Projects Page
 
-The Projects Page provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access the [Projects Page](https://portal.gdc.cancer.gov/projects) from the GDC Data Portal Home page or from the Data Portal toolbar.
+The Projects Page provides an overview of all harmonized data available in the Genomic Data Commons, organized by project. It also provides filtering, navigation, and advanced visualization features that allow users to identify and browse projects of interest. Users can access the [Projects Page](https://portal.gdc.cancer.gov/v1/projects) from the GDC Data Portal Home page or from the Data Portal toolbar.
 
 On the left, a panel of facets allow users to apply filters to find projects of interest. When facet filters are applied, the table and visualizations on the right are updated to display only the matching projects. When no filters are applied, all projects are displayed.
 
@@ -18,7 +18,7 @@ The right side of the Projects Page displays a few visualizations of the data (T
 
 #### Top Mutated Cancer Genes in Selected Projects
 
-This dynamically generated bar graph shows the 20 genes with the most mutations across all projects. The genes are filtered by those that are part of the Cancer Gene Census and that have the following types of mutations: `missense_variant`, `frameshift_variant`, `start_lost`, `stop_lost`, `initiator_codon_variant`, and `stop_gained`. The bars represent the frequency of mutations per gene and is broken down into different colored segments by project. The graphic is updated as filters are applied for projects, programs, disease types, and data categories available in the project. 
+This dynamically generated bar graph shows the 20 genes with the most mutations across all projects. The genes are filtered by those that are part of the Cancer Gene Census and that have the following types of mutations: `missense_variant`, `frameshift_variant`, `start_lost`, `stop_lost`, `initiator_codon_variant`, and `stop_gained`. The bars represent the frequency of mutations per gene and is broken down into different colored segments by project. The graphic is updated as filters are applied for projects, programs, disease types, and data categories available in the project.
 
 > __Note:__ Due to these filters, the number of cases displayed here will be less that the total number of cases per project.
 
