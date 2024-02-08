@@ -8,7 +8,7 @@ A manifest file can also be used to simplify the upload process to the GDC Submi
 
 ## References ##
 1. [Manifest endpoint](/API/Users_Guide/Downloading_Files/#manifest-endpoint)
-2. [GDC Data Transfer Tool](/Data_Portal/Users_Guide/Cart/#gdc-data-transfer-tool)
+2. [GDC Data Transfer Tool](/Data_Portal/Users_Guide/Repository.md#generating-a-manifest-file-for-the-data-transfer-tool)
 3. [Upload Manifest](/API/Users_Guide/Submission/#upload-manifest)
 4. [Data Transfer Tool Submission with Manifest ](/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-a-manifest-file-for-data-uploads)
 
