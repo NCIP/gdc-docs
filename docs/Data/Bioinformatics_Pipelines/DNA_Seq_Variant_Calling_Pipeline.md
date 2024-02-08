@@ -605,7 +605,7 @@ AscatNGS, originally developed by [Raine *et al* (2016)]( https://doi.org/10.100
 
 The GDC adopts [MSIsensor2](https://github.com/niu-lab/msisensor2) to derive Microsatellite Instability (MSI) information from tumor DNA-Seq data. The MSIsensor2 software uses only the tumor BAM as input, and calculates the numeric MSI score (number of msi sites / all valid sites). The MSI status of MSI (Microsatellite Instable) or MSS (Microsatellite Stable) is then determined using a MSI score cutoff value of 20%.
 
-The output `msi_score` and `msi_status` values are stored directly as properties of the `aligned_reads` (BAM files), and can be [accessible via API](https://api.gdc.cancer.gov/files/82488c57-9789-449c-a09d-594172381dc1?pretty=true&fields=msi_score,msi_status,file_id,file_name). In addition, the portal/API can be filtered using these proprties by choosing "Add a File Filter" in the [Repository Page](https://portal.gdc.cancer.gov/repository) and selecting `msi_score` or `msi_status`.
+The output `msi_score` and `msi_status` values are stored directly as properties of the `aligned_reads` (BAM files), and can be [accessible via API](https://api.gdc.cancer.gov/files/82488c57-9789-449c-a09d-594172381dc1?pretty=true&fields=msi_score,msi_status,file_id,file_name). In addition, the portal/API can be filtered using these proprties by choosing "Add a File Filter" in the [Repository Page](https://portal.gdc.cancer.gov/v1/repository) and selecting `msi_score` or `msi_status`.
 
 Please note:
 
