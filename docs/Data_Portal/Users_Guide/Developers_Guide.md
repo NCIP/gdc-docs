@@ -28,14 +28,16 @@ drill down to specific genes and mutation types of interest in the cohort.
 
 ![Mutation Frequency](./images/mutation_frequency_app.png)
 
-### Local vs Global Filters
+### Local vs Cohort Filters
 
 A Portal application's input can be anything including a single cohort or multiple cohorts. The application then can either add filters to refine the cohort by adding filters, create additional cohorts, or display the data in a visualization. Applications typically
 have:
-* local filters that are used to refine the data displayed in the application.
-* UI components that are used to display the data in the application.
-* State that is used to store the data displayed in the application.
-* Actions that are used to update the state of the application.
+
+* Local filters that are used to refine the data displayed in the application
+* Cohort filters that are used to refine the cohort
+* UI components that are used to display the data in the application
+* State that is used to store the data displayed in the application
+* Actions that are used to update the state of the application
 
 Applications can also create new cohorts. These cohorts can be used by other Portal applications.
 
@@ -451,7 +453,7 @@ well as buttons to create a saved cohort.
 
 ## Altering a cohort
 
-Altering a cohort is done by dispatching actions o add, remove, or clear filters. The following actions are available
+Altering a cohort is done by dispatching actions to add, remove, or clear filters. The following actions are available
 for altering the current cohort:
 
 * `updateCohortFilter`
@@ -747,7 +749,7 @@ These charts and others are documented in the Portal 2.0 SDK API documentation.
 
 ### Facets
 
-Facet components are provided for use in building local filters for your application. There are two types of facet components:
+Facet components are provided for use in building local filters for your application. There are several types of facet components:
 
 * `EnumFacet` - a facet that is used to filter on an enum field
 * `DateFacet` - a facet that is used to filter a date field
@@ -799,7 +801,7 @@ and filter management hooks, they can be used for both cohort and local filters 
 ### VerticalTable
 
 The VerticalTable component is used to display data in a table format. The VerticalTable component is a Mantine component
-implementing react table version 8. The VerticalTable component has a number of parameters, the most important
+implementing React table version 8. The VerticalTable component has a number of parameters, the most important
 being data, columns, and filters. The data is the data to display in the table, the columns are the columns to display
 in the table, and is where the fields of the data tp be rendered are.
 The table has support for searching, sorting, and pagination. It can be configured to render many different types of columns, including text, numeric, and date. The table can also be configured
@@ -1225,7 +1227,7 @@ While you are free to structure your application code as you with, the following
 
 Although a complete guide to react hooks and selectors is out of the scope of this document, we will provide a brief overview
 of how to use them for application development. For more information on hooks and selectors please see the
-[React Hooks](https://reactjs.org/docs/hooks-intro.html). As we are using Redux-toolkit, we will be using the calls described in the [Redux Toolkit](https://redux-toolkit.js.org/tutorials/typescript) documentation.
+[React Hooks](https://react.dev/reference/react/hooks). As we are using Redux-toolkit, we will be using the calls described in the [Redux Toolkit](https://redux-toolkit.js.org/tutorials/typescript) documentation.
 
 ### Selectors
 
@@ -1256,7 +1258,7 @@ const { data: geneSymbolDict, isSuccess } = useGeneSymbol(
 );
 ```
 
-GDC Portal hooks are design to work simlary to the RTL Query hooks. The hooks take arguments and return a object.
+GDC Portal hooks are designed to work similarly to the RTL Query hooks. The hooks take arguments and return a object.
 The object contains the data and the status of the query. The status of the query is stored in the `isSuccess` variable.
 The data returned from the query is stored in the `data` variable. The object returned from a GDC hook is of the form:
 
@@ -1310,3 +1312,15 @@ export const graphqlAPI = async <T>(
 ```
 
 where `query` is the GraphQL query and `variables` are the variables for the query.
+
+### API Documentation
+
+To access the Developers documentation for the GDC API, use the following commands in your terminal:
+
+```shell
+git clone git@github.com:NCI-GDC/gdc-frontend-framework.git
+cd gdc-frontend-framework/
+git checkout feat/with_api_docs
+```
+
+Next, within the repo, open `docs/api/index.html` in your browser.
