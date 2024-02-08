@@ -177,7 +177,7 @@ Below these graphs is a tabular view of the genes affected, which includes the f
 
 #### CNV Data
 
-The CNV visualization in GDC Exploration reports only gains, losses, or neither, however, in some situations it is important to distinguish between high level amplifications and gains, and single and double copy losses. For this, you will need to download the [primary data](https://portal.gdc.cancer.gov/repository?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.analysis.workflow_type%22%2C%22value%22%3A%5B%22ASCAT2%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_type%22%2C%22value%22%3A%5B%22Gene%20Level%20Copy%20Number%22%5D%7D%7D%5D%7D) and determine cutoffs that are suitable for your work. 
+The CNV visualization in GDC Exploration reports only gains, losses, or neither, however, in some situations it is important to distinguish between high level amplifications and gains, and single and double copy losses. For this, you will need to download the [primary data](https://portal.gdc.cancer.gov/v1/repository?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.analysis.workflow_type%22%2C%22value%22%3A%5B%22ASCAT2%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_type%22%2C%22value%22%3A%5B%22Gene%20Level%20Copy%20Number%22%5D%7D%7D%5D%7D) and determine cutoffs that are suitable for your work. 
 
 ### Gene Summary Page
 
