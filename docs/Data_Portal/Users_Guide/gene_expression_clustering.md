@@ -256,8 +256,6 @@ The download will get saved to the default download folder as shown at the botto
 
 [![Saved download](./images/geneexpclust/29-downloaded-svg.png)](./images/geneexpclust/29-downloaded-svg.png 'Click to see the full image.')
 
-[<img src="./images/geneexpclust/.png" width="600"/>](./images/geneexpclust/29-downloaded-svg.png 'Click to see the full image.')
-
 ## Heatmap
 
 ### Selecting cases on the cluster
