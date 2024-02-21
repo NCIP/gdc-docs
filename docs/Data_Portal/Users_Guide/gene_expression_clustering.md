@@ -174,7 +174,7 @@ In the search box, type in any gene name for example 'Wee1' as shown and click s
 
 The heatmap loads again after performing a clustering that includes 'WEE1' as shown.
 
-[![Adding genes one by one](./images/geneexpclust/15-wee1-heatmap.png.png)](./images/geneexpclust/15-wee1-heatmap.png.png 'Click to see the full image.')
+[![Adding genes one by one](./images/geneexpclust/15-wee1-heatmap.png)](./images/geneexpclust/15-wee1-heatmap.png 'Click to see the full image.')
 
 Click on the 'Edit' functionality again within the 'Gene set' menu option. To delete a gene, hover over the gene as shown. A red cross mark will appear as shown.
 
@@ -236,7 +236,7 @@ The button 'Variables' in the controls allows the user to search and select vari
 
 Click the button 'Variables' to show the following dictionary tree.
 
-[<img src="./images/geneexpclust/25-add-var.png" width="300"/>](./images/geneexpclust/25-add-var.png 'Click to see the full image.')
+[![Variables dictionary tree](./images/geneexpclust/25-add-var.png)](./images/geneexpclust/25-add-var.png 'Click to see the full image.')
 
 Click the '+' button on the 'Demographic' to display all the terms under the parent term as shown. Select terms 'Ethnicity' and 'Year of birth' and click 'Submit 2 terms'.
 
@@ -254,7 +254,9 @@ The control panel shows an option to download the plot as an svg after user has 
 
 The download will get saved to the default download folder as shown at the bottom of the browser window.
 
-[<img src="./images/geneexpclust/29-downloaded-svg.png" width="600"/>](./images/geneexpclust/29-downloaded-svg.png 'Click to see the full image.')
+[![Saved download](./images/geneexpclust/29-downloaded-svg.png)](./images/geneexpclust/29-downloaded-svg.png 'Click to see the full image.')
+
+[<img src="./images/geneexpclust/.png" width="600"/>](./images/geneexpclust/29-downloaded-svg.png 'Click to see the full image.')
 
 ## Heatmap
 
@@ -305,7 +307,7 @@ User can change the variable name (input box), edit the variable to exclude cate
 
 To rename a variable, edit the default name of the variable in the input box as shown.
 
-[<img src="./images/geneexpclust/35-renaming-var.png" width="600"/>](./images/geneexpclust/35-renaming-var.png 'Click to see the full image.')
+[![Rename variable](./images/geneexpclust/35-renaming-var.png)](./images/geneexpclust/35-renaming-var.png 'Click to see the full image.')
 
 After renaming the variable as per user preference, click 'submit'. The row now shows a new variable name.
 
@@ -319,13 +321,13 @@ To edit groups within the variable, click the 'Edit' button. Now, user can drag 
 
 To replace a variable, click on the row label for that variable and click 'Replace'. This shows the GDC dictionary from which a user can select a variable of choice as shown.
 
-[<img src="./images/geneexpclust/37-replacing-var.png" width="400"/>](./images/geneexpclust/37-replacing-var.png 'Click to see the full image.')
+[![Replace variable](./images/geneexpclust/37-replacing-var.png)](./images/geneexpclust/37-replacing-var.png 'Click to see the full image.')
 
 ### Removing a variable
 
 To remove a row containing a variable entirely, click on the row label for that variable and click 'Remove'. This removes the entire row from the heatmap.
 
-[<img src="./images/geneexpclust/38-remove-var.png" width="400"/>](./images/geneexpclust/38-remove-var.png 'Click to see the full image.')
+[![Remove variable](./images/geneexpclust/38-remove-var.png)](./images/geneexpclust/38-remove-var.png 'Click to see the full image.')
 
 ## Legend
 
