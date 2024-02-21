@@ -110,17 +110,17 @@ The control panel as shown has various functionalities with which users can chan
 
 The clustering control button provides several options to modify the default clustering of the heatmap. Click on the button labeled 'Clustering' to display a menu with options as shown.
 
-[<img src="./images/geneexpclust/4-clustering-control.png" width="600"/>](./images/geneexpclust/4-clustering-control.png 'Click to see the full image.')
+[![Clustering button](./images/geneexpclust/4-clustering-control.png)](./images/geneexpclust/4-clustering-control.png 'Click to see the full image.')
 
 #### Clustering method
 
 Click on the 'Complete' option as highlighted to change the method of clustering. The heatmap will render again to show the complete clustering method.
 
-[<img src="./images/geneexpclust/5-clustering-method.png" width="600"/>](./images/geneexpclust/5-clustering-method.png 'Click to see the full image.')
+[![Complete clustering method](./images/geneexpclust/5-clustering-method.png)](./images/geneexpclust/5-clustering-method.png 'Click to see the full image.')
 
 The maximum height of the column dendrogram is shown in the next highlighted option as shown.
 
-[<img src="./images/geneexpclust/6-col-dendrogram-height.png" width="600"/>](./images/geneexpclust/6-col-dendrogram-height.png 'Click to see the full image.')
+[![Dendrogram height](./images/geneexpclust/6-col-dendrogram-height.png)](./images/geneexpclust/6-col-dendrogram-height.png 'Click to see the full image.')
 
 Click or edit the number in the input box to adjust the height of the column dendrograms as shown.
 
@@ -174,7 +174,7 @@ In the search box, type in any gene name for example 'Wee1' as shown and click s
 
 The heatmap loads again after performing a clustering that includes 'WEE1' as shown.
 
-[<img src="./images/geneexpclust/15-wee1-heatmap.png" width="400"/>](./images/geneexpclust/15-wee1-heatmap.png 'Click to see the full image.')
+[![Adding genes one by one](./images/geneexpclust/15-wee1-heatmap.png.png)](./images/geneexpclust/15-wee1-heatmap.png.png 'Click to see the full image.')
 
 Click on the 'Edit' functionality again within the 'Gene set' menu option. To delete a gene, hover over the gene as shown. A red cross mark will appear as shown.
 
@@ -194,11 +194,11 @@ Click submit to reload the heatmap.
 
 The gene expression clustering tool also enables users to load a pre-defined gene set provided by the MSigDB database. The current version enabled is the latest. Click on the dropdown button 'Load MSigDB (2023.2.Hs) gene set' and choose one of the following gene sets as shown.
 
-[<img src="./images/geneexpclust/msigdb-tree.png" width="300"/>](./images/geneexpclust/msigdb-tree.pngg 'Click to see the full image.')
+[![MSigDB tree](./images/geneexpclust/msigdb-tree.png)](./images/geneexpclust/msigdb-tree.png 'Click to see the full image.')
 
 For example, select a hallmark gene set for 'Hypoxia' as shown.
 
-[<img src="./images/geneexpclust/18-msigdb-tree.png" width="300"/>](./images/geneexpclust/18-msigdb-tree.png 'Click to see the full image.')
+[![Hallmark hypoxia gene set](./images/geneexpclust/18-msigdb-tree.png)](./images/geneexpclust/18-msigdb-tree.png 'Click to see the full image.')
 
 Note the info icon next to the gene set that provides additional information about this gene set as well as a link to the database and the original publication PMID as shown.
 
@@ -228,7 +228,7 @@ Search and select 'KRAS'.
 
 Click 'Submit' to reload the heatmap with the newly added KRAS gene as a variable. This displays the consequence type for the clustered samples for which KRAS has both the mutation calls and the gene expression data as shown.
 
-[<img src="./images/geneexpclust/24-kras-var-row.png" width="600"/>](./images/geneexpclust/24-kras-var-row.png 'Click to see the full image.')
+[![Heatmap with KRAS gene as a variable](./images/geneexpclust/24-kras-var-row.png)](./images/geneexpclust/24-kras-var-row.png 'Click to see the full image.')
 
 ### Variables
 
