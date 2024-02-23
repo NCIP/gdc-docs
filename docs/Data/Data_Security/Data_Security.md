@@ -31,58 +31,58 @@ The GDC Data Transfer Tool and the GDC API use tokens for authentication. GDC au
 
 	ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
 
-  ## Logging into the GDC
+## Logging into the GDC
 
-  To login to the GDC, users must click on the `Login` button on the top right of the GDC Website.
+To login to the GDC, users must click on the `Login` button on the top right of the GDC Website.
 
-  ![Login](images/v2_image_login.jpg)
+![Login](images/v2_image_login.jpg)
 
-  After clicking Login, users authenticate themselves using their eRA Commons login and password.  If authentication is successful, the eRA Commons username will be displayed in the upper right corner of the screen, in place of the "Login" button.
+After clicking Login, users authenticate themselves using their eRA Commons login and password.  If authentication is successful, the eRA Commons username will be displayed in the upper right corner of the screen, in place of the "Login" button.
 
-  Upon successful authentication, GDC Data Portal users can:
+Upon successful authentication, GDC Data Portal users can:
 
-  - See which controlled-access files they can access.
-  - Download controlled-access files directly from the GDC Data Portal.
-  - Download an authentication token for use with the GDC Data Transfer Tool or the GDC API.
-  - See controlled-access mutation data they can access.
+- See which controlled-access files they can access.
+- Download controlled-access files directly from the GDC Data Portal.
+- Download an authentication token for use with the GDC Data Transfer Tool or the GDC API.
+- See controlled-access mutation data they can access.
 
-  Controlled-access files are identified via their status in the Access Column:
+Controlled-access files are identified via their status in the Access Column:
 
-  [![GDC Data Portal Main Page](images/gdc-file-status-controlled-v2_3.png)](images/gdc-file-status-controlled-v2_3.png "Click to see the full image.")
+[![GDC Data Portal Main Page](images/gdc-file-status-controlled-v2_3.png)](images/gdc-file-status-controlled-v2_3.png "Click to see the full image.")
 
-  The rest of this section describes controlled data access features of the GDC Data Portal available to authorized users. For more information about open and controlled-access data, and about obtaining access to controlled data, see [Data Access Processes and Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
+The rest of this section describes controlled data access features of the GDC Data Portal available to authorized users. For more information about open and controlled-access data, and about obtaining access to controlled data, see [Data Access Processes and Tools](https://gdc.cancer.gov/access-data/data-access-processes-and-tools).
 
-  ## User Profile
+## User Profile
 
-  After logging into the GDC Portal, users can view which projects they have access to by clicking the `User Profile` section in the dropdown menu in the top corner of the screen.
+After logging into the GDC Portal, users can view which projects they have access to by clicking the `User Profile` section in the dropdown menu in the top corner of the screen.
 
-  [![User Profile Drop Down](images/gdc-user-profile-v2_small.png)](images/gdc-user-profile-v2_small.png "Click to see the full image.")
+[![User Profile Drop Down](images/gdc-user-profile-v2_small.png)](images/gdc-user-profile-v2_small.png "Click to see the full image.")
 
-  Clicking this button shows the list of projects.
+Clicking this button shows the list of projects.
 
-  [![User Profile](images/Profile_Access_List.png)](images/Profile_Access_List.png "Click to see the full image.")
+[![User Profile](images/Profile_Access_List.png)](images/Profile_Access_List.png "Click to see the full image.")
 
-  ## GDC Authentication Tokens
+## GDC Authentication Tokens
 
-  The GDC Data Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
+The GDC Data Portal provides authentication tokens for use with the GDC Data Transfer Tool or the GDC API. To download a token:
 
-  1. Log into the GDC using your eRA Commons credentials.
-  2. Click the username in the top right corner of the screen.
-  3. Select the "Download token" option.
+1. Log into the GDC using your eRA Commons credentials.
+2. Click the username in the top right corner of the screen.
+3. Select the "Download token" option.
 
-  ![Token Download Button](images/Token_Download_v2_small.jpg)
+![Token Download Button](images/Token_Download_v2_small.jpg)
 
-  A new token is generated each time the `Download Token` button is clicked.
+A new token is generated each time the `Download Token` button is clicked.
 
-  For more information about authentication tokens, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
+For more information about authentication tokens, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
 
-  >__Note:__ The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
+>__Note:__ The authentication token should be kept in a secure location, as it allows access to all data accessible by the associated user account.
 
-  ## Logging Out
+## Logging Out
 
-  To log out of the GDC, click the username in the top right corner of the screen, and select the Logout option.
+To log out of the GDC, click the username in the top right corner of the screen, and select the Logout option.
 
-  ![Logout link](images/gdc-user-portal-logout-v2_3.jpg)
+![Logout link](images/gdc-user-portal-logout-v2_3.jpg)
 
 
 
