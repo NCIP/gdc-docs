@@ -21,9 +21,9 @@ After all project data is uploaded and reviewed, the data submitter can release 
 1. [Requesting Data Submission](https://gdc.cancer.gov/node/633/)
 2. GDC User Support:  __support@nci-gdc.datacommons.io__
 3. [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-model-components)
-4. [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/)
-5. [API Submission](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/)
-6. [Data Submission Portal Documentation](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Getting_Started/)
+4. [GDC Data Dictionary](/Data_Dictionary/viewer/)
+5. [API Submission](/API/Users_Guide/Submission/)
+6. [Data Submission Portal Documentation](/Data_Submission_Portal/Users_Guide/Data_Submission_Overview/)
 7. [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
 
 ## External Links ##

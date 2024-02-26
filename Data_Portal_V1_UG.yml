@@ -1,0 +1,27 @@
+#
+# GDC Docs - Config
+#
+
+site_name: GDC Docs
+site_url: http://docs.gdc.cancer.gov
+repo_url: https://github.com/NCI-GDC/gdc-docs
+copyright: "&copy; 2015-2016"
+theme_dir: theme
+pages:
+- Data Portal v1.0:
+  - Getting Started: 'Data_Portal_V1/Users_Guide/Getting_Started.md'
+  - Projects: 'Data_Portal_V1/Users_Guide/Projects.md'
+  - Exploration: Data_Portal_V1/Users_Guide/Exploration.md
+  - Repository: Data_Portal_V1/Users_Guide/Repository.md
+  - Genes and Mutations: Data_Portal_V1/Users_Guide/Genes_and_Mutations.md
+  - Annotations: 'Data_Portal_V1/Users_Guide/Annotations.md'
+  - Advanced Search: 'Data_Portal_V1/Users_Guide/Advanced_Search.md'
+  - Authentication: 'Data_Portal_V1/Users_Guide/Authentication.md'
+  - File Cart: 'Data_Portal_V1/Users_Guide/Cart.md'
+  - Image Viewer: 'Data_Portal_V1/Users_Guide/Image_viewer.md'
+  - Release Notes: 'Data_Portal_V1/Release_Notes/Data_Portal_V1_Release_Notes.md'
+extra:
+  project_root_dir: '/'
+  project_org: 'GDC'
+  project_description: 'GDC Docs'
+  version: 1.0
