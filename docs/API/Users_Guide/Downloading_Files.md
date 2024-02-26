@@ -2,9 +2,7 @@
 
 The GDC API implements file download functionality using `data` and `manifest` endpoints. The `data` endpoint allows users to download files stored in the GDC by specifying file UUID(s). The `manifest` endpoint generates a download manifest file that can be used with the GDC Data Transfer Tool to transfer large volumes of data.
 
-**Note:** Downloading controlled access data requires the use of an authentication token. See [Getting Started: Authentication](Getting_Started.md#authentication) for details.
-
-**Note:** Requests to download data from the GDC Legacy Archive may be directed to `legacy/data` or `data`. See [Getting Started: Legacy Archive](Getting_Started.md#gdc-legacy-archive) for details.
+>**Note:** Downloading controlled access data requires the use of an authentication token. See [Getting Started: Authentication](Getting_Started.md#authentication) for details.
 
 ## Data endpoint
 
@@ -24,25 +22,25 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/5b2974a
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 6111k  100 6111k    0     0   414k      0  0:00:14  0:00:14 --:--:--  412k
-curl: Saved to filename '14-3-3_beta-R-V_GBL1112940.tif'
+
 ```
 ### Related Files
 
 If the `related_files=true` parameter is specified, the following related files, if available, will be included in the download package by the GDC API:
 
 * BAM index files (BAI files)
-* Metadata files (such as SRA XML or MAGE-TAB files)
+* VCF index files (TBI files)
 
-For example, this request will download a legacy copy number segmentation file and its associated MAGE-TAB metadata file:
+For example, this request will download a BAM file and its associated BAI file:
 
 ```shell
-curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/7efc039a-fde3-4bc1-9433-2fc6b5e3ffa5?related_files=true'
+curl --remote-name --remote-header-name -H "x-auth-token: $token" "https://api.gdc.cancer.gov/data/f587ef82-acbe-44f9-ad5a-6207e148f61f?related_files=true"
 ```
 ```Output
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-															 Dload  Upload   Total   Spent    Left  Speed
-100 65353    0 65353    0     0  65353      0 --:--:-- --:--:-- --:--:--  102k
-curl: Saved to filename 'gdc_download_20180830_131817.826097.tar.gz'
+                               Dload  Upload   Total   Spent    Left  Speed
+100 63.4M    0 63.4M    0     0  7541k      0 --:--:--  0:00:08 --:--:--  9.9M
+
 ```
 
 
@@ -57,10 +55,10 @@ curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/e322802
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                Dload  Upload   Total   Spent    Left  Speed
 100  287k    0  287k    0     0  30131      0 --:--:--  0:00:09 --:--:-- 42759
-curl: Saved to filename 'gdc_download_064d1aa8cc8cbab33e93979bebbf7d6af2d6a802.tar.gz'
+
 ```
 
-**Note:** This method supports downloading a limited number of files at one time. To download a large number of files, please use [POST](#downloading-multiple-files-using-post).
+>**Note:** This method supports downloading a limited number of files at one time. To download a large number of files, please use [POST](#downloading-multiple-files-using-post).
 
 #### Downloading an Uncompressed Group of Files
 
@@ -83,19 +81,18 @@ The payload is a string in the following format:
 
 where UUID# corresponds to the UUIDs of the files to be downloaded.
 
-In this example we use `curl` to download a set of files from the GDC Legacy Archive. The payload is stored in a plain text file named `Payload`; `curl` includes the `Content-Type: application/x-www-form-urlencoded` header by default.
+In this example we use `curl` to download a set of files from the GDC Data Portal. The payload is stored in a plain text file named `Payload`; `curl` includes the `Content-Type: application/x-www-form-urlencoded` header by default.
 
 ```Payload
-ids=556e5e3f-0ab9-4b6c-aa62-c42f6a6cf20c&ids=e0de63e2-02f3-4309-9b24-69f4c24e85fc&ids=f1a06178-2ec2-4b06-83f3-3aedac332cfe&ids=11a8aca0-c8e6-4ff8-8ab6-fe18a1b8ba82&ids=69a69c84-00de-45ff-b397-fd2b6713ed4f&ids=9ec48233-395d-401e-b205-951c971f8dd4&ids=93129547-378c-4b69-b858-532abfff678e&ids=8d4277e9-a472-4590-886d-24dc2538ea65&ids=6733b412-56da-4f1c-a12b-ff804cb656d7&ids=a72eec98-c5e0-4866-8953-765780acb6c1&ids=e77b2294-1bdd-4fba-928a-d81d2622312f&ids=965e01fc-318e-4c02-a801-d6fad60bfae4&ids=21ad5409-fe0b-4728-97e4-15520b9fc287&ids=1a777521-277c-4aeb-baf1-66871a7c2d2a&ids=c13a3449-9e0d-45a9-bcc0-518f55e45c8a&ids=5f2d329b-d59d-4112-b490-5114b830e34d&ids=bb966617-6c1f-4bb0-a1ed-ceb37ecade67&ids=05d11519-2b33-4742-aa87-3934632f2f2b&ids=39bfafe2-9628-434e-bd72-148051a47477&ids=481bea69-3cd5-45f3-8a52-2d4cc8fc8df7&ids=f95e407b-de69-416c-920c-6be8c9414862&ids=75940293-8fa6-47f9-ad5d-155b61933fdc&ids=e8e84ccf-f8a8-4551-9257-ef731d02116f&ids=e4991159-f088-4a2a-88b7-38d6ac47c6bc
+ids=59eb3fc5-9172-4828-8dec-0d9988073103&ids=869b7d7c-ff35-482a-aa8d-1a8675c161d3&ids=b8ffff40-aa0e-4534-b05f-9311f16c2f6b&ids=51e14969-30a7-42d9-8168-4a5ea422ca4a&ids=adcfc856-990b-40fc-8f1e-67dfc2343fb7&ids=7f1e9aee-eb4e-4c79-8626-b603c9be124d&ids=62a8feb5-c660-4261-bcd6-67fbb79bb422
 ```
 ```Shell
 curl --remote-name --remote-header-name --request POST 'https://api.gdc.cancer.gov/data' --data @Payload
 ```
 ```Output
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-															 Dload  Upload   Total   Spent    Left  Speed
-100 2563k    0 2562k  100   983   854k    327  0:00:03  0:00:03 --:--:--  776k
-curl: Saved to filename 'gdc_download_20180830_132402.379282.tar.gz'
+                                Dload  Upload   Total   Spent    Left  Speed
+100 6804k    0 6804k  100   286   245k     10  0:00:28  0:00:27  0:00:01  357k
 ```
 
 #### POST request with JSON payload
@@ -116,36 +113,16 @@ The payload is a string in the following format:
 
 where UUID# corresponds to the UUIDs of the files to be downloaded.
 
-In this example we use `curl` to download a set of files from the GDC Legacy Archive; the payload is stored in a plain text file named `Payload`.
+In this example we use `curl` to download a set of files from the GDC Portal; the payload is stored in a plain text file named `Payload`.
 
 
 ```Payload
 {
     "ids":[
-        "556e5e3f-0ab9-4b6c-aa62-c42f6a6cf20c",
-        "e0de63e2-02f3-4309-9b24-69f4c24e85fc",
-        "f1a06178-2ec2-4b06-83f3-3aedac332cfe",
-        "11a8aca0-c8e6-4ff8-8ab6-fe18a1b8ba82",
-        "69a69c84-00de-45ff-b397-fd2b6713ed4f",
-        "9ec48233-395d-401e-b205-951c971f8dd4",
-        "93129547-378c-4b69-b858-532abfff678e",
-        "8d4277e9-a472-4590-886d-24dc2538ea65",
-        "6733b412-56da-4f1c-a12b-ff804cb656d7",
-        "a72eec98-c5e0-4866-8953-765780acb6c1",
-        "e77b2294-1bdd-4fba-928a-d81d2622312f",
-        "965e01fc-318e-4c02-a801-d6fad60bfae4",
-        "21ad5409-fe0b-4728-97e4-15520b9fc287",
-        "1a777521-277c-4aeb-baf1-66871a7c2d2a",
-        "c13a3449-9e0d-45a9-bcc0-518f55e45c8a",
-        "5f2d329b-d59d-4112-b490-5114b830e34d",
-        "bb966617-6c1f-4bb0-a1ed-ceb37ecade67",
-        "05d11519-2b33-4742-aa87-3934632f2f2b",
-        "39bfafe2-9628-434e-bd72-148051a47477",
-        "481bea69-3cd5-45f3-8a52-2d4cc8fc8df7",
-        "f95e407b-de69-416c-920c-6be8c9414862",
-        "75940293-8fa6-47f9-ad5d-155b61933fdc",
-        "e8e84ccf-f8a8-4551-9257-ef731d02116f",
-        "e4991159-f088-4a2a-88b7-38d6ac47c6bc"
+        "0451fc55-33ef-4151-a68c-cac59be716dc",
+        "0cc3d450-2c60-4cb0-a073-d92dc979fa5e",
+        "0de9bc40-3ef8-4fe7-b7d6-80a9339b0bf8",
+        "0f8d8202-a1ca-4ea1-98b2-c20a6b08479a"
     ]
 }
 ```
@@ -153,10 +130,9 @@ In this example we use `curl` to download a set of files from the GDC Legacy Arc
 curl --remote-name --remote-header-name --request POST --header 'Content-Type: application/json' --data @request.txt 'https://api.gdc.cancer.gov/data'
 ```
 ```Output
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 2562k    0 2561k  100  1145   788k    352  0:00:03  0:00:03 --:--:--  788k
-curl: Saved to filename 'gdc_download_20160701_011007.tar.gz'
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                Dload  Upload   Total   Spent    Left  Speed
+100 5878k    0 5878k  100   205   290k     10  0:00:20  0:00:20 --:--:--  198k
 ```
 
 ### Downloading Controlled-access Files
@@ -166,31 +142,31 @@ To download controlled-access files, a valid authentication token must be passed
 ```shell
 token=$(<gdc-token-text-file.txt)
 
-curl --remote-name --remote-header-name --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/0eccf79d-1f1e-4205-910f-8e126b08276e'
+curl --remote-name --remote-header-name --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/be6d269d-4305-4643-b98e-af703a067761'
 ```
 ```Output
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 31.4M  100 31.4M    0     0   290k      0  0:01:50  0:01:50 --:--:--  172k
-curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.tangent.copynumber.data.txt'
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                             Dload  Upload   Total   Spent    Left  Speed
+100 65.8M  100 65.8M    0     0   271k      0  0:04:08  0:04:08 --:--:--  288k
 ```
 
 ## Manifest endpoint
 
-The `manifest` endpoint generates a download manifest file that can be used with the GDC Data Transfer Tool. The Data Transfer Tool is recommended for transferring large volumes of data. The GDC API can also generate a download manifest from a list of results that match a [Search and Retrieval](Search_and_Retrieval.md) query. To do this, append `&return_type=manifest` to the end of the query.
+The `manifest` endpoint generates a download manifest file that can be used with the [GDC Data Transfer Tool](../../Data_Transfer_Tool/Users_Guide/Getting_Started.md). The Data Transfer Tool is recommended for transferring large volumes of data. The GDC API can also generate a download manifest from a list of results that match a [Search and Retrieval](Search_and_Retrieval.md) query. To do this, append `&return_type=manifest` to the end of the query. Note that the "size" parameter does not work with the manifest endpoint and will return the entire set of files.
+
 
 ### Using the manifest endpoint
 
 The `manifest` endpoint allows users to create a download manifest, which can be used with the GDC Data Transfer Tool to download a large volume of data. The `manifest` endpoint generates a manifest file from a comma-separated list of UUIDs.
 
 ```shell
-curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/v0/manifest/ae9db773-78ab-48d0-972d-debe1bedd37d,3d815e6e-db97-419d-ad7f-dba4e4023b3e'
+curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/v0/manifest/a751cc7e-d2ff-4e9a-8645-09bf12612f1a,9c97e3fe-1610-4a92-9a24-ab3b9e4000e2'
 ```
 ```Output
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   274  100   274    0     0   1042      0 --:--:-- --:--:-- --:--:--  1041
-curl: Saved to filename 'gdc_manifest_20160428_234614.txt'
+
 ```
 
 The `manifest` endpoint also supports HTTP POST requests in the same format as the `data` endpoint; see [above](#post-request-with-json-payload) for details.
@@ -201,11 +177,10 @@ The `manifest` endpoint also supports HTTP POST requests in the same format as t
 Alternatively, users can create a manifest by appending `&return_type=manifest` to a [Search and Retrieval](Search_and_Retrieval.md) query. In this example, we generate a download manifest for RNA-seq data files from solid tissue normal samples, that are part of the TCGA-KIRC project:
 
 ```Shell
-curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/files?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22experimental_strategy%22%2C%22value%22%3A%5B%22RNA-Seq%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%5B%22TCGA-KIRC%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.samples.sample_type%22%2C%22value%22%3A%5B%22Solid+Tissue+Normal%22%5D%7D%7D%5D%7D&size=30000&return_type=manifest'
+curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/files?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22experimental_strategy%22%2C%22value%22%3A%5B%22RNA-Seq%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%5B%22TCGA-KIRC%22%5D%7D%7D%2C%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.samples.sample_type%22%2C%22value%22%3A%5B%22Solid+Tissue+Normal%22%5D%7D%7D%5D%7D&return_type=manifest'
 ```
 ```Output
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 40663    0 40663    0     0  77109      0 --:--:-- --:--:-- --:--:-- 77306
-curl: Saved to filename 'gdc_manifest.2016-06-28T13:26:33.850459.tsv'
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                Dload  Upload   Total   Spent    Left  Speed
+100  100k    0  100k    0     0   277k      0 --:--:-- --:--:-- --:--:--  282k
 ```

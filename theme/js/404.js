@@ -16,14 +16,14 @@ $(function() {
         var redirectRule = redirects[i],
             fromURLRedirect = redirectRule.from.toLowerCase();
 
-        // Note this is a case insensitive (exact) string match trailing slashes may break the comparison
+        // Note this is a case-insensitive match for the given pattern.
         if (_currentPath.indexOf(fromURLRedirect) >= 0 && typeof redirectRule.to === 'string') {
-          var targetURL = _redirectMap.defaultBaseToURL + redirectRule.to;
+          var targetURL = redirectRule.to;
 
           defer.resolve(targetURL);
 
           setTimeout(function(){
-            window.location.href = _redirectMap.defaultBaseToURL + redirectRule.to;
+            window.location.href = redirectRule.to;
           }, _timeOutMS);
 
           return;
