@@ -211,8 +211,8 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_20230830_data_release_38.0_active.tsv.gz](gdc_manifest_20230830_data_release_38.0_active.tsv.gz)
-* [DR38 Project Level Manifests](DR38_project_manifests.tar.gz)
+* [gdc_manifest_20230830_data_release_38.0_active.tsv.gz](https://api.gdc.cancer.gov/data/14573c1f-5dd2-4e00-b4d8-5da6af6e4baa)
+* [DR38 Project Level Manifests](https://api.gdc.cancer.gov/data/6e85885d-a3f2-4bcc-a16f-9a34cfef4a67)
 
 ### Bugs Fixed Since Last Release
 
@@ -289,8 +289,8 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_20230329_data_release_37.0_active.tsv.gz](gdc_manifest_20230329_data_release_37.0_active.tsv.gz)
-* [DR37 Project Level Manifests](DR37_project_manifests.tar.gz)
+* [gdc_manifest_20230329_data_release_37.0_active.tsv.gz](https://api.gdc.cancer.gov/data/838d2fe9-6540-441e-a666-2fd8af47ebf0)
+* [DR37 Project Level Manifests](https://api.gdc.cancer.gov/data/27fe396d-c40f-4d6a-b3c4-bb9dea0f2148)
 
 ### Unavailable Files
 
@@ -394,7 +394,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_20221212_data_release_36.0_active.tsv.gz](gdc_manifest_20221212_data_release_36.0_active.tsv.gz)
+* [gdc_manifest_20221212_data_release_36.0_active.tsv.gz](https://api.gdc.cancer.gov/data/27a4fae0bb-f1fc-4e6f-b8cc-05aa9c28f8bc)
 
 ### Unavailable Files
 
@@ -478,7 +478,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_20220928_data_release_35.0_active.tsv.gz](gdc_manifest_20220928_data_release_35.0_active.tsv.gz)
+* [gdc_manifest_20220928_data_release_35.0_active.tsv.gz](https://api.gdc.cancer.gov/data/e7808c04-d03f-48f4-afb6-916073cbac98)
 
 ### Unavailable Files
 
@@ -572,7 +572,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_20220727_data_release_34.0_active.tsv.gz](gdc_manifest_20220727_data_release_34.0_active.tsv.gz)
+* [gdc_manifest_20220727_data_release_34.0_active.tsv.gz](https://api.gdc.cancer.gov/data/f0f04445-c20a-43ea-8c55-9ff1e51aff96)
 
 ### Unavailable Files
 
@@ -649,7 +649,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_20220531_data_release_33.1_active.tsv.gz](gdc_manifest_20220531_data_release_33.1_active.tsv.gz)
+* [gdc_manifest_20220531_data_release_33.1_active.tsv.gz](https://api.gdc.cancer.gov/data/0e16d92d-9627-4ed5-b7d2-80b6d78e1d35)
 
 ### Unavailable Files
 
@@ -736,8 +736,8 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20220503_data_release_33.0_active.tsv.gz](gdc_manifest_20220503_data_release_33.0_active.tsv.gz)
-* [gdc_manifest_20220503_data_release_33.0_legacy.tsv.gz](gdc_manifest_20220503_data_release_33.0_legacy.tsv.gz)
+* [gdc_manifest_20220503_data_release_33.0_active.tsv.gz](https://api.gdc.cancer.gov/data/684e304b-02e6-47e9-99e6-30ecdb4fe644)
+* [gdc_manifest_20220503_data_release_33.0_legacy.tsv.gz](https://api.gdc.cancer.gov/data/0dadd9da-d96c-454e-9d4a-65a64730637c)
 
 ### Unavailable Files
 
@@ -848,8 +848,8 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20220316_data_release_32.0_active.tsv.gz](gdc_manifest_20220316_data_release_32.0_active.tsv.gz)
-* [gdc_manifest_20220316_data_release_32.0_legacy.tsv.gz](gdc_manifest_20220316_data_release_32.0_legacy.tsv.gz)
+* [gdc_manifest_20220316_data_release_32.0_active.tsv.gz](https://api.gdc.cancer.gov/data/a79c578c-d601-4113-8afd-3b36b410133c)
+* [gdc_manifest_20220316_data_release_32.0_legacy.tsv.gz](https://api.gdc.cancer.gov/data/65788d0e-b415-431e-b53e-5e59dc6198a5)
 
 ### Bugs Fixed Since Last Release
 
@@ -928,8 +928,8 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20211029_data_release_31.0_active.tsv.gz](gdc_manifest_20211029_data_release_31.0_active.tsv.gz)
-* [gdc_manifest_20211029_data_release_31.0_legacy.tsv.gz](gdc_manifest_20211029_data_release_31.0_legacy.tsv.gz)
+* [gdc_manifest_20211029_data_release_31.0_active.tsv.gz](https://api.gdc.cancer.gov/data/4a5ba7bc-b53f-40ee-b536-7a4c4ad30eaa)
+* [gdc_manifest_20211029_data_release_31.0_legacy.tsv.gz](https://api.gdc.cancer.gov/data/036c711f-77f5-4c6a-9426-00f7f4fe39ef)
 
 ### Bugs Fixed Since Last Release
 
@@ -1010,8 +1010,8 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20210923_data_release_30.0_active.tsv.gz](gdc_manifest_20210923_data_release_30.0_active.tsv.gz)
-* [gdc_manifest_20210923_data_release_30.0_legacy.tsv.gz](gdc_manifest_20210923_data_release_30.0_legacy.tsv.gz)
+* [gdc_manifest_20210923_data_release_30.0_active.tsv.gz](https://api.gdc.cancer.gov/data/74597c3a-d048-4f5a-8e41-fa95c00f667a)
+* [gdc_manifest_20210923_data_release_30.0_legacy.tsv.gz](https://api.gdc.cancer.gov/data/362bbf4b-a4a8-4591-a796-cbf4930322bc)
 
 ### Bugs Fixed Since Last Release
 
@@ -1083,8 +1083,8 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-* [gdc_manifest_20210331_data_release_29.0_active.tsv.gz](gdc_manifest_20210331_data_release_29.0_active.tsv.gz)
-* [gdc_manifest_20210331_data_release_29.0_legacy.tsv.gz](gdc_manifest_20210331_data_release_29.0_legacy.tsv.gz)
+* [gdc_manifest_20210331_data_release_29.0_active.tsv.gz](https://api.gdc.cancer.gov/data/d14fe1c9-a30d-40f6-87c5-71e678e57a57)
+* [gdc_manifest_20210331_data_release_29.0_legacy.tsv.gz](https://api.gdc.cancer.gov/data/501cb79d-ea36-48c8-a790-ebb5c6f73fcb)
 
 ### Bugs Fixed Since Last Release
 
@@ -1159,8 +1159,8 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
     A complete list of files for this release are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
 
-    * [gdc_manifest_20210202_data_release_28.0_active.tsv.gz](gdc_manifest_20210202_data_release_28.0_active.tsv.gz)
-    * [gdc_manifest_20210202_data_release_28.0_legacy.tsv.gz](gdc_manifest_20210202_data_release_28.0_legacy.tsv.gz)
+    * [gdc_manifest_20210202_data_release_28.0_active.tsv.gz](https://api.gdc.cancer.gov/data/f554526d-6a0d-448e-ad56-1f757d651820)
+    * [gdc_manifest_20210202_data_release_28.0_legacy.tsv.gz](https://api.gdc.cancer.gov/data/fca3d58a-09d7-4f91-a2d0-9ce98e2f32ea)
 
     ### Bugs Fixed Since Last Release
 
