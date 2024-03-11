@@ -119,14 +119,14 @@
         * HCMI-CMDC
         * MP2PRT-ALL
         * REBC-THYR
-    * The GENIE program was removed from the GDC Portal because it was not representative of the latest version of GENIE 
+    * The GENIE program was removed from the GDC Portal because it was not representative of the latest version of GENIE
         * GENIE data can be accessed from the [AACR Repositories](https://www.aacr.org/professionals/research/aacr-project-genie/aacr-project-genie-data/)
 
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_20231204_data_release_39.0_active.tsv.gz](gdc_manifest_20231204_data_release_39.0_active.tsv.gz)
-* [DR39 Project Level Manifests](DR39_project_manifests.tar.gz)
+* [gdc_manifest_20231204_data_release_39.0_active.tsv.gz](https://api.gdc.cancer.gov/data/c5171766-a5b4-4347-9db2-645bc4c91659)
+* [DR39 Project Level Manifests](https://api.gdc.cancer.gov/data/55e541f8-dde1-4d02-bd4b-c09aa4d36740)
 
 ### Bugs Fixed Since Last Release
 
