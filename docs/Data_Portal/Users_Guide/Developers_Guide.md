@@ -1,4 +1,4 @@
-# GDC Portal 2.0 Application Developer Guide
+# GDC Analysis Tool Software Development Toolkit (SDK) 
 
 ## Introduction
 
