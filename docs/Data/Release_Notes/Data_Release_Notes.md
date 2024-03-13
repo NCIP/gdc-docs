@@ -2799,7 +2799,7 @@ None
 5. Update VarScan VCF files <!--DAT-1020-->
 
 Updated files for this release are listed [here](DR10.0_files_swap.txt.gz).
-A complete list of files for DR10.0 are listed for the GDC Data Portal [here](https://api.gdc.cancer.gov/data/) and the GDC Legacy Archive [here](https://api.gdc.cancer.gov/data/0dd41708-d128-41bb-b78b-8c4f77d61afd).
+A complete list of files for DR10.0 are listed for the GDC Data Portal [here](https://api.gdc.cancer.gov/data/8483eced-0db2-4371-aa9e-d9061f5c1abf) and the GDC Legacy Archive [here](https://api.gdc.cancer.gov/data/0dd41708-d128-41bb-b78b-8c4f77d61afd).
 
 ### Bugs Fixed Since Last Release
 
@@ -2866,7 +2866,7 @@ None
 * Includes new BAM and count files
 
 Updated files for this release are listed [here](DR9.0_files_swap.txt.gz).
-A complete list of files for DR9.0 are listed [here](gdc_manifest_20171024_data_release_9.0_active.txt.gz).
+A complete list of files for DR9.0 are listed [here](https://api.gdc.cancer.gov/data/b6e22aaa-4d66-4395-8769-eb74efbcda5c).
 
 ### Bugs Fixed Since Last Release
 
@@ -2918,7 +2918,7 @@ None
 1. Released updated miRNA quantification files to address double counting of some normalized counts described in DR7.0 release notes. <!--DAT-1, DAT-988-->
 
 Updated files for this release are listed [here](DR8.0_files_swap.txt).
-A Complete list of files for DR8.0 are listed [here](gdc_manifest_20170822_data_release_8.0_active.txt.gz).
+A Complete list of files for DR8.0 are listed [here](https://api.gdc.cancer.gov/data/435c3cd0-71d0-4696-8cc7-2f3f8db8f998).
 
 ### Bugs Fixed Since Last Release
 
@@ -2973,7 +2973,7 @@ None
 2.  Annotated VCFs are updated to include flags for OxoG artifacts and strand bias. <!--DAT-874-->
 
 Updated files for this release are listed [here](DR7.0_files_swap.txt).
-A Complete list of files for DR7.0 are listed [here](gdc_manifest_20170629_data_release_7.0.txt.gz)
+A Complete list of files for DR7.0 are listed [here](https://api.gdc.cancer.gov/data/1b7996f6-e3c6-447c-878f-a4a3ad83dce2)
 
 ### Bugs Fixed Since Last Release
 
@@ -3071,7 +3071,7 @@ None
 * Progression_or_recurrence property is not populated <!--SV-584-->
 
 
-Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_notes_manifest.txt)
+Details are provided in [Data Release Manifest](https://api.gdc.cancer.gov/data/bb0096b7-efbe-4335-92d1-22b0a64fc0a4)
 <br>
 
 ## Data Release 5.0
@@ -3114,7 +3114,7 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_no
 * Progression_or_recurrence property is not populated <!--SV-584-->
 
 
-Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_notes_manifest.txt)
+Details are provided in [Data Release Manifest](https://api.gdc.cancer.gov/data/bb0096b7-efbe-4335-92d1-22b0a64fc0a4)
 <br>
 
 
@@ -3151,7 +3151,7 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_no
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 
 
-Details are provided in [Data Release Manifest](Manifests/GDC_Data_v5_release_notes_manifest.txt)
+Details are provided in [Data Release Manifest](https://api.gdc.cancer.gov/data/32d23ec5-143f-45c9-91ad-9949daf5538d)
 <br>
 
 
@@ -3187,7 +3187,7 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v5_release_no
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 
 
-Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_notes_manifest.txt)
+Details are provided in [Data Release Manifest](https://api.gdc.cancer.gov/data/bb0096b7-efbe-4335-92d1-22b0a64fc0a4)
 <br>
 
 
@@ -3218,7 +3218,7 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v3_release_no
 * SDRF files are not linked to Project or Case in the Legacy Archive <!--SV-288-->
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 
-Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_notes_manifest.txt)
+Details are provided in [Data Release Manifest](https://api.gdc.cancer.gov/data/b767f710-9631-401e-b24d-aa90f85268fc)
 <br>
 
 ## Initial Data Release (1.0)
@@ -3261,7 +3261,7 @@ Details are provided in [Data Release Manifest](Manifests/GDC_Data_v2_release_no
     * [Open-access MAFs manifest](Manifests/GDC_open_MAFs_manifest.txt)
     * [Controlled-access MAFs manifest](Manifests/GDC_controlled_MAFs_manifest.txt)
 
-Details are provided in [Data Release Manifest](Manifests/GDC_Data_v1_release_notes_manifest.txt)
+Details are provided in [Data Release Manifest](https://api.gdc.cancer.gov/data/1958147e-371d-41cf-b6bf-3dd1ed4dc237)
 
 ### Download Open-access MAF files
 
