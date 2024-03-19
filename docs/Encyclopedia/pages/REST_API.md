@@ -7,7 +7,7 @@ The GDC offers a RESTful API to the client that allows them access to perform al
 
 ## References ##
 1. [GDC API](https://gdc.cancer.gov/developers/gdc-application-programming-interface-api)
-2. [GDC API User's Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/)
+2. [GDC API User's Guide](/API/Users_Guide/Getting_Started/)
 
 
 ## External Links ##
