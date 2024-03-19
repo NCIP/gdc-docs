@@ -149,7 +149,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -236,7 +236,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -294,7 +294,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Unavailable Files
 
-* 56 CPTAC-3 snRNA-Seq files are currently unavailable for download. A list of the affected files can be found [here](CPTAC-3_snRNA-Seq_download_affected_files.txt). These files will be restored for download by the next data release. <!--DAT-3433-->
+* 56 CPTAC-3 snRNA-Seq files are currently unavailable for download. A list of the affected files can be found [here](https://api.gdc.cancer.gov/data/e89608f1-bc1a-405e-a0d2-7da563183f67). These files will be restored for download by the next data release. <!--DAT-3433-->
 
 
 ### Bugs Fixed Since Last Release
@@ -325,7 +325,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -381,16 +381,16 @@ A complete list of files included in the GDC Data Portal can be found below:
     * Affymetrix SNP6 Genotyping Array CEL files
     * A set of WXS and RNA-Seq samples from TCGA and TARGET that failed harmonization at launch have been rerun and are now available in the active portal.
     * TCGA Bisulfite-Seq files can be downloaded using the following manifests:
-        * [TARGET-RT](TARGET-RT.BisulfiteSeq_GDC-Manifest.txt)
-        * [TCGA-BLCA](TCGA-BLCA.BisulfiteSeq_GDC-Manifest.txt)
-        * [TCGA-BRCA](TCGA-BRCA.BisulfiteSeq_GDC-Manifest.txt)
-        * [TCGA-COAD](TCGA-COAD.BisulfiteSeq_GDC-Manifest.txt)
-        * [TCGA-GBM](TCGA-GBM.BisulfiteSeq_GDC-Manifest.txt)
-        * [TCGA-LUAD](TCGA-LUAD.BisulfiteSeq_GDC-Manifest.txt)
-        * [TCGA-LUSC](TCGA-LUSC.BisulfiteSeq_GDC-Manifest.txt)
-        * [TCGA-READ](TCGA-READ.BisulfiteSeq_GDC-Manifest.txt)
-        * [TCGA-STAD](TCGA-STAD.BisulfiteSeq_GDC-Manifest.txt)
-        * [TCGA-UCEC](TCGA-UCEC.BisulfiteSeq_GDC-Manifest.txt)
+        * [TARGET-RT](https://api.gdc.cancer.gov/data/ec12eb66-2b44-40e7-9cde-9598e6839a44)
+        * [TCGA-BLCA](https://api.gdc.cancer.gov/data/3482eb71-130c-4cf9-b187-5feea0a0c6f9)
+        * [TCGA-BRCA](https://api.gdc.cancer.gov/data/78dd8adc-af9b-4d32-ac9b-9ab12c4f633c)
+        * [TCGA-COAD](https://api.gdc.cancer.gov/data/8416eb46-11e3-4936-a7e5-61cb549a6bf8)
+        * [TCGA-GBM](https://api.gdc.cancer.gov/data/2827b5aa-842c-4511-b639-e5b31f096858)
+        * [TCGA-LUAD](https://api.gdc.cancer.gov/data/244ec7d5-3f2b-4157-8259-1de7c6c717c6)
+        * [TCGA-LUSC](https://api.gdc.cancer.gov/data/a9612080-3ced-4d66-9469-afe291a1cb59)
+        * [TCGA-READ](https://api.gdc.cancer.gov/data/ec423eac-a8e1-4bdf-a19a-01b920386864)
+        * [TCGA-STAD](https://api.gdc.cancer.gov/data/147b3449-6f4b-4189-b5e3-1e2fc0b8491e)
+        * [TCGA-UCEC](https://api.gdc.cancer.gov/data/005b4d7d-a5bb-49ad-b072-c8194e6260ff)
 
 A complete list of files included in the GDC Data Portal can be found below:
 
@@ -429,7 +429,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -474,7 +474,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * 10 snRNA-Seq samples were released from the CPTAC-3 project.
 * Additional RNA-Seq samples from 2,082 additional cases are now available for the TARGET-AML project.
 * Demographic data has been added for 94 cases in TARGET-ALL-P2 and TARGET-ALL-P3 projects. A list of the updated cases can be found
-[here](TARGET_demo_update.dr35.tsv).
+[here](https://api.gdc.cancer.gov/data/ce79d116-f397-4cfa-8636-8e482fce8631).
 
 A complete list of files included in the GDC Data Portal can be found below:
 
@@ -516,7 +516,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -606,7 +606,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -684,7 +684,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -741,7 +741,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### Unavailable Files
 
-* The Arriba pipeline failed for one aliquot from EXCEPTIONAL-RESPONDERS-ER and is documented [here](Removed_Aliquots.tsv).
+* The Arriba pipeline failed for one aliquot from EXCEPTIONAL-RESPONDERS-ER and is documented [here](https://api.gdc.cancer.gov/data/80cf3148-1dbb-4fda-834d-118d3f8bedb7).
 
 
 ### Bugs Fixed Since Last Release
@@ -771,7 +771,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -830,9 +830,9 @@ A complete list of files for this release are listed for the GDC Data Portal and
 1. Files from the HTSeq pipeline are no longer supported and will no longer appear in the portal. Normalized counts can now be found in the STAR-Counts files.  
 1. Files that originated from the methylation liftover pipeline are no longer supported and will no longer appear in the portal.
 1. GENCODE v22 BAM files that no longer appear in the portal will be available for six months past this release. They may not be available after that.
-1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](Removed_Aliquots.tsv)).
-1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](Removed_Aliquots.tsv)).
-1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](Removed_Aliquots.tsv)).  
+1. New variant calling tumor-normal pairing was implemented in TCGA, which results in certain aliquots no longer being available as a v36 version (see the aliquots labeled "Unpaired Aliquots" [here](https://api.gdc.cancer.gov/data/80cf3148-1dbb-4fda-834d-118d3f8bedb7)).
+1. Some aliquots failed harmonization when the new v36 gene model was used, which results in some new versions no longer being available (see the aliquots labeled "Failed Harmonization" [here](https://api.gdc.cancer.gov/data/80cf3148-1dbb-4fda-834d-118d3f8bedb7)).
+1. Some aliquots were found to contain a cross-patient contamination level of over 0.04 as measured by GATK4 CalculateContamination (see the aliquots labeled "Contamination" [here](https://api.gdc.cancer.gov/data/80cf3148-1dbb-4fda-834d-118d3f8bedb7)).  
 
 #### Data Portal Exploration Data
 1. The Data Portal Exploration Page is now populated based on open-access mutations from analyses that used GENCODE v36.
@@ -877,7 +877,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -952,7 +952,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1034,7 +1034,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1107,7 +1107,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1169,11 +1169,11 @@ A complete list of files for this release are listed for the GDC Data Portal and
     ### Known Issues and Workarounds
 
     * The aggregated and masked MAF files for seven pancreatic cases in CPTAC-3 do not appear in the Data Portal. See below for download instructions.
-        - [This manifest](CPTAC-3_7Cases-WXS-MAFs_GDC-Manifest.txt) can be used to download the files.  
+        - [This manifest](https://api.gdc.cancer.gov/data/1a229f9a-1492-43c7-9cf4-20e52b72626e) can be used to download the files.  
         - To download the raw aggregated MAF files, dbGaP access to CPTAC-3 (phs001287) is required.  The masked MAF files are open-access.
         - The seven cases are as follows: C3L-04027, C3L-04080, C3N-02585, C3N-02768, C3N-02971, C3N-03754, and C3N-03839. The case the each file is associated with is denoted in the manifest.
     * The RNA-Seq data files for the seven normal pancreatic cases in CPTAC-3 do not appear in the Data Portal. See below for download instructions.
-        - [This manifest](CPTAC-3_7CasesRNASeq_GDC-Manifest.txt) can be used to download the files.  
+        - [This manifest](https://api.gdc.cancer.gov/data/322db59a-50b2-4903-8a94-6b7280ea6954) can be used to download the files.  
         - To download the alignments or splice-junction files, dbGaP access to CPTAC-3 (phs001287) is required.  The other gene expression files are open-access.
         - The seven cases are as follows: C3L-03513, C3L-07032, C3L-07033, C3L-07034, C3L-07035, C3L-07036, C3L-07037. The case the each file is associated with is denoted in the manifest.
     * The Copy Number Estimate files in GENIE are labeled on the portal as TXT while the files are actually in TSV format.  <!--DAT-2728-->
@@ -1190,7 +1190,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
         * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
         * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
         * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-        * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+        * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
         * Tumor grade property is not populated <!--SV-585-->
         * Progression_or_recurrence property is not populated <!--SV-584-->
     * TARGET projects
@@ -1257,7 +1257,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1334,7 +1334,7 @@ A complete list of files for DR27.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1413,7 +1413,7 @@ A complete list of files for DR26.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1497,7 +1497,7 @@ A complete list of files for DR26.0 are listed for the GDC Data Portal and the G
         * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
         * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
         * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-        * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+        * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
         * Tumor grade property is not populated <!--SV-585-->
         * Progression_or_recurrence property is not populated <!--SV-584-->
     * TARGET projects
@@ -1575,7 +1575,7 @@ A complete list of files for DR24.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1622,7 +1622,7 @@ A complete list of files for DR24.0 are listed for the GDC Data Portal and the G
         * TARGET-NBL
         * TARGET-OS
         * TARGET-WT
-        * Note: Previously released TARGET project level MAFs can be downloaded with the following manifest: [TARGET_Project-Level-MAF_GDC-Manifest.txt](TARGET_Project-Level-MAF_GDC-Manifest.txt)
+        * Note: Previously released TARGET project level MAFs can be downloaded with the following manifest: [TARGET_Project-Level-MAF_GDC-Manifest.txt](https://api.gdc.cancer.gov/data/64be0d29-ba73-45c3-b4ec-646a5aa63980)
     * Copy number segment and estimate files from SNP6 ASCAT <!--BINF-293-->
         * All TCGA Projects
         * TARGET-ALL-P2
@@ -1665,7 +1665,7 @@ A complete list of files for DR23.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1747,7 +1747,7 @@ A complete list of files for DR22.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1824,7 +1824,7 @@ A complete list of files for DR21.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1901,7 +1901,7 @@ A complete list of files for DR20.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -1981,7 +1981,7 @@ A complete list of files for DR19.1 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -2061,7 +2061,7 @@ A complete list of files for DR19.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -2141,7 +2141,7 @@ A complete list of files for DR18.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -2206,7 +2206,7 @@ A complete list of files for DR17.1 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -2280,7 +2280,7 @@ A complete list of files for DR17.0 are listed for the GDC Data Portal and the G
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
-    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
     * Tumor grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 * TARGET projects
@@ -2367,7 +2367,7 @@ A complete list of files for DR16.0 are listed for the GDC Data Portal and the G
     *  All sequencing analyzed data and metadata
     *  1180 of 12063 sequencing runs of raw data
 * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2433,7 +2433,7 @@ A complete list of files for DR15.0 are listed for the GDC Data Portal and the G
     *  All sequencing analyzed data and metadata
     *  1180 of 12063 sequencing runs of raw data
 * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2499,7 +2499,7 @@ A complete list of files for DR14.0 are listed for the GDC Data Portal and the G
     *  All sequencing analyzed data and metadata
     *  1180 of 12063 sequencing runs of raw data
 * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2571,7 +2571,7 @@ A complete list of files for DR13.0 are listed for the GDC Data Portal and the G
     *  All sequencing analyzed data and metadata
     *  1180 of 12063 sequencing runs of raw data
 * Demographic information for some TARGET patients is incorrect.  The correct information can be found in the associated clinical supplement file.  Impacted patients are TARGET-50-PAJNUS. <!--SV-710-->
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2644,7 +2644,7 @@ A complete list of files for DR12.0 are listed for the GDC Data Portal [here](ht
     * TCGA-G8-6914
     * TCGA-GR-7351
     * TCGA-GR-7353
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2669,7 +2669,7 @@ A complete list of files for DR12.0 are listed for the GDC Data Portal [here](ht
 1. Updated miRNA files to remove QCFail reads.  This included all BAM and downstream count files. <!--DAT-1246-->
 2. TCGA Tissue slide images now available in GDC Data Portal.  Previously these were found only in the Legacy Archive <!--DAT-1251-->
 
-Updated files for this release are listed [here](DR11.0_files_swap.txt.gz).
+Updated files for this release are listed [here](https://api.gdc.cancer.gov/data/0ca04712-221b-44d5-b1f0-d0e64e204f31).
 A complete list of files for DR11.0 are listed for the GDC Data Portal [here](https://api.gdc.cancer.gov/data/a66a1432-928d-45b3-a07b-40c0ca8fa64e) and the GDC Legacy Archive [here](https://api.gdc.cancer.gov/data/8f21c0e9-65a4-4912-a528-fdcc2531788c).
 
 
@@ -2711,7 +2711,7 @@ A complete list of files for DR11.0 are listed for the GDC Data Portal [here](ht
     * TCGA-G8-6914
     * TCGA-GR-7351
     * TCGA-GR-7353
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2771,7 +2771,7 @@ None
     * TCGA-G8-6914
     * TCGA-GR-7351
     * TCGA-GR-7353
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2837,7 +2837,7 @@ None
     * TCGA-G8-6914
     * TCGA-GR-7351
     * TCGA-GR-7353
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2865,7 +2865,7 @@ None
 2.  Updated RNA-Seq data for TARGET NBL  
 * Includes new BAM and count files
 
-Updated files for this release are listed [here](DR9.0_files_swap.txt.gz).
+Updated files for this release are listed [here](https://api.gdc.cancer.gov/data/1acddc99-4912-4c8d-9477-585fad2d7910).
 A complete list of files for DR9.0 are listed [here](https://api.gdc.cancer.gov/data/b6e22aaa-4d66-4395-8769-eb74efbcda5c).
 
 ### Bugs Fixed Since Last Release
@@ -2896,7 +2896,7 @@ None
     * TCGA-G8-6914
     * TCGA-GR-7351
     * TCGA-GR-7353
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2917,7 +2917,7 @@ None
 
 1. Released updated miRNA quantification files to address double counting of some normalized counts described in DR7.0 release notes. <!--DAT-1, DAT-988-->
 
-Updated files for this release are listed [here](DR8.0_files_swap.txt).
+Updated files for this release are listed [here](https://api.gdc.cancer.gov/data/8db48519-45d5-43a5-93ad-35585b38d229).
 A Complete list of files for DR8.0 are listed [here](https://api.gdc.cancer.gov/data/435c3cd0-71d0-4696-8cc7-2f3f8db8f998).
 
 ### Bugs Fixed Since Last Release
@@ -2946,7 +2946,7 @@ None
     * TCGA-G8-6914
     * TCGA-GR-7351
     * TCGA-GR-7353
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
@@ -2972,7 +2972,7 @@ None
 2.  Protected MAF files are updated to include flags for OxoG and strand bias. <!--AP-29-->
 2.  Annotated VCFs are updated to include flags for OxoG artifacts and strand bias. <!--DAT-874-->
 
-Updated files for this release are listed [here](DR7.0_files_swap.txt).
+Updated files for this release are listed [here](https://api.gdc.cancer.gov/data/0e59555f-7688-4473-95f1-5ee2d369a274).
 A Complete list of files for DR7.0 are listed [here](https://api.gdc.cancer.gov/data/1b7996f6-e3c6-447c-878f-a4a3ad83dce2)
 
 ### Bugs Fixed Since Last Release
@@ -3010,7 +3010,7 @@ None
     * TCGA-G8-6914
     * TCGA-GR-7351
     * TCGA-GR-7353
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MLDS is available.
@@ -3036,7 +3036,7 @@ None
 2.  Protected MAFs are updated to include additional variant annotation information <!--DAT-572-->
 3.  Some MuTect2 VCFs updated to include dbSNP and COSMIC annotations found in other VCFs <!--TT-21-->
 
-Updated files for this release are listed [here](DR6.0_files_swap.txt).
+Updated files for this release are listed [here](https://api.gdc.cancer.gov/data/cf2c9b07-2683-4337-8987-9f50f12cd5d1).
 
 ### Bugs Fixed Since Last Release
 
@@ -3057,7 +3057,7 @@ None
     * TCGA-GR-7351
     * TCGA-GR-7353
 * Variants found in VCF and MAF files may contain OxoG artifacts, which are produced during library preparation and may result in the apparent substitutions of C to A or G to T in certain sequence contexts.  In the future we will plan to label potential oxoG artifacts in the MAF files.
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Some validated somatic mutations may not be present in open-access MAF files.  Please review the protected MAF files in the GDC Data Portal if you are unable to find your mutation in the open-access files.
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
@@ -3082,11 +3082,11 @@ Details are provided in [Data Release Manifest](https://api.gdc.cancer.gov/data/
 ### New updates
 
 1.  Additional annotations from TCGA DCC are available <!--DAT-52-->
-    * Complete list of updated TCGA files is found [here](DR5.0_CHANGES_TCGA.xlsx)
+    * Complete list of updated TCGA files is found [here](https://api.gdc.cancer.gov/data/1d7ea03e-ed53-4fe5-90e5-0866c5ff0237)
 2.  Clinical data added for TARGET ALL P1 and P2 <!--DAT-197-->
 3.  Pathology reports now have submitter IDs as assigned by the BCR <!--DAT-81-->
 4.  TARGET Data refresh
-    * Most recent biospecimen and clinical information from the TARGET DCC. New imported files are listed [here](DR5.0_changes_TARGET.xlsx)
+    * Most recent biospecimen and clinical information from the TARGET DCC. New imported files are listed [here](https://api.gdc.cancer.gov/data/8523d953-9fcb-41c5-ab83-7ca9eacdfba9)
     * Updated indexed biospecimen and clinical metadata
     * Updated SRA XMLs files
     * Does not include updates to TARGET NBL <!--SV-585-->
@@ -3098,7 +3098,7 @@ Details are provided in [Data Release Manifest](https://api.gdc.cancer.gov/data/
 
 ### Known Issues and Workarounds
 
-* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+* Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
 * Some validated somatic mutations may not be present in open-access MAF files.  When creating open-access MAF files from the protected versions we are extremely conservative in removing potential germline variants.  Our approach is to remove all mutations that are present in dbSNP.  In a subsequent release we will provide updated open-access MAF files, which preserve variants found in MC3 or a TCGA validation study.  Please review the protected MAF files in the GDC Data Portal if you are unable to find your mutation in the open-access files.
 * Public MAF files for different variant calling pipelines but the same project may contain different numbers of samples.  Samples are omitted from the public MAF files if they have no PASS variants, which can lead to this apparent discrepancy.
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
@@ -3128,7 +3128,7 @@ Details are provided in [Data Release Manifest](https://api.gdc.cancer.gov/data/
 1.  TARGET ALL P1 and P2 biospecimen and molecular data are now available in the Legacy Archive.  Clinical data will be available in a later release. <!-- Dat-185, Dat-194-->
 2.  Methylation data from 27k/450k Arrays has been lifted over to hg38 and is now available in the GDC Data Portal <!-- Dat-109 -->
 3.  Public MAF files are now available for VarScan2, MuSE, and SomaticSniper.  MuTect2 MAFs were made available in a previous release. <!--DAT-235-->
-4.  Updated VCFs and MAF files are available for MuTect2 pipeline to compensate for WGA-related false positive indels.  See additional information on that change [here](https://gdc.cancer.gov/content/mutect2-insertion-artifacts). A listing of replaced files is provided [here](Manifests/GDC_Data_v4_mapping_of_replaced_Mutect2_MAF_and_VCF_files.zip). <!-- Dat-145, Dat-260 -->
+4.  Updated VCFs and MAF files are available for MuTect2 pipeline to compensate for WGA-related false positive indels.  See additional information on that change [here](https://gdc.cancer.gov/content/mutect2-insertion-artifacts). A listing of replaced files is provided [here](https://api.gdc.cancer.gov/data/ef4c8578-c8d2-4bcb-86af-901af1a5f0a4). <!-- Dat-145, Dat-260 -->
 5.  Added submitter_id for Pathology Reports in Legacy Archive <!--DAT-81-->
 
 ### Bugs Fixed Since Last Release
