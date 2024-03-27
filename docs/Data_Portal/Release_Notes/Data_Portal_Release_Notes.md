@@ -103,9 +103,14 @@ Not applicable as this is the initial release of GDC 2.0.
 * __OncoMatrix__:
     * Manually deleting all genes will result in an error message "Error: Cannot read properties of undefined (reading 'lst')". The user can close and re-open OncoMatrix for use.
     * Dragging genes only works once. After one gene is dragged to a new position, no genes can be dragged to new positions.
+    * In OncoMatrix, the cases may not get re-sorted as expected after a certain sequence of actions
 * __ProteinPaint__:
     * A nested filter may be constructed for a Lollipop subtrack, e.g. sex=male AND ( primarysite=aa OR disease=bb ), but cannot be translated into GDC cohort filters. The translation code has a preliminary implementation that only works for "flat" filters without nesting.
-    * Cohorts cannot be created using the Create Cohort button in ProteinPaint for a single sample.
+    * Cohorts cannot be created using the Create Cohort button in ProteinPaint for a single sample
+    * In ProteinPaint, the total number of samples in a category breakdown and the total number of samples in the sunburst ring are not based on a user's current cohort
+    * In ProteinPaint, when clicking on a sunburst ring, the sample table is not showing up
+    * In ProteinPaint, a Disco plot launched from the sunburst ring can show "undefined" in the plot header
+    * A ProteinPaint plot launched from OncoMatrix and Gene Expression Clustering does not observe the current cohort and displays mutated cases for all GDC
 * In the __Gene Expression Clustering__ tool, if any part of the dendrogram is selected and the current cohort is modified, then the new dendrogram will render with scattered subtrees selected.
 * The "A" in the Allele Summary text is cut off in the __Sequence Reads__ tool.
 * __Quick Search__ may not display results if the the same search input is applied twice quickly. As a workaround, temporarily change the input before reentering the intended search. <!--SV-2410-->
