@@ -317,7 +317,7 @@ For displaying the various features of individual reads, on clicking a particula
 
 In this panel (as shown above), the top row shows the reference sequence that is aligned to the read. The second row shows the nucleotide sequence of the read. The colors of the nucleotides of the read are based on the CIGAR sequence of the read and follow the color codes as described in the section color coding of reads. In the third row, three clickable buttons are available which have the following functions as described below. The fourth row contains the start, stop, read length, template length, CIGAR sequence, flag and name of read.
 
-When the read sequence is not available, but the CIGAR sequence is available then the read panel displays the message “Nucleotide sequence not available for this read”.
+When the read sequence is not available, but the CIGAR sequence is available then the read panel displays the message "Nucleotide sequence not available for this read".
 
 [![No Read Sequence](images/no_read_sequence.png)](images/no_read_sequence.png "Click to see the full image.")
 
@@ -415,7 +415,7 @@ figure below).
 
 [![Variant](images/variant.png)](images/variant.png "Click to see the full image.")
 
-Reads are classified into supporting Alternative/Reference allele on the basis of “Allele similarity” which consists of selecting the allele with which the read has the highest identity ratio (number of matched nucleotides/total alignment length) (highest identity ratio highlighted in bold). Reads which do not completely match with neither reference nor alternative alleles are classified into none group (when strictness level = ‘Strict’) and those that have equal allele similarity to both reference and alternative allele (or multiple alternative alleles in case of multi-allele variants) are classified into the ambiguous group. The barplot on the right displays the “Allele similarity” for each read. This barplot is especially helpful in analyzing reads classified into the none group by indicating the alternative/reference allele with which it has maximum sequence similarity.
+Reads are classified into supporting Alternative/Reference allele on the basis of "Allele similarity" which consists of selecting the allele with which the read has the highest identity ratio (number of matched nucleotides/total alignment length) (highest identity ratio highlighted in bold). Reads which do not completely match with neither reference nor alternative alleles are classified into none group (when strictness level = 'Strict') and those that have equal allele similarity to both reference and alternative allele (or multiple alternative alleles in case of multi-allele variants) are classified into the ambiguous group. The barplot on the right displays the "Allele similarity" for each read. This barplot is especially helpful in analyzing reads classified into the none group by indicating the alternative/reference allele with which it has maximum sequence similarity.
 
 [![Read Classification](images/read_class.png)](images/read_class.png "Click to see the full image.")
 
@@ -429,21 +429,21 @@ represent alternative and reference allele nucleotides): Read1 and
 Read2 completely support the alternative allele-1 and reference allele
 respectively. Read3 has the highest sequence similarity to the
 alternative allele-1 but has a mismatch and is therefore classified
-into the none group when strictness = ‘Strict’ and classified into
-alternative allele-1 when strictness = ‘Lenient’. Read4 has equal
+into the none group when strictness = 'Strict' and classified into
+alternative allele-1 when strictness = 'Lenient'. Read4 has equal
 similarity to both reference and alternative allele-1 and is
 classified into the ambiguous group. Read5 has the highest allele
 similarity and a complete match to alternative allele-2. Read6 has the
 highest sequence similarity to the alternative allele-2 but has a
-mismatch and is therefore classified into the none group when strictness = ‘Strict’
+mismatch and is therefore classified into the none group when strictness = 'Strict'
 and classified into alternative allele-2 when strictness =
-‘Lenient’. Read7 has equal allele similarity to alternative allele-1
+'Lenient'. Read7 has equal allele similarity to alternative allele-1
 and alternative allele-2 and is classified into the ambiguous group
 (b) A generalized flow chart for classifying reads into (possibly)
-multiple alternative/reference alleles using “Allele similarity”
-values and the “Strictness” setting. The “None” group contains reads
+multiple alternative/reference alleles using "Allele similarity"
+values and the "Strictness" setting. The "None" group contains reads
 which do not support neither reference nor alternative allele(s) will
-be created only when the “Strictness” setting is set to “Strict”
+be created only when the "Strictness" setting is set to "Strict"
 (default). Ambiguous group consists of reads that have equal allele
 similarity to two (or more) alleles.
 
@@ -461,7 +461,7 @@ Fisher-strand (FS) analysis on ratio of forward/reverse strand reads in the alte
 In the figure above, an example of a [complex indel](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=strand_bias,proteinpaint_demo/hg19/bam/strand_bias.bam&position=chr10:8100668-8100707&variant=chr10.8100686.CAC.CCCTGCCTGTTGTGAGCTGCTCTACGTGCCCTACGTGCT) is shown containing Fisher strand bias. The FS score is highlighted in red indicating this particular variant may contain strand bias.
 
 ## Strictness in On-the-fly Genotyping
-A user can also optionally change the strictness of the algorithm to Lenient/Strict (default) from the ppBAM configuration panel. For strictness level = 'Lenient', reads are classified based on higher sequence similarity to reference/alternative allele. In case of strictness level = 'Strict', the exact sequence of the reference/alternative allele in the read is compared against the allele sequence given by the user. Reads that do not match either allele are classified into the none group (when strictness level = ‘Strict’), the allele similarity plot shows the color of the allele to which the read has maximum sequence similarity.
+A user can also optionally change the strictness of the algorithm to Lenient/Strict (default) from the ppBAM configuration panel. For strictness level = 'Lenient', reads are classified based on higher sequence similarity to reference/alternative allele. In case of strictness level = 'Strict', the exact sequence of the reference/alternative allele in the read is compared against the allele sequence given by the user. Reads that do not match either allele are classified into the none group (when strictness level = 'Strict'), the allele similarity plot shows the color of the allele to which the read has maximum sequence similarity.
 
 [![Strictness](images/strictness.png)](images/strictness.png "Click to see the full image.")
 
@@ -473,12 +473,12 @@ pair calls are
 strictness level = 'Lenient', there are two reads that support the
 alternative allele. However, read
 NB501822:110:HLWKJBGX5:4:22410:10829:14705 has a wrong base pair call
-at position 7578401. 
+at position 7578401.
 
 [![Lenient](images/lenient.png)](images/lenient.png "Click to see the full image.")
 
 When the strictness level is changed to 'Strict', this read is
-classified into the none group. 
+classified into the none group.
 
 [![Strict](images/strict.png)](images/strict.png "Click to see the full image.")
 
