@@ -86,8 +86,12 @@
         * miRNA-Seq - 177 aliquots
         * RNA-Seq - 78 aliquots
         * RNA-Seq - Addition of STAR-Fusion data to existing aliquots
-    * HCMI-CMDC - Slide images for released cases
-    * TCGA-GBM - miRNA-Seq
+    * HCMI-CMDC
+        * Slide images for released cases
+        * Updated clinical supplements
+    * TCGA-GBM
+        * miRNA-Seq - 8 aliquots
+        * RNA-Seq - 1 aliquot
 
 A complete list of files included in the GDC Data Portal can be found below:
 
@@ -117,7 +121,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
-    * Tumor grade property is not populated <!--SV-585-->
+    * Tumor_grade property is not populated <!--SV-585-->
     * Progression_or_recurrence property is not populated <!--SV-584-->
 
 
