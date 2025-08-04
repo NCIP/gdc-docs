@@ -49,9 +49,18 @@
 	* Changes made to `population_group`
 		* New permissible value: `Unknown`
 		* New permissible value: `Not Reported`
+* Altered `diagnosis` entity
+  	* Changes made to `morphology`
+		* New permissible value: `8453/6`
+		* New permissible value: `9380/1`
+  	 	* New permissible value: `9385/3`
+		* New permissible value: `9421/3`
+  	 	* New permissible value: `9478/3`
+		* New permissible value: `9490/6`
 * Altered `family_history` Entity
   	* Changes made to `deprecated`
-  	  	* Deprecated property: `relationship_sex_at_birth`
+  	  	* Deprecated property: `relationship_gender`
+  	* New property: `relationship_sex_at_birth`
 * Altered `other_clinical_attribute` Entity
 	* New property: `fertility_history`
 	* Removed property: `pregnancy_count`
@@ -123,6 +132,8 @@
 		* New permissible value: `Ventricular Tachycardia`
 	* Changes made to `timepoint_category`
 		* New permissible value: `After Study Registration`
+		* Deprecated value: `After Study Enrollment`
+   		* Deprecated value: `Prior to Study Enrollment`
 * Altered `simple_somatic_mutation` Entity
 	* Changes made to `data_format`
 		* New permissible value: `TSV`
@@ -178,6 +189,8 @@
 	* Changes made to `days_to_first_event`
 	* Changes made to `timepoint_category`
 		* New permissible value: `After Study Registration`
+   		* Deprecated value: `After Study Enrollment`
+   		* Deprecated value: `Prior to Study Enrollment`
 * Altered `read_group` Entity
 	* Changes made to `single_cell_library`
 		* New permissible value: `Chromium 3' Gene Expression v1 Library`
@@ -219,17 +232,10 @@
 		* New permissible value: `Indeterminate`
 	* Changes made to `timepoint_category`
 		* New permissible value: `After Study Registration`
-	* Removed property: `metastasis_at_diagnosis_site`
+  		* Deprecated value: `After Study Enrollment`
+   		* Deprecated value: `Prior to Study Enrollment`
 	* Removed property: `micropapillary_features`
-	* Removed property: `mitotic_count`
 	* Removed property: `papillary_renal_cell_type`
-	* Removed property: `pregnant_at_diagnosis`
-	* Removed property: `primary_disease`
-	* Changes made to `morphology`
-		* New permissible value: `8453/6`
-		* New permissible value: `9380/1`
-		* New permissible value: `9421/3`
-		* New permissible value: `9490/6`
 * Altered `treatment` Entity
 	* Removed property: `treatment_anatomic_site`
 	* Removed property: `treatment_arm`
@@ -244,6 +250,8 @@
 		* New permissible value: `Vagina`
 	* Changes made to `timepoint_category`
 		* New permissible value: `After Study Registration`
+		* Deprecated value: `After Study Enrollment`
+   		* Deprecated value: `Prior to Study Enrollment`
 * Altered `somatic_mutation_calling_workflow` Entity
 	* Changes made to `workflow_type`
 		* New permissible value: `MuSiCal`
@@ -251,6 +259,8 @@
 * Altered `molecular_test` Entity
 	* Changes made to `timepoint_category`
 		* New permissible value: `After Study Registration`
+		* Deprecated value: `After Study Enrollment`
+   		* Deprecated value: `Prior to Study Enrollment`
 * Altered `aggregated_somatic_mutation` Entity
 	* New property: `tmb`
 	* New property: `tmb_exonic`
