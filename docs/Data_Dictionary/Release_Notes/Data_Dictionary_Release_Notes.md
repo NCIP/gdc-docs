@@ -140,7 +140,6 @@
 	* Changes made to `data_type`
 		* New permissible value: `Mutational Signature`
 * Altered `follow_up` Entity
-	* Removed property: `deprecated`
 	* Removed property: `aids_risk_factors`
 	* Removed property: `bmi`
 	* Removed property: `body_surface_area`
@@ -230,6 +229,7 @@
 	* New property: `breslow_thickness_category`
 	* Changes made to `margin_status`
 		* New permissible value: `Indeterminate`
+   		* Deprecated property: `Indeterminant`
 	* Changes made to `timepoint_category`
 		* New permissible value: `After Study Registration`
   		* Deprecated value: `After Study Enrollment`
@@ -1374,7 +1374,6 @@
 	* New deprecated property: `comorbidity`
 	* New deprecated property: `risk_factor`
 	* New property: `comorbidities`
-	* New property: `days_to_first_event`
 	* New property: `days_to_risk_factor`
 	* New property: `evidence_of_progression_type`
 	* New property: `first_event`
