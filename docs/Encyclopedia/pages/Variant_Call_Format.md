@@ -6,7 +6,10 @@ The Variant Call Format (VCF) is a standardized format for storing and reporting
 ## Overview ##
 VCF files are used to report sequence variations (e.g., SNPs, indels and larger structural variants) together with rich annotations. VCF files are modular where the annotations and genotype information for a variant are separated from the call itself. VCF version 4.1 is the currently active format specification<sup>1</sup>.
 
-VCF files are generated at the GDC with one of four variant callers (MuSe, MuTect2, SomaticSniper, VarScan) by comparing a tumor alignment to a normal alignment from the same patient. All GDC VCFs from patients are protected data and require dbGaP credentials to access.
+VCF files are generated at the GDC with one of four variant callers (MuSe, MuTect2, Pindel, VarScan) by comparing a tumor alignment to a normal alignment from the same patient. All GDC VCFs from patients are protected data and require dbGaP credentials to access.
+
+Please note that SomaticSniper was used as a fifth variant caller and VCFs and MAFs were available on the GDC Data Portal before [GDC Data Release 35](https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/#data-release-350).
+
 
 VCF files are produced on a case-level for each variant caller (four VCF files per case). All VCF files within a project that were produced by a single pipeline are aggregated to produce a MAF file.  
 
@@ -18,7 +21,7 @@ Details about the structure of the VCF is available in the VCF 4.1 Specification
 
 ## References ##
 1. [VCF 4.1 Specification](https://samtools.github.io/hts-specs/VCFv4.1.pdf)
-2. [GDC VCF Format](https://gdc-docs.nci.nih.gov/Data/File_Formats/VCF_Format/)
+2. [GDC VCF Format](https://docs.gdc.cancer.gov/Data/File_Formats/VCF_Format/)
 
 ## External Links ##
 * [VCF 4.1 Specification](https://samtools.github.io/hts-specs/VCFv4.1.pdf)

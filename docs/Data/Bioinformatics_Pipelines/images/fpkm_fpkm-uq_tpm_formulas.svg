@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="74.897552mm"
+   height="100.31444mm"
+   viewBox="0 0 74.897552 100.31444"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="fpkm_fpkm-uq_tpm_formulas.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="159.01721"
+     inkscape:cy="38.012588"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1564"
+     inkscape:window-height="1332"
+     inkscape:window-x="2196"
+     inkscape:window-y="507"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.53453708,-0.83449532)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:0.5;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="0.53453708"
+       y="68.21727"
+       id="text4600"><tspan
+         sodipodi:role="line"
+         x="0.53453708"
+         y="68.21727"
+         style="font-size:3.52777767px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan4612"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   id="tspan10869">N</tspan> = number of protein coding genes</tspan><tspan
+         sodipodi:role="line"
+         x="0.53453708"
+         y="73.577835"
+         style="font-size:3.52777767px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan4617"><tspan
+   id="tspan10881"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">C</tspan><tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
+   id="tspan4619">g</tspan> = count of reads aligned to gene <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   id="tspan10879">g</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="0.53453708"
+         y="78.972855"
+         style="font-size:3.52777767px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan10883"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   id="tspan10887">L</tspan><tspan
+   id="tspan10893"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">g</tspan> = union length of exons of gene <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   id="tspan10885">g</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="0.53453708"
+         y="84.333427"
+         style="font-size:3.52777767px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan10895"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   id="tspan10897">G</tspan> = number of protein coding genes on</tspan><tspan
+         sodipodi:role="line"
+         x="0.53453708"
+         y="89.693993"
+         style="font-size:3.52777767px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan10907">        autosomes</tspan><tspan
+         sodipodi:role="line"
+         x="0.53453708"
+         y="95.054565"
+         style="font-size:3.52777767px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan10899"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   id="tspan10901">C<tspan
+   style="font-size:3.52777767px;baseline-shift:sub"
+   id="tspan10903">qtl(0.75)</tspan></tspan> = count of reads aligned to gene</tspan><tspan
+         sodipodi:role="line"
+         x="0.53453708"
+         y="100.41513"
+         style="font-size:3.52777767px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan10909">                   at quantile 0.75</tspan><tspan
+         sodipodi:role="line"
+         x="0.53453708"
+         y="105.7757"
+         style="font-size:4.23333311px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan4621" /></text>
+    <g
+       id="g10867"
+       transform="translate(-8.5526249,-18.976136)">
+      <text
+         id="text3715"
+         y="27.91431"
+         x="20.571138"
+         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-size:6.3499999px;stroke-width:0.26458332"
+           y="27.91431"
+           x="20.571138"
+           id="tspan3713"
+           sodipodi:role="line">FPKM =</tspan><tspan
+           id="tspan3717"
+           style="stroke-width:0.26458332"
+           y="41.143478"
+           x="20.571138"
+           sodipodi:role="line" /></text>
+      <text
+         id="text4544"
+         y="48.875946"
+         x="8.6338825"
+         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-size:6.3499999px;stroke-width:0.26458332"
+           y="48.875946"
+           x="8.6338825"
+           id="tspan4542"
+           sodipodi:role="line">FPKM-UQ =</tspan></text>
+      <text
+         id="text4592"
+         y="70.572411"
+         x="24.508881"
+         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-size:6.3499999px;stroke-width:0.26458332"
+           y="70.572411"
+           x="24.508881"
+           id="tspan4590"
+           sodipodi:role="line">TPM =</tspan></text>
+      <g
+         transform="translate(-74.929962,42.645703)"
+         id="g10796">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;baseline-shift:baseline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="122.79719"
+           y="23.91396"
+           id="text4596"><tspan
+             sodipodi:role="line"
+             id="tspan4594"
+             x="122.79719"
+             y="23.91396"
+             style="font-size:4.93888903px;baseline-shift:baseline;stroke-width:0.26458332"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+               id="tspan10675">(</tspan><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.07458353px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+               id="tspan10667">C</tspan><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.2102778px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
+               id="tspan10407">g</tspan><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.07458353px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+               id="tspan10669"> * 1e</tspan><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64.99999762%;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:super;text-anchor:start"
+               id="tspan10677">3</tspan><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.07458353px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+               id="tspan10671"> / L</tspan><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.2102778px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
+               id="tspan10411">g</tspan><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.07458353px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+               id="tspan10673">) * 1e</tspan><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64.99999762%;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:super;text-anchor:start"
+               id="tspan10448">6</tspan></tspan></text>
+        <g
+           id="g10529"
+           transform="translate(71.343006,-102.56384)">
+          <text
+             id="text4596-8"
+             y="136.10295"
+             x="59.779282"
+             style="font-style:normal;font-weight:normal;font-size:12px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;baseline-shift:baseline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.19805527px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;stroke-width:0.26458332"
+               y="136.10295"
+               x="59.779282"
+               id="tspan4594-5"
+               sodipodi:role="line">(C<tspan
+   id="tspan10407-0"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.72873616px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start">g</tspan> * 1e<tspan
+   style="font-size:64.99999762%;baseline-shift:super"
+   id="tspan10700">3</tspan> / L<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.72873616px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
+   id="tspan10704">g</tspan>)</tspan></text>
+          <text
+             id="text10181-1"
+             y="135.9053"
+             x="55.732121"
+             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-size:4.23333311px;stroke-width:0.26458332"
+               y="135.9053"
+               x="55.732121"
+               id="tspan10179-1"
+               sodipodi:role="line"><tspan
+   id="tspan10195-5"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">∑</tspan> </tspan></text>
+          <text
+             id="text10187-9"
+             y="138.90569"
+             x="55.475632"
+             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;stroke-width:0.26458332"
+               y="138.90569"
+               x="55.475632"
+               id="tspan10185-8"
+               sodipodi:role="line">g=1</tspan></text>
+          <text
+             id="text10191-4"
+             y="131.36369"
+             x="56.876579"
+             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;stroke-width:0.26458332"
+               y="131.36369"
+               x="56.876579"
+               id="tspan10189-8"
+               sodipodi:role="line">N</tspan></text>
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 122.1808,26.18006 h 36.51039"
+           id="path10555"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         transform="translate(-31.273716,21.130506)"
+         id="g10744">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;baseline-shift:baseline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="78.688232"
+           y="30.410107"
+           id="text4556"><tspan
+             sodipodi:role="line"
+             id="tspan4554"
+             x="78.688232"
+             y="30.410107"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.07458353px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;stroke-width:0.26458332">C<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan10665">qtl(0.75)</tspan> * G * L<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64847922px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
+   id="tspan10394">g</tspan></tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="87.558273"
+           y="24.20199"
+           id="text10360"><tspan
+             sodipodi:role="line"
+             id="tspan10358"
+             x="87.558273"
+             y="24.20199"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.07458353px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">C<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64847922px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
+   id="tspan10657">g</tspan> * 1e<tspan
+   style="font-size:64.99999762%;baseline-shift:super"
+   id="tspan10661">9</tspan></tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 78.524554,26.180061 H 107.39157"
+           id="path10557"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         transform="translate(0.57077918,0.01027249)"
+         id="g10769">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="47.240211"
+           y="23.91396"
+           id="text3721"><tspan
+             sodipodi:role="line"
+             id="tspan3719"
+             x="47.240211"
+             y="23.91396"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">C<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.2102778px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
+   id="tspan10651">g</tspan> * 1e<tspan
+   style="font-size:64.99999762%;baseline-shift:super"
+   id="tspan10579">9</tspan></tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 46.680059,26.18006 H 66.112256"
+           id="path10559"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <g
+           id="g10733">
+          <text
+             id="text10181"
+             y="33.369423"
+             x="49.628403"
+             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+               y="33.369423"
+               x="49.628403"
+               id="tspan10179"
+               sodipodi:role="line">∑ </tspan></text>
+          <text
+             id="text10187"
+             y="36.341846"
+             x="49.371914"
+             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;stroke-width:0.26458332"
+               y="36.341846"
+               x="49.371914"
+               id="tspan10185"
+               sodipodi:role="line">i=1</tspan></text>
+          <text
+             id="text10191"
+             y="28.799852"
+             x="50.772861"
+             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;stroke-width:0.26458332"
+               y="28.799852"
+               x="50.772861"
+               id="tspan10189"
+               sodipodi:role="line">N</tspan></text>
+          <text
+             id="text10209"
+             y="34.354923"
+             x="53.398163"
+             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-size:4.93888903px;stroke-width:0.26458332"
+               y="34.354923"
+               x="53.398163"
+               id="tspan10207"
+               sodipodi:role="line"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+                 id="tspan10583">C</tspan><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.2102778px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
+                 id="tspan10561">i</tspan></tspan></text>
+          <text
+             id="text10641"
+             y="34.178188"
+             x="60.92992"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888855px;line-height:1.25;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="stroke-width:0.26458332"
+               y="34.178188"
+               x="60.92992"
+               id="tspan10639"
+               sodipodi:role="line">L<tspan
+   id="tspan10643"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.2102778px;font-family:MathJax_Math;-inkscape-font-specification:'MathJax_Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start">g</tspan></tspan></text>
+          <text
+             id="text10710"
+             y="33.994858"
+             x="58.246132"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888855px;line-height:1.25;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+               y="33.994858"
+               x="58.246132"
+               id="tspan10708"
+               sodipodi:role="line">)</tspan></text>
+          <text
+             id="text10714"
+             y="33.994858"
+             x="46.774555"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888855px;line-height:1.25;font-family:MathJax_Main;-inkscape-font-specification:'MathJax_Main, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-size:6.3499999px;stroke-width:0.26458332"
+               y="33.994858"
+               x="46.774555"
+               id="tspan10712"
+               sodipodi:role="line">(</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

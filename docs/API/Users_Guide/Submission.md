@@ -48,7 +48,7 @@ Metadata files must be uploaded in raw, unencoded form. Binary mode should be us
 
 #### BCR XML
 
-While JSON and TSV are the recommended formats for submitting metadata, the GDC API can also extract metadata elements from BCR XML files. Users wishing to submit metadata as BCR XML must contact GDC User Services and ensure that appropriate element mapping is in place before initiating XML submission.
+While JSON and TSV are the recommended formats for submitting metadata, the GDC API can also extract metadata elements from BCR XML files. Users wishing to submit metadata as BCR XML must contact GDC User Services and ensure that appropriate element mapping is in place before initiating XML submission.  Current mapping can be found in [GitHub](https://github.com/NCI-GDC/gdcdatamodel/tree/develop/gdcdatamodel/xml_mappings).
 
 To submit BCR XML, make `PUT` requests with the `Content-Type: application/xml` header to the following URLs, replacing Program.name and Project.code as desribed in [Submission Endpoint](#submission_endpoint) (above):
 
@@ -63,12 +63,12 @@ The following is a sample shell command for submitting an XML file:
 
 	curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @biospecimen.xml 'https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/xml/biospecimen/bcr/_dry_run'
 
-**NOTE:** A typical BCR XML file contains more information than what is extracted and indexed by the GDC. XML files submitted to the above endpoints are not retained or distributed to GDC data users, so the same files should also be submitted as data files (i.e. as clinical or biospecimen supplements).
+>**NOTE:** A typical BCR XML file contains more information than what is extracted and indexed by the GDC. XML files submitted to the above endpoints are not retained or distributed to GDC data users, so the same files should also be submitted as data files (i.e. as clinical or biospecimen supplements).
 
 
 ### Data File Formats
 
-The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, clinical and biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [GDC website](https://gdc.cancer.gov/node/266/).
+The GDC API accepts a variety of data files after their metadata has been registered: BAM and FASTQ files, clinical and biospecimen supplements, slide images, and other file types. Supported data file formats are listed on the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=submittable_data_file).
 
 ## GDC Data Model
 
@@ -82,7 +82,7 @@ Submitters can assign UUIDs to all submittable entities other than those that co
 
 In addition to `id`, many entities also include a `submitter_id` field. This field can contain any string (e.g. a "barcode") that the submitter wishes to use to identify the entity. Typically this string identifies a corresponding entry in submitter's records. The GDC's only requirement with respect to `submitter_id` is that it be a string that is unique for all entities within a project. The GDC Submission API requires a `submitter_id` for most entities.
 
-**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
+>**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
 ### GDC Data Dictionary Endpoints
 
@@ -163,18 +163,21 @@ The following is an example of a POST request, that simulates creating an entity
 
 ```Request
 {
-  "project_id": "TCGA-ALCH",
+  "project_id": "GDC-INTERNAL",
   "type": "case",
-  "submitter_id": "TCGA-ALCH-000001",
-  "projects": {
-    "code": "ALCH"
+  "submitter_id": "GDC-INTERNAL-000093",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+   "projects": {
+     "code": "INTERNAL"
   }
 }
+
 ```
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/_dry_run
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/_dry_run
 ```
 ```Response
 {
@@ -186,13 +189,13 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "61f48d1c-9439-448c-a90c-d6dbe76b3654",
+      "id": "bfc1fb29-28db-4137-8379-3d1693ce3423",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": true,
@@ -202,7 +205,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": null,
+  "transaction_id": 5834800,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -213,14 +216,14 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 
 For convenience, the GDC enables users to commit earlier `_dry_run` transactions instead of uploading the same data again to execute the changes. This `commit` action is allowed on transactions that (1) have not been previously committed and (2) were successful `dry_run` transactions.
 
-Note that the `commit` action is a separate transaction with its own transaction id, and it can be executed [asynchronously](#asynchronous-transactions). If the state of the submission project has changed in a way that would make the original `_dry_run` transaction invalid if it were run again (e.g. entities with the same `submitter_id` have since been created in another transaction), then then `commit` action will fail.
+Note that the `commit` action is a separate transaction with its own transaction id, and it can be executed [asynchronously](#asynchronous-transactions). If the state of the submission project has changed in a way that would make the original `_dry_run` transaction invalid if it were run again (e.g. entities with the same `submitter_id` have since been created in another transaction), then the `commit` action will fail.
 
 To commit a transaction, submit a POST or PUT request to `/submission/Program.name/Project.code/transactions/transaction_id/commit`, replacing `Program.name`, `Project.code`, and `transaction_id` with values associated with the transaction.
 
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/commit?async=true
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
 ```
 ```Response
 {
@@ -241,7 +244,7 @@ To close a transaction, submit a POST or PUT request to `/submission/Program.nam
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/transactions/467/close
+curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/close
 ```
 ```Response
 {
@@ -262,18 +265,20 @@ The following is an example of a PUT request, that creates a case asynchronously
 
 ```Request
 {
-  "project_id": "TCGA-ALCH",
+  "project_id": "GDC-INTERNAL",
   "type": "case",
-  "submitter_id": "TCGA-ALCH-000001",
-  "projects": {
-    "code": "ALCH"
+  "submitter_id": "GDC-INTERNAL-000093",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+   "projects": {
+     "code": "INTERNAL"
   }
 }
 ```
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH?async=true
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL?async=true
 ```
 ```Response
 {
@@ -321,7 +326,7 @@ The following transaction fields can be queried using [GraphQL](#querying-submit
 |`state`|String|Indicates the state of the transaction: `PENDING`, `SUCCEEDED`, `FAILED` (due to user error), or `ERRORED` (due to system error)|
 |`committed_by`|ID|The ID of the transaction that committed this transaction|
 
-**Note:** To check whether a dry run transaction was committed successfully, check the `state` of the transaction that executed the commit. The `state` of the dry run transaction itself does not represent the status of a subsequent commit.
+>**Note:** To check whether a dry run transaction was committed successfully, check the `state` of the transaction that executed the commit. The `state` of the dry run transaction itself does not represent the status of a subsequent commit.
 
 ## Creating and Updating Entities
 
@@ -333,7 +338,7 @@ The GDC Submission API supports HTTP POST and HTTP PUT methods for creating enti
 
 The GDC suggests using POST for creating new entities, and using PUT only for updating entities. This helps to avoid inadvertent entity updates that can occur when using PUT for creating entities.
 
-**Note:** Once a relationship has been created between two entities, it cannot be removed by updating an entity. To remove a relationship, the child entity must be [deleted](#deleting-entities).
+>**Note:** Once a relationship has been created between two entities, it cannot be removed by updating an entity. To remove a relationship, the child entity must be [deleted](#deleting-entities).
 
 
 ### Example: Creating and Updating Case Entities (JSON)
@@ -342,41 +347,43 @@ In this example, a case entity is created using POST. Then an attempt is made to
 
 The JSON in the request was generated using the `case` JSON template that can be obtained from the [GDC Data Dictionary Viewer](../../Data_Dictionary/index.md) and from `https://api.gdc.cancer.gov/v0/submission/template/case?format=json`.
 
-**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
+>**Note:** For `case` entities, `submitter_id` must correspond to a `submitted_subject_id` of a study participant registered with the project in dbGaP.
 
 
 ```Request1
 {
+  "project_id": "GDC-INTERNAL",
   "type": "case",
-  "submitter_id": "TCGA-ALCH-000001",
-  "projects": {
-    "code": "ALCH"
+  "submitter_id": "GDC-INTERNAL-000093",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+   "projects": {
+     "code": "INTERNAL"
   }
-
 }
 ```
 ```Command1
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
 ```Response1
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
-  "code": 201,
+  "code": 200,
   "created_entity_count": 1,
   "entities": [
     {
       "action": "create",
       "errors": [],
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "id": "bfc1fb29-28db-4137-8379-3d1693ce3423",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": true,
@@ -384,9 +391,9 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     }
   ],
   "entity_error_count": 0,
-  "message": "Transaction successful.",
+  "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": 215,
+  "transaction_id": 5834800,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -409,7 +416,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
           "keys": [
             "id"
           ],
-          "message": "Cannot create entity that already exists. Try updating entity (PUT instead of POST)",
+          "message": "Cannot create an entity with an id that already exists.",
           "type": "NOT_UNIQUE"
         }
       ],
@@ -418,8 +425,8 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": false,
@@ -429,14 +436,14 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 1,
   "message": "Transaction aborted due to 1 invalid entity.",
   "success": false,
-  "transaction_id": null,
+  "transaction_id": 5834802,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
 }
 ```
 ```Command3
-curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
 ```Response3
 {
@@ -448,13 +455,13 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --head
     {
       "action": "update",
       "errors": [],
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05",
+      "id": "a35b8e26-3b43-4203-9d33-44c2b351f177",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "valid": true,
@@ -464,7 +471,7 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @Request --head
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 216,
+  "transaction_id": 5834803,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 1
@@ -483,26 +490,27 @@ In this example, an `aliquot` entity and a `sample` entity are created in a sing
 [
   {
     "type": "sample",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001",
-    "sample_type": "Primary Tumor",
-    "sample_type_id": "01",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "cases": {
-      "submitter_id": "TCGA-ALCH-000001"
+      "submitter_id": "GDC-INTERNAL-000093"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093",
     "samples": {
-      "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+      "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
     }
   }
-]
-```
+]```
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
 ```Response
 {
@@ -514,18 +522,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "48270338-6464-448f-bbef-b09d4f80b11b",
+      "id": "0a877533-0c85-4a7e-9309-733ccf295c1b",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
         }
       ],
       "valid": true,
@@ -534,18 +542,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "7af58da0-cb3e-43e2-a074-4bd8f27565ba",
+      "id": "45c57067-c92d-453b-8b6d-14a3fe08f802",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093"
         }
       ],
       "valid": true,
@@ -555,7 +563,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 222,
+  "transaction_id": 5835160,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -569,19 +577,20 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 [
   {
     "type": "sample",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001",
-    "id": "2aa7a07b-e706-4eef-aeba-b849972423a0",
-    "sample_type": "Primary Tumor",
-    "sample_type_id": "01",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "cases": {
-      "id": "fbf69646-5904-4f95-92d6-692bde658f05"
+      "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093",
     "samples": {
-      "id": "2aa7a07b-e706-4eef-aeba-b849972423a0"
+      "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
     }
   }
 ]
@@ -589,7 +598,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 ```Command
 token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/submission/GDC/INTERNAL
 ```
 ```Response
 {
@@ -601,18 +610,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "2aa7a07b-e706-4eef-aeba-b849972423a0",
+      "id": "9684fd7c-97b5-42a2-b350-2d86d41bbfdb",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093"
         }
       ],
       "valid": true,
@@ -621,18 +630,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
     {
       "action": "create",
       "errors": [],
-      "id": "545096d5-ce1c-433f-80f0-fd0b04b56cb6",
+      "id": "cd5613ef-acb8-4b56-af4b-8bf3ab0e09d8",
       "related_cases": [
         {
-          "id": "fbf69646-5904-4f95-92d6-692bde658f05",
-          "submitter_id": "TCGA-ALCH-000001"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "TCGA-ALCH",
-          "submitter_id": "TCGA-ALCH-000001-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000093-SAMPLE000093-ALIQUOT000093"
         }
       ],
       "valid": true,
@@ -642,7 +651,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 219,
+  "transaction_id": 5835208,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -654,9 +663,9 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
 In this example, a TSV file containing metadata for two samples is uploaded to the GDC in dry run mode.
 
 ```Request
-type	project_id	submitter_id	cases.submitter_id	sample_type	sample_type_id	tumor_descriptor
-sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleA	GDC-INTERNAL-000022	Additional Metastatic	01
-sample	GDC-INTERNAL	GDC-INTERNAL-000022-sampleB	GDC-INTERNAL-000022	Solid Tissue Normal	02
+type	project_id	submitter_id	cases.submitter_id	specimen_type	tissue_type	tumor_descriptor	preservation_method
+sample	GDC-INTERNAL	GDC-INTERNAL-000093-sampleA	GDC-INTERNAL-000093	Solid Tissue	Tumor	Primary	Frozen
+sample	GDC-INTERNAL	GDC-INTERNAL-000093-sampleB	GDC-INTERNAL-000093	Solid Tissue	Normal	Not Reported	Frozen
 ```
 ```Command
 curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request PUT --data-binary @Samples.tsv 'https://api.gdc.cancer.gov/submission/GDC/INTERNAL/_dry_run'
@@ -671,18 +680,18 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
     {
       "action": "create",
       "errors": [],
-      "id": "b55e10af-5b7f-48f1-b230-0f8e6b7a7afe",
+      "id": "c3d401f1-d505-4240-b801-dc2b389ddea1",
       "related_cases": [
         {
-          "id": "6e2e3b31-c5d2-45df-a911-eb3577640b70",
-          "submitter_id": "GDC-INTERNAL-000022"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
           "project_id": "GDC-INTERNAL",
-          "submitter_id": "GDC-INTERNAL-000022-sampleA"
+          "submitter_id": "GDC-INTERNAL-000093-sampleA"
         }
       ],
       "valid": true,
@@ -691,18 +700,18 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
     {
       "action": "create",
       "errors": [],
-      "id": "15076660-fccc-4406-b981-c745eb992034",
+      "id": "d3c4be95-9c69-4e8e-9f37-61db455ded7a",
       "related_cases": [
         {
-          "id": "6e2e3b31-c5d2-45df-a911-eb3577640b70",
-          "submitter_id": "GDC-INTERNAL-000022"
+          "id": "a00f076e-d694-47dd-8e50-24c28e90fd6a",
+          "submitter_id": "GDC-INTERNAL-000093"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
           "project_id": "GDC-INTERNAL",
-          "submitter_id": "GDC-INTERNAL-000022-sampleB"
+          "submitter_id": "GDC-INTERNAL-000093-sampleB"
         }
       ],
       "valid": true,
@@ -712,12 +721,13 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: text/tsv' --request
   "entity_error_count": 0,
   "message": "Transaction would have been successful. User selected dry run option, transaction aborted, no data written to database.",
   "success": true,
-  "transaction_id": 51284,
+  "transaction_id": 5835321,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
 }
 ```
+
 ### Example: Updating a Sample Entity (JSON)
 
 Entities can be updated using a very similar process to what is shown above.  
@@ -729,27 +739,32 @@ New nodes are created in Request1.  Nodes in state `validated` are updated in Re
 
 ```Request1
 [
-   {
-    "type": "case",
-    "submitter_id": "QA-REGRESSION-0002",  
-    "projects": {
-    "code": "REGRESSION"
+{
+  "project_id": "GDC-INTERNAL",
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000092",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+  "projects": {
+    "code": "INTERNAL"
   }
-    },
-    {
+},
+  {
     "type": "sample",
-    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001",
-    "sample_type": "Primary Tumor",
-    "sample_type_id": "01",
+    "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "cases": {
-      "submitter_id": "QA-REGRESSION-0002"
+      "submitter_id": "GDC-INTERNAL-000092"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000092-SAMPLE000092-ALIQUOT000002",
     "samples": {
-      "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+      "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002"
     }
   }
 ]
@@ -769,13 +784,13 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
     {
       "action": "create",
       "errors": [],
-      "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+      "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "valid": true,
@@ -784,18 +799,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
     {
       "action": "create",
       "errors": [],
-      "id": "8a1872e6-c5e6-4f39-b9fe-15ecf45715c7",
+      "id": "0fa1e69b-4662-4e15-8e3b-a1dfb393cf56",
       "related_cases": [
         {
-          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
-          "submitter_id": "QA-REGRESSION-0002"
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002"
         }
       ],
       "valid": true,
@@ -804,18 +819,18 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
     {
       "action": "create",
       "errors": [],
-      "id": "e9279137-92b4-41ab-be28-a03e32e6fac7",
+      "id": "76547a46-339e-4f1e-9003-c70e869c1cf7",
       "related_cases": [
         {
-          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
-          "submitter_id": "QA-REGRESSION-0002"
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-SAMPLE000092-ALIQUOT000002"
         }
       ],
       "valid": true,
@@ -825,7 +840,7 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 920117,
+  "transaction_id": 5840293,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 0
@@ -833,28 +848,33 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @sample.json -
 ```
 ```Request2
 [
-   {
-    "type": "case",
-    "submitter_id": "QA-REGRESSION-0002",  
-    "projects": {
-    "code": "REGRESSION"
+{
+  "project_id": "GDC-INTERNAL",
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000092",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+  "projects": {
+    "code": "INTERNAL"
   }
-    },
-    {
+},
+  {
     "type": "sample",
-    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001",
-    "sample_type": "Primary Tumor",
+    "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002",
+    "tissue_type": "Tumor",
+    "preservation_method": "Fresh",
+    "specimen_type": "Whole Bone Marrow",
+    "tumor_descriptor": "Primary",
     "days_to_collection":5,
-    "sample_type_id": "01",
     "cases": {
-      "submitter_id": "QA-REGRESSION-0002"
+      "submitter_id": "GDC-INTERNAL-000092"
     }
   },
   {
     "type": "aliquot",
-    "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001",
+    "submitter_id": "GDC-INTERNAL-000092-SAMPLE000092-ALIQUOT000002",
     "samples": {
-      "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+      "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002"
     }
   }
 ]
@@ -874,13 +894,13 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
     {
       "action": "update",
       "errors": [],
-      "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
+      "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
       "related_cases": [],
       "type": "case",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "valid": true,
@@ -889,18 +909,18 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
     {
       "action": "update",
       "errors": [],
-      "id": "8a1872e6-c5e6-4f39-b9fe-15ecf45715c7",
+      "id": "0fa1e69b-4662-4e15-8e3b-a1dfb393cf56",
       "related_cases": [
         {
-          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
-          "submitter_id": "QA-REGRESSION-0002"
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "type": "sample",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-SAMPLE000002"
         }
       ],
       "valid": true,
@@ -909,18 +929,18 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
     {
       "action": "update",
       "errors": [],
-      "id": "e9279137-92b4-41ab-be28-a03e32e6fac7",
+      "id": "76547a46-339e-4f1e-9003-c70e869c1cf7",
       "related_cases": [
         {
-          "id": "3a750ae8-8e63-472e-852e-8e514a0c1550",
-          "submitter_id": "QA-REGRESSION-0002"
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
         }
       ],
       "type": "aliquot",
       "unique_keys": [
         {
-          "project_id": "QA-REGRESSION",
-          "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001"
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-SAMPLE000092-ALIQUOT000002"
         }
       ],
       "valid": true,
@@ -930,7 +950,7 @@ curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json -
   "entity_error_count": 0,
   "message": "Transaction successful.",
   "success": true,
-  "transaction_id": 920120,
+  "transaction_id": 5840294,
   "transactional_error_count": 0,
   "transactional_errors": [],
   "updated_entity_count": 3
@@ -1517,8 +1537,8 @@ curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: appl
   "updated_entity_count": 0
 }}
 ```
-```
-Command2
+
+```Command2
 curl --request PUT --header "X-Auth-Token: $token"  --header 'Content-Type: application/xml' --data-binary @BCR_biospecimen_updated.xml 'https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION/xml/biospecimen/bcr'
 ```
 ```Response2
@@ -2349,6 +2369,99 @@ curl --header "X-Auth-Token: $token" --request DELETE https://api.gdc.cancer.gov
 ```
 
 ## Working With Files
+### Registering a Data File
+
+Registering a data file is a similar process to creating an entity.
+
+
+
+```Request 1
+[
+{
+  "project_id": "GDC-INTERNAL",
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000092",
+  "disease_type": "Blood Vessel Tumors",
+  "primary_site": "Base of tongue",
+  "projects": {
+    "code": "INTERNAL"
+  }
+},
+  {
+    "type": "clinical_supplement",
+    "submitter_id": "GDC-INTERNAL-000092-clinical_supplement000092",
+    "data_category": "Clinical",
+    "data_format": "BCR Biotab",
+    "data_type": "Clinical Supplement",
+    "file_name":"clinical_drug.txt",
+    "md5sum":"a83b5130bd671998aa1ec339a542121d",
+    "file_size":961048,
+    "cases": {
+      "submitter_id": "GDC-INTERNAL-000092"
+    }
+  }
+]
+```
+
+```Command
+token=$(<gdc-token-text-file.txt)
+
+curl --header "X-Auth-Token: $token" --request PUT --data-binary @Data_File_1.json --header 'Content-Type: application/json' https://api.gdc.cancer.gov/submission/GDC/INTERNAL
+```
+```Response
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 1,
+  "entities": [
+    {
+      "action": "update",
+      "errors": [],
+      "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+      "related_cases": [],
+      "type": "case",
+      "unique_keys": [
+        {
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    },
+    {
+      "action": "create",
+      "errors": [],
+      "id": "da48693a-8179-4b9e-a340-150da880b47e",
+      "related_cases": [
+        {
+          "id": "2be97136-58a6-438d-9275-7af0e4723a9d",
+          "submitter_id": "GDC-INTERNAL-000092"
+        }
+      ],
+      "type": "clinical_supplement",
+      "unique_keys": [
+        {
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "GDC-INTERNAL-000092-clinical_supplement000092"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 5845406,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 1
+}
+```
+
+
 
 ### Uploading Data Files
 
@@ -2505,21 +2618,23 @@ curl --header "X-Auth-Token: $token" --header 'Content-Type: json' --request PUT
 
 ### Downloading Files
 
-Files in file state = validated can be downloaded by the submitter using the API or the Data Transfer Tool. This is done in a similar manner as files available in the Data Portal, but will require submission access to the particular project in dbGaP as opposed to downloader access.  File UUIDs can be found in the original upload manifest file, the submission portal, or by API calls.  See [Downloading Files](Downloading_Files.md) for details.
+Files in `file_state = validated` can be downloaded by the submitter using the API or the Data Transfer Tool. This is done in a similar manner as files available in the Data Portal, but will require submission access to the particular project in dbGaP as opposed to downloader access.  File UUIDs can be found in the original upload manifest file, the submission portal, or by API calls.  See [Downloading Files](Downloading_Files.md) for details.
 
 ### Deleting Files
 
-Uploaded files can be deleted by deleting the entity that corresponds to the file. See [Deleting Entities](#deleting-entities) for details.
+Uploaded files must be deleted using a two step process.  First, the file is deleted using the Data Transfer Tool.  See [Deleting Previously Uploaded Data](../../Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) for details.
+
+Second, the file node can be deleted or modified. See [Deleting Entities](#deleting-entities) for details.
 
 ## Querying Submitted Data Using GraphQL
 
 ### GraphQL Overview
 
-[GraphQL](https://facebook.github.io/graphql/) is a query language that makes it easy to search and retrieve data from graph data structures such as the GDC Data Model.
+[GraphQL](https://graphql.org/) is a query language that makes it easy to search and retrieve data from graph data structures such as the GDC Data Model.
 
 Unlike the methods outlined in [Search and Retrieval](Search_and_Retrieval.md), which provide access to public releases (or snapshots) of GDC data, the `/graphql` endpoint of GDC Submission API makes it possible for submitters to access "live" data, which provides a real-time view of the state of entities in a project.
 
-**NOTE:** Access to GDC Submission API GraphQL service is limited to authorized and authenticated submitters. Submitters may only access data in their own project using GraphQL.
+>**NOTE:** Access to GDC Submission API GraphQL service is limited to authorized and authenticated submitters. Submitters may only access data in their own project using GraphQL.
 
 
 ### GraphQL IDE
@@ -2536,7 +2651,7 @@ GDC data submitters can access the GDC Submission API GraphQL endpoint at:
 
 where __[API_version/]__ is the optional API version component (see [Getting Started](Getting_Started.md)).
 
-**NOTE:** An authentication token is required for all requests to the `graphql` endpoint. Queries are restricted to those projects for which the submitter has obtained authorization.
+>**NOTE:** An authentication token is required for all requests to the `graphql` endpoint. Queries are restricted to those projects for which the submitter has obtained authorization.
 
 
 ### Constructing a Query

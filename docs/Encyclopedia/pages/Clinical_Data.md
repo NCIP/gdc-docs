@@ -13,7 +13,7 @@ Additional information on the goals and origins of the GDC clinical terminology 
 
 ### Data ###
 
-In the GDC, clinical data is searchable in the API, Data Portal, or Legacy Archive.  This only includes data that has been indexed and aligns with the GDC Data Dictionary<sup>1,2</sup>.  Additional clinical data may be stored in clinical supplement files in different formats depending on the project.  For example, this may include XML or biotab for TCGA or xlsx for TARGET.
+In the GDC, clinical data is searchable in the API or Data Portal.  This only includes data that has been indexed and aligns with the GDC Data Dictionary<sup>1,2</sup>.  Additional clinical data may be stored in clinical supplement files in different formats depending on the project.  For example, this may include XML or biotab for TCGA or xlsx for TARGET.
 
 ## References ##
 
