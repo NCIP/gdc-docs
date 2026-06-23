@@ -1,6 +1,7 @@
 import requests
 import json
 
+# The 'fields' parameter is passed as a comma-separated string of single names.
 fields = [
     "file_name",
     "cases.submitter_id",
@@ -52,4 +53,10 @@ params = {
 # The parameters are passed to 'json' rather than 'params' in this case
 response = requests.post(files_endpt, headers = {"Content-Type": "application/json"}, json = params)
 
+# OUTPUT METHOD 1: Write to a file.
+file = open("complex_filters.tsv", "w")
+file.write(response.text)
+file.close()
+
+# OUTPUT METHOD 2: View on screen.
 print(response.content.decode("utf-8"))

@@ -4,7 +4,7 @@ The Mutation Summary Page contains information about one somatic mutation and ho
 
 ## Summary
 
-[![Mutation Summary](images/GDC-Mutation-Summary.png)](images/GDC-Mutation-Summary.png "Click to see the full image.")
+[![Mutation Summary](images/GDC-Mutation-Summary_v2.png)](images/GDC-Mutation-Summary_v2.png "Click to see the full image.")
 
 - __ID:__ A unique identifier (UUID) for this mutation
 - __DNA Change:__ Denotes the chromosome number, position, and nucleotide change of the mutation
@@ -18,7 +18,7 @@ The Mutation Summary Page contains information about one somatic mutation and ho
 
 ### External References
 
-A separate panel contains links to databases that contain information about the specific mutation. These include [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/) and [COSMIC](http://cancer.sanger.ac.uk/cosmic).
+A separate panel contains links to databases that contain information about the specific mutation. These include [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/), [COSMIC](http://cancer.sanger.ac.uk/cosmic), and [CIViC](https://civicdb.org/home).
 
 ## Consequences
 

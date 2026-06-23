@@ -10,16 +10,16 @@ The GDC Data Transfer Tool, a command-line driven application, provides an optim
 
 ### System Recommendations
 
-The system recommendations for using the GDC Data Transfer Tool&nbsp;are as follows:
+The system recommendations for using the GDC Data Transfer Tool are as follows:
 
-* OS: Linux (Ubuntu 14.x or later), OS X (10.9 Mavericks or later), or Windows (7 or later)
-* CPU: At least eight 64-bit cores, Intel or AMD
+* OS: Linux (Ubuntu 16.x or later), OS X (10.9 Mavericks or later), or Windows (8 or later)
+* CPU: At least two 64-bit cores, Intel or AMD
 * RAM: At least 8 GiB
 * Storage: Enterprise-class storage system capable of at least 1 Gb/s (gigabit per second) write throughput and sufficient free space for BAM files.
 
 ### Binary Distributions
 
-Binary distributions are available on the [GDC Transfer Tool page](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool). To install the GDC Data Transfer Tool, download the respective binary distribution and unzip the distribution&#39;s archive to a location on the target system.  It is recommended that the binary be copied to a located that is in the user's path so that is it accessible from any location within the terminal or command prompt.   
+Binary distributions are available on the [GDC Transfer Tool page](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool). To install the GDC Data Transfer Tool, download the respective binary distribution and unzip the distribution's archive to a location on the target system. It is recommended that the binary be copied to a located that is in the user's path so that is it accessible from any location within the terminal or command prompt.   
 
 ### Release Notes
 
