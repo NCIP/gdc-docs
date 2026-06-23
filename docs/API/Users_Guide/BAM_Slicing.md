@@ -21,11 +21,11 @@ Please note the following:
 The following query parameters and JSON fields are supported:
 
 | Description | Query Parameter | JSON Field | Query format |
-|---|---|---|
+|---|---|---|---|
 | entire chromosome, or a position or region on the chromosome, specified using chromosomal coordinates | region | regions | region=<chr>(:<start>(-<stop>)?)?</stop></start></chr> |
 | region specified using a [HGNC](http://www.genenames.org/) / [GENCODE v22](http://www.gencodegenes.org/) gene name |  gencode | gencode | gencode=<gene_name> |
 
-**NOTE:** The successfully sliced BAM will contain all reads that overlap (entirely or partially) with the specified region or gene. It is possible to specify an open-ended region, e.g. `chr2:10000`, which would return all reads that (completely or partially) overlap with the region of chromosome 2 from position 10,000 to the end of the chromosome.
+>**NOTE:** The successfully sliced BAM will contain all reads that overlap (entirely or partially) with the specified region or gene. It is possible to specify an open-ended region, e.g. `chr2:10000`, which would return all reads that (completely or partially) overlap with the region of chromosome 2 from position 10,000 to the end of the chromosome.
 
 ### JSON Schema
 

@@ -27,9 +27,9 @@ A list with links that lead to external databases with additional information ab
 
 ### Cancer Distribution
 
-A table and bar graph show how many cases are affected by mutations within the gene as a ratio and percentage. Each row/bar represents the number of cases for each project.  The final column in the table lists the number of unique mutations observed on the gene for each project.
+A table and two bar graphs (one for mutations, one for CNV events) show how many cases are affected by mutations and CNV events within the gene as a ratio and percentage. Each row/bar represents the number of cases for each project.  The final column in the table lists the number of unique mutations observed on the gene for each project.
 
-[![Cancer Distribution](images/GDC-Gene-CancerDist.png)](images/GDC-Gene-CancerDist.png "Click to see the full image.")
+[![Cancer Distribution](images/GDC-Gene-CancerDist_v2.png)](images/GDC-Gene-CancerDist_v2.png "Click to see the full image.")
 
 ### Protein Viewer
 

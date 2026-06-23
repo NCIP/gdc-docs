@@ -668,7 +668,7 @@ curl 'https://api.gdc.cancer.gov/cases?filters=%7b%0d%0a+++%22op%22+%3a+%22%3d%2
 
 #### Example: Filter using a range
 
-This is an example of filtering for age at diagnosis. The request is for cases where the age at diagnosis is between 40 and 70 years. *Note:* `age_at_diagnosis` is expressed in days.
+This is an example of filtering for age at diagnosis. The request is for cases where the age at diagnosis is between 40 and 70 years. >**Note:** `age_at_diagnosis` is expressed in days.
 
 ```Filter
 {

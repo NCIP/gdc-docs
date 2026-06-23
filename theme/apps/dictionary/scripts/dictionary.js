@@ -427,7 +427,7 @@
       clinical: ['clinical', 'clinical_test'],
       annotation: ['analysis', 'archive', 'publication', 'slide']
     },
-    LINK_EXCLUDES: ['file', 'archive', 'clinical_test'],
+    LINK_EXCLUDES: ['file', 'archive', 'clinical_test', 'submitted_methylation_beta_value'],
     PROPERTY_EXCLUDES: ['type', 'clinical_data_bundles', 'biospecimen_data_bundles', 'pathology_data_bundles', 'batch_id'],
     CATEGORY_TEMPLATE_INCLUDES: {
     },
@@ -823,8 +823,7 @@
                 {
                   enum: unfilteredDict.properties[key].enum.filter(
                     en => !(unfilteredDict.properties[key].deprecated_enum || [])
-                    .map(dEn => dEn.toLowerCase())
-                    .includes(en.toLowerCase())
+                    .includes(en)
                   )
                 } : {}
               )}),
