@@ -1,12 +1,8 @@
 {
-  "defaultBaseFromURL": "http://gdc-docs.nci.nih.gov",
-  "defaultBaseToURL": "http://gdc-docs.nci.nih.gov",
-
   "redirects": [
     {
-      "from": "/",
-      "to": "/"
+      "from": "/Data_Portal/Users_Guide/Authentication",
+      "to": "/Data_Portal/Users_Guide/Cart/#gdc-authentication-tokens"
     }
   ]
-
 }
