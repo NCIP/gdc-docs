@@ -2,11 +2,35 @@
 
 | Version | Date |
 |---|---|
+| [v1.4.0](DTT_Release_Notes.md#v140) | December 18, 2018 |
 | [v1.3.0](DTT_Release_Notes.md#v130) | August 22, 2017 |
 | [v1.2.0](DTT_Release_Notes.md#v120) | Oct 31, 2016 |
 | [v1.1.0](DTT_Release_Notes.md#v110) | September 7, 2016 |
 | [v1.0.1](DTT_Release_Notes.md#v101) | June 2, 2016 |
 | [v1.0.0](DTT_Release_Notes.md#v100) | May 26, 2016 |
+
+## V1.4.0
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: December 18, 2018
+
+### New Features and Changes
+* Enabled download latest file version feature <!--DTT-112-->     
+* Removal of Interactive mode <!--DTT-30--><!--DTT-105-->
+* Enabled display of all default settings <!--DTT-30--><!--DTT-105-->
+* Standardized upload and download help menus <!--DTT-95-->
+
+### Bugs Fixed Since Last Release
+* Download flag --no-related-files bug preventing file downloads fixed <!--DTT-94-->
+* File name handling with forward slashes bug fixed <!--DTT-99-->
+* Download flag --no-segment-md5sums bug fixed. <!--DTT-11-->
+
+### Known Issues and Workarounds
+* Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* When any files mentioned in the upload manifest are not present in the upload directory the submission will hang at the missing file.
+	* *Workaround:* Edit the manifest to specify only the the files that are present in the upload directory for submission or copy the missing files into the upload directory.
+
 
 ## v1.3.0
 * __GDC Product__: Data Transfer Tool
@@ -102,12 +126,6 @@
 * Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
 * On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
 	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
-
-
-
-
-
-
 
 ## v1.0.0
 
