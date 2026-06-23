@@ -4,7 +4,6 @@
 
 The GDC Data Submission Portal dashboard provides details about a specific project.
 
-[![GDC Submission Dashboard Page](images/GDC_Submission_Dashboard_2.png)](images/GDC_Submission_Dashboard_2.png "Click to see the full image.")
 [![GDC Submission Dashboard Page-2](images/GDC_Submission_Dashboard_3.png)](images/GDC_Submission_Dashboard_3.png "Click to see the full image.")
 
 The dashboard contains various visual elements to guide the user through all stages of submission, from viewing the [Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/) in support of data upload to submitting a project for harmonization.
@@ -16,13 +15,16 @@ The Project Overview sections of the dashboard displays the project state (open 
 
 The search field at the top of the dashboard allows for submitted entities to be searched by partial or whole `submitter_id`.  When a search term is entered into the field, a list of entities matching the term is updated in real time.  Selecting one of these entities links to its details in the [Browse Tab](Browse_Data.md)
 
-The remaining part of the top section of the dashboard is broken down into four status charts:
+The remaining part of the top section of the dashboard is broken down into five status charts:
 
+* __QC Errors__: The number of QC errors identified within the data that has been uploaded. Refer to [QC Reports](/Data_Submission_Portal/Users_Guide/Data_Submission_Process/#qc-reports) for more information.
 * __Cases with Clinical__: The number of `cases` for which Clinical data has been uploaded.
 * __Cases with Biospecimen__: The number of `cases` for which Biospecimen data has been uploaded.
 * __Cases with Submittable Data Files__: The number of `cases` for which experimental data has been uploaded.
 * __Submittable Data Files__: The number of files uploaded through the GDC Data Transfer Tool. For more information on this status chart, please refer to [File Status Lifecycle](Submission_Workflow/#file-status-lifecycle).
 The _'DOWNLOAD MANIFEST'_ button below this status chart allows the user to download a manifest for registered files in this project that have not yet been uploaded.
+
+\* Note that the QC Errors will not be immediately updated after submission of a new file.
 
 Status charts are constantly updated to reflect the current state of the selected project.
 

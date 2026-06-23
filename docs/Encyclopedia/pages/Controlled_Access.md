@@ -10,10 +10,9 @@ Genomic data access is governed by the NIH's Genomic Data Sharing Policy.
 
 ## References ##
 1. [GDC Granting Access to Controlled Data](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data)
-2. [Registering and Working with eRA Commons and dbGaP](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data/registering-and-working-era-commons-and-dbgap)
 
 ## External Links ##
-* [NIH Genomic Data Sharing Policy](https://gds.nih.gov/03policy2.html)
+* [NIH Genomic Data Sharing Policy](https://sharing.nih.gov/genomic-data-sharing-policy)
 * [dbGaP](https://www.ncbi.nlm.nih.gov/gap)
 
 Categories: General
