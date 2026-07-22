@@ -1,5 +1,3 @@
-<img width="1280" height="581" alt="image" src="https://github.com/user-attachments/assets/eef58e85-59cf-420e-aa5a-489decd6abf8" /># Data Release Notes
-
 | Version | Date |
 |---|---|
 | [v46.0](Data_Release_Notes.md#data-release-460) | July 22, 2026 |
