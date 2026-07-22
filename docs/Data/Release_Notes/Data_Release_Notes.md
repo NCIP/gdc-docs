@@ -1,7 +1,8 @@
-# Data Release Notes
+<img width="1280" height="581" alt="image" src="https://github.com/user-attachments/assets/eef58e85-59cf-420e-aa5a-489decd6abf8" /># Data Release Notes
 
 | Version | Date |
 |---|---|
+| [v46.0](Data_Release_Notes.md#data-release-460) | July 22, 2026 |
 | [v45.0](Data_Release_Notes.md#data-release-450) | December 4, 2025 |
 | [v44.0](Data_Release_Notes.md#data-release-440) | October 29, 2025 |
 | [v43.0](Data_Release_Notes.md#data-release-430) | May 7, 2025 |
@@ -52,6 +53,37 @@
 | [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
+## Data Release 46.0
+
+* __GDC Product__: Data
+* __Release Date__: July 22, 2026
+
+## New Updates
+
+* New Projects
+    * PECGS-COPECC: Participant Engagement and Cancer Genome Sequencing Network - Center for Optimization of Participant Engagement for Cancer Characterization
+        * Includes RNA-Seq and clinical supplements
+    * APOLLO-BRCA-1: 
+        * Includes RNA-Seq
+
+* New Cases from Existing Projects
+    * CPTAC-3 - 183 cases from melanoma cohort
+
+* New Data Sets 
+    * New WGS data available for the following pipelines:
+        * GATK4 MuTect2 - raw and annotated VCFs + TBIs
+        * VarScan2 - raw and annotated VCFs + TBIs
+        * GATK4 CNV - segment and auxiliary files
+        * Previously unreleased aligned reads (BAMs)
+    * WXS variants for CCDI-MCI
+
+* Data Updates
+    * BAM slicing option is available again for CPTAC-3 targeted sequencing
+
+* Miscellaneous
+    * analyte.ribosomal_rna_28s_16s_ratio has been migrated to analyte.ribosomal_rna_28s_18s_ratio
+    * diagnosis.ann_arbor_b_symptoms_described has been migrated to diagnosis.ann_arbor_b_symptoms_described_array
 
 ## Data Release 45.0
 
