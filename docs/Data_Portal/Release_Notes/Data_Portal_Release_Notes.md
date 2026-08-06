@@ -90,6 +90,7 @@
 * __Copy Number Segment__:
 	* Inconsistent handling of coordinates. <!--SV-2422-->
 * __Gene Expression Clustering__:
+    * An error will occur when using the tool with a cohort that has no filters applied. As a workaround, first apply a filter to the cohort before using it with the tool. <!--SV-2811-->
     * The tool may incorrectly report "No matching cohort sample data for the current gene list", if the cohort includes a large number of cases without gene expression data.<!--SV-2800-->
 * __Survival Plot__:
     * In __Mutation Frequency__, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
