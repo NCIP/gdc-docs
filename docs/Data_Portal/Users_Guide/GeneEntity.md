@@ -6,7 +6,7 @@ The Gene Summary Page describes each gene with mutation data featured at the GDC
 
 The summary section of the gene page contains the following information:
 
-[![Gene Summary](images/GDC-Gene-Summary.png)](images/GDC-Gene-Summary.png "Click to see the full image.")
+[![Gene Summary](images/GDC-Gene-Summary_v2.png)](images/GDC-Gene-Summary_v2.png "Click to see the full image.")
 
 * __Symbol:__ The gene symbol
 * __Name:__ Full name of the gene
@@ -19,7 +19,7 @@ The summary section of the gene page contains the following information:
 
 ## External References
 
-A list with links that lead to external databases with additional information about each gene is displayed here. These external databases include: [Entrez](https://www.ncbi.nlm.nih.gov/gquery/), [Uniprot](http://www.uniprot.org/), [Hugo Gene Nomenclature Committee](http://www.genenames.org/), [Online Mendelian Inheritance in Man](https://www.omim.org/), and [Ensembl](http://may2015.archive.ensembl.org/index.html).
+A list with links that lead to external databases with additional information about each gene is displayed here. These external databases include: [Entrez](https://www.ncbi.nlm.nih.gov/gquery/), [Uniprot](http://www.uniprot.org/), [Hugo Gene Nomenclature Committee](http://www.genenames.org/), [Online Mendelian Inheritance in Man](https://www.omim.org/), [Ensembl](http://may2015.archive.ensembl.org/index.html), and [CIViC](https://civicdb.org/home).
 
 ## Cancer Distribution
 

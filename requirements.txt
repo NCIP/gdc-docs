@@ -1,2 +1,6 @@
 mkdocs==0.15.1
+mkdocs-bootstrap==0.1.1
+mkdocs-bootswatch==0.4
 BSCodeTabs
+Markdown==2.6.11
+MarkupSafe==1.0
