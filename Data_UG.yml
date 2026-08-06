@@ -19,6 +19,7 @@ pages:
   - "Bioinformatics Pipeline: miRNA Analysis": 'Data/Bioinformatics_Pipelines/miRNA_Pipeline.md'
   - "Bioinformatics Pipeline: Copy Number Variation": 'Data/Bioinformatics_Pipelines/CNV_Pipeline.md'
   - "Bioinformatics Pipeline: Methylation Liftover": 'Data/Bioinformatics_Pipelines/Methylation_LO_Pipeline.md'
+  - Aligned Reads Summary Metrics: 'Data/Bioinformatics_Pipelines/Aligned_reads_summary_metrics.md'
   - Release Notes: 'Data/Release_Notes/Data_Release_Notes.md'
 extra:
   project_root_dir: '/'

@@ -1,0 +1,76 @@
+{% set site_title = "NCI Genomic Data Commons (GDC)" %}
+{% set page_title = "Documentation" %}
+{% set page_subtitle = "A place where researchers, data submitters and developers can find detailed information on GDC processes and tools." %}
+
+{% set search_placeholder = "What are you looking for?" %}
+
+{% set cards = [
+    ('For Researchers', '#1db888', '/img/hp-icons-researcher.png', [
+        ('Understand the Data in the GDC', '/Data/Introduction/'),
+        ('Access Controlled Data in the GDC', '/Data/Data_Security/Data_Security/'),
+        ('Explore Data in the GDC', '/Data_Portal/Users_Guide/Exploration/'),
+        ('Download Files in the GDC', '/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/'),
+        ('Analyze Data in the GDC', '/Data_Portal/Users_Guide/Custom_Set_Analysis/')
+    ]),
+    ('For Data Submitters', '#676bc0', '/img/hp-icons-submitter.png', [
+        ('View the GDC Data Dictionary', '/Data_Dictionary/viewer/'),
+        ('Search the GDC Data Dictionary', '/Data_Dictionary/gdcmvs/'),
+        ('Understand GDC Harmonized Data', 'https://gdc.cancer.gov/about-data/data-harmonization-and-generation/genomic-data-harmonization-0'),
+        ('Submit Data', '/Data_Submission_Portal/Users_Guide/Data_Submission_Overview/'),
+        ('Review Submitted Data', '/Data_Submission_Portal/Users_Guide/Data_Submission_Process/#review')
+    ]),
+    ('For Developers', '#743983', '/img/hp-icons-developer.png', [
+        ('Understand the GDC Data Model', '/Data/Data_Model/GDC_Data_Model/'),
+        ('Use the GDC API', '/API/Users_Guide/Getting_Started/'),
+        ('Access the GDC Codebase', 'https://github.com/NCI-GDC'),
+    ]),
+] %}
+
+{% set footer_text = 'To learn more about the GDC, please visit the <a href="https://gdc.cancer.gov/">GDC Website</a> or <a href="https://gdc.cancer.gov/contact-us">Contact Us</a>.' %}
+
+<div class="hp-hero">
+    <p class="hp-hero__site-title">{{ site_title }}</p>
+    <h1 class="hp-hero__page-title">{{ page_title }}</h1>
+    <p class="hp-hero__subtitle">{{ page_subtitle }}</p>
+    <div class="hp-search" id="search-bar">
+        <div class="hp-search__wrapper-input">
+            <label for="hp-search__input" class="hp-search__label">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </label>
+            <input type="text" placeholder="{{ search_placeholder }}" aria-label="Search" class="hp-search__input"
+                id="hp-search__input">
+        </div>
+        <button type="button" class="hp-search__cancel" aria-label="Cancel search" style="display: none;">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+        <div class="hp-search__wrapper-results">
+            <div class="hp-search__body"></div>
+            <div class="hp-search__results-container">
+                <div class="hp-search__results"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hp-container">
+    <div class="row">
+        {% for card_title, border_color, card_image, links in cards %}
+        <div class="col-md-4">
+            <div class="hp-card">
+                <h2 class="hp-card__title" style="border-top-color: {{border_color}}">{{card_title}}</h2>
+                <img class="hp-card__image" src="{{card_image}}" alt="">
+                <ul class="hp-card__links">
+                    {% for text, link in links %}
+                    <li class="hp-card__links-item"><a href="{{link}}">{{text}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="hp-container">
+    <p class="hp-footer text-center" alt="">
+        <img src="/img/hp-icons-computer.png">
+        &nbsp; {{ footer_text }}
+    </p>
+</div>

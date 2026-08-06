@@ -68,6 +68,7 @@ While the default download options will work for the majority of use cases, ther
 
 | Settings | Details
 |----------|---------|
+| Server URL | Default: https://api.gdc.cancer.gov |
 | Number of Client Connections: Default (3) | Number of concurrent client threads |
 | Destination Folder: Default (User's Home Directory) | User selectable download file location |  
 | Calculate Inbound Segment and check Md5sum on Restart: Default (On) | Verify previous partial downloaded files via segment check sum |
