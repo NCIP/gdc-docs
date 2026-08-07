@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v46.0](Data_Release_Notes.md#data-release-460) | August 7, 2026 |
+| [v46.0](Data_Release_Notes.md#data-release-460) | August 10, 2026 |
 | [v45.0](Data_Release_Notes.md#data-release-450) | December 4, 2025 |
 | [v44.0](Data_Release_Notes.md#data-release-440) | October 29, 2025 |
 | [v43.0](Data_Release_Notes.md#data-release-430) | May 7, 2025 |
@@ -57,7 +57,7 @@
 ## Data Release 46.0
 
 * __GDC Product__: Data
-* __Release Date__: July 22, 2026
+* __Release Date__: August 10, 2026
 
 ## New Updates
 
@@ -76,10 +76,11 @@
         * VarScan2 - raw and annotated VCFs + TBIs
         * GATK4 CNV - segment and auxiliary files
         * Previously unreleased aligned reads (BAMs)
-    * WXS variants for CCDI-MCI
+    * Raw VCFs, annotated VCFs, aliquot-level single-caller MAFs, aliquot-level aggregated MAFs, & aliquot-level masked MAFs for CCDI-MCI
 
 * Data Updates
     * BAM slicing option is available for CPTAC-3 targeted sequencing
+    	* One BAM (9b3f874f-9473-4d99-b4bd-69cb37f0dc0d) is still unable to be sliced, and will be fixed in a future data release
 
 * Miscellaneous
     * analyte.ribosomal_rna_28s_16s_ratio has been migrated to analyte.ribosomal_rna_28s_18s_ratio
