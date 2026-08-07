@@ -76,7 +76,7 @@
         * VarScan2 - raw and annotated VCFs + TBIs
         * GATK4 CNV - segment and auxiliary files
         * Previously unreleased aligned reads (BAMs)
-    * Raw VCFs, annotated VCFs, aliquot-level single-caller MAFs, aliquot-level aggregated MAFs, & aliquot-level masked MAFs for CCDI-MCI
+    * Raw VCFs, annotated VCFs, aliquot-level single-caller MAFs, aliquot-level aggregated MAFs, & aliquot-level masked MAFs for CCDI-MCI whole exome sequencing
 
 * Data Updates
     * BAM slicing option is available for CPTAC-3 targeted sequencing
@@ -85,6 +85,25 @@
 * Miscellaneous
     * analyte.ribosomal_rna_28s_16s_ratio has been migrated to analyte.ribosomal_rna_28s_18s_ratio
     * diagnosis.ann_arbor_b_symptoms_described has been migrated to diagnosis.ann_arbor_b_symptoms_described_array
+ 
+### Known Issues and Workarounds
+
+* 146 cases from the CCDI-MCI project do not have diagnosis information associated with them. This data will be added in a future release.   
+* Some VCF headers from SvABA list the names of the BAM files they originated from instead of "NORMAL" and "TUMOR", in that order.
+* The slide image viewer does not display for any non-TCGA slides. At this time, these slides will need to be downloaded and viewed locally. Additionally, the slide image viewer does not display properly for 14 TCGA slides, which are identified [here](missing_tiling.txt).
+* 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
+* One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
+* Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MDLS is available.
+* TCGA Projects
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
+    * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+    * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+
 
 ## Data Release 45.0
 
