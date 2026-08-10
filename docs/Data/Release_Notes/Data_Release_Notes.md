@@ -62,9 +62,9 @@
 ## New Updates
 
 * New Projects
-    * PECGS-COPECC: Participant Engagement and Cancer Genome Sequencing Network - Center for Optimization of Participant Engagement for Cancer Characterization
+    * PECGS-COPECC: Participant Engagement and Cancer Genome Sequencing Network - Center for Optimization of Participant Engagement for Cancer Characterization (dbGaP 003985)
         * Includes RNA-Seq and clinical supplements
-    * APOLLO-BRCA-1: 
+    * APOLLO-BRCA-1: Applied Proteogenomics OrganizationaL Learning and Outcomes - BReast CAncer - 1 (dbGaP phs003636)
         * Includes RNA-Seq
 
 * New Cases from Existing Projects
