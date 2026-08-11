@@ -250,7 +250,7 @@ __Example 1__: A user wants to get the availability of gene expression data for 
 
 ### Gene Expression Values Endpoint
 
-The purpose of this endpoint is to retrieve the gene expression values for the given cases and genes. The response is a TSV containing the expression values for genes to cases.
+The purpose of this endpoint is to retrieve the gene expression values for the given cases and genes. The response is a TSV containing the expression values for genes to cases. TSV is the default and currently the only supported response format for this endpoint; JSON is not available.
 The `tsv_units` of gene expression data must be defined by exactly one of the following:
 
 * `uqfpkm` - FPKM-UQ values. More information on calculations can be found [here](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#calculations).

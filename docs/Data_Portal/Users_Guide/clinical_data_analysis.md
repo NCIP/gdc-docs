@@ -49,30 +49,41 @@ Note that the histogram plot applies to, and can be displayed for, both categori
 
 ### Survival Plot
 
-The survival analysis is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Thus, the values are retrieved from [GDC Data Dictionary](../../../Data_Dictionary) properties and a survival analysis requires the following fields:
+Survival analysis is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Thus, the values are retrieved from [GDC Data Dictionary](../../../Data_Dictionary) properties and survival analysis requires the following fields:
 
-*  Data on the time to a particular event (days to death or last follow up).
-    * Fields:  __demographic.days_to_death__ or __diagnoses.days_to_last_follow_up__
+*  Data on the time to a particular event (days to death or follow up).
+    * Fields:  __demographic.days_to_death__, __diagnoses.days_to_last_follow_up__, or __follow_ups.days_to_follow_up__
 *  Information on whether the event has occurred (alive/deceased).
     * Fields:  __demographic.vital_status__
-*  Data split into different categories or groups (i.e. primary diagnosis, etc.).
-    * Fields:  __diagnoses.primary_diagnosis__
 
-The survival analysis in the GDC uses a Kaplan-Meier estimator:
+Survival analysis in the GDC uses a Kaplan-Meier estimator:
 
 [![Kaplan-Meier Estimator](images/gdc-kaplan-meier-estimator2.png)](images/gdc-kaplan-meier-estimator2.png "Click to see the full image.")
 
 Where:
 
- * S(t) is the estimated survival probability for any particular one of the t time periods.
+ * S(t) is the estimated probability that a subject will survive past time t.
  * n<sub>i</sub> is the number of subjects at risk at the beginning of time period t<sub>i</sub>.
- * and d<sub>i</sub> is the number of subjects who die during time period t<sub>i</sub>.
+ * d<sub>i</sub> is the number of subjects who die during time period t<sub>i</sub>.
 
-The table below is an example data set to calculate survival for a set of seven cases:
+The following table shows an example data set for seven subjects.
+
+| Subject  | Time (Years) | Vital Status 
+| -------- | ------------ | ------------ |
+| A        | 1            | Dead         |
+| B        | 2            | Alive        |
+| C        | 3            | Alive        |
+| D        | 4            | Dead         |
+| E        | 5            | Alive        |
+| F        | 10           | Dead         |
+| G        | 12           | Alive        |
+
+
+The survival estimate for the seven subjects can be calculated as follows.
 
 [![Sample Survival Analysis Table](images/gdc-sample-survival-table.png)](images/gdc-sample-survival-table.png "Click to see the full image.")
 
-The calculated cumulated survival probability can be plotted against the interval to obtain a survival plot like the one shown below.
+The calculated cumulative survival probability can be plotted against the interval to obtain a survival plot like the one shown below.
 
 [![Sample Survival Analysis Plot](images/gdc-survival-plot.png)](images/gdc-survival-plot.png "Click to see the full image.")
 

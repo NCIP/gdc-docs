@@ -589,7 +589,8 @@ This example is a query for cases contained in GDC. It returns only the first fi
     }
     ```
 
-This example is a query for cases with a height (follow_ups.other_clinical_attributes.height) equal to or greater than 225, and return the height and project_id the case belongs to. Note: height is expressed in centimeters. 
+This example is a query for cases with a height (follow_ups.other_clinical_attributes.height) equal to or greater than 225, and return the height and project_id the case belongs to. 
+>**Note:** height is expressed in centimeters. 
 
 === "Filter"
 
@@ -645,7 +646,8 @@ curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22%3A%20%22%3E%3D%22%2C%
 }
 ```
 
-This example is a query to filter for first 5 cases that have Other Clinical Attribute entities with data and to display the Other Clinical Attribute data and project_id. Note: the `not` operator filters for fields that are *not* missing or *not* empty. 
+This example is a query to filter for first 5 cases that have Other Clinical Attribute entities with data and to display the Other Clinical Attribute data and project_id. 
+>**Note:** the `not` operator filters for fields that are *not* missing or *not* empty. 
 
 === "Filter"
 
@@ -1329,7 +1331,8 @@ This is an example of a value-based filter:
 
 #### Example: Filter using a range
 
-This is an example of filtering for age at diagnosis. The request is for cases where the age at diagnosis is between 40 and 70 years. >**Note:** `age_at_diagnosis` is expressed in days.
+This is an example of filtering for age at diagnosis. The request is for cases where the age at diagnosis is between 40 and 70 years. 
+>**Note:** `age_at_diagnosis` is expressed in days.
 
 === "Filter"
 
@@ -1365,6 +1368,164 @@ This is an example of filtering for age at diagnosis. The request is for cases w
     curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22%3E%3D%22,%22content%22:%7B%22field%22:%22cases.diagnoses.age_at_diagnosis%22,%22value%22:%5B14600%5D%7D%7D,%7B%22op%22:%22%3C%3D%22,%22content%22:%7B%22field%22:%22cases.diagnoses.age_at_diagnosis%22,%22value%22:%5B25550%5D%7D%7D%5D%7D&fields=diagnoses.age_at_diagnosis,case_id&pretty=true'
     ```
 
+##### Using `and` and `or` with range filters
+
+When working with range filters (for example, `>`, `>=`, `<`, `<=`), the way you combine them matters.
+
+- Use `and` to combine the bounds of a single range (for example, "between 40 and 70 years" in the `age_at_diagnosis` example above).
+- If you want to combine multiple range filters with `or`, put each range inside its own `and` group, and then combine those groups with a top-level `or`.
+- Avoid placing range operators directly under a top-level `or`, as this structure does not reliably apply the intended filters.
+
+Example: `or` between range filters
+
+The following example demonstrates correct filtering using the `and` and `or` operators with the `/cases` endpoint. Suppose you want cases that meet at least one of these conditions:
+
+- `demographic.days_to_death > 0`, or
+- `diagnoses.days_to_last_follow_up > 0`, or
+- `follow_ups.days_to_follow_up > 0`.
+
+=== "Filter"
+
+    ```json
+    {
+        "filters": {
+            "op": "or",
+            "content": [
+                {
+                    "op": "and",
+                    "content": [
+                        {
+                            "op": ">",
+                            "content": {
+                                "field": "demographic.days_to_death",
+                                "value": 0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "op": "and",
+                    "content": [
+                        {
+                            "op": ">",
+                            "content": {
+                                "field": "diagnoses.days_to_last_follow_up",
+                                "value": 0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "op": "and",
+                    "content": [
+                        {
+                            "op": ">",
+                            "content": {
+                                "field": "follow_ups.days_to_follow_up",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "size": 1
+    }
+    ```
+
+=== "Response"
+
+    ```json
+    {
+        "data": {
+            "hits": [
+                {
+                    "id": "0e9262d1-5aa8-4528-9aee-2815afcd23cd",
+                    "slide_ids": [
+                        "3e754cbb-ce5e-41d2-aef6-51a96b39b8ea",
+                        "5f4b2950-9427-4bf4-96db-239da84e5224"
+                    ],
+                    "submitter_slide_ids": [
+                        "HCM-WCMC-0950-C67-01A-01-S2-HE",
+                        "HCM-WCMC-0950-C67-01A-01-S1-HE"
+                    ],
+                    "disease_type": "Transitional Cell Papillomas and Carcinomas",
+                    "analyte_ids": [
+                        "f4c8bb09-0593-47e1-b134-69992529e9bb",
+                        "f153b565-462c-4649-9f77-42aea65b35a6",
+                        "c777e68c-9a38-4d6b-ac88-d357c06a8796",
+                        "e83734f5-607b-43e9-b5f7-c0003891d547",
+                        "e664a9f4-1e80-48cf-af47-6b4a9b612f25"
+                    ],
+                    "submitter_id": "HCM-WCMC-0950-C67",
+                    "submitter_analyte_ids": [
+                        "HCM-WCMC-0950-C67-85A-01R",
+                        "HCM-WCMC-0950-C67-10A-01D",
+                        "HCM-WCMC-0950-C67-85A-01D",
+                        "HCM-WCMC-0950-C67-01A-01R",
+                        "HCM-WCMC-0950-C67-01A-01D"
+                    ],
+                    "aliquot_ids": [
+                        "91911835-c196-4df8-84e4-41151e72f571",
+                        "318d0505-345e-40cd-b6cf-fcf2413bd828",
+                        "7d9ee243-b34f-4b77-81af-a75ee45a8558",
+                        "fa2bc724-43cd-4a01-ab7d-77f2d16783e7",
+                        "a31597ac-b537-46e4-8d7d-5cfee78eadd6"
+                    ],
+                    "submitter_aliquot_ids": [
+                        "HCM-WCMC-0950-C67-01A-01R-A88K-41",
+                        "HCM-WCMC-0950-C67-85A-01D-A88H-36",
+                        "HCM-WCMC-0950-C67-10A-01D-A88H-36",
+                        "HCM-WCMC-0950-C67-85A-01R-A88J-41",
+                        "HCM-WCMC-0950-C67-01A-01D-A88H-36"
+                    ],
+                    "created_datetime": "2021-12-09T14:30:39.067286-06:00",
+                    "diagnosis_ids": [
+                        "82806bbe-6770-4697-93aa-c8b87aa73044"
+                    ],
+                    "sample_ids": [
+                        "00380420-c546-4d7b-ae1a-4cd90b4f729e",
+                        "40b7f970-85c1-41fc-ba25-f247806646f7",
+                        "a80e45ae-b144-40dc-9ffc-e8b24052c277"
+                    ],
+                    "submitter_sample_ids": [
+                        "HCM-WCMC-0950-C67-10A",
+                        "HCM-WCMC-0950-C67-85A",
+                        "HCM-WCMC-0950-C67-01A"
+                    ],
+                    "primary_site": "Bladder",
+                    "submitter_diagnosis_ids": [
+                        "HCM-WCMC-0950-C67_diagnosis"
+                    ],
+                    "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+                    "case_id": "0e9262d1-5aa8-4528-9aee-2815afcd23cd",
+                    "index_date": "Diagnosis",
+                    "state": "released",
+                    "portion_ids": [
+                        "a82ae730-818d-4e24-a3b5-04506073043e",
+                        "f3d0cd1f-a7c3-49ce-81e2-931bda3f63c3"
+                    ],
+                    "submitter_portion_ids": [
+                        "HCM-WCMC-0950-C67-01A-01",
+                        "HCM-WCMC-0950-C67-10A-01"
+                    ]
+                }
+            ],
+            "pagination": {
+                "count": 1,
+                "total": 23221,
+                "size": 1,
+                "from": 0,
+                "sort": "",
+                "page": 1,
+                "pages": 23221
+            }
+        },
+        "warnings": {}
+    }
+    ```
+
+This pattern keeps each range condition inside an `and` block and uses `or` only at the top level, which helps ensure the `/cases` endpoint applies the range filters as intended.
 
 #### Example: Multiple fields
 

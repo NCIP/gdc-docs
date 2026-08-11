@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.8.0](Data_Portal_Release_Notes.md#release-280) | June 29, 2026 |
 | [v2.7.0](Data_Portal_Release_Notes.md#release-270) | April 27, 2026 |
 | [v2.6.0](Data_Portal_Release_Notes.md#release-260) | March 16, 2026 |
 | [v2.5.0](Data_Portal_Release_Notes.md#release-250) | June 30, 2025 |
@@ -44,6 +45,73 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.8.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: June 29, 2026
+
+### New Features and Changes
+
+* __Survival Plot__:
+    * The issue where survival estimates may be overestimated has been addressed.
+    * Survival analysis now incorporates `follow_ups.days_to_follow_up`, in addition to `demographic.days_to_death` and `diagnoses.days_to_last_follow_up`, for times to event or censoring. This expands on the previous approach which used only `days_to_death` and `days_to_last_follow_up` data.
+    * Only cases with a `vital_status` of "alive" or "dead" are included in survival analysis. Previously, cases with a `vital_status` of "not reported" or "unknown" were also included in the analysis. 
+    * The survival curve now correctly begins at a survival rate of 1.0 at time 0. <!--PEAR-2639-->
+    * The survival curve now accurately represents the survival estimates for all observation times. <!--PEAR-2639-->    
+* The CIViC link on the __Gene Summary Page__ has been updated. <!--PEAR-2687-->
+* Text has been added to the title of the Most Frequently Mutated Genes bar graph in __Mutation Frequency__ to clarify that only SSMs are included. <!--PEAR-2696-->
+
+### Bugs Fixed Since Last Release
+
+* The Primary Site and Disease Type cards in the __Cohort Builder__ now have tooltips displaying a description of these properties. <!--PEAR-2516-->
+* __IDC Image Viewer__:
+    * When searching Case ID in the Search Bar, cases are now populated if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also now lists a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
+    * The IDC Image Viewer Table now reflects the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
+* __Correlation Plot__:
+    * When all data has been hidden by the user, there are now legend labels to reenable showing the hidden data.<!--SV-2745-->
+* __Cohort Level MAF__:
+    * Requests for multiple files now complete successfully, without server request failure errors.<!--SV-2808-->
+* Minor UI fixes. <!--PEAR-2698-->
+
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing and Sequence Reads.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __Correlation Plot__:
+    * The menus and labels use "samples" or "individuals" where "cases" should be used. <!--SV-2754-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track that does not reflect the current cohort.<!--SV-2799-->
+    * GeneExp vs Survival input in Correlation Plot should display error when the cohort size >5k.<!--SV-2796-->
+* __Copy Number Segment__:
+	* Inconsistent handling of coordinates. <!--SV-2422-->
+* __Gene Expression Clustering__:
+    * An error will occur when using the tool with a cohort that has no filters applied. As a workaround, first apply a filter to the cohort before using it with the tool. <!--SV-2811-->
+    * The tool may incorrectly report "No matching cohort sample data for the current gene list", if the cohort includes a large number of cases without gene expression data.<!--SV-2800-->
+* __Survival Plot__:
+    * In __Mutation Frequency__, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cohort MAF__:
+    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources. There will be a red banner above the MAF controls to indicate the termination.
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The case count displayed above the table in the __Repository__ can be incorrect when applying filters based on samples (e.g. Tissue Type) or input files. <!--SV-2260-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+* The __Quick Search__ feature located in the header may not return expected results if the query is not a full match for the results and exceeds 20 characters. A workaround is to enter a full match or limit the query to 20 or fewer characters. <!--SV-2705-->
+
+### Properties Removed
+
+The following properties have been removed and are no longer available. Any data values that were previously found in these properties have been verified to have been moved to other available properties.
+
+* cases.demographic.gender, cases.diagnoses.pathology_details.epithelioid_cell_percent, cases.diagnoses.pathology_details.extrascleral_extension, cases.diagnoses.pathology_details.size_extraocular_nodule, cases.diagnoses.pathology_details.spindle_cell_percent, cases.diagnoses.treatments.therapeutic_level_achieved, cases.family_histories.relationship_gender, cases.follow_ups.other_clinical_attributes.undescended_testis_corrected_age, cases.samples.portions.analytes.ribosomal_rna_28s_16s_ratio, cases.samples.tumor_code_id
+
 ## Release 2.7.0
 
 * __GDC Product__: GDC Data Portal
@@ -85,8 +153,8 @@
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
 * __IDC Image Viewer__:
-	  * When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
-	  * The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
+	* When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
+	* The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
 * __Correlation Plot__:
     * The menus and labels use "samples" or "individuals" where "cases" should be used. <!--SV-2754-->
     * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->

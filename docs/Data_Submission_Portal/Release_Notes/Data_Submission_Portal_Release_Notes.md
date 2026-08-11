@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v4.1.0](Data_Submission_Portal_Release_Notes.md#release-410) | June 29, 2026 |
 | [v4.0.0](Data_Submission_Portal_Release_Notes.md#release-400) | March 16, 2026 |
 | [v3.2.0](Data_Submission_Portal_Release_Notes.md#regular-maintenance-records-320) | June 30, 2025 |
 | [v2.6.0](Data_Submission_Portal_Release_Notes.md#release-260) | July 8, 2022 |
@@ -26,6 +27,28 @@
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
 
 ---
+## Release 4.1.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: June 29, 2026
+
+### New Features and Changes
+
+*  Improved the State and Type filters in the Transactions tab. <!--PEAR-2625-->
+
+### Bugs Fixed Since Last Release
+
+*  Fixed an issue where uploading multiple files for validation on the Dashboard was not behaving as expected. <!--PEAR-2678-->
+*  The annotations details panel in the Browse tab will now load and display all available information even when there is no `submitter_id`. <!--PEAR-2539-->
+*  Corrected inaccurate counts in the Related Entities section when viewing case details in the Browse tab. <!--PEAR-2599-->
+*  Resolved an issue where the login link after logout did not direct users to the portal landing page.<!--PEAR-2615-->
+*  Minor accessibility fixes. <!--PEAR-2681-->
+
+### Known Issues and Workarounds
+
+*  If a project ID has a character that is not alphanumeric, a dash, or an underscore, submission portal users may experience errors.
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully. <!--API-219-->
+
 ## Release 4.0.0
 
 * __GDC Product__: GDC Data Submission Portal

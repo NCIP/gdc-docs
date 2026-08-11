@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v8.5.0](API_Release_Notes.md#v850) | June 29, 2026 |
 | [v8.3.0](API_Release_Notes.md#v830) | March 16, 2026 |
 | [v7.9.1](API_Release_Notes.md#v791) | May 20, 2025 |
 | [v7.7.0](API_Release_Notes.md#v770) | November 21, 2024 |
@@ -41,6 +42,29 @@
 | [v1.2.0](API_Release_Notes.md#v120) | August 9, 2016 |
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
+
+## v8.5.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__:  June 29, 2026
+
+### New Features and Changes
+
+* __Survival Analysis Endpoint__:
+    * The issue where survival estimates may be overestimated has been addressed.
+    * Survival analysis now incorporates `follow_ups.days_to_follow_up`, in addition to `demographic.days_to_death` and `diagnoses.days_to_last_follow_up`, for times to event or censoring. This expands on the previous approach which used only `days_to_death` and `days_to_last_follow_up` data.
+    * Only cases with a `vital_status` of "alive" or "dead" are included in survival analysis. Previously, cases with a `vital_status` of "not reported" or "unknown" were also included in the analysis. 
+* Properties that were removed from the GDC Dictionary in the prior release are now also removed from the API and no longer accessible or visible in the portal. The complete list of removed properties can be found [here](/Data_Portal/Release_Notes/Data_Portal_Release_Notes#release-280). 
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
 ## v8.3.0
 
