@@ -85,6 +85,12 @@
 * Miscellaneous
     * analyte.ribosomal_rna_28s_16s_ratio has been migrated to analyte.ribosomal_rna_28s_18s_ratio
     * diagnosis.ann_arbor_b_symptoms_described has been migrated to diagnosis.ann_arbor_b_symptoms_described_array
+
+A complete list of files included in the GDC Data Portal can be found below:
+
+* [gdc_manifest_20260810_data_release_46.0_active.tsv](https://api.gdc.cancer.gov/data/e24cbfe8-36ed-4ce9-a8f8-02b13b832647)
+* [DR46 Project Level Manifests](https://api.gdc.cancer.gov/data/0f3e3f70-2d49-49f8-a805-c4642cac4929)
+* [DR46 New Files Manifest](https://api.gdc.cancer.gov/data/d8bab5e3-3844-4926-a461-adf034b608be)
  
 ### Known Issues and Workarounds
 
