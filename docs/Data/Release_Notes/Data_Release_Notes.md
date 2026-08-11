@@ -59,7 +59,7 @@
 * __GDC Product__: Data
 * __Release Date__: August 10, 2026
 
-## New Updates
+### New Updates
 
 * New Projects
     * PECGS-COPECC: Participant Engagement and Cancer Genome Sequencing Network - Center for Optimization of Participant Engagement for Cancer Characterization (dbGaP phs003985)
@@ -109,7 +109,6 @@ A complete list of files included in the GDC Data Portal can be found below:
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
-
 
 ## Data Release 45.0
 
