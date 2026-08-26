@@ -18,7 +18,7 @@
 | [v1.28.0](Data_Portal_Release_Notes.md#release-1280) | May 17, 2021 |
 | [v1.25.1](Data_Portal_Release_Notes.md#release-1251) | August 14, 2020 |
 | [v1.25.0](Data_Portal_Release_Notes.md#release-1250) | July 2, 2020 |
-| [v1.24.1](Data_Portal_Release_Notes.md#release-1240) | March 10, 2020 |
+| [v1.24.1](Data_Portal_Release_Notes.md#release-1241) | March 10, 2020 |
 | [v1.23.1](Data_Portal_Release_Notes.md#release-1231) | December 10, 2019 |
 | [v1.23.0](Data_Portal_Release_Notes.md#release-1230) | November 6, 2019 |
 | [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
@@ -1935,7 +1935,7 @@ There was a major new release of the GDC Data Portal focused on Data Analysis, V
 *  The ability to export the current view of a table in TSV
 *  Retired GDC cBioPortal
 
-_For detailed updates please review the [Data Portal User Guide](../Users_Guide/getting_started/)._
+_For detailed updates please review the [Data Portal User Guide](/Data_Portal/Users_Guide/getting_started/)._
 
 ### Bugs Fixed Since Last Release
 

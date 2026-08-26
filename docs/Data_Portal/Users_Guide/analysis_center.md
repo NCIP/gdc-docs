@@ -45,7 +45,7 @@ Each can be launched by clicking the Play buttons in each of the tool cards.
 
 If there is not sufficient data in the active cohort to use a particular tool, the play button will be grayed out and will not be usable until a new cohort with sufficient data is selected.
 
-[![Analysis Center Tools](images/AnalysisCenterTools.png)](images/AnalysisCenterTool.png "Click to see the full image.")
+[![Analysis Center Tools](images/AnalysisCenterTools.png)](images/AnalysisCenterTools.png "Click to see the full image.")
 
 ## Tool Panel
 
