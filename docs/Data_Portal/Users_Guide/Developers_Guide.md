@@ -11,13 +11,13 @@ The GDC Data Portal is built on top of the [GDC API](https://docs.gdc.cancer.gov
 which provides access to the GDC data. The GDC Data Portal provides an Analysis Tool Framework (ATF) for developing
 applications that can be used to analyze, visualize, and download data from the GDC.
 
-The GDC Data Portal is built with the [React](https://reactjs.org/) framework and 
-the [Redux](https://redux.js.org/) library for state management. The GDC Data Portal uses [NextJS](https://nextjs.org/) as its application framework which 
+The GDC Data Portal is built with the [React](https://reactjs.org/) framework and
+the [Redux](https://redux.js.org/) library for state management. The GDC Data Portal uses [NextJS](https://nextjs.org/) as its application framework which
 provides server-side rendering of React components. [Mantine.dev](https://mantine.dev/) is the component library, and
-styling is through [TailwindCSS](https://tailwindcss.com/). The GDC Data Portal is built on top of the GDC API, which provides access to 
+styling is through [TailwindCSS](https://tailwindcss.com/). The GDC Data Portal is built on top of the GDC API, which provides access to
 the GDC data.
 
-![This image details the architecture of the GDC Data Portal. 
+![This image details the architecture of the GDC Data Portal.
 It shows the interaction between the GDC Data API, the core
 module and the user interface.](./images/developers_guide/V2_architecture.png "Architecture of the GDC Data Portal")
 
@@ -28,7 +28,7 @@ module and the user interface.](./images/developers_guide/V2_architecture.png "A
 Applications are React higher-order components (HOC) that are rendered in
 the [Analysis Center](https://portal.gdc.cancer.gov/analysis_page?app=). The GDC Data Portal's major functions such as
 Projects, Repository, and ProteinPaint are all applications. Each application handles a specific task such as analysis or
-visualization and can also be used to refine and build cohorts. Applications are cohort centric and can 
+visualization and can also be used to refine and build cohorts. Applications are cohort centric and can
 query the GDC API for additional information.
 
 Local and Global filters are available to applications. Local filters are filters that are specific to the application
@@ -40,8 +40,8 @@ refine the input cohort allowing users to drill down to specific genes and mutat
 
 ### Local vs Global Filters
 
-The GDC Data Portal application's input can be the current cohort or multiple user defined cohorts. The application then 
-allow users to add filters refining the cohort, create new additional cohorts, or display the data in a visualization. 
+The GDC Data Portal application's input can be the current cohort or multiple user defined cohorts. The application then
+allow users to add filters refining the cohort, create new additional cohorts, or display the data in a visualization.
 Applications typically have:
 
 * **Local filters**  Refine the data displayed in the application
@@ -57,34 +57,44 @@ below illustrates the application components and cohort filters.
 
 ## Cohorts and Filters
 
+A cohort is a named set of filters. Counts, case lists and tables are derived by re-running those filters against the GDC API.
 From an application perspective, a cohort is an Object containing the following information:
 
 ```typescript
 interface Cohort {
-    id: string;        // unique id for cohort
-    name: string;      // name of cohort
-    filters: FilterSet; // active filters for cohort
-    caseSet: CaseSetDataAndStatus; // case ids that are in the cohort
-    modified?: boolean; // flag which is set to true is modified and unsaved
-    modified_datetime: string; // last time cohort was modified
-    saved?: boolean; // flag indicating if cohort has been saved.
-    counts: CountsDataAndStatus; //case, file, etc. counts of a cohort
+    readonly id: string;        // unique id for cohort
+    readonly name: string;      // name of cohort
+    readonly filters: FilterSet; // active filters for cohort
+    readonly caseSet: CaseSetDataAndStatus; // case set ids, for frozen cohorts
+    readonly counts: CountsDataAndStatus; //case, file, gene, mutation counts
+    readonly modified_datetime: string; // last time cohort was modified
+    readonly modified?: boolean; // true if modified and unsaved
+    readonly saved?: boolean; // true once persisted to the GDC API
+    readonly unsavedCohortId?: string; // prior local id, retained after saving
+    readonly deprecatedFields?: string[]; // filter fields no longer in the data model
+    readonly nonexistentFields?: string[]; // filter fields the API does not recognise
+    readonly removed?: true; // set when the user deletes the cohort
 }
 ```
 
-Likely the most important part of the cohort is the `filters` field. The `filters` field contains the active filters for
-the cohort. The `filters` field is a `FilterSet` object. The `FilterSet` object contains the active filters for the
-cohort. When calling either the GDC REST API or GDC GraphQL API the `FilterSet` is converted to the appropriate format
-for the API. The `FilterSet` object is of the form:
+The most important part of a cohort is the `filters` field: a `FilterSet` object containing the cohort's active filters. When calling the GDC REST or GraphQL API, the `FilterSet` is converted to that API's expected format.
+
+### FilterSet
 
 ```typescript
 interface FilterSet {
-    op: "and" | "or"; // operator for combining filters
-    root: Record<string, Operation>; // map of filter name to filter operation
+  readonly root: Record<string, Operation>; // map of field name to filter operation
+  readonly mode: string; // root-level combining operator for filters (e.g., and | or)
 }
 ```
 
-Operation are GDC API filters as described in
+`root` is keyed by field name, so a cohort contains at most one operation per field. An empty `root` means all of the GDC.
+
+```typescript
+const allOfGDC: FilterSet = { mode: "and", root: {} };
+```
+
+Operations are GDC API filters as described in
 the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/#filters-specifying-the-query). These
 are:
 
@@ -102,67 +112,81 @@ are:
 * Intersection
 * Union
 
-The `root` field is a map of filter names (as defined in the GDC API) to filter operation. The filter operation can be
-either a single operation or a `FilterSet` object. The `op` field will eventually support either `and` or `or`, however
-at this time only `and` is supported. The `and` operator is used to combine filters using the `and` operator. The `or`
-operator is used to combine filters using the `or` operator. The `FilterSet` object is converted to the appropriate
-format for the GDC API when the cohort is saved.
+### Converting filters for the API
 
-When using the GDC REpresentational State Transfer (REST) API, the FilterSet can be converted into the appropriate 
-format using the `filterSetToOperation` function. When using the GDC GraphQL API, the FilterSet can be using the
-`convertFilterSetToGraphQL` function. The API guide will provide information on what format the filters should be in for the API. Also as the code is in TypeScript,
-the IDE will provide information on the format as well.
+A `FilterSet` is never sent to the API as-is.
+
+| Target | Function |
+|---|---|
+| GraphQL API, and REST `filters` / `case_filters` | `buildCohortGqlOperator(filterSet)` |
+| A single `Operation` tree | `filterSetToOperation(filterSet)` |
+| API filter back into a `FilterSet` | `buildGqlOperationToFilterSet(gqlOperation)` |
+
+```typescript
+import { buildCohortGqlOperator, useCurrentCohortFilters } from "@gff/core";
+
+const cohortFilters = useCurrentCohortFilters();
+const gqlFilters = buildCohortGqlOperator(cohortFilters);
+```
+
+`buildCohortGqlOperator` returns `undefined` for an empty filter set.
+
+To combine cohort filters with an application's local filters, use `joinFilters`:
+
+```typescript
+import { joinFilters } from "@gff/core";
+
+const combined = joinFilters(cohortFilters, localFilters);
+```
+
+`joinFilters` is a shallow merge of `root` and the second argument takes precedence.
+
 
 ### Obtaining Cohort Information
 
-The current active cohort can be accessed via the selector `selectCurrentCohort`. This selector returns the current
-cohort, which is the cohort that is currently being displayed in the Cohort Management Bar. Accessing the current cohort
-is done via the
-selector:
+The current cohort is the one displayed in the Cohort Management Bar:
 
 ```typescript
 import {useCoreSelector, selectCurrentCohort} from '@gff/core';
 
-const currentCohort = useSelector(selectCurrentCohort);
+const currentCohort = useCoreSelector((state) => selectCurrentCohort(state));
 ```
 
-By using the selector, the component/application will be updated when the cohort changes. There are also selectors for
-getting a particular field from the cohort. For example, to get the cohort name, the selector `selectCurrentCohortName`
-can be used. The selectors are:
+| Selector | Returns |
+|---|---|
+| `selectCurrentCohort` | `Cohort \| undefined` |
+| `selectCurrentCohortId` | `string \| undefined` |
+| `selectCurrentCohortName` | `string \| undefined` |
+| `selectCurrentCohortFilters` | `FilterSet` |
+| `selectCurrentCohortGqlFilters` | filters converted for the API |
+| `selectCurrentCohortFiltersByName(state, field)` | `Operation \| undefined` |
+| `selectCurrentCohortCaseCount` | `number \| undefined` |
+| `selectCurrentCohortModified` | `boolean \| undefined` |
+| `selectCurrentCohortSaved` | `boolean \| undefined` |
+| `selectCohortNameById(state, id)` | `string \| undefined` |
+| `selectCohortFilterSetById(state, id)` | `FilterSet` for any cohort |
+| `selectCohortByIdOrName(state, id, name?)` | resolves by id, then `unsavedCohortId`, then name |
 
-* `selectCurrentCohort`
-* `selectCurrentCohortName`
-* `selectCurrentCohortId`
-* `selectCurrentCohortFilters`
-* `selectCurrentCohortModified`
-* `selectCurrentCohortModifiedDatetime`
-* `selectCurrentCohortSaved`
-* `selectCurrentCohortCounts`
-
-The current active filters can be accessed via the selector `selectCurrentCohortFilters`. This selector returns the
-current filters,
-which are the filters that are currently being displayed in the Cohort Management Bar. Accessing the current filters is
-done via the
-selector:
+Hooks are available for the common cases:
 
 ```typescript
-import {useCoreSelector, selectCurrentFilters} from '@gff/core';
+import {useCurrentCohortFilters, useCurrentCohortCounts} from '@gff/core';
 
-const currentFilters = useSelector(selectCurrentCohortFilters);
+const filters = useCurrentCohortFilters();
+const {data: counts, status} = useCurrentCohortCounts();
 ```
 
-By using the selector, the application will be updated when the filters change. The filters are returned as
-a `FilterSet` object described above.
+Counts are `-1` until the request resolves. You need to check `status` before displaying them.
 
-All the cohorts can be selected using the selector `selectAllCohorts`. This selector returns all the cohorts in the
-store. Accessing all the cohorts is done via the selector:
+To list cohorts:
 
 ```typescript
-import {useCoreSelector, selectAllCohorts} from '@gff/core';
+import {useCoreSelector, selectAvailableCohorts} from '@gff/core';
 
-const allCohorts = useSelector(selectAllCohorts);
+const cohorts = useCoreSelector((state) => selectAvailableCohorts(state));
 ```
 
+`selectAvailableCohorts` excludes deleted cohorts. `selectAllCohorts` includes them.
 ## Using the GDC Data Portal Application API
 
 The GDC Data Portal provides a number of hooks for querying the GDC API. These hooks are located in the `@gff/core` package.
@@ -472,54 +496,130 @@ Finally, the following hooks are available for querying set size:
 * `useSsmSetCountsQuery`
 * `useCaseSetCountsQuery`
 
+## Cohort Lifecycle
+
+A cohort is either **unsaved** (stored only in the browser) or **saved** (persisted to the GDC
+API). A saved cohort with local edits is marked `modified: true` until those edits are
+persisted or discarded.
+
+A user may have **only one unsaved cohort at a time**. `addNewUnsavedCohort` and
+`addNewDefaultUnsavedCohort` throw an exception if one already exists. You need to pass `replace: true` to discard it:
+
+```typescript
+import {useCoreDispatch, addNewUnsavedCohort} from '@gff/core';
+
+const coreDispatch = useCoreDispatch();
+
+coreDispatch(addNewUnsavedCohort({
+    filters: {mode: "and", root: {}},
+    name: "My Cohort",
+    replace: true,
+}));
+```
+
+Saving a cohort creates a **new entity** under the id issued by the API, and the unsaved one
+is removed. An application referencing the previous id should resolve it with
+`selectCohortByIdOrName`, which falls back to `unsavedCohortId` and then to the cohort name.
+
+`discardCohortChanges` reverts a modified cohort to its last saved filters.
+
+| Selector or constant | Purpose |
+|---|---|
+| `selectCurrentCohortSaved` | whether the current cohort exists on the server |
+| `selectCurrentCohortModified` | whether it has unsaved edits |
+| `selectHasUnsavedCohorts` | whether an unsaved cohort already exists |
+| `selectUnsavedCohortName` | name of the unsaved cohort, if any |
+| `UNSAVED_COHORT_NAME` | default name given to a new unsaved cohort |
+| `defaultCohortNameGenerator()` | generates a timestamped default name |
+
+
 ## Creating a Cohort
 
-Depending on the application function, it may be beneficial to create a new cohort. Although the GDC Data Portal SDK provides a
-number of functions for creating a new cohort, it is highly recommended that the application use the provided `Button` and
-`SaveCohortModal` components to create a new cohort. The `Button` and `SaveCohortModal` components are located in
-the `@gff/portal-proto` package.
+Applications should create cohorts with the `SaveCohortModal` component from
+`@gff/portal-components` rather than dispatching cohort actions directly. The modal handles
+naming, duplicate-name detection, and saving to the GDC API.
 
-To create a cohort using the SaveCohortModal component the following code can be used:
-In summary, the above code flow is:
+```tsx
+import React, {useState} from "react";
+import {Button} from "@mantine/core";
+import {SaveCohortModal} from "@gff/portal-components";
+import {cohortActionsHooks} from "@/features/cohortBuilder/CohortManager/cohortActionHooks";
+import {INVALID_COHORT_NAMES} from "@/features/cohortBuilder/utils";
 
-1. The `ProjectsCohortButton` component renders a button with the label "Save New Cohort"
-2. When the button is clicked, it sets the state variable `showSaveCohort` to true, which triggers the rendering of
-   the `SaveCohortModal` component.
-3. The `SaveCohortModal` component passed:
-   * An onClose function that sets the showSaveCohort state variable to false.
-   * A `filters` prop, which is an object defining the filters for the cohort based on the selected projects.
-4. The `SaveCohortModal` will use the passed filter to create, name, and save the cohort when the save button is clicked.
+const ProjectsCohortButton = ({pickedProjects}: { pickedProjects: string[] }): JSX.Element => {
+    const [showSaveCohort, setShowSaveCohort] = useState(false);
 
-Additional details on the `SaveCohortModal` component can be found in the [Component Library](#component-library)
-section.
+    return (
+        <>
+            <Button
+                disabled={pickedProjects.length === 0}
+                onClick={() => setShowSaveCohort(true)}
+            >
+                Save New Cohort
+            </Button>
+
+            <SaveCohortModal
+                opened={showSaveCohort}
+                onClose={() => setShowSaveCohort(false)}
+                filters={{
+                    mode: "and",
+                    root: {
+                        "cases.project.project_id": {
+                            operator: "includes",
+                            field: "cases.project.project_id",
+                            operands: pickedProjects,
+                        },
+                    },
+                }}
+                hooks={cohortActionsHooks}
+                invalidCohortNames={INVALID_COHORT_NAMES}
+            />
+        </>
+    );
+};
+```
+
+The modal stays mounted and its visibility is controlled by `opened`.
+
+| Prop | Required | Description |
+|---|---|---|
+| `opened` | yes | whether the modal is open or not |
+| `onClose` | yes | callback triggered when modal closes |
+| `filters` | yes | the filters associated with the cohort |
+| `hooks` | yes | collection of hooks for performing saving, deleting, etc operations on cohorts |
+| `invalidCohortNames` | yes | list of cohort names that the user is barred from using |
+| `initialName` | no | populates initial value of name field |
+| `caseFilters` | no | the case filters to use for the cohort |
+| `cohortId` | no | id of existing cohort we are saving, if undefined we are not saving a cohort that already exists |
+| `createStaticCohort` | no | whether to create a case set from the filters so the cases in the cohort remain static |
+| `setAsCurrent` | no | whether to set the new cohort as the user's current cohort, should not also pass in cohortId |
+| `saveAs` | no | whether to save existing cohort as new cohort, requires cohortId |
 
 ## Altering a Cohort
 
-Altering a cohort is done by dispatching actions to add, remove, or clear filters. The following actions are available
-for altering the current cohort:
+The following actions modify the current cohort. Each marks it `modified: true` and triggers a
+refetch of its counts.
 
 * `updateCohortFilter`
 * `removeCohortFilter`
 * `clearCohortFilters`
 
-Note that all of these operations are applied to the current cohort. The current cohort is the cohort that is currently
-being displayed in the Cohort Management Bar. The current cohort can be programmatically accessed via the `selectCurrentCohort` selector.
-The current cohort's filters can be accessed via the `selectCurrentCohortFilters` selector.
+They always apply to the current cohort, the one displayed in the Cohort Management Bar,
+which can be read with `selectCurrentCohort`, and its filters can be read with `selectCurrentCohortFilters`.
 
 ### Updating, Removing, and Clearing filters
 
-To update the current selected cohort's filter, the `updateCohortFilter` action can be used. The `updateCohortFilter`
-action takes two arguments:
+`updateCohortFilter` adds or replaces the filter for a single field:
 
 ```typescript
 interface UpdateFilterParams {
-    field: string;
-    operation: Operation;
+    field: string;
+    operation: Operation;
 }
 ```
 
-where `field` is the field to update and `operation` is the operation to apply to the field. For example to update the
-`cases.project.project_id` field to include the project `TCGA-ACC` the following code can be used:
+`operation` is a portal-side `Operation`, not a GDC API filter. For example, to filter on the
+project `TCGA-ACC`:
 
 ```typescript
 import {useCoreDispatch, updateCohortFilter} from '@gff/core';
@@ -527,42 +627,28 @@ import {useCoreDispatch, updateCohortFilter} from '@gff/core';
 const coreDispatch = useCoreDispatch();
 
 coreDispatch(updateCohortFilter({
-    field: "cases.project.project_id",
-    operation: {
-        op: "in",
-        content: {
-            field: "cases.project.project_id",
-            value: ["TCGA-ACC"],
-        },
-    },
+    field: "cases.project.project_id",
+    operation: {
+        operator: "includes",
+        field: "cases.project.project_id",
+        operands: ["TCGA-ACC"],
+    },
 }));
 ```
 
-This will update the current cohort's filter to include the project `TCGA-ACC`. The `removeCohortFilter` action can be
-used to remove a filter from the current cohort. The `removeCohortFilter` action takes a single argument:
+Because `root` is keyed by field name, this replaces any existing filter on that field.
 
-```typescript
-interface RemoveFilterParams {
-    field: string;
-}
-```
-
-where `field` is the field to remove. For example, to remove the `cases.project.project_id` field from the current
-cohort's filter, the following code can be used:
+`removeCohortFilter` takes the field name as a string:
 
 ```typescript
 import {useCoreDispatch, removeCohortFilter} from '@gff/core';
 
 const coreDispatch = useCoreDispatch();
 
-coreDispatch(removeCohortFilter({
-    field: "cases.project.project_id",
-}));
+coreDispatch(removeCohortFilter("cases.project.project_id"));
 ```
 
-This will remove the `cases.project.project_id` field from the current cohort's filter. The `clearCohortFilters` action
-can be used to clear all the filters from the current cohort. The `clearCohortFilters` action takes no arguments. For
-example, to clear all the filters from the current cohort, the following code can be used:
+`clearCohortFilters` takes no arguments and resets the cohort to all of the GDC:
 
 ```typescript
 import {useCoreDispatch, clearCohortFilters} from '@gff/core';
@@ -572,59 +658,78 @@ const coreDispatch = useCoreDispatch();
 coreDispatch(clearCohortFilters());
 ```
 
-This will clear all the filters from the current cohort.
-
 ## Updating the Cohort Name
 
-The cohort name can be updated using the `updateCohortName` action. The `updateCohortName` action takes a single
-argument:
-
-```typescript
-interface UpdateCohortNameParams {
-    name: string;
-}
-```
-
-where `name` is the new name for the cohort. For example, to update the current cohort's name to `My Cohort`, the
-following code can be used:
+`updateCohortName` renames the current cohort. It takes the new name as a string:
 
 ```typescript
 import {useCoreDispatch, updateCohortName} from '@gff/core';
 
 const coreDispatch = useCoreDispatch();
 
-coreDispatch(updateCohortName({
-    name: "My Cohort",
-}));
+coreDispatch(updateCohortName("My Cohort"));
 ```
 
-This will update the current cohort's name to `My Cohort`.
+This renames the cohort in the store only. For a saved cohort, persist the change with the
+`useUpdateFilters` hook from `cohortActionsHooks`, or let `SaveCohortModal` handle it.
 
 ## Setting the Current Cohort
 
-The current cohort can be set using the `setCurrentCohort` action. The `setCurrentCohort` action takes a single
-argument:
+`setActiveCohort` switches the current cohort. It takes the cohort id as a string:
 
 ```typescript
-interface SetCurrentCohortParams {
-    cohortId: string;
-}
-```
-
-where `cohortId` is the id of the cohort to set as the current cohort. For example, to set the cohort with id `1234` as
-the current cohort, the following code can be used:
-
-```typescript
-import {useCoreDispatch, setCurrentCohort} from '@gff/core';
+import {useCoreDispatch, setActiveCohort} from '@gff/core';
 
 const coreDispatch = useCoreDispatch();
 
-coreDispatch(setCurrentCohort({
-    cohortId: "1234",
-}));
+coreDispatch(setActiveCohort("1234"));
 ```
 
-This will set the cohort with ID `1234` as the current cohort.
+The id you pass must belong to a cohort in the store. If it does not, the portal ends up with no
+current cohort. Use `selectAvailableCohorts` to get valid ids.
+
+
+## Deleting a Cohort
+
+`deleteCohortUserAction` marks a cohort as deleted. It does **not** remove it from the store:
+the entity is kept, with `removed: true`, so applications still referencing its id can continue to
+resolve it until the page is reloaded.
+
+```typescript
+import {useCoreDispatch, deleteCohortUserAction} from '@gff/core';
+
+const coreDispatch = useCoreDispatch();
+
+coreDispatch(deleteCohortUserAction({id: cohortId})); // omit id to delete the current cohort
+```
+
+Deleted cohorts are excluded from `selectAvailableCohorts` and included in `selectAllCohorts`.
+
+`removeCohortFromStore` removes the entity outright. It is intended for internal housekeeping,
+such as discarding a local cohort after it has been saved or for clean up if a cohort has become outdated, and should not be used to delete a cohort on a user's behalf.
+
+Neither action deletes the cohort from the GDC API. For a saved cohort, call
+`useDeleteCohortMutation` first and dispatch `deleteCohortUserAction` only if the request
+succeeds, so that a failed request does not remove the cohort from the interface.
+
+## Persistence and Session Behaviour
+
+Cohorts are stored by the GDC API against a context id stored in the `gdc_context_id` cookie. No
+user account is required. Losing both the cookie and its `localStorage` backup makes previously
+saved cohorts irretrievable.
+
+Cohort state is also persisted to `sessionStorage`, which determines what survives each event:
+
+| Event | Effect on cohorts |
+|---|---|
+| Page reload | Cohorts are restored, including the unsaved cohort and any unsaved edits. |
+| New tab or window | Saved cohorts are refetched from the API; the unsaved cohort is not restored. |
+| Log in or log out | Cohort definitions are retained. All derived data is discarded and refetched. |
+
+Counts, facet values, table results and file lists are derived data: logging in or out changes
+what the API returns for identical filters, so the portal discards them at that point.
+Applications that maintain their own caches of API results should clear them on the same event.
+
 
 ## Total Count Information
 
@@ -662,7 +767,7 @@ export type DataStatus = "uninitialized" | "pending" | "fulfilled" | "rejected";
 ## Application Card Counts
 The application cards show the counts for the data required by them. The data types below are supported:
 
-* caseCount 
+* caseCount
 * fileCount
 * genesCount
 * mutationCount
@@ -671,19 +776,19 @@ The application cards show the counts for the data required by them. The data ty
 * geneExpressionCaseCount
 * mafFileCount
 
-Each of these use a specific GraphQL query to the GDC Data API to get the count. If an application requires a 
+Each of these use a specific GraphQL query to the GDC Data API to get the count. If an application requires a
 specialized count, then the developer will need to implement and register a count function that returns the following:
 ```typescript
 [
     {
         data: number,                // The count for the specific data type
-        isFetching: boolean,         // True if the query is fetching data 
+        isFetching: boolean,         // True if the query is fetching data
         isSuccess: boolean,          // True if query sucessfully completes
         isError: boolean             // True if the query has encountered an error
-    }      
+    }
 ]
 ```
-or use [RTK Query's ```useLazyQuery```](https://redux-toolkit.js.org/rtk-query/api/created-api/hooks#uselazyquery). 
+or use [RTK Query's ```useLazyQuery```](https://redux-toolkit.js.org/rtk-query/api/created-api/hooks#uselazyquery).
 For example:
 
 ```typescript
@@ -748,7 +853,7 @@ import { CountHookRegistry}  from "@gff/core";
 CountHookRegistry.getInstance().registerHook("ssmCaseCount", useLazySsmsCaseCountQuery);
 ```
 
-The count function is now registered with it name passed as the first argument to ```registerHook``` , and is used to set the value of the ```countsField``` in the 
+The count function is now registered with it name passed as the first argument to ```registerHook``` , and is used to set the value of the ```countsField``` in the
 application registration described below. An appropriate place to add the registration call is in ```_app.tsx```.
 
 
@@ -836,7 +941,7 @@ These modals and others, are documented in the Portal 2.0 SDK API documentation.
 
 ### Charts
 
-Basic charts are provided for use within an application, although developers are free to use any desired charting 
+Basic charts are provided for use within an application, although developers are free to use any desired charting
 library compatible with React 18.
 The charts provided are:
 
@@ -878,7 +983,7 @@ const BarChart = dynamic(() => import("@/components/charts/BarChart"), {
 ```
 
 * `Cancer Distribution` - A cancer distribution chart
-  
+
   ![cancer distribution](images/developers_guide/most-frequently-mutated-genes-bar-chart.png)
 
 The `CancerDistribution` component (based on Plotly) is different as it passed the Gene Symbol
@@ -972,7 +1077,7 @@ using [lerna](https://lerna.js.org) and [npm](https://www.npmjs.com/), and conta
 * `@gff/core` - Contains the core components and hooks for the GDC Data Portal.
 * `@gff/portal-proto` - Contains the UI components and application framework (using NextJS) for the GDC Data Portal.
 
-Note that in the future, the UI components located in the `@gff/portal-proto` package will be refactored into a 
+Note that in the future, the UI components located in the `@gff/portal-proto` package will be refactored into a
 separate package , and `@gff/portal-proto` will be renamed to `@gff/portal`.
 
 Developers can get started by cloning the repo and following the instructions in
@@ -1204,74 +1309,10 @@ export const useProjectsFilters = (): FilterSet => {
 
 ## Creating a New Cohort
 
-The Project application allows users to create a new cohort from the selected projects. The cohort is created using the
-`SaveCohortModal` component. The `SaveCohortModal` component passes the current cohort filters and the local project
-filters to create a new saved cohort. In the case of the Project application, the `SaveCohortModal` component is used
-in a button component. The button component is passed the selected projects and the `SaveCohortModal` component is
-rendered when the button is clicked. The `SaveCohortModal` component passes the current cohort filters and the local
-project filters to create a new saved cohort. The `SaveCohortModal` component is used in the Project application as:
+The Projects application lets users create a cohort from the projects they have selected. `ProjectsCohortButton` renders the button and passes the
+selected project ids to `SaveCohortModal` as the new cohort's filters.
 
-```tsx
-import React, {useState} from "react";
-import {Button, Tooltip} from "@mantine/core";
-import {CountsIcon} from "@/components/tailwindComponents";
-import SaveCohortModal from "@/components/Modals/SaveCohortModal";
-
-const ProjectsCohortButton = ({pickedProjects,}: { pickedProjects: string[]; }): JSX.Element => {
-    const [showSaveCohort, setShowSaveCohort] = useState(false);
-
-    return (
-        <>
-            <Tooltip
-                label="Save a new cohort of cases in selected project(s)"
-                withArrow
-            >
-        <span>
-          <Button
-              data-testid="button-create-new-cohort-projects-table"
-              variant="outline"
-              color="primary"
-              disabled={pickedProjects.length == 0}
-              leftIcon={
-                  pickedProjects.length ? (
-                      <CountsIcon $count={pickedProjects.length}>
-                          {pickedProjects.length}{" "}
-                      </CountsIcon>
-                  ) : null
-              }
-              onClick={() => setShowSaveCohort(true)}
-              className="border-primary data-disabled:opacity-50 data-disabled:bg-base-max data-disabled:text-primary"
-          >
-            Save New Cohort
-          </Button>
-        </span>
-            </Tooltip>
-            {showSaveCohort && (
-                <SaveCohortModal
-                    onClose={() => setShowSaveCohort(false)}
-                    filters={{
-                        mode: "and",
-                        root: {
-                            "cases.project.project_id": {
-                                operator: "includes",
-                                field: "cases.project.project_id",
-                                operands: pickedProjects,
-                            },
-                        },
-                    }}
-                />
-            )}
-        </>
-    );
-};
-
-export default ProjectsCohortButton;
-```
-
-This custom button component uses the state variable `showSaveCohort` to determine if the `SaveCohortModal` component
-needs to be shown.
-The `SaveCohortModal` component is passed to the current list of projects selected by the user and handles the creation of
-the cohort and saving it.
+See [Creating a Cohort](#creating-a-cohort) for the component's props and a full example.
 
 ## Application Demo
 
@@ -1340,14 +1381,14 @@ import ProjectsIcon from "public/user-flow/icons/crowd-of-users.svg";
 
 ...
 {
-    name: "Projects", 
+    name: "Projects",
         icon: (<ProjectsIcon
             width={64}
             height={64}
             viewBox="0 -20 128 128"
             role="img"
             aria-label="Projects icon" />),
-        tags: [], 
+        tags: [],
         hasDemo: false,
         id: "Projects",
         countsField: "caseCount",
