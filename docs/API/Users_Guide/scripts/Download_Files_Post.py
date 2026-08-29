@@ -5,8 +5,8 @@ import re
 data_endpt = "https://api.gdc.cancer.gov/data"
 
 ids = [
-    "b658d635-258a-4f6f-8377-767a43771fe4",
-    "3968213d-b293-4b3d-8033-5b5a0ca07b6c"
+    "a68e75c8-0e01-446b-86b8-09b6903fa409",
+    "649e1e0e-b4ce-491c-94c3-64273680159b"
     ]
 
 params = {"ids": ids}

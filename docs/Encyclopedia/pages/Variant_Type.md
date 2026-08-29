@@ -15,7 +15,7 @@ Variant type is reported by the GDC MAF file in a column named `Variant_Type` (c
 * __DEL:__ Deletion -- the removal of  nucleotides
 
 ## References ##
-1.[GDC MAF File Format](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/)
+1.[GDC MAF File Format](/Data/File_Formats/MAF_Format/)
 
 ## External Links ##
 * N/A

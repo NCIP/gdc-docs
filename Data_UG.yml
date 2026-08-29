@@ -1,27 +1,62 @@
+---
 #
 # GDC Docs - Config
 #
 
 site_name: GDC Docs
-site_url: http://docs.gdc.cancer.gov
+site_url: https://docs.gdc.cancer.gov
 repo_url: https://github.com/NCI-GDC/gdc-docs
-copyright: "&copy; 2015-2016"
-theme_dir: theme
-pages:
-- GDC Data:
-  - Introduction: 'Data/Introduction.md'
-  - GDC Data Model: 'Data/Data_Model/GDC_Data_Model.md'
-  - Data Security: 'Data/Data_Security/Data_Security.md'
-  - "File Format: MAF": 'Data/File_Formats/MAF_Format.md'
-  - "File Format: VCF": 'Data/File_Formats/VCF_Format.md'
-  - "Bioinformatics Pipeline: DNA-Seq Analysis": 'Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md'
-  - "Bioinformatics Pipeline: mRNA Analysis": 'Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline.md'
-  - "Bioinformatics Pipeline: miRNA Analysis": 'Data/Bioinformatics_Pipelines/miRNA_Pipeline.md'
-  - "Bioinformatics Pipeline: Copy Number Variation": 'Data/Bioinformatics_Pipelines/CNV_Pipeline.md'
-  - "Bioinformatics Pipeline: Methylation Liftover": 'Data/Bioinformatics_Pipelines/Methylation_LO_Pipeline.md'
-  - Release Notes: 'Data/Release_Notes/Data_Release_Notes.md'
+copyright: '&copy; 2015-2026'
+nav:
+  - GDC Data:
+      - Introduction: Data/Introduction.md
+      - GDC Data Model: Data/Data_Model/GDC_Data_Model.md
+      - Data Security: Data/Data_Security/Data_Security.md
+      - 'File Format: MAF': Data/File_Formats/MAF_Format.md
+      - 'File Format: VCF': Data/File_Formats/VCF_Format.md
+      - 'Bioinformatics Pipeline: DNA-Seq Analysis': Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md
+      - 'Bioinformatics Pipeline: mRNA Analysis': Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline.md
+      - 'Bioinformatics Pipeline: miRNA Analysis': Data/Bioinformatics_Pipelines/miRNA_Pipeline.md
+      - 'Bioinformatics Pipeline: Copy Number Variation': Data/Bioinformatics_Pipelines/CNV_Pipeline.md
+      - 'Bioinformatics Pipeline: Methylation Analysis': Data/Bioinformatics_Pipelines/Methylation_Pipeline.md
+      - 'Bioinformatics Pipeline: Protein Expression': Data/Bioinformatics_Pipelines/RPPA_intro.md
+      - Aligned Reads Summary Metrics: Data/Bioinformatics_Pipelines/Aligned_reads_summary_metrics.md
+      - Release Notes: Data/Release_Notes/Data_Release_Notes.md
 extra:
-  project_root_dir: '/'
-  project_org: 'GDC'
-  project_description: 'GDC Docs'
+  project_root_dir: /
+  project_org: GDC
+  project_description: GDC Docs
   version: 1.0
+theme:
+  custom_dir: overrides
+  favicon: images/favicon.ico
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+  logo: images/nih-header-logo-color.png
+  name: material
+  palette:
+    primary: white
+    scheme: gdc-accessible
+markdown_extensions:
+  - tables
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      combine_header_slug: true
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
+plugins:
+  - with-pdf:
+      author: NCI GDC
+      cover_title: GDC Data User's Guide
+      cover_subtitle: NCI Genomic Data Commons (GDC)
+      cover_logo: docs/images/nih-header-logo-color.png
+      toc_level: 3
+      exclude_pages:
+        - ^$
+      enabled_if_env: ENABLE_PDF_EXPORT
+      render_js: false
+      output_path: ../docs/Data/PDF/Data_UG.pdf
