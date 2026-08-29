@@ -9,18 +9,22 @@ copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
 - Data Portal:
-  - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
+  - Getting Started: 'Data_Portal/Users_Guide/getting_started.md'
+  - Quick Start: 'Data_Portal/Users_Guide/quick_start.md'
+  - Cohort Builder: 'Data_Portal/Users_Guide/cohort_builder.md'
+  - Analysis Center: 'Data_Portal/Users_Guide/analysis_center.md'
+  - Repository: 'Data_Portal/Users_Guide/Repository.md'
   - Projects: 'Data_Portal/Users_Guide/Projects.md'
-  - Exploration: Data_Portal/Users_Guide/Exploration.md
-  - Repository: Data_Portal/Users_Guide/Repository.md
-  - Genes and Mutations: Data_Portal/Users_Guide/Genes_and_Mutations.md
-  - Custom Set Analysis: Data_Portal/Users_Guide/Custom_Set_Analysis.md  
-  - Annotations: 'Data_Portal/Users_Guide/Annotations.md'
-  - Advanced Search: 'Data_Portal/Users_Guide/Advanced_Search.md'
-  - Authentication: 'Data_Portal/Users_Guide/Authentication.md'
-  - File Cart: 'Data_Portal/Users_Guide/Cart.md'
-  - Image Viewer: 'Data_Portal/Users_Guide/Image_viewer.md'
-  - Legacy Archive: 'Data_Portal/Users_Guide/Legacy_Archive.md'
+  - BAM Slicing: 'Data_Portal/Users_Guide/BAMslicing.md'
+  - Clinical Data Analysis: 'Data_Portal/Users_Guide/clinical_data_analysis.md'
+  - Cohort Comparison: 'Data_Portal/Users_Guide/cohort_comparison.md'
+  - Gene Expression Clustering: 'Data_Portal/Users_Guide/gene_expression_clustering.md'
+  - Mutation Frequency: 'Data_Portal/Users_Guide/mutation_frequency.md'
+  - OncoMatrix: 'Data_Portal/Users_Guide/oncomatrix.md'
+  - ProteinPaint: 'Data_Portal/Users_Guide/proteinpaint_lollipop.md'
+  - Sequence Reads: 'Data_Portal/Users_Guide/proteinpaint_bam.md'
+  - Set Operations: 'Data_Portal/Users_Guide/set_operations.md'
+  - For Developers: 'Data_Portal/Users_Guide/Developers_Guide.md'
   - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
 extra:
   project_root_dir: '/'

@@ -16,6 +16,7 @@ pages:
   - BAM Slicing: 'API/Users_Guide/BAM_Slicing.md'
   - Submission: 'API/Users_Guide/Submission.md'
   - Python Examples: 'API/Users_Guide/Python_Examples.md'
+  - GraphQL Examples: 'API/Users_Guide/GraphQL_Examples.md'
   - System Information: 'API/Users_Guide/System_Information.md'
   - Additional Examples: 'API/Users_Guide/Additional_Examples.md'
   - "Appendix A: Available Fields": 'API/Users_Guide/Appendix_A_Available_Fields.md'

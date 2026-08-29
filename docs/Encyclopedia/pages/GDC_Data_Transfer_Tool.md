@@ -12,7 +12,7 @@ Key GDC DTT features include<sup>2</sup>:
 
 ## References ##
 1. [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
-2. [GDC Data Transfer Tool User's Guide](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/)
+2. [GDC Data Transfer Tool User's Guide](/Data_Transfer_Tool/Users_Guide/Getting_Started/)
 
 ## External Links ##
 * N/A
