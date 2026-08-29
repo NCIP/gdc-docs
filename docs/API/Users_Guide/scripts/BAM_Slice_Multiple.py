@@ -8,9 +8,9 @@ import json
 token_file = "$TOKEN_FILE_PATH"
 
 file_ids = [
-    "11443f3c-9b8b-4e47-b5b7-529468fec098",
-    "1f103620-bb34-46f1-b565-94f0027e396d",
-    "ca549554-a244-4209-9086-92add7bb7109"
+    "a5b9acbd-adea-47d0-a3a3-3eb6ebfde56b",
+    "8b06714b-a39c-4a24-897d-170af8837b57",
+    "4400e648-8c19-4707-9665-dbeb907b166c"
     ]
 
 for file_id in file_ids:

@@ -7,7 +7,7 @@ import json
 '''
 token_file = "$TOKEN_FILE_PATH"
 
-file_id = "11443f3c-9b8b-4e47-b5b7-529468fec098"
+file_id = "a5b9acbd-adea-47d0-a3a3-3eb6ebfde56b"
 
 data_endpt = "https://api.gdc.cancer.gov/slicing/view/{}".format(file_id)
 

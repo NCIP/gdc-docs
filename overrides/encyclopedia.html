@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% set annotatedNavItems = [] %}
+{% set populatedLetters = [] %}
+{% set letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'|list %}
+
+{% for nav_item in nav %}
+    {% if nav_item.title == "Encyclopedia" %}
+        {% for nav_item in nav_item.children %} 
+            {% set annotatedNavItems = annotatedNavItems.append(({ 'firstLetter': nav_item.title[0]|capitalize, 'title': nav_item.title, "path": nav_item.url })) %}
+        {% endfor %}
+        {% for group in annotatedNavItems|groupby("firstLetter") %}
+            {% set populatedLetters = populatedLetters.append(group.grouper) %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+<
+{% block site_nav %}
+    <div class="md-sidebar md-sidebar--primary">
+        <div class="md-nav__list" data-md-scrollfix>
+            <div class="side-box">
+                <p>Browse the terms</p>
+                <div class="encyclopedia-menu">
+                    {% for letter in letters %}
+                   <a href ="/Encyclopedia/#{{letter}}" class="term-button {% if letter not in populatedLetters %}not-exists {% endif %}}">{{letter}}</a>
+                   {% endfor %}
+                </div>
+                <a href="/Encyclopedia">View all ></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="encyclopedia-content">
+    <div>
+        The GDC Encyclopedia is an informational tool that makes GDC applications easier to use. It helps researchers, data submitters, developers and clinicians quickly find specific information without needing to browse for it.
+    </div>    
+    <div id = "encyc-table" style="background-color: white">
+        <header id = "encyc-table-header">
+            <h2>Common Topics for Researchers</h2>
+        </header>
+        <div id="encyc-table-content">
+            <span>
+                <a href="/Encyclopedia/pages/Controlled_Access/">Controlled access</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/dbGaP/">dbGaP</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/GDC_Data_Portal/">GDC Data Portal</a>
+            </span>
+        </div>
+        <div id="encyc-table-content">
+            <span>
+                <a href="/Encyclopedia/pages/GDC_Data_Transfer_Tool/">GDC Data Transfer Tool (DTT)</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Harmonized_Data/">Harmonized Data</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Manifest_File/">Manifest File</a>
+            </span>
+        </div>
+        <div id="encyc-table-content">
+            <span>
+                <a href="/Encyclopedia/pages/Mutation_Annotation_Format/">Mutation Annotation Format (MAF)</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Variant_Type/">Variant Type</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Variant_Call_Format/">Variant Call Format (VCF)</a>
+            </span>
+        </div>
+    </div>
+    <div id = "encyc-table" style="background-color: white">
+        <header id = "encyc-table-header">
+            <h2>Common Topics for Data Submitters</h2>
+        </header>
+        <div id="encyc-table-content">
+            <span>
+                <a href="/Encyclopedia/pages/Biospecimen_Data/">Biospecimen Data</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Case/">Case</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Clinical_Data/">Clinical Data</a>
+            </span>
+        </div>
+        <div id="encyc-table-content">
+            <span>
+                <a href="/Encyclopedia/pages/Clinical_Supplement/">Clinical Supplement</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Data_Submitter/">Data Submitter</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/dbGaP/">dbGaP</a>
+            </span>
+        </div>
+        <div id="encyc-table-content">
+            <span>
+                <a href="/Encyclopedia/pages/GDC_Data_Submission_Portal/">GDC Data Submission Portal</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/GDC_Data_Transfer_Tool/">GDC Data Transfer Tool (DTT)</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Redaction/">Redaction</a>
+            </span>
+        </div>
+    </div>
+    <div id = "encyc-table" style="background-color: white">
+        <header id = "encyc-table-header">
+            <h2>Common Topics for Data Developers</h2>
+        </header>
+        <div id="encyc-table-content">
+            <span>
+                <a href="/Encyclopedia/pages/Entity/">Entity</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/GDC_API/">GDC API</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Latest_Data/">Latest Data</a>
+            </span>
+        </div>
+        <div id="encyc-table-content">
+            <span>
+                <a href="/Encyclopedia/pages/Manifest_File/">Manifest File</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Mutation_Annotation_Format/">Mutation Annotation Format (MAF)</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Release_Number/">Release Number</a>
+            </span>
+        </div>
+        <div id="encyc-table-content">
+            <span>
+                <a href="/Encyclopedia/pages/REST_API/">REST API</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/UUID/">Universally Unique Identifier (UUID)</a>
+            </span>
+            <span>
+                <a href="/Encyclopedia/pages/Variant_Call_Format/">Variant Call Format (VCF)</a>
+            </span>
+        </div>
+    </div>
+</div>
+    {% for group in annotatedNavItems|groupby("firstLetter") %}
+        <div class = "doc-list" id = "{{group.grouper}}-list">
+           <h1>{{group.grouper}}</h1> 
+           <ul>
+           {% for item in group.list %}
+                <li><a href="/{{ item.path }}">{{ item.title }}</a></li>
+           {% endfor %}
+           </ul>
+        </div>
+    {% endfor %}
+{% endblock %}

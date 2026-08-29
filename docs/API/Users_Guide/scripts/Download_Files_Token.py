@@ -8,7 +8,7 @@ import re
 '''
 token_file = "$TOKEN_FILE_PATH"
 
-file_id = "2f97081c-7e84-4a93-91a8-fee860769f8e"
+file_id = "a5b9acbd-adea-47d0-a3a3-3eb6ebfde56b"
 
 data_endpt = "https://api.gdc.cancer.gov/data/{}".format(file_id)
 
