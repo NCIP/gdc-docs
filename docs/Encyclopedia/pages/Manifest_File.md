@@ -7,10 +7,10 @@ When a user requests files from the GDC they are given the option to create a do
 A manifest file can also be used to simplify the upload process to the GDC Submission System.  The format of the submission manifest differs from the download manifest.  A upload manifest file can be generated from either the API or GDC Submission Portal.
 
 ## References ##
-1. [Manifest endpoint](https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/#manifest-endpoint)
-2. [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Cart/#gdc-data-transfer-tool)
-3. [Upload Manifest](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#upload-manifest)
-4. [Data Transfer Tool Submission with Manifest ](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-a-manifest-file-for-data-uploads)
+1. [Manifest endpoint](/API/Users_Guide/Downloading_Files/#manifest-endpoint)
+2. [GDC Data Transfer Tool](/Data_Portal/Users_Guide/Repository.md#generating-a-manifest-file-for-the-data-transfer-tool)
+3. [Upload Manifest](/API/Users_Guide/Submission/#upload-manifest)
+4. [Data Transfer Tool Submission with Manifest ](/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-a-manifest-file-for-data-uploads)
 
 ## External Links ##
 * N/A

@@ -9,19 +9,13 @@ copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
 - Data Submission Portal:
-  - Getting Started: 'Data_Submission_Portal/Users_Guide/Getting_Started.md'
-  - Submission Workflow: 'Data_Submission_Portal/Users_Guide/Submission_Workflow.md'
-  - Authentication: 'Data_Submission_Portal/Users_Guide/Authentication.md'
-  - Homepage: 'Data_Submission_Portal/Users_Guide/Homepage.md'
-  - Dashboard: 'Data_Submission_Portal/Users_Guide/Dashboard.md'
-  - Upload Data: 'Data_Submission_Portal/Users_Guide/Data_Upload_UG.md'
-  - Submit Data: 'Data_Submission_Portal/Users_Guide/Submit_Data.md'
-  - Release Data: 'Data_Submission_Portal/Users_Guide/Release_Data.md'
-  - Transactions: 'Data_Submission_Portal/Users_Guide/Transactions.md'
-  - Browse Data: 'Data_Submission_Portal/Users_Guide/Browse_Data.md'
-  - Pre-Release Data Review: 'Data_Submission_Portal/Users_Guide/Pre_Release_QC.md'
-  - Best Practices: 'Data_Submission_Portal/Users_Guide/Best_Practices.md'
+  - Before Submitting Data to the GDC Portal: 'Data_Submission_Portal/Users_Guide/Checklist.md'
+  - Data Submission Overview: 'Data_Submission_Portal/Users_Guide/Data_Submission_Overview.md'
+  - Data Submission Portal: 'Data_Submission_Portal/Users_Guide/Data_Submission_Process.md'
+  - Data Upload Walkthrough: 'Data_Submission_Portal/Users_Guide/Data_Submission_Walkthrough.md'
+  - Pre-Release Data Portal: 'Data_Submission_Portal/Users_Guide/Pre_Release_QC.md'
   - Release Notes: 'Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md'
+
 extra:
   project_root_dir: '/'
   project_org: 'GDC'

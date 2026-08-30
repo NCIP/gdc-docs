@@ -24,7 +24,7 @@ Once the binary has been positioned in an appropriate location on the client's f
 
 ###Preparing for Data Download
 
-The GDC Data Transfer Tool UI is a stand-alone client application intended to work with data file information stored on the GDC Data Portals.  Data download information must first be gathered from either the GDC Data Portal or Legacy Archive.  From there a manifest file can be [generated](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-a-manifest-file-for-data-download) to supply the client.  Alternatively, individual file UUIDs can be provided to the UUID entry window located on the Download tab in the client.
+The GDC Data Transfer Tool UI is a stand-alone client application intended to work with data file information stored on the GDC Data Portals.  Data download information must first be gathered from the GDC Data Portal.  From there a manifest file can be [generated](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-a-manifest-file-for-data-download) to supply the client.  Alternatively, individual file UUIDs can be provided to the UUID entry window located on the Download tab in the client.
 
 ![GDC DTT UI Start Page](images/DTT_UI_Start_Page.png)
 ##Downloads with UUIDs
@@ -68,6 +68,7 @@ While the default download options will work for the majority of use cases, ther
 
 | Settings | Details
 |----------|---------|
+| Server URL | Default: https://api.gdc.cancer.gov |
 | Number of Client Connections: Default (3) | Number of concurrent client threads |
 | Destination Folder: Default (User's Home Directory) | User selectable download file location |  
 | Calculate Inbound Segment and check Md5sum on Restart: Default (On) | Verify previous partial downloaded files via segment check sum |
