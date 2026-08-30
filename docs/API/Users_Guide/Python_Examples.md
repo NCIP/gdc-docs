@@ -1,6 +1,6 @@
 # Using Python to Query the GDC API
 
-Python can be a versatile tool for retrieving information from the GDC API and performing downstream processing. This page details some examples that demonstrate the basic API queries using Python. The examples in this guide will use the [requests](http://docs.python-requests.org/en/master/) Python library and should be compatible with Python3.
+Python can be a versatile tool for retrieving information from the GDC API and performing downstream processing. This page details some examples that demonstrate the basic API queries using Python. The examples in this guide will use the [requests](https://pypi.org/project/requests/) Python library and should be compatible with Python3.
 
 ## Querying Metadata
 
@@ -10,9 +10,6 @@ Python can be used with the GDC API to retrieve metadata that is indexed in the 
 
 This example passes some basic parameters (fields, format, size) to the `cases` endpoint and prints the results in a tab-delimited format. Note that the `fields` parameter needs to be a string comprising comma-delimited field names.  
 
-```TXT
-Choose the Python tab to view script.
-```
 ```Python
 import requests
 import json
@@ -46,9 +43,6 @@ print(response.content)
 
 In the next example, a `filters` parameter is added to the script. This parameter is passed as a Python dictionary object. The filter used in this example will only display cases that come from a kidney disease study (`primary_site: Kidney`).
 
-```TXT
-Choose the Python tab to view script.
-```
 ```Python
 import requests
 import json
@@ -93,9 +87,6 @@ print(response.content)
 
 The following example uses the `and` operator in the filter to returns information about files that 1) were produced using RNA-Seq, 2) are downloadable in BAM format, and 3) originate from lung cancer patients. Note that these three filters are nested within a list in the highest level `content` key.  
 
-```TXT
-Choose the Python tab to view script.
-```
 ```Python
 import requests
 import json
@@ -164,9 +155,6 @@ GDC files can also be downloaded from the API and saved locally using Python scr
 
 An open-access GDC file can be downloaded by appending the file UUID to the `data` endpoint URL.  
 
-```TXT
-Choose the Python tab to view script.
-```
 ```Python
 import requests
 import json
@@ -192,9 +180,6 @@ with open(file_name, "wb") as output_file:
 
 A token can be passed to the script by specifying a plain text file that contains only the GDC token. A token can be downloaded by logging into the GDC Data Portal. See the [Data Security](../../../Data/Data_Security/Data_Security) documentation for more details.  
 
-```TXT
-Choose the Python tab to view script.
-```
 ```Python
 import requests
 import json
@@ -232,9 +217,6 @@ with open(file_name, "wb") as output_file:
 
 This example uses a Python list to specify a set of file UUIDs. The list in the example was populated manually but could potentially be populated programmatically from an external list or API call.  
 
-```TXT
-Choose the Python tab to view script.
-```
 ```Python
 import requests
 import json
@@ -268,9 +250,6 @@ with open(file_name, "wb") as output_file:
 
 Here a list of files based on a set of filters are downloaded.  File UUIDs are retrieved based on the filters. These UUIDs are then passed to the `data` endpoint to download the correct files.   
 
-```TXT
-Choose the Python tab to view script.
-```
 ```Python
 import requests
 import json
@@ -348,9 +327,6 @@ with open(file_name, "wb") as output_file:
 
 The GDC [BAM Slicing](BAM_Slicing.md) feature can also be accessed through Python. Below is an example of a basic BAM slicing command.  
 
-```TXT
-Choose the Python tab to view script.
-```
 ```Python
 import requests
 import json
@@ -386,9 +362,6 @@ with open(file_name, "wb") as output_file:
 
 The same region(s) across multiple BAM files can be retrieved using a for-loop within a Python script.
 
-```TXT
-Choose the Python tab to view script.
-```
 ```Python
 import requests
 import json
@@ -438,5 +411,13 @@ The following script should produce an unformatted JSON string with information 
 import requests
 status_endpt = "https://api.gdc.cancer.gov/status"
 response = requests.get(status_endpt)
+
+# OUTPUT METHOD 1: Write to a file.
+file = open("api_status.json", "w")
+file.write(response.text)
+file.close()
+
+# OUTPUT METHOD 2: View on screen.
 print(response.content)
 ```
+[Download Script](scripts/Basic_Troubleshooting.py)

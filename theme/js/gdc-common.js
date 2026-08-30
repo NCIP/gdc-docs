@@ -356,6 +356,8 @@ $(function() {
 
     function _initScrollSpy() {
 
+      if ($('#body').data('current-page') === 'Home') return;
+
       var scrollSpyTarget = '.bs-sidebar',
         scrollBody = $('html, body');
 
