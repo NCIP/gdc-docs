@@ -547,35 +547,35 @@ import {cohortActionsHooks} from "@/features/cohortBuilder/CohortManager/cohortA
 import {INVALID_COHORT_NAMES} from "@/features/cohortBuilder/utils";
 
 const ProjectsCohortButton = ({pickedProjects}: { pickedProjects: string[] }): JSX.Element => {
-    const [showSaveCohort, setShowSaveCohort] = useState(false);
+    const [showSaveCohort, setShowSaveCohort] = useState(false);
 
-    return (
-        <>
-            <Button
-                disabled={pickedProjects.length === 0}
-                onClick={() => setShowSaveCohort(true)}
-            >
-                Save New Cohort
-            </Button>
+    return (
+        <>
+            <Button
+                disabled={pickedProjects.length === 0}
+                onClick={() => setShowSaveCohort(true)}
+            >
+                Save New Cohort
+            </Button>
 
-            <SaveCohortModal
-                opened={showSaveCohort}
-                onClose={() => setShowSaveCohort(false)}
-                filters={{
-                    mode: "and",
-                    root: {
-                        "cases.project.project_id": {
-                            operator: "includes",
-                            field: "cases.project.project_id",
-                            operands: pickedProjects,
-                        },
-                    },
-                }}
-                hooks={cohortActionsHooks}
-                invalidCohortNames={INVALID_COHORT_NAMES}
-            />
-        </>
-    );
+            <SaveCohortModal
+                opened={showSaveCohort}
+                onClose={() => setShowSaveCohort(false)}
+                filters={{
+                    mode: "and",
+                    root: {
+                        "cases.project.project_id": {
+                            operator: "includes",
+                            field: "cases.project.project_id",
+                            operands: pickedProjects,
+                        },
+                    },
+                }}
+                hooks={cohortActionsHooks}
+                invalidCohortNames={INVALID_COHORT_NAMES}
+            />
+        </>
+    );
 };
 ```
 
@@ -613,8 +613,8 @@ which can be read with `selectCurrentCohort`, and its filters can be read with `
 
 ```typescript
 interface UpdateFilterParams {
-    field: string;
-    operation: Operation;
+    field: string;
+    operation: Operation;
 }
 ```
 
@@ -627,12 +627,12 @@ import {useCoreDispatch, updateCohortFilter} from '@gff/core';
 const coreDispatch = useCoreDispatch();
 
 coreDispatch(updateCohortFilter({
-    field: "cases.project.project_id",
-    operation: {
-        operator: "includes",
-        field: "cases.project.project_id",
-        operands: ["TCGA-ACC"],
-    },
+    field: "cases.project.project_id",
+    operation: {
+        operator: "includes",
+        field: "cases.project.project_id",
+        operands: ["TCGA-ACC"],
+    },
 }));
 ```
 
