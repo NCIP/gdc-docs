@@ -53,13 +53,17 @@
 
 ### New Features and Changes
 
-* The __Survival Plot__ now excludes cases with obfuscated ages and uses only `days_to_death` for timepoints when `vital_status` is "dead". <!--DEV-4243/4197-->
-* Enneking MSTS Grade has been added as a default card to the Disease Specific Classifications category in the __Cohort Builder__. <!--PEAR-2433-->
-* TBD
+* __Cohort Builder__:
+    * Cards now display all enum values instead of only the top 200 enums. <!--PEAR-2319-->
+    * Enneking MSTS Grade is now a default card in the Disease Specific Classifications category. <!--PEAR-2433-->
+* The __Survival Plot__ now excludes cases with obfuscated ages and uses only `days_to_death` for timepoints when `vital_status` is "dead". <!--DEV-4243/4197--> 
+* Minor text improvements. <!--PEAR-2728/2542-->
 
 ### Bugs Fixed Since Last Release
 
-* TBD
+* Cohorts filtered by mutated genes or somatic mutations no longer display the message "This cohort has properties that no longer exist in the GDC". <!--PEAR-2713-->
+* The `year_of_birth_range` card in the __Cohort Builder__ now displays enums as expected. <!--PEAR-2730-->
+* Minor UX/UI fixes. <!--PEAR-2728/2776-->
 
 ### Known Issues and Workarounds
 
