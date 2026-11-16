@@ -101,6 +101,7 @@ nav:
       - Introduction: Data/Introduction.md
       - GDC Data Model: Data/Data_Model/GDC_Data_Model.md
       - Data Security: Data/Data_Security/Data_Security.md
+      - RAS Authentication: Data/Data_Security/RAS_Instruction.md
       - 'File Format: MAF': Data/File_Formats/MAF_Format.md
       - 'File Format: VCF': Data/File_Formats/VCF_Format.md
       - 'Bioinformatics Pipeline: DNA-Seq Analysis: Whole Genome Sequencing Variant Calling': Data/Bioinformatics_Pipelines/DNA_Seq_WGS.md
