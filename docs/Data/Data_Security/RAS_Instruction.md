@@ -13,7 +13,7 @@ In the coming months, the GDC will be integrated with the NIH Researcher Auth Se
     1. Go to the [CTDC Login Page](https://clinical.datacommons.cancer.gov/#/user/login) and choose the "Login with RAS" button. You'll be redirected to RAS and the appropriate identity provider.
     1. Use Login.gov or ID.me for GDC controlled-access data. These are the IAL2 identity providers supported.
     1. Complete the IAL2 identity proofing if your Login.gov or ID.me identity has not been verified at that level.
-    1. Complete multi-factor authentication when prompted
+    1. Complete multi-factor authentication when prompted.
     1. If your dbGaP permissions are associated with an eRA Commons identity and RAS prompts you to link that identity, complete the identity-linking process.
     1. Review the RAS information-sharing consent screen. For non-NIH identities, you must grant the required consent for RAS to release identity and authorization information to the requesting application.
     1. Return to the CTDC application and confirm that the expected controlled-data authorization is available.
