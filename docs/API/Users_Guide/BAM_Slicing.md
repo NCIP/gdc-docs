@@ -13,7 +13,7 @@ Please note the following:
 * The functionality of this API differs from the usual functionality of `samtools` in that alignment records that overlap multiple regions will not be returned multiple times.
 * A request with no region or gene specified will return the BAM header, which makes it easy to inspect the references to which the alignment records were aligned.
 * A request for regions that are not included in the source BAM is not considered an error, and is treated the same as if no records existed for the region.
-* Examples provided for BAM slicing functionality are intended for use with GDC harmonized data (i.e. BAM files available in the GDC Data Portal). Slicing of unharmonized BAM files (i.e. BAM files in the GDC Legacy Portal) is not supported.
+* Examples provided for BAM slicing functionality are intended for use with GDC harmonized data (i.e. BAM files available in the GDC Data Portal).
 * Bam slicing does not create an associated bam index (.bai) file.  For applications requiring a .bai file users will need to generate this file from the bam slice using a tool and command such as `samtools index`.
 
 ### Query Parameters
@@ -21,11 +21,11 @@ Please note the following:
 The following query parameters and JSON fields are supported:
 
 | Description | Query Parameter | JSON Field | Query format |
-|---|---|---|
+|---|---|---|---|
 | entire chromosome, or a position or region on the chromosome, specified using chromosomal coordinates | region | regions | region=<chr>(:<start>(-<stop>)?)?</stop></start></chr> |
-| region specified using a [HGNC](http://www.genenames.org/) / [GENCODE v22](http://www.gencodegenes.org/) gene name |  gencode | gencode | gencode=<gene_name> |
+| region specified using a [HGNC](http://www.genenames.org/) / [GENCODE v36](http://www.gencodegenes.org/) gene name |  gencode | gencode | gencode=<gene_name> |
 
-**NOTE:** The successfully sliced BAM will contain all reads that overlap (entirely or partially) with the specified region or gene. It is possible to specify an open-ended region, e.g. `chr2:10000`, which would return all reads that (completely or partially) overlap with the region of chromosome 2 from position 10,000 to the end of the chromosome.
+>**NOTE:** The successfully sliced BAM will contain all reads that overlap (entirely or partially) with the specified region or gene. It is possible to specify an open-ended region, e.g. `chr2:10000`, which would return all reads that (completely or partially) overlap with the region of chromosome 2 from position 10,000 to the end of the chromosome.
 
 ### JSON Schema
 
@@ -57,59 +57,120 @@ JSON payloads can be syntactically verified using the following JSON schema:
 
 The following two requests are examples of BAM slicing using region(s).
 
-```Regions_GET
+=== "Regions_GET"
 
-token=$(<gdc-token-text-file.txt)
+    ```shell
 
-curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/slicing/view/df80679e-c4d3-487b-934c-fcc782e5d46e?region=chr1&region=chr2:10000&region=chr3:10000-20000' --output get_regions_slice.bam
-```
-```Regions_POST_Payload
-{
-    "regions": [
-        "chr1",
-        "chr2:10000",
-        "chr3:10000-20000"
-    ]
-}
-```
-```Regions_POST
-token=$(<gdc-token-text-file.txt)
+    token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/slicing/view/9ca90dfa-e62f-4f9c-9946-dfcecfd3ca4d --header "Content-Type: application/json" -d@Payload --output post_regions_slice.bam
-```
-```Response
-Response:
-HTTP/1.1 206
+    curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/slicing/view/2912e314-f6a7-4f4a-94ac-20db2c8f793b?region=chr1&region=chr2:10000&region=chr3:10000-20000' --output get_regions_slice.bam
+    ```
 
-<bam_data_stream>
-```
+=== "Regions_POST_Payload"
+
+    ```json
+    {
+        "regions": [
+            "chr1",
+            "chr2:10000",
+            "chr3:10000-20000"
+        ]
+    }
+    ```
+
+=== "Regions_POST"
+
+    ```shell
+    token=$(<gdc-token-text-file.txt)
+
+    curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/slicing/view/2912e314-f6a7-4f4a-94ac-20db2c8f793b --header "Content-Type: application/json" -d@Payload --output post_regions_slice.bam
+    ```
+
+=== "Response"
+
+    ```
+    Response:
+    HTTP/1.1 206
+
+    <bam_data_stream>
+    ```
 
 ## Examples: Specifying a gene
 
-The following two requests are examples of BAM slicing using HGNC / GENCODE v22 gene name(s).
+The following two requests are examples of BAM slicing using HGNC / GENCODE v36 gene name(s).
 
-```Gencode_GET
-token=$(<gdc-token-text-file.txt)
+=== "Gencode_GET"
 
-curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/slicing/view/df80679e-c4d3-487b-934c-fcc782e5d46e?gencode=BRCA1' --output get_brca1_slice.bam
-```
-```Gencode_POST_Payload
-{
-    "gencode": [
-        "BRCA1",
-        "BRCA2"
-    ]
-}
-```
-```Gencode_POST
-curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/slicing/view/df80679e-c4d3-487b-934c-fcc782e5d46e --header "Content-Type: application/json" -d@Payload --output post_brca12_slice.bam
-```
-```Response
-Response:
-HTTP/1.1 206
+    ```shell
+    token=$(<gdc-token-text-file.txt)
 
-<bam_data_stream>
-```
+    curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/slicing/view/2912e314-f6a7-4f4a-94ac-20db2c8f793b?gencode=BRCA1' --output get_brca1_slice.bam
+    ```
+
+=== "Gencode_POST_Payload"
+
+    ```json
+    {
+        "gencode": [
+            "BRCA1",
+            "BRCA2"
+        ]
+    }
+    ```
+
+=== "Gencode_POST"
+
+    ```shell
+    curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/slicing/view/2912e314-f6a7-4f4a-94ac-20db2c8f793b --header "Content-Type: application/json" -d@Payload --output post_brca12_slice.bam
+    ```
+
+=== "Response"
+
+    ```
+    Response:
+    HTTP/1.1 206
+
+    <bam_data_stream>
+    ```
+
+## Examples: Specifying unmapped reads
+
+Unmapped reads are found in GDC BAM files. You may request these reads by using the following commands.
+
+=== "GET"
+
+    ```shell
+    token=$(<gdc-token-text-file.txt)
+
+    curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/slicing/view/dc87e1b8-d8b7-4837-88ea-fb7f017b3c69?region=unmapped' --output get_regions_slice.bam
+    ```
+
+
+=== "POST_Payload"
+
+    ```json
+    {
+        "regions": [
+            "unmapped"
+        ]
+    }
+    ```
+
+=== "POST"
+
+    ```shell
+    curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/slicing/view/dc87e1b8-d8b7-4837-88ea-fb7f017b3c69 --header "Content-Type: application/json" -d@Payload --output get_regions_slice.bam
+    ```
+
+=== "Response"
+
+    ```
+    Response:
+    HTTP/1.1 206
+
+    <bam_data_stream>
+    ```
+
 
 
 After downloading, the sliced BAM file can be converted to SAM using the following command if `samtools` is installed on the user's system:
@@ -130,15 +191,16 @@ JSON error responses have the following structure:
 
 For example, when making a request for a protected BAM without supplying a GDC authentication token:
 
-```Shell
-curl https://api.gdc.cancer.gov/v0/slicing/view/15b0bf8e-ff20-41ab-8366-a495c11b30be
-```
-```Response
-HTTP/1.1 403 FORBIDDEN
-{
-    "error": "Please specify a X-Auth-Token"
-}
-```
+=== "Shell"
+
+    ```Shell
+    curl https://api.gdc.cancer.gov/v0/slicing/view/b71f4425-828a-4a1b-b1f2-152e3d4c464a
+    ```
+
+=== "Response"
+    ```
+    {"error":"Your token is invalid or expired. Please get a new token from GDC Data Portal.","message":"Your token is invalid or expired. Please get a new token from GDC Data Portal."}
+    ```
 
 ### HTTP error codes
 

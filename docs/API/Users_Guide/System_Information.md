@@ -23,30 +23,34 @@ Notifications will indicate the GDC `components` to which they apply:
 | Component   | Description                                                              |
 |---------|----------------------------------------------------------------------|
 | PORTAL   | The GDC Data Portal         |
-| LEGACY   | The GDC Legacy Archive         |
 | SUBMISSION   | The GDC Data Submission Portal |
 | DOCUMENTATION | The GDC documentation site that contains GDC user guides, release notes, and the GDC Data Dictionary    |
 | WEBSITE    | The GDC project website that includes information about the system. This does not include any of the above-listed GDC components.           |
 
 ### Sample Request
 
-```Shell
-curl --request GET https://api.gdc.cancer.gov/v0/notifications
-```
-```Response
-{
-  "data": [
+=== "Shell"
+
+    ```Shell
+    curl --request GET https://api.gdc.cancer.gov/v0/notifications  
+    ```
+
+=== "Response"
+
+    ```json
     {
-      "level": "INFO",
-      "components": [
-        "SUBMISSION_API",
-        "LEGACY_API"
-      ],
-      "message": "The system is up!"
+      "data": [
+        {
+          "level": "INFO",
+          "components": [
+            "SUBMISSION_API"
+            "LEGACY_API"
+          ],
+          "message": "The system is up!"
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 ## API Status Endpoint
 
@@ -54,22 +58,30 @@ The `status` endpoint provides information about the current status and version 
 
 ### Sample Request
 
-``` shell
-curl https://api.gdc.cancer.gov/status
-```
-``` python
-import requests
-import json
+=== "Shell"
 
-status_endpt = 'https://api.gdc.cancer.gov/status'
-response = requests.get(status_endpt)
-print json.dumps(response.json(), indent=2)
-```
-``` Reponse
-{
-  "commit": "74e1e3583c0f39fbf2149322addb7378206be3b9",
-  "status": "OK",
-  "tag": "1.2.0",
-  "version": 1
-}
-```
+    ``` shell
+    curl https://api.gdc.cancer.gov/status
+    ```
+
+=== "Python"
+
+    ``` python
+    import requests
+    import json
+
+    status_endpt = 'https://api.gdc.cancer.gov/status'
+    response = requests.get(status_endpt)
+    print json.dumps(response.json(), indent=2)
+    ```
+
+=== "Response"
+
+    ``` json
+    {
+      "commit": "74e1e3583c0f39fbf2149322addb7378206be3b9",
+      "status": "OK",
+      "tag": "1.2.0",
+      "version": 1
+    }
+    ```

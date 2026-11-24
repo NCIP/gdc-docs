@@ -1,0 +1,86 @@
+
+.hidden {
+    display: none;
+}
+
+#encyc-table{
+    border-radius:4px;
+    border: 1px solid #e5e5e5;
+    padding:12px;
+    margin-top: 12px;
+}
+#encyc-table-content{
+    display:table;
+    width:100%;
+    table-layout: fixed;
+    padding: 6px 0 6px 0;
+    border-top: 1px solid #e5e5e5;
+ }
+#encyc-table-content span{
+    display: table-cell;
+}
+
+#encyc-table-th{
+    padding-bottom: 1px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+#encyc-table-tr{
+    background-color: white;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+#encyc-table-td{
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+#encyc-table-td:first-child, #encyc-table-th:first-child {
+     border-left: none;
+     padding-left: 15px;
+}
+
+#encyc-table-th:first-child {
+    border-radius: 6px;
+}
+
+.side-box{
+    width:240px;
+    box-shadow: 0px 1px 0px #b2b1b4;
+    border-radius:4px;
+    border-width:1px;
+    border-style: solid;
+    border-color:#b2b1b4;
+    padding:10px;
+    margin-bottom:20px;
+    margin-right:20px;
+    line-height: 20px;
+    background-color: white;
+}
+
+.encyclopedia-menu {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 10px;
+}
+
+.encyclopedia-menu .term-button{
+    display: inline-flex;
+    background-color:rgba(44, 123, 135,1);
+    align-items: center;
+    justify-content: center;
+    border-radius:2px;
+    border:none;
+    color:white;
+    font-size:18px;
+    height:32px;
+    width: 32px;
+    padding:0px;
+}
+.encyclopedia-menu .term-button.not-exists{
+    pointer-events: none;
+    cursor: default;
+    background: rgba(44, 123, 135,0.3)
+}

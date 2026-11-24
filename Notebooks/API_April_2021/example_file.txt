@@ -1,0 +1,2 @@
+type	submitter_id	projects.code
+case	GDC-INTERNAL-000098	INTERNAL

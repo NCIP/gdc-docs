@@ -1,29 +1,71 @@
+---
 #
 # GDC Docs - Config
 #
 
 site_name: GDC Docs
-site_url: http://docs.gdc.cancer.gov
+site_url: https://docs.gdc.cancer.gov
 repo_url: https://github.com/NCI-GDC/gdc-docs
-copyright: "&copy; 2015-2016"
-theme_dir: theme
-pages:
-- Data Portal:
-  - Getting Started: 'Data_Portal/Users_Guide/Getting_Started.md'
-  - Projects: 'Data_Portal/Users_Guide/Projects.md'
-  - Exploration: Data_Portal/Users_Guide/Exploration.md
-  - Repository: Data_Portal/Users_Guide/Repository.md
-  - Genes and Mutations: Data_Portal/Users_Guide/Genes_and_Mutations.md
-  - Custom Set Analysis: Data_Portal/Users_Guide/Custom_Set_Analysis.md  
-  - Annotations: 'Data_Portal/Users_Guide/Annotations.md'
-  - Advanced Search: 'Data_Portal/Users_Guide/Advanced_Search.md'
-  - Authentication: 'Data_Portal/Users_Guide/Authentication.md'
-  - File Cart: 'Data_Portal/Users_Guide/Cart.md'
-  - Image Viewer: 'Data_Portal/Users_Guide/Image_viewer.md'
-  - Legacy Archive: 'Data_Portal/Users_Guide/Legacy_Archive.md'
-  - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
+copyright: '&copy; 2015-2026'
+nav:
+  - Data Portal:
+      - Getting Started: Data_Portal/Users_Guide/getting_started.md
+      - Quick Start: Data_Portal/Users_Guide/quick_start.md
+      - Cohort Builder: Data_Portal/Users_Guide/cohort_builder.md
+      - Analysis Center: Data_Portal/Users_Guide/analysis_center.md
+      - Repository: Data_Portal/Users_Guide/Repository.md
+      - Projects: Data_Portal/Users_Guide/Projects.md
+      - BAM Slicing: Data_Portal/Users_Guide/BAMslicing.md
+      - Clinical Data Analysis: Data_Portal/Users_Guide/clinical_data_analysis.md
+      - Cohort Comparison: Data_Portal/Users_Guide/cohort_comparison.md
+      - Cohort Level MAF: Data_Portal/Users_Guide/cohortMAF.md
+      - Copy Number Segment: Data_Portal/Users_Guide/CNVtool.md
+      - Correlation Plot: Data_Portal/Users_Guide/correlation.md
+      - Gene Expression Clustering: Data_Portal/Users_Guide/gene_expression_clustering.md
+      - IDC Image Viewer: Data_Portal/Users_Guide/IDCViewer.md
+      - Mutation Frequency: Data_Portal/Users_Guide/mutation_frequency.md
+      - OncoMatrix: Data_Portal/Users_Guide/oncomatrix.md
+      - ProteinPaint: Data_Portal/Users_Guide/proteinpaint_lollipop.md
+      - scRNA Visualization: Data_Portal/Users_Guide/scRNA.md
+      - Sequence Reads: Data_Portal/Users_Guide/proteinpaint_bam.md
+      - Set Operations: Data_Portal/Users_Guide/set_operations.md
+      - For Developers: Data_Portal/Users_Guide/Developers_Guide.md
+      - Release Notes: Data_Portal/Release_Notes/Data_Portal_Release_Notes.md
 extra:
-  project_root_dir: '/'
-  project_org: 'GDC'
-  project_description: 'GDC Docs'
+  project_root_dir: /
+  project_org: GDC
+  project_description: GDC Docs
   version: 1.0
+theme:
+  custom_dir: overrides
+  favicon: images/favicon.ico
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+  logo: images/nih-header-logo-color.png
+  name: material
+  palette:
+    primary: white
+    scheme: gdc-accessible
+markdown_extensions:
+  - tables
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      combine_header_slug: true
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
+plugins:
+  - with-pdf:
+      author: NCI GDC
+      cover_title: GDC Data Portal User's Guide
+      cover_subtitle: NCI Genomic Data Commons (GDC)
+      cover_logo: docs/images/nih-header-logo-color.png
+      toc_level: 3
+      exclude_pages:
+        - ^$
+      enabled_if_env: ENABLE_PDF_EXPORT
+      render_js: false
+      output_path: ../docs/Data_Portal/PDF/Data_Portal_UG.pdf

@@ -1,0 +1,27 @@
+<footer>
+    <div class="row">
+        <div class="col-md-12 footer-caption">
+            <div>
+                <a href="https://portal.gdc.cancer.gov" target="_blank" rel="noreferrer">Site Home</a>
+                | <a href="http://www.cancer.gov/global/web/policies" target="_blank" rel="noreferrer">Policies</a>
+                | <a href="http://www.cancer.gov/global/web/policies/accessibility" target="_blank" rel="noreferrer">Accessibility</a>
+                | <a href="http://www.cancer.gov/global/web/policies/foia" target="_blank" rel="noreferrer">FOIA</a>
+                | <a href="https://www.hhs.gov/vulnerability-disclosure-policy" target="_blank rel="noreferrer"">HHS Vulnerability Disclosure</a>
+            </div>
+            <div>
+                <a href="http://www.hhs.gov" target="_blank" rel="noreferrer">U.S. Department of Health and Human Services</a>
+                | <a href="http://www.nih.gov" target="_blank" rel="noreferrer">National Institutes of Health</a>
+                | <a href="http://www.cancer.gov" target="_blank" rel="noreferrer">National Cancer Institute</a>
+                | <a href="http://www.usa.gov" target="_blank" rel="noreferrer">USA.gov</a>
+            </div>
+            <div>
+                NIH... Turning Discovery Into Health &reg;
+            </div>
+            {% if config.extra.version %}
+            <div class="version-caption">
+                {{ site_name }} Version {{ config.extra.version }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</footer>
