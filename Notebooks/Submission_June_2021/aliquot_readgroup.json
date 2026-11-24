@@ -1,0 +1,22 @@
+[
+{
+"type":"aliquot",
+"submitter_id":"ALIQUOT_INTERNAL_2",
+"samples":{"submitter_id":"SAMPLE_INTERNAL_2"}
+},
+{
+"type":"read_group",
+"submitter_id":"RG_INTERNAL_2",
+"aliquots":{"submitter_id": "ALIQUOT_INTERNAL_2"},
+"experiment_name": "INTERNAL",
+"library_name" : "INTERNAL",
+"is_paired_end": true,
+"library_selection": "PCR",
+"library_strategy":"WXS",
+"platform": "Illumina",
+"read_group_name": "Read_group_1",
+"read_length": 100,
+"sequencing_center": "UChicago",
+"target_capture_kit": "SeqCap EZ Human Exome v2.0"
+}
+]

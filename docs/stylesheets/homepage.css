@@ -1,0 +1,82 @@
+.hp-hero {
+    background-color: #2a72a4;
+    padding: 28px 24px 38px;
+    margin-bottom: 40px;
+    width: auto;
+    margin-left: -10rem;
+    margin-right: -10rem;
+}
+
+.hp-hero h1 {
+    color: #fff;
+    font-size: 44px;
+    line-height: 38px;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.hp-hero__site-title, .hp-hero__page-title, .hp-hero__subtitle {
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hp-hero__site-title {
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 4px;
+}
+
+.hp-hero__subtitle {
+    font-size: 16px;
+    line-height: 26px;
+    font-style: italic;
+    max-width: 28em;
+    margin-bottom: 20px;
+}
+
+.hp-card {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    border: 1px solid #dddddd;
+    background-color: #fff;
+    padding: 0 24px 24px;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 24px;
+    position: relative;
+    border-radius: 0 0 5px 5px;
+}
+
+.hp-card__title {
+    color: #3a3a3a;
+    font-size: 22px;
+    line-height: 34px;
+    border-top: 5px solid #000;
+    margin: 0 -24px 20px -24px;
+    padding: 16px 80px 0 24px;
+}
+
+.hp-card__image {
+    height: 40px;
+    width: 50px;
+    position: absolute;
+    top: 16px;
+    right: 8px;
+}
+
+.hp-card__links {
+    padding-left: 0;
+}
+
+.hp-card__links-item {
+    margin-bottom: 8px;
+    margin-left: 20px;
+}
+
+.hp-card__links-item a {
+    font-size: 16px;
+    line-height: 24px;
+    color: #24618d;
+}

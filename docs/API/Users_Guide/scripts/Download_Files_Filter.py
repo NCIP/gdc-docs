@@ -5,37 +5,54 @@ import re
 files_endpt = "https://api.gdc.cancer.gov/files"
 
 filters = {
-    "op": "and",
-    "content":[
-        {
-        "op": "in",
-        "content":{
-            "field": "cases.project.primary_site",
-            "value": ["Lung"]
-            }
-        },
-        {
-        "op": "in",
-        "content":{
-            "field": "cases.demographic.race",
-            "value": ["white"]
-            }
-        },
-        {
-        "op": "in",
-        "content":{
-            "field": "cases.demographic.gender",
-            "value": ["female"]
-            }
-        },
-        {
-        "op": "in",
-        "content":{
-            "field": "files.analysis.workflow_type",
-            "value": ["HTSeq - FPKM"]
-            }
-        }
-    ]
+  "op": "and",
+  "content": [
+    {
+      "op": "in",
+      "content": {
+        "field": "cases.project.primary_site",
+        "value": [
+          "Lung"
+        ]
+      }
+    },
+    {
+      "op": "in",
+      "content": {
+        "field": "cases.demographic.race",
+        "value": [
+          "white"
+        ]
+      }
+    },
+    {
+      "op": "in",
+      "content": {
+        "field": "cases.demographic.sex_at_birth",
+        "value": [
+          "female"
+        ]
+      }
+    },
+    {
+      "op": "in",
+      "content": {
+        "field": "files.analysis.workflow_type",
+        "value": [
+          "STAR - Counts"
+        ]
+      }
+    },
+    {
+      "op": "in",
+      "content": {
+        "field": "files.access",
+        "value": [
+          "open"
+        ]
+      }
+    }
+  ]
 }
 
 # Here a GET is used, so the filter parameters should be passed as a JSON string.
@@ -44,7 +61,7 @@ params = {
     "filters": json.dumps(filters),
     "fields": "file_id",
     "format": "JSON",
-    "size": "1000"
+    "size": "10"
     }
 
 response = requests.get(files_endpt, params = params)

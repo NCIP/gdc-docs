@@ -1,3 +1,6 @@
 site/
 .DS_Store
-venv/
+.venv*/
+venv*/
+.vscode/
+docs/*/PDF/*.pdf

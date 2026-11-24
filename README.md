@@ -2,6 +2,7 @@
 
 # GDC Open Source code
 
+=======
 GDC is Open Source, Github Repositories containing source code of GDC Applications can be found on [GDC GitHub Organization page](https://github.com/NCI-GDC/).
 
 - GDC Data Portal: https://github.com/NCI-GDC/portal-ui
@@ -25,7 +26,17 @@ Please direct technical questions to [GDC Support](https://gdc.cancer.gov/suppor
 
 ### Install & Run
 
- - `pip install -r requirements`
+(Optional) Set up virtualenv:
+
+- [Install virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+- `python -m virtualenv venv`
+- `source venv/bin/activate`
+- Run the installation commands below
+- To leave the virtual environment: `deactivate`
+
+Install GDC-docs:
+
+ - `pip install -r requirements.txt`
  - `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
 
 ### Build
@@ -61,27 +72,101 @@ example:
 
 A detailed list of all conventions is available on [GDC Website](https://gdc.cancer.gov/conventions-page)
 
+## Material Port
 
-### Build PDF
+Note for a port to the Material theme for mkdocs.
 
-Install mkdocs2pandoc, following instructions available here:
-```
-https://github.com/jgrassler/mkdocs-pandoc
-```
+### Resource
 
-Prepare a yml file dedicated to your Userguide, using Data_Portal_UG.yml as an example.
+[Material for MkDocs documentation](https://squidfunk.github.io/mkdocs-material/getting-started/)
 
-Run the following commands to:
-* Convert the User Guide to Pandoc:
-* Tweak the pandoc file
-* Build a PDF
+### Python Version
 
-```
-mkdocs2pandoc -f Data_Portal_UG.yml -o docs/Data_Portal/PDF/Data_portal_UG.pd
-sed -i -e 's/# / /g' docs/Data_Portal/PDF/Data_portal_UG.pd
-sed -i -e 's/### /## /g' docs/Data_Portal/PDF/Data_portal_UG.pd
-sed -i -e 's/\/site\//\/docs\//g' docs/Data_Portal/PDF/Data_portal_UG.pd
-pandoc --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions -o docs/Data_Portal/PDF/Data_portal_UG.pdf docs/Data_Portal/PDF/Data_portal_UG.pd
+Use Python 3.8 or greater. For development, this branch is using Python 3.12.
+
+### Installation
+
+Create virtual environment
+
+```bash
+python -m venv venv
 ```
 
+Activate virtual environment
 
+```bash
+source venv/bin/activate
+```
+
+Pre-req: Make sure `pip-tools` is installed
+
+```bash
+pip install pip-tools
+```
+
+Install MkDocs and dependencies
+
+```bash
+pip-sync requirements.txt
+```
+
+### Run Locally
+
+For development, start a mkdocs server locally with
+
+```bash
+mkdocs serve
+```
+
+In a browser, open `http://127.0.0.1:8000/`
+
+### Generate Site
+
+To build the site, run
+
+```bash
+mkdocs build
+```
+
+### Building User Guide PDFs
+
+Building PDFs requires a library named **Pango** which used for laying out and rendering text. Install it using apt. 
+
+```bash
+sudo apt install libpango1.0-dev
+```
+
+The `mkdocs-with-pdf` plugin is used to generate PDFs.  
+
+```bash
+ENABLE_PDF_EXPORT=1 mkdocs build -f API_UG.yml 
+ENABLE_PDF_EXPORT=1 mkdocs build -f Data_Portal_UG.yml 
+ENABLE_PDF_EXPORT=1 mkdocs build -f Data_Submission_Portal_UG.yml 
+ENABLE_PDF_EXPORT=1 mkdocs build -f Data_Transfer_Tool_UG.yml 
+ENABLE_PDF_EXPORT=1 mkdocs build -f Data_UG.yml 
+```
+
+Build the site again to move the generated PDFs in the correct directory.
+
+```bash
+mkdocs build
+```
+
+### Known Issues
+
+- Dict search app does not work
+- Dict viewer app does not work
+- Code blocks not displaying for multiple languages
+- PDF generation needs to be added
+  
+### Build Logs
+
+The build logs give us many warnings that could be investigated and fixed. Categories of messages:
+
+- The following pages exist in the docs directory, but are not included in the "nav" configuration
+- "there is no such anchor on this page"
+- "contains an absolute link"
+- "not found among documentation files."
+- "contains an unrecognized relative link"
+- "does not contain an anchor"
+  

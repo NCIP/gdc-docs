@@ -21,15 +21,15 @@ A TCGA barcode is composed of a collection of identifiers. Each specifically ide
 
 | Label | Identifier for | Value | Value Description | Possible Values |
 |---|---|---|---|---|
-| Analyte | Molecular type of analyte for analysis | D | The analyte is a DNA sample | See Code Tables Report|
+| Analyte | Molecular type of analyte for analysis | D | The analyte is a DNA sample | See [Code Tables Report](https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/portion-analyte-codes)|
 | Plate | Order of plate in a sequence of 96-well plates | 182 | The 182nd plate | 4-digit alphanumeric value |
 | Portion | Order of portion in a sequence of 100 - 120 mg sample portions | 1 | The first portion of the sample | 01-99 |
 | Vial | Order of sample in a sequence of samples | C | The third vial | A to Z |
 | Project | Project name | TCGA | TCGA project | TCGA |
-| Sample | Sample type | 1 | A solid tumor | Tumor types range from 01 - 09, normal types from 10 - 19 and control samples from 20 - 29. See Code Tables Report for a complete list of sample codes |
-| Center | Sequencing or characterization center that will receive the aliquot for analysis | 1 | The Broad Institute GCC | See Code Tables Report |
+| Sample | Sample type | 1 | A solid tumor | Tumor types range from 01 - 09, normal types from 10 - 19 and control samples from 20 - 29. See [Code Tables Report](https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/sample-type-codes) for a complete list of sample codes |
+| Center | Sequencing or characterization center that will receive the aliquot for analysis | 1 | The Broad Institute GCC | See [Code Tables Report](https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/center-codes) |
 | Participant | Study participant | 1 | The first participant from MD Anderson for GBM study | Any alpha-numeric value |
-| TSS | Tissue source site | 2 | GBM (brain tumor) sample from MD Anderson | See Code Tables Report |
+| TSS | Tissue source site | 2 | GBM (brain tumor) sample from MD Anderson | See [Code Tables Report](https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/tissue-source-site-codes) |
 
 ### Barcode Types ###
 
@@ -39,7 +39,8 @@ Barcodes can also be visualized hierarchically, with TSS barcodes at the top of 
 
 Using the aliquot barcode example from the figure in Reading Barcodes, the following table displays a possible set of related barcodes at each level of the hierarchy:
 
-| Level | Bacode  | Comment |
+| Level | Barcode  | Comment |
+|---|---|---|
 | Aliquot | TCGA-02-0001-01C-01D-0182-01 | -- |
 | Analyte | TCGA-02-0001-01C-01D | Analytes of W and X both refer to analytes derived from whole genome amplification |
 | Drug | TCGA-02-0001-C1 | Drug ID is 'C','D','H','I' or 'T' followed by a number |
@@ -55,6 +56,7 @@ Using the aliquot barcode example from the figure in Reading Barcodes, the follo
 
 ## References ##
 1. [PDF from original TCGA wiki page](images/TCGA-TCGAbarcode-080518-1750-4378.pdf)
+2. [TCGA Code Tables](https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables)
 
 
 Categories: General

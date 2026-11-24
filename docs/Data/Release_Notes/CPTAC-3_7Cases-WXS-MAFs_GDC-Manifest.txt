@@ -1,0 +1,15 @@
+id	file_name	file_size	md5sum	case.submitter_id
+21762c82-a87e-4119-b087-40620a2bbe5c	4191375a-bb45-4939-94fe-ea4e24384d9a.wxs.aliquot_ensemble_raw.maf.gz	157552	9828d9b43165faa665889f8edaf14417	C3N-03839
+3bc87d89-1cc5-4b00-a2ed-bd26eabb1245	fb39440b-fff0-456e-a5f9-77b8808f5b1b.wxs.aliquot_ensemble_masked.maf.gz	13263	77609c30faab4b495453e7e195622bbf	C3L-04080
+56d1ff72-dd53-422c-9ea5-7664081f6eb2	19fbb6ef-8a29-4c7a-a625-94ce85d5f08f.wxs.aliquot_ensemble_raw.maf.gz	134555	c719416ab33bb0b0476e44f9481205ea	C3N-02971
+650494a4-4028-4a6f-bedd-5fc292d38da2	258fbc6f-d743-402e-88d1-013fd76f252f.wxs.aliquot_ensemble_raw.maf.gz	324199	6eecaa89d64347754f7e3eab07e7532e	C3N-03754
+65a9b395-df17-40c5-b2fa-25379a911add	19fbb6ef-8a29-4c7a-a625-94ce85d5f08f.wxs.aliquot_ensemble_masked.maf.gz	21187	210adef89d4ecaaf1345de5552fecd63	C3N-02971
+76fbfacf-7eb1-4407-ae38-db7e4bfc63f7	4191375a-bb45-4939-94fe-ea4e24384d9a.wxs.aliquot_ensemble_masked.maf.gz	26713	e9889b239822214ab80a692cf3f6b440	C3N-03839
+825e095a-5e8d-4893-adef-064f7c15a67c	e26bafe4-cb2f-45c5-a386-5c458960ee3c.wxs.aliquot_ensemble_masked.maf.gz	18146	05b3f087a2a489c7c592e84b4172b7fa	C3N-02585
+9e62722b-d67d-4ff9-ac27-098cd0e9e938	e26bafe4-cb2f-45c5-a386-5c458960ee3c.wxs.aliquot_ensemble_raw.maf.gz	151404	872dbc067ef652c897a6cca7645fda97	C3N-02585
+b63f873c-a8e8-4159-acae-1c300a328eff	da42134c-423e-4989-9881-4b17c600addd.wxs.aliquot_ensemble_raw.maf.gz	159672	fcbb939472407c466871be3bbaf6a627	C3L-04027
+cf3a2c57-3ce6-48fe-bd3f-cbc319c0cdc3	fb39440b-fff0-456e-a5f9-77b8808f5b1b.wxs.aliquot_ensemble_raw.maf.gz	129399	772938c1e6964acc1b812923373d441d	C3L-04080
+d58a6cdb-6a56-4fd8-b682-95bd0e38a467	02173eb6-d1ff-47b9-b500-773bdb5323ed.wxs.aliquot_ensemble_masked.maf.gz	20124	91a1509ef515762b7188efba3b17eaad	C3N-02768
+da4c2c8d-c943-4354-9d8b-d61d0e53c13e	02173eb6-d1ff-47b9-b500-773bdb5323ed.wxs.aliquot_ensemble_raw.maf.gz	140724	2f0ad190f2c83d14bd3ac56288ebe442	C3N-02768
+edbe1f1c-11cd-41f0-a872-cbb95b52c9d7	da42134c-423e-4989-9881-4b17c600addd.wxs.aliquot_ensemble_masked.maf.gz	22928	af0aeae46af0feb04cb2ad8febef624b	C3L-04027
+f27b38f0-c3ce-4f1f-931d-f6215513802b	258fbc6f-d743-402e-88d1-013fd76f252f.wxs.aliquot_ensemble_masked.maf.gz	13007	ab9496f355d1094a0a95554680e3eb69	C3N-03754

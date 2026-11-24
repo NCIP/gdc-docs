@@ -2,6 +2,31 @@
 
 | Version | Date |
 |---|---|
+| [v2.8.0](Data_Portal_Release_Notes.md#release-280) | June 29, 2026 |
+| [v2.7.0](Data_Portal_Release_Notes.md#release-270) | April 27, 2026 |
+| [v2.6.0](Data_Portal_Release_Notes.md#release-260) | March 16, 2026 |
+| [v2.5.0](Data_Portal_Release_Notes.md#release-250) | June 30, 2025 |
+| [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 20, 2025 |
+| [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
+| [v2.3.0](Data_Portal_Release_Notes.md#release-230) | October 29, 2024 |
+| [v2.2.0](Data_Portal_Release_Notes.md#release-220) | June 26, 2024 |
+| [v2.1.0](Data_Portal_Release_Notes.md#release-210) | April 30, 2024 |
+| [v2.0.0](Data_Portal_Release_Notes.md#release-200) | February 8, 2024 |
+| [v1.30.4](Data_Portal_Release_Notes.md#release-1304) | May 11, 2023 |
+| [v1.30.0](Data_Portal_Release_Notes.md#release-1300) | July 8, 2022 |
+| [v1.29.0](Data_Portal_Release_Notes.md#release-1290) | August 23, 2021 |
+| [v1.28.0](Data_Portal_Release_Notes.md#release-1280) | May 17, 2021 |
+| [v1.25.1](Data_Portal_Release_Notes.md#release-1251) | August 14, 2020 |
+| [v1.25.0](Data_Portal_Release_Notes.md#release-1250) | July 2, 2020 |
+| [v1.24.1](Data_Portal_Release_Notes.md#release-1241) | March 10, 2020 |
+| [v1.23.1](Data_Portal_Release_Notes.md#release-1231) | December 10, 2019 |
+| [v1.23.0](Data_Portal_Release_Notes.md#release-1230) | November 6, 2019 |
+| [v1.22.0](Data_Portal_Release_Notes.md#release-1220) | July 31, 2019 |
+| [v1.21.0](Data_Portal_Release_Notes.md#release-1210) | June 5, 2019 |
+| [v1.20.0](Data_Portal_Release_Notes.md#release-1200) | April 17, 2019 |
+| [v1.19.0](Data_Portal_Release_Notes.md#release-1190) | February 20, 2019 |
+| [v1.18.0](Data_Portal_Release_Notes.md#release-1180) | December 18, 2018 |
+| [v1.17.0](Data_Portal_Release_Notes.md#release-1170) | November 7, 2018 |
 | [v1.16.0](Data_Portal_Release_Notes.md#release-1160) | September 27, 2018 |
 | [v1.15.0](Data_Portal_Release_Notes.md#release-1150) | August 23, 2018 |
 | [v1.14.0](Data_Portal_Release_Notes.md#release-1140) | June 13, 2018 |
@@ -20,6 +45,1503 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.8.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: June 29, 2026
+
+### New Features and Changes
+
+* __Survival Plot__:
+    * The issue where survival estimates may be overestimated has been addressed.
+    * Survival analysis now incorporates `follow_ups.days_to_follow_up`, in addition to `demographic.days_to_death` and `diagnoses.days_to_last_follow_up`, for times to event or censoring. This expands on the previous approach which used only `days_to_death` and `days_to_last_follow_up` data.
+    * Only cases with a `vital_status` of "alive" or "dead" are included in survival analysis. Previously, cases with a `vital_status` of "not reported" or "unknown" were also included in the analysis. 
+    * The survival curve now correctly begins at a survival rate of 1.0 at time 0. <!--PEAR-2639-->
+    * The survival curve now accurately represents the survival estimates for all observation times. <!--PEAR-2639-->    
+* The CIViC link on the __Gene Summary Page__ has been updated. <!--PEAR-2687-->
+* Text has been added to the title of the Most Frequently Mutated Genes bar graph in __Mutation Frequency__ to clarify that only SSMs are included. <!--PEAR-2696-->
+
+### Bugs Fixed Since Last Release
+
+* The Primary Site and Disease Type cards in the __Cohort Builder__ now have tooltips displaying a description of these properties. <!--PEAR-2516-->
+* __IDC Image Viewer__:
+    * When searching Case ID in the Search Bar, cases are now populated if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also now lists a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
+    * The IDC Image Viewer Table now reflects the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
+* __Correlation Plot__:
+    * When all data has been hidden by the user, there are now legend labels to reenable showing the hidden data.<!--SV-2745-->
+* __Cohort Level MAF__:
+    * Requests for multiple files now complete successfully, without server request failure errors.<!--SV-2808-->
+* Minor UI fixes. <!--PEAR-2698-->
+
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing and Sequence Reads.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __Correlation Plot__:
+    * The menus and labels use "samples" or "individuals" where "cases" should be used. <!--SV-2754-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track that does not reflect the current cohort.<!--SV-2799-->
+    * GeneExp vs Survival input in Correlation Plot should display error when the cohort size >5k.<!--SV-2796-->
+* __Copy Number Segment__:
+	* Inconsistent handling of coordinates. <!--SV-2422-->
+* __Gene Expression Clustering__:
+    * An error will occur when using the tool with a cohort that has no filters applied. As a workaround, first apply a filter to the cohort before using it with the tool. <!--SV-2811-->
+    * The tool may incorrectly report "No matching cohort sample data for the current gene list", if the cohort includes a large number of cases without gene expression data.<!--SV-2800-->
+* __Survival Plot__:
+    * In __Mutation Frequency__, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cohort MAF__:
+    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources. There will be a red banner above the MAF controls to indicate the termination.
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The case count displayed above the table in the __Repository__ can be incorrect when applying filters based on samples (e.g. Tissue Type) or input files. <!--SV-2260-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+* The __Quick Search__ feature located in the header may not return expected results if the query is not a full match for the results and exceeds 20 characters. A workaround is to enter a full match or limit the query to 20 or fewer characters. <!--SV-2705-->
+
+### Properties Removed
+
+The following properties have been removed and are no longer available. Any data values that were previously found in these properties have been verified to have been moved to other available properties.
+
+* cases.demographic.gender, cases.diagnoses.pathology_details.epithelioid_cell_percent, cases.diagnoses.pathology_details.extrascleral_extension, cases.diagnoses.pathology_details.size_extraocular_nodule, cases.diagnoses.pathology_details.spindle_cell_percent, cases.diagnoses.treatments.therapeutic_level_achieved, cases.family_histories.relationship_gender, cases.follow_ups.other_clinical_attributes.undescended_testis_corrected_age, cases.samples.portions.analytes.ribosomal_rna_28s_16s_ratio, cases.samples.tumor_code_id
+
+## Release 2.7.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: April 27, 2026
+
+### New Features and Changes
+
+* __IDC Image Viewer__:
+    * A new analysis tool has been added to view histopathology and radiology images using the Imaging Data Commons (IDC) Image Viewer for the current cohort.
+
+### Bugs Fixed Since Last Release
+
+* __Correlation Plot__:
+    * When using `diagnoses` variables, the primary diagnosis or binned age of diagnosis value is now assigned deterministically for a case that has multiple values, resulting in case groupings that are repeatable for bar charts, violins, and boxplot. <!--SV-2770-->
+    * Selecting some gene sets will will now always persist the parent menus, making the `Apply` button always accessible. <!--SV-2735-->
+    * Using plot-level filters that combine "AND"/"OR" condition has been fixed and does not lead to the error "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
+    * In a violin plot with a binned numeric correlation variable, the List Samples option in a clicked label or range selection menu now shows the correct tabulated results. <!--SV-2780, SV-2781-->
+    * The survival plot now allows changing rendered colors. <!--SV-2764-->
+    * In the scatter plot when mousing over a data point, the tooltip is now displayed close to the data point. <!--SV-2765-->
+    * Scatter plot's lasso now opens sample view without the error "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
+    * Scatter plot's `Add to a group` button in the list samples table is now hidden. <!--SV-2768-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot now launches a ProteinPaint Lollipop track without the error "unknown data source for custom track".<!--SV-2779-->
+* __OncoMatrix__:
+    * After clicking on a matrix cell and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot now launches a ProteinPaint Lollipop track without the error "unknown data source for custom track".<!--SV-2778-->
+* The deprecated tumor_code_id property has been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2604-->
+* Minor accessibility improvements. <!--PEAR-2629-->
+* The portal will now properly load for logged-in users who have no permissions to any controlled-access data. <!--PEAR-2635-->
+* A fix has been implemented for the issue where entity summary pages sometimes do not load as expected. <!--PEAR-2594-->
+* __Manage Sets__ has been made consistent with the rest of the portal and displays the protein change and consequence from the canonical transcript of a mutation. <!--PEAR-2498-->
+* The y-axis ticks and labels for histograms in the __Clinical Data Analysis__ tool are now capped at 100% unless the data contains values exceeding this threshold. <!--PEAR-2552-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing and Sequence Reads.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __IDC Image Viewer__:
+	* When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
+	* The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
+* __Correlation Plot__:
+    * The menus and labels use "samples" or "individuals" where "cases" should be used. <!--SV-2754-->
+    * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track that does not reflect the current cohort.<!--SV-2799-->
+    * GeneExp vs Survival input in Correlation Plot should display error when the cohort size >5k.<!--SV-2796-->
+* __Copy Number Segment__:
+	* Inconsistent handling of coordinates. <!--SV-2422-->
+* Gene Expression Clustering:
+    * The tool may incorrectly report "No matching cohort sample data for the current gene list", if the cohort includes a large number of cases without gene expression data.<!--SV-2800-->
+* __Survival Plot__:
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+    * The __Survival Plot__ feature may contain an error in which survival estimates are overestimated. For example, for a set of non-censored cases, decreases in survival estimate that should occur at a particular time point occur at the subsequent time point. This will be addressed in a future release.
+* __Cohort MAF__:
+    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources. There will be a red banner above the MAF controls to indicate the termination.
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The case count displayed above the table in the __Repository__ can be incorrect when applying filters based on samples (e.g. Tissue Type) or input files. <!--SV-2260-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+* The __Quick Search__ feature located in the header may not return expected results if the query is not a full match for the results and exceeds 20 characters. A workaround is to enter a full match or limit the query to 20 or fewer characters. <!--SV-2705-->
+
+## Release 2.6.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: March 16, 2026
+
+### New Features and Changes
+
+* __Correlation Plot__:
+    * A new analysis tool has been added to visualize correlations between clinical and genomic variables.
+* __Clinical Data Analysis__:
+    * Denominators used for percentage calculations are now based on the total number of cases in the current cohort. <!--PEAR-2453-->
+    * An option has been added to hide properties that have no data. <!--PEAR-2462-->
+* __Cancer Distribution__:
+    * Downloaded CNV histogram images now include a legend for reference. <!--PEAR-2527-->
+    * Property names in the JSON download have been updated for clarity. <!--PEAR-2296-->
+* The Gender property has been replaced with the Sex at Birth property throughout the Data Portal. <!--PEAR-2346-->
+* Filter panels on the left in __Projects__, __Repository__, __Mutation Frequency__, and the __Annotations Browser__ can now be collapsed. <!--PEAR-2344-->
+* Deleting a cohort being compared in the __Cohort Comparison__ tool will now return the user to the selection screen. <!--PEAR-2287-->
+* A link to GeneCards has been added to the External References section in the __Gene Summary Page__. <!--PEAR-2541-->
+* A link on obtaining access to controlled data has been added to the header of the portal. <!--PEAR-2459-->
+* Users will now be notified when their active cohort's filters include properties that no longer exist. <!--PEAR-2544-->
+* Notifications displayed upon deleting cohorts will now include information about the new current cohort. <!--PEAR-3410-->
+
+### Bugs Fixed Since Last Release
+
+* __Clinical Data Analysis__:
+    * Histogram image downloads are now in a higher resolution. <!--PEAR-2546-->
+    * Custom bins will now correctly apply and display the default bins after they are restored by the user. <!--PEAR-2358/PEAR-2499-->
+    * The Custom Bins modal will no longer display changes that have been discarded and will instead display only the changes that have been saved. <!--PEAR-2499-->
+* __Cohort Builder__:
+    * The `exposures.occupation_duration_years`, `exposures.exposure_duration_years`, and `exposures.age_at_last_exposure` cards now have the correct max value of 89 years. <!--PEAR-2530-->
+    * The `exposures.age_at_last_exposure` and `exposures.age_at_onset` cards have been updated to reflect that these properties' units are in years instead of days. <!--PEAR-2535-->
+* __ProteinPaint__:
+    * The ProteinPaint tool now uses 1 year = 365.25 days, instead of 365 days, which is consistent with other parts of the GDC.
+* An unexpected error will no longer occur when the last existing cohort is deleted while in the selection screen of the __Cohort Comparison__ app. <!--PEAR-2514-->
+* The portal now correctly displays the Save Cohort Error modal when cohorts unexpectedly fail to be saved. <!--PEAR-2511-->
+* Sets created by saving the "top N" mutations from the mutations table in the __Gene Summary Page__ will now contain the expected mutations as ordered in the table. <!--PEAR-2403-->
+* The Data Transfer Tool link in the header's Apps menu now directs to the GDC Data Transfer Tool page, consistent with the rest of the Data Portal. <!--PEAR-2519-->
+* Other than the Data Portal link, links in the header's Apps menu now open in a new tab. <!--PEAR-2522-->
+* Project IDs are now fully visible in the downloaded CNV histogram images. <!--PEAR-2528-->
+* The home page now displays the number of cases available in the GDC's high-quality datasets. <!--PEAR-2475-->
+* Minor UX/UI fixes and improvements. <!--PEAR-1530/PEAR-2209/PEAR-2470/PEAR-2417/PEAR-2418/PEAR-2091/PEAR-2092/PEAR-2288/PEAR-2292/PEAR-2330/PEAR-2476/PEAR-2485/PEAR-2499/PEAR-2406-->
+* Minor text changes. <!--PEAR-2412/PEAR-874/PEAR-2333-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing and Sequence Reads.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __Correlation Plot__:
+	* The menus and labels use "samples" or "individuals" where "cases" should be used . <!--SV-2754-->
+    * When correlating Overall Survival vs Year of Birth, a divide-by variable may lead to an error of `Custom first bin.stop value should be numeric`.<!--SV-2752-->
+    * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
+    * Selecting some gene sets causes parent menus to disappear, making the `Apply` button inaccessible. <!--SV-2735-->
+    * Using plot-level filters that combine "AND"/"OR" condition may lead to an error, "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
+    * When using `diagnoses` variables, the primary diagnosis or binned age of diagnosis value may be randomly assigned for a case that has multiple values, resulting in case groupings that are not repeatable for bar charts, violins, and boxplot. <!--SV-2770-->
+    * In a violin plot with a binned numeric correlation variable, the List Samples option in a clicked label or range selection menu shows empty or incorrect tabulated results. <!--SV-2780, SV-2781-->
+    * The survival plot does not allow changing rendered colors. <!--SV-2764-->
+    * In the scatter plot when mousing over a data point, the tooltip is displayed far away from the data point and outside of the viewport. <!--SV-2765-->
+    * Scatter plot's lasso opens sample view with an error, "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
+    * Scatter plot's `Add to a group` button in the list samples table doesn't work. <!--SV-2768-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2779-->
+* __Copy Number Segment__:
+	* Inconsistent handling of coordinates. <!--SV-2422-->
+* __Survival Plot__:
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+    * The __Survival Plot__ feature may contain an error in which survival estimates are overestimated. For example, for a set of non-censored cases, decreases in survival estimate that should occur at a particular time point occur at the subsequent time point. This will be addressed in a future release.
+* __Cohort MAF__:
+    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
+    There will be a red banner above the MAF controls to indicate the termination.
+* __OncoMatrix__:
+    * After clicking on a matrix cell and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2778-->
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The case count displayed above the table in the __Repository__ can be incorrect when applying filters based on samples (e.g. Tissue Type) or input files. <!--SV-2260-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+* The __Quick Search__ feature located in the header may not return expected results if the query is not a full match for the results and exceeds 20 characters. A workaround is to enter a full match or limit the query to 20 or fewer characters. <!--SV-2705-->
+
+### Properties Removed
+
+The following properties have been removed and are no longer available. Any data values that were previously found in these properties have been verified to have been moved to other available properties.
+
+* cases.demographic.premature_at_birth, cases.demographic.weeks_gestation_at_birth, cases.diagnoses.metastasis_at_diagnosis_site, cases.diagnoses.micropapillary_features, cases.diagnoses.mitotic_count, cases.diagnoses.papillary_renal_cell_type, cases.diagnoses.pregnant_at_diagnosis, cases.diagnoses.primary_disease, cases.diagnoses.treatments.treatment_anatomic_site, cases.diagnoses.treatments.treatment_arm, cases.exposures.asbestos_exposure, cases.exposures.coal_dust_exposure, cases.exposures.radon_exposure, cases.exposures.respirable_crystalline_silica_exposure, cases.exposures.years_smoked, cases.follow_ups.aids_risk_factors, cases.follow_ups.bmi, cases.follow_ups.body_surface_area, cases.follow_ups.cd4_count, cases.follow_ups.cdc_hiv_risk_factors, cases.follow_ups.comorbidities, cases.follow_ups.comorbidity, cases.follow_ups.comorbidity_method_of_diagnosis, cases.follow_ups.days_to_comorbidity, cases.follow_ups.days_to_risk_factor, cases.follow_ups.diabetes_treatment_type, cases.follow_ups.dlco_ref_predictive_percent, cases.follow_ups.eye_color, cases.follow_ups.fev1_fvc_post_bronch_percent, cases.follow_ups.fev1_fvc_pre_bronch_percent, cases.follow_ups.fev1_ref_post_bronch_percent, cases.follow_ups.fev1_ref_pre_bronch_percent, cases.follow_ups.haart_treatment_indicator, cases.follow_ups.height, cases.follow_ups.hepatitis_sustained_virological_response, cases.follow_ups.hiv_viral_load, cases.follow_ups.hormonal_contraceptive_type, cases.follow_ups.hormonal_contraceptive_use, cases.follow_ups.hormone_replacement_therapy_type, cases.follow_ups.hpv_positive_type, cases.follow_ups.hysterectomy_margins_involved, cases.follow_ups.hysterectomy_type, cases.follow_ups.immunosuppressive_treatment_type, cases.follow_ups.menopause_status, cases.follow_ups.nadir_cd4_count, cases.follow_ups.pancreatitis_onset_year, cases.follow_ups.pregnancy_count, cases.follow_ups.pregnancy_outcome, cases.follow_ups.reflux_treatment_type, cases.follow_ups.risk_factor, cases.follow_ups.risk_factor_method_of_diagnosis, cases.follow_ups.risk_factor_treatment, cases.follow_ups.risk_factors, cases.follow_ups.undescended_testis_corrected, cases.follow_ups.undescended_testis_corrected_age, cases.follow_ups.undescended_testis_corrected_laterality, cases.follow_ups.undescended_testis_corrected_method, cases.follow_ups.undescended_testis_history, cases.follow_ups.undescended_testis_history_laterality, cases.follow_ups.weight, cases.follow_ups.viral_hepatitis_serologies, cases.follow_ups.other_clinical_attributes.pregnancy_count, cases.follow_ups.other_clinical_attributes.viral_hepatitis_serologies, cases.samples.composition, cases.samples.is_ffpe, cases.samples.oct_embedded, cases.samples.portions.analytes.aliquots.analyte_type_id, cases.samples.portions.analytes.analyte_type_id, cases.samples.sample_type_id, cases.samples.tumor_code
+
+
+## Release 2.5.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  June 30, 2025
+
+### New Features and Changes
+
+* __New Analysis Tool: Copy Number Segment__:
+    * Visualize copy number data over a gene or region, either as segment view (<1000 segments), or as density plot (>1000 segments).
+* __Home Page__:
+    * Cohorts created via the body plot will no longer include tissue or organ of origin among their filters. These cohorts will be based solely on relevant primary site filters. <!--PEAR-2348/PEAR-2363-->
+    * Tooltips displayed upon mouseover of the body plot's major primary sites now contain accurate case counts. File counts will no longer be displayed. <!--PEAR-2348-->
+* __Cohort Builder__:
+    * INRG Stage and Medulloblastoma Molecular Classification have been added as default cards to the Disease Specific Classifications category. <!--PEAR-2433-->
+    * A new "Other Clinical Attributes" category has been added with default cards for BMI, Weight, Height, Risk Factors, Menopause Status, Comorbidities, Pregnancy Outcome, and Number of Pregnancies. <!--PEAR-2411-->
+    * The "Molecular Filters" category has been renamed to "Genomic Filters". <!--PEAR-2386-->
+* __Clinical Data Analysis__:
+    * Additional Other Clinical Attributes properties (BMI, Weight, Height, Risk Factors, Menopause Status, Comorbidities, Pregnancy Outcome, and Number of Pregnancies) are now available. <!--PEAR-2410-->
+    * User-defined custom bin names are now limited to 100 characters. <!--PEAR-611-->
+* __Gene Expression Clustering__:
+    * Supported option to cluster and uncluster genes. When genes are not clustered, show options to sort the genes by input genes order or by genes name.
+* A maximum of 50,000 identifiers will now be accepted when entering or uploading identifiers for filtering or creating cohorts/sets <!--PEAR-2046-->
+* Responsiveness improvements have been made to __Cohort Comparison__ and __Set Operations__. <!--PEAR-2101/2170-->
+* When saving sets via the gene and mutation tables, the "Save top" option will no longer be available if genes/mutations have been selected in the tables. This ensures that only user-selected items are saved to the set. <!--PEAR-2239-->
+* Sets will no longer have autogenerated default names when created via the genes and mutations tables. <!--PEAR-2187-->
+* Search functionality for all mutations tables has been extended to support searching by ssm_id. <!--PEAR-1513-->
+* Filter cards for strings have been improved by preserving case sensitivity for display, validating duplicate entries, and providing error notifications for non-unique values. <!--PEAR-2218-->
+* The filters panel in the __Annotations Browser__ now allows for all filters to be reset and for filter cards to be expanded or collapsed. <!--PEAR-2257-->
+* Ensured consistent display of the "Session Expired" alert when users are logged out due to session expiration. <!--PEAR-2251-->
+* Reduced redundant font resource requests during image downloads to improve download performance. <!--PEAR-2355-->
+* Minor UX/UI and text improvements. <!--PEAR-2301/2100/2257/2321/2327/122-->
+
+
+### Bugs Fixed Since Last Release
+
+* __Section 508 Accessibility__:
+    * Improved text readability and fixed layout issues at 200% zoom across the portal. <!--PEAR-1742-->
+    * Ensured that the page announcing the retirement of the Legacy Archive works properly with screen readers and other assistive tools. <!--PEAR-2390-->
+* __Clinical Data Analysis__:
+    * Improved the survival plot downloads by adding missing property names and fixing label cutoff issues. <!--PEAR-2177-->
+    * Fixed an issue where axis labels may not be fully displayed in the Box and the QQ plots. <!--PEAR-2413-->
+* __Disco Plot__:
+    * Detect and skip SV/fusion events with breakpoints in unassembled scaffolds.
+    * Re-enabled genotyping array-based CNV display in disco for some TARGET cases.
+* __Gene Expression Clustering__:
+    * Added geneset edit UI in Clustering button menu. This is separate from the geneset edit UI in "Genes" menu, which is only applicable to non-clustering row groups.
+    * Removed option to delete group of genes used for clustering.
+    * Allowed server-side recaching attempts to correctly recover or exit on errors.
+* __OncoMatrix__:
+    * Fixed the numeric CNV legend alignment.
+    * Allowed server-side recaching attempts to correctly recover or exit on errors.
+* __ProteinPaint__:
+    * Hover over mutations to show tooltip showing consequence to be 508 compliant.
+    * Avoid showing blank sunburst chart on clicking mutations.
+    * Lollipop will not break when cohort filter contains gene mutations.
+    * Variant List menu will not show CNV tab when there is no CNV data.
+* __Single-Cell RNAseq__:
+    * Persisted the same cohort in demo mode, regardless of user selection.
+* Cohorts created via the Age At Diagnosis table in __Cohort Comparison__ will now have the correct composition. <!--PEAR-2436-->
+* The "Remove from existing mutation set" option in the mutations tables now behaves correctly when attempting to remove all mutations in the table from the set. <!--PEAR-2337-->
+* Replacing cohorts from within a tool now behaves as expected. <!--PEAR-2303/PEAR-2262-->
+* The "View Images" button in the __Repository__ will only be enabled when slide images are present in the files table. <!--PEAR-2268-->
+* The "File Count by Project" table in the __Cart__ is now correctly sorted. <!--PEAR-2266-->
+* Ensured the __Annotations__ table resets to the first page when filters are changed. <!--PEAR-2267-->
+* Analysis tools are now always sorted in alphabetical order in the __Analysis Center__. <!--PEAR-2354-->
+* Fixed the left-hand filters panels across the portal to render consistently at the correct full height on initial load. <!--PEAR-2376-->
+* Fixed an issue where filter cards for numbers did not accept decimal values between 0 and 1. <!--PEAR-2383-->
+
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+        * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __Survival Plot__:
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cohort MAF__:
+    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
+    There will be a red banner above the MAF controls to indicate the termination.
+* __ProteinPaint__:
+    * The ProteinPaint tool uses 1 year = 365 days, instead of 365.25 days, causing different age values to be displayed in ProteinPaint and other areas of the portal.
+* __ProteinPaint, OncoMatrix, Gene Expression__:
+    * These rendered views do not get updated when a user logs in or out - a manual browser refresh is required.
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The case count displayed above the table in the __Repository__ can be incorrect when applying filters based on samples (e.g. Tissue Type) or input files. <!--SV-2260-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+
+## Release 2.4.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  March 20, 2025
+
+### New Features and Changes
+
+* __New Analysis Tool:  Single-Cell RNAseq__:
+    * Visualize single-cell RNA-Seq data with tSNE/UMAP plots, gene expression overlays and contour maps.
+    * Load differentially expressed genes and GSEA analysis.
+    * Load violin plot to summarize gene expression.
+* __New CNV Categories__:
+    * New CNV categories (Amplification, Gain, Homozygous Deletion, and Heterozygous Deletion) are now available.
+    * The genes table and its associated TSV download in __Mutation Frequency__ have been updated with the new CNV categories. <!--PEAR-2135/2137-->
+    * The Cancer Distribution tool in the __Gene Summary Page__ has been updated to reflect the new CNV categories. <!--PEAR-2136/2291-->
+* __Cohort Builder__:
+    * Search behavior has been enhanced by automatically populating the search bar of selected cards as appropriate. Additionally, search accuracy has been improved by ensuring that additional values matching the search input will be returned in the results. <!--PEAR-2107/2274/2274-->
+    * Child Pugh Classification, Ishak Fibrosis Score, and Weiss Assessment Score have been added as default cards. <!--PEAR-2322-->
+    * The deprecated property, Tumor Code, is no longer a default card. <!--PEAR-2332-->
+* __Clinical TSV and JSON__:
+    * Other Clinical Attribute properties are now available.  <!--PEAR-1984-->
+    * TSV headers have been standardized. <!--PEAR-1984-->
+    * All properties directly associated with a case, such as Primary Site and Disease Type, are now included <!--PEAR-2304-->
+* __File Summary Page__:
+    * BAM metrics have been added. <!--PEAR-2231-->
+    * The Workflow Completion Date has been removed. <!--PEAR-2131-->
+* __OncoMatrix__:
+    * By default hide "splice region" consequence mutations.
+    * Support 5-category CNV: in OncoPrint mode, plot a white border around SSM to better distinguish it from CNV when columns are wide enough.
+    * Continuous variable row label menu supports option to edit bar height and color.
+    * Allow users to modify colors from the legend.
+* __Gene Expression Clustering__:
+    * Avoids showing genes with no expression values (due to an issue of ProteinPaint GENCODE v36 data that affects only certain genes; data issue will be fixed at the next release).
+    * Make zscore transformation a checkbox option in Clustering menu.
+* __Cohort MAF__:
+    * Allow users to sort the table of MAF files.
+    * A bar plot has been added to display the MAF file size.
+* The deprecated Sample Type property has been replaced by new sample properties (Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method) in the __Sample Sheet__. <!--PEAR-2113-->
+* Deprecated properties (Analyte Type ID, Is FFPE, OCT Embedded, and Tumor Code) have been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2306-->
+* As appropriate, deprecated properties (Premature at Birth, Metastasis at Diagnosis Site, Pregnant at Diagnosis, Treatment Anatomic Site) have been removed or replaced in the __Clinical Data Analysis__ tool. Additionally, a new Other Clinical Attribute category has been created. <!--PEAR-2306-->
+* Case counts are no longer displayed for cases with missing Age At Diagnosis values in __Cohort Comparison__. <!--PEAR-2316/SV-2558-->
+* Updated the Repository and Cart to display Sample Sheet and Metadata downloads as separate buttons for better visibility. <!--PEAR-2232-->
+* Minor text and styling improvements. <!--PEAR-452/2298/2341/2323/2253/2290-->
+
+### Bugs Fixed Since Last Release
+
+* __Section 508 Accessibility__:
+    * Responsiveness has been improved for the __Clinical Data Analysis__ tool and the Manage Sets page. <!--PEAR-2168/2171-->
+    * Aria-hidden elements in the __Cohort Bar__ are no longer focusable. <!--PEAR-2300-->
+    * A conflict where using the ESC key to close dropdown menus also unintentionally closed modals has been resolved. <!--PEAR-1882-->
+* The "Existing Cohort with Selected Cases" option of the "Save New Cohort" feature in __Clinical Data Analysis__ now creates cohorts with the correct composition. <!--PEAR-2285-->
+* Links to the GDC Data Transfer Tool page have been updated to point to the correct location. <!--PEAR-2276-->
+* Data in arrays are now included in the clinical and biospecimen TSVs. <!--SV-2564/PEAR-2339-->
+* Fixed an intermittent issue where __Quick Search__ navigation would randomly fail, preventing users from reaching the expected page. <!--PEAR-2294-->
+* __Cohort MAF__:
+    * Long-running downloads are now terminated after 5 minutes.
+    * On successful downloads, the number of empty or failed MAF files is indicated to the user.
+* __Gene Expression Clustering__:
+    * Show value when it's equal to 0 in mouseover tooltip and click menu.
+* __OncoMatrix__:
+    * Show value when it's equal to 0 in mouseover tooltip and click menu.
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+        * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __Survival Plot__:
+    * Survival plots are generated from the `diagnoses.days_to_last_follow_up` field. For some TCGA projects, in Data Release 42, data was migrated to the `follow_ups.days_to_follow_up` field. This resulted in an issue with missing cases for some TCGA projects in survival plots. The GDC is actively working on a fix. In the interim, users should create survival plots using the greatest value in the `follow_ups.days_to_follow_up` field. <!-- SV-2584 -->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Gene Expression Clustering__:
+    * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
+* __Cohort MAF__:
+    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
+    There will be a red banner above the MAF controls to indicate the termination.
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The case count displayed above the table in the __Repository__ can be incorrect when applying filters based on samples (e.g. Tissue Type) or input files. <!--SV-2260-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+
+## Release 2.3.1
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  November 21, 2024
+
+### New Features and Changes
+
+* Custom filter cards in the __Cohort Builder__ will be automatically removed if the property is no longer available. <!--PEAR-2248-->
+* File names for manifests now include the timestamp. Additionally, dates and times are now based on the user's timezone rather than UTC. <!--PEAR-1203-->
+* Responsiveness improvements have been made to the __Cart__. <!--PEAR-2169-->
+* Minor UX improvements. <!--PEAR-2220/2211-->
+
+### Bugs Fixed Since Last Release
+
+* Adding family_histories.relationship_age_at_diagnosis or follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range as a custom filter in the __Cohort Builder__ will no longer result in endless spinners being displayed on these filter cards. <!--PEAR-2247-->
+* Fixed an issue where the Replace Existing Cohort modal is not being displayed when creating a cohort from Mutation Frequency. <!--PEAR-2219-->
+* Minor UI and font fixes. <!--PEAR-1284/2208-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Survival Plot__:
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Gene Expression Clustering__:
+    * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* __Cohort Comparison__ may incorrectly display negative counts for cases with missing Age at Diagnosis values. Cohorts created from these counts should still have the correct cases. <!--SV-2558-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+
+### Properties Removed
+
+The following properties have been removed and are no longer available. Any data values that were previously found in these properties have been verified to have been moved to other available properties.
+
+* cases.diagnoses.anaplasia_present, cases.diagnoses.anaplasia_present_type, cases.diagnoses.breslow_thickness, cases.diagnoses.circumferential_resection_margin, cases.diagnoses.greatest_tumor_dimension, cases.diagnoses.gross_tumor_weight, cases.diagnoses.largest_extrapelvic_peritoneal_focus, cases.diagnoses.lymph_node_involved_site, cases.diagnoses.lymph_nodes_positive, cases.diagnoses.lymph_nodes_tested, cases.diagnoses.lymphatic_invasion_present, cases.diagnoses.non_nodal_regional_disease, cases.diagnoses.non_nodal_tumor_deposits, cases.diagnoses.percent_tumor_invasion, cases.diagnoses.perineural_invasion_present, cases.diagnoses.peripancreatic_lymph_nodes_positive, cases.diagnoses.peripancreatic_lymph_nodes_tested, cases.diagnoses.transglottic_extension, cases.diagnoses.tumor_largest_dimension_diameter, cases.diagnoses.tumor_stage, cases.diagnoses.vascular_invasion_present, cases.diagnoses.vascular_invasion_type, cases.exposures.bmi, cases.exposures.height, cases.exposures.marijuana_use_per_week, cases.exposures.smokeless_tobacco_quit_age, cases.exposures.tobacco_use_per_day, cases.exposures.weight, files.analysis.input_files.proportion_coverage_10X, files.analysis.input_files.proportion_coverage_30X, files.analysis.metadata.read_groups.RIN, files.downstream_analyses.output_files.proportion_coverage_10X, files.downstream_analyses.output_files.proportion_coverage_30X, files.index_files.proportion_coverage_10X, files.index_files.proportion_coverage_30X, files.proportion_coverage_10X, files.proportion_coverage_30X
+
+## Release 2.3.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  October 29, 2024
+
+### New Features and Changes
+
+* __Cohort Builder__:
+    * Custom filters now display their parent category name. <!--PEAR-1083-->
+    * Filter cards in classification categories have been moved to the General Diagnosis category or the new Disease Specific Classifications category. <!--PEAR-1989-->
+    * The Years-Days toggle has been removed for Age at Index. <!--PEAR-1994-->
+    * Cards with number range filters are better aligned with other cards in the same row. <!--PEAR-1881-->
+    * Search results have been improved to display more relevant searches first. <!--PEAR-2013-->
+    * The Best Overall Response card has been moved to the first card in the Treatment category. <!--PEAR-2123-->
+    * Descriptions are now available for Other Clinical Attribute properties when adding custom filters. <!--PEAR-2226-->
+    * UICC Clinical and Pathologic Stage filter cards have been added to the General Diagnosis category, and Specimen Type has been added to the Biospecimen category. <!--PEAR-2205/2042-->
+    * The Enneking MSTS Stage card and Composition card have been removed from the default cards. <!--PEAR-2205/2042-->
+    * Cards for filtering cohort by specific cases, mutated genes, and SSMs have been added. <!--PEAR-1269-->
+    * Improved number range inputs in Cohort Builder by removing autofill behavior, adding Min/Max labels, and validating user inputs with error messages for out-of-range values. <!--PEAR-2030-->
+* __General UX/UI Improvements__:
+    * Filter cards for entering text and entering/uploading sets now have an appropriate maximum height. <!--PEAR-1311-->
+    * Additional loading indicators have been added throughout the portal to indicate that information is still in the process of rendering. <!--PEAR-748-->
+    * Total counts are now consistently displayed above tables. <!--PEAR-1896/2093-->
+    * Row selection is now appropriately disabled for table rows containing 0 items in a set. <!--PEAR-1951-->
+    * Styling for the tool cards in the Analysis Center has been standardized. <!--PEAR-1957-->
+    * The search bar in the left panel within the __Clinical Data Analysis__ tool now remains fixed at the top of the page. <!--PEAR-1963-->
+    * The message "No data for this field" will only be displayed when information for a filter card has been loaded. <!--PEAR-2036-->
+    * Vertical alignment has been improved for tables that are displayed next to each other. <!--PEAR-2049-->
+    * Filter panels located on the left side of the __Projects__, __Repository__, and __Mutation Frequency__ tools will now extend up to the height of the tables in the tools. <!--PEAR-2110-->
+    * Styling for survival plots has been improved for consistency. <!--PEAR-2176-->
+    * Download icons have been standardized. <!--PEAR-2186-->
+    * Text size has been increased for instructions in modals for selecting cohorts. <!--PEAR-2175-->
+* __File Summary Page__:
+    * The __Reference Genome__ section is no longer displayed for files that have not been processed with the reference genome. <!--PEAR-1967-->
+    * The Case ID column is now displayed by default in the Annotations table. Additionally, the Case UUID column is no longer displayed by default. <!--PEAR-1968-->
+    * Pagination has been added to the Read Groups table. <!--PEAR-2192-->
+    * Sample Type has been removed from the Associated Cases/Biospecimens table and replaced with Tissue Type and Tumor Descriptor. <!--PEAR-2042-->
+* __Repository__:
+    * Stability improvements have been added. <!--PEAR-2022-->
+    * The placement and design of the buttons to add custom filters and reset them have been updated. <!--PEAR-2059-->
+* __Clinical Data Analysis__:
+    * The y-axis of histograms will now only display integers for case counts. <!--PEAR-2087-->
+    * The rounding of numbers displayed in the tool has been improved. <!--PEAR-1040-->
+* __Case Summary Page__:
+    * Information about Other Clinical Attributes has been added to the Clinical section. Additionally, deprecated properties have been removed from the Follow-Ups table. <!--PEAR-1983-->
+    * Sample Type, Sample Type ID, and Composition have been removed from the Biospecimen tree's Samples table. Additionally, the table has been updated with the addition of Specimen Type. <!--PEAR-2042-->
+* __ProteinPaint__:
+    * Allows users to customize consequence colors and restore to default.
+* __Gene Expression Clustering__:
+    * The tool now displays the top 1000 variably expressed genes and first 1000 cases as the default plot.
+    * The tool and Gene Expression API are now ~80% more performant.
+    * Users can now change the plot color scheme to Blue-White-Red, Green-Black-Red, Green-Black-Red, and Blue-Black-Yellow, under the Clustering tab.
+    * Z-score values are now capped to not exceed absolute values, under the Clustering tab.
+    * Implemented support for adding user-saved custom gene sets, under the Genes tab.
+    * Added support for adding "Overall Survival" as an annotation variable.
+    * The tool now supports clicking the gene dendrogram to select genes and launch "Gene Set Overrepresentation Analysis."
+    * When screening user-defined gene sets, use a close-to-zero min_median_log2_uqfpkm parameter to keep more genes expressed at low level.
+    * Allows the drag/drop of mutation and dictionary variable rows not used for clustering.
+    * Improved performance of the top variably expressed genes query from the GDC API by directly submitting the case filters without first retrieving a list of cases.
+* __OncoMatrix__:
+    * Implemented support for adding user-saved custom gene sets, under the Genes tab.
+    * Added support of gene expression rows along with mutation and dictionary variables.
+    * When plotting gene expression genes as a variable, users can now edit the genes display as a z-score.
+    * For cases that do not have expression data, the displayed gene expression variable track now displays them as blank values.
+    * Added support for "Overall Survival" variable.
+    * Allows the display of only dictionary variables with all genes removed.
+    * Users can now click on a mutated gene and edit and customize its variant grouping.
+* The tooltips for the __Survival Plot__ now display the time to death and the interval of last follow-up in both years and months. The downloaded TSV now includes the time value in years, months, and days, and the downloaded JSON now includes the time value in days. <!--PEAR-1961/2060-->
+* The ability to reset all filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools to their defaults has been added. <!--PEAR-1431-->
+* Filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools no longer reset when the composition of the active cohort has been changed. <!--PEAR-1856-->
+* Filter cards in the __Projects__, __Repository__, and __Mutation Frequency__ tools can now be expanded and collapsed singly or all at once. <!--PEAR-2029-->
+* Except for the Most Frequent Somatic Mutations table in the __Case Summary Page__, downloadeded JSON and TSV files now reflect the information displayed in the associated tables whenever search filters have been applied. <!--PEAR-1865/2190-->
+* A modal will now be displayed to inform users of any issues that occurred when saving sets and cohorts, and when exporting sets. <!--PEAR-1971/2141-->
+* __Quick Search__'s accuracy has been improved to account for files that are no longer available. <!--PEAR-2082-->
+* When genes or mutations are entered or uploaded for filtering in __Mutation Frequency__, other filters within the tool will be cleared. <!--PEAR-2133-->
+* The ability to display a banner notifying users of government shutdowns has been added. <!--PEAR-2161-->
+* __Slide Image Viewer__'s performance has been improved. <!--PEAR-1771-->
+
+### Bugs Fixed Since Last Release
+
+* __Section 508 Accessibility__:
+    * Aria roles now contain the expected children. <!--PEAR-1669-->
+    * Responsiveness for __Mutation Frequency__, all summary pages, and all table headers has been improved. <!--PEAR-1927/2130/2090-->
+    * An equivalent alternative to the body plot on the home page is now available. <!--PEAR-1937-->
+    * Aria labels have been made consistent with the displayed text in the __Query Expressions__ section. <!--PEAR-2117-->
+    * Fixed input labels and color contrasts in __ProteinPaint__, __Gene Expression Clustering__, and __OncoMatrix__.
+* __Cohort Builder__:
+    * Fixed inconsistent behavior for number range cards when removing filters.  <!--PEAR-1379-->
+    * The tool now ensures that cards are displayed by default when loaded, resolving issues where no cards appeared after using the browser's back button or clicking the Cohort Builder link. <!--PEAR-1808-->
+    * Cards in the Treatment tab now display the correct case counts after a selection has been made. <!--PEAR-1830-->
+    * Fixed issue where entering "0" in range cards would not persist after applying, affecting all range cards that accept "0" as a valid entry. <!--PEAR-2098-->
+    * Updated the minimum value for the "Age at Diagnosis" range to "0" years, replacing the incorrect value of "-90" years. <!--PEAR-2106-->
+    * Fixed an issue where number range filters can be added to a cohort multiple times and not be properly removed. <!--PEAR-2181-->
+* __Cohort Bar__:
+    * Resolved inconsistencies in the Discard Changes button and cohort status indicators, ensuring clearer behavior for unsaved cohorts and improved messaging for users. <!--PEAR-1499-->
+    * The Metadata download now correctly includes entries when molecular filters are applied to the cohort, resolving the issue where the file was previously blank. <!--PEAR-2203-->
+* __File Summary Page__:
+    * Fixed an issue where the incorrect file version table could appear on the File Summary page after performing multiple searches. <!--PEAR-2057-->
+    * Resolved an issue in the portal where navigating from a file page summary to its source files page summary and hitting the back button did not load the complete content of the initially searched file. <!--PEAR-2120-->
+    * Addressed the issue where the action button icon in the Source Files table was not displayed on screens narrower than 1280px. <!--PEAR-2089-->
+* __Authentication__:
+    * Implemented error modal/banner for users without controlled data access when attempting to view "Download Token" in the GDC data portal. <!--PEAR-1024-->
+    * Fixed continuous loading spinner in the header for users without access to controlled projects upon login or page navigation. <!--PEAR-1351-->
+* __ProteinPaint__:
+    * Improved the gene search results latency when a user presses the Enter key immediately, to prevent showing invalid search error message.
+* __Gene Expression Clustering__:
+    * Fixed socket hangup error.
+    * Improved the error message when <3 genes are submitted for gene clustering.
+    * The tooltip is now displayed when clicking an expression data cell.
+    * The tool will now render even when 1 or more submitted genes have no expression data for any sample, instead of showing a computation error.
+* __Sequence Reads__:
+    * In the table listing available BAM files, replaced deprecated sample_type variable with tissue_type and tumor_descriptor.
+    * In the initial search input, the number of available BAM files now maxes out at first 1000 files for applicable cohorts.
+* Fixed issue causing an application error when searching for redacted Entity UUIDs in __Quick Search__. <!--PEAR-2032-->
+* Selected values that do not match the search criteria will no longer be displayed amongst the search results in filter cards. <!--PEAR-1848-->
+* Implemented fix to ensure search bar filters are included when creating or modifying gene and mutation sets. <!--PEAR-2050-->
+* Fixed an issue where adding custom number range cards in the __Repository__ resulted in an infinite spinner on the cards. <!--PEAR-2114-->
+* The Unexpected Error modal issue caused by rapidly clicking options in the __Customize Columns__ feature has been resolved for all tables. <!--PEAR-1999-->
+* Fixed the issue where the reset button tooltip in the Customize Columns feature appeared behind other elements. <!--PEAR-2056-->
+* Fixed an issue where clicking on an operator for number range filters in the __Query Expressions__ section did not remove the expected operand. <!--PEAR-2108/2109-->
+* The CNV counts in the __Cancer Distribution__ table are now consistent with the associated counts in Mutation Frequency when the gene summary page is loaded from Mutation Frequency. <!--PEAR-1649-->
+* Removed "undefined" text in the __Survival Plot__ of __Mutation Frequency__ when no data is available in the Mutations tab, ensuring consistent messaging with the Genes tab. <!--PEAR-1524-->
+* Fixed an issue in __Set Operations__ where cohorts were not properly displayed after saving an "Unsaved_Cohort" during comparison, ensuring correct cohort selection and comparison behavior. <!--PEAR-2009-->
+* Users can now change the number of rows displayed in the table when selecting an existing cohort as the basis of a new cohort. <!--PEAR-2198-->
+* Fixed sorting functionality for "Submitted Gene Identifier" columns (Symbol, Ensembl ID, Entrez ID) in __Manage Sets__ to correctly sort by numbers/alphabet. <!--PEAR-2045-->
+* In the __Case Summary Page__, the issue with the Create Cohort button label case count in the Most Frequent Somatic Mutations table not matching the actual cohort case count has been resolved to ensure accurate numerator and denominator calculations. <!--PEAR-2142-->
+* Fixed issue where y-axis labels on __Clinical Data Analysis__ histograms were cut off; labels are now fully visible. <!--PEAR-2055-->
+* The Survival Analysis section in __Cohort Comparison__ now correctly displays the message "No Survival data available for this Cohort Comparison" when there is insufficient data for the survival plot. <!--PEAR-1941-->
+* Spinners on the __Cart__ page now display only for the specific download option selected, and no spinners will appear if the download does not start or has completed, ensuring consistent behavior. <!--PEAR-1722-->
+* Minor text and styling fixes. <!--PEAR-2034/2122/2099/2056/2023/2077/2095/867/1908-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Survival Plot__:
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Gene Expression Clustering__:
+    * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* Adding family_histories.relationship_age_at_diagnosis or follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range as a custom filter in the __Cohort Builder__ will result in endless spinners being displayed on these filter cards. To remove these cards, close the browser tab and return to the portal. <!--SV-2532-->
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+
+## Release 2.2.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  June 26, 2024
+
+### New Features and Changes
+
+* __GDC 1.0__:
+    * GDC 1.0 has been officially retired and can no longer be reached.
+* __Annotations__:
+    * Annotations tables have been added to the __project, case, and file summary pages__. <!--PEAR-1853/1839/1855-->
+    * Links to the case summary page have been removed for annotations that concern a redaction of the case. <!--PEAR-1942-->
+* __ProteinPaint__:
+    * A new option to toggle lollipops pointing up or down is now available.
+* __OncoMatrix__:
+    * Advanced sorting options for power users have been added.
+    * Implemented a prototype for adding gene expression rows.
+* __Gene Expression Clustering__:
+    * Allows re-sort cases by dictionary variable, gene mutation, or expression level.
+* __Sequence Reads__:
+    * Adds ability to visualize truncated BAM slice when the slice file size exceeds 20MB and streaming is terminated.
+* __Cohorts__ created from analysis tools now consistently consist of a specific list of cases that will remain unchanged after a data release. This includes cohorts created from the gene and mutation summary pages. <!--PEAR-1911-->
+* The files tables in the __Cart__ and the __Repository__ now allow searching for files based on the associated cases' submitter ID and UUID. <!--PEAR-1900-->
+* In the __case summary page__, values whose units are days, e.g. Days to Death or Days to Birth, are now displayed in years and days as appropriate for the user's convenience. <!--PEAR-1467-->
+* __Quick Search__ results and the headers of all __summary pages__ have been updated with new designs and icons. <!--PEAR-1301-->
+* Word wrapping has been improved for __Quick Search__ results to avoid unexpected word breaks. <!--PEAR-1897-->
+* The Best Overall Response card in the Treatments category of the __Cohort Builder__ has been moved to a new position in the category. <!--PEAR-1988-->
+* The text referencing the deletion of custom sets in the __Manage Sets__ page has been updated. <!--PEAR-1939-->
+* The Access column has been added to the Source Files and Download Analyses Files tables in the __file summary page__. <!--PEAR-1872-->
+* Text within the downloaded histogram image has been updated for greater clarity in the __Clinical Data Analysis__ tool. <!--PEAR-1805-->
+* Filter panels in the __Projects__, __Mutation Frequency__, and __Repository__ tools have been standardized and now consistently allow scrolling to occur independently of the tables on the right. <!--PEAR-1579-->
+
+### Bugs Fixed Since Last Release
+
+* __Section 508 Accessibility__:
+    * Aria labels have been added to the tables in Set Operations. <!--PEAR-1936-->
+    * The Venn diagrams in __Set Operations__ and __Cohort Comparison__ now have the appropriate alt text and roles. <!--PEAR-1936-->
+    * The Venn diagram button in __Cohort Comparison__ has been updated with both an aria label and an informative label. <!--PEAR-1936-->
+    * The statistics table and its TSV for Box and QQ plots in __Clinical Data Analysis__ now contain data for Q1 and Q3. <!--PEAR-1935-->
+    * Alt text has been added to both the Box plot and the QQ plot in __Clinical Data Analysis__. <!--PEAR-1935-->
+    * Responsiveness for the header, footer, home page, and also the Projects and Repository tools has been improved so that these areas are accessible at a 200% zoom level. <!--PEAR-1925/1912-->
+* __Cases Table__:
+    * The downloaded TSV now contains the expected tabs. <!--PEAR-1947-->
+    * The correct number of annotations will now be displayed for each case. <!--PEAR-1965-->
+    * The Customize Columns options are no longer cut off at the bottom. <!--PEAR-1997-->
+    * Search now correctly displays results even if the same search input is removed and then reapplied quickly. <!--PEAR-1740-->
+* __Cohorts__:
+    * Cohorts containing FM-AD cases will now update correctly when users with dbGaP access to FM-AD (phs001179) log in or out. <!--SV-2389-->
+    * Cohorts created based on CNV losses or gains will now have the correct composition when filtered by additional mutated genes. <!--PEAR-1597-->
+* __Cohort Builder__:
+    * The buckets for Age At Index will no longer display incorrect ranges and counts. <!--PEAR-1964-->
+    * Cards now display at the correct width when either the browser window is small or the zoom level is increased. <!--PEAR-1945-->
+* __Mutation Frequency__:
+    * Gene/mutation sets created from the tables in the Mutation Frequency tool will now contain the expected genes/mutations even if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
+    * Users will no longer be able to create several cohorts in quick succession from Mutation Frequency without waiting for previous actions to be completed. <!--PEAR-1922-->
+* __OncoMatrix__:
+    * Made OncoMatrix react to divide-by term edits from the label click menu.
+    * Fixed the continuous term scale for density plots.
+    * Gene expression variable may not show expression data for all applicable cases, especially with a large cohort size.
+* __Gene Expression Clustering__:
+    * Fixed the continuous term scale for density plots.
+* __Sequence Reads__:
+    * The tool now displays the correct number of available BAM files when a cohort filter is in use.
+* __Cohort MAF__:
+    * Added the "tumor_bam_uuid" column.
+* Limited the CSS reset to avoid conflict with embedded styles, by using scoped normalize CSS rules.
+* Fixed conflicting CSS that can alter portal styling.
+* Fixed an issue where __Sample Sheet__ downloads can be incomplete due to missing sample type information. <!--PEAR-1972-->
+* Addressed an issue where changes to default filters in the __Cohort Builder__ and the __Repository__ may not be reflected after a release. <!--PEAR-1960-->
+* The __Query Expressions__ section now correctly displays a maximum of 3 rows by default. Additionally, the button to display more than 3 rows at a time is enabled only when the cohort query exceeds 3 rows. <!--PEAR-1578-->
+* The loading spinner is no longer displayed above the other areas of the Analysis Center when the __Cohort Comparison__ tool is loading. <!--SV-2360-->
+* Default values in the Custom Bins modal within the __Clinical Data Analysis__ tool are now properly updated when the user toggles between displaying continuous values in days and years. <!--PEAR-1981-->
+* The right side of the chart on the __Home Page__ is no longer cut off at smaller browser sizes. <!--PEAR-1167-->
+* Tooltips are no longer displayed when there is no description available for filter properties. <!--SV-2425/PEAR-869-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. Additionally, an equivalent alternative to the body plot on the home page is not available.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Survival Plot__:
+    * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cart__:
+    * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
+    * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The annotations table in the __file summary page__ does not include the Case ID column. This column is planned to be added in a future update. <!--PEAR-1899-->
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* In __Gene Expression Clustering__, the tooltip is not displayed when clicking an expression data cell.
+* The custom range inputs for the __Age at Index__ card in the __Cohort Builder__ are not behaving as expected. As a workaround, use the predefined ranges available. Alternatively, use the custom range inputs on the Days tab to query for ages in years.
+
+## Release 2.1.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  April 30, 2024
+
+### New Features and Changes
+* __Annotations Browser__
+    * The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160-->
+* __Repository__:
+    * Files can now be filtered by Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method. <!--PEAR-1514-->
+    * Metadata and Sample Sheet downloads have been added to the Repository. <!--PEAR-1863-->
+* __Cohort Level MAF__:
+    * A cohort level MAF analysis tool has been added to the Analysis Center.
+* __BAM Slicing Download and Sequence Reads__:
+    * In BAM Slicing Download, call GDC API directly from client without going through ProteinPaint backend. No limits are applied on slicing region size or BAM slice file size.
+    * In Sequence Reads Visualization, user can slice a BAM with a range lower than 300Kb, and if the resulting BAM slice is under 100Mb. Slicing and caching a BAM slice bigger than 100Mb will abort and user will be notified to reduce region size and try again. Before creating new cache file, find out old enough ones to delete to free up storage.
+    * For both apps: The table listing available cases and bam files can be filtered by assay types.
+* __Gene Expression Clustering__:
+    * Enable gene variant legend group filter.
+    * Support creating a single-case cohort.
+    * Supported more clustering and distance calculation methods.
+* __OncoMatrix__:
+    * Enable downloading data.
+    * Hide synonymous mutations by default.
+    * Improve the matrix sorting options to easily toggle sorting by cnv and/or consequence.
+    * Add Mutation and CNV control buttons, and hide CNV by default.
+    * Create a mutations/consequences legend group for mutations.
+    * Enable selecting individual mutation classes upon clicking the Mutation/CNV button.
+    * Support creating a single-case cohort.
+    * Display hints about persisted matrix gene set and option to unhide CNV and mutations when there is no matrix data to render.
+    * Group similar mutation class colors together when sorting matrix samples and if CNVs are displayed.
+    * Add "Single" style to render consequence data, as alternative to Stacked and OncoPrint styles.
+* __ProteinPaint__:
+    * Allow visualizing SSM in any genomic locus, besides "protein" mode.
+    * Support creating a single-case cohort.
+* The performance of the __Clinical Data Analysis__ tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
+* __Quick Search__ now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804-->
+* The X button on the __Unexpected Error__ dialog box has been removed. <!--SV-2367-->
+* Buttons for launching demos have been removed from the selection view of __Cohort Comparison__ and __Set Operations__. <!--SV-2328/2327-->
+* Responsiveness improvements have been made to the __Analysis Center__ and the __Cohort Bar__. <!--PEAR-1836-->
+* The UX/UI for the __Cohort Builder__ has been improved. <!--PEAR-1547-->
+* The __case summary page__ has been enhanced with a table listing all the files associated with the case. Additionally, a link to the table is now available in the header of the summary page, and information has been added to the File Counts summary tables to lead users to the new files table. The clinical and biospecimen supplements tables have also been removed from the case summary page. <!--PEAR-1822/1849/1833/PEAR-1832-->
+* Set names for sets of the same type are now enforced to be unique when editing names in __Manage Sets__. <!--PEAR-1359-->
+* Number range cards in the __Cohort Builder__ no longer display the custom range option when there is no data. <!--PEAR-661-->
+* The Cohort Buider image on the __home page__ has been updated to reflect the latest design. <!--PEAR-1593-->
+* The tooltip on the __Mutation Frequency__ card in the Analysis Center has been updated. <!--PEAR-1877-->
+
+### Bugs Fixed Since Last Release
+* __Section 508 Accessibility__:
+    * Small aria-label inconsistencies have been addressed. <!--PEAR-1715-->
+    * Keyboard focus is now returned to the triggering element when modals are closed. <!--PEAR-1658-->
+    * Screen readers will now read out the contents of toast messages. <!--PEAR-1765-->
+    * Toggles in the Clinical Data Analysis tool now have the correct number of labels. <!--PEAR-1764-->
+    * Table header checkboxes are now correctly labelled. <!--PEAR-1754-->
+    * Modal icons now have appropriate null alt text. <!--PEAR-1753-->
+    * Assistive technologies no longer behave incorrectly with some controls due to incorrect, missing, or redundant labels, attributes, or roles. <!--PEAR-1672-->
+    * Aria labels have been added to Cancer Gene Census annotation icon in Mutation Frequency. <!--PEAR-740-->
+    * The Survival icon is now appropriately hidden from the accessibility tree for the benefit of screen readers. <!--PEAR-739-->
+* __Cohorts__:
+    * Using "Save As" to replace a cohort with itself will no longer result in an error notification despite the replacement being successful. <!--SV-2363-->
+    * Saving a cohort that was previously saved now displays the correct message. <!--PEAR-1651-->
+    * Cohorts will now display data in Mutation Frequency, Cohort Builder, and the summary charts even when removing gene/mutation filters from a cohort temporarily results in 0 cases. <!--SV-2414-->
+    * Cohorts now contain the correct cases when created from the cases table by using the "Existing Cohort With Selected Cases" and "Existing Cohort Without Selected Cases" options with a cohort containing gene or mutation filters. <!--PEAR-1043-->
+    * When saving a cohort, the confirmation notification will no longer be automatically dismissed before the saving dialog has closed. <!--SV-2366-->
+* __Cohort Builder__:
+    * Cohort Builder cards for number ranges now display an informative message rather than a spinner when there is no data for the facet. <!--PEAR-1646-->
+    * Removing a custom Cohort Builder card no longer incorrectly removes the associated filters from the current cohort. <!--PEAR-1612-->    
+    * Filters related to numeric values in the Cohort Builder now correctly displays the numbers entered. <!--SV-2383-->
+* __Case Summary Page__:
+    * The Biospecimen tree in the case summary page is no longer hidden when the bioId provided in the URL does not exist. <!--PEAR-1202-->
+    * The error that sometimes occurs when viewing the __Follow-Ups/Molecular Tests__ tab in the case summary page has been resolved. <!--SV-2431-->
+* __Mutation Frequency__:
+    * The survival plot in __Mutation Frequency__ no longer flickers when the cohort has 0 cases. <!--SV-2331/PEAR-1701-->
+    * Attempting to download a TSV of all the mutations in the GDC no longer results in an error due to the length of time needed to generate the TSV. <!--SV-2388-->
+* __All ProteinPaint-based Tools__:
+    * In GDC query, do not supply empty "case_filters{content[]}" that will slow down API. Lollipop and OncoMatrix are now faster when there's no cohort.
+    * Updated mutation class definitions and rank for protein_altering_variant. Affects all tools that can show mutation data.  
+    * Deprecated term "sample_type" is dropped from GDC dictionary.
+* __BAM Slicing Download and Sequence Reads__:
+    * When downloading GDC BAM slice (no caching), do not limit request region max size.
+    * Reloading page while streaming/downloading GDC BAM slice to client will not crash server.
+    * App UI requires hitting Enter to search by GDC file or case, and will no longer auto search (on pressing any key) to avoid showing duplicate SSM table.
+    * BAM track bug fix to handle reads with no sequence.
+    * BAM track bug fix for hide/show toggling at track menu.
+* __Disco Plot__:
+    * Bug fix for disco plot launched from sunburst showing AAchange in sandbox header rather than undefined.
+    * Pass the cohort filter to the lollipop track from the matrix and disco plot label click.
+* __Gene Expression Clustering__:
+    * Enable gene variant legend group filter.
+    * Support creating a single-case cohort.
+    * Supported more clustering and distance calculation methods.
+* __OncoMatrix__:
+    * Fix position errors after OncoMatrix/hierCluster zooming in/out caused by outdated imgBox.
+    * Do not allow hiding all the alteration groups.
+    * Disable the geneset submit button when there there is less than a minNumGenes option (3 for hier cluster, 1 for matrix).
+    * Add to OncoMatrix mutation/cnv buttons all available mutation/cnv classes in all GDC instead of only within current cohort.
+    * Change the definition of truncating/protein-changing mutation, change OncoMatrix mutation classes sorting order.
+    * Fix the detection of sorting-related updates in the matrix app, as distinct from the Gene Expression Clustering.
+    * Pass the cohort filter to the lollipop track from the matrix and disco plot label click.
+* __ProteinPaint__:
+    * Sample summary table will scroll if too tall.
+    * Bug fix to convert "case." to "cases." in case_filters[] for GDC mds3 sunburst clicking to load sample table.
+    * Do not force the sample table to be positioned relative to screen bottom after a sunburst click.
+    * Prevent double-clicking on a sunburst ring so that same sample table will not appear duplicated.
+    * Bug fix for Lollipop category total sample count to respond/shrink with cohort change.
+* Tokens are no longer refreshed when the __User Profile__ is viewed. <!--PEAR-1818-->
+* __Quick Search__ now correctly displays results even if the same search input is applied twice quickly. <!--SV-2410-->
+* In __Set Operations__, saving gene and mutation sets will now be successful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
+* Users will no longer be able to download more than 5 GB of files in total at a time via the browser from the __cart__. <!--SV-2342-->
+* Table buttons in __Clinical Data Analysis__ no longer overlay the survival plot on smaller screens when many survival plots are displayed at the same time. <!--PEAR-1600-->
+* The correct file size total will now be displayed in the __Repository__ when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
+* Downloading the **Clinical/Biospecimen TSV or JSON** before the cohort has fully loaded will no longer result in an error. <!--SV-2402-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. Additionally, equivalent alternatives to the Box plots, QQ plots, Venn diagrams, and the body plot on the home page are not available.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Cohorts__:
+    * Cohorts are under active development and their behavior may change in the first several months after the release of GDC Portal 2.0. As this process may result in the loss of saved cohorts on the portal, we highly recommend [exporting cohorts](/Data_Portal/Users_Guide/getting_started.md#main-toolbar) locally.
+    * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes. As a workaround, first filter by the mutated genes before creating cohorts based on CNV losses and gains.
+    * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
+    * Cohorts containing FM-AD cases may not update correctly when users with dbGaP access to FM-AD (phs001179) log in or out. As a workaround, logging in before creating cohorts with FM-AD cases is recommended. <!--SV-2389-->
+* __Survival Plot__:
+    * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cart__:
+    * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
+    * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
+* The aggregated MAF generated using the __Cohort Level MAF__ tool is missing the tumor_bam_uuid column. The tumor_sample_uuid and case_id should be used for reproducibility until the tumor_bam_uuid has been added.
+* In both the __Sequence Reads__ and __BAM Slicing Download__ tools, the number of available BAM files may be overcounted when a cohort filter is in use.
+* Gene/mutation sets created from the tables in the __Mutation Frequency__ tool may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
+* The TSV of the __cases table__ may not contain the expected tabs. <!--DEV-2324-->
+* In the Repository and cases table, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* When the __Cohort Comparison__ tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+
+## Release 2.0.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  February 8, 2024
+
+### New Features and Changes
+
+GDC 2.0 is a major update to the original GDC Data Portal introduced in 2016. This latest version adopts a "cohort-centric" workflow, in which users build custom sets of cases to analyze, and introduces several new analysis tools. New features of GDC 2.0 include:
+
+* A cohort-centric workflow in which a cohort is first built and then analyzed using tools on the Data Portal. All of these functionalities can be reached from the Analysis Center.  
+    * This includes a toolbar, that can be used to view or modify an existing cohort while using any analysis tool.
+* Core tools that compose the main functionalities of the GDC Data Portal:
+    * __Cohort Builder:__ Build a cohort of cases using clinical and biospecimen properties
+    * __Repository:__ Download files based on a specific cohort
+    * __Projects:__ Browse, filter, and create cohorts based on GDC projects
+* Analysis tools that analyze specific cohorts:
+    * __Mutation Frequency:__ Analyze somatic mutations that were called in the WXS and Targeted Sequencing pipelines and their associated genes
+    * __Clinical Data Analysis:__ Analyze and visualize clinical data associated with your cohort
+    * __Cohort Comparison:__ Analyze the properties of multiple cohorts
+    * __Set Operations:__ Display a Venn diagram and compare/contrast cohorts or gene/mutation sets
+    * __BAM Slicing Download:__ Download a specific region of a BAM file created by the GDC
+    * __ProteinPaint:__ Visualize somatic mutations on a specific linear gene or chromosomal region
+    * __Gene Expression Clustering:__ Visualizes gene expression clustering for a specific cohort
+    * __Sequence Reads:__ Visualize the reads within a specific BAM file
+    * __OncoMatrix:__ Visualize the most commonly mutated genes across a cohort
+
+### Bugs Fixed Since Last Release
+
+Not applicable as this is the initial release of GDC 2.0.
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. Additionally, equivalent alternatives to the Box plots, QQ plots, Venn diagrams, and the body plot on the home page are not available.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+        * Keyboard focus is not returned to the triggering element when modals are closed.
+        * Assistive technologies may not behave correctly with some controls due to incorrect, missing, or redundant labels, attributes, or roles.
+* __Cohorts__:
+    * Cohorts are under active development and their behavior may change in the first several months after the release of GDC Portal 2.0. As this process may result in the loss of saved cohorts on the portal, we highly recommend [exporting cohorts](/Data_Portal/Users_Guide/getting_started.md#main-toolbar) locally.
+    * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes. As a workaround, first filter by the mutated genes before creating cohorts based on CNV losses and gains.
+    * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
+    * When saving a cohort, the confirmation notification may be automatically dismissed before the saving dialog has closed. <!--SV-2366-->
+    * Using "Save As" to replace a cohort with itself will result in an error notification despite the replacement being successful. <!--SV-2363-->
+    * Cohorts containing FM-AD cases may not update correctly when users with dbGaP access to FM-AD (phs001179) log in or out. As a workaround, logging in before creating cohorts with FM-AD cases is recommended. <!--SV-2389-->
+    * If removing gene/mutation filters from a cohort temporarily results in 0 cases, cohorts may not display data in Mutation Frequency, Cohort Builder, and the summary charts. As a workaround, remove the gene and mutation filters, then add them back. <!--SV-2414-->
+* __Survival Plot__:
+    * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
+    * The survival plot in Mutation Frequency may flicker when the cohort has 0 cases. <!--SV-2331/PEAR-1701-->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cart__:
+    * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
+    * More than 5 GB of files in total may be downloaded at a time via the browser if the user first attempts to download controlled access data without being logged in, then logs in via the information dialog displayed before continuing with the download. <!--SV-2342-->
+    * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
+* __Mutation Frequency__:
+    * Gene/mutation sets created from the tables in Mutation Frequency may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
+    * Attempting to download a TSV of all the mutations in the GDC may result in an error due to the length of time needed to generate the TSV. As a workaround, limit the number of mutations downloaded to 1.5 million. <!--SV-2388-->
+* __Main Toolbar__:
+    * Attempting to download the **Clinical/Biospecimen TSV or JSON** before the cohort has fully loaded may result in an error. <!--SV-2402-->
+    * The TSV of the **cases table** may not contain the expected tabs. <!--DEV-2324-->
+* __OncoMatrix__:
+    * Manually deleting all genes will result in an error message "Error: Cannot read properties of undefined (reading 'lst')". The user can close and re-open OncoMatrix for use.
+    * Dragging genes only works once. After one gene is dragged to a new position, no genes can be dragged to new positions.
+    * In OncoMatrix, the cases may not get re-sorted as expected after a certain sequence of actions
+* __ProteinPaint__:
+    * A nested filter may be constructed for a Lollipop subtrack, e.g. sex=male AND ( primarysite=aa OR disease=bb ), but cannot be translated into GDC cohort filters. The translation code has a preliminary implementation that only works for "flat" filters without nesting.
+    * Cohorts cannot be created using the Create Cohort button in ProteinPaint for a single sample
+    * In ProteinPaint, the total number of samples in a category breakdown and the total number of samples in the sunburst ring are not based on a user's current cohort
+    * In ProteinPaint, when clicking on a sunburst ring, the sample table is not showing up
+    * In ProteinPaint, a Disco plot launched from the sunburst ring can show "undefined" in the plot header
+    * A ProteinPaint plot launched from OncoMatrix and Gene Expression Clustering does not observe the current cohort and displays mutated cases for all GDC
+* In the __Gene Expression Clustering__ tool, if any part of the dendrogram is selected and the current cohort is modified, then the new dendrogram will render with scattered subtrees selected.
+* The "A" in the Allele Summary text is cut off in the __Sequence Reads__ tool.
+* __Quick Search__ may not display results if the same search input is applied twice quickly. As a workaround, temporarily change the input before reentering the intended search. <!--SV-2410-->
+* Filters related to numeric values may display a smaller number than what the user entered within the __Cohort Builder__. This is a visual issue and does not affect the filters applied to the cohort. <!--SV-2383-->
+* When the __Cohort Comparison__ tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360-->
+* The __Repository__ tool may display an incorrect file size total of 0 bytes when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* In __Set Operations__, the saving of gene and mutation sets may be unsuccessful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
+* Clicking the X button on the __Unexpected Error dialog box__ does not dismiss it. The workaround is to click the OK button. <!--SV-2367-->
+
+## Release 1.30.4
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  May 11, 2023
+
+### New Features and Changes
+
+* The GDC Legacy Archive has officially been retired.
+    * The Legacy Archive Portal can no longer be reached.
+    * Any API call to query files from the Legacy Archive will no longer work.
+    * Downloads for files from the Legacy Archive will work normally with manifests that were generated previously.
+
+
+### Bugs Fixed Since Last Release
+
+* The Clinical TSV download in the case entity page and cart now contain TSVs for pathology detail, follow up, and molecular test entities.   <!--SV-2004-->
+* Fixed bug in which demographic information would not download as a TSV when diagnosis information was not available. <!--DEV-1238-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+
+## Release 1.30.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  July 8, 2022
+
+### New Features and Changes
+
+* None
+
+### Bugs Fixed Since Last Release
+
+* Fixed error in which the manifest could not be downloaded directly from the GDC Data Portal in certain instances. <!--SV-2112-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+
+
+## Release 1.29.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  August 23, 2021
+
+### New Features and Changes <!--REQ-431-->
+
+* None
+
+### Bugs Fixed Since Last Release
+
+* Fixed error in which the data summaries in the clinical analysis and cart pages were only partially displayed when viewed in Chrome v.91.0.4472. <!--SV-1940-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+
+## Release 1.28.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  May 17, 2021
+
+### New Features and Changes <!--REQ-422-->
+
+* New columns were added to the "molecular test" table at the bottom of the case entity page to display additional molecular test fields.
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+*  When accessing the data portal with Chrome v.91.0.4472, users may experience some display errors.  This includes the data summary in the clinical analysis and cart pages being only partially displayed. <!--SV-1940-->
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+
+## Release 1.25.1
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  August 14, 2020
+
+### New Features and Changes <!--REQ-408-->
+
+* API improvements were made to increase portal performance.
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+
+## Release 1.25.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  July 2, 2020
+
+### New Features and Changes <!--REQ-395-->
+
+* Suppressed Experimental Strategy filter on the Exploration page as this currently filters for files with a particular strategy, not for cases.  This may cause confusion amongst users.  The filter will be re-instated in a future release once the logic is available to filter more appropriately for cases tied to a specific strategy. <!--PRTL-3119-->
+* Updated the filter control panel styling across the Portal to have clearer titles (e.g. "Search Cases" instead of "Cases" in the quick search box). <!--PRTL-2987-->
+* Made minor updates to the styling of the filter query display at the top of the Exploration page (spacing, borders). <!--PRTL-2988-->
+* Added an expand/collapse control to the quick search bar of Clinical tab on the Exploration page, to be consistent with other Exploration tabs. <!--PRTL-2990-->
+* Added a clear title above the counts in each filter control panel across the Portal (e.g. "# Cases", "# Genes", etc.). <!--PRTL-2991-->
+* Moved various action buttons above the results table on the Repository Page to more accessible locations. <!--PRTL-2994-->
+* Improved load time of the initial custom filter list on the Repository Page, when clicking "Add a Filter Filter" or "Add a Case/Biospecimen Filter". <!--PRTL-3057-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed a bug in the Age at Diagnosis table on the Cohort Comparison page, where the # of cases in the table was not consistent with the # of cases shown when clicking the link to the Exploration page. <!--PRTL-3032-->
+* Fixed minor positional accuracy issue of the lollipop data points on the Protein Viewer. <!--PRTL-2967-->
+* Fixed bug on the Protein Viewer where, if clicking to switch between different lollipop data points, details of the previous lollipop was not closing. <!--PRTL-2968-->
+* Fixed bug where the quick search bar on the Exploratin Page's Genes filter tab was not expanding/collapsing properly. <!--PRTL-2989-->
+* Fixed bug in the pop-up warning message when adding or removing items from the Cart, where long filenames were spilling outside the border of the pop-up. <!--PRTL-3031-->
+* Fixed typo in the "View Cases in Exploration" button on the Repository page. <!--PRTL-3122-->
+* Fixed typo in the pop-up user consent message when downloading controlled files from the Cart. <!--PRTL-3123-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+
+## Release 1.24.1
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  March 10, 2020
+
+### New Features and Changes <!--REQ-395-->
+
+* Removed unnecessary comma and y-axis value from title of the mutation details pop-up in the Protein Viewer. <!--PRTL-2969-->
+* Added Tobacco Smoking Status field to the Exposures tab on the Case entity page. <!--PRTL-2952-->
+* Added a link to the Cart where users can access instructions for downloading the GDC Genome Build reference files. <!--PRTL-2929-->
+* Added logic to prevent duplicate fetching of data for Clinical Analysis survival plots and optimize rendering. <!--PRTL-2910-->
+* Added a button to clear searches for certain Portal search controls that were previously missing this ability. <!--PRTL-2900-->
+* Reduced whitespace between Oncogrid and its control panel to optimize spacing and layout. <!--PRTL-2899-->
+* Made entire Clinical Analysis results page responsive (card columns now scale & stack in response to the size of the browser window). <!--PRTL-2882-->
+* Replaced Clinical Analysis function for printing clinical cards to a single PDF file, with more flexible functionality to instead download all the cards in SVG and/or PNG format. <!--PRTL-2870-->
+* Added message to notify users when they try to access the Portal using Microsoft Internet Explorer, indicating which browsers are officially supported. <!--PRTL-2868-->
+* Added arrow icon to sortable columns across the Portal to indicate the current sort direction. <!--PRTL-2330-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed bug where clicking a primary site on the Human Body Image was not re-directing to the Exploration page. <!--PRTL-2979-->
+* Fixed layout issue where long Annotation Notes were exceeding the border of the text box. <!--PRTL-2944-->
+* Fixed layout issue where the Repository header and action buttons were scaling and wrapping incorrectly if the browser window is shrunk beyond a certain threshold. <!--PRTL-2938-->
+* Fixed layout issue where the responsive Clinical Analysis Cards were clipping improperly as the browser window is shrunk beyond a certain threshold. <!--PRTL-2928-->
+* Fixed bug where the Clinical Tab on the Exploration page was crashing when entering a custom range of Years for the Age at Diagnosis facet. <!--PRTL-2913-->
+* Fixed various minor cosmetic and color issues in PNG, SVG downloads of the Clinical Analysis survival plots. <!--PRTL-2887-->
+* Fixed bug where the x-axis in PNG, SVG downloads of histograms across the Portal was being bolded incorrectly. <!--PRTL-2885-->
+* Fixed bug where the expand/collapse symbols in the UI were incorrectly being exported in the TSV download of the Projects table. <!--PRTL-2883-->
+* Fixed bug where Oncogrid's modal for customizing colors could not be scrolled below the fold if it was shrunk beyond a certain threshold. <!--PRTL-2881-->
+* Fixed incorrect DTT hyperlink in the GDC Apps menu. <!--PRTL-2867-->
+* Fixed bug where the "dbSNP rs ID" facet could not be minimized in the Exploration page's Mutations facet tab. <!--PRTL-2840-->
+* Fixed layout issue where the Portal's header incorrectly overlaps some content when a notification banner is displayed. <!--PRTL-2753-->
+* Fixed some minor layout & styling issues in the Exploration page's facets panel. <!--PRTL-2614-->
+* Fixed bug where the Case ID on the Exploration page's Cases facet tab was not searchable in certain scenarios. <!--PRTL-2587-->
+* Fixed bug where the Expand/Collapse button state was not changing properly when being used in the Biospecimen section of the Case entity page. <!--PRTL-2575-->
+* Fixed incorrect capitalization of "dbGaP" in the Summary section of the Project entity page. <!--PRTL-2436-->
+* Fixed layout issue where the Advanced Search query box on the Repository page could expanded beyond the margins of the box's border. <!--PRTL-2271-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+
+## Release 1.23.1
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  December 10, 2019
+
+### New Features and Changes <!--REQ-396-->
+
+* Updated display of x-axis units on the homepage Human Body chart to more easily display increased case counts for newly-added projects <!--PRTL-2925-->
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+
+## Release 1.23.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  November 6, 2019
+
+### New Features and Changes <!--REQ-390-->
+
+* Added Clinical Data Analysis feature that allows Users to: <!--FEAT-520, FEAT-521-->
+    * Explore clinical data via the new Clinical Tab on the Exploration page.
+    * Build custom Case sets based on that clinical data for later analysis.
+    * Create an analysis to examine the clinical variables in a Case set, using various tools including histograms, survival plots, box plots, QQ plots, and custom binning.
+    * Download the data (as TSV, JSON) and plots (as PNG, SVG) of each clinical variable in an anlysis.
+    * Save an analysis to local storage to resume later (as long as storage is not cleared).
+* Added links to CIViC annotations on the Gene and Mutation entity pages. <!--PRTL-2543-->
+* Updated the default Top Mutated Genes histogram on the Exploration page to display only COSMIC Genes by default. <!--PRTL-2371-->
+* Added Follow-Ups tab and nested Molecular Tests to Case entity page. <!--PRTL-2704-->
+* Added text to BAM slicing modal to instruct Users how to access unmapped reads. <!--PRTL-2620-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed font in exported PNGs, SVGs to be consistent with the Portal UI. <!--PRTL-2653-->
+* Made custom Case and File filters in the Repository page case insensitive. <!--PRTL-2571-->
+* Fixed bug where pfam domains in Protein Viewer could not be clicked in Firefox. <!--PRTL-2511-->
+* Fixed bug where TSV download button could not be clicked in MS Edge. <!--PRTL-2357-->
+* Fixed controlled access alert pop-up in the Cart so that the modal disappears correctly once the User has successfully logged in and initiated the download. <!--PRTL-2429-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  Negative numbers may be displayed for the Missing value category in the Treatment node within a Clinical Analysis.  This occurs with projects that have multiple treatment nodes per case. All other values should be accurate. <!--SV-1604-->
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    * The footer says version 1.9, but it is actually 1.13
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->
+
+## Release 1.22.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  July 31, 2019
+
+### New Features and Changes <!--REQ-387-->
+
+* Replaced existing Clinical, Biospecimen columns on the Projects page with 4 columns: Clinical, Clinical Supplement, Biospecimen, Biospecimen Supplement. The Clinical and Biospecimen columns now link directly to the project page, and their counts indicate the total cases in the project. The Clinical Supplement and Biospecimen Supplement columns work the same as the old Clinical and Biospecimen columns - They link to the Repository page with Files filtered based on the Project and Data Category (Clinical or Biospecimen). <!--PRTL-2528-->
+* Added a new icon to the GDC Apps menu, which links to the GDC Publications website page. <!--PRTL-2547-->
+* Added the Synchronous Malignancy field to the Diagnoses / Treatments tab on the Case entity page. <!--PRTL-2582-->
+* Added the Pack Years Smoked field to the Exposures tab on the Case entity page. <!--PRTL-2584-->
+* Increased length of x-axis labels on histograms to 10 characters so that projects with names that are typically standard 10 chars will display fully (e.g. most TCGA projects like TCGA-BRCA). <!--PRTL-2598-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed bug where the PNG, SVG files for the Overall Survival Plot could not be downloaded. <!--PRTL-2528-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Filtering by vital_status does not function in the Legacy Archive due to updates in how this property has been indexed.  A workaround is to perform the case level filtering in the GDC Data Portal and copy the filter string for use in the Legacy Archive or the legacy API. <!--SV-1508-->
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->   
+
+## Release 1.21.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  June 5, 2019
+
+### New Features and Changes <!--REQ-383-->
+
+* Changed all Survival Plots to display the Duration (x-axis) in years instead of days. <!--PRTL-2404-->
+* Updated data references to clinical properties throughout the Portal to match the underlying changes in the GDC data dictionary. <!--PRTL-2459-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed bug where X-axis labels in histograms were cut off when displayed. <!--PRTL-1896-->
+* Renamed the 'Experimental Strategies' facet on the Projects page to singular form. <!--PRTL-2262-->
+* Fixed bug where columns with a % value of infinity (due to division by zero) show as 'NaN%'.  Replaced instead with a label of '--'. <!--PRTL-2384-->
+* Fixed bug where the download button in the cart access banner was still disabled after a user logged in from the banner.  Instead, the experience is now improved so that after login, the banner is closed and the user must explicitly click 'Download' again. <!--PRTL-2393-->
+* Fixed bug where if a new user logs into the Portal and views their profile, the app crashes if the user has no projects assigned yet. <!--PRTL-2529-->
+* Fixed bug where Survival Rate numbers in the Survival Plot plot y-axis did not scale properly and overlapped into the axis lines. <!--PRTL-2530-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->   
+
+## Release 1.20.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  April 17, 2019
+
+### New Features and Changes <!--REQ-382-->
+
+* Upgraded the Portal to use the latest React Javascript library (version 16.8) <!--PRTL-2440-->
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+## Release 1.19.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  February 20, 2019
+
+### New Features and Changes <!--REQ-381-->
+
+* Added support for viewing of controlled-access mutations in the Data Portal
+* Added a new data access notification to remind logged-in users with access to controlled data that they need to follow their data use agreement.  The message is fixed at the top of the Portal.<!--PRTL-2400, PRTL-2434-->
+* Added the ability to search for previous versions of files.  If the user enters the UUID of a previous version that cannot be found, the Portal returns the UUID of the latest version available. <!--PRTL-2387-->
+* Renamed the Data Category for "Raw Sequencing Data" to "Sequencing Reads" throughout the portal where this appears, to be consistent with the Data Dictionary. <!--PRTL-118-->
+* Added a link in the Portal footer to the GDC support page. <!--PRTL-2383-->
+
+### Bugs Fixed Since Last Release
+
+* Fixed bug where Survival Plot button never stops loading if plotting mutated vs. non-mutated cases for a single Gene. <!--PRTL-2398-->
+* Fixed inconsistent button styling when downloading controlled Downstream Analyses Files from File Entity page. <!--PRTL-2395-->
+* Removed unnecessary Survival column from Arrange Columns button on Case Entity, Gene Entity pages. <!--PRTL-2281-->
+* Removed unnecessary whitespace from pie charts on Repository page. <!--PRTL-1923-->
+* Added missing File Size unit to Clinical Supplement File, Biospecimen Supplement File tables on Case Entity page. <!--PRTL-2070-->
+* Fixed bug where clicking on Case Counts in Projects Graph tab was going to the Repository Files tab instead of the Cases tab. <!--PRTL-2272-->
+* Fixed bug where the counts shown beside customer filters on the Repository Cases tab were not updating when filtering on other facets. <!--PRTL-2412-->
+* Fixed bug where clicking the # of Affected Cases denominator on the Gene page's Most Frequent Somatic Mutations table displayed an incorrect number of Cases.
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+## Release 1.18.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  December 18, 2018
+
+### New Features and Changes <!--REQ-335-->
+
+* A new data access message has been added when downloading controlled data.  Users must agree to abide by data access control policies when downloading controlled data. <!--PRTL-2324,PRTL-2370,-->
+* In the Mutation free-text search in Exploration, mutation display now includes the UUID, genomic location, and matched search term for easier mutation searching. <!--PRTL-1996, PRTL-2367-->
+* The ability to sort on ranked columns has been made available. <!--PRTL-2274,PRTL-2336,PRTL-2365-->
+
+### Bugs Fixed Since Last Release
+
+*  In some cases, text was being cut off on the Project page visualization tab.  Text is no longer cut off. <!--PRTL-2290-->
+*  HGNC link on Gene page broke as the source format url changed; The format was updated and the link is now functional <!--PRTL-2380-->
+*  In the biospecimen details on the Case page, the cart icon would disappear once clicked.  It now is always visible. <!--PRTL-2282-->
+
+### Known Issues and Workarounds
+
+*  Pre-release Data Portal login is not supported on Internet Explorer or the last version of Edge (42).  Edge 41 does login successfully.
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
+
+## Release 1.17.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  November 7, 2018
+
+### New Features and Changes <!--REQ-334-->
+
+* Copy Number Variation (CNV) data derived from GISTIC results are now available in the portal:
+	* View number of CNV events on a gene in a cohort in the Explore Gene table tab <!-- PRTL-2259, PRTL-2328 -->
+	* Explore CNVs associated with a gene on the Gene Entity Page <!-- PRTL-2252,PRTL-2273,PRTL-2344 -->
+	* Explore CNVs concurrently with mutations on the Oncogrid with new visualization <!-- PRTL-2244,PRTL-2251,PRTL-2256,PRTL-2257,PRTL-2275,PRTL-2276, PRTL-2214, PRTL-2314, PRTL-2315, PRTL-2317, PRTL-2319, PRTL-2325, PRTL-2326, PRTL-2327,PRTL-2266  -->
+
+### Bugs Fixed Since Last Release
+
+*  None
+
+### Known Issues and Workarounds
+
+*  Custom Facet Filters
+    * Some definitions are missing from the property list when adding custom facet file or case filters. <!--SV-989-->
+*  Visualizations
+    *  SIFT and PolyPhen annotations are missing from the export JSON of the mutation table. They are present in the export TSV. <!--PRTL-1990-->
+    *  Data Portal graphs cannot be exported as PNG images in Internet Explorer. Graphs can be exported in PNG or SVG format from Chrome or Firefox browsers <!-- PRTL-1325 / PRTL-1114 -->. Internet Explorer does not display chart legend and title when re-opening previously downloaded SVG files, the recommendation is to open downloaded SVG files with another program.
+*  Repository and Cart
+    *  The annotation count in File table of Repository and Cart does not link to the Annotations page anymore. The user can navigate to the annotations through the annotation count in Repository - Case table.
+*  Legacy Archive
+    *	Downloading a token in the GDC Legacy Archive does not refresh it. If a user downloads a token in the GDC Data Portal and then attempts to download a token in the GDC Legacy Archive, an old token may be provided. Reloading the Legacy Archive view will allow the user to download the updated token.
+    *	Exporting the Cart table in JSON will export the GDC Archive file table instead of exporting the files in the Cart only. <!-- LGCY-81 -->
+*   Web Browsers
+    *   Browsers limit the number of concurrent downloads, it is generally recommended to add files to the cart and download large number of files through the GDC Data Transfer Tool, more details can be found on [GDC Website](https://gdc.cancer.gov/about-gdc/gdc-faqs).
+    *   The GDC Portals are not compatible with Internet Explorer running in compatibility mode. Workaround is to disable compatibility mode. <!-- PGDC-2480 -->    
 
 ## Release 1.16.0
 
@@ -413,7 +1935,7 @@ There was a major new release of the GDC Data Portal focused on Data Analysis, V
 *  The ability to export the current view of a table in TSV
 *  Retired GDC cBioPortal
 
-_For detailed updates please review the [Data Portal User Guide](../Data_Portal/Users_Guide/Getting_Started/)._
+_For detailed updates please review the [Data Portal User Guide](/Data_Portal/Users_Guide/getting_started/)._
 
 ### Bugs Fixed Since Last Release
 

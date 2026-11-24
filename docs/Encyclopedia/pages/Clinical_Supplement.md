@@ -18,7 +18,7 @@ Clinical Supplement files are available in the GDC Data Portal as case-level XML
 
 ## References ##
 1. [GDC Clinical Data Elements](https://gdc.cancer.gov/about-data/data-harmonization-and-generation/clinical-data-harmonization)
-2. [CDE Browser](https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search)
+2. [CDE Browser](https://cadsr.cancer.gov/onedata/Home.jsp)
 
 ## External Links ##
 * N/A

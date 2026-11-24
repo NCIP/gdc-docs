@@ -1,7 +1,7 @@
 # Biospecimen Data #
 
 ## Description ##
-Biospecimen data includes information about how a patient's tissue was processed and subsampled for use in histology and molecular assays. They can be represented in a hierarchical relationship to one another.
+Biospecimen data includes information on how a patient's tissue was processed and subsampled for use in histology and molecular assays. This data can be represented in a hierarchical relationship.
 
 ## Overview ##
 
@@ -17,14 +17,14 @@ Biospecimen data can be downloaded from the GDC in several formats:
 
 * __API Retrieval:__ Specific information about each biospecimen entity can be queried from the API in a tab-delimited or JSON format. This information can be retrieved programatically.
 * __Biospecimen Supplements:__ Biospecimen supplements are stored in XML format and can be downloaded from the GDC Portal. Supplements may contain biospecimen fields that do not appear in the API as well as those that do. These can include fields that only apply to certain projects or have not yet been incorporated into the GDC Data Dictionary.
-* __Biotab Files:__ Biotab files specific supplemental files that are available in the GDC Legacy Archive as tab-delimited files on a project-level basis. These may also include fields that are not available in the GDC API.
+* __Biotab Files:__ Biotab files specific supplemental files that are available in the GDC Data Portal as tab-delimited files on a project-level basis. These may also include fields that are not available in the GDC API. Biotab files can be found under the "Data Format: bcr biotab" filter.
 
 Additionally, the biospecimen data that is available from the API is displayed on the GDC Portal in the summary page for each case.
 
 ## References ##
-1. [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/)
+1. [GDC Data Dictionary](/Data_Dictionary/viewer/)
 2. [GDC Data Model](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-model-components)
-3. [TCGA Barcode](https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode)
+3. [TCGA Barcode](images/TCGA-TCGAbarcode-080518-1750-4378.pdf)
 
 ## External Links ##
 * [GDC Biospecimen Harmonization](https://gdc.cancer.gov/about-data/data-harmonization-and-generation/biospecimen-data-harmonization)

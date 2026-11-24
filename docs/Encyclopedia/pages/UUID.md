@@ -7,7 +7,7 @@ In the GDC every entity in the data model is assigned a UUID.  An entity can be 
 
 
 ## References ##
-1. [GDC Entity UUIDs](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/#entity-uuids)
+1. [GDC Entity UUIDs](/API/Users_Guide/Getting_Started/#entity-uuids)
 
 ## External Links ##
 * [Universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier)
